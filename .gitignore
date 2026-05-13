@@ -26,3 +26,6 @@ yarn-error.log*
 
 # Bun
 .bun/
+
+# PDF del UI Kit (referencia en Google Drive; no versionar)
+docs/uikit_gob/*.pdf
