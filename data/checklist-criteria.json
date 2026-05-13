@@ -1,0 +1,318 @@
+{
+  "checklist_version": "1.1",
+  "title": "Checklist Editorial INAPI — Pauta de publicación web",
+  "criteria": [
+    {
+      "id": "A1",
+      "section_id": "A",
+      "section_title": "Estructura y organización del contenido",
+      "criterion": "El mensaje más importante está en la parte superior de la página",
+      "verification": "Lee solo el primer párrafo: ¿se entiende el propósito de la página sin leer el resto?",
+      "source": "RLC §5"
+    },
+    {
+      "id": "A2",
+      "section_id": "A",
+      "section_title": "Estructura y organización del contenido",
+      "criterion": "El contenido aplica el modelo de pirámide invertida",
+      "verification": "Lo más importante arriba, los detalles abajo",
+      "source": "RLC §4, CW 5.2.4"
+    },
+    {
+      "id": "A3",
+      "section_id": "A",
+      "section_title": "Estructura y organización del contenido",
+      "criterion": "El contenido está fragmentado en secciones lógicas con encabezados informativos",
+      "verification": "No hay bloques de texto continuos sin títulos intermedios",
+      "source": "RLC §4, §5, CW 5.2.4"
+    },
+    {
+      "id": "A4",
+      "section_id": "A",
+      "section_title": "Estructura y organización del contenido",
+      "criterion": "La página contiene 110 palabras o menos por sección, o se usa contenido fragmentado",
+      "verification": "Contar palabras del bloque continuo más largo",
+      "source": "RLC §1"
+    },
+    {
+      "id": "A5",
+      "section_id": "A",
+      "section_title": "Estructura y organización del contenido",
+      "criterion": "Solo incluye información necesaria para que el usuario complete su tarea",
+      "verification": "No hay texto institucional, marketing o relleno",
+      "source": "RLC §4"
+    },
+    {
+      "id": "B1",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "Usa voz activa en lugar de voz pasiva",
+      "verification": "Buscar \"se debe\", \"será\", \"deberá ser\" → reescribir en activa",
+      "source": "RLC §7, CW 5.2.1"
+    },
+    {
+      "id": "B2",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "Usa palabras comunes, no jerga burocrática ni legal sin definir",
+      "verification": "Buscar \"resolución\", \"acto administrativo\", \"requirente\" → reemplazar",
+      "source": "RLC §7, §8, CW 5.1.3"
+    },
+    {
+      "id": "B3",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "Las siglas y acrónimos están definidos la primera vez que aparecen",
+      "verification": "\"Nomenclatura de Clasificación de Niza (NCL)\" en lugar de solo \"NCL\"",
+      "source": "RLC §7, CW 5.1.3"
+    },
+    {
+      "id": "B4",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "Evita abreviaturas, extranjerismos y modismos",
+      "verification": "En al menos 50% del contenido",
+      "source": "CW 5.1.3"
+    },
+    {
+      "id": "B5",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "El tono es positivo: indica lo que se puede hacer, no lo que no se puede",
+      "verification": "\"Para registrar su marca, ingrese aquí\" en vez de \"No podrá registrar sin clave\"",
+      "source": "CW 5.1.3"
+    },
+    {
+      "id": "B6",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "El tono es amable, respetuoso y cercano con el usuario",
+      "verification": "Sin construcciones impersonales o distantes",
+      "source": "CW 5.2.1"
+    },
+    {
+      "id": "B7",
+      "section_id": "B",
+      "section_title": "Lenguaje claro",
+      "criterion": "Evita lenguaje formal sin sentido (frases de relleno)",
+      "verification": "Sin \"valor agregado\", \"buenas prácticas\", \"para todos los efectos\"",
+      "source": "RLC §8"
+    },
+    {
+      "id": "C1",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Las oraciones siguen el orden sujeto-verbo-predicado",
+      "verification": "\"Las personas interesadas deben enviar el formulario\" ✓",
+      "source": "CW 5.2.1"
+    },
+    {
+      "id": "C2",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Predomina el tiempo presente simple",
+      "verification": "\"Este formulario acredita…\" en vez de \"Este formulario acreditará…\"",
+      "source": "CW 5.2.1"
+    },
+    {
+      "id": "C3",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Las oraciones son simples y directas, sin exceso de palabras",
+      "verification": "Cada oración expresa una sola idea",
+      "source": "CW 5.2.2"
+    },
+    {
+      "id": "C4",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Cada párrafo desarrolla una sola idea",
+      "verification": "Si hay dos ideas, separar en dos párrafos",
+      "source": "CW 5.2.2"
+    },
+    {
+      "id": "C5",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Los párrafos tienen menos de 8 líneas en escritorio",
+      "verification": "Contar visualmente",
+      "source": "CW 5.2.2"
+    },
+    {
+      "id": "C6",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Si el texto tiene 4 o más párrafos, incluye un resumen al inicio",
+      "verification": "Solo aplica a textos extensos",
+      "source": "CW 5.2.2"
+    },
+    {
+      "id": "C7",
+      "section_id": "C",
+      "section_title": "Redacción y concisión",
+      "criterion": "Cuando se listan requisitos, se usa modo infinitivo",
+      "verification": "\"Ser mayor de 18 años\", \"Enviar la solicitud\"",
+      "source": "CW 5.2.1"
+    },
+    {
+      "id": "D1",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "El texto fue revisado con corrector ortográfico (Word, Docs o LanguageTool)",
+      "verification": "Sin errores marcados",
+      "source": "CW 5.1.5"
+    },
+    {
+      "id": "D2",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "Los signos de puntuación facilitan la lectura",
+      "verification": "Privilegia puntos seguidos sobre comas intercaladas",
+      "source": "CW 5.1.5"
+    },
+    {
+      "id": "D3",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "Hay espacio entre párrafos",
+      "verification": "Verificar visualmente",
+      "source": "CW 5.2.3"
+    },
+    {
+      "id": "D4",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "El texto está alineado a la izquierda",
+      "verification": "No centrado ni justificado",
+      "source": "CW 5.2.3"
+    },
+    {
+      "id": "D5",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "Se usan listas numeradas, viñetas o tablas cuando hay enumeraciones",
+      "verification": "No textos corridos con comas",
+      "source": "CW 5.2.3"
+    },
+    {
+      "id": "D6",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "Se usan negritas para destacar palabras clave de cada párrafo",
+      "verification": "No abusar: máximo una negrita por párrafo",
+      "source": "CW 5.2.4"
+    },
+    {
+      "id": "D7",
+      "section_id": "D",
+      "section_title": "Ortografía, gramática y formato",
+      "criterion": "Evita frases escritas únicamente en mayúsculas",
+      "verification": "No \"INGRESE AQUÍ\" sino \"Ingrese aquí\"",
+      "source": "CW 5.2.4"
+    },
+    {
+      "id": "E1",
+      "section_id": "E",
+      "section_title": "Objetividad y fiabilidad",
+      "criterion": "El contenido es objetivo, sin opiniones ni adjetivos calificativos",
+      "verification": "Sin \"excelente servicio\", \"moderna plataforma\"",
+      "source": "CW 5.3.1"
+    },
+    {
+      "id": "E2",
+      "section_id": "E",
+      "section_title": "Objetividad y fiabilidad",
+      "criterion": "La fuente o autoría de la información es identificable",
+      "verification": "Aparece nombre de la institución en encabezado o pie",
+      "source": "CW 5.1.1"
+    },
+    {
+      "id": "E3",
+      "section_id": "E",
+      "section_title": "Objetividad y fiabilidad",
+      "criterion": "Los contenidos están actualizados con fecha de publicación o última modificación visible",
+      "verification": "Verificar fecha visible en la página",
+      "source": "CW 5.1.4"
+    },
+    {
+      "id": "E4",
+      "section_id": "E",
+      "section_title": "Objetividad y fiabilidad",
+      "criterion": "El título de la página representa fielmente el contenido",
+      "verification": "El título no promete algo distinto a lo que entrega",
+      "source": "CW 5.1.2"
+    },
+    {
+      "id": "F1",
+      "section_id": "F",
+      "section_title": "Enlaces y referencias",
+      "criterion": "El nombre del enlace es igual al nombre de la página de destino",
+      "verification": "\"Solicitar marca\" → lleva a página llamada \"Solicitar marca\"",
+      "source": "RLC §9"
+    },
+    {
+      "id": "F2",
+      "section_id": "F",
+      "section_title": "Enlaces y referencias",
+      "criterion": "Evita textos como \"Haz clic aquí\", \"Más\" o \"Ver más\"",
+      "verification": "Usar enlaces descriptivos",
+      "source": "RLC §9, CW 5.2.4"
+    },
+    {
+      "id": "F3",
+      "section_id": "F",
+      "section_title": "Enlaces y referencias",
+      "criterion": "Los enlaces son significativos y descriptivos del destino",
+      "verification": "\"Consultar fecha de pago\" en lugar de \"Consultar\"",
+      "source": "RLC §9, CW 5.2.4"
+    },
+    {
+      "id": "F4",
+      "section_id": "F",
+      "section_title": "Enlaces y referencias",
+      "criterion": "Si se enlaza un documento, se especifica título, formato y peso",
+      "verification": "\"Manual de marcas (PDF, 345 KB)\"",
+      "source": "CW 5.2.4"
+    },
+    {
+      "id": "F5",
+      "section_id": "F",
+      "section_title": "Enlaces y referencias",
+      "criterion": "Los enlaces no están dentro del cuerpo del texto que se debe leer",
+      "verification": "Ubicarlos al final del párrafo o como CTA",
+      "source": "RLC §9"
+    },
+    {
+      "id": "G1",
+      "section_id": "G",
+      "section_title": "Datos personales y propiedad intelectual",
+      "criterion": "No se exponen RUT, teléfonos ni direcciones de personas naturales",
+      "verification": "Buscar patrones numéricos de RUT y teléfonos",
+      "source": "CW 5.1.7"
+    },
+    {
+      "id": "G2",
+      "section_id": "G",
+      "section_title": "Datos personales y propiedad intelectual",
+      "criterion": "Existe información sobre cómo ejercer derechos ARCO de datos personales",
+      "verification": "Enlace o sección visible en política de privacidad",
+      "source": "CW 5.1.7"
+    },
+    {
+      "id": "G3",
+      "section_id": "G",
+      "section_title": "Datos personales y propiedad intelectual",
+      "criterion": "Las condiciones de uso del contenido están publicadas",
+      "verification": "Mención de copyright o licencia (ej: Creative Commons)",
+      "source": "CW 5.1.6"
+    },
+    {
+      "id": "H1",
+      "section_id": "H",
+      "section_title": "Archivo y versionado",
+      "criterion": "Si hay versiones anteriores publicadas, están rotuladas como archivo no vigente",
+      "verification": "\"Requisitos de postulación 2024 (archivo)\"",
+      "source": "CW 5.3.2"
+    }
+  ]
+}

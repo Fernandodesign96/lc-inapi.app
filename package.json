@@ -1,0 +1,18 @@
+{
+  "name": "lc-inapi-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MVP auditoría editorial lenguaje claro INAPI — contratos y datos previos a Next.js",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "validate:checklist": "bun run src/scripts/validate-checklist-data.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "zod": "^3.24.0"
+  }
+}
