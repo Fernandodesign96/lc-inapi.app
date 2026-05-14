@@ -38,13 +38,19 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación |
 
-Validación local del catálogo y comprobación de tipos:
+Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
 
 ```bash
 bun install
-bun run src/scripts/validate-checklist-data.ts
+bun run validate:checklist
 bun run typecheck
+bun run typecheck:frontend
+cd frontend && bun run dev
 ```
+
+Desde la raíz también puedes usar `bun run dev` (delega en `frontend`).
+
+Importar esquemas compartidos en el front: `@contracts/checklist` (ver `frontend/tsconfig.json`).
 
 ---
 
@@ -61,4 +67,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Inicializar **Next.js** (App Router, Turbopack) y dependencias con **Bun**; detalle en [docs/ROADMAP.md](docs/ROADMAP.md), fase de mock.
+La UI Next está en **`frontend/`** (`frontend/src/app`). Continuar fase mock en [docs/ROADMAP.md](docs/ROADMAP.md): shadcn/ui, RHF/Zod y pantallas. Contratos siguen en `src/schemas/` y `data/` en la raíz.

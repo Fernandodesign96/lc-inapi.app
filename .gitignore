@@ -6,11 +6,16 @@ node_modules/
 .env.local
 .env.*.local
 
-# Build / Next.js (cuando exista)
+# Build / Next.js
 .next/
+frontend/.next/
 out/
 dist/
 build/
+*.tsbuildinfo
+
+# Monorepo: un solo lockfile en la raíz
+frontend/bun.lock
 
 # Debug / OS
 .DS_Store

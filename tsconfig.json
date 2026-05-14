@@ -13,12 +13,11 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2022"],
     "types": ["node"],
-    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.mts"],
-  "exclude": ["node_modules"]
+  "include": ["src/scripts/**/*.ts", "src/schemas/**/*.ts"],
+  "exclude": ["node_modules", "frontend"]
 }

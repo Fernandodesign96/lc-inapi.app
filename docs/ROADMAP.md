@@ -15,8 +15,8 @@
 
 ## Fase 1 — Mock UX (sin backend productivo)
 
-- [ ] Inicializar Next.js (Bun) + Tailwind + shadcn/ui + RHF/Zod
-- [ ] Pantallas: ingreso URL, vista texto capturado (mock), resultado con tabla de 39 criterios
+- [x] Inicializar Next.js (Bun) + Tailwind + shadcn/ui + RHF/Zod
+- [x] Pantallas: ingreso URL, vista texto capturado (mock), resultado con tabla de 39 criterios
 - [ ] Fixtures: 2–3 auditorías mock importadas desde JSON validado con `strictAuditRecordSchema`
 - [ ] Demo interna con equipo UX (grabar feedback)
 
