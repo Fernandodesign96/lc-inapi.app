@@ -28,6 +28,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | 0003 | [Contract-first: mocks con Zod](docs/adr/0003-contract-first-mocking-with-zod.md) |
 | 0004 | [Evaluación con LLM y versionado de prompts](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) |
 | 0005 | [API de dominio: NestJS y Prisma](docs/adr/0005-api-backend-nestjs-prisma.md) |
+| 0006 | [Evaluación LC: Python, Claude API y AWS](docs/adr/0006-lc-evaluation-python-claude-aws.md) |
 
 ---
 
@@ -36,6 +37,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | Recurso | Descripción |
 | --- | --- |
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
+| `data/audit-fixtures/` (previsto) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; ver [docs/ROADMAP.md](docs/ROADMAP.md) y [docs/DATABASE.md](docs/DATABASE.md) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación |
 
 Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
@@ -43,6 +45,8 @@ Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contra
 ```bash
 bun install
 bun run validate:checklist
+# cuando exista el script en package.json:
+# bun run validate:audit-fixtures
 bun run typecheck
 bun run typecheck:frontend
 cd frontend && bun run dev
@@ -67,4 +71,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-La UI Next está en **`frontend/`** (`frontend/src/app`). Continuar fase mock en [docs/ROADMAP.md](docs/ROADMAP.md): shadcn/ui, RHF/Zod y pantallas. Contratos siguen en `src/schemas/` y `data/` en la raíz.
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**: design system en toda la UI, home con atajos a tres URLs, resultado con barra térmica y pasos a seguir, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. La UI Next está en **`frontend/`**. Arquitectura objetivo (Nest, Python, Claude, AWS) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).

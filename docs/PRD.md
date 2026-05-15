@@ -4,9 +4,9 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Proyecto** | LC INAPI APP — evaluación automatizada asistida por IA del checklist editorial |
-| **Versión PRD** | 0.2 |
-| **Estado** | En definición — fase 1: mock UX sin backend productivo |
-| **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · proveedor LLM (p. ej. Anthropic) · Bun |
+| **Versión PRD** | 0.3 |
+| **Estado** | En definición — Fase 1: mock UX e interfaz institucional; Fase 2: persistencia, API y evaluación con Claude (Python) según ADR |
+| **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · evaluación LC **Python** + **Claude API** · despliegue **AWS** (dev/staging) · Bun |
 | **Normativa base** | Checklist Editorial INAPI v1.1 (derivado de RLC “Lenguaje claro para la web” y Calidad Web 2.0 dimensión contenido) |
 
 ---
@@ -48,15 +48,22 @@ El aplicativo **asiste** al criterio editorial de INAPI; **no** publica en CMS n
 2. **Captura de contenido** (texto visible: títulos, cuerpo, labels, mensajes). Fallback: **pegado manual** si la página requiere sesión o bloquea scraping.
 3. **Confirmación por el editor** del texto enviado a evaluación.
 4. **Evaluación** criterio a criterio según checklist v1.1 (pipeline: reglas + LLM según decisión de arquitectura).
-5. **Cálculo** de `criterios_aprobados`, `criterios_no_aplica`, `criterios_aplicables`, **`porcentaje_cumplimiento`** y **`estado_aceptacion`** según rangos oficiales:
-   - 1–80 % → Rechazado  
-   - 81–90 % → Aceptado con observaciones  
-   - 91–100 % → Aprobado  
+5. **Cálculo** de `criterios_aprobados`, `criterios_no_aplica`, `criterios_aplicables`, **`porcentaje_cumplimiento`** y **`estado_aceptacion`** según rangos oficiales (sobre criterios **aplicables**; los N/A no entran en el denominador):
+   - **Hasta 80 %** (inclusive) → Rechazado  
+   - **81–90 %** → Aceptado con observaciones  
+   - **91–100 %** → Aprobado  
 6. **Tabla de hallazgos** para incumplimientos: código, descripción, cita textual, severidad, comentario.
-7. **Texto propuesto** que aborde criterios incumplidos (revisable por humano).
-8. **Persistencia** (post-MVP técnico): auditoría con fecha, URL, resultado, autor, versión de checklist y versión de prompt.
-9. **Histórico por URL** (post-MVP).
+7. **Texto propuesto** que aborde criterios incumplidos (revisable por humano). En **Fase 1 (mock)** puede mostrarse desde **fixtures** JSON alineados al contrato; en **Fase 2** proviene del pipeline **Claude API** (servicio **Python**) con validación Zod, según arquitectura y [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md).
+8. **Persistencia** (a partir de Fase 2): auditoría con fecha, URL, resultado, autor, versión de checklist y versión de prompt.
+9. **Histórico por URL** (post-MVP o fase tardía según roadmap).
 10. **Exportación** PDF/Word (post-MVP o fase tardía según capacidad).
+
+**Fase 1 (mock) — requisitos de interfaz adicionales**
+
+- Aplicación de la **pauta visual institucional** ([`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)): tipografía, color, espaciado y **WCAG** en todo el MVP mostrado al equipo.
+- **Página de inicio** con **ingreso de URL** y **atajos** a un subconjunto de URLs priorizadas (p. ej. tres perfiles: mejor, intermedio y peor desempeño respecto al checklist), enlazado a un inventario mayor documentado por el equipo.
+- **Resultado de auditoría (mock):** visualización del **porcentaje** (p. ej. barra térmica o equivalente alineado al design system), **estado de aceptación**, **pasos a seguir** para el editor y tabla de **39** criterios.
+- **Estado de espera** entre acción del usuario y resultado: mensaje claro y accesible; **no** declarar integración real con base de datos hasta existir backend.
 
 ---
 
@@ -81,10 +88,10 @@ El aplicativo **asiste** al criterio editorial de INAPI; **no** publica en CMS n
 
 | Fase | Entregable |
 | --- | --- |
-| **Fase A — Mock** | UI navegable con datos mock validados por Zod; flujo captura → resultado → export simulado |
-| **Fase B — Backend** | Supabase Auth + tablas + RLS; API interna Next |
-| **Fase C — IA** | Integración LLM con salida JSON validada; prompt versionado |
-| **Fase D — Cierre MVP** | Export real, pruebas con equipo UX, ajustes |
+| **Fase 1 — Mock UX e interfaz** | UI alineada al design system; home con URL + atajos; resultado con barra de %, pasos a seguir y texto propuesto mock; fixtures JSON `strictAuditRecordSchema`; demo UX con feedback documentado. **Sin** backend productivo. Detalle en [`docs/ROADMAP.md`](ROADMAP.md). |
+| **Fase 2 — Persistencia y evaluación** | Supabase + NestJS + Prisma; contrato HTTP FE ↔ API; servicio **Python** + **Claude API**; entorno compartido **AWS**. Tras **aprobación** del mock de Fase 1. |
+| **Fase 3 — Captura y endurecimiento** | Captura real (Cheerio vs Playwright — ADR); reintentos, costo y observabilidad del pipeline LLM. |
+| **Fase 4 — Cierre MVP** | Export real, histórico por URL en UI, pruebas con URLs reales |
 
 ---
 
