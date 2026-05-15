@@ -3,44 +3,62 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.2 |
-| **Tipo** | Web app — Next.js (SSR/CSR) + API NestJS (Prisma) + Postgres/Auth (Supabase) + jobs opcionales |
+| **Versión** | 0.3 |
+| **Tipo** | Web app — Next.js (App Router) + API NestJS (Prisma) + Postgres/Auth (Supabase) + **servicio de evaluación LC (Python, Claude API)** + entorno compartido **AWS** |
 | **Gestor de paquetes** | Bun |
 
 ---
 
 ## 1. Visión general
 
+### 1.1 Objetivo (runtime con backend y LLM)
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  Cliente (Browser) — Next.js App Router                     │
-│  Formularios (RHF+Zod) · Tablas hallazgos · Dashboard URLs  │
+│  Formularios (RHF+Zod) · Barra térmica / resultado · WCAG   │
 └────────────────────────────┬────────────────────────────────┘
                              │ HTTPS
 ┌────────────────────────────▼────────────────────────────────┐
 │  Next.js servidor — Route Handlers / Server Actions (ligeros)│
 │  · UI y proxy hacia API si aplica                           │
 └────────────────────────────┬────────────────────────────────┘
-                             │ HTTPS (API interna)
+                             │ HTTPS (API aplicación)
 ┌────────────────────────────▼────────────────────────────────┐
 │  NestJS — API de dominio                                    │
 │  · Validación Zod / DTOs                                    │
-│  · Orquestación LLM (sin exponer API keys al cliente)       │
 │  · Captura URL (Cheerio/Playwright según ADR futuro)        │
-│  · Prisma → Postgres                                        │
+│  · Orquestación flujo auditoría → invocación evaluación LC  │
+│  · Prisma → Postgres (Supabase)                             │
 └───────┬──────────────────────────────┬──────────────────────┘
         │                              │
-        │ Postgres + Auth + RLS        │ HTTPS API
-        ▼                              ▼
-┌───────────────────┐         ┌──────────────────┐
-│  Supabase         │         │  Proveedor LLM   │
-│  · Auth           │         │  (p. ej. Claude) │
-│  · Row Level Sec. │         └──────────────────┘
+        │ Postgres + Auth + RLS        │ HTTPS interno / cola / RPC
+        │                              ▼
+        │              ┌──────────────────────────────┐
+        │              │  Servicio evaluación LC     │
+        │              │  Python · Claude API        │
+        │              │  · Prompts versionados      │
+        │              │  · Salida JSON → Zod        │
+        │              │    (strictAuditRecordSchema)│
+        │              └──────────────────────────────┘
+        ▼
+┌───────────────────┐
+│  Supabase         │
+│  · Auth           │
+│  · Row Level Sec. │
 │  · Storage (exports opcional) │
 └───────────────────┘
 ```
 
-**Fase mock (actual):** solo repositorio con **JSON + Zod**; UI mock puede vivir en Storybook o Next cuando se inicialice el proyecto.
+**Despliegue:** componentes anteriores pueden ejecutarse en **AWS** (entorno compartido de desarrollo o staging) para no depender de equipos locales; topología concreta por decisión de infraestructura (ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md)).
+
+### 1.2 Fase mock (Fase 1 producto)
+
+Hasta aprobar el mock de UI:
+
+- **No** hay llamadas productivas a Supabase ni a Claude desde la app demo.
+- Contratos y datos: **`data/checklist-criteria.json`**, futuros **`data/audit-fixtures/*.json`**, [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
+- Next en `frontend/` sirve flujo **ingreso → estado de carga (copy honesto) → resultado** con datos generados o importados desde fixtures validados.
 
 ---
 
@@ -50,14 +68,15 @@
 | --- | --- | --- |
 | Framework | **Next.js** (última estable, App Router) | Turbopack en `next dev` (default en versiones recientes) |
 | Lenguaje | TypeScript estricto | Compartir esquemas Zod FE/BE |
-| UI | Tailwind + shadcn/ui | Coherencia con otros proyectos INAPI-personal |
+| UI | Tailwind + shadcn/ui + **Design system** INAPI/Gobierno ([`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)) | Fase 1: alinear tokens y tipografía al MVP |
 | Formularios | React Hook Form + Zod | Misma fuente de verdad que mocks |
 | Datos | **Supabase** (Postgres) + **Prisma** en Nest | Mismo motor; ORM y migraciones en el servicio API ([ADR 0005](adr/0005-api-backend-nestjs-prisma.md)) |
-| API de aplicación | **NestJS** (Node.js) | Dominio, LLM, persistencia vía Prisma; experiencia de equipo |
+| API de aplicación | **NestJS** (Node.js) | Dominio, persistencia, orquestación hacia servicio de evaluación |
+| Evaluación LC + LLM | **Python** + **Claude API** | [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md); validación contractual [ADR 0004](adr/0004-llm-checklist-evaluation-and-versioning.md) |
 | Runtime local / CI | **Bun** | `bun install`, `bun run`, lockfile `bun.lock` |
-| IA | API server-side | JSON mode / schema validation hacia `strictAuditRecordSchema` cuando aplique |
+| Infra compartida | **AWS** (dev/staging) | Acuerdo de equipo; detalle en ADR 0006 |
 
-Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-supabase.md) y [docs/adr/0005-api-backend-nestjs-prisma.md](adr/0005-api-backend-nestjs-prisma.md).
+Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-supabase.md), [docs/adr/0004-llm-checklist-evaluation-and-versioning.md](adr/0004-llm-checklist-evaluation-and-versioning.md), [docs/adr/0005-api-backend-nestjs-prisma.md](adr/0005-api-backend-nestjs-prisma.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](adr/0006-lc-evaluation-python-claude-aws.md).
 
 ---
 
@@ -65,7 +84,8 @@ Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-su
 
 - **Catálogo:** `checklistCriteriaFileSchema` ↔ `data/checklist-criteria.json`.
 - **Evaluación:** `criterionEvaluationSchema` × 39.
-- **Auditoría persistida:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle).
+- **Auditoría persistida o mock:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle).
+- **Fixtures:** JSON versionado bajo `data/audit-fixtures/` (convención en roadmap), validados en CI o script local igual que el catálogo.
 
 Implementación: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 
@@ -74,11 +94,11 @@ Implementación: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 ## 4. Flujo principal (runtime objetivo)
 
 1. Usuario autenticado (Supabase Auth; método a definir con TI: magic link, Google workspace, etc.).
-2. Ingresa URL o elige URL prioritaria.
-3. Servidor o cliente ejecuta **captura**; se muestra texto para confirmación.
-4. Servidor arma prompt con **criterios versionados** + texto.
-5. LLM devuelve JSON → validación Zod → si falla, reintento o degradación controlada.
-6. Usuario revisa y edita **texto propuesto** y hallazgos.
+2. Ingresa URL o elige URL prioritaria (inventario interno; ver `url_index` en [DATABASE.md](DATABASE.md)).
+3. Servidor ejecuta **captura**; se muestra texto para confirmación.
+4. NestJS solicita **evaluación** al **servicio Python** (Claude) con criterios versionados + texto.
+5. Respuesta JSON → validación Zod (`strictAuditRecordSchema` cuando sea registro completo) → reintento o degradación si falla ([ADR 0004](adr/0004-llm-checklist-evaluation-and-versioning.md)).
+6. Usuario revisa **texto propuesto** y hallazgos.
 7. Guardado en Postgres; histórico por URL; export.
 
 ---
@@ -86,16 +106,16 @@ Implementación: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 ## 5. Seguridad
 
 - **RLS** en todas las tablas con datos de usuario/auditoría.
-- **Service role** de Supabase solo en entorno servidor nunca en cliente.
+- **Service role** de Supabase y **claves Anthropic** solo en entorno servidor (Nest y/o servicio Python); **nunca** en el cliente ni en variables `NEXT_PUBLIC_*`.
 - Logs sin contenido sensible completo (opcional: hash del texto).
 
 ---
 
 ## 6. Observabilidad
 
-- Métricas de latencia por etapa: captura, LLM, persistencia.
-- Traza `audit_id` en logs servidor.
+- Métricas de latencia por etapa: captura, **evaluación Python/Claude**, persistencia.
+- Traza `audit_id` en logs servidor y correlación entre Nest y worker Python cuando aplique.
 
 ---
 
-*Ver también [DATABASE.md](DATABASE.md). El índice de ADR está en la sección correspondiente del [README.md](../README.md) en la raíz del repositorio.*
+*Ver también [DATABASE.md](DATABASE.md). El índice de ADR está en el [README.md](../README.md) en la raíz del repositorio.*

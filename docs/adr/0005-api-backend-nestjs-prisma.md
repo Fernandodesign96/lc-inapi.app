@@ -20,10 +20,10 @@ El equipo de implementación tiene experiencia previa con **NestJS** y **Prisma*
 ## Consecuencias
 
 - **Positivo:** separación clara UI vs dominio; ecosistema Nest alineado a la experiencia del equipo; Prisma unifica esquema y tipos en el servicio API.
-- **Negativo:** dos runtimes desplegables (Next + Nest) salvo que Nest se empaquete como proceso colateral en el mismo host; conviene documentar **monorepo** (p. ej. `apps/web`, `apps/api`) en la primera iteración de código.
+- **Negativo:** dos runtimes desplegables (Next + Nest) salvo que Nest se empaquete como proceso colateral en el mismo host; conviene documentar el layout del repo (p. ej. carpeta `apps/api` o `services/api` junto a Next en raíz) en la primera iteración de código.
 - **Neutral:** ADR 0002 sigue vigente para Next, Bun y Supabase como datos y auth; esta ADR **acota** la capa API de aplicación.
 
 ## Pendientes (no bloquean el mock UX)
 
-- Estructura exacta del monorepo y convención de workspaces (Bun).
+- Estructura exacta del repo cuando exista Nest (monorepo opcional vs. carpeta hermana) y convención de paquetes (Bun/npm).
 - Si la captura URL vive en Nest, en Next o en un worker aparte (ver ADR futuro Cheerio/Playwright).
