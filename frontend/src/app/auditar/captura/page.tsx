@@ -22,7 +22,7 @@ function CapturaInner() {
   if (!urlRaw) {
     router.replace("/auditar")
     return (
-      <p className="p-6 text-muted-foreground text-sm">
+      <p className="text-muted-foreground text-sm">
         Redirigiendo al ingreso de URL…
       </p>
     )
@@ -46,7 +46,7 @@ function CapturaInner() {
   ].join("\n")
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-6 p-6">
+    <div className="flex w-full flex-col gap-6">
       <Card>
         <CardHeader>
           <CardTitle>Texto a evaluar</CardTitle>
@@ -60,7 +60,7 @@ function CapturaInner() {
             URL recibida:{" "}
             <span className="font-medium text-foreground">{urlDecoded}</span>
           </p>
-          <pre className="max-h-[min(24rem,50vh)] overflow-auto rounded-lg border bg-muted/40 p-4 text-sm whitespace-pre-wrap">
+          <pre className="max-h-[min(24rem,50vh)] w-full overflow-auto rounded-lg border border-border bg-muted/40 p-4 text-sm whitespace-pre-wrap">
             {textoMock}
           </pre>
         </CardContent>
@@ -85,7 +85,7 @@ export default function CapturaPage() {
   return (
     <Suspense
       fallback={
-        <p className="p-6 text-muted-foreground text-sm">Cargando vista previa…</p>
+        <p className="text-muted-foreground text-sm">Cargando vista previa…</p>
       }
     >
       <CapturaInner />
