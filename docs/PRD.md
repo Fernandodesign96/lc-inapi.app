@@ -4,9 +4,9 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Proyecto** | LC INAPI APP — evaluación automatizada asistida por IA del checklist editorial |
-| **Versión PRD** | 0.3 |
+| **Versión PRD** | 0.3.1 |
 | **Estado** | En definición — Fase 1: mock UX e interfaz institucional; Fase 2: persistencia, API y evaluación con Claude (Python) según ADR |
-| **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · evaluación LC **Python** + **Claude API** · despliegue **AWS** (dev/staging) · Bun |
+| **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · evaluación LC **Python** + **Claude API** expuesta en **AWS** (**API Gateway** + **Lambda** por defecto; ECS/EC2 si aplica) · Bun · acuerdos en [propuesta técnica integral](PROPUESTA_TECNICA_INTEGRAL.md) |
 | **Normativa base** | Checklist Editorial INAPI v1.1 (derivado de RLC “Lenguaje claro para la web” y Calidad Web 2.0 dimensión contenido) |
 
 ---
@@ -16,6 +16,8 @@
 Herramienta web para **evaluar contenidos** publicados o por publicar en **`inapi.cl`** y **`tramites.inapi.cl`**, aplicando los **39 criterios** del checklist editorial, produciendo **porcentaje de cumplimiento**, **estado de aceptación**, **hallazgos con cita textual** y **texto propuesto** de corrección. Objetivo: reducir el tiempo de auditoría manual por URL (orden de **horas** a **minutos**), con **trazabilidad** y **validación humana** antes de exportar informes.
 
 El aplicativo **asiste** al criterio editorial de INAPI; **no** publica en CMS ni sustituye la decisión final del equipo.
+
+En **Fase 2**, el flujo técnico previsto es: **Next** → **Nest** → (REST/JSON) **API Gateway** → **Lambda Python** → **Claude** → respuesta validada → **persistencia vía Nest/Prisma** (detalle en [ARCHITECTURE.md](ARCHITECTURE.md) y [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md)).
 
 ---
 

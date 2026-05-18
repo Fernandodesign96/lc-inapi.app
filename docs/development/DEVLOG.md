@@ -8,11 +8,39 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-05-14 | Pantallas mock del flujo auditar (captura y resultado con 39 criterios) |
-| 2026-05-14 | Inicialización del frontend con Next, Tailwind, shadcn y formulario URL |
-| 2026-05-13 | Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación) |
+| 2026-05-16 | [Documentación alineada a propuesta técnica integral (AWS API Gateway, Lambda, roles)](#devlog-2026-05-16-documentacion) |
+| 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
+| 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
+| 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
 
 ---
+
+<a id="devlog-2026-05-16-documentacion"></a>
+
+## [2026-05-16] - Documentación | Alineación con propuesta técnica integral y AWS
+
+### Contexto y objetivos:
+
+Registrar en el repo los acuerdos de la última reunión (oficina / transferencia desde entorno restringido): integración **NestJS ↔ Amazon API Gateway ↔ Lambda (Python) ↔ Claude API**, roles, Docker para desarrollo local del servicio de IA y monorepo objetivo frente al layout actual (`frontend/`, `src/schemas/`).
+
+### Implementación técnica:
+
+- Nuevo documento [`docs/PROPUESTA_TECNICA_INTEGRAL.md`](../PROPUESTA_TECNICA_INTEGRAL.md) (sustituye el nombre previo `PROUESTA_*`) con §1.1 **estado del repositorio** vs carpetas `apps/` y `packages/contracts`.
+- [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) v0.4: diagrama mermaid Nest–API Gateway–Lambda–Claude, tabla monorepo actual vs objetivo, §desarrollo local con Docker.
+- [`docs/adr/0006-lc-evaluation-python-claude-aws.md`](../adr/0006-lc-evaluation-python-claude-aws.md): preferencia API Gateway + Lambda, preguntas abiertas §5, enlace a la propuesta técnica.
+- [`docs/DATABASE.md`](../DATABASE.md) v0.4: principio de escritura **solo Nest + Prisma**; metadatos de evaluación vía AWS.
+- [`docs/PRD.md`](../PRD.md) v0.3.1: stack y párrafo de flujo Fase 2 alineados a la integración AWS.
+- [`docs/ROADMAP.md`](../ROADMAP.md): Fase 2 ampliada con bullets de integración, Docker, monorepo y enlace a la propuesta; fecha de actualización.
+- [`README.md`](../../README.md): índice con propuesta técnica y nota sobre contratos en `src/schemas/`.
+
+### Próximos pasos:
+
+- **Fase 1 (código):** design system en UI, home con tres atajos, barra térmica y fixtures según [`docs/ROADMAP.md`](../ROADMAP.md).
+- **Fase 2:** cerrar con Camila/TI las preguntas abiertas del ADR 0006 (auth, Lambda vs ECS, Pydantic).
+
+---
+
+<a id="devlog-2026-05-14-pantallas-mock"></a>
 
 ## [2026-05-14] - Frontend | Fase 1: Pantallas mock del flujo auditar (captura y resultado con 39 criterios)
 
@@ -42,6 +70,8 @@ Cerrar el segundo ítem de la Fase 1 del roadmap: flujo **URL → texto capturad
 
 ---
 
+<a id="devlog-2026-05-14-inicializacion-frontend"></a>
+
 ## [2026-05-14] - Frontend | Fase 1: Inicialización del frontend con Next, Tailwind, shadcn y formulario URL
 
 ### Contexto y objetivos:
@@ -66,6 +96,8 @@ Cerrar el primer ítem de la Fase 1: stack de UI y **primer formulario** alinead
 - Implementar pantallas de captura y resultado (entrada siguiente del devlog) y, después, fixtures.
 
 ---
+
+<a id="devlog-2026-05-13-fase-0"></a>
 
 ## [2026-05-13] - Estrategia | Fase 0: Documentación y contratos del repositorio
 
