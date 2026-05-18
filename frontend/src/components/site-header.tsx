@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 
+import { ThemeToggle } from "@/components/theme-toggle"
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur">
@@ -12,7 +14,9 @@ export function SiteHeader() {
         >
           INAPI
         </Link>
-        <div className="flex min-h-11 min-w-0 flex-1 items-center justify-end gap-2" />
+        <div className="flex min-h-11 min-w-0 flex-1 items-center justify-end gap-2">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   )
