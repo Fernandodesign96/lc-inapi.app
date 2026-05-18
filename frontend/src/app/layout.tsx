@@ -34,10 +34,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${roboto.variable} ${robotoSlab.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-dvh flex flex-col font-sans text-foreground">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SiteHeader />
-          {children}
+          <main className="flex min-h-0 flex-1 flex-col bg-muted text-foreground">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
