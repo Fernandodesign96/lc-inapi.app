@@ -3,15 +3,16 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.3 |
+| **Versión** | 0.4 |
 | **Motor** | PostgreSQL (hosted por Supabase) |
 | **ORM (servicio API)** | **Prisma** (ver [ADR 0005](adr/0005-api-backend-nestjs-prisma.md)) |
-| **Evaluación LLM** | **Claude API** vía servicio **Python** (ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md)); persistencia del resultado en tablas de este documento |
+| **Evaluación LLM** | **Claude API** vía servicio **Python** en **AWS** (API Gateway + Lambda por defecto; ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md) y [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md)) |
 
 ---
 
 ## 1. Principios
 
+- **Escritura en Postgres:** por defecto **solo NestJS + Prisma** persisten auditorías y resultados detallados. El servicio Python devuelve JSON validado al backend; **no** asume escritura directa en Supabase salvo decisión explícita futura (ver §5 de la propuesta técnica integral).
 - **Versionado explícito** del checklist y del prompt (`checklist_version`, `prompt_version`).
 - **39 filas lógicas** por auditoría en evaluación detallada (o JSON validado con Zod en una columna `jsonb` + constraints).
 - **RLS** obligatorio antes de exponer a usuarios no-service.

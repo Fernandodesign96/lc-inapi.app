@@ -13,6 +13,7 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | [docs/DATABASE.md](docs/DATABASE.md) | Modelo de datos Supabase y PostgreSQL |
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog |
+| [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Acuerdos de reunión: roles, monorepo objetivo, Nest ↔ API Gateway ↔ Lambda ↔ Claude, Docker |
 | [docs/development/DEVLOG.md](docs/development/DEVLOG.md) | Bitácora de desarrollo |
 
 ---
@@ -38,7 +39,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | --- | --- |
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
 | `data/audit-fixtures/` (previsto) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; ver [docs/ROADMAP.md](docs/ROADMAP.md) y [docs/DATABASE.md](docs/DATABASE.md) |
-| [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación |
+| [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación (equivalente actual a `packages/contracts` del monorepo objetivo; ver [propuesta técnica integral](docs/PROPUESTA_TECNICA_INTEGRAL.md)) |
 
 Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
 
@@ -71,4 +72,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**: design system en toda la UI, home con atajos a tres URLs, resultado con barra térmica y pasos a seguir, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. La UI Next está en **`frontend/`**. Arquitectura objetivo (Nest, Python, Claude, AWS) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**: design system en toda la UI, home con atajos a tres URLs, resultado con barra térmica y pasos a seguir, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
