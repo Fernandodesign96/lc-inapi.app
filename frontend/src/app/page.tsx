@@ -11,8 +11,8 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-background text-foreground">
-      <main className="mx-auto flex w-full max-w-lg flex-col gap-6 p-6 py-16 md:py-24">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <main className="mx-auto flex w-full max-w-lg flex-1 flex-col gap-6 p-6 py-16 md:py-24">
         <Card>
           <CardHeader>
             <CardTitle>Auditoría de lenguaje claro — INAPI</CardTitle>

@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-05-16
+**Última actualización:** 2026-05-21
 
 ---
 
@@ -25,6 +25,7 @@
 ### Pendiente (UI y datos mock)
 
 - [x] **Design system Gobierno de Chile** ([`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)) aplicado en **toda** la UI del MVP: tipografías (Roboto Slab / Roboto Sans), tokens de color, espaciado y revisión de contraste (WCAG) en `frontend` (p. ej. `globals.css`, layout, componentes).
+- [x] **Marco visual institucional (prototipo de alta fidelidad):** cáscara común al **MVP mock completo**, no solo a `/auditar`: portada de **pre-ingreso** (`/`), ingreso de URL (`/auditar`), captura y resultado. Incluye **fondo de página** con neutro del tema (p. ej. superficies `muted` / sidebar del design system) para separar jerárquicamente el lienzo de las **tarjetas** (`card` / `background`); **cabecera** con logo INAPI a la izquierda. A la derecha: **(1) Tema claro/oscuro — funcional y prioritario:** alternancia solo entre tokens ya definidos en [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §7 y en `globals.css` (`:root` / `.dark`), sin hex ad hoc; control accesible (`aria-label` claro, foco con `--ring` §3.5, área táctil acorde a WCAG §12). **(2) Usuario y configuración — demostración hasta definir negocio:** antes de modelar tipos de usuario, permisos e importancia de cada rol, abrir **modales superpuestos** con fondo semitransparente y **blur** (p. ej. Radix Dialog + tokens `background`/`foreground`/`border-border`), copy breve de “definición pendiente” y cierre explícito; sin simular inicio de sesión ni datos personales. Opcionalmente **secciones** dentro de tarjetas con `border-border`, fondos `muted` suaves y contraste §4 y radios/elevación §8, sin saturar de primario la cabecera. Con esto se trabaja el MVP como **prototipo institucional** desde el layout raíz; **después** se aborda el ítem **Home** (barra principal de URL + atajos) y el resto de pendientes de esta fase.
 - [ ] **Home:** barra principal de ingreso de URL; **atajos** a **tres** URLs del inventario priorizado (mejor / intermedio / peor desempeño según criterio editorial o fixtures etiquetados). Referencia al inventario ampliado (p. ej. ~20 URLs seguimiento Clarity / documento equipo); la lista detallada puede vivir en `docs/ux/` o `data/` según política de datos.
 - [ ] **Resultado mock:** **barra térmica** (o equivalente visual) del `porcentaje_cumplimiento` alineada al design system; bloque de **pasos a seguir** según `estado_aceptacion` (`rechazado` / `aceptado_con_observaciones` / `aprobado`); mostrar **texto propuesto** desde datos mock (hasta integrar LLM en Fase 2).
 - [ ] **Estado intermedio** entre ingreso y resultado (modal, spinner o barra): mensaje en **lenguaje claro**, accesible (WCAG), **sin** afirmar comunicación real con base de datos hasta existir backend.
