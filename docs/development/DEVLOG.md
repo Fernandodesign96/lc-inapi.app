@@ -8,10 +8,49 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-19 | [Design system en la interfaz y contenedor ancho del flujo /auditar](#devlog-2026-05-19-design-system-ui) |
 | 2026-05-16 | [Documentación alineada a propuesta técnica integral (AWS API Gateway, Lambda, roles)](#devlog-2026-05-16-documentacion) |
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-19-design-system-ui"></a>
+
+## [2026-05-19] - Frontend | Design system en la interfaz y contenedor ancho del flujo /auditar
+
+### Contexto y objetivos:
+
+Cerrar en código el ítem de Fase 1 del roadmap sobre **design system Gobierno de Chile** en el frontend: tipografías institucionales, tokens de color y espaciado en tema global, contraste y objetivos táctiles (WCAG) en componentes reutilizables, y una **misma disposición ancha** en ingreso, captura y resultado del mock, sin cubrir aún barra térmica ni atajos de URL (otros bullets del roadmap).
+
+### Implementación técnica:
+
+- Tema en `frontend/src/app/globals.css`: variables §5 (`:root` y `.dark`), `--primary-hover`, enlaces en capa base, `spacing-kit` en `@theme` y fuentes enlazadas a variables de `next/font` en el `layout` raíz.
+- `frontend/src/app/layout.tsx`: Roboto y Roboto Slab, metadatos INAPI y `lang="es"`.
+- `frontend/src/components/ui/button.tsx`: tamaño por defecto con altura táctil ~44 px; variante primaria con hover y active vía `var(--primary-hover)`; tamaños `sm`, `lg` e iconos alineados al mismo criterio; `xs` más compacto desde el punto de ruptura `sm` donde aplica.
+- Portada `frontend/src/app/page.tsx`: sustitución de la plantilla create-next-app por `Card` y CTA a `/auditar` con clases semánticas (`bg-background`, `text-foreground`, etc.).
+- `frontend/src/app/auditar/layout.tsx`: envoltorio del segmento con `min-h-dvh`, fondo del tema y contenedor `max-w-5xl` con padding horizontal responsivo.
+- `frontend/src/app/auditar/page.tsx`, `captura/page.tsx` y `resultado/page.tsx`: contenedor `w-full` sin duplicar `max-w` ni padding respecto al layout; mensajes de redirección y respaldos de `Suspense` sin `p-6` redundante; bordes de bloques con `border-border` donde corresponde.
+- `frontend/tsconfig.json`: exclusión de `.next/dev/types` del `include` de TypeScript para que `tsc` no falle con el validador generado en modo desarrollo de Next.js 16.
+
+### Contexto de errores o disyuntivas:
+
+- **Tipografía y `@theme`:** en un momento `--font-sans` apuntaba a sí misma en el tema, con lo que el cuerpo caía en una fuente por defecto del motor (p. ej. serif). **Mitigación:** enlazar `--font-sans` y `--font-heading` en `@theme` a las variables que expone `next/font` en el `layout` raíz (`--font-roboto`, `--font-roboto-slab`).
+
+- **`buttonVariants` (CVA):** se mezclaron clases de tamaño dentro de `variant.default` y se perdieron color y hover del primario; además faltó un `},` que cerrara `variants` antes de `defaultVariants`, y en un pegado `sm` y `lg` quedaron en la misma línea. **Mitigación:** separar estrictamente `variant` (semántica de color, hover con `var(--primary-hover)`) y `size` (altura, padding, texto); cerrar `size` y luego `variants`; una variante de tamaño por línea.
+
+- **Typecheck con Next.js 16:** al incluir `.next/dev/types/**/*.ts` en `tsconfig`, `tsc` fallaba en el validador generado (`LayoutProps<Route>` frente a la unión de rutas de layout en desarrollo). **Mitigación:** quitar `.next/dev/types` del `include` y mantener la referencia de rutas hacia `./.next/types/routes.d.ts` en `next-env.d.ts` tras un build estable.
+
+- **Flujo `/auditar`:** el ingreso usaba `max-w-lg` frente a captura/resultado más anchos; había `p-6` redundante en mensajes de redirección y en fallbacks de `Suspense` encima del padding del layout. **Mitigación:** `layout.tsx` del segmento con `max-w-5xl` y padding horizontal único; páginas con `flex w-full flex-col gap-6` sin segundo `max-w` ni `p-6` en esos textos.
+
+### 💡 Repaso técnico: Layout anidado y tokens:
+
+El layout del segmento `auditar` concentra ancho y márgenes; las páginas hijas solo distribuyen el contenido (`flex`, `gap`), de modo que la tarjeta y el campo de URL usan el ancho útil y se alinean con la tabla del resultado.
+
+### Próximos pasos:
+
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): home con **barra principal** y **tres atajos** de URL, barra térmica y bloques de resultado mock, estado intermedio de carga, archivos JSON de fixtures y demo con UX, con notas en este devlog o en `docs/`.
 
 ---
 

@@ -49,7 +49,7 @@ function ResultadoInner() {
   if (!urlDecoded) {
     router.replace("/auditar")
     return (
-      <p className="p-6 text-muted-foreground text-sm">
+      <p className="text-muted-foreground text-sm">
         Redirigiendo al ingreso de URL…
       </p>
     )
@@ -58,7 +58,7 @@ function ResultadoInner() {
   if (!auditUrl) {
     router.replace("/auditar")
     return (
-      <p className="p-6 text-muted-foreground text-sm">URL inválida…</p>
+      <p className="text-muted-foreground text-sm">URL inválida…</p>
     )
   }
 
@@ -67,7 +67,7 @@ function ResultadoInner() {
   }
 
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-6 p-6">
+    <div className="flex w-full flex-col gap-6">
       <Card>
         <CardHeader>
           <CardTitle>Resultado de la auditoría (mock)</CardTitle>
@@ -115,9 +115,9 @@ function ResultadoInner() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-lg border">
+          <div className="overflow-x-auto rounded-lg border border-border">
             <table className="w-full min-w-[36rem] text-left text-sm">
-              <thead className="border-b bg-muted/50">
+              <thead className="border-b border-border bg-muted/50">
                 <tr>
                   <th className="px-3 py-2 font-medium">Criterio</th>
                   <th className="px-3 py-2 font-medium">Estado</th>
@@ -156,7 +156,7 @@ export default function ResultadoPage() {
   return (
     <Suspense
       fallback={
-        <p className="p-6 text-muted-foreground text-sm">Cargando resultado…</p>
+        <p className="text-muted-foreground text-sm">Cargando resultado…</p>
       }
     >
       <ResultadoInner />

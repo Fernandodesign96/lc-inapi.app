@@ -27,7 +27,7 @@ import {
 } from "@/lib/schemas/url-audit"
 
 export default function AuditarPage() {
-  const router = useRouter();
+  const router = useRouter()
   const form = useForm<AuditUrlFormValues>({
     resolver: zodResolver(auditUrlFormSchema),
     defaultValues: { url: "" },
@@ -40,7 +40,7 @@ export default function AuditarPage() {
   }
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col gap-6 p-6">
+    <div className="flex w-full flex-col gap-6">
       <Card>
         <CardHeader>
           <CardTitle>Ingreso de URL</CardTitle>
