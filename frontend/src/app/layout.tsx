@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider"
+import { SiteHeader } from "@/components/site-header"
 import "./globals.css";
 
 const roboto = Roboto({
@@ -35,6 +36,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <SiteHeader />
           {children}
         </ThemeProvider>
       </body>
