@@ -8,7 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-05-19 | [Design system en la interfaz y contenedor ancho del flujo /auditar](#devlog-2026-05-19-design-system-ui) |
+| 2026-05-18 | [Marco visual institucional: cabecera, tema y lienzo global](#devlog-2026-05-18-marco-visual-shell) |
+| 2026-05-18 | [Design system en la interfaz y contenedor ancho del flujo /auditar](#devlog-2026-05-18-design-system-ui) |
 | 2026-05-16 | [Documentación alineada a propuesta técnica integral (AWS API Gateway, Lambda, roles)](#devlog-2026-05-16-documentacion) |
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
@@ -16,9 +17,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
-<a id="devlog-2026-05-19-design-system-ui"></a>
+<a id="devlog-2026-05-18-marco-visual-shell"></a>
 
-## [2026-05-19] - Frontend | Design system en la interfaz y contenedor ancho del flujo /auditar
+## [2026-05-18] - Frontend | Marco visual institucional: cabecera, tema y lienzo global
+
+### Contexto y objetivos:
+
+Cerrar en el repo el ítem de Fase 1 del roadmap **«Marco visual institucional (prototipo de alta fidelidad)»**: cáscara común a portada, flujo `/auditar` y vistas mock, con jerarquía **cabecera → lienzo neutro → tarjetas**, tema claro/oscuro alineado a tokens §7 y modales de demostración sin simular autenticación real.
+
+### Implementación técnica:
+
+- `next-themes` y `frontend/src/components/ui/theme-provider.tsx`: proveedor con `attribute="class"`; `frontend/src/app/layout.tsx` con `suppressHydrationWarning` en `html` y cuerpo en columna con viewport estable.
+- `frontend/src/components/theme-toggle.tsx`: alternancia claro/oscuro con `resolvedTheme`, `aria-label` en español y aplazamiento del estado de montaje para cumplir la regla `react-hooks/set-state-in-effect` (p. ej. `requestAnimationFrame`).
+- `frontend/src/components/ui/dialog.tsx`: primitiva Radix con overlay `bg-background/60 backdrop-blur-sm` y panel con tokens `border-border` / `background` / `foreground`.
+- `frontend/src/components/site-header.tsx`: cabecera sticky con wordmark INAPI (enlace a `/`), `ThemeToggle` y dos `Dialog` demo (usuario y configuración) con copy explícito de definición pendiente y botón «Cerrar».
+- `frontend/src/app/layout.tsx`: `main` con `flex-1`, `min-h-0` y `bg-muted` bajo la cabecera para separar visualmente el lienzo de las `Card`.
+- `frontend/src/app/auditar/layout.tsx` y `frontend/src/app/page.tsx`: eliminación de `min-h-dvh` y `bg-background` duplicados en el contenedor de página para no anular el lienzo `muted`.
+
+### Próximos pasos:
+
+- Ítem **Home** del roadmap: barra principal de URL y tres atajos; luego barra térmica, estado intermedio, fixtures y demo UX según [`docs/ROADMAP.md`](../ROADMAP.md).
+
+---
+
+<a id="devlog-2026-05-18-design-system-ui"></a>
+
+## [2026-05-18] - Frontend | Design system en la interfaz y contenedor ancho del flujo /auditar
 
 ### Contexto y objetivos:
 

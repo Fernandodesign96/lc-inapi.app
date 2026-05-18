@@ -22,7 +22,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-5xl items-center gap-4 px-4 sm:px-6">
         <Link
           href="/"
-          className="font-heading text-lg font-semibold tracking-tight text-primary"
+          className="shrink-0 font-heading text-lg font-semibold tracking-tight text-primary"
         >
           INAPI
         </Link>
