@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.4 |
+| **Versión** | 0.4.1 |
 | **Motor** | PostgreSQL (hosted por Supabase) |
 | **ORM (servicio API)** | **Prisma** (ver [ADR 0005](adr/0005-api-backend-nestjs-prisma.md)) |
 | **Evaluación LLM** | **Claude API** vía servicio **Python** en **AWS** (API Gateway + Lambda por defecto; ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md) y [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md)) |
@@ -65,9 +65,9 @@ Una fila por criterio y auditoría (normalizado; facilita consultas por código)
 
 **Alternativa MVP rápida:** una sola columna `results jsonb` en `audits` con array de 39 elementos validado en aplicación. Trade-off: menos SQL declarativo, más simplicidad. Documentar elección en ADR.
 
-### `url_index` (opcional, para home “URLs prioritarias”)
+### `url_index` (opcional, para atajos e inventario en `/auditar`)
 
-Tabla o vista para las URLs seguidas por calidad web / equipo editorial (p. ej. inventario tipo Clarity).
+Tabla o vista para las URLs seguidas por calidad web / equipo editorial (p. ej. inventario tipo **Clarity** y prioridades LC), expuestas en UI principalmente desde **`/auditar`**, no desde la home de acceso.
 
 | Columna | Tipo |
 | --- | --- |
@@ -77,7 +77,7 @@ Tabla o vista para las URLs seguidas por calidad web / equipo editorial (p. ej. 
 | `priority` | `int` |
 | `notes` | `text` nullable | Referencia a informe o fixture de demo |
 
-En **Fase 1**, la misma información puede documentarse en **`docs/ux/`** o un JSON liviano en **`data/`** sin crear aún la tabla, hasta migración en Fase 2.
+En **Fase 1**, la misma información puede documentarse en **`docs/ux/`** (p. ej. [`inventario-urls-clarity.md`](ux/inventario-urls-clarity.md)) o un JSON liviano en **`data/`** sin crear aún la tabla, hasta migración en Fase 2.
 
 ---
 

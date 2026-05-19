@@ -8,12 +8,58 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
+| 2026-05-19 | [Documentación: Flujo home gateway, `/auditar` (atajos, Clarity) y barras colapsables](#devlog-2026-05-19-doc-flujo-auditar) |
 | 2026-05-18 | [Marco visual institucional: cabecera, tema y lienzo global](#devlog-2026-05-18-marco-visual-shell) |
 | 2026-05-18 | [Design system en la interfaz y contenedor ancho del flujo /auditar](#devlog-2026-05-18-design-system-ui) |
 | 2026-05-16 | [Documentación alineada a propuesta técnica integral (AWS API Gateway, Lambda, roles)](#devlog-2026-05-16-documentacion) |
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-19-portal-home-mock"></a>
+
+## [2026-05-19] - Frontend | Portal de acceso en `/` (mock v1.0)
+
+### Contexto y objetivos:
+
+Cerrar en código el ítem de Fase 1 **«Home (`/`) — portal de acceso institucional»**: pantalla tipo acceso Gobierno sin autenticación real, CTA hacia `/auditar`, sin duplicar el ingreso de URL en la portada.
+
+### Implementación técnica:
+
+- `frontend/src/app/page.tsx`: modal con colores fijos (`#0051A8`, barras `#0F69C4` / `#F63E32`), wordmark INAPI, bienvenida, botón «Acceder» con texto en el mismo azul modal; pie gris con referencia a checklist, CW 2.0, RLC y **Mock v1.0**.
+- `frontend/src/app/layout.tsx`: se retira `SiteHeader` del layout raíz para que `/` no muestre cabecera.
+- `frontend/src/app/auditar/layout.tsx`: se incorpora `SiteHeader` solo en el segmento `/auditar` (captura y resultado conservan cáscara con marca y controles).
+- `docs/ROADMAP.md`: ítem Home marcado como completado.
+
+### Próximos pasos:
+
+- Implementar el ítem **`/auditar`** (ingreso URL, tres atajos a resultado, inventarios en acordeones según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15) y el resto de pendientes de Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md).
+
+---
+
+<a id="devlog-2026-05-19-doc-flujo-auditar"></a>
+
+## [2026-05-19] - Documentación | Flujo home gateway, `/auditar` (atajos, inventario Clarity) y barras colapsables
+
+### Contexto y objetivos:
+
+Alinear PRD, roadmap, arquitectura y datos de referencia a la **realidad del aplicativo**: evitar **dos pantallas** con la misma función (ingreso de URL). La **home `/`** queda como **portal de acceso institucional** (composición tipo auth Gobierno, **sin** login real en Fase 1) hacia **`/auditar`**. En **`/auditar`**: **ingreso de URL**, **tres atajos** (peor / intermedio / mejor LC) con navegación mock **directa a resultado**, inventario **~20 URLs Clarity** y otras **listas seccionadas** (**URLs más auditadas**, **URLs con estados resueltos**, etc.) documentadas para convivir en la misma pantalla como **barras / acordeones** con **título claro**, **flecha hacia abajo**, **contraste** institucional sin ruido y **`gap` vertical uniforme** entre secciones.
+
+### Implementación técnica:
+
+- [`docs/ROADMAP.md`](../ROADMAP.md): portal en `/`; ítem **`/auditar`** (URL, atajos, inventarios en barras colapsables, enlace a inventario UX); marco visual ajustado para no prometer barra de URL en `/`.
+- [`docs/PRD.md`](../PRD.md) v0.3.3: requisitos Fase 1 de home vs `/auditar`, atajos a resultado, inventarios en acordeones.
+- [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) v0.5 y [`docs/DATABASE.md`](../DATABASE.md) v0.4.1: flujo mock, `url_index` orientado a **`/auditar`** e inventario en `docs/ux/`.
+- Nuevo [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md): tres URLs canónicas, tabla de 20 prioridades Clarity, §2.1 presentación en UI; URLs absolutas por completar donde falte.
+- [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) v0.3.2: nueva **§15** (patrón barras colapsables en `/auditar`); renumeración §16–§17 (alcance MVP y referencias visuales).
+- [`README.md`](../../README.md): pendientes Fase 1 alineados al mismo flujo.
+
+### Próximos pasos:
+
+- Implementar en `frontend/` la home tipo acceso, los atajos en `/auditar` y las **barras colapsables** de inventario según roadmap y [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15; completar enlaces absolutos del inventario cuando el equipo entregue la lista final.
 
 ---
 
@@ -36,7 +82,7 @@ Cerrar en el repo el ítem de Fase 1 del roadmap **«Marco visual institucional 
 
 ### Próximos pasos:
 
-- Ítem **Home** del roadmap: barra principal de URL y tres atajos; luego barra térmica, estado intermedio, fixtures y demo UX según [`docs/ROADMAP.md`](../ROADMAP.md).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **home** como portal de acceso a `/auditar`; en **`/auditar`**, barra de URL, **tres atajos** a resultado, inventarios en **barras colapsables** (§15 design system); luego barra térmica, estado intermedio, fixtures y demo UX.
 
 ---
 
@@ -74,7 +120,7 @@ El layout del segmento `auditar` concentra ancho y márgenes; las páginas hijas
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): home con **barra principal** y **tres atajos** de URL, barra térmica y bloques de resultado mock, estado intermedio de carga, archivos JSON de fixtures y demo con UX, con notas en este devlog o en `docs/`.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): portal en **`/`**, ingreso y **tres atajos** en **`/auditar`**, inventarios en **barras colapsables** (§15 design system), barra térmica y bloques de resultado mock, estado intermedio de carga, fixtures JSON y demo UX, con notas en este devlog o en `docs/`.
 
 ---
 
@@ -98,7 +144,7 @@ Registrar en el repo los acuerdos de la última reunión (oficina / transferenci
 
 ### Próximos pasos:
 
-- **Fase 1 (código):** design system en UI, home con tres atajos, barra térmica y fixtures según [`docs/ROADMAP.md`](../ROADMAP.md).
+- **Fase 1 (código):** design system en UI; portal **`/`**; **`/auditar`** con URL, tres atajos, inventarios en barras colapsables (§15 design system); barra térmica y fixtures según [`docs/ROADMAP.md`](../ROADMAP.md).
 - **Fase 2:** cerrar con Camila/TI las preguntas abiertas del ADR 0006 (auth, Lambda vs ECS, Pydantic).
 
 ---

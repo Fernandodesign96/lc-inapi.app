@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 
+import { AuditarInventorySections } from "@/components/auditar-inventory-sections"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -34,7 +35,6 @@ export default function AuditarPage() {
   })
 
   function onSubmit(data: AuditUrlFormValues) {
-    // Mock: siguiente paso será navegación o estado global
     console.log("URL válida:", data.url)
     router.push(`/auditar/captura?url=${encodeURIComponent(data.url)}`)
   }
@@ -90,6 +90,8 @@ export default function AuditarPage() {
           </Button>
         </CardFooter>
       </Card>
+
+      <AuditarInventorySections />
     </div>
   )
 }
