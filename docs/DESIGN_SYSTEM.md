@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.3.1 |
+| **Versión** | 0.3.2 |
 | **Fuente visual institucional** | UI Kit v3.0.1 — Secretaría de Gobierno (Transformación Digital). Documento base: [docs/uikit_gob/UI KIT v3.0.1.pdf](uikit_gob/UI%20KIT%20v3.0.1.pdf). **Valores hex** de este archivo provienen de las láminas oficiales del kit (capturas / PDF) revisadas en mayo 2026. |
 | **Stack UI previsto** | Next.js · Tailwind CSS · shadcn/ui · Lucide React |
 
@@ -313,15 +313,31 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 
 ---
 
-## 15. Alcance MVP vs. kit completo
+## 15. Patrón UI: barras colapsables en `/auditar` (inventarios y listas)
 
-No es obligatorio implementar drawer, steppers completos, todas las *cards* ni toda la iconografía. **Sí** es obligatorio: tokens de **color** (secciones 2–6), **texto AA**, **tipografía**, **espaciado**, **grilla**, **radios/bordes/elevación**, **táctil** y mapeo de **estados de auditoría**.
+**Uso:** agrupar en una sola pantalla (`/auditar`) varias **fuentes de información seccionada** sin competir con el **ingreso principal de URL** ni con los **tres atajos** editoriales. Ejemplos de contenido: tabla **~20 URLs** priorizadas por **Microsoft Clarity**; lista de **URLs más auditadas** por el equipo; **URLs con estados resueltos** (o equivalente de seguimiento LC). El patrón debe ser **reutilizable** para todas esas secciones.
+
+| Criterio | Guía |
+| --- | --- |
+| **Estructura** | Cada bloque es una **barra colapsable** (accordion / disclosure): cabecera **siempre visible** como trigger; cuerpo con tabla o lista **solo al expandir**. |
+| **Cabecera (cerrada)** | **Título claro y breve** (jerarquía tipográfica de subtítulo, p. ej. `text-base`/`font-semibold` o equivalente según tokens §9–10); alineación horizontal título + **icono de flecha hacia abajo** (o chevron) a la derecha o junto al título, indicando “hay más contenido”. Al abrir, la flecha puede rotar hacia arriba manteniendo el mismo icono para coherencia. |
+| **Contraste** | Legible y **institucional**: fondo de cabecera/cuerpo con tokens existentes (`background`, `card`, `muted`, `border-border`, `foreground`); **evitar** bordes gruesos, sombras fuertes o saturación de **primario** en cada barra — contraste **claro pero no ruidoso** frente al lienzo `muted` de la página. |
+| **Espaciado** | **Mismo `gap` vertical** entre cada barra colapsable (p. ej. un único valor de `gap-*` en el contenedor padre) para **aire visual consistente**; padding interno del panel desplegado alineado al resto del flujo (`/auditar`). |
+| **Accesibilidad** | Trigger con `button` semántico o `aria-expanded` / `aria-controls` si se usa primitiva tipo Radix **Collapsible** / **Accordion**; foco visible con `--ring` §3.5; teclado (Enter/Espacio) para abrir/cerrar. |
+
+Implementación sugerida en stack: primitiva **Accordion** o **Collapsible** de Radix (shadcn) + icono **Lucide** (`ChevronDown` / `ChevronUp`).
 
 ---
 
-## 16. Referencias visuales y próxima revisión
+## 16. Alcance MVP vs. kit completo
 
-### 16.1 Capturas en el repositorio
+No es obligatorio implementar drawer, steppers completos, todas las *cards* ni toda la iconografía. **Sí** es obligatorio: tokens de **color** (secciones 2–6), **texto AA**, **tipografía**, **espaciado**, **grilla**, **radios/bordes/elevación**, **táctil**, mapeo de **estados de auditoría** y, para **`/auditar`**, el patrón de **§15** cuando existan listas/inventarios en pantalla.
+
+---
+
+## 17. Referencias visuales y próxima revisión
+
+### 17.1 Capturas en el repositorio
 
 Las capturas del kit deben vivir en **`docs/uikit_gob/references/`** con los nombres indicados en [references/README.md](uikit_gob/references/README.md). Tras copiarlas desde tu equipo, quedan enlazadas aquí para revisión rápida (si el archivo aún no existe, el enlace se completará al añadir el PNG).
 
@@ -345,11 +361,11 @@ Vista previa embebida (mismo criterio de rutas; útil en GitHub al tener los arc
 
 ![Colores / estados — referencia](uikit_gob/references/2.PNG)
 
-### 16.2 Próxima revisión documental
+### 17.2 Próxima revisión documental
 
 - Añadir fila **hex por nivel** de `GOB.COLOR.GRIS` cuando se disponga de la lámina o export JSON oficial.
 - Volcar valores CSS numéricos de **Elevation-01…05** si el kit los publica en texto.
 
 ---
 
-*Design system v0.3.1 — UI Kit Gobierno de Chile v3.0.1. Incluye §16 con carpeta `references/` y enlaces a PNG; completar grises y sombras desde la fuente oficial en la siguiente iteración.*
+*Design system v0.3.2 — UI Kit Gobierno de Chile v3.0.1. Incluye §15 (barras colapsables en `/auditar`), §17 con carpeta `references/` y enlaces a PNG; completar grises y sombras desde la fuente oficial en la siguiente iteración.*

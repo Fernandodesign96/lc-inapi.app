@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.4 |
+| **Versión** | 0.5 |
 | **Tipo** | Web app — Next.js (App Router) + API NestJS (Prisma) + Postgres/Auth (Supabase) + **servicio de evaluación LC (Python en AWS Lambda, detrás de API Gateway) + Claude API** |
 | **Gestor de paquetes** | Bun |
 
@@ -48,7 +48,9 @@ Hasta aprobar el mock de UI:
 
 - **No** hay llamadas productivas a Supabase ni a Claude desde la app demo.
 - Contratos y datos: **`data/checklist-criteria.json`**, futuros **`data/audit-fixtures/*.json`**, [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
-- Next en `frontend/` sirve flujo **ingreso → estado de carga (copy honesto) → resultado** con datos generados o importados desde fixtures validados.
+- Next en `frontend/` sirve flujo **portal de acceso en `/` (CTA hacia `/auditar`, sin auth real)** → **ingreso de URL y atajos en `/auditar`** → (según implementación) **captura** y **resultado**, con datos generados o importados desde fixtures validados. Los **tres atajos** editoriales pueden **saltar** a **resultado** directo con query de URL en el mock, coherente con la narrativa de “URL ya auditada”.
+- En **`/auditar`**, inventarios y listas de apoyo (Clarity, más auditadas, estados resueltos, etc.) se agrupan en **componentes colapsables** homogéneos (título + flecha abajo + panel), no como bloques de texto sueltos; ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15.
+- Inventario humano de prioridades y tráfico Clarity: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
 ### 1.3 Monorepo: layout objetivo vs actual
 
@@ -100,7 +102,7 @@ Implementación actual de esquemas: [`src/schemas/checklist.ts`](../src/schemas/
 ## 4. Flujo principal (runtime objetivo)
 
 1. Usuario autenticado (Supabase Auth; método a definir con TI: magic link, Google workspace, etc.).
-2. Ingresa URL o elige URL prioritaria (inventario interno; ver `url_index` en [DATABASE.md](DATABASE.md)).
+2. Ingresa URL en **`/auditar`** o elige **atajo** a URL prioritaria del inventario editorial / fixtures (inventario documentado en [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md); persistencia futura en `url_index` — [DATABASE.md](DATABASE.md)).
 3. **NestJS** ejecuta **captura**; se muestra texto para confirmación (vía Next).
 4. NestJS llama al **API Gateway** (REST/JSON) con texto y metadatos de checklist/prompt; **Lambda (Python)** invoca **Claude**, valida y devuelve JSON contractual.
 5. NestJS valida de nuevo con Zod (`strictAuditRecordSchema` cuando sea registro completo) → reintento o degradación si falla ([ADR 0004](adr/0004-llm-checklist-evaluation-and-versioning.md)).
