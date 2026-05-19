@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
 | 2026-05-19 | [Documentación: Flujo home gateway, `/auditar` (atajos, Clarity) y barras colapsables](#devlog-2026-05-19-doc-flujo-auditar) |
 | 2026-05-18 | [Marco visual institucional: cabecera, tema y lienzo global](#devlog-2026-05-18-marco-visual-shell) |
 | 2026-05-18 | [Design system en la interfaz y contenedor ancho del flujo /auditar](#devlog-2026-05-18-design-system-ui) |
@@ -15,6 +16,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-19-portal-home-mock"></a>
+
+## [2026-05-19] - Frontend | Portal de acceso en `/` (mock v1.0)
+
+### Contexto y objetivos:
+
+Cerrar en código el ítem de Fase 1 **«Home (`/`) — portal de acceso institucional»**: pantalla tipo acceso Gobierno sin autenticación real, CTA hacia `/auditar`, sin duplicar el ingreso de URL en la portada.
+
+### Implementación técnica:
+
+- `frontend/src/app/page.tsx`: modal con colores fijos (`#0051A8`, barras `#0F69C4` / `#F63E32`), wordmark INAPI, bienvenida, botón «Acceder» con texto en el mismo azul modal; pie gris con referencia a checklist, CW 2.0, RLC y **Mock v1.0**.
+- `frontend/src/app/layout.tsx`: se retira `SiteHeader` del layout raíz para que `/` no muestre cabecera.
+- `frontend/src/app/auditar/layout.tsx`: se incorpora `SiteHeader` solo en el segmento `/auditar` (captura y resultado conservan cáscara con marca y controles).
+- `docs/ROADMAP.md`: ítem Home marcado como completado.
+
+### Próximos pasos:
+
+- Implementar el ítem **`/auditar`** (ingreso URL, tres atajos a resultado, inventarios en acordeones según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15) y el resto de pendientes de Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md).
 
 ---
 
