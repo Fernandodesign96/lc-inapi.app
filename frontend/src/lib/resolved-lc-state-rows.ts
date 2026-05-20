@@ -46,4 +46,18 @@ export type ResolvedLcStateRow = {
       fechaCierreRef: "2026-01-30",
       observacion: "Homologación de términos con glosario INAPI.",
     },
+    {
+      rank: 6,
+      paginaRef: "https://tramites.inapi.cl/Api/HealthCheck (mock)",
+      estadoLcFinalRef: "No aplica",
+      fechaCierreRef: "—",
+      observacion: "Endpoint técnico sin contenido editorial sujeto a checklist LC.",
+    },
+    {
+      rank: 7,
+      paginaRef: "https://tramites.inapi.cl/Static/LegalNotice (mock)",
+      estadoLcFinalRef: "No aplica al LC",
+      fechaCierreRef: "—",
+      observacion: "Texto legal de plantilla; cierre LC no requerido en narrativa mock.",
+    },
   ] as const

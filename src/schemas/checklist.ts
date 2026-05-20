@@ -85,7 +85,7 @@ const MOCK_SEVERIDAD_ROTACION: Severity[] = ["baja", "media", "alta"]
  * Reglas mock acordadas con Equipo UX (ajustar aquí si cambian):
  * - severidad y comentario solo en `incumple`
  * - sin aleatoriedad: rotación por orden de aparición entre incumplidos
- * - comentario omitido en severidad baja para no saturar la tabla
+ * - severidad baja incluye observación breve mock (cumple con observaciones)
  */
 export type MockSeveridadBias = "peor" | "intermedio" | "mejor"
 
@@ -123,7 +123,8 @@ export function enrichCriterionEvaluationsForMock(
     incumpleIndex += 1
 
     const comentarioPorSeveridad: Record<Severity, string | undefined> = {
-      baja: undefined,
+      baja:
+        "Cumple con observaciones: afinar microcopy o consistencia menor sin bloquear publicación; revisar en próxima iteración.",
       media: "Revisar redacción en titular o microcopy asociado al criterio.",
       alta: "Priorizar corrección antes de publicación: lenguaje poco claro o inconsistente con la pauta INAPI.",
     }
@@ -299,25 +300,33 @@ export function buildDemoStrictAudit(overrides?: Partial<AuditRecord>): StrictAu
 }
 
 /**
- * Auditoría demo con N criterios en "cumple" y el resto en "incumple" (sin N/A).
- * Útil para mocks por perfil LC coherentes con `summarizeEvaluations` y
- * `strictAuditRecordSchema`.
+ * Auditoría demo con N criterios en "cumple", opcionalmente K en "no_aplica", y el
+ * resto en "incumple". Coherente con `summarizeEvaluations` y `strictAuditRecordSchema`.
  */
 export function buildDemoStrictAuditWithCumpleCount(
   cumpleCount: number,
   overrides?: Partial<AuditRecord>,
-  mockSeveridadBias?: MockSeveridadBias,
+  mockSeveridadBias: MockSeveridadBias = "intermedio",
+  noAplicaCount = 0,
 ): StrictAuditRecord {
-  const n = Math.max(0, Math.min(39, Math.floor(cumpleCount)))
+  const na = Math.max(0, Math.min(39, Math.floor(noAplicaCount)))
+  const aplicables = 39 - na
+  const nCumple = Math.max(0, Math.min(aplicables, Math.floor(cumpleCount)))
   const criterios_evaluadosRaw: CriterionEvaluation[] = CRITERION_IDS.map(
-    (id, i) => ({
-      id,
-      estado: i < n ? "cumple" : "incumple",
-    }),
+    (id, idx) => {
+      if (idx < na) {
+        return { id, estado: "no_aplica" as const }
+      }
+      const pos = idx - na
+      if (pos < nCumple) {
+        return { id, estado: "cumple" as const }
+      }
+      return { id, estado: "incumple" as const }
+    },
   )
   const criterios_evaluados = enrichCriterionEvaluationsForMock(
     criterios_evaluadosRaw,
-    mockSeveridadBias ?? "intermedio",
+    mockSeveridadBias,
   )
   const sum = summarizeEvaluations(criterios_evaluados)
   const base: AuditRecord = {

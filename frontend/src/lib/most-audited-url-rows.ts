@@ -47,4 +47,19 @@ export type MostAuditedUrlRow = {
       ultimaRevisionRef: "2026-03-10",
       nota: "Expediente con revisiones periódicas.",
     },
+    {
+      rank: 6,
+      paginaRef:
+        "https://tramites.inapi.cl/Trademark/TrademarkAnnotation (mock)",
+      auditoriasRef: "No aplica",
+      ultimaRevisionRef: "—",
+      nota: "Volumen de auditorías LC no consolidado en referencia mock.",
+    },
+    {
+      rank: 7,
+      paginaRef: "https://tramites.inapi.cl/Help/FAQ (mock)",
+      auditoriasRef: "No aplica (ref.)",
+      ultimaRevisionRef: "—",
+      nota: "Página de ayuda fuera del alcance del seguimiento interno LC en Fase 1.",
+    },
   ] as const

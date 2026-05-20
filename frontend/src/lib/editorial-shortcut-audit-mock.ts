@@ -9,12 +9,19 @@ import {
   type EditorialShortcutPerfil,
 } from "@/lib/audit-shortcuts"
 
-/** Criterios en "cumple" por perfil (39 aplicables, sin N/A). */
+/** Criterios en "cumple" por perfil (sobre criterios aplicables; ver `noAplicaCount`). */
 const CUMPLE_COUNT_BY_PERFIL: Record<EditorialShortcutPerfil, number> = {
   peor: 22,
-  /** 33/39 ≈ 84,6 % → `aceptado_con_observaciones` (franja 81–90 %, barra ámbar). */
-  intermedio: 33,
+  /** Con 4 no aplica (35 aplicables): 29/35 ≈ 82,9 % → aceptado con observaciones. */
+  intermedio: 29,
   mejor: 36,
+}
+
+/** Criterios en "no_aplica" al inicio del orden oficial (mock por perfil de atajo). */
+const NO_APLICA_COUNT_BY_PERFIL: Record<EditorialShortcutPerfil, number> = {
+  peor: 7,
+  intermedio: 4,
+  mejor: 2,
 }
 
 /** Resumen editorial (campo `observaciones_lc` del contrato). */
@@ -91,6 +98,7 @@ export function buildStrictAuditForAuditarUrl(
       texto_propuesto: TEXTO_PROPUESTO_BY_PERFIL[shortcut.perfil],
     },
     shortcut.perfil,
+    NO_APLICA_COUNT_BY_PERFIL[shortcut.perfil],
   )
 }
 

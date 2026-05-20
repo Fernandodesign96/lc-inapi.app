@@ -182,6 +182,7 @@ export function AuditarInventorySections() {
                                 "text-amber-800 dark:text-amber-300",
                               vol === "bajo" &&
                                 "text-emerald-800 dark:text-emerald-300",
+                              vol === "no_aplica" && "text-muted-foreground",
                             )}
                           >
                             {row.auditoriasRef}

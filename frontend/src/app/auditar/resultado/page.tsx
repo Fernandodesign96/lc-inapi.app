@@ -22,67 +22,17 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
-import { buildDemoStrictAudit, type CriterionEvaluation } from "@contracts/checklist"
+import { buildDemoStrictAudit } from "@contracts/checklist"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
 import { CLASES_BARRA_POR_ESTADO } from "@/lib/resultado-mock-copy"
-
-type EstadoCriterio = CriterionEvaluation["estado"]
-type SeveridadCriterio = NonNullable<CriterionEvaluation["severidad"]>
-
-function filaCriterioClassName(estado: EstadoCriterio): string {
-  return cn(
-    "border-b border-border transition-colors",
-    estado === "incumple" &&
-      "border-l-4 border-l-destructive bg-destructive/5 hover:bg-destructive/10 dark:bg-destructive/10 dark:hover:bg-destructive/15",
-    estado === "no_aplica" &&
-      "border-l-4 border-l-amber-600/80 bg-muted/50 hover:bg-muted/70 dark:border-l-amber-500",
-    estado === "cumple" &&
-      "border-l-4 border-l-emerald-600 bg-emerald-50/70 hover:bg-emerald-100/80 dark:border-l-emerald-500 dark:bg-emerald-950/35 dark:hover:bg-emerald-950/50",
-  )
-}
-
-function presentacionEstado(estado: EstadoCriterio): {
-  simbolo: string
-  etiqueta: string
-  simboloClass: string
-  textoClass: string
-} {
-  switch (estado) {
-    case "incumple":
-      return {
-        simbolo: "!",
-        etiqueta: "No cumple",
-        simboloClass: "text-destructive",
-        textoClass: "text-foreground",
-      }
-    case "no_aplica":
-      return {
-        simbolo: "?",
-        etiqueta: "No aplica",
-        simboloClass: "text-amber-700 dark:text-amber-400",
-        textoClass: "text-muted-foreground",
-      }
-    case "cumple":
-      return {
-        simbolo: "✓",
-        etiqueta: "Cumple",
-        simboloClass: "text-emerald-700 dark:text-emerald-400",
-        textoClass: "text-foreground",
-      }
-  }
-}
-
-function severidadChipClass(sev: SeveridadCriterio): string {
-  return cn(
-    "inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium tabular-nums",
-    sev === "alta" &&
-      "border-destructive/45 bg-destructive/10 text-destructive",
-    sev === "media" &&
-      "border-amber-500/55 bg-amber-500/10 text-amber-950 dark:text-amber-50",
-    sev === "baja" && "border-border bg-muted text-muted-foreground",
-  )
-}
+import {
+  filaCriterioClassName,
+  pastillaSeveridadClass,
+  pastillaSeveridadLabel,
+  pastillaSeveridadTexto,
+  presentacionCriterio,
+} from "@/lib/criterio-evaluacion-visual"
 
 function ResultadoInner() {
   const router = useRouter()
@@ -280,35 +230,68 @@ function ResultadoInner() {
             </div>
             <div className="bg-[#FFFFFF] p-0">
               <div
-                className="flex flex-wrap gap-x-6 gap-y-1 border-b border-border px-4 py-2 text-xs text-muted-foreground"
-                aria-label="Leyenda de símbolos por estado de criterio"
+                className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border px-4 py-3 text-xs text-muted-foreground"
+                aria-label="Leyenda de estados y severidad en criterios"
               >
-                <span className="inline-flex items-center gap-1.5">
-                  <span
-                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-destructive/15 font-semibold text-destructive"
-                    aria-hidden
-                  >
-                    !
+                <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
+                  <span className="font-medium text-foreground">Severidad alta</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-destructive/15 font-semibold text-destructive"
+                      aria-hidden
+                    >
+                      !
+                    </span>
+                    No cumple · pastilla «alta» (rojo)
                   </span>
-                  No cumple
                 </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span
-                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-amber-500/15 font-semibold text-amber-800 dark:text-amber-300"
-                    aria-hidden
-                  >
-                    ?
+                <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
+                  <span className="font-medium text-foreground">Severidad media</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-amber-500/20 font-semibold text-amber-800 dark:text-amber-300"
+                      aria-hidden
+                    >
+                      ?
+                    </span>
+                    Medianamente cumple · pastilla «media» (naranjo)
                   </span>
-                  No aplica
                 </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span
-                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-emerald-600/15 font-semibold text-emerald-800 dark:text-emerald-300"
-                    aria-hidden
-                  >
-                    ✓
+                <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
+                  <span className="font-medium text-foreground">Severidad baja</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-sky-500/20 font-semibold text-sky-700 dark:text-sky-300"
+                      aria-hidden
+                    >
+                      ✓
+                    </span>
+                    Cumple con observaciones · pastilla «baja» (azul)
                   </span>
-                  Cumple
+                </span>
+                <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
+                  <span className="font-medium text-foreground">Criterio cumple</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="flex h-5 min-w-[1.35rem] shrink-0 items-center justify-center rounded-sm bg-emerald-600/15 px-0.5 text-[10px] font-bold leading-none text-emerald-800 dark:text-emerald-300"
+                      aria-hidden
+                    >
+                      ✓✓
+                    </span>
+                    Cumple · pastilla «correcta» (verde)
+                  </span>
+                </span>
+                <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
+                  <span className="font-medium text-foreground">No aplica</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="flex h-5 w-7 shrink-0 items-center justify-center rounded-sm bg-muted text-[13px] font-semibold leading-none text-muted-foreground"
+                      aria-hidden
+                    >
+                      —
+                    </span>
+                    Fila gris · estado «—» · severidad «—»
+                  </span>
                 </span>
               </div>
               <Table className="min-w-[36rem]">
@@ -322,11 +305,12 @@ function ResultadoInner() {
                 </TableHeader>
                 <TableBody>
                   {auditoria.criterios_evaluados.map((row) => {
-                    const pres = presentacionEstado(row.estado)
+                    const pres = presentacionCriterio(row)
+                    const pastilla = pastillaSeveridadLabel(row)
                     return (
                       <TableRow
                         key={row.id}
-                        className={filaCriterioClassName(row.estado)}
+                        className={filaCriterioClassName(row)}
                       >
                         <TableCell className="font-mono text-xs font-medium">
                           {row.id}
@@ -335,16 +319,18 @@ function ResultadoInner() {
                           <span className="flex items-center gap-2">
                             <span
                               className={cn(
-                                "flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-sm font-bold leading-none",
-                                row.estado === "incumple" && "bg-destructive/15",
-                                row.estado === "no_aplica" && "bg-amber-500/15",
-                                row.estado === "cumple" && "bg-emerald-600/15",
+                                "flex shrink-0 items-center justify-center rounded-md font-bold leading-none",
+                                pres.simboloCompacto
+                                  ? cn(
+                                      "h-7 min-w-8 px-1 text-[11px] font-semibold tracking-tight",
+                                      pres.simboloMono && "font-mono",
+                                    )
+                                  : "h-7 w-7 text-sm",
+                                pres.cajaSimboloClass,
                               )}
                               aria-hidden
                             >
-                              <span className={pres.simboloClass}>
-                                {pres.simbolo}
-                              </span>
+                              <span className={pres.simboloClass}>{pres.simbolo}</span>
                             </span>
                             <span
                               className={cn(
@@ -357,21 +343,21 @@ function ResultadoInner() {
                           </span>
                         </TableCell>
                         <TableCell>
-                          {row.severidad ? (
-                            <span
-                              className={severidadChipClass(row.severidad)}
-                            >
-                              {row.severidad}
-                            </span>
-                          ) : (
-                            <span className="text-muted-foreground">—</span>
-                          )}
+                          <span className={pastillaSeveridadClass(pastilla)}>
+                            {pastillaSeveridadTexto(pastilla)}
+                          </span>
                         </TableCell>
                         <TableCell
                           className="max-w-[min(100vw,24rem)] text-sm leading-snug text-foreground"
-                          title={row.comentario ?? undefined}
+                          title={
+                            row.estado === "no_aplica"
+                              ? undefined
+                              : (row.comentario ?? undefined)
+                          }
                         >
-                          {row.comentario ? (
+                          {row.estado === "no_aplica" ? (
+                            <span className="text-muted-foreground">—</span>
+                          ) : row.comentario ? (
                             <span className="line-clamp-2">{row.comentario}</span>
                           ) : (
                             <span className="text-muted-foreground">—</span>
