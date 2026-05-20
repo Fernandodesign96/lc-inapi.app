@@ -22,8 +22,21 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { CLARITY_INVENTORY_ROWS } from "@/lib/clarity-inventory-rows"
+import {
+  CeldaEstadoEditorial,
+  CeldaIndicadorSeguimiento,
+  InventarioLeyendaLcEditorial,
+  InventarioLeyendaSeguimientoVolumen,
+  inventoryRowClassFromLcEditorialBucket,
+  inventoryRowClassFromSeguimientoBucket,
+  lcEditorialBucketFromLabel,
+  parsePorcentajeLcRef,
+  porcentajeLcTextClass,
+  seguimientoVolumenFromAuditorias,
+} from "@/lib/inventory-table-visuals"
 import { MOST_AUDITED_URL_ROWS } from "@/lib/most-audited-url-rows"
 import { RESOLVED_LC_STATE_ROWS } from "@/lib/resolved-lc-state-rows"
+import { cn } from "@/lib/utils"
 
 export function AuditarInventorySections() {
   return (
@@ -49,6 +62,7 @@ export function AuditarInventorySections() {
                   editorial, no dump crudo de Clarity). Las URLs absolutas se
                   completan en una pasada editorial posterior.
                 </p>
+                <InventarioLeyendaLcEditorial />
                 <Table>
                   <TableCaption className="sr-only">
                     Inventario de rutas o etiquetas Clarity con referencia de
@@ -70,23 +84,39 @@ export function AuditarInventorySections() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {CLARITY_INVENTORY_ROWS.map((row) => (
-                      <TableRow key={row.rank}>
-                        <TableCell className="font-medium tabular-nums">
-                          {row.rank}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,28rem)] break-words">
-                          {row.rutaEtiqueta}
-                        </TableCell>
-                        <TableCell className="text-right tabular-nums">
-                          {row.visitasRef}
-                        </TableCell>
-                        <TableCell className="text-right tabular-nums">
-                          {row.porcentajeLcRef}
-                        </TableCell>
-                        <TableCell>{row.estadoRef}</TableCell>
-                      </TableRow>
-                    ))}
+                    {CLARITY_INVENTORY_ROWS.map((row) => {
+                      const bucket = lcEditorialBucketFromLabel(row.estadoRef)
+                      const pct = parsePorcentajeLcRef(row.porcentajeLcRef)
+                      return (
+                        <TableRow
+                          key={row.rank}
+                          className={inventoryRowClassFromLcEditorialBucket(
+                            bucket,
+                          )}
+                        >
+                          <TableCell className="font-medium tabular-nums">
+                            {row.rank}
+                          </TableCell>
+                          <TableCell className="max-w-[min(100vw,28rem)] wrap-break-word">
+                            {row.rutaEtiqueta}
+                          </TableCell>
+                          <TableCell className="text-right tabular-nums">
+                            {row.visitasRef}
+                          </TableCell>
+                          <TableCell
+                            className={cn("text-right", porcentajeLcTextClass(pct))}
+                          >
+                            {row.porcentajeLcRef}
+                          </TableCell>
+                          <TableCell>
+                            <CeldaEstadoEditorial
+                              bucket={bucket}
+                              etiqueta={row.estadoRef}
+                            />
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })}
                   </TableBody>
                 </Table>
               </div>
@@ -104,6 +134,7 @@ export function AuditarInventorySections() {
                   (OpenProject, histórico de auditorías o exportación interna).
                   Las cifras no representan persistencia real en Fase 1.
                 </p>
+                <InventarioLeyendaSeguimientoVolumen />
                 <Table>
                   <TableCaption className="sr-only">
                     URLs con mayor número de auditorías de referencia en el mock.
@@ -111,6 +142,9 @@ export function AuditarInventorySections() {
                   <TableHeader>
                     <TableRow>
                       <TableHead className="w-10 whitespace-nowrap">#</TableHead>
+                      <TableHead className="w-22 text-center text-xs font-medium text-muted-foreground">
+                        Nivel
+                      </TableHead>
                       <TableHead>Página (ref.)</TableHead>
                       <TableHead className="whitespace-nowrap text-right">
                         Auditorías (ref.)
@@ -122,25 +156,48 @@ export function AuditarInventorySections() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {MOST_AUDITED_URL_ROWS.map((row) => (
-                      <TableRow key={row.rank}>
-                        <TableCell className="font-medium tabular-nums">
-                          {row.rank}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,24rem)] break-all sm:break-words">
-                          {row.paginaRef}
-                        </TableCell>
-                        <TableCell className="text-right tabular-nums">
-                          {row.auditoriasRef}
-                        </TableCell>
-                        <TableCell className="whitespace-nowrap">
-                          {row.ultimaRevisionRef}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,20rem)] break-words text-muted-foreground">
-                          {row.nota}
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                    {MOST_AUDITED_URL_ROWS.map((row) => {
+                      const vol = seguimientoVolumenFromAuditorias(
+                        row.auditoriasRef,
+                      )
+                      return (
+                        <TableRow
+                          key={row.rank}
+                          className={inventoryRowClassFromSeguimientoBucket(vol)}
+                        >
+                          <TableCell className="font-medium tabular-nums">
+                            {row.rank}
+                          </TableCell>
+                          <TableCell className="align-middle">
+                            <CeldaIndicadorSeguimiento bucket={vol} />
+                          </TableCell>
+                          <TableCell className="max-w-[min(100vw,24rem)] break-all sm:wrap-break-word">
+                            {row.paginaRef}
+                          </TableCell>
+                          <TableCell
+                            className={cn(
+                              "text-right tabular-nums font-semibold",
+                              vol === "alto" && "text-destructive",
+                              vol === "medio" &&
+                                "text-amber-800 dark:text-amber-300",
+                              vol === "bajo" &&
+                                "text-emerald-800 dark:text-emerald-300",
+                            )}
+                          >
+                            {row.auditoriasRef}
+                          </TableCell>
+                          <TableCell className="whitespace-nowrap">
+                            {row.ultimaRevisionRef}
+                          </TableCell>
+                          <TableCell
+                            className="max-w-[min(100vw,20rem)] wrap-break-word text-muted-foreground"
+                            title={row.nota}
+                          >
+                            <span className="line-clamp-2">{row.nota}</span>
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })}
                   </TableBody>
                 </Table>
               </div>
@@ -158,6 +215,7 @@ export function AuditarInventorySections() {
                   Sustituir por datos validados o fixtures cuando existan en
                   repositorio.
                 </p>
+                <InventarioLeyendaLcEditorial />
                 <Table>
                   <TableCaption className="sr-only">
                     URLs con estado final de lenguaje claro y fecha de cierre de
@@ -177,23 +235,41 @@ export function AuditarInventorySections() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {RESOLVED_LC_STATE_ROWS.map((row) => (
-                      <TableRow key={row.rank}>
-                        <TableCell className="font-medium tabular-nums">
-                          {row.rank}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,24rem)] break-all sm:break-words">
-                          {row.paginaRef}
-                        </TableCell>
-                        <TableCell>{row.estadoLcFinalRef}</TableCell>
-                        <TableCell className="whitespace-nowrap">
-                          {row.fechaCierreRef}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,20rem)] break-words text-muted-foreground">
-                          {row.observacion}
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                    {RESOLVED_LC_STATE_ROWS.map((row) => {
+                      const bucket = lcEditorialBucketFromLabel(
+                        row.estadoLcFinalRef,
+                      )
+                      return (
+                        <TableRow
+                          key={row.rank}
+                          className={inventoryRowClassFromLcEditorialBucket(
+                            bucket,
+                          )}
+                        >
+                          <TableCell className="font-medium tabular-nums">
+                            {row.rank}
+                          </TableCell>
+                          <TableCell className="max-w-[min(100vw,24rem)] break-all sm:wrap-break-word">
+                            {row.paginaRef}
+                          </TableCell>
+                          <TableCell>
+                            <CeldaEstadoEditorial
+                              bucket={bucket}
+                              etiqueta={row.estadoLcFinalRef}
+                            />
+                          </TableCell>
+                          <TableCell className="whitespace-nowrap font-medium tabular-nums text-foreground">
+                            {row.fechaCierreRef}
+                          </TableCell>
+                          <TableCell
+                            className="max-w-[min(100vw,20rem)] wrap-break-word text-muted-foreground"
+                            title={row.observacion}
+                          >
+                            <span className="line-clamp-2">{row.observacion}</span>
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })}
                   </TableBody>
                 </Table>
               </div>

@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.4.1 |
+| **Versión** | 0.4.4 |
 | **Motor** | PostgreSQL (hosted por Supabase) |
 | **ORM (servicio API)** | **Prisma** (ver [ADR 0005](adr/0005-api-backend-nestjs-prisma.md)) |
 | **Evaluación LLM** | **Claude API** vía servicio **Python** en **AWS** (API Gateway + Lambda por defecto; ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md) y [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md)) |
@@ -17,6 +17,7 @@
 - **39 filas lógicas** por auditoría en evaluación detallada (o JSON validado con Zod en una columna `jsonb` + constraints).
 - **RLS** obligatorio antes de exponer a usuarios no-service.
 - **Fase 1 (mock):** no hay tablas productivas obligatorias; el inventario de URLs prioritarias y los **fixtures** de auditoría pueden vivir solo en **repositorio** (`data/`, `docs/ux/`) hasta Fase 2.
+- **Modelo lógico y parseo (pre-conexiones):** matriz campo ↔ tipo ↔ origen (captura / LLM / sistema), flujo de validación Zod y checklist de decisiones pendientes para alinear con responsable de datos / **Equipo UX** — ver [ADR 0007](adr/0007-modelo-datos-parseo-pre-conexiones.md). Tras la reunión de cierre, propagar aquí los cambios acordados a tablas y tipos.
 
 ---
 
@@ -63,6 +64,10 @@ Una fila por criterio y auditoría (normalizado; facilita consultas por código)
 | `severidad` | `text` nullable | `baja` \| `media` \| `alta` |
 | `comentario` | `text` nullable | |
 | PK | (`audit_id`, `criterion_id`) | |
+
+En **Fase 1 (mock en Next)**, la misma semántica debe reflejarse en la **UI de resultado**: la tabla de los 39 criterios debe poder mostrar **severidad** y **comentario** cuando el registro mock los incluya (`criterionEvaluationSchema` en [`src/schemas/checklist.ts`](../src/schemas/checklist.ts)), para paridad visual y contractual con esta tabla antes de existir Postgres.
+
+**Convención de documentación:** las **decisiones sobre modelo de datos**, **parseo** del registro mock y **reglas de negocio** en pantalla (p. ej. cuándo rellenar `severidad` / `comentario`, obligatoriedad frente a Fase 2, mapeo explícito a estas columnas) que surjan de diálogo con el **Equipo UX** deben volcarse en `docs/` — este archivo, [`ARCHITECTURE.md`](ARCHITECTURE.md) y [`docs/development/DEVLOG.md`](development/DEVLOG.md) — para trazabilidad frente a implementación y a migraciones Prisma posteriores.
 
 **Alternativa MVP rápida:** una sola columna `results jsonb` en `audits` con array de 39 elementos validado en aplicación. Trade-off: menos SQL declarativo, más simplicidad. Documentar elección en ADR.
 
@@ -128,4 +133,4 @@ Ajustar cuando existan roles organizacionales (INAPI).
 
 ---
 
-*Este esquema es orientativo; la migración final debe acompañarse de ADR y revisiones de TI INAPI.*
+*Este esquema es orientativo; la migración final debe acompañarse de ADR y revisiones de TI INAPI. Consolidación lógica previa a conexiones: [ADR 0007](adr/0007-modelo-datos-parseo-pre-conexiones.md).*

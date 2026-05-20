@@ -78,6 +78,64 @@ export const severitySchema = z.enum(["baja", "media", "alta"])
 
 export type Severity = z.infer<typeof severitySchema>
 
+/** Orden para rotar severidad entre filas incumplidas (mock determinista). */
+const MOCK_SEVERIDAD_ROTACION: Severity[] = ["baja", "media", "alta"]
+
+/**
+ * Reglas mock acordadas con Equipo UX (ajustar aquí si cambian):
+ * - severidad y comentario solo en `incumple`
+ * - sin aleatoriedad: rotación por orden de aparición entre incumplidos
+ * - comentario omitido en severidad baja para no saturar la tabla
+ */
+export type MockSeveridadBias = "peor" | "intermedio" | "mejor"
+
+const MOCK_BIAS_INDEX: Record<MockSeveridadBias, number> = {
+  peor: 2,
+  intermedio: 1,
+  mejor: 0,
+}
+
+/**
+ * Rellena `severidad` y `comentario` en filas `incumple` sin alterar conteos del resumen.
+ */
+export function enrichCriterionEvaluationsForMock(
+  evaluations: CriterionEvaluation[],
+  bias: MockSeveridadBias = "intermedio",
+): CriterionEvaluation[] {
+  const byId = new Map<CriterionId, CriterionEvaluation>(
+    evaluations.map((e) => [e.id, e]),
+  )
+  let incumpleIndex = 0
+  const baseBias = MOCK_BIAS_INDEX[bias]
+
+  return CRITERION_IDS.map((id) => {
+    const row = byId.get(id)
+    if (!row) {
+      throw new Error(`Falta evaluación para criterio ${id}`)
+    }
+    if (row.estado !== "incumple") {
+      return row
+    }
+    const sev =
+      MOCK_SEVERIDAD_ROTACION[
+        (incumpleIndex + baseBias) % MOCK_SEVERIDAD_ROTACION.length
+      ]
+    incumpleIndex += 1
+
+    const comentarioPorSeveridad: Record<Severity, string | undefined> = {
+      baja: undefined,
+      media: "Revisar redacción en titular o microcopy asociado al criterio.",
+      alta: "Priorizar corrección antes de publicación: lenguaje poco claro o inconsistente con la pauta INAPI.",
+    }
+
+    return {
+      ...row,
+      severidad: sev,
+      comentario: comentarioPorSeveridad[sev],
+    }
+  })
+}
+
 export const criterionEvaluationSchema = z.object({
   id: criterionIdSchema,
   estado: criterionResultStateSchema,
@@ -248,12 +306,19 @@ export function buildDemoStrictAudit(overrides?: Partial<AuditRecord>): StrictAu
 export function buildDemoStrictAuditWithCumpleCount(
   cumpleCount: number,
   overrides?: Partial<AuditRecord>,
+  mockSeveridadBias?: MockSeveridadBias,
 ): StrictAuditRecord {
   const n = Math.max(0, Math.min(39, Math.floor(cumpleCount)))
-  const criterios_evaluados: CriterionEvaluation[] = CRITERION_IDS.map((id, i) => ({
-    id,
-    estado: i < n ? "cumple" : "incumple",
-  }))
+  const criterios_evaluadosRaw: CriterionEvaluation[] = CRITERION_IDS.map(
+    (id, i) => ({
+      id,
+      estado: i < n ? "cumple" : "incumple",
+    }),
+  )
+  const criterios_evaluados = enrichCriterionEvaluationsForMock(
+    criterios_evaluadosRaw,
+    mockSeveridadBias ?? "intermedio",
+  )
   const sum = summarizeEvaluations(criterios_evaluados)
   const base: AuditRecord = {
     id: "demo_audit_profile_cumple_count",

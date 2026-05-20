@@ -80,13 +80,17 @@ export function buildStrictAuditForAuditarUrl(
 
   const cumple = CUMPLE_COUNT_BY_PERFIL[shortcut.perfil]
 
-  return buildDemoStrictAuditWithCumpleCount(cumple, {
-    id: `demo_audit_shortcut_${shortcut.perfil}`,
-    url: auditUrl,
-    texto_capturado: textoCapturado,
-    observaciones_lc: OBSERVACIONES_LC_BY_PERFIL[shortcut.perfil],
-    texto_propuesto: TEXTO_PROPUESTO_BY_PERFIL[shortcut.perfil],
-  })
+  return buildDemoStrictAuditWithCumpleCount(
+    cumple,
+    {
+      id: `demo_audit_shortcut_${shortcut.perfil}`,
+      url: auditUrl,
+      texto_capturado: textoCapturado,
+      observaciones_lc: OBSERVACIONES_LC_BY_PERFIL[shortcut.perfil],
+      texto_propuesto: TEXTO_PROPUESTO_BY_PERFIL[shortcut.perfil],
+    },
+    shortcut.perfil,
+  )
 }
 
 export { buildDemoStrictAudit }

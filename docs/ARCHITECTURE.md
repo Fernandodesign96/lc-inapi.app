@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.5 |
+| **Versión** | 0.5.3 |
 | **Tipo** | Web app — Next.js (App Router) + API NestJS (Prisma) + Postgres/Auth (Supabase) + **servicio de evaluación LC (Python en AWS Lambda, detrás de API Gateway) + Claude API** |
 | **Gestor de paquetes** | Bun |
 
@@ -84,18 +84,20 @@ La migración física a `apps/` y `packages/contracts/` es **decisión de Fase 2
 | Runtime local / CI | **Bun** | `bun install`, `bun run`, lockfile `bun.lock` |
 | Infra compartida | **AWS** (API Gateway + Lambda por defecto; ECS/EC2 si aplica) | Detalle y preguntas abiertas en ADR 0006 y propuesta técnica |
 
-Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-supabase.md), [docs/adr/0004-llm-checklist-evaluation-and-versioning.md](adr/0004-llm-checklist-evaluation-and-versioning.md), [docs/adr/0005-api-backend-nestjs-prisma.md](adr/0005-api-backend-nestjs-prisma.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](adr/0006-lc-evaluation-python-claude-aws.md).
+Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-supabase.md), [docs/adr/0004-llm-checklist-evaluation-and-versioning.md](adr/0004-llm-checklist-evaluation-and-versioning.md), [docs/adr/0005-api-backend-nestjs-prisma.md](adr/0005-api-backend-nestjs-prisma.md), [docs/adr/0006-lc-evaluation-python-claude-aws.md](adr/0006-lc-evaluation-python-claude-aws.md) y [docs/adr/0007-modelo-datos-parseo-pre-conexiones.md](adr/0007-modelo-datos-parseo-pre-conexiones.md) (modelo lógico y parseo antes de conexiones).
 
 ---
 
 ## 3. Contratos de datos
 
 - **Catálogo:** `checklistCriteriaFileSchema` ↔ `data/checklist-criteria.json`.
-- **Evaluación:** `criterionEvaluationSchema` × 39.
+- **Evaluación:** `criterionEvaluationSchema` × 39 (incluye `severidad` y `comentario` opcionales por criterio). **Fase 1:** la pantalla **`/auditar/resultado`** lista esas columnas en la tabla mock; los acuerdos del **Equipo UX** sobre modelo de datos, **parseo** con `parseStrictAuditRecord` / builders en [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) y paridad con persistencia futura deben constar en `docs/` (ver [`docs/ROADMAP.md`](ROADMAP.md) — ítem **Actualización de documentación con Equipo UX y tabla de criterios completa**).
 - **Auditoría persistida o mock:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle). Campos opcionales de copy agregado: `observaciones_lc` (resumen editorial) y `texto_propuesto` (redacción sugerida para la URL); ver columnas homónimas / `proposed_text` en [DATABASE.md](DATABASE.md) §2 `audits`.
 - **Fixtures:** JSON versionado bajo `data/audit-fixtures/` (convención en roadmap), validados en CI o script local igual que el catálogo.
 
 Implementación actual de esquemas: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) (equivalente conceptual a `packages/contracts` del monorepo objetivo).
+
+- **Pre-conexiones (datos y parseo):** diagrama ER lógico, mapeo Zod ↔ columnas Postgres, viñetas de flujo Nest → Lambda → Claude → `parseStrictAuditRecord` → Prisma y lista de decisiones pendientes en [ADR 0007](adr/0007-modelo-datos-parseo-pre-conexiones.md) (borrador hasta validación con **Equipo UX** / datos).
 
 ---
 
