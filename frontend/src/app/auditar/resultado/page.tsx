@@ -13,7 +13,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 import { buildDemoStrictAudit } from "@contracts/checklist"
+import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 
 function ResultadoInner() {
   const router = useRouter()
@@ -40,10 +49,14 @@ function ResultadoInner() {
 
   const auditoria = useMemo(() => {
     if (!auditUrl) return null
-    return buildDemoStrictAudit({
-      url: auditUrl,
-      texto_capturado: `(mock) Contenido evaluado para ${auditUrl}`,
-    })
+    const texto = `(mock) Contenido evaluado para ${auditUrl}`
+    return (
+      buildStrictAuditForAuditarUrl(auditUrl, texto) ??
+      buildDemoStrictAudit({
+        url: auditUrl,
+        texto_capturado: texto,
+      })
+    )
   }, [auditUrl])
 
   if (!urlDecoded) {
@@ -69,78 +82,152 @@ function ResultadoInner() {
   return (
     <div className="flex w-full flex-col gap-6">
       <Card>
-        <CardHeader>
-          <CardTitle>Resultado de la auditoría (mock)</CardTitle>
-          <CardDescription>
-            Datos generados con{" "}
-            <code className="rounded bg-muted px-1 text-xs">
-              buildDemoStrictAudit
-            </code>{" "}
-            desde <code className="rounded bg-muted px-1 text-xs">@contracts/checklist</code>.
-            Las 39 filas cumplen{" "}
-            <code className="rounded bg-muted px-1 text-xs">
-              strictAuditRecordSchema
-            </code>
-            .
-          </CardDescription>
+        <CardHeader className="gap-4 space-y-0">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0 flex-1 space-y-1.5">
+              <CardTitle>Resultado de la auditoría (mock)</CardTitle>
+              <CardDescription>
+                Datos generados con{" "}
+                <code className="rounded bg-muted px-1 text-xs">
+                  buildDemoStrictAudit
+                </code>{" "}
+                desde{" "}
+                <code className="rounded bg-muted px-1 text-xs">
+                  @contracts/checklist
+                </code>
+                . Las 39 filas cumplen{" "}
+                <code className="rounded bg-muted px-1 text-xs">
+                  strictAuditRecordSchema
+                </code>
+                .
+              </CardDescription>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              className="shrink-0 self-start sm:self-auto"
+              asChild
+            >
+              <Link href="/auditar">Regresar</Link>
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid gap-2 text-sm sm:grid-cols-2">
-            <p>
-              <span className="text-muted-foreground">URL:</span>{" "}
-              <span className="font-medium break-all">{auditoria.url}</span>
-            </p>
-            <p>
-              <span className="text-muted-foreground">Checklist:</span>{" "}
-              <span className="font-medium">{auditoria.version_checklist}</span>
-            </p>
-            <p>
-              <span className="text-muted-foreground">Cumplimiento:</span>{" "}
-              <span className="font-medium">
-                {auditoria.porcentaje_cumplimiento} %
-              </span>
-            </p>
-            <p>
-              <span className="text-muted-foreground">Estado:</span>{" "}
-              <span className="font-medium">{auditoria.estado_aceptacion}</span>
-            </p>
-            <p>
-              <span className="text-muted-foreground">Aprobados:</span>{" "}
-              {auditoria.criterios_aprobados} / aplicables{" "}
-              {auditoria.criterios_aplicables}
-            </p>
-            <p>
-              <span className="text-muted-foreground">N/A:</span>{" "}
-              {auditoria.criterios_no_aplica}
-            </p>
-          </div>
+          <section
+            className="overflow-hidden rounded-lg border border-border shadow-sm"
+            aria-labelledby="resultado-resumen-titulo"
+          >
+            <div
+              id="resultado-resumen-titulo"
+              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+            >
+              Resumen
+            </div>
+            <div className="bg-[#FFFFFF] p-4">
+              <div className="grid gap-2 text-sm sm:grid-cols-2">
+                <p>
+                  <span className="text-muted-foreground">URL:</span>{" "}
+                  <span className="font-medium break-all">{auditoria.url}</span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Checklist:</span>{" "}
+                  <span className="font-medium">
+                    {auditoria.version_checklist}
+                  </span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Cumplimiento:</span>{" "}
+                  <span className="font-medium">
+                    {auditoria.porcentaje_cumplimiento} %
+                  </span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Estado:</span>{" "}
+                  <span className="font-medium">
+                    {auditoria.estado_aceptacion}
+                  </span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Aprobados:</span>{" "}
+                  {auditoria.criterios_aprobados} / aplicables{" "}
+                  {auditoria.criterios_aplicables}
+                </p>
+                <p>
+                  <span className="text-muted-foreground">N/A:</span>{" "}
+                  {auditoria.criterios_no_aplica}
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <div className="overflow-x-auto rounded-lg border border-border">
-            <table className="w-full min-w-[36rem] text-left text-sm">
-              <thead className="border-b border-border bg-muted/50">
-                <tr>
-                  <th className="px-3 py-2 font-medium">Criterio</th>
-                  <th className="px-3 py-2 font-medium">Estado</th>
-                  <th className="px-3 py-2 font-medium">Severidad</th>
-                  <th className="px-3 py-2 font-medium">Comentario</th>
-                </tr>
-              </thead>
-              <tbody>
-                {auditoria.criterios_evaluados.map((row) => (
-                  <tr key={row.id} className="border-b last:border-0">
-                    <td className="px-3 py-2 font-mono text-xs">{row.id}</td>
-                    <td className="px-3 py-2">{row.estado}</td>
-                    <td className="px-3 py-2 text-muted-foreground">
-                      {row.severidad ?? "—"}
-                    </td>
-                    <td className="max-w-xs truncate px-3 py-2 text-muted-foreground">
-                      {row.comentario ?? "—"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {(auditoria.observaciones_lc || auditoria.texto_propuesto) ? (
+            <div className="space-y-4">
+              {auditoria.observaciones_lc ? (
+                <section className="overflow-hidden rounded-lg border border-border shadow-sm">
+                  <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
+                    Observaciones
+                  </div>
+                  <div className="bg-[#FFFFFF] p-4">
+                    <p className="text-sm leading-relaxed text-foreground">
+                      {auditoria.observaciones_lc}
+                    </p>
+                  </div>
+                </section>
+              ) : null}
+              {auditoria.texto_propuesto ? (
+                <section className="overflow-hidden rounded-lg border border-border shadow-sm">
+                  <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
+                    Texto propuesto
+                  </div>
+                  <div className="bg-[#FFFFFF] p-4">
+                    <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+                      {auditoria.texto_propuesto}
+                    </p>
+                  </div>
+                </section>
+              ) : null}
+            </div>
+          ) : null}
+
+          <section
+            className="overflow-hidden rounded-lg border border-border shadow-sm"
+            aria-labelledby="resultado-criterios-titulo"
+          >
+            <div
+              id="resultado-criterios-titulo"
+              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+            >
+              Criterios evaluados
+            </div>
+            <div className="bg-[#FFFFFF] p-0">
+              <Table className="min-w-[36rem]">
+                <TableHeader>
+                  <TableRow className="border-b border-border bg-muted/50 hover:bg-muted/50">
+                    <TableHead className="min-w-[4rem]">Criterio</TableHead>
+                    <TableHead>Estado</TableHead>
+                    <TableHead>Severidad</TableHead>
+                    <TableHead>Comentario</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {auditoria.criterios_evaluados.map((row) => (
+                    <TableRow key={row.id}>
+                      <TableCell className="font-mono text-xs">
+                        {row.id}
+                      </TableCell>
+                      <TableCell>{row.estado}</TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {row.severidad ?? "—"}
+                      </TableCell>
+                      <TableCell className="max-w-xs truncate text-muted-foreground">
+                        {row.comentario ?? "—"}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </section>
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" asChild>
