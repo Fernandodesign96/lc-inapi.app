@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-20 | [Frontend: Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados](#devlog-2026-05-20-tabla-severidad-inventarios) |
 | 2026-05-19 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-19-auditar-data-ux-devlog) |
 | 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
 | 2026-05-19 | [Documentación: Flujo home gateway, `/auditar` (atajos, Clarity) y barras colapsables](#devlog-2026-05-19-doc-flujo-auditar) |
@@ -17,6 +18,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-20-tabla-severidad-inventarios"></a>
+
+## [2026-05-20] - Frontend | Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados
+
+### Contexto y objetivos:
+
+Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización de documentación con Equipo UX y tabla de criterios completa»** (marcado `[x]` en [`docs/ROADMAP.md`](../ROADMAP.md)): datos mock creíbles para **severidad** y **comentario** por criterio en atajos editoriales, misma **jerarquía visual** que el producto final en la tabla de **39** filas (`!` / `?` / `✓`, bandas y chips), coherencia en las **tablas de inventarios** bajo `/auditar` y corrección del borde izquierdo en la **última fila** de todas las tablas `Table`.
+
+### Implementación técnica:
+
+- **`src/schemas/checklist.ts`:** `enrichCriterionEvaluationsForMock`, tipo `MockSeveridadBias` y tercer parámetro opcional en `buildDemoStrictAuditWithCumpleCount`; rotación determinista de severidad y comentarios breves solo en filas `incumple`.
+- **`frontend/src/lib/editorial-shortcut-audit-mock.ts`:** paso del perfil del atajo al builder para sesgar severidades según peor / intermedio / mejor LC.
+- **`frontend/src/app/auditar/resultado/page.tsx`:** leyenda de símbolos, `TableRow` con clases por `estado` del criterio, columna estado con icono + etiqueta, chips de severidad, comentario con `line-clamp-2` y `title`.
+- **`frontend/src/lib/inventory-table-visuals.tsx`** y **`frontend/src/components/auditar-inventory-sections.tsx`:** leyendas y filas con la misma lógica de buckets editoriales (Clarity, más auditadas por volumen de auditorías, estados resueltos); color del **% LC** según umbrales del checklist; columna **Nivel** en más auditadas.
+- **`frontend/src/components/ui/table.tsx`:** sustituir `[&_tr:last-child]:border-0` por `[&_tr:last-child]:border-b-0` para no anular `border-l-4` en la última fila.
+
+### Próximos pasos:
+
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): ítem **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`); **estado intermedio** entre ingreso y resultado; **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
+- Volcar en documentación / **ADR 0007** los acuerdos formales con **Equipo UX** o responsable de datos cuando se concrete la reunión (modelo y parseo más allá del borrador actual).
 
 ---
 
@@ -39,8 +63,7 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 
 ### Próximos pasos:
 
-- **Actualización de documentación con Equipo UX y tabla de criterios completa:** (1) Actualizar documentación con acuerdos del **Equipo UX** (modelo de datos, parseo del JSON de auditoría, qué campos son obligatorios u opcionales en mock vs. Fase 2). (2) Completar en **`/auditar/resultado`** la tabla de criterios con columnas **severidad** y **comentario** (datos mock + contrato ya previsto en Zod y en [`DATABASE.md`](../DATABASE.md) §2 `audit_criterion_results`). Detalle operativo: [`docs/ROADMAP.md`](../ROADMAP.md), ítem **Actualización de documentación con Equipo UX y tabla de criterios completa**.
-- Después: ítem roadmap **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`, refuerzo de copy ya iniciado con `texto_propuesto`); script opcional de validación o importación desde `data/ux/` hacia seeds o fixtures `strictAuditRecordSchema`.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): ítem **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`, refuerzo de copy con `texto_propuesto`); **estado intermedio**; **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-23](#devlog-2026-05-23-tabla-severidad-inventarios)).
 
 ---
 
