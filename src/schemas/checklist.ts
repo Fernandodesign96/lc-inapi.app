@@ -157,7 +157,7 @@ export type AcceptanceStatus = z.infer<typeof acceptanceStatusSchema>
 
 export function acceptanceStatusFromPercentage(pct: number): AcceptanceStatus {
   if (pct <= 80) return "rechazado"
-  if (pct <= 90) return "aceptado_con_observaciones"
+  if (pct < 91) return "aceptado_con_observaciones"
   return "aprobado"
 }
 

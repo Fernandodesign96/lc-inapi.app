@@ -12,7 +12,8 @@ import {
 /** Criterios en "cumple" por perfil (39 aplicables, sin N/A). */
 const CUMPLE_COUNT_BY_PERFIL: Record<EditorialShortcutPerfil, number> = {
   peor: 22,
-  intermedio: 28,
+  /** 33/39 ≈ 84,6 % → `aceptado_con_observaciones` (franja 81–90 %, barra ámbar). */
+  intermedio: 33,
   mejor: 36,
 }
 

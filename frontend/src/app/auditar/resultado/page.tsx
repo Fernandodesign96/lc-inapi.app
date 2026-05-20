@@ -21,9 +21,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Progress } from "@/components/ui/progress"
 import { buildDemoStrictAudit, type CriterionEvaluation } from "@contracts/checklist"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
+import { CLASES_BARRA_POR_ESTADO } from "@/lib/resultado-mock-copy"
 
 type EstadoCriterio = CriterionEvaluation["estado"]
 type SeveridadCriterio = NonNullable<CriterionEvaluation["severidad"]>
@@ -193,12 +195,31 @@ function ResultadoInner() {
                     {auditoria.version_checklist}
                   </span>
                 </p>
-                <p>
-                  <span className="text-muted-foreground">Cumplimiento:</span>{" "}
-                  <span className="font-medium">
-                    {auditoria.porcentaje_cumplimiento} %
-                  </span>
-                </p>
+                <div className="sm:col-span-2 space-y-2">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span
+                      className="text-muted-foreground"
+                      id="resultado-cumplimiento-label"
+                    >
+                      Cumplimiento (criterios aplicables)
+                    </span>
+                    <span
+                      className="font-medium tabular-nums text-foreground"
+                      aria-labelledby="resultado-cumplimiento-label"
+                    >
+                      {auditoria.porcentaje_cumplimiento} %
+                    </span>
+                  </div>
+                  <Progress
+                    aria-labelledby="resultado-cumplimiento-label"
+                    value={auditoria.porcentaje_cumplimiento}
+                    max={100}
+                    className={CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track}
+                    indicatorClassName={
+                      CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
+                    }
+                  />
+                </div>
                 <p>
                   <span className="text-muted-foreground">Estado:</span>{" "}
                   <span className="font-medium">

@@ -1,4 +1,7 @@
-import type { AcceptanceStatus } from "@contracts/checklist"
+import {
+  acceptanceStatusFromPercentage,
+  type AcceptanceStatus,
+} from "@contracts/checklist"
 
 /**
  * Umbrales de negocio (solo documentación en UI; la fuente de verdad sigue siendo
@@ -83,3 +86,14 @@ export const TEXTO_PROPUESTO_GENERICO = `(mock) Redacción sugerida de referenci
 • Revise titulares y mensajes de estado en voz activa y con términos del usuario.
 • Unifique el tono institucional y evite siglas sin explicar en el primer uso.
 • Incluya enlaces de ayuda claros ("Cómo…", "Qué significa…") cuando el trámite sea complejo.`
+
+/**
+ * Misma semántica que `estado_aceptacion` en el registro de auditoría.
+ * En la página de resultado prefieres `auditoria.estado_aceptacion` para colorear;
+ * usa esto solo si partes solo del porcentaje.
+ */
+export function estadoAceptacionDesdePorcentaje(
+  porcentaje: number,
+): AcceptanceStatus {
+  return acceptanceStatusFromPercentage(porcentaje)
+}
