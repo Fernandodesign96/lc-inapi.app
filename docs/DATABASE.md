@@ -45,7 +45,8 @@
 | `prompt_version` | `text` | Alineado a versión de prompts del servicio Python / [ADR 0004](adr/0004-llm-checklist-evaluation-and-versioning.md) |
 | `captured_text` | `text` | Contenido evaluado (considerar límites y retención) |
 | `summary` | `jsonb` | `{ criterios_aprobados, criterios_aplicables, criterios_no_aplica, porcentaje_cumplimiento, estado_aceptacion }` |
-| `proposed_text` | `text` nullable | Texto propuesto global o principal (detalle por criterio puede ir en `audit_criterion_results`) |
+| `observaciones_lc` | `text` nullable | Resumen editorial de hallazgos (opcional); mismo rol que el campo homónimo en `auditRecordSchema` / `strictAuditRecordSchema` ([`src/schemas/checklist.ts`](../src/schemas/checklist.ts)). |
+| `proposed_text` | `text` nullable | Redacción sugerida para la URL (opcional); par con `texto_propuesto` en el contrato Zod. El detalle por criterio puede vivir en `audit_criterion_results`. |
 | `duration_ms` | `int` nullable | Incluye tiempo de evaluación LLM cuando se mida end-to-end |
 | `created_at` | `timestamptz` | default now() |
 

@@ -92,7 +92,7 @@ Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-su
 
 - **Catálogo:** `checklistCriteriaFileSchema` ↔ `data/checklist-criteria.json`.
 - **Evaluación:** `criterionEvaluationSchema` × 39.
-- **Auditoría persistida o mock:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle).
+- **Auditoría persistida o mock:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle). Campos opcionales de copy agregado: `observaciones_lc` (resumen editorial) y `texto_propuesto` (redacción sugerida para la URL); ver columnas homónimas / `proposed_text` en [DATABASE.md](DATABASE.md) §2 `audits`.
 - **Fixtures:** JSON versionado bajo `data/audit-fixtures/` (convención en roadmap), validados en CI o script local igual que el catálogo.
 
 Implementación actual de esquemas: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) (equivalente conceptual a `packages/contracts` del monorepo objetivo).

@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-20 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-20-auditar-data-ux-devlog) |
 | 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
 | 2026-05-19 | [Documentación: Flujo home gateway, `/auditar` (atajos, Clarity) y barras colapsables](#devlog-2026-05-19-doc-flujo-auditar) |
 | 2026-05-18 | [Marco visual institucional: cabecera, tema y lienzo global](#devlog-2026-05-18-marco-visual-shell) |
@@ -16,6 +17,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-20-auditar-data-ux-devlog"></a>
+
+## [2026-05-20] - Frontend | Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)
+
+### Contexto y objetivos:
+
+Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre del ítem de Fase 1 **`/auditar`**: ingreso de URL, atajos editoriales, inventarios en acordeones, pantalla de resultado alineada a perfiles LC, contrato de copy agregado y, por último, **artefactos JSON** en `data/ux` para consumo máquina sin sustituir `docs/ux/`.
+
+### Implementación técnica:
+
+- **`/auditar` (página):** tres atajos con bordes por perfil, navegación a `resultado?url=`; bloque en tarjeta con acordeón (`type="multiple"`); datos en `audit-shortcuts.ts`.
+- **Inventarios y seguimiento:** `auditar-inventory-sections.tsx` con tres barras colapsables (Clarity ~20 filas, URLs más auditadas, estados resueltos); tablas con primitiva `Table`; filas mock en `clarity-inventory-rows.ts`, `most-audited-url-rows.ts`, `resolved-lc-state-rows.ts`.
+- **Contrato y resultado:** en `src/schemas/checklist.ts`, campo opcional `observaciones_lc` y helper `buildDemoStrictAuditWithCumpleCount`; mock por URL en `editorial-shortcut-audit-mock.ts` (perfiles peor / intermedio / mejor coherentes con resumen y `texto_propuesto`).
+- **`/auditar/resultado`:** botón **Regresar** en cabecera; secciones con barra primaria `#0F69C4`, paneles `#FFFFFF` y tabla de criterios con `Table` / hover alineado al resto del sistema; bloques **Observaciones** y **Texto propuesto** cuando el registro los trae.
+- **Documentación de cierre:** `docs/ROADMAP.md` (ítem `/auditar` completado), `docs/DATABASE.md` y `docs/ARCHITECTURE.md` (mapeo `observaciones_lc` / `texto_propuesto` ↔ columnas futuras).
+- **`data/ux/`:** `clarity-inventory.json`, `most-audited-urls.json`, `resolved-lc-states.json` como espejo de las listas de la UI; `README.md` con convención de mantenimiento frente a `frontend/src/lib/`.
+
+### Próximos pasos:
+
+- Ítem roadmap **Resultado mock** (barra térmica de cumplimiento, pasos según `estado_aceptacion`, etc.); mock de **severidad** y **comentario** por criterio si se prioriza fidelidad de tabla.
+- Documentación ampliada de modelo de datos y parseo (reunión con equipo); script opcional de validación o importación desde `data/ux/` hacia seeds o fixtures `strictAuditRecordSchema`.
 
 ---
 

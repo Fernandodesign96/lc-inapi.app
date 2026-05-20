@@ -158,6 +158,8 @@ export const auditRecordSchema = z.object({
   porcentaje_cumplimiento: z.number().min(0).max(100),
   estado_aceptacion: acceptanceStatusSchema,
   texto_propuesto: z.string().optional(),
+  /** Resumen editorial de hallazgos (no es la redacción sustituta publicada en la URL). */
+  observaciones_lc: z.string().optional(),
   tiempo_evaluacion_segundos: z.number().nonnegative().optional(),
 })
 
@@ -232,6 +234,38 @@ export function buildDemoStrictAudit(overrides?: Partial<AuditRecord>): StrictAu
     criterios_evaluados,
     ...sum,
     texto_propuesto: undefined,
+    observaciones_lc: undefined,
+    tiempo_evaluacion_segundos: 1,
+  }
+  return strictAuditRecordSchema.parse({ ...base, ...overrides })
+}
+
+/**
+ * Auditoría demo con N criterios en "cumple" y el resto en "incumple" (sin N/A).
+ * Útil para mocks por perfil LC coherentes con `summarizeEvaluations` y
+ * `strictAuditRecordSchema`.
+ */
+export function buildDemoStrictAuditWithCumpleCount(
+  cumpleCount: number,
+  overrides?: Partial<AuditRecord>,
+): StrictAuditRecord {
+  const n = Math.max(0, Math.min(39, Math.floor(cumpleCount)))
+  const criterios_evaluados: CriterionEvaluation[] = CRITERION_IDS.map((id, i) => ({
+    id,
+    estado: i < n ? "cumple" : "incumple",
+  }))
+  const sum = summarizeEvaluations(criterios_evaluados)
+  const base: AuditRecord = {
+    id: "demo_audit_profile_cumple_count",
+    url: "https://tramites.inapi.cl/",
+    fecha_evaluacion: new Date().toISOString(),
+    evaluador_uid: "demo@inapi.cl",
+    version_checklist: "1.1",
+    texto_capturado: "(texto de demostración)",
+    criterios_evaluados,
+    ...sum,
+    texto_propuesto: undefined,
+    observaciones_lc: undefined,
     tiempo_evaluacion_segundos: 1,
   }
   return strictAuditRecordSchema.parse({ ...base, ...overrides })
