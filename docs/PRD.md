@@ -4,7 +4,7 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Proyecto** | LC INAPI APP — evaluación automatizada asistida por IA del checklist editorial |
-| **Versión PRD** | 0.3.3 |
+| **Versión PRD** | 0.3.5 |
 | **Estado** | En definición — Fase 1: mock UX e interfaz institucional; Fase 2: persistencia, API y evaluación con Claude (Python) según ADR |
 | **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · evaluación LC **Python** + **Claude API** expuesta en **AWS** (**API Gateway** + **Lambda** por defecto; ECS/EC2 si aplica) · Bun · acuerdos en [propuesta técnica integral](PROPUESTA_TECNICA_INTEGRAL.md) |
 | **Normativa base** | Checklist Editorial INAPI v1.1 (derivado de RLC “Lenguaje claro para la web” y Calidad Web 2.0 dimensión contenido) |
@@ -91,7 +91,7 @@ En **Fase 2**, el flujo técnico previsto es: **Next** → **Nest** → (REST/JS
 
 | Fase | Entregable |
 | --- | --- |
-| **Fase 1 — Mock UX e interfaz** | UI alineada al design system; **home** como portal de acceso a **`/auditar`**; en **`/auditar`**: ingreso URL + tres atajos a resultado + inventarios/listas en **barras colapsables** (título, flecha abajo, contraste y `gap` uniforme — §15 design system); datos de referencia en `docs/ux/`; resultado con barra de %, pasos a seguir y texto propuesto mock; fixtures JSON `strictAuditRecordSchema`; demo UX con feedback documentado. **Sin** backend productivo. Detalle en [`docs/ROADMAP.md`](ROADMAP.md). |
+| **Fase 1 — Mock UX e interfaz** | UI alineada al design system; **home** como portal de acceso a **`/auditar`**; en **`/auditar`**: ingreso URL + tres atajos a resultado + inventarios/listas en **barras colapsables** (título, flecha abajo, contraste y `gap` uniforme — §15 design system); datos de referencia en `docs/ux/`; **siguiente hito documentado:** volcar en `docs/` acuerdos del **Equipo UX** (modelo de datos, parseo) y completar en **resultado** la tabla de hallazgos (§6) con **severidad** y **comentario** por criterio en mock; luego barra de %, pasos a seguir y refuerzo de texto propuesto; fixtures JSON `strictAuditRecordSchema`; demo UX con feedback documentado. **Sin** backend productivo. Detalle en [`docs/ROADMAP.md`](ROADMAP.md). |
 | **Fase 2 — Persistencia y evaluación** | Supabase + NestJS + Prisma; contrato HTTP FE ↔ API; servicio **Python** + **Claude API**; entorno compartido **AWS**. Tras **aprobación** del mock de Fase 1. |
 | **Fase 3 — Captura y endurecimiento** | Captura real (Cheerio vs Playwright — ADR); reintentos, costo y observabilidad del pipeline LLM. |
 | **Fase 4 — Cierre MVP** | Export real, histórico por URL en UI, pruebas con URLs reales |

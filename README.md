@@ -30,6 +30,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | 0004 | [Evaluación con LLM y versionado de prompts](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) |
 | 0005 | [API de dominio: NestJS y Prisma](docs/adr/0005-api-backend-nestjs-prisma.md) |
 | 0006 | [Evaluación LC: Python, Claude API y AWS](docs/adr/0006-lc-evaluation-python-claude-aws.md) |
+| 0007 | [Modelo lógico de datos, formato de entrada y parseo (pre-conexiones)](docs/adr/0007-modelo-datos-parseo-pre-conexiones.md) |
 
 ---
 
@@ -72,4 +73,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**: design system en toda la UI; **home** como portal de acceso institucional a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** (perfiles LC) a **resultado** mock, inventarios/listas (**Clarity**, más auditadas, estados resueltos, etc.) en **barras colapsables** homogéneas ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y datos de referencia en [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md); resultado con barra térmica y pasos a seguir, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**. **Próximo bloque acordado en documentación:** volcar feedback del **Equipo UX** (modelo de datos, parseo) en `docs/` y completar en **resultado** la tabla de criterios con **severidad** y **comentario** (mock alineado al contrato Zod y a [docs/DATABASE.md](docs/DATABASE.md) §2). Resto de Fase 1: barra térmica y pasos a seguir en resultado, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** a resultado mock, inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md). La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).

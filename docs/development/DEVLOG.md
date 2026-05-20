@@ -8,7 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-05-20 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-20-auditar-data-ux-devlog) |
+| 2026-05-19 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-19-auditar-data-ux-devlog) |
 | 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
 | 2026-05-19 | [Documentación: Flujo home gateway, `/auditar` (atajos, Clarity) y barras colapsables](#devlog-2026-05-19-doc-flujo-auditar) |
 | 2026-05-18 | [Marco visual institucional: cabecera, tema y lienzo global](#devlog-2026-05-18-marco-visual-shell) |
@@ -20,9 +20,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
-<a id="devlog-2026-05-20-auditar-data-ux-devlog"></a>
+<a id="devlog-2026-05-19-auditar-data-ux-devlog"></a>
 
-## [2026-05-20] - Frontend | Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)
+## [2026-05-19] - Frontend | Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)
 
 ### Contexto y objetivos:
 
@@ -39,8 +39,8 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 
 ### Próximos pasos:
 
-- Ítem roadmap **Resultado mock** (barra térmica de cumplimiento, pasos según `estado_aceptacion`, etc.); mock de **severidad** y **comentario** por criterio si se prioriza fidelidad de tabla.
-- Documentación ampliada de modelo de datos y parseo (reunión con equipo); script opcional de validación o importación desde `data/ux/` hacia seeds o fixtures `strictAuditRecordSchema`.
+- **Actualización de documentación con Equipo UX y tabla de criterios completa:** (1) Actualizar documentación con acuerdos del **Equipo UX** (modelo de datos, parseo del JSON de auditoría, qué campos son obligatorios u opcionales en mock vs. Fase 2). (2) Completar en **`/auditar/resultado`** la tabla de criterios con columnas **severidad** y **comentario** (datos mock + contrato ya previsto en Zod y en [`DATABASE.md`](../DATABASE.md) §2 `audit_criterion_results`). Detalle operativo: [`docs/ROADMAP.md`](../ROADMAP.md), ítem **Actualización de documentación con Equipo UX y tabla de criterios completa**.
+- Después: ítem roadmap **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`, refuerzo de copy ya iniciado con `texto_propuesto`); script opcional de validación o importación desde `data/ux/` hacia seeds o fixtures `strictAuditRecordSchema`.
 
 ---
 

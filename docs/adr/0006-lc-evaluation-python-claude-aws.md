@@ -45,3 +45,4 @@ Tomadas de la [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md) §
 
 - **0004:** sigue mandando el **contrato** y la **validación** de la respuesta LLM.
 - **0005:** NestJS + Prisma siguen siendo la **API y persistencia**; este ADR **añade** el rol del servicio Python + Claude y del hosting AWS (API Gateway + Lambda por defecto).
+- **0007:** [Modelo lógico, formato de entrada y parseo (pre-conexiones)](0007-modelo-datos-parseo-pre-conexiones.md) — matriz de campos, flujo de validación y preguntas abiertas de persistencia **antes** de cerrar detalle operativo de esta topología.
