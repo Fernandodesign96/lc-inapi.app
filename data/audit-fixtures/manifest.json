@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "id": "audit_fixture_notificaciones_marcas_rechazado",
+      "label": "Notificaciones Marcas (rechazado — ejemplo editorial)",
+      "band_esperada": "rechazado"
+    }
+  ]
+}

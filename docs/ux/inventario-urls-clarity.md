@@ -18,6 +18,8 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 | **Intermedia** (rechazada; mayor % que la peor) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
 | **Mejor** (única aceptada en referencia) | Homepage | `https://www.inapi.cl/` |
 
+**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana para el primer JSON de `data/audit-fixtures/` en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Los otros dos perfiles de la tabla deben tener el mismo nivel de detalle cuando existan informes cerrados; mientras tanto ver [`docs/development/plan-fixtures-auditoria-fase1.md`](../development/plan-fixtures-auditoria-fase1.md) §2.2–2.3.
+
 ---
 
 ## 2. Inventario ampliado — ~20 URLs más visitadas / interactuadas (Clarity)

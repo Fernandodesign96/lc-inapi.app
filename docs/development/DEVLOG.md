@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-21 | [Documentación: Plan fixtures Fase 1 + ejemplo informe Notificaciones Marcas (rechazado)](#devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones) |
 | 2026-05-21 | [Frontend: Estado intermedio — pantalla `/auditar/procesando`](#devlog-2026-05-21-estado-intermedio-procesando) |
 | 2026-05-20 | [Frontend: Resultado mock — barra de cumplimiento, pasos a seguir y texto propuesto](#devlog-2026-05-20-resultado-mock-cierre) |
 | 2026-05-20 | [Frontend: Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados](#devlog-2026-05-20-tabla-severidad-inventarios) |
@@ -20,6 +21,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones"></a>
+
+## [2026-05-21] - Documentación | Plan fixtures Fase 1 + ejemplo informe Notificaciones Marcas (rechazado)
+
+### Contexto y objetivos
+
+Dejar **versionado en el repo** el plan de implementación del ítem **Fixtures de auditoría** ([`docs/ROADMAP.md`](../ROADMAP.md)) y un **ejemplo editorial completo** (texto capturado, reparto de 39 criterios, resumen 55,2 % rechazado, texto propuesto) para la URL prioritaria **Notificaciones Marcas** (`https://tramites.inapi.cl/Notificaciones`), alineado al inventario Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md). El código (`data/*.json`, script, API, UI) lo implementará el equipo **paso a paso** (p. ej. modo Ask); esta entrega es solo **documentación y plan**.
+
+### Qué se añadió o actualizó
+
+- **Nuevo:** [`docs/development/plan-fixtures-auditoria-fase1.md`](plan-fixtures-auditoria-fase1.md) — plan canónico: convención `data/audit-fixtures/`, validación `strictAuditRecordSchema`, tres franjas, estrategia **fixture rechazado desde informe real** vs **fixtures medio/alto** desde informe futuro o JSON sintético documentado hasta volcar informes.
+- **Nuevo:** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](../ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md) — volcado del informe (modal, vistas, pie, listas de IDs cumple/incumple/no aplica, severidades resumidas, texto propuesto, slug sugerido para `id` de fixture).
+- **Actualizado:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) — enlace al ejemplo y al plan bajo la tabla de tres URLs priorizadas.
+- **Actualizado:** [`docs/ROADMAP.md`](../ROADMAP.md) — el bullet de fixtures enlaza al plan y al ejemplo.
+
+### Próximos pasos
+
+- Materializar `data/audit-fixtures/*.json` desde el ejemplo (respetando orden `CRITERION_IDS` y resumen numérico), añadir `validate:audit-fixtures`, API y selector/import en UI según el plan.
 
 ---
 
