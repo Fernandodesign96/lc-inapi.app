@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-20 | [Frontend: Resultado mock — barra de cumplimiento, pasos a seguir y texto propuesto](#devlog-2026-05-20-resultado-mock-cierre) |
 | 2026-05-20 | [Frontend: Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados](#devlog-2026-05-20-tabla-severidad-inventarios) |
 | 2026-05-19 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-19-auditar-data-ux-devlog) |
 | 2026-05-19 | [Frontend: Portal de acceso en `/` (mock v1.0, sin cabecera global)](#devlog-2026-05-19-portal-home-mock) |
@@ -18,6 +19,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-20-resultado-mock-cierre"></a>
+
+## [2026-05-20] - Frontend | Resultado mock: barra de cumplimiento, pasos a seguir y texto propuesto
+
+### Contexto y objetivos:
+
+Cerrar en bitácora el ítem de Fase 1 del roadmap **«Resultado mock»** en [`docs/ROADMAP.md`](../ROADMAP.md) (marcado `[x]`): en **`/auditar/resultado`** el **porcentaje de cumplimiento** con barra visual alineada a tokens del tema y al mismo **`estado_aceptacion`** que el contrato; bloque **«Pasos a seguir»** con copy por estado de aceptación; **etiqueta legible** del estado en el resumen; **texto propuesto** cuando el mock lo aporta (atajos editoriales) y mensaje explícito cuando no hay borrador, sin parecer fallo de la aplicación. Decisión registrada: la bandera **`USAR_TEXTO_PROPUESTO_GENERICO`** en `resultado-mock-copy.ts` controla si el fallback `buildDemoStrictAudit` inyecta texto genérico; por defecto se prioriza honestidad del mock y ausencia de borrador explicada en UI.
+
+### Implementación técnica:
+
+- **`frontend/src/components/ui/progress.tsx`:** componente de progreso (Radix) con indicador animado; props para clases del carril y del relleno.
+- **`frontend/src/lib/resultado-mock-copy.ts`:** `CLASES_BARRA_POR_ESTADO`, `ETIQUETA_ESTADO_ACEPTACION`, `PASOS_SEGUN_ESTADO`, `USAR_TEXTO_PROPUESTO_GENERICO`, `TEXTO_PROPUESTO_GENERICO` y documentación de umbrales en `UMBRALES_CUMPLIMIENTO_DOC`.
+- **`frontend/src/app/auditar/resultado/page.tsx`:** barra bajo la etiqueta de cumplimiento; sección de pasos con lista ordenada accesible; resumen con estado humanizado (`title` con valor técnico opcional); bloque **Texto propuesto** siempre visible con cuerpo condicional; fallback de auditoría con spread condicional sobre `buildDemoStrictAudit`.
+- **Contrato y atajos (trazabilidad):** `buildDemoStrictAuditWithCumpleCount` y `noAplicaCount` en `src/schemas/checklist.ts`; perfiles peor / intermedio / mejor en `frontend/src/lib/editorial-shortcut-audit-mock.ts` con `texto_propuesto` y `observaciones_lc` por perfil; presentación unificada de criterios en `frontend/src/lib/criterio-evaluacion-visual.ts`.
+- **Calidad:** `eslint` y `tsc` en `frontend` sin errores al cierre de esta tarea.
+
+### Próximos pasos:
+
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio** entre ingreso y resultado; **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog).
 
 ---
 
@@ -39,7 +62,8 @@ Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización 
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): ítem **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`); **estado intermedio** entre ingreso y resultado; **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
+- El ítem **Resultado mock** quedó cerrado en código y bitácora (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio** entre ingreso y resultado; **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
 - Volcar en documentación / **ADR 0007** los acuerdos formales con **Equipo UX** o responsable de datos cuando se concrete la reunión (modelo y parseo más allá del borrador actual).
 
 ---
@@ -63,7 +87,7 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): ítem **Resultado mock** (barra térmica de `porcentaje_cumplimiento`, pasos según `estado_aceptacion`, refuerzo de copy con `texto_propuesto`); **estado intermedio**; **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-23](#devlog-2026-05-23-tabla-severidad-inventarios)).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio**; **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Resultado mock** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)); el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-tabla-severidad-inventarios)).
 
 ---
 

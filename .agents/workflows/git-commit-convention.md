@@ -29,22 +29,31 @@ Sigue estrictamente este formato:
 
 
 ## 3. Pull request y merge (`gh`)
-
 Cuando el usuario pida explícitamente **PR + merge** (o equivalente):
-
-- **Solo esos pasos:** la respuesta debe limitarse a los comandos de **crear el PR** y **mergearlo** con `gh` (no añadir otros comandos de Git salvo que el usuario pida otra cosa o falle algo y haga falta una corrección mínima).
-- **Cuerpo del PR:** la descripción del PR debe ir **solo en Markdown** (listas, secciones, enlaces, checklist de test plan, etc.).
-- **Título y descripción para el merge:** antes de ejecutar o proponer los comandos, el asistente debe tener (o pedir si faltan) un **título** y una **descripción** claros para el merge (p. ej. título/cuerpo del PR o, si aplica al método de merge, asunto/cuerpo del commit de merge o de squash según lo que use `gh pr merge` en el repo).
-
-Comandos de referencia (ajustar título, cuerpo MD y opciones de merge al flujo del proyecto):
-
+### 3.1 Alineación con commits
+- **Título del PR** (`gh pr create --title`): **misma regla que la primera línea de un commit** — `<tipo>(<alcance opcional>): <descripción breve en minúsculas y español>`, usando **solo** los tipos permitidos de la tabla anterior.
+- **Asunto del merge** (`gh pr merge … --subject`): **misma forma** que el título del PR (tipo + descripción breve en español). **Texto plano**, sin Markdown.
+- **Cuerpo del merge** (`gh pr merge … --body`): español, **texto plano** al estilo del **cuerpo de un commit** (párrafos cortos y/o viñetas con `-` al inicio de línea). **No** usar sintaxis Markdown de documento (sin `##`, tablas, ni enlaces `[texto](url)` salvo que el usuario pida una excepción explícita).
+### 3.2 Descripción del PR (Markdown únicamente aquí)
+- **Cuerpo / descripción del PR** (`gh pr create --body`): español; **esta es la única parte obligatoria en Markdown** cuando el asistente entrega o compone el contenido del PR (encabezados `##`, listas, enlaces, checklist de plan de pruebas, etc.).
+- El **título del PR** no lleva Markdown: es una sola línea convencional como el asunto del commit.
+### 3.3 Entrega en chat
+- Si el usuario pide **solo texto** (sin bloques de comando), entregar: **título del PR** (una línea), **descripción del PR** (Markdown), **asunto del merge** (una línea), **cuerpo del merge** (texto plano).
+### 3.4 Alcance de la respuesta cuando pide PR + merge
+- **Solo esos pasos:** la respuesta puede limitarse a los comandos de **crear el PR** y **mergearlo** con `gh` (no añadir otros comandos de Git salvo que el usuario pida otra cosa o falle algo y haga falta una corrección mínima).
+- Antes de ejecutar o proponer comandos, el asistente debe tener (o pedir si faltan) **título del PR**, **descripción del PR (MD)**, **asunto del merge** y **cuerpo del merge (texto plano)** alineados a esta sección.
+### 3.5 Comandos de referencia
+Ajustar título, cuerpo del PR (solo MD en `--body`), asunto y cuerpo del merge, y opciones (`--merge`, `--squash`, etc.) al flujo del proyecto:
 ```bash
-gh pr create --title "…" --body "$(cat <<'EOF'
+gh pr create --base main --title "<tipo>(<alcance>): <descripción breve en minúsculas y español>" --body "$(cat <<'EOF'
 ## Resumen
 - …
-
 ## Plan de pruebas
 - [ ] …
 EOF
 )"
-gh pr merge --merge --subject "…" --body "…"
+gh pr merge --merge --subject "<tipo>(<alcance>): <descripción breve en minúsculas y español>" --body "$(cat <<'EOF'
+- …
+- …
+EOF
+)"

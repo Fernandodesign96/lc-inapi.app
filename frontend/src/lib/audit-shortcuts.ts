@@ -12,7 +12,7 @@ export const EDITORIAL_AUDIT_SHORTCUTS = [
   },
   {
     perfil: "intermedio" as const,
-    perfilLabel: "Perfil intermedio",
+    perfilLabel: "Perfil intermedio (aceptado con observaciones)",
     label:
       "Presentación de Escritos — INAPI — Sitio de Trámites",
     url: "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",

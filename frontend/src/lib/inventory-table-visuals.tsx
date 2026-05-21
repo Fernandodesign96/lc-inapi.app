@@ -1,13 +1,18 @@
 import { cn } from "@/lib/utils"
 
-/** Agrupa etiquetas editoriales tipo «Rechazado» / «Aceptado con observaciones» / «Aprobado». */
-export type LcEditorialBucket = "rechazado" | "intermedio" | "aprobado"
+/** Agrupa etiquetas editoriales LC en inventarios mock. */
+export type LcEditorialBucket =
+  | "rechazado"
+  | "intermedio"
+  | "aprobado"
+  | "no_aplica"
 
 /** Agrupa frecuencia de auditorías mock (URLs más auditadas). */
-export type SeguimientoVolumenBucket = "alto" | "medio" | "bajo"
+export type SeguimientoVolumenBucket = "alto" | "medio" | "bajo" | "no_aplica"
 
 export function lcEditorialBucketFromLabel(label: string): LcEditorialBucket {
   const s = label.toLowerCase()
+  if (s.includes("no aplica")) return "no_aplica"
   if (s.includes("rechaz")) return "rechazado"
   if (s.includes("aceptado") || s.includes("observaci")) return "intermedio"
   if (s.includes("aprobado")) return "aprobado"
@@ -26,6 +31,8 @@ export function inventoryRowClassFromLcEditorialBucket(
       "border-l-4 border-l-amber-600/80 bg-muted/50 hover:bg-muted/70 dark:border-l-amber-500",
     bucket === "aprobado" &&
       "border-l-4 border-l-emerald-600 bg-emerald-50/70 hover:bg-emerald-100/80 dark:border-l-emerald-500 dark:bg-emerald-950/35 dark:hover:bg-emerald-950/50",
+    bucket === "no_aplica" &&
+      "border-l-4 border-l-muted-foreground/40 bg-muted/70 hover:bg-muted/85 dark:border-l-muted-foreground/50 dark:bg-muted/50 dark:hover:bg-muted/65",
   )
 }
 
@@ -60,10 +67,19 @@ export function inventoryEstadoPresentationFromEditorialBucket(
         simboloClass: "text-emerald-700 dark:text-emerald-400",
         textoClass: "text-foreground",
       }
+    case "no_aplica":
+      return {
+        simbolo: "—",
+        etiqueta,
+        simboloClass: "text-muted-foreground",
+        textoClass: "text-muted-foreground",
+      }
   }
 }
 
 export function parsePorcentajeLcRef(ref: string): number | null {
+  const raw = ref.trim()
+  if (raw === "—" || raw === "–" || /^n\/a$/i.test(raw)) return null
   const cleaned = ref.replace("%", "").trim().replace(/\s/g, "").replace(",", ".")
   const n = parseFloat(cleaned)
   return Number.isFinite(n) ? n : null
@@ -81,6 +97,8 @@ export function porcentajeLcTextClass(n: number | null): string {
 export function seguimientoVolumenFromAuditorias(
   auditoriasRef: string,
 ): SeguimientoVolumenBucket {
+  const t = auditoriasRef.trim().toLowerCase()
+  if (t.includes("no aplica")) return "no_aplica"
   const n = Number.parseInt(auditoriasRef.replace(/\D/g, "") || "0", 10)
   if (n >= 20) return "alto"
   if (n >= 14) return "medio"
@@ -90,6 +108,12 @@ export function seguimientoVolumenFromAuditorias(
 export function inventoryRowClassFromSeguimientoBucket(
   bucket: SeguimientoVolumenBucket,
 ): string {
+  if (bucket === "no_aplica") {
+    return cn(
+      "border-b border-border transition-colors",
+      "border-l-4 border-l-muted-foreground/40 bg-muted/70 hover:bg-muted/85 dark:border-l-muted-foreground/50 dark:bg-muted/50 dark:hover:bg-muted/65",
+    )
+  }
   return inventoryRowClassFromLcEditorialBucket(
     bucket === "alto"
       ? "rechazado"
@@ -122,6 +146,12 @@ export function seguimientoVolumenPresentation(bucket: SeguimientoVolumenBucket)
         simbolo: "✓",
         simboloClass: "text-emerald-700 dark:text-emerald-400",
         etiquetaCorta: "Frecuencia habitual",
+      }
+    case "no_aplica":
+      return {
+        simbolo: "—",
+        simboloClass: "text-muted-foreground",
+        etiquetaCorta: "No aplica",
       }
   }
 }
@@ -158,6 +188,15 @@ export function InventarioLeyendaLcEditorial() {
           ✓
         </span>
         Aprobado
+      </span>
+      <span className="inline-flex items-center gap-1.5">
+        <span
+          className="flex h-5 w-7 shrink-0 items-center justify-center rounded-sm bg-muted px-0.5 text-[11px] font-semibold text-muted-foreground"
+          aria-hidden
+        >
+          —
+        </span>
+        No aplica (sin referencia LC en mock)
       </span>
     </div>
   )
@@ -196,6 +235,15 @@ export function InventarioLeyendaSeguimientoVolumen() {
         </span>
         Frecuencia habitual
       </span>
+      <span className="inline-flex items-center gap-1.5">
+        <span
+          className="flex h-5 w-7 shrink-0 items-center justify-center rounded-sm bg-muted px-0.5 text-[11px] font-semibold text-muted-foreground"
+          aria-hidden
+        >
+          —
+        </span>
+        Sin conteo ref. (no aplica)
+      </span>
     </div>
   )
 }
@@ -216,6 +264,7 @@ export function CeldaEstadoEditorial({
           bucket === "rechazado" && "bg-destructive/15",
           bucket === "intermedio" && "bg-amber-500/15",
           bucket === "aprobado" && "bg-emerald-600/15",
+          bucket === "no_aplica" && "bg-muted",
         )}
         aria-hidden
       >
@@ -247,6 +296,7 @@ export function CeldaIndicadorSeguimiento({
           bucket === "alto" && "bg-destructive/15",
           bucket === "medio" && "bg-amber-500/15",
           bucket === "bajo" && "bg-emerald-600/15",
+          bucket === "no_aplica" && "bg-muted",
         )}
         aria-hidden
       >
