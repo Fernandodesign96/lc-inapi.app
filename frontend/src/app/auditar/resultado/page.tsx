@@ -25,7 +25,13 @@ import { Progress } from "@/components/ui/progress"
 import { buildDemoStrictAudit } from "@contracts/checklist"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
-import { CLASES_BARRA_POR_ESTADO } from "@/lib/resultado-mock-copy"
+import {
+  CLASES_BARRA_POR_ESTADO,
+  ETIQUETA_ESTADO_ACEPTACION,
+  PASOS_SEGUN_ESTADO,
+  TEXTO_PROPUESTO_GENERICO,
+  USAR_TEXTO_PROPUESTO_GENERICO,
+} from "@/lib/resultado-mock-copy"
 import {
   filaCriterioClassName,
   pastillaSeveridadClass,
@@ -65,6 +71,9 @@ function ResultadoInner() {
       buildDemoStrictAudit({
         url: auditUrl,
         texto_capturado: texto,
+        ...(USAR_TEXTO_PROPUESTO_GENERICO
+          ? { texto_propuesto: TEXTO_PROPUESTO_GENERICO }
+          : {}),
       })
     )
   }, [auditUrl])
@@ -88,6 +97,9 @@ function ResultadoInner() {
   if (!auditoria) {
     return null
   }
+
+  const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
+  const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
 
   return (
     <div className="flex w-full flex-col gap-6">
@@ -172,8 +184,11 @@ function ResultadoInner() {
                 </div>
                 <p>
                   <span className="text-muted-foreground">Estado:</span>{" "}
-                  <span className="font-medium">
-                    {auditoria.estado_aceptacion}
+                  <span
+                    className="font-medium"
+                    title={auditoria.estado_aceptacion}
+                  >
+                    {etiquetaEstado}
                   </span>
                 </p>
                 <p>
@@ -189,34 +204,66 @@ function ResultadoInner() {
             </div>
           </section>
 
-          {(auditoria.observaciones_lc || auditoria.texto_propuesto) ? (
-            <div className="space-y-4">
-              {auditoria.observaciones_lc ? (
-                <section className="overflow-hidden rounded-lg border border-border shadow-sm">
-                  <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
-                    Observaciones
-                  </div>
-                  <div className="bg-[#FFFFFF] p-4">
-                    <p className="text-sm leading-relaxed text-foreground">
-                      {auditoria.observaciones_lc}
-                    </p>
-                  </div>
-                </section>
-              ) : null}
-              {auditoria.texto_propuesto ? (
-                <section className="overflow-hidden rounded-lg border border-border shadow-sm">
-                  <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
-                    Texto propuesto
-                  </div>
-                  <div className="bg-[#FFFFFF] p-4">
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                      {auditoria.texto_propuesto}
-                    </p>
-                  </div>
-                </section>
-              ) : null}
+          <section
+            className="overflow-hidden rounded-lg border border-border shadow-sm"
+            aria-labelledby="resultado-pasos-titulo"
+          >
+            <div
+              id="resultado-pasos-titulo"
+              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+            >
+              {bloquePasos.titulo}
             </div>
-          ) : null}
+            <div className="bg-[#FFFFFF] p-4">
+              <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
+                {bloquePasos.pasos.map((paso) => (
+                  <li key={paso}>{paso}</li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          <div className="space-y-4">
+            {auditoria.observaciones_lc ? (
+              <section className="overflow-hidden rounded-lg border border-border shadow-sm">
+                <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
+                  Observaciones
+                </div>
+                <div className="bg-[#FFFFFF] p-4">
+                  <p className="text-sm leading-relaxed text-foreground">
+                    {auditoria.observaciones_lc}
+                  </p>
+                </div>
+              </section>
+            ) : null}
+
+            <section
+              className="overflow-hidden rounded-lg border border-border shadow-sm"
+              aria-labelledby="resultado-texto-propuesto-titulo"
+            >
+              <div
+                id="resultado-texto-propuesto-titulo"
+                className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+              >
+                Texto propuesto
+              </div>
+              <div className="bg-[#FFFFFF] p-4">
+                {auditoria.texto_propuesto ? (
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+                    {auditoria.texto_propuesto}
+                  </p>
+                ) : (
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    En esta demostración no hay borrador sugerido para esta URL: el
+                    texto propuesto enriquecido está reservado a los perfiles de los
+                    tres atajos editoriales en la pantalla de ingreso. En la Fase 2,
+                    una evaluación asistida podrá proponer redacción aquí según el
+                    contenido capturado.
+                  </p>
+                )}
+              </div>
+            </section>
+          </div>
 
           <section
             className="overflow-hidden rounded-lg border border-border shadow-sm"

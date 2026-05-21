@@ -80,7 +80,7 @@ export const PASOS_SEGUN_ESTADO: Record<AcceptanceStatus, PasosSeguir> = {
 }
 
 /** Decisión Etapa 1: false = solo atajos / overrides con texto; true = relleno genérico en demo. */
-export const USAR_TEXTO_PROPUESTO_GENERICO = false
+export const USAR_TEXTO_PROPUESTO_GENERICO = true
 
 export const TEXTO_PROPUESTO_GENERICO = `(mock) Redacción sugerida de referencia
 • Revise titulares y mensajes de estado en voz activa y con términos del usuario.
