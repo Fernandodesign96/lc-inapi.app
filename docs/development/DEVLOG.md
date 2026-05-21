@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-21 | [Frontend: Estado intermedio — pantalla `/auditar/procesando`](#devlog-2026-05-21-estado-intermedio-procesando) |
 | 2026-05-20 | [Frontend: Resultado mock — barra de cumplimiento, pasos a seguir y texto propuesto](#devlog-2026-05-20-resultado-mock-cierre) |
 | 2026-05-20 | [Frontend: Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados](#devlog-2026-05-20-tabla-severidad-inventarios) |
 | 2026-05-19 | [Frontend: Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)](#devlog-2026-05-19-auditar-data-ux-devlog) |
@@ -19,6 +20,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-21-estado-intermedio-procesando"></a>
+
+## [2026-05-21] - Frontend | Estado intermedio — pantalla `/auditar/procesando`
+
+### Contexto y objetivos:
+
+Cerrar en documentación el ítem de Fase 1 del roadmap **«Estado intermedio entre ingreso y resultado»** en [`docs/ROADMAP.md`](../ROADMAP.md): pantalla dedicada con mensaje en **lenguaje claro**, **sin** afirmar persistencia ni comunicación real con base de datos; preparación visual y de accesibilidad alineada a lo que se esperará cuando la evaluación con **API** (p. ej. Claude) pueda tardar segundos o minutos.
+
+### Implementación técnica:
+
+- **`frontend/src/app/auditar/procesando/page.tsx`:** validación de `url`, `router.replace` hacia **`/auditar/resultado`**, copy en [`frontend/src/lib/auditar-procesando-copy.ts`](../../frontend/src/lib/auditar-procesando-copy.ts); contenedor **`main`** con `aria-busy="true"`; foco programático en **`h1`** (`tabIndex={-1}`); bloque de descripción con `role="status"` y `aria-live="polite"`; fallback de `Suspense` con `role="status"`; botón **Cancelar y Volver** a `/auditar`.
+- **`frontend/src/components/ui/circular-progress.tsx`:** spinner circular **indeterminado** (`role="progressbar"`, sin `aria-valuenow`) y variante **determinada** con porcentaje para uso futuro con progreso real.
+- **Navegación:** [`frontend/src/app/auditar/page.tsx`](../../frontend/src/app/auditar/page.tsx) (atajos) y [`frontend/src/app/auditar/captura/page.tsx`](../../frontend/src/app/auditar/captura/page.tsx) apuntan a **`/auditar/procesando?url=…`**.
+- **QA previa a reunión UX:** borrador de checklist manual en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) (ejecución y tachado de ítems reservados como **último paso** de Fase 1 antes de la demo con Equipo UX, con observaciones adicionales del equipo).
+
+### Próximos pasos:
+
+- Ejecutar y completar el checklist en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md); anotar hallazgos para la reunión con **Equipo UX**.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog).
 
 ---
 
@@ -40,7 +63,7 @@ Cerrar en bitácora el ítem de Fase 1 del roadmap **«Resultado mock»** en [`d
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio** entre ingreso y resultado; **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog). El ítem **Estado intermedio** quedó cerrado en roadmap y bitácora (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el checklist manual de QA en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) se ejecuta como último paso de Fase 1 antes de la reunión con Equipo UX.
 
 ---
 
@@ -63,7 +86,8 @@ Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización 
 ### Próximos pasos:
 
 - El ítem **Resultado mock** quedó cerrado en código y bitácora (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)).
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio** entre ingreso y resultado; **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
+- El ítem **Estado intermedio** quedó cerrado en roadmap y bitácora (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); checklist manual de QA en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) para cierre final antes de reunión con Equipo UX.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
 - Volcar en documentación / **ADR 0007** los acuerdos formales con **Equipo UX** o responsable de datos cuando se concrete la reunión (modelo y parseo más allá del borrador actual).
 
 ---
@@ -87,7 +111,7 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **estado intermedio**; **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Resultado mock** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)); el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-tabla-severidad-inventarios)).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Resultado mock** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)); el ítem **Estado intermedio** quedó cerrado (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-tabla-severidad-inventarios)).
 
 ---
 

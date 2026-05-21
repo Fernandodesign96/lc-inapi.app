@@ -121,7 +121,7 @@ export default function AuditarPage() {
                         type="button"
                         onClick={() =>
                           router.push(
-                            `/auditar/resultado?url=${encodeURIComponent(item.url)}`,
+                            `/auditar/procesando?url=${encodeURIComponent(item.url)}`,
                           )
                         }
                         className={cn(

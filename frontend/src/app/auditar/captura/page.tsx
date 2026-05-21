@@ -67,7 +67,7 @@ function CapturaInner() {
         <CardFooter className="flex flex-wrap gap-2">
           <Button asChild>
             <Link
-              href={`/auditar/resultado?url=${encodeURIComponent(urlDecoded)}`}
+              href={`/auditar/procesando?url=${encodeURIComponent(urlDecoded)}`}
             >
               Continuar al resultado
             </Link>
