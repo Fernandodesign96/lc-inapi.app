@@ -60,6 +60,15 @@ Importar esquemas compartidos en el front: `@contracts/checklist` (ver `frontend
 
 ---
 
+## Despliegue y CI (Fase 1 mock)
+
+- **Vercel:** proyecto enlazado al mismo repositorio de GitHub. **Root Directory:** `frontend`. **Install Command:** `cd .. && bun install`. **Build Command:** `cd .. && bun run build` (monorepo Bun: `bun.lock` y workspace en la raíz). Previews por rama o PR según configuración del equipo en el panel de Vercel.
+- **Variables:** no son obligatorias para el mock. Si en algún entorno `GET /api/audit-fixtures/<id>` respondiera archivo no encontrado, revisar `LC_REPO_ROOT` y la inclusión de `data/audit-fixtures/` en el despliegue (ver [`docs/despliegue/despliegue-hibrido.md`](docs/despliegue/despliegue-hibrido.md)).
+- **GitHub Actions:** workflow **`CI`** en [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — en cada ejecución: `bun install --frozen-lockfile`, `bun run typecheck:all`, `bun run lint`. Se dispara en `push` a `main` y ramas `feature/**`, en `pull_request` hacia `main` y manualmente (`workflow_dispatch`). Revisar resultados en la pestaña **Actions** del repositorio.
+- **Plan por etapas** (Supabase, Nest, AWS LC): [`docs/despliegue/despliegue-hibrido.md`](docs/despliegue/despliegue-hibrido.md).
+
+---
+
 ## Convenciones del repositorio (devlog y Git)
 
 Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los mensajes de commit al trabajar en GitHub:
@@ -73,4 +82,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: el backlog mock principal está cerrado en repo; **pendiente** el ítem **demo interna** con Equipo UX (grabación y notas en `docs/` o [docs/development/DEVLOG.md](docs/development/DEVLOG.md)). Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** y propagación de **fixtures** (`data/audit-fixtures/`, API `GET /api/audit-fixtures/…`, importación JSON en resultado), inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md); resultado mock (barra de cumplimiento, pasos a seguir, severidad/comentario en tabla); estado intermedio `/auditar/procesando`. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: el backlog mock principal está cerrado en repo; **Etapa 1 del plan de despliegue híbrido** (Vercel + GitHub Actions + verificación en URL) documentada arriba y en [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md). **Pendiente** el ítem **demo interna** con Equipo UX (grabación y notas en `docs/` o [docs/development/DEVLOG.md](docs/development/DEVLOG.md)). Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** y propagación de **fixtures** (`data/audit-fixtures/`, API `GET /api/audit-fixtures/…`, importación JSON en resultado), inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md); resultado mock (barra de cumplimiento, pasos a seguir, severidad/comentario en tabla); estado intermedio `/auditar/procesando`. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).

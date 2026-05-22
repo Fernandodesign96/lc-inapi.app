@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-22 | [Infraestructura: Etapa 1 del plan híbrido — Vercel, GitHub Actions y verificación del mock en URL](#devlog-2026-05-22-vercel-gha-etapa1) |
 | 2026-05-21 | [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion) |
 | 2026-05-21 | [Documentación: Ejemplo editorial fixtures (rechazado) + alineación inventario / roadmap](#devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones) |
 | 2026-05-21 | [Frontend: Estado intermedio — pantalla `/auditar/procesando`](#devlog-2026-05-21-estado-intermedio-procesando) |
@@ -22,6 +23,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-22-vercel-gha-etapa1"></a>
+
+## [2026-05-22] - Infraestructura | Sprint fase-1: Vercel y workflow de CI en GitHub
+
+### Contexto y objetivos:
+
+Cerrar en operación la **Etapa 1** del plan de despliegue híbrido documentado en [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md): URL estable para **demo UX** del mock (Next en **Vercel**) y **calidad reproducible** en **GitHub Actions**, sin desviar el deploy hacia Actions (opción A del plan). Objetivo de negocio: que Equipo UX y liderazgo puedan revisar el mismo binario que pasa `typecheck:all` y `lint` antes de abrir Fase 2 (Nest, Supabase, pipeline LC en AWS).
+
+### Implementación técnica:
+
+- **Vercel:** proyecto importado desde el repositorio de GitHub; **Root Directory** `frontend`; comandos **`cd .. && bun install`** y **`cd .. && bun run build`** para respetar el workspace Bun en la raíz (`bun.lock`, scripts de [`package.json`](../../package.json)) y el alias `@contracts/checklist` hacia [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts). Previews por rama o PR según la configuración del panel.
+- **GitHub Actions:** archivo [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml) — disparadores `push` a `main` y ramas `feature/**`, `pull_request` hacia `main` y `workflow_dispatch`; `actions/checkout@v4` y `oven-sh/setup-bun@v2`; **`bun install --frozen-lockfile`** para alinear el árbol de dependencias con el lock versionado; **`bun run typecheck:all`** (checklist + fixtures + TypeScript raíz y frontend) y **`bun run lint`**. Concurrencia con cancelación del run anterior en la misma ref (`concurrency`).
+- **Verificación en URL desplegada:** comprobación manual de `/`, `/auditar`, flujo mock, carga de datos por **fixture** (`fixture=` y `GET /api/audit-fixtures/[fixtureId]`) y bloque **«Demostración: importar JSON»** en [`frontend/src/app/auditar/resultado/page.tsx`](../../frontend/src/app/auditar/resultado/page.tsx) — pegado del contenido o **archivo** `.json` válido (mismo contrato `strictAuditRecordSchema` que los archivos en `data/audit-fixtures/`).
+- **Documentación:** checklist actualizado en [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md); sección **«Despliegue y CI»** en [`README.md`](../../README.md); ajustes en [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) y [`docs/SECURITY.md`](../SECURITY.md) para reflejar el cierre de Etapa 1 y la decisión de hosting Nest a formalizar con TI.
+
+### Próximos pasos:
+
+- **Demo interna** con Equipo UX según [`docs/ROADMAP.md`](../ROADMAP.md) (grabación y notas en `docs/` o en esta bitácora); checklist manual de accesibilidad en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) si aún no se ejecutó antes de la reunión.
+- Vigilar avisos de **deprecación de Node** en el runtime de las actions oficiales (`actions/checkout`, etc.); subir versión de la action o variable de entorno de opt-in cuando el equipo lo priorice.
+- **Etapa 2** del plan (Supabase, Nest, AWS LC) alineada al cierre de Fase 1 en producto; formalizar por escrito **Railway vs AWS** para Nest cuando exista código (ver dependencias externas en roadmap).
 
 ---
 

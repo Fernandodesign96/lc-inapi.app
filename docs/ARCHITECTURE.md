@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.5.3 |
+| **Versión** | 0.5.4 |
 | **Tipo** | Web app — Next.js (App Router) + API NestJS (Prisma) + Postgres/Auth (Supabase) + **servicio de evaluación LC (Python en AWS Lambda, detrás de API Gateway) + Claude API** |
 | **Gestor de paquetes** | Bun |
 
@@ -52,7 +52,13 @@ Hasta aprobar el mock de UI:
 - En **`/auditar`**, inventarios y listas de apoyo (Clarity, más auditadas, estados resueltos, etc.) se agrupan en **componentes colapsables** homogéneos (título + flecha abajo + panel), no como bloques de texto sueltos; ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15.
 - Inventario humano de prioridades y tráfico Clarity: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
-### 1.3 Monorepo: layout objetivo vs actual
+### 1.3 Entorno demo y CI (Fase 1, sin backend productivo)
+
+- **Vercel:** el `frontend/` (Next.js App Router) puede desplegarse como proyecto con **root** en esa carpeta y comandos de instalación/compilación que ejecuten `bun install` y `bun run build` desde la **raíz del monorepo** (donde está el workspace y `bun.lock`), para conservar el alias `@contracts/checklist` y los mismos scripts que en local.
+- **GitHub Actions:** validación automática en cada cambio relevante (`typecheck:all` incluye validación de `data/checklist-criteria.json` y `data/audit-fixtures/`, más TypeScript en raíz y `frontend/`; `lint` en el frontend). El deploy del mock continúa en Vercel salvo que el equipo opte por orquestar también el deploy desde Actions.
+- **Variables:** `LC_REPO_ROOT` u otras rutas solo si el runtime serverless no resolviera la lectura de `data/audit-fixtures/` para `GET /api/audit-fixtures/[fixtureId]` (ver [`docs/despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md)).
+
+### 1.4 Monorepo: layout objetivo vs actual
 
 | Objetivo ([propuesta técnica integral](PROPUESTA_TECNICA_INTEGRAL.md)) | Estado actual del repo |
 | --- | --- |
@@ -63,7 +69,7 @@ Hasta aprobar el mock de UI:
 
 La migración física a `apps/` y `packages/contracts/` es **decisión de Fase 2** o PR de reestructura; no bloquea el mock en Fase 1.
 
-### 1.4 Desarrollo local
+### 1.5 Desarrollo local
 
 - **Bun** en la raíz para frontend y scripts de validación de datos.
 - **Docker** (recomendado en la propuesta técnica): levantar el **servicio Python** de evaluación con la misma imagen o Dockerfile que se usará en AWS, para alinear parseo y dependencias con Camila sin instalar Python globalmente en cada máquina.

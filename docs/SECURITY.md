@@ -21,14 +21,17 @@ Este documento resume **qué ya se cuida en el repo**, **qué se endureció en l
 | Cliente | Sin `console.log` de URLs ingresadas en `/auditar` (evita fugas a consola y logs agregados). |
 | Fixture Notificaciones | JSON y doc UX alineados a **identidades ficticias**; `evaluador_uid` coherente con otros fixtures (`fixture@inapi.cl`). |
 | API fixtures | Allowlist de `fixtureId` en `GET /api/audit-fixtures/[fixtureId]` (mitiga path traversal); revisar auth y límites al exponer datos sensibles en producción. |
+| CI (GitHub Actions) | Workflow `CI` en `.github/workflows/ci.yml`: instalación con lock congelado, `typecheck:all` y `lint` en cada `push`/`pull_request` acordado (ver [README](../README.md) § despliegue). |
 
 ---
 
 ## 3. Pendiente tras despliegue híbrido y backend (checklist)
 
+La **Etapa 1** del plan (Vercel + CI básico + verificación del mock en URL) quedó operativa; los ítems siguientes aplican cuando exista **Nest**, **Supabase** y exposición pública más exigente.
+
 Plan operativo por etapas (Vercel, Actions, Supabase, Nest, AWS): [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
 
-Aplicar cuando Vercel, GitHub Actions, Nest y Supabase estén en uso; conviene asignar responsable (TI / desarrollo).
+Aplicar cuando el backend y los entornos compartidos estén en uso; conviene asignar responsable (TI / desarrollo).
 
 - [ ] **Cabeceras HTTP** en Next (CSP, `frame-ancestors` / anti-clickjacking, HSTS en dominio definitivo).
 - [ ] **CORS** explícito en Nest; orígenes solo front y herramientas acordadas.
@@ -47,5 +50,6 @@ Aplicar cuando Vercel, GitHub Actions, Nest y Supabase estén en uso; conviene a
 | Documento | Contenido relacionado |
 | --- | --- |
 | [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) | Capas, secretos en servidor |
+| [`docs/despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) | Plan de despliegue por etapas y checklist |
 | [`docs/DATABASE.md`](DATABASE.md) | RLS, roles |
 | [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md) | Regeneración de fixtures y privacidad |

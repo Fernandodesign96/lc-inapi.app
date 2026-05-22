@@ -4,6 +4,8 @@ Registros de auditoría **completos** (mock o volcados desde informe editorial) 
 
 **Privacidad:** no versionar RUN, nombres ni correos **reales** de personas; usar identidades y documentos ficticios o anonimizados (véase [`docs/SECURITY.md`](../../docs/SECURITY.md)).
 
+**Importación en la demo (resultado):** en `/auditar/resultado`, sin parámetro `fixture=` en la URL, se puede **pegar el contenido completo** de cualquier `*.json` de fixture de esta carpeta o **cargar el mismo archivo** con «Elegir archivo…»; la app valida con `strictAuditRecordSchema` (mismo contrato que la API `GET /api/audit-fixtures/…`).
+
 **Documentación de producto / ejemplo humano (rechazado):** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](../../docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md)
 
 **Contexto de hito (Fase 1):** el ítem **Fixtures de auditoría** está cerrado en [`docs/ROADMAP.md`](../../docs/ROADMAP.md); la bitácora de implementación está en [`docs/development/DEVLOG.md`](../../docs/development/DEVLOG.md#devlog-2026-05-21-fixtures-implementacion).
