@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-05-21
+**Última actualización:** 2026-05-22
 
 ---
 
@@ -32,6 +32,7 @@
 - [x] **Actualización de documentación con Equipo UX y tabla de criterios completa:** (1) Volcar en `docs/` (p. ej. [`DATABASE.md`](DATABASE.md), [`ARCHITECTURE.md`](ARCHITECTURE.md), [`docs/development/DEVLOG.md`](development/DEVLOG.md)) los **acuerdos, aclaraciones y feedback** del **Equipo UX** sobre **modelo de datos**, **parseo** del registro de auditoría mock y coherencia entre contrato Zod y persistencia futura. (2) En **`/auditar/resultado`**, completar la **tabla de los 39 criterios** con columnas **severidad** (`baja` \| `media` \| `alta`) y **comentario** (texto breve por fila cuando aplique), pobladas en **mock** de forma creíble y alineadas a `criterionEvaluationSchema` en [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) y a las columnas `severidad` / `comentario` de `audit_criterion_results` en [`DATABASE.md`](DATABASE.md) §2.
 - [x] **Resultado mock:** **barra térmica** (o equivalente visual) del `porcentaje_cumplimiento` alineada al design system; bloque de **pasos a seguir** según `estado_aceptacion` (`rechazado` / `aceptado_con_observaciones` / `aprobado`); mostrar **texto propuesto** desde datos mock (hasta integrar LLM en Fase 2). *Las columnas **severidad** y **comentario** de la tabla de criterios quedan cubiertas por el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** anterior.*
 - [x] **Fixtures de auditoría:** 2–3 archivos JSON en `data/audit-fixtures/` (u otra convención documentada), cada uno validado con `strictAuditRecordSchema`; script `validate:audit-fixtures` en raíz; la UI debe poder **importar** o seleccionar fixture por identificador (coherente con las tres franjas de aceptación: ≤80 %, 81–90 %, ≥91 % sobre criterios aplicables). **Convención, regeneración y API:** [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md). **Ejemplo editorial (rechazado):** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md).
+- [x] **Pulido UI y accesibilidad (pre-demo UX):** contraste **WCAG** en tema claro y **oscuro** (sin mezclar superficies hex fijas claras con tokens `foreground` / `muted-foreground` pensados para el tema); alinear tablas de **`/auditar/resultado`** al patrón de lectura de inventarios (`bg-card`, bandas de fila); **una sola** sección de navegación para las **tres URLs** de demostración (mock por URL vs fixture del repo) y bloque aparte para **importación JSON**; **filtros** en la tabla de criterios evaluados (tipo A/B/C…, estado visual, severidad/pastilla). **Criterios de cierre:** revisión manual en ambos temas; sin regresiones de lint/tsc en `frontend/`. *(Filtros en tablas de inventarios Clarity / más auditadas / resueltos y despliegue CI pueden seguir en tareas posteriores.)*
 - [ ] **Demo interna** con **Equipo UX**: sesión grabada (enlace externo al repo); **notas de feedback** y decisiones en `docs/` o [`docs/development/DEVLOG.md`](development/DEVLOG.md).
 
 ---

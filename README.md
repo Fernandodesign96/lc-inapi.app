@@ -13,6 +13,8 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | [docs/DATABASE.md](docs/DATABASE.md) | Modelo de datos Supabase y PostgreSQL |
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog |
+| [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo, datos en fixtures y checklist post-despliegue |
+| [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Plan por etapas: Vercel, GitHub Actions, Supabase, Nest, AWS LC |
 | [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Acuerdos de reunión: roles, monorepo objetivo, Nest ↔ API Gateway ↔ Lambda ↔ Claude, Docker |
 | [docs/development/DEVLOG.md](docs/development/DEVLOG.md) | Bitácora de desarrollo |
 

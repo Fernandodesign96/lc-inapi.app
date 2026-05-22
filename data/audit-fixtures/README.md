@@ -2,6 +2,8 @@
 
 Registros de auditoría **completos** (mock o volcados desde informe editorial) en formato JSON. Cada archivo debe pasar **`strictAuditRecordSchema`** en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts) (validación con `summarizeEvaluations` sobre las **39** filas de `criterios_evaluados`).
 
+**Privacidad:** no versionar RUN, nombres ni correos **reales** de personas; usar identidades y documentos ficticios o anonimizados (véase [`docs/SECURITY.md`](../../docs/SECURITY.md)).
+
 **Documentación de producto / ejemplo humano (rechazado):** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](../../docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md)
 
 **Contexto de hito (Fase 1):** el ítem **Fixtures de auditoría** está cerrado en [`docs/ROADMAP.md`](../../docs/ROADMAP.md); la bitácora de implementación está en [`docs/development/DEVLOG.md`](../../docs/development/DEVLOG.md#devlog-2026-05-21-fixtures-implementacion).

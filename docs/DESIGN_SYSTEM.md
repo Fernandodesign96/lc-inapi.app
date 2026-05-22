@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.3.2 |
+| **Versión** | 0.3.3 |
 | **Fuente visual institucional** | UI Kit v3.0.1 — Secretaría de Gobierno (Transformación Digital). Documento base: [docs/uikit_gob/UI KIT v3.0.1.pdf](uikit_gob/UI%20KIT%20v3.0.1.pdf). **Valores hex** de este archivo provienen de las láminas oficiales del kit (capturas / PDF) revisadas en mayo 2026. |
 | **Stack UI previsto** | Next.js · Tailwind CSS · shadcn/ui · Lucide React |
 
@@ -308,6 +308,7 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 ## 14. Accesibilidad (mínimo)
 
 - Contraste **WCAG 2.2**; usar combinaciones de la sección **4** y variantes *contraste* del kit en fondos problemáticos.
+- **Tema oscuro y paneles anidados:** no forzar `background` blanco hex (p. ej. `#FFFFFF`) dentro de una vista en `.dark` y aplicar encima `text-foreground` o `text-muted-foreground` pensados para **fondo oscuro**: el contraste suele fallar (texto gris claro sobre blanco). Preferir **`bg-card` + `text-card-foreground`** (o equivalente con tokens del tema) para cuerpos de tarjeta y tablas, de modo que claro/oscuro compartan la misma semántica de color.
 - `Dialog`: título accesible, foco atrapado, cierre con teclado; anillo foco `#FFBE5C` / `#373737` según contexto.
 - Tablas: `scope="col"` en cabeceras.
 
@@ -368,4 +369,4 @@ Vista previa embebida (mismo criterio de rutas; útil en GitHub al tener los arc
 
 ---
 
-*Design system v0.3.2 — UI Kit Gobierno de Chile v3.0.1. Incluye §15 (barras colapsables en `/auditar`), §17 con carpeta `references/` y enlaces a PNG; completar grises y sombras desde la fuente oficial en la siguiente iteración.*
+*Design system v0.3.3 — UI Kit Gobierno de Chile v3.0.1. Incluye §15 (barras colapsables en `/auditar`), §17 con carpeta `references/` y enlaces a PNG; completar grises y sombras desde la fuente oficial en la siguiente iteración.*

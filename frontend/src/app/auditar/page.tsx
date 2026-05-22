@@ -1,6 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
 import { Controller, useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 
@@ -28,13 +29,14 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { EDITORIAL_AUDIT_SHORTCUTS } from "@/lib/audit-shortcuts"
-import { AUDIT_FIXTURE_LAUNCHES } from "@/lib/audit-fixtures-launch"
+import { EDITORIAL_DEMO_ROUTES } from "@/lib/editorial-demo-routes"
 import {
   auditUrlFormSchema,
   type AuditUrlFormValues,
 } from "@/lib/schemas/url-audit"
 import { cn } from "@/lib/utils"
+
+const URL_EJEMPLO_IMPORT_RESULTADO = EDITORIAL_DEMO_ROUTES[0].url
 
 export default function AuditarPage() {
   const router = useRouter()
@@ -44,7 +46,6 @@ export default function AuditarPage() {
   })
 
   function onSubmit(data: AuditUrlFormValues) {
-    console.log("URL válida:", data.url)
     router.push(`/auditar/captura?url=${encodeURIComponent(data.url)}`)
   }
 
@@ -102,43 +103,63 @@ export default function AuditarPage() {
 
       <Card className="border-border bg-card">
         <CardHeader>
-          <CardTitle className="text-base">Atajos editoriales (mock)</CardTitle>
+          <CardTitle className="text-base">
+            Prioridades demostrativas LC (mock y fixture)
+          </CardTitle>
           <CardDescription>
-            Prioridades demostrativas: navegación directa al resultado con la URL
-            canónica indicada en el inventario Clarity.
+            Las tres URLs canónicas del inventario Clarity: puede abrir el
+            resultado con datos **generados en cliente por URL** (mock) o con el
+            **JSON versionado** del repositorio (misma URL, distinta fuente de
+            datos).
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-0">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="atajos-editoriales">
               <AccordionTrigger>
-                Tarjetas por perfil LC (mock)
+                Tres perfiles — navegación al resultado
               </AccordionTrigger>
               <AccordionContent>
                 <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-3 sm:items-stretch">
-                  {EDITORIAL_AUDIT_SHORTCUTS.map((item) => (
-                    <li key={item.url} className="min-h-0 sm:flex sm:flex-col">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          router.push(
-                            `/auditar/procesando?url=${encodeURIComponent(item.url)}`,
-                          )
-                        }
-                        className={cn(
-                          "flex h-full min-h-[6rem] w-full flex-col rounded-xl border-2 border-transparent bg-[#FFFFFF] p-4 text-left shadow-none transition-colors",
-                          "hover:brightness-[0.99]",
-                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                        )}
-                        style={{ borderColor: item.bordeHex }}
-                      >
-                        <div className="flex min-h-[1.5rem] shrink-0 flex-col justify-start text-xs font-normal leading-snug text-muted-foreground">
-                          {item.perfilLabel}
-                        </div>
-                        <p className="mt-2 flex flex-1 flex-col justify-start text-balance font-semibold text-sm leading-snug text-foreground">
-                          {item.label}
-                        </p>
-                      </button>
+                  {EDITORIAL_DEMO_ROUTES.map((item) => (
+                    <li
+                      key={item.url}
+                      className={cn(
+                        "flex min-h-0 flex-col rounded-xl border-2 bg-card p-4 text-card-foreground shadow-sm sm:min-h-[11rem]",
+                      )}
+                      style={{ borderColor: item.bordeHex }}
+                    >
+                      <div className="text-xs font-normal leading-snug text-muted-foreground">
+                        {item.perfilLabel}
+                      </div>
+                      <p className="mt-2 text-balance text-sm font-semibold leading-snug">
+                        {item.label}
+                      </p>
+                      <div className="mt-auto flex flex-col gap-2 pt-4">
+                        <Button
+                          type="button"
+                          className="w-full"
+                          onClick={() =>
+                            router.push(
+                              `/auditar/procesando?url=${encodeURIComponent(item.url)}`,
+                            )
+                          }
+                        >
+                          Resultado (mock por URL)
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-full"
+                          onClick={() =>
+                            router.push(
+                              `/auditar/procesando?url=${encodeURIComponent(item.url)}&fixture=${encodeURIComponent(item.fixtureId)}`,
+                            )
+                          }
+                        >
+                          Resultado (fixture JSON)
+                        </Button>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -147,40 +168,36 @@ export default function AuditarPage() {
           </Accordion>
         </CardContent>
       </Card>
+
       <Card className="border-border bg-card">
         <CardHeader>
           <CardTitle className="text-base">
-            Fixtures de auditoría (JSON en repo)
+            Importar auditoría (JSON en repo)
           </CardTitle>
           <CardDescription>
-            Abre el resultado con datos de{" "}
+            Pegue o cargue un archivo JSON en la pantalla de resultado; debe
+            cumplir{" "}
+            <code className="rounded bg-muted px-1 text-xs">
+              strictAuditRecordSchema
+            </code>
+            . Los archivos canónicos viven en{" "}
             <code className="rounded bg-muted px-1 text-xs">
               data/audit-fixtures/
-            </code>{" "}
-            vía API mock; misma pantalla intermedia que los atajos.
+            </code>
+            .
           </CardDescription>
         </CardHeader>
-        <CardContent className="pt-0">
-          <ul className="m-0 flex list-none flex-col gap-2 p-0 sm:flex-row sm:flex-wrap">
-            {AUDIT_FIXTURE_LAUNCHES.map((row) => (
-              <li key={row.id}>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="h-auto w-full justify-start whitespace-normal text-left sm:w-auto"
-                  onClick={() =>
-                    router.push(
-                      `/auditar/procesando?url=${encodeURIComponent(row.url)}&fixture=${encodeURIComponent(row.id)}`,
-                    )
-                  }
-                >
-                  {row.label}
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
+        <CardFooter>
+          <Button type="button" variant="secondary" asChild>
+            <Link
+              href={`/auditar/resultado?url=${encodeURIComponent(URL_EJEMPLO_IMPORT_RESULTADO)}`}
+            >
+              Ir a resultado para importar JSON
+            </Link>
+          </Button>
+        </CardFooter>
       </Card>
+
       <AuditarInventorySections />
     </div>
   )

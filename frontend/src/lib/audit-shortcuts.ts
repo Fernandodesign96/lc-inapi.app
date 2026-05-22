@@ -1,28 +1,23 @@
-/** Perfil LC mock para coherencia con resultado por atajo editorial. */
-export type EditorialShortcutPerfil = "peor" | "intermedio" | "mejor"
+import {
+  EDITORIAL_DEMO_ROUTES,
+  type EditorialShortcutPerfil,
+} from "@/lib/editorial-demo-routes"
 
-/** Atajos editoriales mock — alineado a `docs/ux/inventario-urls-clarity.md` §1 */
-export const EDITORIAL_AUDIT_SHORTCUTS = [
-  {
-    perfil: "peor" as const,
-    perfilLabel: "Perfil peor (rechazado)",
-    label: "Notificaciones Marcas",
-    url: "https://tramites.inapi.cl/Notificaciones",
-    bordeHex: "#FB3B3B",
-  },
-  {
-    perfil: "intermedio" as const,
-    perfilLabel: "Perfil intermedio (aceptado con observaciones)",
-    label:
-      "Presentación de Escritos — INAPI — Sitio de Trámites",
-    url: "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",
-    bordeHex: "#FFC107",
-  },
-  {
-    perfil: "mejor" as const,
-    perfilLabel: "Perfil mejor (aceptada en referencia)",
-    label: "Homepage",
-    url: "https://www.inapi.cl/",
-    bordeHex: "#4CAF50",
-  },
-] as const
+export type { EditorialShortcutPerfil }
+
+/** Atajos editoriales mock — derivado de `EDITORIAL_DEMO_ROUTES` (inventario Clarity §1). */
+export const EDITORIAL_AUDIT_SHORTCUTS = EDITORIAL_DEMO_ROUTES.map(
+  ({ perfil, perfilLabel, label, url, bordeHex }) => ({
+    perfil,
+    perfilLabel,
+    label,
+    url,
+    bordeHex,
+  }),
+) as readonly {
+  perfil: EditorialShortcutPerfil
+  perfilLabel: string
+  label: string
+  url: string
+  bordeHex: string
+}[]

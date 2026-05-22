@@ -1,25 +1,18 @@
 /**
  * Metadatos de lanzamiento para fixtures versionados en data/audit-fixtures/.
- * Mantener alineado con manifest.json y con los archivos *.json del mismo id.
+ * Derivado de `EDITORIAL_DEMO_ROUTES` — mantener alineado con manifest.json y *.json.
  */
-export const AUDIT_FIXTURE_LAUNCHES = [
-  {
-    id: "audit_fixture_notificaciones_marcas_rechazado",
-    label: "Notificaciones Marcas (rechazado — ejemplo editorial)",
-    url: "https://tramites.inapi.cl/Notificaciones",
-  },
-  {
-    id: "audit_fixture_presentacion_escritos_observaciones",
-    label:
-      "Presentación de escritos / confirmación (aceptado con observaciones — mock numérico)",
-    url: "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",
-  },
-  {
-    id: "audit_fixture_home_inapi_aprobado",
-    label: "Home INAPI (aprobado — mock numérico)",
-    url: "https://www.inapi.cl/",
-  },
-] as const
+import { EDITORIAL_DEMO_ROUTES } from "@/lib/editorial-demo-routes"
+
+export const AUDIT_FIXTURE_LAUNCHES = EDITORIAL_DEMO_ROUTES.map((row) => ({
+  id: row.fixtureId,
+  url: row.url,
+  label: row.fixtureLaunchLabel,
+})) as readonly {
+  id: string
+  url: string
+  label: string
+}[]
 
 export type AuditFixtureLaunchRow = (typeof AUDIT_FIXTURE_LAUNCHES)[number]
 
