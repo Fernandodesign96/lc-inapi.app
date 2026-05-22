@@ -45,6 +45,20 @@ import {
   pastillaSeveridadTexto,
   presentacionCriterio,
 } from "@/lib/criterio-evaluacion-visual"
+import {
+  type FiltroEstadoCriterioVisual,
+  type FiltroSeveridadPastilla,
+  letrasTipoDisponibles,
+  matchesEstadoCriterioVisual,
+  matchesLetraTipo,
+  matchesSeveridadPastilla,
+} from "@/lib/criterios-evaluados-filters"
+
+/** Cuerpo de secciones tipo “institucional”: mismo token en claro y oscuro (evita texto pensado para .dark sobre blanco hex). */
+const PANEL_BODY_CLASS = "bg-card text-card-foreground"
+
+const CRITERIOS_FILTER_SELECT_CLASS =
+  "mt-1 min-h-9 w-full rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground dark:bg-input/30"
 
 function ResultadoInner() {
   const router = useRouter()
@@ -95,6 +109,12 @@ function ResultadoInner() {
   const [importDraft, setImportDraft] = useState("")
   const [importError, setImportError] = useState<string | null>(null)
 
+  const [filtroLetra, setFiltroLetra] = useState<"todas" | string>("todas")
+  const [filtroEstado, setFiltroEstado] =
+    useState<FiltroEstadoCriterioVisual>("todos")
+  const [filtroSeveridad, setFiltroSeveridad] =
+    useState<FiltroSeveridadPastilla>("todos")
+
   useEffect(() => {
     if (!fixtureId) {
       return
@@ -117,6 +137,9 @@ function ResultadoInner() {
           setImportedAudit(null)
           setImportError(null)
           setFixtureFetchError(null)
+          setFiltroLetra("todas")
+          setFiltroEstado("todos")
+          setFiltroSeveridad("todos")
         }
       })
       .catch((e: unknown) => {
@@ -157,12 +180,36 @@ function ResultadoInner() {
         ? "import_json"
         : "url_mock"
 
+  const criteriosFiltrados = useMemo(() => {
+    if (!auditoria) return []
+    return auditoria.criterios_evaluados.filter(
+      (row) =>
+        matchesLetraTipo(row, filtroLetra) &&
+        matchesEstadoCriterioVisual(row, filtroEstado) &&
+        matchesSeveridadPastilla(row, filtroSeveridad),
+    )
+  }, [auditoria, filtroLetra, filtroEstado, filtroSeveridad])
+
+  const letrasDisponibles = useMemo(
+    () => (auditoria ? letrasTipoDisponibles(auditoria.criterios_evaluados) : []),
+    [auditoria],
+  )
+
+  function resetFiltrosCriterios() {
+    setFiltroLetra("todas")
+    setFiltroEstado("todos")
+    setFiltroSeveridad("todos")
+  }
+
   function aplicarImportacion() {
     setImportError(null)
     try {
       const data: unknown = JSON.parse(importDraft)
       const parsed = parseStrictAuditRecord(data)
       setImportedAudit(parsed)
+      setFiltroLetra("todas")
+      setFiltroEstado("todos")
+      setFiltroSeveridad("todos")
     } catch (e) {
       if (e instanceof ZodError) {
         setImportError("El JSON no cumple strictAuditRecordSchema.")
@@ -232,7 +279,11 @@ function ResultadoInner() {
           <CardDescription>
             Solo aplica si no hay un fixture activo en la URL (
             <code className="rounded bg-muted px-1 text-xs">fixture=</code>
-            ). Pega un registro completo y pulsa Aplicar.
+            ). Puede pegar un registro completo aquí o volver a{" "}
+            <Link href="/auditar" className="underline underline-offset-4">
+              /auditar
+            </Link>{" "}
+            y usar el acceso «Ir a resultado para importar JSON».
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
@@ -327,7 +378,7 @@ function ResultadoInner() {
             >
               Resumen
             </div>
-            <div className="bg-[#FFFFFF] p-4">
+            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
               <div className="grid gap-2 text-sm sm:grid-cols-2">
                 <p>
                   <span className="text-muted-foreground">URL:</span>{" "}
@@ -396,7 +447,7 @@ function ResultadoInner() {
             >
               {bloquePasos.titulo}
             </div>
-            <div className="bg-[#FFFFFF] p-4">
+            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
               <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
                 {bloquePasos.pasos.map((paso) => (
                   <li key={paso}>{paso}</li>
@@ -411,7 +462,7 @@ function ResultadoInner() {
                 <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
                   Observaciones
                 </div>
-                <div className="bg-[#FFFFFF] p-4">
+                <div className={cn(PANEL_BODY_CLASS, "p-4")}>
                   <p className="text-sm leading-relaxed text-foreground">
                     {auditoria.observaciones_lc}
                   </p>
@@ -429,7 +480,7 @@ function ResultadoInner() {
               >
                 Texto propuesto
               </div>
-              <div className="bg-[#FFFFFF] p-4">
+              <div className={cn(PANEL_BODY_CLASS, "p-4")}>
                 {auditoria.texto_propuesto ? (
                   <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
                     {auditoria.texto_propuesto}
@@ -437,10 +488,11 @@ function ResultadoInner() {
                 ) : (
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     En esta demostración no hay borrador sugerido para esta URL: el
-                    texto propuesto enriquecido está reservado a los perfiles de los
-                    tres atajos editoriales en la pantalla de ingreso. En la Fase 2,
-                    una evaluación asistida podrá proponer redacción aquí según el
-                    contenido capturado.
+                    texto propuesto enriquecido está reservado a las tres prioridades
+                    demostrativas (mock por URL o fixture) en la pantalla de ingreso, o
+                    puede importar un JSON con borrador. En la Fase 2, una evaluación
+                    asistida podrá proponer redacción aquí según el contenido
+                    capturado.
                   </p>
                 )}
               </div>
@@ -457,9 +509,9 @@ function ResultadoInner() {
             >
               Criterios evaluados
             </div>
-            <div className="bg-[#FFFFFF] p-0">
+            <div className={cn(PANEL_BODY_CLASS, "p-0")}>
               <div
-                className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border px-4 py-3 text-xs text-muted-foreground"
+                className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border bg-muted/30 px-4 py-3 text-xs text-muted-foreground"
                 aria-label="Leyenda de estados y severidad en criterios"
               >
                 <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
@@ -523,17 +575,115 @@ function ResultadoInner() {
                   </span>
                 </span>
               </div>
+              <div
+                className="grid gap-3 border-b border-border px-4 py-3 sm:grid-cols-2 lg:grid-cols-4"
+                role="group"
+                aria-label="Filtros de la tabla de criterios"
+              >
+                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Tipo (prefijo)
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={filtroLetra}
+                    onChange={(e) =>
+                      setFiltroLetra(
+                        e.target.value === "todas" ? "todas" : e.target.value,
+                      )
+                    }
+                  >
+                    <option value="todas">Todas las letras</option>
+                    {letrasDisponibles.map((L) => (
+                      <option key={L} value={L}>
+                        Solo {L}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Estado en tabla
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={filtroEstado}
+                    onChange={(e) =>
+                      setFiltroEstado(e.target.value as FiltroEstadoCriterioVisual)
+                    }
+                  >
+                    <option value="todos">Todos</option>
+                    <option value="cumple">Cumple (✓✓)</option>
+                    <option value="cumple_observaciones">
+                      Cumple con observaciones (✓)
+                    </option>
+                    <option value="medianamente">Medianamente cumple (?)</option>
+                    <option value="no_cumple">No cumple (!)</option>
+                    <option value="no_aplica">No aplica (—)</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Severidad (pastilla)
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={filtroSeveridad}
+                    onChange={(e) =>
+                      setFiltroSeveridad(e.target.value as FiltroSeveridadPastilla)
+                    }
+                  >
+                    <option value="todos">Todas</option>
+                    <option value="correcta">correcta</option>
+                    <option value="alta">alta</option>
+                    <option value="media">media</option>
+                    <option value="baja">baja</option>
+                    <option value="na">— (N/A)</option>
+                  </select>
+                </label>
+                <div className="flex flex-col justify-end gap-2 sm:col-span-2 lg:col-span-1">
+                  <span className="text-xs text-muted-foreground tabular-nums">
+                    Mostrando {criteriosFiltrados.length} de{" "}
+                    {auditoria.criterios_evaluados.length}
+                  </span>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                    onClick={resetFiltrosCriterios}
+                  >
+                    Restablecer filtros
+                  </Button>
+                </div>
+              </div>
               <Table className="min-w-[36rem]">
                 <TableHeader>
                   <TableRow className="border-b border-border bg-muted/50 hover:bg-muted/50">
-                    <TableHead className="min-w-[4rem]">Criterio</TableHead>
-                    <TableHead>Estado</TableHead>
-                    <TableHead>Severidad</TableHead>
-                    <TableHead>Comentario</TableHead>
+                    <TableHead className="min-w-[4rem] text-card-foreground">
+                      Criterio
+                    </TableHead>
+                    <TableHead className="text-card-foreground">Estado</TableHead>
+                    <TableHead className="text-card-foreground">Severidad</TableHead>
+                    <TableHead className="text-card-foreground">Comentario</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {auditoria.criterios_evaluados.map((row) => {
+                  {criteriosFiltrados.length === 0 ? (
+                    <TableRow>
+                      <TableCell
+                        colSpan={4}
+                        className="p-6 text-center text-muted-foreground"
+                      >
+                        <p className="mb-3 text-sm">
+                          Ningún criterio coincide con los filtros seleccionados.
+                        </p>
+                        <Button
+                          type="button"
+                          variant="secondary"
+                          size="sm"
+                          onClick={resetFiltrosCriterios}
+                        >
+                          Restablecer filtros
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ) : null}
+                  {criteriosFiltrados.map((row) => {
                     const pres = presentacionCriterio(row)
                     const pastilla = pastillaSeveridadLabel(row)
                     return (
