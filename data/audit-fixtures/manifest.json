@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "fixtures": [
+    {
+      "id": "audit_fixture_notificaciones_marcas_rechazado",
+      "label": "Notificaciones Marcas (rechazado — ejemplo editorial)",
+      "band_esperada": "rechazado"
+    },
+    {
+      "id": "audit_fixture_presentacion_escritos_observaciones",
+      "label": "Presentación de escritos / confirmación (aceptado con observaciones — mock numérico)",
+      "band_esperada": "aceptado_con_observaciones"
+    },
+    {
+      "id": "audit_fixture_home_inapi_aprobado",
+      "label": "Home INAPI (aprobado — mock numérico)",
+      "band_esperada": "aprobado"
+    }
+  ]
+}

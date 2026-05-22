@@ -1,0 +1,200 @@
+{
+  "id": "audit_fixture_notificaciones_marcas_rechazado",
+  "url": "https://tramites.inapi.cl/Notificaciones",
+  "fecha_evaluacion": "2026-05-11T12:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "texto_capturado": "=== Modal Advertencia ===\n\nLas notificaciones electrónicas disponibles como cortesía en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan la notificación legal, la cual se realiza por el estado diario (Art. 13 de la Ley 19.039).\n\nLa Ley obliga a notificar electrónicamente solo la demanda de oposición, la observación de fondo y la resolución que acepta el registro solicitado. Para otras resoluciones, el interesado debe revisar siempre los estados diarios disponibles en https://tramites.inapi.cl/EstadosDiariosMarcas.\n\nPara más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13.\n\n=== Vista sin filtros ===\n\nTrámites y Servicios • Notificaciones Electrónicas. Pestañas Marcas/Patentes. Sección: Notificaciones Electrónicas de Marcas. > Mostrar filtros de búsqueda. Resultados: No se encontraron resultados.\n\n=== Vista con filtros ===\n\nCampos: Número de Solicitud, rango de fechas, Titular/Solicitante. RUN Notificado: 18.618.492-0. Nombre: Fernando Ignacio Arriagada Castillo. Última actualización de notificaciones: 11/05/2026 08:00:00 a. m. Botones BUSCAR, LIMPIAR, VER ESTADO DIARIO MARCAS. Resultados: No se encontraron resultados.\n\n=== Pie ===\n\nINAPI Chile. Contacto y versión v 2.3.83.0.",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Titulares duplicados o redundantes entre vista sin filtros y con filtros."
+    },
+    {
+      "id": "A4",
+      "estado": "cumple"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Voz pasiva predominante en tramos del modal y formulario."
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Jerga legal densa en el modal sin definiciones (notificación legal, estado diario, demanda de oposición, etc.)."
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Siglas y referencias (INAPI, Resolución Exenta 138) sin primera definición en contexto."
+    },
+    {
+      "id": "B4",
+      "estado": "cumple"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B6",
+      "estado": "cumple"
+    },
+    {
+      "id": "B7",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Oración muy larga (>50 palabras) sin subdivisión en el modal."
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Modal mezcla tres ideas: aviso legal, casos de notificación electrónica obligatoria, remisión a manual."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple"
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "D1",
+      "estado": "cumple"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple"
+    },
+    {
+      "id": "D3",
+      "estado": "cumple"
+    },
+    {
+      "id": "D4",
+      "estado": "cumple"
+    },
+    {
+      "id": "D5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Bloque de campos sin estructura clara de enumeración (listas/tablas) para lo que debe completarse."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Mayúsculas sostenidas en cabeceras, pestañas y botones (MARCAS, PATENTES, BUSCAR, LIMPIAR, VER ESTADO DIARIO MARCAS)."
+    },
+    {
+      "id": "E1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Referencia obsoleta a «Twitter» en pie (marca renombrada)."
+    },
+    {
+      "id": "E2",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Falta fecha de actualización visible para el contenido editorial global de la página."
+    },
+    {
+      "id": "E4",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "F1",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "CTA en mayúsculas y destino del enlace poco explicitado."
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Enlace en modal sin contexto de apertura / formato / peso cuando aplica."
+    },
+    {
+      "id": "F5",
+      "estado": "cumple"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "RUN completo visible; minimización de datos personales."
+    },
+    {
+      "id": "G2",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "G3",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica"
+    }
+  ],
+  "criterios_aprobados": 16,
+  "criterios_aplicables": 29,
+  "criterios_no_aplica": 10,
+  "porcentaje_cumplimiento": 55.2,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Encabezado: Trámites y Servicios — Notificaciones Electrónicas; [Marcas] [Patentes] Fernando Arriagada.\n\nAviso importante (modal): notificaciones y correo no reemplazan notificación legal; estado diario (Art. 13 Ley 19.039); lista de tres casos de notificación electrónica obligatoria; resto: revisar estados diarios; enlace a Resolución Exenta 138; botón Entendido.\n\nNotificaciones electrónicas de marcas: filtros y datos de usuario con RUN parcialmente oculto; botones en minúsculas tipo oración; resultados sin hallazgos con filtros aplicados.",
+  "observaciones_lc": "La pantalla concentra 13 criterios incumplidos entre 29 aplicables: modal denso y legalista, RUN visible, titulares duplicados, mayúsculas en controles y enlaces poco descriptivos.",
+  "tiempo_evaluacion_segundos": 120
+}

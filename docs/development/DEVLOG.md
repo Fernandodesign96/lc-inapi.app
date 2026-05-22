@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-21 | [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion) |
+| 2026-05-21 | [Documentación: Ejemplo editorial fixtures (rechazado) + alineación inventario / roadmap](#devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones) |
 | 2026-05-21 | [Frontend: Estado intermedio — pantalla `/auditar/procesando`](#devlog-2026-05-21-estado-intermedio-procesando) |
 | 2026-05-20 | [Frontend: Resultado mock — barra de cumplimiento, pasos a seguir y texto propuesto](#devlog-2026-05-20-resultado-mock-cierre) |
 | 2026-05-20 | [Frontend: Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados](#devlog-2026-05-20-tabla-severidad-inventarios) |
@@ -20,6 +22,51 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-21-fixtures-implementacion"></a>
+
+## [2026-05-21] - Frontend | Fixtures de auditoría: datos, scripts, validación, API y UI
+
+### Contexto y objetivos:
+
+Cerrar en código el ítem **«Fixtures de auditoría»** de la Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md): datos canónicos en `data/audit-fixtures/`, comprobación automática con el mismo contrato que usará el dominio (`strictAuditRecordSchema`), y en el **frontend** la posibilidad de **cargar un fixture por identificador** o **importar** un JSON, coherente con las tres franjas de aceptación (≤80 %, 81–90 %, ≥91 % sobre criterios aplicables).
+
+### Implementación técnica:
+
+- **Generación de JSON (fuente de verdad numérica):** script en la raíz del monorepo `src/scripts/generate-audit-fixture-json-files.ts`, ejecutable con Bun (`bun run src/scripts/generate-audit-fixture-json-files.ts`). Construye los tres registros usando `summarizeEvaluations`, `buildDemoStrictAuditWithCumpleCount` y `strictAuditRecordSchema.parse` desde [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts) antes de escribir disco, de modo que **no** haya que ajustar a mano porcentajes ni `estado_aceptacion` incoherentes con las 39 filas. El fixture **rechazado** replica el reparto del informe editorial documentado en [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](../ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md); los otros dos cubren franja media y alta con el mismo patrón numérico que los atajos editoriales hasta disponer de informes completos volcados.
+- **Validación en CI / local:** `src/scripts/validate-audit-fixtures.ts` y comando raíz `bun run validate:audit-fixtures` (ver [`package.json`](../../package.json)), que recorre los `*.json` de `data/audit-fixtures/` excluyendo `manifest.json` y vuelve a parsear cada archivo con `strictAuditRecordSchema`.
+- **Metadatos de lanzamiento:** [`frontend/src/lib/audit-fixtures-launch.ts`](../../frontend/src/lib/audit-fixtures-launch.ts) (ids permitidos y URL de navegación al flujo `procesando` + `resultado`).
+- **API Next (servidor):** `GET` en [`frontend/src/app/api/audit-fixtures/[fixtureId]/route.ts`](../../frontend/src/app/api/audit-fixtures/[fixtureId]/route.ts): lee el JSON desde el monorepo (`process.cwd()` con padre `..` salvo override `LC_REPO_ROOT`), lista blanca de ids y respuesta validada con Zod antes de enviarla al cliente.
+- **Flujo UI:** [`frontend/src/app/auditar/procesando/page.tsx`](../../frontend/src/app/auditar/procesando/page.tsx) propaga `fixture=` hacia [`frontend/src/app/auditar/resultado/page.tsx`](../../frontend/src/app/auditar/resultado/page.tsx); esta página prioriza **fixture por API** frente a **importación JSON** (`parseStrictAuditRecord`) y al **mock por URL**; se ajustó la interacción con la regla de lint `react-hooks/set-state-in-effect` derivando estado de carga y filtrando el fixture mostrado cuando el `id` del registro coincide con el parámetro de URL.
+- **Descubrimiento en `/auditar`:** botones que disparan el mismo camino intermedio que los atajos, con `url` y `fixture` alineados a cada JSON.
+
+### Próximos pasos:
+
+- `validate:audit-fixtures` ya forma parte de `bun run typecheck:all` en la raíz del monorepo (ver [`package.json`](../../package.json)).
+- Según roadmap: **demo interna con Equipo UX** (grabación y notas en `docs/` o en esta bitácora).
+- Cuando existan informes cerrados para las otras URLs prioritarias, **sustituir** los dos fixtures «mock numérico» regenerando JSON con el mismo script y volver a ejecutar `validate:audit-fixtures`.
+
+---
+
+<a id="devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones"></a>
+
+## [2026-05-21] - Documentación | Ejemplo editorial fixtures (rechazado) + alineación inventario / roadmap
+
+### Contexto y objetivos
+
+Dejar **versionado en el repo** un **ejemplo editorial completo** (texto capturado, reparto de 39 criterios, resumen 55,2 % rechazado, texto propuesto) para la URL prioritaria **Notificaciones Marcas** (`https://tramites.inapi.cl/Notificaciones`), alineado al inventario Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md), como **referencia humana** para el primer JSON bajo `data/audit-fixtures/`. El plan de trabajo puntual de Fase 1 se redactó en paralelo y **se retiró del repositorio** una vez cerrados datos, scripts, API y UI; la operación vive en [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md) y en la entrada [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion).
+
+### Qué se añadió o actualizó
+
+- **Nuevo:** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](../ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md) — volcado del informe (modal, vistas, pie, listas de IDs cumple/incumple/no aplica, severidades resumidas, texto propuesto, slug sugerido para `id` de fixture).
+- **Actualizado:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) — enlace al ejemplo bajo la tabla de tres URLs priorizadas (y referencia a `data/audit-fixtures/README.md` donde aplica).
+- **Actualizado:** [`docs/ROADMAP.md`](../ROADMAP.md) — el bullet de fixtures enlaza al README de `data/audit-fixtures/` y al ejemplo editorial.
+
+### Próximos pasos
+
+- **Completado en repo:** JSON en `data/audit-fixtures/`, `validate:audit-fixtures`, API `GET /api/audit-fixtures/[fixtureId]`, importación JSON y carga por `fixture=` en UI (ver [entrada Frontend 2026-05-21](#devlog-2026-05-21-fixtures-implementacion)). Pendiente según roadmap: **demo interna** con Equipo UX.
 
 ---
 
@@ -41,7 +88,7 @@ Cerrar en documentación el ítem de Fase 1 del roadmap **«Estado intermedio en
 ### Próximos pasos:
 
 - Ejecutar y completar el checklist en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md); anotar hallazgos para la reunión con **Equipo UX**.
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog). Los **fixtures** quedaron implementados (ver [entrada 2026-05-21 — fixtures](#devlog-2026-05-21-fixtures-implementacion)).
 
 ---
 
@@ -63,7 +110,7 @@ Cerrar en bitácora el ítem de Fase 1 del roadmap **«Resultado mock»** en [`d
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** en `data/audit-fixtures/` con script `validate:audit-fixtures` y selección en UI; **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog). El ítem **Estado intermedio** quedó cerrado en roadmap y bitácora (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el checklist manual de QA en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) se ejecuta como último paso de Fase 1 antes de la reunión con Equipo UX.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **demo interna** con Equipo UX (grabación y notas en `docs/` o este devlog). Los **fixtures** quedaron implementados (ver [entrada 2026-05-21 — fixtures](#devlog-2026-05-21-fixtures-implementacion)). El ítem **Estado intermedio** quedó cerrado en roadmap y bitácora (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el checklist manual de QA en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) se ejecuta como último paso de Fase 1 antes de la reunión con Equipo UX.
 
 ---
 
@@ -87,7 +134,7 @@ Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización 
 
 - El ítem **Resultado mock** quedó cerrado en código y bitácora (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)).
 - El ítem **Estado intermedio** quedó cerrado en roadmap y bitácora (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); checklist manual de QA en [`docs/qa/auditar-procesando-a11y-manual.md`](../qa/auditar-procesando-a11y-manual.md) para cierre final antes de reunión con Equipo UX.
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** `data/audit-fixtures/` + script de validación; **demo interna** con Equipo UX.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **demo interna** con Equipo UX. Los **fixtures** quedaron implementados (ver [entrada 2026-05-21 — fixtures](#devlog-2026-05-21-fixtures-implementacion)).
 - Volcar en documentación / **ADR 0007** los acuerdos formales con **Equipo UX** o responsable de datos cuando se concrete la reunión (modelo y parseo más allá del borrador actual).
 
 ---
@@ -111,7 +158,7 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **fixtures** y script `validate:audit-fixtures`; **demo interna** con Equipo UX. El ítem **Resultado mock** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)); el ítem **Estado intermedio** quedó cerrado (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-tabla-severidad-inventarios)).
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **demo interna** con Equipo UX. Los **fixtures** quedaron implementados (ver [entrada 2026-05-21 — fixtures](#devlog-2026-05-21-fixtures-implementacion)). El ítem **Resultado mock** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-resultado-mock-cierre)); el ítem **Estado intermedio** quedó cerrado (ver entrada [2026-05-21](#devlog-2026-05-21-estado-intermedio-procesando)); el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** quedó cerrado (ver entrada [2026-05-20](#devlog-2026-05-20-tabla-severidad-inventarios)).
 
 ---
 
@@ -178,7 +225,7 @@ Cerrar en el repo el ítem de Fase 1 del roadmap **«Marco visual institucional 
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): **home** como portal de acceso a `/auditar`; en **`/auditar`**, barra de URL, **tres atajos** a resultado, inventarios en **barras colapsables** (§15 design system); luego barra térmica, estado intermedio, fixtures y demo UX.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): **home** como portal de acceso a `/auditar`; en **`/auditar`**, barra de URL, **tres atajos** a resultado, inventarios en **barras colapsables** (§15 design system); luego barra térmica, estado intermedio, **demo UX** con Equipo UX (fixtures de auditoría ya implementados — ver [2026-05-21](#devlog-2026-05-21-fixtures-implementacion)).
 
 ---
 
@@ -216,7 +263,7 @@ El layout del segmento `auditar` concentra ancho y márgenes; las páginas hijas
 
 ### Próximos pasos:
 
-- Según [`docs/ROADMAP.md`](../ROADMAP.md): portal en **`/`**, ingreso y **tres atajos** en **`/auditar`**, inventarios en **barras colapsables** (§15 design system), barra térmica y bloques de resultado mock, estado intermedio de carga, fixtures JSON y demo UX, con notas en este devlog o en `docs/`.
+- Según [`docs/ROADMAP.md`](../ROADMAP.md): portal en **`/`**, ingreso y **tres atajos** en **`/auditar`**, inventarios en **barras colapsables** (§15 design system), barra térmica y bloques de resultado mock, estado intermedio de carga, **demo UX** con Equipo UX (fixtures JSON ya en repo — [2026-05-21](#devlog-2026-05-21-fixtures-implementacion)), con notas en este devlog o en `docs/`.
 
 ---
 
@@ -240,7 +287,7 @@ Registrar en el repo los acuerdos de la última reunión (oficina / transferenci
 
 ### Próximos pasos:
 
-- **Fase 1 (código):** design system en UI; portal **`/`**; **`/auditar`** con URL, tres atajos, inventarios en barras colapsables (§15 design system); barra térmica y fixtures según [`docs/ROADMAP.md`](../ROADMAP.md).
+- **Fase 1 (código):** design system en UI; portal **`/`**; **`/auditar`** con URL, tres atajos, inventarios en barras colapsables (§15 design system); barra térmica y **fixtures** según [`docs/ROADMAP.md`](../ROADMAP.md) (implementados en [2026-05-21](#devlog-2026-05-21-fixtures-implementacion)).
 - **Fase 2:** cerrar con Camila/TI las preguntas abiertas del ADR 0006 (auth, Lambda vs ECS, Pydantic).
 
 ---
@@ -270,7 +317,7 @@ Cerrar el segundo ítem de la Fase 1 del roadmap: flujo **URL → texto capturad
 
 ### Próximos pasos:
 
-- Fase 1, punto 3: fixtures JSON validados con `strictAuditRecordSchema` y carga o validación en CI.
+- **Fase 1, punto 3 (cerrado en [2026-05-21](#devlog-2026-05-21-fixtures-implementacion)):** fixtures JSON en `data/audit-fixtures/` validados con `strictAuditRecordSchema`, API, importación en UI y validación en `typecheck:all`.
 - Opcional: columnas con descripción del criterio leyendo `data/checklist-criteria.json`.
 
 ---
@@ -298,7 +345,7 @@ Cerrar el primer ítem de la Fase 1: stack de UI y **primer formulario** alinead
 
 ### Próximos pasos:
 
-- Implementar pantallas de captura y resultado (entrada siguiente del devlog) y, después, fixtures.
+- Implementar pantallas de captura y resultado (entrada siguiente del devlog); **fixtures** de auditoría quedaron en [2026-05-21](#devlog-2026-05-21-fixtures-implementacion).
 
 ---
 

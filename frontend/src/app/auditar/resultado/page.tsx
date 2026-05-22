@@ -1,8 +1,9 @@
 "use client"
 
-import { Suspense, useMemo } from "react"
+import { Suspense, useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
+import { ZodError } from "zod"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,7 +23,12 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
-import { buildDemoStrictAudit } from "@contracts/checklist"
+import { Label } from "@/components/ui/label"
+import {
+  buildDemoStrictAudit,
+  parseStrictAuditRecord,
+  type StrictAuditRecord,
+} from "@contracts/checklist"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
 import {
@@ -44,6 +50,8 @@ function ResultadoInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlRaw = searchParams.get("url")
+  const fixtureRaw = searchParams.get("fixture")
+  const fixtureId = fixtureRaw?.trim() ? fixtureRaw.trim() : null
 
   const urlDecoded = useMemo(() => {
     if (!urlRaw) return null
@@ -63,7 +71,8 @@ function ResultadoInner() {
     }
   }, [urlDecoded])
 
-  const auditoria = useMemo(() => {
+  const urlDerivedAudit = useMemo((): StrictAuditRecord | null => {
+    if (fixtureId) return null
     if (!auditUrl) return null
     const texto = `(mock) Contenido evaluado para ${auditUrl}`
     return (
@@ -76,21 +85,128 @@ function ResultadoInner() {
           : {}),
       })
     )
-  }, [auditUrl])
+  }, [auditUrl, fixtureId])
 
-  if (!urlDecoded) {
-    router.replace("/auditar")
+  const [fixtureAudit, setFixtureAudit] = useState<StrictAuditRecord | null>(null)
+  const [fixtureFetchError, setFixtureFetchError] = useState<string | null>(null)
+  const [importedAudit, setImportedAudit] = useState<StrictAuditRecord | null>(
+    null,
+  )
+  const [importDraft, setImportDraft] = useState("")
+  const [importError, setImportError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!fixtureId) {
+      return
+    }
+
+    let cancelled = false
+
+    fetch(`/api/audit-fixtures/${encodeURIComponent(fixtureId)}`)
+      .then(async (r) => {
+        if (!r.ok) {
+          const body = await r.text()
+          throw new Error(body || `HTTP ${r.status}`)
+        }
+        return r.json() as Promise<unknown>
+      })
+      .then((data) => {
+        const parsed = parseStrictAuditRecord(data)
+        if (!cancelled) {
+          setFixtureAudit(parsed)
+          setImportedAudit(null)
+          setImportError(null)
+          setFixtureFetchError(null)
+        }
+      })
+      .catch((e: unknown) => {
+        if (!cancelled) {
+          setFixtureAudit(null)
+          setFixtureFetchError(
+            e instanceof Error ? e.message : "No se pudo cargar el fixture.",
+          )
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [fixtureId])
+
+  const fixtureFetchErrorForDisplay = fixtureId ? fixtureFetchError : null
+
+  const fixtureAuditForDisplay =
+    fixtureId &&
+    fixtureAudit !== null &&
+    fixtureAudit.id === fixtureId
+      ? fixtureAudit
+      : null
+
+  const showFixtureLoading =
+    Boolean(fixtureId) &&
+    fixtureFetchErrorForDisplay === null &&
+    fixtureAuditForDisplay === null
+
+  const auditoria: StrictAuditRecord | null =
+    fixtureAuditForDisplay ?? importedAudit ?? urlDerivedAudit ?? null
+
+  const origenDatos: "fixture_api" | "import_json" | "url_mock" =
+    fixtureAuditForDisplay !== null
+      ? "fixture_api"
+      : importedAudit !== null
+        ? "import_json"
+        : "url_mock"
+
+  function aplicarImportacion() {
+    setImportError(null)
+    try {
+      const data: unknown = JSON.parse(importDraft)
+      const parsed = parseStrictAuditRecord(data)
+      setImportedAudit(parsed)
+    } catch (e) {
+      if (e instanceof ZodError) {
+        setImportError("El JSON no cumple strictAuditRecordSchema.")
+      } else if (e instanceof SyntaxError) {
+        setImportError("JSON inválido (revisa comillas y comas).")
+      } else {
+        setImportError("No se pudo importar el registro.")
+      }
+      setImportedAudit(null)
+    }
+  }
+
+  if (!fixtureId) {
+    if (!urlDecoded) {
+      router.replace("/auditar")
+      return (
+        <p className="text-muted-foreground text-sm">
+          Redirigiendo al ingreso de URL…
+        </p>
+      )
+    }
+
+    if (!auditUrl) {
+      router.replace("/auditar")
+      return (
+        <p className="text-muted-foreground text-sm">URL inválida…</p>
+      )
+    }
+  }
+
+  if (showFixtureLoading) {
     return (
-      <p className="text-muted-foreground text-sm">
-        Redirigiendo al ingreso de URL…
-      </p>
+      <p className="text-muted-foreground text-sm">Cargando fixture…</p>
     )
   }
 
-  if (!auditUrl) {
-    router.replace("/auditar")
+  if (fixtureId && fixtureFetchErrorForDisplay) {
     return (
-      <p className="text-muted-foreground text-sm">URL inválida…</p>
+      <div className="flex w-full flex-col gap-4">
+        <p className="text-sm text-destructive">{fixtureFetchErrorForDisplay}</p>
+        <Button type="button" variant="outline" asChild>
+          <Link href="/auditar">Volver al ingreso</Link>
+        </Button>
+      </div>
     )
   }
 
@@ -101,28 +217,94 @@ function ResultadoInner() {
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
 
+  const descripcionOrigen =
+    origenDatos === "fixture_api"
+      ? "Datos cargados desde el fixture del repositorio (API /api/audit-fixtures/…, validado con strictAuditRecordSchema)."
+      : origenDatos === "import_json"
+        ? "Datos cargados desde JSON pegado o importado en el navegador (parseStrictAuditRecord)."
+        : "Datos generados en cliente con buildStrictAuditForAuditarUrl o buildDemoStrictAudit desde @contracts/checklist."
+
   return (
     <div className="flex w-full flex-col gap-6">
+      <Card className="border-dashed">
+        <CardHeader className="space-y-1.5">
+          <CardTitle className="text-base">Demostración: importar JSON</CardTitle>
+          <CardDescription>
+            Solo aplica si no hay un fixture activo en la URL (
+            <code className="rounded bg-muted px-1 text-xs">fixture=</code>
+            ). Pega un registro completo y pulsa Aplicar.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <div className="space-y-2">
+            <Label htmlFor="resultado-import-json">JSON del registro</Label>
+            <textarea
+              id="resultado-import-json"
+              value={importDraft}
+              onChange={(e) => setImportDraft(e.target.value)}
+              rows={6}
+              spellCheck={false}
+              className="w-full resize-y rounded-lg border border-input bg-transparent px-2.5 py-2 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30"
+              placeholder='{ "id": "…", "url": "https://…", … }'
+            />
+          </div>
+          {importError ? (
+            <p className="text-sm text-destructive" role="alert">
+              {importError}
+            </p>
+          ) : null}
+          <div className="flex flex-wrap gap-2">
+            <Button
+              type="button"
+              variant="secondary"
+              disabled={!!fixtureId}
+              onClick={() => aplicarImportacion()}
+            >
+              Aplicar JSON
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                setImportDraft("")
+                setImportedAudit(null)
+                setImportError(null)
+              }}
+            >
+              Limpiar
+            </Button>
+            <Button type="button" variant="outline" asChild>
+              <label className="cursor-pointer">
+                Elegir archivo…
+                <input
+                  type="file"
+                  accept="application/json,.json"
+                  className="sr-only"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0]
+                    e.target.value = ""
+                    if (!file) return
+                    const reader = new FileReader()
+                    reader.onload = () => {
+                      const text =
+                        typeof reader.result === "string" ? reader.result : ""
+                      setImportDraft(text)
+                    }
+                    reader.readAsText(file, "utf8")
+                  }}
+                />
+              </label>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader className="gap-4 space-y-0">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0 flex-1 space-y-1.5">
               <CardTitle>Resultado de la auditoría (mock)</CardTitle>
-              <CardDescription>
-                Datos generados con{" "}
-                <code className="rounded bg-muted px-1 text-xs">
-                  buildDemoStrictAudit
-                </code>{" "}
-                desde{" "}
-                <code className="rounded bg-muted px-1 text-xs">
-                  @contracts/checklist
-                </code>
-                . Las 39 filas cumplen{" "}
-                <code className="rounded bg-muted px-1 text-xs">
-                  strictAuditRecordSchema
-                </code>
-                .
-              </CardDescription>
+              <CardDescription>{descripcionOrigen}</CardDescription>
             </div>
             <Button
               type="button"

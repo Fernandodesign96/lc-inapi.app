@@ -92,7 +92,7 @@ En **Fase 1**, la misma información puede documentarse en **`docs/ux/`** (p. ej
 | Ubicación | Uso |
 | --- | --- |
 | `data/checklist-criteria.json` | Catálogo 39 criterios; validación `validate:checklist` |
-| `data/audit-fixtures/*.json` (previsto) | Auditorías completas mock; validación con `strictAuditRecordSchema` (script `validate:audit-fixtures` previsto en raíz) |
+| `data/audit-fixtures/*.json` | Auditorías completas mock o volcadas; validación con `strictAuditRecordSchema` vía `bun run validate:audit-fixtures` (también encadenado en `bun run typecheck:all`) |
 
 Los fixtures deben respetar la misma lógica de **porcentaje** y **`estado_aceptacion`** que la aplicación (rechazado ≤80 %, aceptado con observaciones 81–90 %, aprobado ≥91 % sobre criterios aplicables), coherente con [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 

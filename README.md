@@ -39,20 +39,18 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | Recurso | Descripción |
 | --- | --- |
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
-| `data/audit-fixtures/` (previsto) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; ver [docs/ROADMAP.md](docs/ROADMAP.md) y [docs/DATABASE.md](docs/DATABASE.md) |
+| [data/audit-fixtures/](data/audit-fixtures/) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; convención y scripts en [data/audit-fixtures/README.md](data/audit-fixtures/README.md); ver [docs/ROADMAP.md](docs/ROADMAP.md) y [docs/DATABASE.md](docs/DATABASE.md) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación (equivalente actual a `packages/contracts` del monorepo objetivo; ver [propuesta técnica integral](docs/PROPUESTA_TECNICA_INTEGRAL.md)) |
 
 Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
 
 ```bash
 bun install
-bun run validate:checklist
-# cuando exista el script en package.json:
-# bun run validate:audit-fixtures
-bun run typecheck
-bun run typecheck:frontend
+bun run typecheck:all   # validate:checklist + validate:audit-fixtures + tsc (raíz y frontend)
 cd frontend && bun run dev
 ```
+
+(Paso a paso: `bun run validate:checklist`, `bun run validate:audit-fixtures`, `bun run typecheck`, `bun run typecheck:frontend`.)
 
 Desde la raíz también puedes usar `bun run dev` (delega en `frontend`).
 
@@ -73,4 +71,4 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1 — pendientes**. **Próximo bloque acordado en documentación:** volcar feedback del **Equipo UX** (modelo de datos, parseo) en `docs/` y completar en **resultado** la tabla de criterios con **severidad** y **comentario** (mock alineado al contrato Zod y a [docs/DATABASE.md](docs/DATABASE.md) §2). Resto de Fase 1: barra térmica y pasos a seguir en resultado, estado de carga honesto (WCAG), fixtures JSON + script de validación, demo UX. Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** a resultado mock, inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md). La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: el backlog mock principal está cerrado en repo; **pendiente** el ítem **demo interna** con Equipo UX (grabación y notas en `docs/` o [docs/development/DEVLOG.md](docs/development/DEVLOG.md)). Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** y propagación de **fixtures** (`data/audit-fixtures/`, API `GET /api/audit-fixtures/…`, importación JSON en resultado), inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md); resultado mock (barra de cumplimiento, pasos a seguir, severidad/comentario en tabla); estado intermedio `/auditar/procesando`. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).

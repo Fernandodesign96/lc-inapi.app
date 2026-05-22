@@ -1,0 +1,176 @@
+{
+  "id": "audit_fixture_home_inapi_aprobado",
+  "url": "https://www.inapi.cl/",
+  "fecha_evaluacion": "2026-05-11T16:00:00.000Z",
+  "evaluador_uid": "fixture@inapi.cl",
+  "version_checklist": "1.1",
+  "texto_capturado": "(mock fixture) Homepage institucional INAPI — texto capturado abreviado Fase 1.",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A2",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B1",
+      "estado": "cumple"
+    },
+    {
+      "id": "B2",
+      "estado": "cumple"
+    },
+    {
+      "id": "B3",
+      "estado": "cumple"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B6",
+      "estado": "cumple"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple"
+    },
+    {
+      "id": "C3",
+      "estado": "cumple"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple"
+    },
+    {
+      "id": "C6",
+      "estado": "cumple"
+    },
+    {
+      "id": "C7",
+      "estado": "cumple"
+    },
+    {
+      "id": "D1",
+      "estado": "cumple"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple"
+    },
+    {
+      "id": "D3",
+      "estado": "cumple"
+    },
+    {
+      "id": "D4",
+      "estado": "cumple"
+    },
+    {
+      "id": "D5",
+      "estado": "cumple"
+    },
+    {
+      "id": "D6",
+      "estado": "cumple"
+    },
+    {
+      "id": "D7",
+      "estado": "cumple"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple"
+    },
+    {
+      "id": "E3",
+      "estado": "cumple"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple"
+    },
+    {
+      "id": "F3",
+      "estado": "cumple"
+    },
+    {
+      "id": "F4",
+      "estado": "cumple"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple"
+    },
+    {
+      "id": "H1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Cumple con observaciones: afinar microcopy o consistencia menor sin bloquear publicación; revisar en próxima iteración."
+    }
+  ],
+  "criterios_aprobados": 36,
+  "criterios_aplicables": 37,
+  "criterios_no_aplica": 2,
+  "porcentaje_cumplimiento": 97.3,
+  "estado_aceptacion": "aprobado",
+  "texto_propuesto": "(mock) Homepage institucional\n• H1: \"Instituto Nacional de Propiedad Industrial\"\n• Banda de accesos rápidos con verbos en infinitivo: \"Tramitar\", \"Consultar\", \"Contactar\"\n\nNota: mock alineado a perfil \"mejor\"; sin bloquear publicación.",
+  "observaciones_lc": "Mantener criterios de titulares y enlaces; planificar revisión periódica de novedades sin bloquear publicación.",
+  "tiempo_evaluacion_segundos": 1
+}
