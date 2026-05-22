@@ -90,13 +90,13 @@ const textoCapturadoNoti = [
   "=== Vista sin filtros ===",
   "Trámites y Servicios • Notificaciones Electrónicas. Pestañas Marcas/Patentes. Sección: Notificaciones Electrónicas de Marcas. > Mostrar filtros de búsqueda. Resultados: No se encontraron resultados.",
   "=== Vista con filtros ===",
-  "Campos: Número de Solicitud, rango de fechas, Titular/Solicitante. RUN Notificado: 18.618.492-0. Nombre: Fernando Ignacio Arriagada Castillo. Última actualización de notificaciones: 11/05/2026 08:00:00 a. m. Botones BUSCAR, LIMPIAR, VER ESTADO DIARIO MARCAS. Resultados: No se encontraron resultados.",
+  "Campos: Número de Solicitud, rango de fechas, Titular/Solicitante. RUN Notificado: 12.345.678-9. Nombre: Titular Ejemplo (persona ficticia). Última actualización de notificaciones: 11/05/2026 08:00:00 a. m. Botones BUSCAR, LIMPIAR, VER ESTADO DIARIO MARCAS. Resultados: No se encontraron resultados.",
   "=== Pie ===",
   "INAPI Chile. Contacto y versión v 2.3.83.0.",
 ].join("\n\n")
 
 const textoPropuestoNoti = [
-  "Encabezado: Trámites y Servicios — Notificaciones Electrónicas; [Marcas] [Patentes] Fernando Arriagada.",
+  "Encabezado: Trámites y Servicios — Notificaciones Electrónicas; [Marcas] [Patentes] Titular Ejemplo.",
   "Aviso importante (modal): notificaciones y correo no reemplazan notificación legal; estado diario (Art. 13 Ley 19.039); lista de tres casos de notificación electrónica obligatoria; resto: revisar estados diarios; enlace a Resolución Exenta 138; botón Entendido.",
   "Notificaciones electrónicas de marcas: filtros y datos de usuario con RUN parcialmente oculto; botones en minúsculas tipo oración; resultados sin hallazgos con filtros aplicados.",
 ].join("\n\n")
@@ -105,7 +105,7 @@ writeFixture("audit_fixture_notificaciones_marcas_rechazado.json", {
   id: "audit_fixture_notificaciones_marcas_rechazado",
   url: "https://tramites.inapi.cl/Notificaciones",
   fecha_evaluacion: "2026-05-11T12:00:00.000Z",
-  evaluador_uid: "Fernando Arriagada Castillo",
+  evaluador_uid: "fixture@inapi.cl",
   version_checklist: "1.1",
   texto_capturado: textoCapturadoNoti,
   criterios_evaluados: criteriosNotificaciones,

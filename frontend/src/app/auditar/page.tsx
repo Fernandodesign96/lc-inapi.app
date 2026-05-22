@@ -46,7 +46,6 @@ export default function AuditarPage() {
   })
 
   function onSubmit(data: AuditUrlFormValues) {
-    console.log("URL válida:", data.url)
     router.push(`/auditar/captura?url=${encodeURIComponent(data.url)}`)
   }
 

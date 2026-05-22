@@ -1,6 +1,6 @@
 # Ejemplo de informe LC → fixture (rechazado) — Notificaciones Marcas
 
-**Propósito:** documentar **un informe editorial completo** (texto capturado, criterios, resumen, texto propuesto) como **referencia humana** del primer archivo JSON bajo `data/audit-fixtures/` (ítem **Fixtures de auditoría**, Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md)). No sustituye la validación automática: el JSON en repo debe seguir pasando `strictAuditRecordSchema` en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts).
+**Propósito:** documentar **un informe editorial completo** (texto capturado, criterios, resumen, texto propuesto) como **referencia humana** del primer archivo JSON bajo `data/audit-fixtures/` (ítem **Fixtures de auditoría**, Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md)). Los **datos personales del ejemplo están ficticios** para uso seguro en git; no sustituye la validación automática: el JSON en repo debe seguir pasando `strictAuditRecordSchema` en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts).
 
 **Auditoría de referencia:** Checklist Editorial INAPI **v1.1** (39 criterios; orden oficial `CRITERION_IDS` en código).
 
@@ -16,7 +16,7 @@
 | **URL evaluada** | `https://tramites.inapi.cl/Notificaciones` |
 | **Visitas Clarity (referencia ~130 días)** | 79.775 |
 | **Fecha de evaluación (informe)** | 11/05/2026 |
-| **Evaluador** | Fernando Arriagada Castillo |
+| **Evaluador** | `fixture@inapi.cl` (identidad ficticia para repo; no datos personales reales) |
 | **Criterios aprobados** | 16 de **29** aplicables |
 | **Criterios no aplicables** | 10 |
 | **% de cumplimiento (sobre aplicables)** | **55,2 %** |
@@ -48,7 +48,7 @@ Para más información consulte la Resolución Exenta 138, Instructivo del Siste
 
 ### 2.2 Vista principal sin desplegar filtros
 
-Trámites y Servicios • Notificaciones Electrónicas [Botón: MARCAS] [Botón: PATENTES] Fernando Ignacio Arriagada Castillo
+Trámites y Servicios • Notificaciones Electrónicas [Botón: MARCAS] [Botón: PATENTES] Titular Ejemplo (persona ficticia)
 
 Pestañas: [Marcas (Seleccionada)] [Patentes]
 
@@ -72,8 +72,8 @@ En esta pantalla puede revisar las notificaciones enviadas por INAPI (Marcas)
 
 **Información del usuario notificado**
 
-- RUN Notificado: 18.618.492-0
-- Nombre: Fernando Ignacio Arriagada Castillo
+- RUN Notificado: 12.345.678-9
+- Nombre: Titular Ejemplo (persona ficticia)
 - Última actualización de notificaciones: 11/05/2026 08:00:00 a. m.
 
 **Acciones:** [Botón: BUSCAR] [Botón: LIMPIAR] [Botón naranja: VER ESTADO DIARIO MARCAS]
@@ -160,7 +160,7 @@ Versión editorial de reescritura; formato libre en el contrato (string). Resume
 **Encabezado**
 
 - Trámites y Servicios — Notificaciones Electrónicas
-- [Marcas] [Patentes] Fernando Arriagada
+- [Marcas] [Patentes] Titular Ejemplo
 
 #### Aviso importante (modal inicial)
 
@@ -196,8 +196,8 @@ En esta pantalla puede revisar las notificaciones que INAPI le envió.
 
 **Datos del usuario**
 
-- Nombre: Fernando Arriagada Castillo
-- RUN: 18.•••.•••-0 (parcialmente oculto)
+- Nombre: Titular Ejemplo (persona ficticia)
+- RUN: 12.•••.•••-9 (parcialmente oculto)
 - Última actualización: 11/05/2026 08:00
 
 [Buscar] [Limpiar] [Ver estado diario de marcas]
@@ -220,10 +220,10 @@ En esta pantalla puede revisar las notificaciones que INAPI le envió.
 
 ## 9. Relación con otros fixtures de la Fase 1
 
-Este documento cubre **solo la franja rechazada (≤80 %)** con evidencia de informe real.
+Este documento cubre **solo la franja rechazada (≤80 %)** con evidencia de informe editorial **de ejemplo** (texto anonimizado para el repositorio).
 
 Los fixtures para **81–90 %** y **≥91 %** deben documentarse con el **mismo esquema de secciones** cuando existan informes editoriales cerrados para las URLs candidatas; mientras tanto conviven en repo como JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)) y la tabla de prioridades en [`inventario-urls-clarity.md`](inventario-urls-clarity.md).
 
 ---
 
-*Documento creado para alinear informe editorial humano con el contrato `StrictAuditRecord`. Última revisión: 2026-05-21.*
+*Documento creado para alinear informe editorial humano con el contrato `StrictAuditRecord`. Los nombres y RUN del ejemplo son **ficticios** para uso en repositorio. Última revisión: 2026-05-21.*
