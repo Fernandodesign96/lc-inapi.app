@@ -10,14 +10,14 @@
 
 ## Checklist de etapas (seguimiento manual)
 
-- [ ] **Etapa 0:** cerrar Nest en Railway vs AWS (nota en ROADMAP/ADR); cuentas GitHub / Vercel / Supabase / AWS según TI.
-- [ ] **Etapa 1.1:** proyecto Vercel (root `frontend` o equivalente), install/build Bun monorepo, env `LC_REPO_ROOT`, probar API fixtures.
-- [ ] **Etapa 1.2:** workflow `.github/workflows/` (`typecheck:all` + `lint`); opcional deploy Vercel desde Actions con secretos.
-- [ ] **Etapa 1.3:** verificación manual flujo mock / fixture / import en URL preview.
+- [x] **Etapa 0:** alineación inicial con TI (decisión **Nest en Railway vs AWS** cuando exista código; no bloquea el mock). Cuentas **GitHub** y **Vercel** activas para Etapa 1; **Supabase** y **AWS** al arrancar Fase 2 según política INAPI. *(Anotar la decisión Nest en [`../ROADMAP.md`](../ROADMAP.md) o ADR breve cuando se formalice por escrito.)*
+- [x] **Etapa 1.1:** proyecto Vercel con **Root Directory** `frontend`, **Install** `cd .. && bun install` y **Build** `cd .. && bun run build`; despliegue verificado en URL. **`LC_REPO_ROOT`** solo si `GET /api/audit-fixtures/...` no encontrara `data/` en runtime *(no requerido en el despliegue verificado a mayo 2026)*.
+- [x] **Etapa 1.2:** workflow [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml): `bun install --frozen-lockfile`, `bun run typecheck:all`, `bun run lint`; disparadores `push` a `main` y `feature/**`, `pull_request` a `main`, `workflow_dispatch`. Opción A (solo CI; deploy continúa en Vercel).
+- [x] **Etapa 1.3:** verificación manual en URL desplegada: `/`, `/auditar`, mock, fixture por API e **importación JSON** (pegar contenido o archivo; ejemplos válidos en `data/audit-fixtures/*.json`).
 - [ ] **Etapa 2:** proyecto Supabase + env en Vercel/Nest según `DATABASE.md` y ADR 0005.
 - [ ] **Etapa 3:** desplegar Nest en Railway o AWS + CORS + variables a Supabase y AWS LC.
 - [ ] **Etapa 4:** pipeline LC en AWS según ADR 0006 e integración Nest ↔ API Gateway.
-- [ ] **Etapa 5:** README sección despliegue; ROADMAP/ARCHITECTURE; devlog al cierre si aplica.
+- [x] **Etapa 5 (cierre Etapa 1):** README con sección despliegue y CI; ROADMAP y ARCHITECTURE actualizados; entrada en devlog *(2026-05-22)*.
 
 ---
 
@@ -115,9 +115,9 @@ Elegir A o B según preferencia de equipo (menos secretos vs. un solo sitio para
 
 ## Etapa 5 — Documentación en el repo
 
-- **[`README.md`](../../README.md):** sección corta “Despliegue / preview” (rama, Vercel, enlace a Actions, recordatorio `LC_REPO_ROOT`).
-- **[`docs/ROADMAP.md`](../ROADMAP.md):** marcar o detallar el hito de demo/deploy cuando esté operativo.
-- Opcional: una línea en [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) diagramando **Vercel (Next) → Nest → Supabase / AWS** cuando Nest exista.
+**Estado (cierre Etapa 1, 2026-05-22):** completado en el sentido del mock y del CI — [`README.md`](../../README.md) (sección **Despliegue y CI**), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/SECURITY.md`](../SECURITY.md) y [`docs/development/DEVLOG.md`](../development/DEVLOG.md) actualizados.
+
+Para **Fase 2 y siguientes**, seguir ampliando README, roadmap y arquitectura cuando exista Nest en el diagrama de despliegue (p. ej. **Vercel (Next) → Nest → Supabase / AWS**).
 
 ---
 
