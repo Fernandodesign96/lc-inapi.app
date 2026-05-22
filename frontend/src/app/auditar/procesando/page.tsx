@@ -17,6 +17,7 @@ function ProcesandoInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlRaw = searchParams.get("url")
+  const fixtureRaw = searchParams.get("fixture")
   const titleRef = useRef<HTMLHeadingElement>(null)
 
   const auditUrl = useMemo(() => {
@@ -33,13 +34,17 @@ function ProcesandoInner() {
       router.replace("/auditar")
       return
     }
+    const fixtureQ =
+      fixtureRaw && fixtureRaw.trim().length > 0
+        ? `&fixture=${encodeURIComponent(fixtureRaw.trim())}`
+        : ""
     const id = window.setTimeout(() => {
       router.replace(
-        `/auditar/resultado?url=${encodeURIComponent(auditUrl)}`,
+        `/auditar/resultado?url=${encodeURIComponent(auditUrl)}${fixtureQ}`,
       )
     }, AUDITAR_PROCESANDO_MS)
     return () => window.clearTimeout(id)
-  }, [auditUrl, router])
+  }, [auditUrl, fixtureRaw, router])
 
   useEffect(() => {
     if (!auditUrl) return

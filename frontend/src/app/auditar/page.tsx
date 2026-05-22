@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { EDITORIAL_AUDIT_SHORTCUTS } from "@/lib/audit-shortcuts"
+import { AUDIT_FIXTURE_LAUNCHES } from "@/lib/audit-fixtures-launch"
 import {
   auditUrlFormSchema,
   type AuditUrlFormValues,
@@ -146,7 +147,40 @@ export default function AuditarPage() {
           </Accordion>
         </CardContent>
       </Card>
-
+      <Card className="border-border bg-card">
+        <CardHeader>
+          <CardTitle className="text-base">
+            Fixtures de auditoría (JSON en repo)
+          </CardTitle>
+          <CardDescription>
+            Abre el resultado con datos de{" "}
+            <code className="rounded bg-muted px-1 text-xs">
+              data/audit-fixtures/
+            </code>{" "}
+            vía API mock; misma pantalla intermedia que los atajos.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <ul className="m-0 flex list-none flex-col gap-2 p-0 sm:flex-row sm:flex-wrap">
+            {AUDIT_FIXTURE_LAUNCHES.map((row) => (
+              <li key={row.id}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="h-auto w-full justify-start whitespace-normal text-left sm:w-auto"
+                  onClick={() =>
+                    router.push(
+                      `/auditar/procesando?url=${encodeURIComponent(row.url)}&fixture=${encodeURIComponent(row.id)}`,
+                    )
+                  }
+                >
+                  {row.label}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
       <AuditarInventorySections />
     </div>
   )

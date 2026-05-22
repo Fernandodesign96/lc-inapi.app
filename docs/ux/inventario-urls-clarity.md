@@ -18,7 +18,7 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 | **Intermedia** (rechazada; mayor % que la peor) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
 | **Mejor** (única aceptada en referencia) | Homepage | `https://www.inapi.cl/` |
 
-**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana para el primer JSON de `data/audit-fixtures/` en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Los otros dos perfiles de la tabla deben tener el mismo nivel de detalle cuando existan informes cerrados; mientras tanto ver [`docs/development/plan-fixtures-auditoria-fase1.md`](../development/plan-fixtures-auditoria-fase1.md) §2.2–2.3.
+**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana para el primer JSON de `data/audit-fixtures/` en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Los otros dos perfiles de la tabla deben tener el mismo nivel de detalle cuando existan informes cerrados; en repo, las franjas **81–90 %** y **≥91 %** se cubren hoy con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md) y regeneración con `generate-audit-fixture-json-files.ts`).
 
 ---
 
@@ -62,8 +62,8 @@ Orden por volumen relativo en el extracto entregado al repositorio (sin pretende
 ## 3. Política de datos (`docs/ux/` vs `data/`)
 
 - **`docs/ux/`** (este archivo): inventario **humano**, contexto Clarity, notas y prioridades; versionado con el repo; adecuado para definir **títulos de barra** y copy que luego implementa el frontend en acordeones (`/auditar`).
-- **`data/`:** reservado para artefactos **máquina-legibles** (p. ej. JSON consumido por la UI o CI) cuando el equipo decida generar fixtures o listas validadas por script; hasta entonces no es obligatorio duplicar esta tabla en JSON.
+- **`data/`:** artefactos **máquina-legibles** (p. ej. JSON consumido por la UI o CI); los fixtures de auditoría viven en `data/audit-fixtures/` con validación `validate:audit-fixtures` (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)). Duplicar **esta** tabla ampliada en JSON sigue siendo opcional hasta que el producto lo requiera.
 
 ---
 
-*Última revisión documental: 2026-05-18 — alineado a [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/PRD.md`](../PRD.md) y [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15 (barras colapsables).*
+*Última revisión documental: 2026-05-21 — alineado a [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/PRD.md`](../PRD.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15 (barras colapsables) y fixtures en [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md).*

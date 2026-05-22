@@ -1,0 +1,186 @@
+{
+  "id": "audit_fixture_presentacion_escritos_observaciones",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",
+  "fecha_evaluacion": "2026-05-11T15:00:00.000Z",
+  "evaluador_uid": "fixture@inapi.cl",
+  "version_checklist": "1.1",
+  "texto_capturado": "(mock fixture) Confirmación de presentación de escritos — texto capturado abreviado Fase 1.",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A2",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A3",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A4",
+      "estado": "no_aplica"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B1",
+      "estado": "cumple"
+    },
+    {
+      "id": "B2",
+      "estado": "cumple"
+    },
+    {
+      "id": "B3",
+      "estado": "cumple"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple"
+    },
+    {
+      "id": "B6",
+      "estado": "cumple"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple"
+    },
+    {
+      "id": "C3",
+      "estado": "cumple"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple"
+    },
+    {
+      "id": "C6",
+      "estado": "cumple"
+    },
+    {
+      "id": "C7",
+      "estado": "cumple"
+    },
+    {
+      "id": "D1",
+      "estado": "cumple"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple"
+    },
+    {
+      "id": "D3",
+      "estado": "cumple"
+    },
+    {
+      "id": "D4",
+      "estado": "cumple"
+    },
+    {
+      "id": "D5",
+      "estado": "cumple"
+    },
+    {
+      "id": "D6",
+      "estado": "cumple"
+    },
+    {
+      "id": "D7",
+      "estado": "cumple"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple"
+    },
+    {
+      "id": "E3",
+      "estado": "cumple"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple"
+    },
+    {
+      "id": "F3",
+      "estado": "cumple"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Revisar redacción en titular o microcopy asociado al criterio."
+    },
+    {
+      "id": "F5",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Priorizar corrección antes de publicación: lenguaje poco claro o inconsistente con la pauta INAPI."
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Cumple con observaciones: afinar microcopy o consistencia menor sin bloquear publicación; revisar en próxima iteración."
+    },
+    {
+      "id": "G2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Revisar redacción en titular o microcopy asociado al criterio."
+    },
+    {
+      "id": "G3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Priorizar corrección antes de publicación: lenguaje poco claro o inconsistente con la pauta INAPI."
+    },
+    {
+      "id": "H1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Cumple con observaciones: afinar microcopy o consistencia menor sin bloquear publicación; revisar en próxima iteración."
+    }
+  ],
+  "criterios_aprobados": 29,
+  "criterios_aplicables": 35,
+  "criterios_no_aplica": 4,
+  "porcentaje_cumplimiento": 82.9,
+  "estado_aceptacion": "aceptado_con_observaciones",
+  "texto_propuesto": "(mock) Confirmación de presentación de escritos\n• Título: \"Recibimos tus escritos\"\n• Cuerpo: \"Guardamos tu presentación; te avisaremos si falta un antecedente.\"\n\nMensaje de éxito (estado: completado)\n• \"Puedes descargar el comprobante en PDF desde tu expediente.\"",
+  "observaciones_lc": "Ajustar instrucciones del paso de confirmación, unificar tono institucional en mensajes de éxito y revisar enlaces de ayuda contextual.",
+  "tiempo_evaluacion_segundos": 1
+}

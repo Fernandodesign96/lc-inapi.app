@@ -47,7 +47,7 @@ flowchart LR
 Hasta aprobar el mock de UI:
 
 - **No** hay llamadas productivas a Supabase ni a Claude desde la app demo.
-- Contratos y datos: **`data/checklist-criteria.json`**, futuros **`data/audit-fixtures/*.json`**, [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
+- Contratos y datos: **`data/checklist-criteria.json`**, **`data/audit-fixtures/*.json`** (convención en [data/audit-fixtures/README.md](../data/audit-fixtures/README.md)), [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 - Next en `frontend/` sirve flujo **portal de acceso en `/` (CTA hacia `/auditar`, sin auth real)** → **ingreso de URL y atajos en `/auditar`** → (según implementación) **captura** y **resultado**, con datos generados o importados desde fixtures validados. Los **tres atajos** editoriales pueden **saltar** a **resultado** directo con query de URL en el mock, coherente con la narrativa de “URL ya auditada”.
 - En **`/auditar`**, inventarios y listas de apoyo (Clarity, más auditadas, estados resueltos, etc.) se agrupan en **componentes colapsables** homogéneos (título + flecha abajo + panel), no como bloques de texto sueltos; ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15.
 - Inventario humano de prioridades y tráfico Clarity: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
@@ -93,7 +93,7 @@ Detalle en [docs/adr/0002-stack-next-bun-supabase.md](adr/0002-stack-next-bun-su
 - **Catálogo:** `checklistCriteriaFileSchema` ↔ `data/checklist-criteria.json`.
 - **Evaluación:** `criterionEvaluationSchema` × 39 (incluye `severidad` y `comentario` opcionales por criterio). **Fase 1:** la pantalla **`/auditar/resultado`** lista esas columnas en la tabla mock; los acuerdos del **Equipo UX** sobre modelo de datos, **parseo** con `parseStrictAuditRecord` / builders en [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) y paridad con persistencia futura deben constar en `docs/` (ver [`docs/ROADMAP.md`](ROADMAP.md) — ítem **Actualización de documentación con Equipo UX y tabla de criterios completa**).
 - **Auditoría persistida o mock:** `auditRecordSchema` / `strictAuditRecordSchema` (consistencia resumen vs. detalle). Campos opcionales de copy agregado: `observaciones_lc` (resumen editorial) y `texto_propuesto` (redacción sugerida para la URL); ver columnas homónimas / `proposed_text` en [DATABASE.md](DATABASE.md) §2 `audits`.
-- **Fixtures:** JSON versionado bajo `data/audit-fixtures/` (convención en roadmap), validados en CI o script local igual que el catálogo.
+- **Fixtures:** JSON versionado bajo `data/audit-fixtures/` (convención en [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md)), validados en CI o script local igual que el catálogo.
 
 Implementación actual de esquemas: [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) (equivalente conceptual a `packages/contracts` del monorepo objetivo).
 

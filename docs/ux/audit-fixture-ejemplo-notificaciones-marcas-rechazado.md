@@ -1,6 +1,6 @@
 # Ejemplo de informe LC → fixture (rechazado) — Notificaciones Marcas
 
-**Propósito:** documentar **un informe editorial completo** (texto capturado, criterios, resumen, texto propuesto) como **referencia humana** para construir el primer archivo JSON bajo `data/audit-fixtures/` en la implementación del ítem **Fixtures de auditoría** ([`docs/ROADMAP.md`](../ROADMAP.md) Fase 1). No sustituye la validación automática: el JSON final debe pasar `strictAuditRecordSchema` en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts).
+**Propósito:** documentar **un informe editorial completo** (texto capturado, criterios, resumen, texto propuesto) como **referencia humana** del primer archivo JSON bajo `data/audit-fixtures/` (ítem **Fixtures de auditoría**, Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md)). No sustituye la validación automática: el JSON en repo debe seguir pasando `strictAuditRecordSchema` en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts).
 
 **Auditoría de referencia:** Checklist Editorial INAPI **v1.1** (39 criterios; orden oficial `CRITERION_IDS` en código).
 
@@ -214,7 +214,7 @@ En esta pantalla puede revisar las notificaciones que INAPI le envió.
 | --- | --- |
 | **Nombre de archivo** | `audit_fixture_notificaciones_marcas_rechazado.json` (o convención acordada en `data/audit-fixtures/README.md`) |
 | **Campo `id` dentro del JSON** | Mismo slug estable, p. ej. `audit_fixture_notificaciones_marcas_rechazado` |
-| **Query UI** | `?fixture=audit_fixture_notificaciones_marcas_rechazado` (cuando exista selector / API) |
+| **Query UI** | `?fixture=audit_fixture_notificaciones_marcas_rechazado` (propagado desde `/auditar` y `GET /api/audit-fixtures/[fixtureId]`; ver [`frontend/src/lib/audit-fixtures-launch.ts`](../../frontend/src/lib/audit-fixtures-launch.ts)) |
 
 ---
 
@@ -222,7 +222,7 @@ En esta pantalla puede revisar las notificaciones que INAPI le envió.
 
 Este documento cubre **solo la franja rechazada (≤80 %)** con evidencia de informe real.
 
-Los fixtures para **81–90 %** y **≥91 %** deben documentarse con el **mismo esquema de secciones** cuando existan informes cerrados para las URLs candidatas; ver plan versionado en [`docs/development/plan-fixtures-auditoria-fase1.md`](../development/plan-fixtures-auditoria-fase1.md) y la tabla de prioridades en [`inventario-urls-clarity.md`](inventario-urls-clarity.md).
+Los fixtures para **81–90 %** y **≥91 %** deben documentarse con el **mismo esquema de secciones** cuando existan informes editoriales cerrados para las URLs candidatas; mientras tanto conviven en repo como JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)) y la tabla de prioridades en [`inventario-urls-clarity.md`](inventario-urls-clarity.md).
 
 ---
 
