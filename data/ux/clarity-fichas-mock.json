@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "lista": "clarity_fichas_mock",
+  "fuente_documental": "docs/ux/inventario-urls-clarity.md §2 + URLs mock inferidas",
+  "nota": "Mock Fase 1. Métricas alineadas a frontend/src/lib/clarity-inventory-rows.ts (fuente tabla /auditar). URLs absolutas con prefijo tramites.inapi.cl salvo prioridades canónicas documentadas.",
+  "fichas": [
+    {
+      "rank": 1,
+      "nombre": "Inicio del sitio de trámites",
+      "rutaEtiqueta": "Home `tramites.inapi.cl/`",
+      "url": "https://tramites.inapi.cl/",
+      "visitasRef": "432.572",
+      "porcentajeLcRef": "60,0 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Página de entrada al portal de trámites electrónicos INAPI (marcas y patentes).",
+      "observaciones": "Mayor volumen Clarity en el extracto; priorizar copy de bienvenida y accesos principales.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-20",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "60,0 %",
+          "nota": "Revisión mock de referencia editorial."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "nombre": "Inicio de sesión",
+      "rutaEtiqueta": "`Account/Login`",
+      "url": "https://tramites.inapi.cl/Account/Login",
+      "visitasRef": "209.811",
+      "porcentajeLcRef": "65,2 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Formulario de acceso con credenciales al sitio de trámites.",
+      "observaciones": "Flujo de alto tráfico; mensajes de error y ayuda contextual pendientes de afinar en LC.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-10",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "65,2 %",
+          "nota": "Auditoría interna ficticia."
+        },
+        {
+          "fecha": "2026-01-22",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "63,0 %",
+          "nota": "Seguimiento previo (mock)."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "nombre": "Expediente de marca",
+      "rutaEtiqueta": "`Trademark/TrademarkFile` (Expediente)",
+      "url": "https://tramites.inapi.cl/Trademark/TrademarkFile",
+      "visitasRef": "198.337",
+      "porcentajeLcRef": "61,5 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Consulta del expediente y estado del trámite de marca del solicitante.",
+      "observaciones": "Terminología técnica frecuente; conviene glosario en pantalla.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-05",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "61,5 %",
+          "nota": "Informe LC mock."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "nombre": "Notificaciones Marcas",
+      "rutaEtiqueta": "Notificaciones Marcas",
+      "url": "https://tramites.inapi.cl/Notificaciones",
+      "visitasRef": "79.775",
+      "porcentajeLcRef": "55,2 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Pantalla de consulta de notificaciones electrónicas de marcas en el sitio de trámites.",
+      "observaciones": "Prioridad demostrativa «peor» en atajos editoriales; fixture editorial de referencia en repo.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-05-11",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "55,2 %",
+          "nota": "Informe editorial de referencia (mock)."
+        },
+        {
+          "fecha": "2026-03-15",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "52,0 %",
+          "nota": "Revisión interna previa (dato ficticio)."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "nombre": "Solicitudes guardadas",
+      "rutaEtiqueta": "`TrademarkSavedApplications`",
+      "url": "https://tramites.inapi.cl/TrademarkSavedApplications",
+      "visitasRef": "65.628",
+      "porcentajeLcRef": "64,3 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Listado de solicitudes de marca guardadas para continuar más tarde.",
+      "observaciones": "Tabla densa; revisar encabezados y microcopy de acciones.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-02-18",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "64,3 %",
+          "nota": "Mock de seguimiento."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "nombre": "Índice de solicitud de marca",
+      "rutaEtiqueta": "`TrademarkApplication/IndexTrademark`",
+      "url": "https://tramites.inapi.cl/TrademarkApplication/IndexTrademark",
+      "visitasRef": "41.429",
+      "porcentajeLcRef": "57,1 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Punto de partida del flujo de presentación de solicitud de marca.",
+      "observaciones": "Entrada a wizard largo; mensaje inicial debe ser claro y accionable.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-01",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "57,1 %",
+          "nota": "Auditoría ficticia."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "nombre": "Registro con ClaveÚnica",
+      "rutaEtiqueta": "`Login/claveunica` (Registro CU)",
+      "url": "https://tramites.inapi.cl/Login/claveunica",
+      "visitasRef": "38.519",
+      "porcentajeLcRef": "62,1 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Registro o vinculación de cuenta mediante ClaveÚnica.",
+      "observaciones": "Integración con identidad digital; copy debe explicar el paso siguiente.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-28",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "62,1 %",
+          "nota": "Revisión mock."
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "nombre": "Carga de solicitud de marca (paso 1)",
+      "rutaEtiqueta": "`LoadTrademarkApplication` (paso 1)",
+      "url": "https://tramites.inapi.cl/LoadTrademarkApplication",
+      "visitasRef": "37.468",
+      "porcentajeLcRef": "—",
+      "estadoLcRef": "No aplica (mock)",
+      "descripcion": "Primer paso del asistente de carga de solicitud de marca.",
+      "observaciones": "Sin evaluación LC de referencia en el mock actual; pendiente criterio editorial.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-02-01",
+          "estadoLcRef": "No aplica (mock)",
+          "porcentajeLcRef": "—",
+          "nota": "Sin informe cerrado (ficticio)."
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "nombre": "Estados diarios de marcas",
+      "rutaEtiqueta": "`EstadosDiariosMarcas`",
+      "url": "https://tramites.inapi.cl/EstadosDiariosMarcas",
+      "visitasRef": "31.929",
+      "porcentajeLcRef": "70,4 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Consulta de publicaciones en estados diarios del registro de marcas.",
+      "observaciones": "Lenguaje normativo; enlaces a instructivos deben ser explícitos.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-12",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "70,4 %",
+          "nota": "Mock editorial."
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "nombre": "Clasificador de Niza",
+      "rutaEtiqueta": "`TrademarkNizaClassifier`",
+      "url": "https://tramites.inapi.cl/TrademarkNizaClassifier",
+      "visitasRef": "30.947",
+      "porcentajeLcRef": "67,7 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Herramienta de búsqueda y selección de clases de la clasificación de Niza.",
+      "observaciones": "Interacción compleja; priorizar instrucciones paso a paso.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-05",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "67,7 %",
+          "nota": "Seguimiento ficticio."
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "nombre": "Confirmación de presentación de escritos",
+      "rutaEtiqueta": "`TrademarkUserDocument/SuccessConfirmation`",
+      "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",
+      "visitasRef": "23.779",
+      "porcentajeLcRef": "72,0 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Pantalla de confirmación tras presentar escritos en trámite de marca.",
+      "observaciones": "Prioridad demostrativa «intermedia» en atajos editoriales; fixture numérico en repo.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-05-11",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "72,0 %",
+          "nota": "Fixture mock alineado a franja intermedia."
+        },
+        {
+          "fecha": "2026-04-08",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "70,5 %",
+          "nota": "Revisión previa (ficticia)."
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "nombre": "Presentación de escritos",
+      "rutaEtiqueta": "`TrademarkUserDocument` (Escritos)",
+      "url": "https://tramites.inapi.cl/TrademarkUserDocument",
+      "visitasRef": "23.141",
+      "porcentajeLcRef": "63,0 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca.",
+      "observaciones": "Formularios extensos; revisar etiquetas de campos obligatorios.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-20",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "63,0 %",
+          "nota": "Mock de auditoría."
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "nombre": "Confirmación de solicitud de marca",
+      "rutaEtiqueta": "Confirmación Solicitud Marca",
+      "url": "https://tramites.inapi.cl/TrademarkApplication/Confirmation",
+      "visitasRef": "21.825",
+      "porcentajeLcRef": "57,7 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Resumen y confirmación final antes de enviar la solicitud de marca.",
+      "observaciones": "Punto crítico del flujo; resumen debe ser escaneable.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-02-25",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "57,7 %",
+          "nota": "Informe ficticio."
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "nombre": "Revisión de solicitud de marca",
+      "rutaEtiqueta": "`LoadTrademarkApplication` (revisión)",
+      "url": "https://tramites.inapi.cl/LoadTrademarkApplication",
+      "visitasRef": "18.654",
+      "porcentajeLcRef": "59,4 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Paso de revisión de datos antes del envío de la solicitud de marca.",
+      "observaciones": "Misma ruta base que paso 1; contexto distinto en el asistente.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-15",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "59,4 %",
+          "nota": "Mock."
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "nombre": "Registro de cuenta",
+      "rutaEtiqueta": "`Account/Register`",
+      "url": "https://tramites.inapi.cl/Account/Register",
+      "visitasRef": "17.603",
+      "porcentajeLcRef": "N/A",
+      "estadoLcRef": "No aplica — sin evaluación LC ref.",
+      "descripcion": "Alta de nueva cuenta de usuario en el sitio de trámites.",
+      "observaciones": "Sin porcentaje LC de referencia en el mock; evaluación editorial pendiente.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-01-15",
+          "estadoLcRef": "No aplica — sin evaluación LC ref.",
+          "porcentajeLcRef": "N/A",
+          "nota": "Sin informe LC (ficticio)."
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "nombre": "Confirmación de segundo pago",
+      "rutaEtiqueta": "`TrademarkSecondPayment/SuccessConfirmation`",
+      "url": "https://tramites.inapi.cl/TrademarkSecondPayment/SuccessConfirmation",
+      "visitasRef": "14.609",
+      "porcentajeLcRef": "68,0 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Confirmación de pago asociado al trámite de marca.",
+      "observaciones": "Mensaje de éxito debe indicar próximos pasos concretos.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-12",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "68,0 %",
+          "nota": "Revisión mock."
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "nombre": "Anotaciones de marca",
+      "rutaEtiqueta": "`TrademarkAnnotation`",
+      "url": "https://tramites.inapi.cl/TrademarkAnnotation",
+      "visitasRef": "13.600",
+      "porcentajeLcRef": "59,3 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Trámite de anotaciones sobre registros de marca.",
+      "observaciones": "Copy legal denso; simplificar sin perder precisión normativa.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-02-08",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "59,3 %",
+          "nota": "Auditoría ficticia."
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "nombre": "Estados diarios de patentes",
+      "rutaEtiqueta": "`EstadosDiariosPatentes`",
+      "url": "https://tramites.inapi.cl/EstadosDiariosPatentes",
+      "visitasRef": "12.628",
+      "porcentajeLcRef": "N/A",
+      "estadoLcRef": "No aplica (referencia editorial)",
+      "descripcion": "Consulta de estados diarios en el ámbito de patentes.",
+      "observaciones": "Referencia editorial sin % LC en el mock; alinear cuando exista informe.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-01-30",
+          "estadoLcRef": "No aplica (referencia editorial)",
+          "porcentajeLcRef": "N/A",
+          "nota": "Sin cierre LC (mock)."
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "nombre": "Renovación de marca",
+      "rutaEtiqueta": "`TrademarkRenewalApplication`",
+      "url": "https://tramites.inapi.cl/TrademarkRenewalApplication",
+      "visitasRef": "12.528",
+      "porcentajeLcRef": "70,8 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Solicitud de renovación de registro de marca.",
+      "observaciones": "Plazos y requisitos deben destacarse al inicio.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-04-22",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "70,8 %",
+          "nota": "Mock."
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "nombre": "Notificaciones patentes",
+      "rutaEtiqueta": "`NotificacionesPatentes`",
+      "url": "https://tramites.inapi.cl/NotificacionesPatentes",
+      "visitasRef": "12.271",
+      "porcentajeLcRef": "56,7 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Consulta de notificaciones electrónicas en trámites de patentes.",
+      "observaciones": "Paralelo a Notificaciones Marcas; reutilizar lecciones de LC del rank 4.",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-03-18",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "56,7 %",
+          "nota": "Informe ficticio."
+        },
+        {
+          "fecha": "2026-02-02",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "54,0 %",
+          "nota": "Seguimiento previo (mock)."
+        }
+      ]
+    }
+  ]
+}
