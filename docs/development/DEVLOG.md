@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-27 | [Frontend: Feedback UX — catálogo en tabla de criterios y mock de 20 fichas Clarity](#devlog-2026-05-27-feedback-ux-criterios-fichas) |
 | 2026-05-22 | [Infraestructura: Etapa 1 del plan híbrido — Vercel, GitHub Actions y verificación del mock en URL](#devlog-2026-05-22-vercel-gha-etapa1) |
 | 2026-05-21 | [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion) |
 | 2026-05-21 | [Documentación: Ejemplo editorial fixtures (rechazado) + alineación inventario / roadmap](#devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones) |
@@ -23,6 +24,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-27-feedback-ux-criterios-fichas"></a>
+
+## [2026-05-27] - Frontend | Sprint fase-1: Feedback UX — catálogo en resultado e inventario Clarity con fichas mock
+
+### Contexto y objetivos:
+
+Avanzar las **dos primeras etapas** del plan de feedback UX post-demo (Bernarda/Álvaro, mayo 2026): (1) que la tabla de los 39 criterios en **`/auditar/resultado`** muestre la **sección** y el **enunciado oficial** del checklist editorial v1.1, no solo el código del criterio; (2) disponer de un **modelo mock de ~20 fichas** alineado al inventario ampliado Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) §2, como base para rutas de detalle por URL sin mezclar aún con `StrictAuditRecord`. Objetivo: mejorar legibilidad del informe mock y una **fuente única** de datos para la tabla de inventario en `/auditar` y las futuras páginas de ficha.
+
+### Implementación técnica:
+
+- **Etapa 1 — Tabla de criterios en resultado:** nuevo módulo [`frontend/src/lib/checklist-criterion-catalog.ts`](../../frontend/src/lib/checklist-criterion-catalog.ts) que importa [`data/checklist-criteria.json`](../../data/checklist-criteria.json), expone `getCriterionCatalogRow`, `formatSeccionTitulo` y `formatCriterioEnunciado`. En [`frontend/src/app/auditar/resultado/page.tsx`](../../frontend/src/app/auditar/resultado/page.tsx) la tabla pasa de tres a **cinco columnas** (Sección, Criterio, Estado, Severidad, Comentario); leyenda accesible en `TableCaption` (`sr-only`); los filtros existentes se mantienen sobre el conjunto filtrado.
+- **Etapa 2 — Fichas mock Clarity:** archivo [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) con **20 entradas** (`nombre`, `rutaEtiqueta`, `url`, métricas de referencia, `descripcion`, `observaciones`, `historialAuditorias` con fechas ISO y notas ficticias). URLs inferidas con prefijo `https://tramites.inapi.cl/` salvo prioridades canónicas documentadas (p. ej. Notificaciones, SuccessConfirmation). Ranks **8** y **15** alineados al criterio «No aplica» del inventario TypeScript, no al markdown §2 donde divergía.
+- **Tipos y carga:** [`frontend/src/lib/clarity-url-ficha.ts`](../../frontend/src/lib/clarity-url-ficha.ts) (`ClarityUrlFicha`, `ClarityHistorialAuditoriaMock`); [`frontend/src/lib/clarity-fichas-mock.ts`](../../frontend/src/lib/clarity-fichas-mock.ts) con `CLARITY_FICHAS_MOCK`, `getClarityFichaByRank`, `isValidClarityFichaRank` y `clarityFichaToInventoryRow`.
+- **Fuente única para la tabla:** [`frontend/src/lib/clarity-inventory-rows.ts`](../../frontend/src/lib/clarity-inventory-rows.ts) deja de duplicar filas estáticas y **deriva** `CLARITY_INVENTORY_ROWS` desde las fichas mock.
+
+### 💡 Repaso técnico: Ficha vs registro de auditoría:
+
+La **ficha de URL** resume contexto editorial (visitas Clarity, % LC de referencia, historial mock breve). **No** es un `StrictAuditRecord`: no incluye las 39 evaluaciones ni texto propuesto. La ruta de detalle por `rank` (Etapa 3) consumirá `getClarityFichaByRank`; el informe completo seguirá viniendo de fixtures JSON o mock por URL en resultado.
+
+### Próximos pasos:
+
+- **Etapa 3:** ruta `/auditar/inventario/clarity/[rank]` y enlaces desde las secciones de inventario en `/auditar`.
+- **Etapa 4:** filas mock de calidad web e ítem de acordeón correspondiente.
+- **Etapa 5:** filtros cliente para las tres tablas de inventario.
+- Actualizar [`docs/ROADMAP.md`](../ROADMAP.md) al cerrar Etapa 3+ si el alcance del PR lo requiere; opcional sincronizar [`data/ux/clarity-inventory.json`](../../data/ux/clarity-inventory.json) como espejo documental.
 
 ---
 
