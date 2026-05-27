@@ -21,6 +21,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableCaption,
 } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
@@ -53,6 +54,11 @@ import {
   matchesLetraTipo,
   matchesSeveridadPastilla,
 } from "@/lib/criterios-evaluados-filters"
+
+import {
+  formatCriterioEnunciado,
+  formatSeccionTitulo,
+} from "@/lib/checklist-criterion-catalog"
 
 /** Cuerpo de secciones tipo “institucional”: mismo token en claro y oscuro (evita texto pensado para .dark sobre blanco hex). */
 const PANEL_BODY_CLASS = "bg-card text-card-foreground"
@@ -510,9 +516,9 @@ function ResultadoInner() {
               Criterios evaluados
             </div>
             <div className={cn(PANEL_BODY_CLASS, "p-0")}>
-              <div
+            <div
                 className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border bg-muted/30 px-4 py-3 text-xs text-muted-foreground"
-                aria-label="Leyenda de estados y severidad en criterios"
+                aria-label="Leyenda: la tabla incluye sección y enunciado del criterio (catálogo v1.1); estos íconos describen solo la columna Estado y la severidad en incumplidos"
               >
                 <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
                   <span className="font-medium text-foreground">Severidad alta</span>
@@ -551,7 +557,7 @@ function ResultadoInner() {
                   </span>
                 </span>
                 <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
-                  <span className="font-medium text-foreground">Criterio cumple</span>
+                  <span className="font-medium text-foreground">Estado: cumple</span>
                   <span className="inline-flex items-center gap-1.5">
                     <span
                       className="flex h-5 min-w-[1.35rem] shrink-0 items-center justify-center rounded-sm bg-emerald-600/15 px-0.5 text-[10px] font-bold leading-none text-emerald-800 dark:text-emerald-300"
@@ -559,7 +565,7 @@ function ResultadoInner() {
                     >
                       ✓✓
                     </span>
-                    Cumple · pastilla «correcta» (verde)
+                    Columna Estado · pastilla «correcta» (verde)
                   </span>
                 </span>
                 <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
@@ -578,7 +584,7 @@ function ResultadoInner() {
               <div
                 className="grid gap-3 border-b border-border px-4 py-3 sm:grid-cols-2 lg:grid-cols-4"
                 role="group"
-                aria-label="Filtros de la tabla de criterios"
+                aria-label="Filtros de la tabla de criterios (tipo, estado en tabla, severidad)"
               >
                 <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
                   Tipo (prefijo)
@@ -651,10 +657,18 @@ function ResultadoInner() {
                   </Button>
                 </div>
               </div>
-              <Table className="min-w-[36rem]">
+              <Table className="min-w-[48rem]">
+                <TableCaption className="sr-only">
+                  Criterios del checklist editorial v1.1: columnas Sección del criterio,
+                  Criterio con código e enunciado oficial, Estado de evaluación, Severidad
+                  y Comentario.
+                </TableCaption>
                 <TableHeader>
                   <TableRow className="border-b border-border bg-muted/50 hover:bg-muted/50">
-                    <TableHead className="min-w-[4rem] text-card-foreground">
+                    <TableHead className="min-w-[10rem] max-w-[14rem] text-card-foreground">
+                      Sección
+                    </TableHead>
+                    <TableHead className="min-w-[12rem] text-card-foreground">
                       Criterio
                     </TableHead>
                     <TableHead className="text-card-foreground">Estado</TableHead>
@@ -666,7 +680,7 @@ function ResultadoInner() {
                   {criteriosFiltrados.length === 0 ? (
                     <TableRow>
                       <TableCell
-                        colSpan={4}
+                        colSpan={5}
                         className="p-6 text-center text-muted-foreground"
                       >
                         <p className="mb-3 text-sm">
@@ -691,8 +705,11 @@ function ResultadoInner() {
                         key={row.id}
                         className={filaCriterioClassName(row)}
                       >
-                        <TableCell className="font-mono text-xs font-medium">
-                          {row.id}
+                        <TableCell className="max-w-[14rem] text-sm leading-snug text-muted-foreground">
+                          {formatSeccionTitulo(row.id)}
+                        </TableCell>
+                        <TableCell className="max-w-[min(100vw,32rem)] text-sm leading-snug text-foreground">
+                          {formatCriterioEnunciado(row.id)}
                         </TableCell>
                         <TableCell>
                           <span className="flex items-center gap-2">
