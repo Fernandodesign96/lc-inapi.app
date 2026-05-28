@@ -16,34 +16,34 @@
       "observaciones": "Mayor volumen Clarity en el extracto; priorizar copy de bienvenida y accesos principales.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "5",
-      "ultimaRevisionRef": "2026-05-02",
+      "ultimaRevisionRef": "2026-05-28",
       "historialAuditorias": [
         {
-          "fecha": "2026-05-02",
+          "fecha": "2026-05-28",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "60,0 %",
           "nota": "Revisión mock más reciente."
         },
         {
-          "fecha": "2026-04-10",
+          "fecha": "2026-05-21",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "58,5 %",
           "nota": "Seguimiento editorial."
         },
         {
-          "fecha": "2026-03-01",
+          "fecha": "2026-05-14",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "57,0 %",
           "nota": "Auditoría interna ficticia."
         },
         {
-          "fecha": "2026-02-15",
+          "fecha": "2026-05-07",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "56,0 %",
           "nota": "Primera pasada mock."
         },
         {
-          "fecha": "2026-01-20",
+          "fecha": "2026-04-30",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "55,0 %",
           "nota": "Línea base ficticia."
@@ -71,19 +71,19 @@
           "nota": "Revisión mock más reciente."
         },
         {
-          "fecha": "2026-03-10",
+          "fecha": "2026-05-20",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "64,5 %",
           "nota": "Auditoría interna ficticia."
         },
         {
-          "fecha": "2026-02-08",
+          "fecha": "2026-05-13",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "63,8 %",
           "nota": "Segunda pasada mock."
         },
         {
-          "fecha": "2026-01-22",
+          "fecha": "2026-05-06",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "63,0 %",
           "nota": "Seguimiento previo (mock)."
@@ -111,13 +111,13 @@
           "nota": "Revisión mock más reciente."
         },
         {
-          "fecha": "2026-04-05",
+          "fecha": "2026-05-19",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "61,0 %",
           "nota": "Informe LC mock."
         },
         {
-          "fecha": "2026-02-20",
+          "fecha": "2026-05-12",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "60,2 %",
           "nota": "Línea base ficticia."
@@ -145,7 +145,7 @@
           "nota": "Informe editorial de referencia (mock)."
         },
         {
-          "fecha": "2026-03-15",
+          "fecha": "2026-05-18",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "52,0 %",
           "nota": "Revisión interna previa (dato ficticio)."
@@ -167,7 +167,7 @@
       "ultimaRevisionRef": "2026-05-24",
       "historialAuditorias": [
         {
-          "fecha": "2026-02-18",
+          "fecha": "2026-05-24",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "64,3 %",
           "nota": "Mock de seguimiento."
@@ -186,10 +186,10 @@
       "observaciones": "Entrada a wizard largo; mensaje inicial debe ser claro y accionable.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-04-01",
+      "ultimaRevisionRef": "2026-05-23",
       "historialAuditorias": [
         {
-          "fecha": "2026-04-01",
+          "fecha": "2026-05-23",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "57,1 %",
           "nota": "Auditoría ficticia."
@@ -211,7 +211,7 @@
       "ultimaRevisionRef": "2026-05-22",
       "historialAuditorias": [
         {
-          "fecha": "2026-03-28",
+          "fecha": "2026-05-22",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "62,1 %",
           "nota": "Revisión mock."
@@ -227,16 +227,16 @@
       "porcentajeLcRef": "61,3 %",
       "estadoLcRef": "Rechazado",
       "descripcion": "Primer paso del asistente de carga de solicitud de marca.",
-      "observaciones": "Sin evaluación LC de referencia en el mock actual; pendiente criterio editorial.",
+      "observaciones": "Primer paso del asistente; revisar instrucciones iniciales y mensajes de validación.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-21",
       "historialAuditorias": [
         {
-          "fecha": "2026-02-01",
-          "estadoLcRef": "No aplica (mock)",
-          "porcentajeLcRef": "—",
-          "nota": "Sin informe cerrado (ficticio)."
+          "fecha": "2026-05-21",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "61,3 %",
+          "nota": "Informe LC mock de referencia."
         }
       ]
     },
@@ -255,7 +255,7 @@
       "ultimaRevisionRef": "2026-05-20",
       "historialAuditorias": [
         {
-          "fecha": "2026-04-12",
+          "fecha": "2026-05-20",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "70,4 %",
           "nota": "Mock editorial."
@@ -277,7 +277,7 @@
       "ultimaRevisionRef": "2026-05-19",
       "historialAuditorias": [
         {
-          "fecha": "2026-03-05",
+          "fecha": "2026-05-19",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "67,7 %",
           "nota": "Seguimiento ficticio."
@@ -299,16 +299,10 @@
       "ultimaRevisionRef": "2026-05-18",
       "historialAuditorias": [
         {
-          "fecha": "2026-05-11",
+          "fecha": "2026-05-18",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "72,0 %",
           "nota": "Fixture mock alineado a franja intermedia."
-        },
-        {
-          "fecha": "2026-04-08",
-          "estadoLcRef": "Rechazado",
-          "porcentajeLcRef": "70,5 %",
-          "nota": "Revisión previa (ficticia)."
         }
       ]
     },
@@ -327,7 +321,7 @@
       "ultimaRevisionRef": "2026-05-17",
       "historialAuditorias": [
         {
-          "fecha": "2026-03-20",
+          "fecha": "2026-05-17",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "63,0 %",
           "nota": "Mock de auditoría."
@@ -349,7 +343,7 @@
       "ultimaRevisionRef": "2026-05-16",
       "historialAuditorias": [
         {
-          "fecha": "2026-02-25",
+          "fecha": "2026-05-16",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "57,7 %",
           "nota": "Informe ficticio."
@@ -371,7 +365,7 @@
       "ultimaRevisionRef": "2026-05-15",
       "historialAuditorias": [
         {
-          "fecha": "2026-04-15",
+          "fecha": "2026-05-15",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "59,4 %",
           "nota": "Mock."
@@ -387,16 +381,16 @@
       "porcentajeLcRef": "55,9 %",
       "estadoLcRef": "Rechazado",
       "descripcion": "Alta de nueva cuenta de usuario en el sitio de trámites.",
-      "observaciones": "Sin porcentaje LC de referencia en el mock; evaluación editorial pendiente.",
+      "observaciones": "Formulario de alta con campos densos; priorizar mensajes de error claros y requisitos de contraseña en lenguaje claro.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-14",
       "historialAuditorias": [
         {
-          "fecha": "2026-01-15",
-          "estadoLcRef": "No aplica — sin evaluación LC ref.",
-          "porcentajeLcRef": "N/A",
-          "nota": "Sin informe LC (ficticio)."
+          "fecha": "2026-05-14",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "55,9 %",
+          "nota": "Informe LC mock de referencia."
         }
       ]
     },
@@ -415,7 +409,7 @@
       "ultimaRevisionRef": "2026-05-13",
       "historialAuditorias": [
         {
-          "fecha": "2026-03-12",
+          "fecha": "2026-05-13",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "68,0 %",
           "nota": "Revisión mock."
@@ -437,7 +431,7 @@
       "ultimaRevisionRef": "2026-05-12",
       "historialAuditorias": [
         {
-          "fecha": "2026-02-08",
+          "fecha": "2026-05-12",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "59,3 %",
           "nota": "Auditoría ficticia."
@@ -453,16 +447,16 @@
       "porcentajeLcRef": "70,4 %",
       "estadoLcRef": "Rechazado",
       "descripcion": "Consulta de estados diarios en el ámbito de patentes.",
-      "observaciones": "Referencia editorial sin % LC en el mock; alinear cuando exista informe.",
+      "observaciones": "Alta de cuenta: simplificar etiquetas de campos obligatorios y ayudas contextuales en el registro.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-11",
       "historialAuditorias": [
         {
-          "fecha": "2026-01-30",
-          "estadoLcRef": "No aplica (referencia editorial)",
-          "porcentajeLcRef": "N/A",
-          "nota": "Sin cierre LC (mock)."
+          "fecha": "2026-05-11",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "70,4 %",
+          "nota": "Informe LC mock de referencia."
         }
       ]
     },
@@ -481,7 +475,7 @@
       "ultimaRevisionRef": "2026-05-10",
       "historialAuditorias": [
         {
-          "fecha": "2026-04-22",
+          "fecha": "2026-05-10",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "70,8 %",
           "nota": "Mock."
@@ -503,16 +497,10 @@
       "ultimaRevisionRef": "2026-05-09",
       "historialAuditorias": [
         {
-          "fecha": "2026-03-18",
+          "fecha": "2026-05-09",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "56,7 %",
           "nota": "Informe ficticio."
-        },
-        {
-          "fecha": "2026-02-02",
-          "estadoLcRef": "Rechazado",
-          "porcentajeLcRef": "54,0 %",
-          "nota": "Seguimiento previo (mock)."
         }
       ]
     }
