@@ -14,37 +14,37 @@ export type MostAuditedUrlRow = {
     {
       rank: 1,
       paginaRef: "https://www.inapi.cl/",
-      auditoriasRef: "24",
+      auditoriasRef: "5",
       ultimaRevisionRef: "2026-05-02",
       nota: "Alta rotación editorial en home.",
     },
     {
       rank: 2,
       paginaRef: "https://tramites.inapi.cl/Notificaciones",
-      auditoriasRef: "19",
-      ultimaRevisionRef: "2026-04-28",
+      auditoriasRef: "2",
+      ultimaRevisionRef: "2026-05-25",
       nota: "Seguimiento recurrente en marcas.",
     },
     {
       rank: 3,
       paginaRef: "https://tramites.inapi.cl/Account/Login",
-      auditoriasRef: "16",
-      ultimaRevisionRef: "2026-04-15",
+      auditoriasRef: "4",
+      ultimaRevisionRef: "2026-05-27",
       nota: "Flujo de acceso con varias iteraciones.",
     },
     {
       rank: 4,
       paginaRef:
         "https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation",
-      auditoriasRef: "12",
+      auditoriasRef: "1",
       ultimaRevisionRef: "2026-03-30",
       nota: "Escritos y confirmaciones frecuentes.",
     },
     {
       rank: 5,
       paginaRef: "https://tramites.inapi.cl/Trademark/TrademarkFile",
-      auditoriasRef: "11",
-      ultimaRevisionRef: "2026-03-10",
+      auditoriasRef: "3",
+      ultimaRevisionRef: "2026-05-26",
       nota: "Expediente con revisiones periódicas.",
     },
     {
@@ -52,14 +52,14 @@ export type MostAuditedUrlRow = {
       paginaRef:
         "https://tramites.inapi.cl/Trademark/TrademarkAnnotation (mock)",
       auditoriasRef: "No aplica",
-      ultimaRevisionRef: "—",
+      ultimaRevisionRef: "1",
       nota: "Volumen de auditorías LC no consolidado en referencia mock.",
     },
     {
       rank: 7,
       paginaRef: "https://tramites.inapi.cl/Help/FAQ (mock)",
       auditoriasRef: "No aplica (ref.)",
-      ultimaRevisionRef: "—",
+      ultimaRevisionRef: "1",
       nota: "Página de ayuda fuera del alcance del seguimiento interno LC en Fase 1.",
     },
   ] as const

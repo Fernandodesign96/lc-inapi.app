@@ -26,7 +26,10 @@ export function clarityFichaToInventoryRow(f: ClarityUrlFicha) {
   return {
     rank: f.rank,
     rutaEtiqueta: f.rutaEtiqueta,
+    encargadoRef: f.encargadoRef,
     visitasRef: f.visitasRef,
+    auditoriasRef: f.auditoriasRef,
+    ultimaRevisionRef: f.ultimaRevisionRef,
     porcentajeLcRef: f.porcentajeLcRef,
     estadoRef: f.estadoLcRef,
   }

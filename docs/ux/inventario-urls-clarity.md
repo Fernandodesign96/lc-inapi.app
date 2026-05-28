@@ -18,7 +18,7 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 | **Intermedia** (aceptado con observaciones en referencia numérica) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
 | **Mejor** (aprobado en referencia) | Homepage institucional | `https://www.inapi.cl/` |
 
-**Nota:** la **home institucional** (`www.inapi.cl`) es atajo editorial §1; el **rank 1** del inventario Clarity §2 es la **home de trámites** (`https://tramites.inapi.cl/`). Son URLs distintas y deben permanecer coherentes **dentro de su propio contexto** (ficha rank 1 ↔ fila 1 de la tabla Clarity, no mezclar con el atajo «mejor»).
+**Nota:** la **home institucional** (`www.inapi.cl`) es atajo editorial §1 y coincide con el **rank 1** del inventario Clarity §2 (`Home INAPI`, mayor volumen de visitas). Las demás URLs del inventario usan prefijo `tramites.inapi.cl`.
 
 **Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Las franjas **81–90 %** y **≥91 %** se cubren con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
 
@@ -47,36 +47,46 @@ Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYST
 | % LC (ref.) | Porcentaje editorial de referencia |
 | Estado (ref.) | Estado de **aceptación LC** derivado del % (ver §2.3) |
 
-**Regla de coherencia datos ↔ ficha:** `auditoriasRef` en JSON = número de filas en `historialAuditorias` cuando el conteo es numérico. Ejemplo acordado: **rank 1** → **5** auditorías y **5** fechas en historial de ficha.
+**Regla de coherencia datos ↔ ficha:** `auditoriasRef` en JSON = número de filas en `historialAuditorias` cuando el conteo es numérico; `ultimaRevisionRef` = fecha ISO de la entrada más reciente del historial.
+
+**Conteo mock por importancia (volumen Clarity):** el número de auditorías refleja la prioridad relativa de la URL — a mayor tráfico, más revisiones LC ficticias en el historial:
+
+| Ranks | Auditorías (ref.) | Ejemplo |
+| --- | --- | --- |
+| 1 | 5 | Home INAPI (432.572 visitas) |
+| 2 | 4 | Account/Login |
+| 3 | 3 | Trademark/TrademarkFile |
+| 4 | 2 | Notificaciones Marcas |
+| 5–20 | 1 | Resto del inventario |
 
 Orden por volumen relativo en el extracto entregado al repositorio (sin pretender ser un dump crudo de Clarity).
 
-| # | Ruta o etiqueta (Clarity) | Visitas (ref.) | % LC (ref.) | Estado (ref.) |
-| --- | --- | --- | --- | --- |
-| 1 | Home `tramites.inapi.cl/` | 432.572 | 60,0 % | Rechazado |
-| 2 | `Account/Login` | 209.811 | 65,2 % | Rechazado |
-| 3 | `Trademark/TrademarkFile` (Expediente) | 198.337 | 61,5 % | Rechazado |
-| 4 | Notificaciones Marcas | 79.775 | 55,2 % | Rechazado |
-| 5 | `TrademarkSavedApplications` | 65.628 | 64,3 % | Rechazado |
-| 6 | `TrademarkApplication/IndexTrademark` | 41.429 | 57,1 % | Rechazado |
-| 7 | `Login/claveunica` (Registro CU) | 38.519 | 62,1 % | Rechazado |
-| 8 | `LoadTrademarkApplication` (paso 1) | 37.468 | 61,3 % | Rechazado |
-| 9 | `EstadosDiariosMarcas` | 31.929 | 70,4 % | Rechazado |
-| 10 | `TrademarkNizaClassifier` | 30.947 | 67,7 % | Rechazado |
-| 11 | `TrademarkUserDocument/SuccessConfirmation` | 23.779 | 72,0 % | Rechazado |
-| 12 | `TrademarkUserDocument` (Escritos) | 23.141 | 63,0 % | Rechazado |
-| 13 | Confirmación Solicitud Marca | 21.825 | 57,7 % | Rechazado |
-| 14 | `LoadTrademarkApplication` (revisión) | 18.654 | 59,4 % | Rechazado |
-| 15 | `Account/Register` | 17.603 | 55,9 % | Rechazado |
-| 16 | `TrademarkSecondPayment/SuccessConfirmation` | 14.609 | 68,0 % | Rechazado |
-| 17 | `TrademarkAnnotation` | 13.600 | 59,3 % | Rechazado |
-| 18 | `EstadosDiariosPatentes` | 12.628 | 70,4 % | Rechazado |
-| 19 | `TrademarkRenewalApplication` | 12.528 | 70,8 % | Rechazado |
-| 20 | `NotificacionesPatentes` | 12.271 | 56,7 % | Rechazado |
+| # | Ruta o etiqueta (Clarity) | Visitas (ref.) | Auditorías (ref.) | % LC (ref.) | Estado (ref.) |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `Home INAPI` | 432.572 | 5 | 60,0 % | Rechazado |
+| 2 | `Account/Login` | 209.811 | 4 | 65,2 % | Rechazado |
+| 3 | `Trademark/TrademarkFile` (Expediente) | 198.337 | 3 | 61,5 % | Rechazado |
+| 4 | Notificaciones Marcas | 79.775 | 2 | 55,2 % | Rechazado |
+| 5 | `TrademarkSavedApplications` | 65.628 | 1 | 64,3 % | Rechazado |
+| 6 | `TrademarkApplication/IndexTrademark` | 41.429 | 1 | 57,1 % | Rechazado |
+| 7 | `Login/claveunica` (Registro CU) | 38.519 | 1 | 62,1 % | Rechazado |
+| 8 | `LoadTrademarkApplication` (paso 1) | 37.468 | 1 | 61,3 % | Rechazado |
+| 9 | `EstadosDiariosMarcas` | 31.929 | 1 | 70,4 % | Rechazado |
+| 10 | `TrademarkNizaClassifier` | 30.947 | 1 | 67,7 % | Rechazado |
+| 11 | `TrademarkUserDocument/SuccessConfirmation` | 23.779 | 1 | 72,0 % | Rechazado |
+| 12 | `TrademarkUserDocument` (Escritos) | 23.141 | 1 | 63,0 % | Rechazado |
+| 13 | Confirmación Solicitud Marca | 21.825 | 1 | 57,7 % | Rechazado |
+| 14 | `LoadTrademarkApplication` (revisión) | 18.654 | 1 | 59,4 % | Rechazado |
+| 15 | `Account/Register` | 17.603 | 1 | 55,9 % | Rechazado |
+| 16 | `TrademarkSecondPayment/SuccessConfirmation` | 14.609 | 1 | 68,0 % | Rechazado |
+| 17 | `TrademarkAnnotation` | 13.600 | 1 | 59,3 % | Rechazado |
+| 18 | `EstadosDiariosPatentes` | 12.628 | 1 | 70,4 % | Rechazado |
+| 19 | `TrademarkRenewalApplication` | 12.528 | 1 | 70,8 % | Rechazado |
+| 20 | `NotificacionesPatentes` | 12.271 | 1 | 56,7 % | Rechazado |
 
 **Encargado (mock):** en implementación, columna fija **Fernando Arriagada** para las 20 filas (`encargadoRef` en JSON).
 
-**URLs absolutas:** prefijo `https://tramites.inapi.cl/` salvo páginas institucionales en `https://www.inapi.cl/` cuando correspondan; detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).
+**URLs absolutas:** prefijo `https://tramites.inapi.cl/` salvo **rank 1** (`https://www.inapi.cl/`); detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).
 
 ### 2.2 Ficha de detalle por URL
 

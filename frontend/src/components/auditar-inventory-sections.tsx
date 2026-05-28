@@ -37,6 +37,8 @@ import {
 import { MOST_AUDITED_URL_ROWS } from "@/lib/most-audited-url-rows"
 import { RESOLVED_LC_STATE_ROWS } from "@/lib/resolved-lc-state-rows"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { clarityFichaHref } from "@/lib/clarity-ficha-path"
 
 export function AuditarInventorySections() {
   return (
@@ -95,10 +97,21 @@ export function AuditarInventorySections() {
                           )}
                         >
                           <TableCell className="font-medium tabular-nums">
-                            {row.rank}
+                            <Link
+                              href={clarityFichaHref(row.rank)}
+                              className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                              aria-label={`Ver ficha del inventario Clarity, posición ${row.rank}`}
+                            >
+                              {row.rank}
+                            </Link>
                           </TableCell>
                           <TableCell className="max-w-[min(100vw,28rem)] wrap-break-word">
-                            {row.rutaEtiqueta}
+                            <Link
+                              href={clarityFichaHref(row.rank)}
+                              className="text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            >
+                              {row.rutaEtiqueta}
+                            </Link>
                           </TableCell>
                           <TableCell className="text-right tabular-nums">
                             {row.visitasRef}

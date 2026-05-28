@@ -6,8 +6,10 @@
   "filas": [
     {
       "rank": 1,
-      "rutaEtiqueta": "Home `tramites.inapi.cl/`",
+      "rutaEtiqueta": "`Home INAPI`",
       "visitasRef": "432.572",
+      "auditoriasRef": "5",
+      "ultimaRevisionRef": "2026-05-02",
       "porcentajeLcRef": "60,0 %",
       "estadoRef": "Rechazado"
     },
@@ -15,6 +17,8 @@
       "rank": 2,
       "rutaEtiqueta": "`Account/Login`",
       "visitasRef": "209.811",
+      "auditoriasRef": "4",
+      "ultimaRevisionRef": "2026-05-27",
       "porcentajeLcRef": "65,2 %",
       "estadoRef": "Rechazado"
     },
@@ -22,6 +26,8 @@
       "rank": 3,
       "rutaEtiqueta": "`Trademark/TrademarkFile` (Expediente)",
       "visitasRef": "198.337",
+      "auditoriasRef": "3",
+      "ultimaRevisionRef": "2026-05-26",
       "porcentajeLcRef": "61,5 %",
       "estadoRef": "Rechazado"
     },
@@ -29,6 +35,8 @@
       "rank": 4,
       "rutaEtiqueta": "Notificaciones Marcas",
       "visitasRef": "79.775",
+      "auditoriasRef": "2",
+      "ultimaRevisionRef": "2026-05-25",
       "porcentajeLcRef": "55,2 %",
       "estadoRef": "Rechazado"
     },

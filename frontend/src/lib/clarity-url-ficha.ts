@@ -16,6 +16,9 @@ export type ClarityUrlFicha = {
   visitasRef: string
   porcentajeLcRef: string
   estadoLcRef: string
+  encargadoRef: string
+  auditoriasRef: string
+  ultimaRevisionRef: string
   descripcion: string
   observaciones: string
   historialAuditorias: ClarityHistorialAuditoriaMock[]
