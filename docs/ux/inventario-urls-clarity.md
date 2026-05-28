@@ -1,34 +1,53 @@
 # Inventario de URLs — tráfico Clarity y priorización LC
 
-**Propósito:** una sola fuente de verdad **documental** para el equipo UX/editorial: qué páginas concentran visitas o interacción según **Microsoft Clarity** y cómo se relacionan con el **seguimiento de lenguaje claro** en el aplicativo mock (Fase 1).
+**Propósito:** fuente de verdad **documental** para el equipo UX/editorial: qué páginas concentran visitas o interacción según **Microsoft Clarity**, cómo se relacionan con el **seguimiento de lenguaje claro** en el aplicativo mock (Fase 1) y cómo se presentan en **`/auditar`** y en las **fichas por URL**.
 
-**Alcance:** Clarity informa **comportamiento y volumen** en el sitio; **no** sustituye una evaluación LC automática. Las columnas de **% cumplimiento LC** y **estado** (rechazado / aceptado con observaciones / aprobado) reflejan **criterio editorial de referencia** al momento de registrar esta tabla, salvo donde exista fixture validado en repo.
+**Alcance:** Clarity informa **comportamiento y volumen** en el sitio; **no** sustituye una evaluación LC automática. Las columnas de **% cumplimiento LC** y **estado** reflejan **criterio editorial de referencia** al momento de registrar esta tabla, salvo donde exista fixture validado en repo.
 
-**URLs canónicas:** las **20 rutas** listadas abajo provienen del informe Clarity como **rutas o etiquetas de pantalla**. Donde falte `https://…`, el equipo debe completar el enlace absoluto (p. ej. `https://tramites.inapi.cl/…` o `https://www.inapi.cl/…`) en una revisión posterior; hasta entonces el inventario sirve como **backlog de seguimiento** y subtítulo de referencia en la UI.
+**Fuente máquina (mock Fase 1):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — **20 fichas** con URL absoluta, métricas, encargado, auditorías, última revisión e historial breve. La tabla resumida en UI **deriva** de ese JSON (vía `frontend/src/lib/clarity-fichas-mock.ts`); no mantener tres listas mock independientes con URLs o conteos distintos.
 
 ---
 
 ## 1. Tres URLs priorizadas (atajos editoriales — mock Fase 1)
 
-Estas tres direcciones son las **prioridades demostrativas** acordadas: representan **peor**, **intermedia** y **mejor** desempeño respecto al checklist LC en la referencia actual del equipo. En implementación mock, los atajos en **`/auditar`** deben navegar **directo a resultado** con datos coherentes con ese perfil (fixtures o generador mock alineado).
+Estas tres direcciones son las **prioridades demostrativas** acordadas: representan **peor**, **intermedia** y **mejor** desempeño respecto al checklist LC en la referencia actual del equipo. En implementación mock, los atajos en **`/auditar`** navegan vía **`/auditar/procesando?url=…`** al **resultado** con datos coherentes con ese perfil (fixtures o generador mock alineado).
 
 | Perfil | Nombre (producto) | URL canónica |
 | --- | --- | --- |
 | **Peor** (rechazado; menor %) | Notificaciones Marcas | `https://tramites.inapi.cl/Notificaciones` |
-| **Intermedia** (rechazada; mayor % que la peor) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
-| **Mejor** (única aceptada en referencia) | Homepage | `https://www.inapi.cl/` |
+| **Intermedia** (aceptado con observaciones en referencia numérica) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
+| **Mejor** (aprobado en referencia) | Homepage institucional | `https://www.inapi.cl/` |
 
-**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana para el primer JSON de `data/audit-fixtures/` en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Los otros dos perfiles de la tabla deben tener el mismo nivel de detalle cuando existan informes cerrados; en repo, las franjas **81–90 %** y **≥91 %** se cubren hoy con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md) y regeneración con `generate-audit-fixture-json-files.ts`).
+**Nota:** la **home institucional** (`www.inapi.cl`) es atajo editorial §1; el **rank 1** del inventario Clarity §2 es la **home de trámites** (`https://tramites.inapi.cl/`). Son URLs distintas y deben permanecer coherentes **dentro de su propio contexto** (ficha rank 1 ↔ fila 1 de la tabla Clarity, no mezclar con el atajo «mejor»).
+
+**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Las franjas **81–90 %** y **≥91 %** se cubren con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
 
 ---
 
-## 2. Inventario ampliado — ~20 URLs más visitadas / interactuadas (Clarity)
+## 2. Inventario ampliado — 20 URLs Clarity (tabla unificada en `/auditar`)
 
 ### 2.1 Presentación en la pantalla `/auditar`
 
-La tabla de esta sección (y otras listas de seguimiento similares, p. ej. **URLs más auditadas** o **URLs con estados resueltos**) debe mostrarse **dentro de una barra colapsable** en `/auditar`, no como texto suelto: **título en la cabecera** del acordeón (puede reutilizar o acortar el subtítulo sugerido abajo), **icono flecha hacia abajo** en el trigger, contenido expandido con la tabla. **Mismo patrón y mismo `gap` vertical** entre todas las barras de la página, según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15.
+**Un solo acordeón** con la tabla de **20 URLs** priorizadas por Clarity. Ya **no** existe un acordeón aparte «URLs más auditadas»: las columnas **Auditorías (ref.)** y **Última revisión (ref.)** viven en esta misma tabla.
 
-**Subtítulo sugerido como título de la barra (o primera línea del trigger):** «Prioridades evidenciadas en **Microsoft Clarity** (volumen e interacción); estados LC según referencia editorial.»
+**Título sugerido del acordeón:** «Prioridades evidenciadas en **Microsoft Clarity** (volumen e interacción); estados LC según referencia editorial.»
+
+Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15; iconografía y color de fila según §13.1.
+
+**Columnas (orden objetivo):**
+
+| Columna | Descripción |
+| --- | --- |
+| `#` | Rank 1–20; enlace a ficha `/auditar/inventario/clarity/[rank]` |
+| Ruta o etiqueta (Clarity) | Etiqueta documental; enlace a la misma ficha |
+| **Encargado** | Responsable mock de seguimiento (Fase 1: **Fernando Arriagada** en las 20 filas) |
+| Visitas (ref.) | Volumen Clarity de referencia |
+| **Auditorías (ref.)** | Conteo mock de revisiones LC internas |
+| **Última revisión (ref.)** | Fecha ISO `YYYY-MM-DD` de la auditoría más reciente |
+| % LC (ref.) | Porcentaje editorial de referencia |
+| Estado (ref.) | Estado de **aceptación LC** derivado del % (ver §2.3) |
+
+**Regla de coherencia datos ↔ ficha:** `auditoriasRef` en JSON = número de filas en `historialAuditorias` cuando el conteo es numérico. Ejemplo acordado: **rank 1** → **5** auditorías y **5** fechas en historial de ficha.
 
 Orden por volumen relativo en el extracto entregado al repositorio (sin pretender ser un dump crudo de Clarity).
 
@@ -55,15 +74,82 @@ Orden por volumen relativo en el extracto entregado al repositorio (sin pretende
 | 19 | `TrademarkRenewalApplication` | 12.528 | 70,8 % | Rechazado |
 | 20 | `NotificacionesPatentes` | 12.271 | 56,7 % | Rechazado |
 
-**Nota:** completar columna de URL absoluta en una pasada editorial cuando se consoliden enlaces por fila (p. ej. prefijo `https://tramites.inapi.cl/` salvo páginas institucionales en `https://www.inapi.cl/`).
+**Encargado (mock):** en implementación, columna fija **Fernando Arriagada** para las 20 filas (`encargadoRef` en JSON).
+
+**URLs absolutas:** prefijo `https://tramites.inapi.cl/` salvo páginas institucionales en `https://www.inapi.cl/` cuando correspondan; detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).
+
+### 2.2 Ficha de detalle por URL
+
+Ruta: **`/auditar/inventario/clarity/[rank]`** (`rank` entero 1–20).
+
+| Bloque | Contenido |
+| --- | --- |
+| Cabecera | Nombre legible, rank, CTA «Regresar al inventario» |
+| Resumen | URL (mock), ruta Clarity, visitas, % LC, estado, **Encargado**, auditorías (ref.), última revisión (ref.) |
+| Contexto editorial | Descripción y observaciones |
+| Historial (mock) | Tabla: fecha, % LC, estado, nota — **N filas = N auditorías** |
+| Acciones | «Auditar esta URL (mock)» → `/auditar/procesando?url=…` |
+
+La ficha **no** es un `StrictAuditRecord`; el informe con 39 criterios sigue en **`/auditar/resultado`**.
+
+### 2.3 Iconografía y color de fila (estado LC de aceptación)
+
+Umbrales alineados al checklist y a `/auditar/resultado` (`acceptanceStatusFromPercentage` en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)):
+
+| Franja | Estado | Símbolo | Color de acento |
+| --- | --- | --- | --- |
+| ≤ 80 % | Rechazado | `!` | Rojo |
+| 81–90 % | Aceptado con observaciones | `✓` | Azul |
+| ≥ 91 % | Aprobado | `✓✓` | Verde |
+| Sin % numérico | No aplica | `—` | Gris |
+
+**Color de fondo / borde izquierdo de fila** en tabla Clarity: verde (aprobado), naranja (aceptado con observaciones), rojo (rechazado), gris (no aplica).
+
+Esta misma presentación aplica a la sección **Estados URLs** (§4) y a las celdas de estado en el historial de la ficha.
 
 ---
 
 ## 3. Política de datos (`docs/ux/` vs `data/`)
 
-- **`docs/ux/`** (este archivo): inventario **humano**, contexto Clarity, notas y prioridades; versionado con el repo; adecuado para definir **títulos de barra** y copy que luego implementa el frontend en acordeones (`/auditar`).
-- **`data/`:** artefactos **máquina-legibles** (p. ej. JSON consumido por la UI o CI); los fixtures de auditoría viven en `data/audit-fixtures/` con validación `validate:audit-fixtures` (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)). Duplicar **esta** tabla ampliada en JSON sigue siendo opcional hasta que el producto lo requiera.
+| Ubicación | Rol |
+| --- | --- |
+| **`docs/ux/`** (este archivo) | Inventario **humano**, reglas de presentación, columnas y coherencia editorial |
+| **`data/ux/clarity-fichas-mock.json`** | **Fuente máquina** de las 20 fichas y de la tabla Clarity en UI |
+| **`data/audit-fixtures/`** | Informes LC completos (`strictAuditRecordSchema`) para resultado mock |
+
+**Deprecado en UI (mock Fase 1):** acordeón y archivo espejo **«URLs más auditadas»** (`most-audited-url-rows.ts` / `most-audited-urls.json`) — sustituido por columnas en §2.1.
 
 ---
 
-*Última revisión documental: 2026-05-21 — alineado a [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/PRD.md`](../PRD.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15 (barras colapsables) y fixtures en [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md).*
+## 4. Estados URLs (antes «URLs con estados LC resueltos»)
+
+Segundo acordeón en **`/auditar`**, título: **Estados URLs**.
+
+Casos de ejemplo con **cierre de ciclo LC** en la narrativa mock (no persistencia real). **Columnas:** Página (ref.), Estado LC final (ref.), Fecha cierre (ref.), Observación.
+
+**Iconografía:** misma que §2.3 (`!` / `✓` / `✓✓` / `—`). Datos de referencia en [`frontend/src/lib/resolved-lc-state-rows.ts`](../../frontend/src/lib/resolved-lc-state-rows.ts) (etiquetas normalizadas a los cuatro estados anteriores).
+
+---
+
+## 5. Estructura de pantallas mock (resumen)
+
+```mermaid
+flowchart TB
+  Home["/"] --> Auditar["/auditar"]
+  Auditar --> Procesando["/auditar/procesando"]
+  Procesando --> Resultado["/auditar/resultado"]
+  Auditar --> AccordionClarity["Acordeón: 20 URLs Clarity"]
+  Auditar --> AccordionEstados["Acordeón: Estados URLs"]
+  AccordionClarity --> Ficha["/auditar/inventario/clarity/rank"]
+  Ficha --> Procesando
+```
+
+| Pantalla | Tablas / bloques relevantes |
+| --- | --- |
+| `/auditar/resultado` | 39 criterios: Sección, Criterio, Estado, Severidad, Comentario |
+| `/auditar` | Clarity 20 filas (§2.1) + Estados URLs (§4) |
+| `/auditar/inventario/clarity/[rank]` | Resumen + historial mock (§2.2) |
+
+---
+
+*Última revisión documental: 2026-05-28 — alineado a feedback UX, [`docs/development/DEVLOG.md`](../development/DEVLOG.md) (entrada 2026-05-28), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*

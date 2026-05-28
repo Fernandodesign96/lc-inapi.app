@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-28 | [Documentación: Consistencia de inventarios, tablas y pantallas mock en `/auditar`](#devlog-2026-05-28-consistencia-inventarios-docs) |
 | 2026-05-27 | [Frontend: Feedback UX — catálogo en tabla de criterios y mock de 20 fichas Clarity](#devlog-2026-05-27-feedback-ux-criterios-fichas) |
 | 2026-05-22 | [Infraestructura: Etapa 1 del plan híbrido — Vercel, GitHub Actions y verificación del mock en URL](#devlog-2026-05-22-vercel-gha-etapa1) |
 | 2026-05-21 | [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion) |
@@ -24,6 +25,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-28-consistencia-inventarios-docs"></a>
+
+## [2026-05-28] - Documentación | Consistencia de inventarios, tablas y pantallas mock en `/auditar`
+
+### Contexto y objetivos:
+
+Tras el feedback UX (Bernarda/Álvaro, mayo 2026) y la implementación parcial de las **etapas 1–3** (tabla de criterios en resultado, **20 fichas** Clarity y ruta de detalle), el equipo detectó **inconsistencias** entre secciones del mismo mock: URLs distintas para el mismo concepto «home», conteos de auditorías desalineados entre tabla e historial de ficha, filas «No aplica» en Clarity que debían mostrarse como **rechazadas** con % LC, y leyendas de iconos distintas entre inventarios y el **estado de aceptación** del informe en `/auditar/resultado`.
+
+Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo de pantallas y tablas (fuente única de datos, columnas, iconografía y colores de fila) para que la implementación en código quede alineada antes del siguiente commit de Etapa 3.
+
+### Implementación técnica:
+
+- **Fuente única (20 URLs Clarity):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) como maestro mock; la tabla resumida en UI deriva de ahí (no duplicar filas en varios `.ts` sin sincronía). Campos documentados: `encargadoRef`, `auditoriasRef`, `ultimaRevisionRef`, además de visitas, % LC, estado e `historialAuditorias` (longitud del historial = conteo de auditorías cuando es numérico).
+- **Fusión de secciones en `/auditar`:** se **retira** el acordeón independiente **«URLs más auditadas»**; sus columnas útiles (**Auditorías**, **Última revisión**) pasan a la tabla ampliada de **~20 URLs Clarity**. Permanecen **dos** bloques colapsables de inventario: (1) Clarity ampliado, (2) **Estados URLs** (antes «URLs con estados LC resueltos»).
+- **Tabla Clarity (columnas objetivo):** `#`, Ruta o etiqueta, **Encargado**, Visitas (ref.), **Auditorías (ref.)**, **Última revisión (ref.)**, % LC (ref.), Estado (ref.); enlaces a ficha `/auditar/inventario/clarity/[rank]`.
+- **Ficha por URL:** [`/auditar/inventario/clarity/[rank]`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) muestra resumen (incl. **Encargado: Fernando Arriagada** en mock), contexto editorial e historial con **N** fechas coherentes con `auditoriasRef` (p. ej. rank 1 → **5** auditorías y **5** filas de historial).
+- **Correcciones editoriales acordadas en tabla §2:** ranks **8, 15 y 18** con estado **Rechazado** y % **61,3 %**, **55,9 %** y **70,4 %** respectivamente (ya reflejados en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md)).
+- **Iconografía y color de fila unificados** con umbrales de negocio del checklist (≤80 % rechazado, 81–90 % aceptado con observaciones, ≥91 % aprobado): símbolos **!** (rojo), **✓** (azul), **✓✓** (verde), **—** (gris); bandas de fila en verde / naranja / rojo según franja. Misma regla en tabla Clarity, sección **Estados URLs** y celdas de historial en ficha. Detalle en [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15.
+- **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (estructura §2–§4), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md), [`docs/PRD.md`](../PRD.md), [`README.md`](../../README.md).
+
+### Próximos pasos:
+
+- **Implementación en código** (responsabilidad del equipo en repo): ampliar JSON y tipos, refactor de `auditar-inventory-sections`, helper visual LC compartido, ajustes en ficha `[rank]`; luego commit de Etapa 3 + consistencia.
+- **Etapa 4–5** del plan feedback UX: Calidad web mock y filtros en las **dos** tablas de inventario (ver [`docs/ROADMAP.md`](../ROADMAP.md)).
+- Actualizar [`data/ux/README.md`](../../data/ux/README.md) cuando el JSON maestro sustituya los espejos `most-audited-urls.json` / `clarity-inventory.json` en mantenimiento.
 
 ---
 
@@ -48,10 +77,9 @@ La **ficha de URL** resume contexto editorial (visitas Clarity, % LC de referenc
 
 ### Próximos pasos:
 
-- **Etapa 3:** ruta `/auditar/inventario/clarity/[rank]` y enlaces desde las secciones de inventario en `/auditar`.
+- **Etapa 3:** ruta `/auditar/inventario/clarity/[rank]` y enlaces desde inventario (base en repo; ver [consistencia documentada 2026-05-28](#devlog-2026-05-28-consistencia-inventarios-docs) para columnas, encargado e historial alineado).
 - **Etapa 4:** filas mock de calidad web e ítem de acordeón correspondiente.
-- **Etapa 5:** filtros cliente para las tres tablas de inventario.
-- Actualizar [`docs/ROADMAP.md`](../ROADMAP.md) al cerrar Etapa 3+ si el alcance del PR lo requiere; opcional sincronizar [`data/ux/clarity-inventory.json`](../../data/ux/clarity-inventory.json) como espejo documental.
+- **Etapa 5:** filtros cliente para las **dos** tablas de inventario (Clarity ampliado + Estados URLs).
 
 ---
 

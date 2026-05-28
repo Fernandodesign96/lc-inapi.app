@@ -49,8 +49,7 @@ Hasta aprobar el mock de UI:
 - **No** hay llamadas productivas a Supabase ni a Claude desde la app demo.
 - Contratos y datos: **`data/checklist-criteria.json`**, **`data/audit-fixtures/*.json`** (convención en [data/audit-fixtures/README.md](../data/audit-fixtures/README.md)), [`src/schemas/checklist.ts`](../src/schemas/checklist.ts).
 - Next en `frontend/` sirve flujo **portal de acceso en `/` (CTA hacia `/auditar`, sin auth real)** → **ingreso de URL y atajos en `/auditar`** → (según implementación) **captura** y **resultado**, con datos generados o importados desde fixtures validados. Los **tres atajos** editoriales pueden **saltar** a **resultado** directo con query de URL en el mock, coherente con la narrativa de “URL ya auditada”.
-- En **`/auditar`**, inventarios y listas de apoyo (Clarity, más auditadas, estados resueltos, etc.) se agrupan en **componentes colapsables** homogéneos (título + flecha abajo + panel), no como bloques de texto sueltos; ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15.
-- Inventario humano de prioridades y tráfico Clarity: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
+- En **`/auditar`**, **dos** acordeones de inventario mock — **20 URLs Clarity** (tabla unificada; fuente [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json)) y **Estados URLs** — más rutas de ficha **`/auditar/inventario/clarity/[rank]`**; patrón colapsable homogéneo (título + flecha abajo + panel), ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15. Inventario documental: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
 ### 1.3 Entorno demo y CI (Fase 1, sin backend productivo)
 
