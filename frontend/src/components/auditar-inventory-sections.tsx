@@ -23,19 +23,21 @@ import {
 } from "@/components/ui/table"
 import { CLARITY_INVENTORY_ROWS } from "@/lib/clarity-inventory-rows"
 import {
-  CeldaEstadoEditorial,
   CeldaIndicadorSeguimiento,
-  InventarioLeyendaLcEditorial,
   InventarioLeyendaSeguimientoVolumen,
-  inventoryRowClassFromLcEditorialBucket,
   inventoryRowClassFromSeguimientoBucket,
-  lcEditorialBucketFromLabel,
   parsePorcentajeLcRef,
-  porcentajeLcTextClass,
   seguimientoVolumenFromAuditorias,
 } from "@/lib/inventory-table-visuals"
 import { MOST_AUDITED_URL_ROWS } from "@/lib/most-audited-url-rows"
 import { RESOLVED_LC_STATE_ROWS } from "@/lib/resolved-lc-state-rows"
+import {
+  CeldaEstadoLcAceptacion,
+  InventarioLeyendaLcAceptacion,
+  inventoryRowClassFromLcAceptacionBucket,
+  porcentajeLcAceptacionTextClass,
+  resolveLcAceptacionBucket,
+} from "@/lib/lc-aceptacion-visual"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { clarityFichaHref } from "@/lib/clarity-ficha-path"
@@ -64,7 +66,7 @@ export function AuditarInventorySections() {
                   editorial, no dump crudo de Clarity). Las URLs absolutas se
                   completan en una pasada editorial posterior.
                 </p>
-                <InventarioLeyendaLcEditorial />
+                <InventarioLeyendaLcAceptacion />
                 <Table>
                   <TableCaption className="sr-only">
                     Inventario de rutas o etiquetas Clarity con referencia de
@@ -87,14 +89,15 @@ export function AuditarInventorySections() {
                   </TableHeader>
                   <TableBody>
                     {CLARITY_INVENTORY_ROWS.map((row) => {
-                      const bucket = lcEditorialBucketFromLabel(row.estadoRef)
+                      const bucket = resolveLcAceptacionBucket({
+                        porcentajeLcRef: row.porcentajeLcRef,
+                        estadoLcRef: row.estadoRef,
+                      })
                       const pct = parsePorcentajeLcRef(row.porcentajeLcRef)
                       return (
                         <TableRow
                           key={row.rank}
-                          className={inventoryRowClassFromLcEditorialBucket(
-                            bucket,
-                          )}
+                          className={inventoryRowClassFromLcAceptacionBucket(bucket)}
                         >
                           <TableCell className="font-medium tabular-nums">
                             <Link
@@ -117,12 +120,12 @@ export function AuditarInventorySections() {
                             {row.visitasRef}
                           </TableCell>
                           <TableCell
-                            className={cn("text-right", porcentajeLcTextClass(pct))}
+                            className={cn("text-right", porcentajeLcAceptacionTextClass(pct))}
                           >
                             {row.porcentajeLcRef}
                           </TableCell>
                           <TableCell>
-                            <CeldaEstadoEditorial
+                            <CeldaEstadoLcAceptacion
                               bucket={bucket}
                               etiqueta={row.estadoRef}
                             />
@@ -229,7 +232,7 @@ export function AuditarInventorySections() {
                   Sustituir por datos validados o fixtures cuando existan en
                   repositorio.
                 </p>
-                <InventarioLeyendaLcEditorial />
+                <InventarioLeyendaLcAceptacion />
                 <Table>
                   <TableCaption className="sr-only">
                     URLs con estado final de lenguaje claro y fecha de cierre de
@@ -250,15 +253,13 @@ export function AuditarInventorySections() {
                   </TableHeader>
                   <TableBody>
                     {RESOLVED_LC_STATE_ROWS.map((row) => {
-                      const bucket = lcEditorialBucketFromLabel(
-                        row.estadoLcFinalRef,
-                      )
+                      const bucket = resolveLcAceptacionBucket({
+                        estadoLcRef: row.estadoLcFinalRef,
+                      })
                       return (
                         <TableRow
                           key={row.rank}
-                          className={inventoryRowClassFromLcEditorialBucket(
-                            bucket,
-                          )}
+                          className={inventoryRowClassFromLcAceptacionBucket(bucket)}
                         >
                           <TableCell className="font-medium tabular-nums">
                             {row.rank}
@@ -267,7 +268,7 @@ export function AuditarInventorySections() {
                             {row.paginaRef}
                           </TableCell>
                           <TableCell>
-                            <CeldaEstadoEditorial
+                            <CeldaEstadoLcAceptacion
                               bucket={bucket}
                               etiqueta={row.estadoLcFinalRef}
                             />

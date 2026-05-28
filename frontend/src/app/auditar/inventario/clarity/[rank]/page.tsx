@@ -25,13 +25,13 @@ import {
   getClarityFichaByRank,
   isValidClarityFichaRank,
 } from "@/lib/clarity-fichas-mock"
-import { clarityFichaHref } from "@/lib/clarity-ficha-path"
+import { parsePorcentajeLcRef } from "@/lib/inventory-table-visuals"
 import {
-  CeldaEstadoEditorial,
-  lcEditorialBucketFromLabel,
-  parsePorcentajeLcRef,
-  porcentajeLcTextClass,
-} from "@/lib/inventory-table-visuals"
+  CeldaEstadoLcAceptacion,
+  inventoryRowClassFromLcAceptacionBucket,
+  porcentajeLcAceptacionTextClass,
+  resolveLcAceptacionBucket,
+} from "@/lib/lc-aceptacion-visual"
 import { cn } from "@/lib/utils"
 
 type PageProps = {
@@ -74,7 +74,10 @@ export default async function ClarityFichaPage({ params }: PageProps) {
     notFound()
   }
 
-  const bucket = lcEditorialBucketFromLabel(ficha.estadoLcRef)
+  const bucket = resolveLcAceptacionBucket({
+    porcentajeLcRef: ficha.porcentajeLcRef,
+    estadoLcRef: ficha.estadoLcRef,
+  })
   const pct = parsePorcentajeLcRef(ficha.porcentajeLcRef)
   const auditarHref = `/auditar/procesando?url=${encodeURIComponent(ficha.url)}`
 
@@ -143,7 +146,7 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                   <dd
                     className={cn(
                       "mt-0.5 tabular-nums font-medium",
-                      porcentajeLcTextClass(pct),
+                      porcentajeLcAceptacionTextClass(pct),
                     )}
                   >
                     {ficha.porcentajeLcRef}
@@ -152,7 +155,7 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                 <div>
                   <dt className="text-muted-foreground">Estado LC (ref.)</dt>
                   <dd className="mt-1">
-                    <CeldaEstadoEditorial
+                    <CeldaEstadoLcAceptacion
                       bucket={bucket}
                       etiqueta={ficha.estadoLcRef}
                     />
@@ -205,23 +208,29 @@ export default async function ClarityFichaPage({ params }: PageProps) {
               </TableHeader>
               <TableBody>
                 {ficha.historialAuditorias.map((item) => {
-                  const itemBucket = lcEditorialBucketFromLabel(item.estadoLcRef)
+                  const itemBucket = resolveLcAceptacionBucket({
+                    porcentajeLcRef: item.porcentajeLcRef,
+                    estadoLcRef: item.estadoLcRef,
+                  })
                   const itemPct = parsePorcentajeLcRef(item.porcentajeLcRef)
                   return (
-                    <TableRow key={`${item.fecha}-${item.nota}`}>
+                    <TableRow
+                      key={`${item.fecha}-${item.nota}`}
+                      className={inventoryRowClassFromLcAceptacionBucket(itemBucket)}
+                    >
                       <TableCell className="whitespace-nowrap tabular-nums">
                         {item.fecha}
                       </TableCell>
                       <TableCell
                         className={cn(
                           "text-right tabular-nums",
-                          porcentajeLcTextClass(itemPct),
+                            porcentajeLcAceptacionTextClass(itemPct),
                         )}
                       >
                         {item.porcentajeLcRef}
                       </TableCell>
                       <TableCell>
-                        <CeldaEstadoEditorial
+                        <CeldaEstadoLcAceptacion
                           bucket={itemBucket}
                           etiqueta={item.estadoLcRef}
                         />
