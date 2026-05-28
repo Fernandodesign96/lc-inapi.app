@@ -4,8 +4,8 @@ Archivos máquina-legibles alineados a las tablas mostradas en **`/auditar`** (i
 
 | Archivo | Contenido | Par en código |
 | --- | --- | --- |
-| `clarity-inventory.json` | ~20 filas Clarity (referencia editorial) | `frontend/src/lib/clarity-inventory-rows.ts` |
-| `most-audited-urls.json` | URLs más auditadas (mock) | `frontend/src/lib/most-audited-url-rows.ts` |
+| `clarity-fichas-mock.json` | **Maestro** — 20 fichas Clarity (URL, métricas, encargado, auditorías, historial) | `frontend/src/lib/clarity-fichas-mock.ts` |
+| `clarity-inventory.json` | Espejo resumido ~20 filas (opcional; tabla deriva del maestro) | `frontend/src/lib/clarity-inventory-rows.ts` |
 | `resolved-lc-states.json` | Estados LC resueltos (mock) | `frontend/src/lib/resolved-lc-state-rows.ts` |
 
 **Mantenimiento:** si cambia una fila en el `.ts` o en el documento UX, actualizar el JSON correspondiente (o automatizar en un script futuro). No hay validación CI dedicada a estos archivos en Fase 1; opcional según [`docs/ROADMAP.md`](../../docs/ROADMAP.md).
