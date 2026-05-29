@@ -24,15 +24,29 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 
 ---
 
-## 2. Inventario ampliado — 20 URLs Clarity (tabla unificada en `/auditar`)
+## 2. Historial de Auditoría LC — URLs INAPI (tabla única en `/auditar`)
 
 ### 2.1 Presentación en la pantalla `/auditar`
 
-**Un solo acordeón** con la tabla de **20 URLs** priorizadas por Clarity. Ya **no** existe un acordeón aparte «URLs más auditadas»: las columnas **Auditorías (ref.)** y **Última revisión (ref.)** viven en esta misma tabla.
+**Un solo acordeón** de inventario LC con la tabla de **20 URLs** priorizadas por Clarity. Es el **registro canónico** de seguimiento mock: concentra visitas, auditorías, última revisión, % LC y estado. Ya **no** existen acordeones aparte «URLs más auditadas» ni «URLs con estados LC resueltos» — sus datos útiles viven en esta tabla y en la **ficha por URL** (§2.2).
 
-**Título sugerido del acordeón:** «Prioridades evidenciadas en **Microsoft Clarity** (volumen e interacción); estados LC según referencia editorial.»
+**Título del acordeón:** **Historial de Auditoría LC - URLs INAPI**
 
 Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15; iconografía y color de fila según §13.1.
+
+**Filtros y orden (Etapa 5 — planificados en UI):** al expandir la tabla, el usuario podrá:
+
+| Dimensión | Comportamiento |
+| --- | --- |
+| **Estado LC** | Filtrar por bucket: Rechazado / Aceptado con observaciones / Aprobado / No aplica / Todos |
+| **Visitas (ref.)** | Orden ascendente o descendente |
+| **Auditorías (ref.)** | Orden ascendente o descendente |
+| **Última revisión (ref.)** | Orden de más reciente a más antigua (y viceversa) |
+| **% LC (ref.)** | Orden ascendente o descendente |
+
+**Sin filtro** por encargado ni por observación (el encargado permanece como columna informativa; las observaciones viven en la ficha).
+
+**Orden por defecto:** rank 1–20 según volumen Clarity documental (§2.1, tabla editorial).
 
 **Columnas (orden objetivo):**
 
@@ -95,8 +109,8 @@ Ruta: **`/auditar/inventario/clarity/[rank]`** (`rank` entero 1–20).
 | Bloque | Contenido |
 | --- | --- |
 | Cabecera | Nombre legible, rank, CTA «Regresar al inventario» |
-| Resumen | URL (mock), ruta Clarity, visitas, % LC, estado, **Encargado**, auditorías (ref.), última revisión (ref.) |
-| Contexto editorial | Descripción y observaciones |
+| Resumen | URL (mock), ruta Clarity, visitas, % LC, estado, auditorías (ref.), última revisión (ref.) |
+| Contexto editorial | Descripción; **observaciones** breves (y detalle desarrollado cuando aplique) — sustituyen la columna «Observación» del antiguo acordeón de estados resueltos |
 | Historial (mock) | Tabla: fecha, % LC, estado, nota — **N filas = N auditorías** |
 | Acciones | «Auditar esta URL (mock)» → `/auditar/procesando?url=…` |
 
@@ -115,7 +129,7 @@ Umbrales alineados al checklist y a `/auditar/resultado` (`acceptanceStatusFromP
 
 **Color de fondo / borde izquierdo de fila** en tabla Clarity: verde (aprobado), naranja (aceptado con observaciones), rojo (rechazado), gris (no aplica).
 
-Esta misma presentación aplica a la sección **Estados URLs** (§4) y a las celdas de estado en el historial de la ficha.
+Esta misma presentación aplica a la **tabla del historial LC** (§2.1) y a las celdas de estado en el historial de la ficha.
 
 ---
 
@@ -127,39 +141,33 @@ Esta misma presentación aplica a la sección **Estados URLs** (§4) y a las cel
 | **`data/ux/clarity-fichas-mock.json`** | **Fuente máquina** de las 20 fichas y de la tabla Clarity en UI |
 | **`data/audit-fixtures/`** | Informes LC completos (`strictAuditRecordSchema`) para resultado mock |
 
-**Deprecado en UI (mock Fase 1):** acordeón y archivo espejo **«URLs más auditadas»** (`most-audited-url-rows.ts` / `most-audited-urls.json`) — sustituido por columnas en §2.1.
+**Deprecado en UI (mock Fase 1):**
+
+| Sección / archivo | Sustituto |
+| --- | --- |
+| Acordeón **«URLs más auditadas»** (`most-audited-url-rows.ts` / `most-audited-urls.json`) | Columnas Auditorías y Última revisión en §2.1 |
+| Acordeón **«URLs con estados LC resueltos»** / **Estados URLs** (`resolved-lc-state-rows.ts` / `resolved-lc-states.json`) | Tabla §2.1 + observaciones en ficha §2.2 |
 
 ---
 
-## 4. Estados URLs (antes «URLs con estados LC resueltos»)
-
-Segundo acordeón en **`/auditar`**, título: **Estados URLs**.
-
-Casos de ejemplo con **cierre de ciclo LC** en la narrativa mock (no persistencia real). **Columnas:** Página (ref.), Estado LC final (ref.), Fecha cierre (ref.), Observación.
-
-**Iconografía:** misma que §2.3 (`!` / `✓` / `✓✓` / `—`). Datos de referencia en [`frontend/src/lib/resolved-lc-state-rows.ts`](../../frontend/src/lib/resolved-lc-state-rows.ts) (etiquetas normalizadas a los cuatro estados anteriores).
-
----
-
-## 5. Estructura de pantallas mock (resumen)
+## 4. Estructura de pantallas mock (resumen)
 
 ```mermaid
 flowchart TB
   Home["/"] --> Auditar["/auditar"]
   Auditar --> Procesando["/auditar/procesando"]
   Procesando --> Resultado["/auditar/resultado"]
-  Auditar --> AccordionClarity["Acordeón: 20 URLs Clarity"]
-  Auditar --> AccordionEstados["Acordeón: Estados URLs"]
-  AccordionClarity --> Ficha["/auditar/inventario/clarity/rank"]
+  Auditar --> AccordionHistorial["Acordeón: Historial de Auditoría LC - URLs INAPI"]
+  AccordionHistorial --> Ficha["/auditar/inventario/clarity/rank"]
   Ficha --> Procesando
 ```
 
 | Pantalla | Tablas / bloques relevantes |
 | --- | --- |
 | `/auditar/resultado` | 39 criterios: Sección, Criterio, Estado, Severidad, Comentario |
-| `/auditar` | Clarity 20 filas (§2.1) + Estados URLs (§4) |
-| `/auditar/inventario/clarity/[rank]` | Resumen + historial mock (§2.2) |
+| `/auditar` | Historial LC — 20 URLs (§2.1), con filtros/orden planificados |
+| `/auditar/inventario/clarity/[rank]` | Resumen + contexto (observaciones) + historial mock (§2.2) |
 
 ---
 
-*Última revisión documental: 2026-05-28 — alineado a feedback UX, [`docs/development/DEVLOG.md`](../development/DEVLOG.md) (entrada 2026-05-28), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*
+*Última revisión documental: 2026-05-28 — inventario único en `/auditar`; ver [`docs/development/DEVLOG.md`](../development/DEVLOG.md) (entrada 2026-05-28 inventario único), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*

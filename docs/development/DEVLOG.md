@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
 | 2026-05-28 | [Documentación: Consistencia de inventarios, tablas y pantallas mock en `/auditar`](#devlog-2026-05-28-consistencia-inventarios-docs) |
 | 2026-05-27 | [Frontend: Feedback UX — catálogo en tabla de criterios y mock de 20 fichas Clarity](#devlog-2026-05-27-feedback-ux-criterios-fichas) |
 | 2026-05-22 | [Infraestructura: Etapa 1 del plan híbrido — Vercel, GitHub Actions y verificación del mock en URL](#devlog-2026-05-22-vercel-gha-etapa1) |
@@ -25,6 +26,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-28-inventario-unico-docs"></a>
+
+## [2026-05-28] - Documentación | Inventario único — Historial LC en `/auditar`
+
+### Contexto y objetivos:
+
+Tras cerrar en código la **fusión de «URLs más auditadas»** en la tabla Clarity (commit `b2c6b0e`) y revisar la pantalla `/auditar` con el equipo, se acordó que la sección **«URLs con estados LC resueltos»** (antes planificada como «Estados URLs») **sobra**: las **20 URLs Clarity** concentran ya visitas, auditorías, última revisión, % LC y estado; lo único distintivo del segundo acordeón eran las **observaciones**, que deben vivir en **`/auditar/inventario/clarity/[rank]`** (breve en contexto editorial, con detalle desarrollable).
+
+Objetivo de esta entrada: **actualizar `docs/`** para reflejar **un solo** inventario LC en `/auditar`, título **Historial de Auditoría LC - URLs INAPI**, y **Etapa 5** con filtros/orden en esa tabla única (estado, visitas, auditorías, última revisión, % LC; sin filtro por encargado ni observación).
+
+### Implementación técnica:
+
+- **Decisión de producto:** suprimir acordeón «URLs con estados LC resueltos» / «Estados URLs»; deprecar `resolved-lc-state-rows.ts` y `resolved-lc-states.json` en implementación **2c.1** (código pendiente).
+- **Título objetivo del acordeón:** **Historial de Auditoría LC - URLs INAPI**.
+- **Observaciones:** campo `observaciones` (y opcional detalle) en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) / ficha §2.2; migrar copy editorial de URLs coincidentes con el antiguo listado resolved (ranks 1, 9, 10, 15, 20) en **2c.3**.
+- **Filtros planificados (Etapa 5):** filtro por bucket de estado LC; orden asc/desc por visitas, auditorías, última revisión y % LC.
+- **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (§2 renombrado, §4 deprecaciones, diagrama §4), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/PRD.md`](../PRD.md) (v0.3.7), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md).
+
+### Próximos pasos:
+
+- **2c.1 (código):** eliminar acordeón y archivos `resolved-lc-*` en UI y repo.
+- **2c.2–2c.3:** renombrar título del acordeón, enriquecer observaciones en fichas.
+- **2b.4:** auditorías y última revisión en resumen de ficha.
+- **Etapa 5:** componente cliente con filtros y orden en tabla única.
+- **Nota:** la entrada [Consistencia de inventarios (misma fecha)](#devlog-2026-05-28-consistencia-inventarios-docs) describía **dos** acordeones; queda **supersedida** en lo relativo a «Estados URLs».
 
 ---
 
@@ -53,6 +82,8 @@ Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo d
 - **Implementación en código** (responsabilidad del equipo en repo): ampliar JSON y tipos, refactor de `auditar-inventory-sections`, helper visual LC compartido, ajustes en ficha `[rank]`; luego commit de Etapa 3 + consistencia.
 - **Etapa 4–5** del plan feedback UX: Calidad web mock y filtros en las **dos** tablas de inventario (ver [`docs/ROADMAP.md`](../ROADMAP.md)).
 - Actualizar [`data/ux/README.md`](../../data/ux/README.md) cuando el JSON maestro sustituya los espejos `most-audited-urls.json` / `clarity-inventory.json` en mantenimiento.
+
+**Nota (misma fecha):** la decisión de mantener un segundo acordeón **Estados URLs** queda **supersedida** por [Inventario único — Historial LC](#devlog-2026-05-28-inventario-unico-docs).
 
 ---
 
