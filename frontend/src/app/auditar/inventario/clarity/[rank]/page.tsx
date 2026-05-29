@@ -142,6 +142,18 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                   <dd className="mt-0.5 tabular-nums">{ficha.visitasRef}</dd>
                 </div>
                 <div>
+                  <dt className="text-muted-foreground">Auditorías (ref.)</dt>
+                  <dd className="mt-0.5 tabular-nums font-medium">
+                    {ficha.auditoriasRef}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Última revisión (ref.)</dt>
+                  <dd className="mt-0.5 tabular-nums font-medium">
+                    {ficha.ultimaRevisionRef}
+                  </dd>
+                </div>
+                <div>
                   <dt className="text-muted-foreground">% LC (ref.)</dt>
                   <dd
                     className={cn(

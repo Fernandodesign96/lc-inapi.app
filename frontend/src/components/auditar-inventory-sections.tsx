@@ -38,7 +38,7 @@ export function AuditarInventorySections() {
   return (
     <Card className="border-border bg-card">
       <CardHeader>
-        <CardTitle className="text-base">Inventarios y seguimiento</CardTitle>
+        <CardTitle className="text-base">Tabla de Auditorías LC - URLs INAPI</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion
@@ -48,8 +48,7 @@ export function AuditarInventorySections() {
         >
           <AccordionItem value="clarity-ampliado">
             <AccordionTrigger className="text-start text-sm sm:text-base">
-              Prioridades evidenciadas en Microsoft Clarity (volumen e
-              interacción); estados LC según referencia editorial.
+              Historial de Auditoría LC - URLs INAPI
             </AccordionTrigger>
             <AccordionContent className="px-0 sm:px-0">
               <div className="px-4 pb-1 pt-0">
