@@ -12,27 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import { CLARITY_INVENTORY_ROWS } from "@/lib/clarity-inventory-rows"
-import { parsePorcentajeLcRef } from "@/lib/inventory-table-visuals"
-import {
-  CeldaEstadoLcAceptacion,
-  InventarioLeyendaLcAceptacion,
-  inventoryRowClassFromLcAceptacionBucket,
-  porcentajeLcAceptacionTextClass,
-  resolveLcAceptacionBucket,
-} from "@/lib/lc-aceptacion-visual"
-import { cn } from "@/lib/utils"
-import Link from "next/link"
-import { clarityFichaHref } from "@/lib/clarity-ficha-path"
+import { ClarityInventoryHistorialTable } from "@/components/clarity-inventory-historial-table"
 
 export function AuditarInventorySections() {
   return (
@@ -46,105 +26,22 @@ export function AuditarInventorySections() {
           defaultValue={[]}
           className="flex w-full flex-col gap-3"
         >
-          <AccordionItem value="clarity-ampliado">
+          <AccordionItem value="historial-lc-inapi">
             <AccordionTrigger className="text-start text-sm sm:text-base">
               Historial de Auditoría LC - URLs INAPI
             </AccordionTrigger>
             <AccordionContent className="px-0 sm:px-0">
               <div className="px-4 pb-1 pt-0">
                 <p className="mb-3 text-muted-foreground text-xs leading-relaxed">
-                  Orden por volumen relativo en el extracto documental (referencia 
-                  editorial, no dump crudo de Clarity). Incluye encargado, auditorías y
-                  última revisión LC de referencia por URL.
+                  Registro mock de las 20 URLs INAPI priorizadas por volumen Clarity
+                  (referencia editorial). Filtre por estado LC u ordene por visitas,
+                  auditorías, última revisión o % LC. Use el número o la ruta para abrir
+                  la ficha de cada URL.
                 </p>
-                <InventarioLeyendaLcAceptacion />
-                <Table>
-                  <TableCaption className="sr-only">
-                    Inventario Clarity con visitas, encargado, auditorías, última revisión,
-                    porcentaje LC y estado editorial.
-                  </TableCaption>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-10 whitespace-nowrap">#</TableHead>
-                      <TableHead>Ruta o etiqueta (Clarity)</TableHead>
-                      <TableHead className="whitespace-nowrap">Encargado</TableHead>
-                      <TableHead className="whitespace-nowrap text-right">
-                        Visitas (ref.)
-                      </TableHead>
-                      <TableHead className="whitespace-nowrap text-right">
-                        Auditorías (ref.)
-                      </TableHead>
-                      <TableHead className="whitespace-nowrap">
-                        Última revisión (ref.)
-                      </TableHead>
-                      <TableHead className="whitespace-nowrap text-right">
-                        % LC (ref.)
-                      </TableHead>
-                      <TableHead className="whitespace-nowrap">
-                        Estado (ref.)
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {CLARITY_INVENTORY_ROWS.map((row) => {
-                      const bucket = resolveLcAceptacionBucket({
-                        porcentajeLcRef: row.porcentajeLcRef,
-                        estadoLcRef: row.estadoRef,
-                      })
-                      const pct = parsePorcentajeLcRef(row.porcentajeLcRef)
-                      return (
-                        <TableRow
-                          key={row.rank}
-                          className={inventoryRowClassFromLcAceptacionBucket(bucket)}
-                        >
-                          <TableCell className="font-medium tabular-nums">
-                            <Link
-                              href={clarityFichaHref(row.rank)}
-                              className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                              aria-label={`Ver ficha del inventario Clarity, posición ${row.rank}`}
-                            >
-                              {row.rank}
-                            </Link>
-                          </TableCell>
-                          <TableCell className="max-w-[min(100vw,28rem)] wrap-break-word">
-                            <Link
-                              href={clarityFichaHref(row.rank)}
-                              className="text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                            >
-                              {row.rutaEtiqueta}
-                            </Link>
-                          </TableCell>
-                          <TableCell className="whitespace-nowrap text-sm">
-                            {row.encargadoRef}
-                          </TableCell>
-                          <TableCell className="text-right tabular-nums">
-                            {row.visitasRef}
-                          </TableCell>
-                          <TableCell className="text-right tabular-nums font-medium">
-                            {row.auditoriasRef}
-                          </TableCell>
-                          <TableCell className="text-right tabular-nums font-medium">
-                            {row.ultimaRevisionRef}
-                          </TableCell>
-                          <TableCell
-                            className={cn("text-right", porcentajeLcAceptacionTextClass(pct))}
-                          >
-                            {row.porcentajeLcRef}
-                          </TableCell>
-                          <TableCell>
-                            <CeldaEstadoLcAceptacion
-                              bucket={bucket}
-                              etiqueta={row.estadoRef}
-                            />
-                          </TableCell>
-                        </TableRow>
-                      )
-                    })}
-                  </TableBody>
-                </Table>
+                <ClarityInventoryHistorialTable />
               </div>
             </AccordionContent>
-          </AccordionItem>          
+          </AccordionItem>
         </Accordion>
       </CardContent>
     </Card>
