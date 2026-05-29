@@ -21,6 +21,8 @@ export type ClarityUrlFicha = {
   ultimaRevisionRef: string
   descripcion: string
   observaciones: string
+  /** Desarrollo opcional de la observación breve (p. ej. cierre editorial migrado). */
+  observacionesDetalle?: string
   historialAuditorias: ClarityHistorialAuditoriaMock[]
 }
 

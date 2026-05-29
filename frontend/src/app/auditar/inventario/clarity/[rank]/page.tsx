@@ -180,10 +180,17 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                 <span className="text-muted-foreground">Descripción: </span>
                 {ficha.descripcion}
               </p>
-              <p>
-                <span className="text-muted-foreground">Observaciones: </span>
-                {ficha.observaciones}
-              </p>
+              <div>
+                <p>
+                  <span className="text-muted-foreground">Observación: </span>
+                  <span className="font-medium">{ficha.observaciones}</span>
+                </p>
+                {ficha.observacionesDetalle ? (
+                  <p className="mt-2 text-muted-foreground leading-relaxed">
+                    {ficha.observacionesDetalle}
+                  </p>
+                ) : null}
+              </div>
             </div>
           </section>
 

@@ -14,6 +14,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Página de entrada al portal de trámites electrónicos INAPI (marcas y patentes).",
       "observaciones": "Mayor volumen Clarity en el extracto; priorizar copy de bienvenida y accesos principales.",
+      "observacionesDetalle": "Seguimiento de cierre editorial (ref. 2026-04-20): ajustes de titulares y enlaces en la home institucional.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "5",
       "ultimaRevisionRef": "2026-05-28",
@@ -22,7 +23,7 @@
           "fecha": "2026-05-28",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "60,0 %",
-          "nota": "Revisión mock más reciente."
+          "nota": "Revisión mock más reciente; ver detalle de cierre editorial en observaciones."
         },
         {
           "fecha": "2026-05-21",
@@ -248,8 +249,8 @@
       "visitasRef": "31.929",
       "porcentajeLcRef": "70,4 %",
       "estadoLcRef": "Rechazado",
-      "descripcion": "Consulta de publicaciones en estados diarios del registro de marcas.",
       "observaciones": "Lenguaje normativo; enlaces a instructivos deben ser explícitos.",
+      "observacionesDetalle": "Tablas y encabezados alineados al checklist en la ronda de cierre mock (ref. 2026-03-22).",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-20",
@@ -258,7 +259,7 @@
           "fecha": "2026-05-20",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "70,4 %",
-          "nota": "Mock editorial."
+          "nota": "Mock editorial; tablas y encabezados alineados al checklist (cierre ref.)."
         }
       ]
     },
@@ -272,6 +273,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Herramienta de búsqueda y selección de clases de la clasificación de Niza.",
       "observaciones": "Interacción compleja; priorizar instrucciones paso a paso.",
+      "observacionesDetalle": "Cierre documental de referencia (2026-02-18); pendiente nueva ronda LC por complejidad de la herramienta.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-19",
@@ -280,7 +282,7 @@
           "fecha": "2026-05-19",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "67,7 %",
-          "nota": "Seguimiento ficticio."
+          "nota": "Seguimiento ficticio; cierre documental pendiente de nueva ronda LC."
         }
       ]
     },
@@ -382,6 +384,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Alta de nueva cuenta de usuario en el sitio de trámites.",
       "observaciones": "Formulario de alta con campos densos; priorizar mensajes de error claros y requisitos de contraseña en lenguaje claro.",
+      "observacionesDetalle": "Microcopy de errores y ayudas contextual actualizado en cierre mock (ref. 2026-04-05).",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-14",
@@ -390,7 +393,7 @@
           "fecha": "2026-05-14",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "55,9 %",
-          "nota": "Informe LC mock de referencia."
+          "nota": "Informe LC mock; microcopy de errores y ayudas actualizado (cierre ref.)."
         }
       ]
     },
@@ -492,6 +495,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Consulta de notificaciones electrónicas en trámites de patentes.",
       "observaciones": "Paralelo a Notificaciones Marcas; reutilizar lecciones de LC del rank 4.",
+      "observacionesDetalle": "Homologación de términos con glosario INAPI en cierre editorial (ref. 2026-01-30).",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-09",
@@ -500,7 +504,7 @@
           "fecha": "2026-05-09",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "56,7 %",
-          "nota": "Informe ficticio."
+          "nota": "Informe ficticio; homologación de términos con glosario INAPI."
         }
       ]
     }
