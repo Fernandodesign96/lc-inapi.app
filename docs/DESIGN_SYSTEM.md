@@ -3,7 +3,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 0.3.3 |
+| **Versión** | 0.3.4 |
 | **Fuente visual institucional** | UI Kit v3.0.1 — Secretaría de Gobierno (Transformación Digital). Documento base: [docs/uikit_gob/UI KIT v3.0.1.pdf](uikit_gob/UI%20KIT%20v3.0.1.pdf). **Valores hex** de este archivo provienen de las láminas oficiales del kit (capturas / PDF) revisadas en mayo 2026. |
 | **Stack UI previsto** | Next.js · Tailwind CSS · shadcn/ui · Lucide React |
 
@@ -303,6 +303,23 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 | `aceptado_con_observaciones` | `#FF5722` |
 | `rechazado` | `#FB3B3B` |
 
+### 13.1 Iconografía LC en tablas de inventario y ficha (mock Fase 1)
+
+**Alcance:** tarjeta y tabla **Historial de Auditorías URLs - INAPI** (22 URLs Calidad Web Sitio + Trámites en `/auditar`; columna **Tipo** y filtro `type_url`) y celdas de estado en **historial de ficha** (`/auditar/inventario/clarity/[rank]`). Debe ser **coherente** con el **estado de aceptación** del informe en `/auditar/resultado` y con `acceptanceStatusFromPercentage` ([`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)).
+
+| Estado de aceptación LC | Símbolo | Color del símbolo | Banda / fondo de fila (tabla Clarity) |
+| --- | --- | --- | --- |
+| Rechazado (≤ 80 %) | `!` | Rojo (`destructive`) | Rojo |
+| Aceptado con observaciones (81–90 %) | `✓` | Azul (`sky`) | Naranja |
+| Aprobado (≥ 91 %) | `✓✓` | Verde (`emerald`) | Verde |
+| No aplica (sin % ref.) | `—` | Gris (`muted`) | Gris |
+
+**Leyenda:** mostrar los cuatro ítems anteriores encima de la tabla de historial en `/auditar` (y en el historial de auditorías de la ficha cuando aplique).
+
+**Nota:** la iconografía de **criterios individuales** en `/auditar/resultado` (`cumple` / `incumple` / `no_aplica` con severidad) sigue en [`frontend/src/lib/criterio-evaluacion-visual.ts`](../../frontend/src/lib/criterio-evaluacion-visual.ts); §13.1 aplica al **estado LC agregado por URL**, no a cada fila A1–H1.
+
+Referencia de producto: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) §2.3.
+
 ---
 
 ## 14. Accesibilidad (mínimo)
@@ -316,7 +333,14 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 
 ## 15. Patrón UI: barras colapsables en `/auditar` (inventarios y listas)
 
-**Uso:** agrupar en una sola pantalla (`/auditar`) varias **fuentes de información seccionada** sin competir con el **ingreso principal de URL** ni con los **tres atajos** editoriales. Ejemplos de contenido: tabla **~20 URLs** priorizadas por **Microsoft Clarity**; lista de **URLs más auditadas** por el equipo; **URLs con estados resueltos** (o equivalente de seguimiento LC). El patrón debe ser **reutilizable** para todas esas secciones.
+**Uso:** agrupar en una sola pantalla (`/auditar`) **fuentes de información seccionada** sin competir con el **ingreso principal de URL** ni con los **tres atajos** editoriales.
+
+**Contenido objetivo (2026-05-28):**
+
+1. **Tarjeta:** **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** — contexto del bloque (Trámites ranks 1–20 + Sitio Web ranks 21–22).
+2. **Acordeón:** **Historial de Auditorías URLs - INAPI** — tabla de URLs Calidad Web (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado, **Tipo**); enlaces a ficha por `rank`; **filtros:** tipo URL (`tramites` / `sitioweb`), estado LC, orden por visitas/auditorías/fecha/% LC (implementados).
+
+Suprimidos en UI: **«URLs más auditadas»** (columnas fusionadas en el bloque 2), **«URLs con estados LC resueltos»** / **Estados URLs** (observaciones en ficha) y **«Calidad web (Sitio Web)»** como acordeón aparte (Etapa 4 cancelada). Detalle en [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
 | Criterio | Guía |
 | --- | --- |

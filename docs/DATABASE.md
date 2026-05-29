@@ -73,7 +73,7 @@ En **Fase 1 (mock en Next)**, la misma semántica debe reflejarse en la **UI de 
 
 ### `url_index` (opcional, para atajos e inventario en `/auditar`)
 
-Tabla o vista para las URLs seguidas por calidad web / equipo editorial (p. ej. inventario tipo **Clarity** y prioridades LC), expuestas en UI principalmente desde **`/auditar`**, no desde la home de acceso.
+Tabla o vista para las URLs seguidas por **Calidad Web** (extracto Clarity: **Sitio Web** + **Trámites**) y prioridades LC del equipo editorial, expuestas en UI principalmente desde **`/auditar`**, no desde la home de acceso. En Fase 1 mock: **22 filas** objetivo — ranks 1–20 en `tramites.inapi.cl` (rank 1 = landing portal); ranks 21–22 en `www.inapi.cl` (`type_url: sitioweb`). Campo lógico **`type_url`**: `tramites` | `sitioweb`.
 
 | Columna | Tipo |
 | --- | --- |

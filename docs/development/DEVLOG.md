@@ -8,6 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-05-29 | [Frontend: Cierre Etapas 5b y 5c — inventario Calidad Web con `type_url` y filtro Tipo](#devlog-2026-05-29-cierre-5b-5c-inventario) |
+| 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
+| 2026-05-28 | [Documentación: Consistencia de inventarios, tablas y pantallas mock en `/auditar`](#devlog-2026-05-28-consistencia-inventarios-docs) |
 | 2026-05-27 | [Frontend: Feedback UX — catálogo en tabla de criterios y mock de 20 fichas Clarity](#devlog-2026-05-27-feedback-ux-criterios-fichas) |
 | 2026-05-22 | [Infraestructura: Etapa 1 del plan híbrido — Vercel, GitHub Actions y verificación del mock en URL](#devlog-2026-05-22-vercel-gha-etapa1) |
 | 2026-05-21 | [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion) |
@@ -24,6 +27,95 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-05-29-cierre-5b-5c-inventario"></a>
+
+## [2026-05-29] - Frontend | Cierre Etapas 5b y 5c: inventario Calidad Web con `type_url`
+
+### Contexto y objetivos:
+
+Cierre del bloque de feedback UX sobre el **inventario único** Calidad Web en `/auditar` (Trámites + Sitio Web). Tras revisar el extracto Clarity (365 días, mayo 2026) y capturas del panel Mapas térmicos, se confirmó que el **rank 1** es la **landing** `https://tramites.inapi.cl/` (no la home `www.inapi.cl`) y que la distinción Sitio Web vs Trámites debe vivir en **una sola tabla** mediante el campo **`type_url`** (`tramites` | `sitioweb`) y un **filtro Tipo** en UI — sin un segundo acordeón (Etapa 4 cancelada).
+
+Objetivos de la jornada: (1) alinear JSON maestro y tipos TS a **22 URLs**; (2) implementar filtro y columna Tipo; (3) copy UI §15 sin fijar conteo de URLs en el intro; (4) mostrar tipo en ficha de detalle; (5) sincronizar documentación de producto y arquitectura.
+
+### Implementación técnica:
+
+- **Datos:** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — rank 1 corregido (`tramites.inapi.cl`, visitas ref. 432.572); ranks **21–22** `sitioweb` (home + Trámites digitales); `type_url` en las 22 fichas; observaciones rank **18** alineadas a patentes; notas raíz actualizadas. Espejo [`data/ux/clarity-inventory.json`](../../data/ux/clarity-inventory.json) con 22 filas.
+- **Frontend — tabla:** [`clarity-inventory-historial-table.tsx`](../../frontend/src/components/clarity-inventory-historial-table.tsx) — filtro **URLs Trámites / URLs Sitio Web / Todas**, columna **Tipo**, `aria-label` en controles, `caption` y enlaces accesibles en celdas rank/ruta.
+- **Frontend — orden/filtro:** [`clarity-inventory-sort.ts`](../../frontend/src/lib/clarity-inventory-sort.ts) — filtro `type_url` compuesto con estado LC (corrección de anidamiento).
+- **Frontend — sección `/auditar`:** [`auditar-inventory-sections.tsx`](../../frontend/src/components/auditar-inventory-sections.tsx) — títulos design system §15; párrafo introductorio sin «22 URLs» (inventario puede crecer).
+- **Frontend — ficha:** [`/auditar/inventario/clarity/[rank]/page.tsx`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) — campo **Tipo de URL** en resumen.
+- **Tipos:** [`clarity-url-ficha.ts`](../../frontend/src/lib/clarity-url-ficha.ts) — tipo `ClarityUrlFicha` con `type_url` (sin duplicado).
+- **Documentación sincronizada (2026-05-29):** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (filtro implementado, tabla ranks 21–22 con métricas mock), [`docs/ROADMAP.md`](../ROADMAP.md) (5b y **5c** `[x]`; Etapa 4 aclarada), [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`README.md`](../../README.md), [`data/ux/README.md`](../../data/ux/README.md).
+
+### 💡 Repaso técnico: Coherencia maestro ↔ tabla ↔ ficha:
+
+La UI **no** lee `type_url` del espejo `clarity-inventory.json`; la columna Tipo y el filtro derivan del **maestro** vía `clarity-fichas-mock.ts` / `clarity-inventory-rows.ts`. Mantener una sola fuente evita desalineaciones cuando el inventario crezca más allá de 22 filas.
+
+### Próximos pasos:
+
+- **Demo interna** con Equipo UX (ROADMAP — único ítem Fase 1 pendiente del bloque inventario).
+- Ampliar inventario con más URLs del extracto Clarity cuando el equipo lo priorice (sin cambiar el patrón tabla única + `type_url`).
+
+---
+
+<a id="devlog-2026-05-28-inventario-unico-docs"></a>
+
+## [2026-05-28] - Documentación | Inventario único — Historial LC en `/auditar`
+
+### Contexto y objetivos:
+
+Tras cerrar en código la **fusión de «URLs más auditadas»** en la tabla Clarity (commit `b2c6b0e`) y revisar la pantalla `/auditar` con el equipo, se acordó que la sección **«URLs con estados LC resueltos»** (antes planificada como «Estados URLs») **sobra**: las **20 URLs Clarity** concentran ya visitas, auditorías, última revisión, % LC y estado; lo único distintivo del segundo acordeón eran las **observaciones**, que deben vivir en **`/auditar/inventario/clarity/[rank]`** (breve en contexto editorial, con detalle desarrollable).
+
+Objetivo de esta entrada: **actualizar `docs/`** para reflejar **un solo** inventario LC en `/auditar`, título **Historial de Auditoría LC - URLs INAPI**, y **Etapa 5** con filtros/orden en esa tabla única (estado, visitas, auditorías, última revisión, % LC; sin filtro por encargado ni observación).
+
+### Implementación técnica:
+
+- **Decisión de producto:** suprimir acordeón «URLs con estados LC resueltos» / «Estados URLs»; deprecar `resolved-lc-state-rows.ts` y `resolved-lc-states.json` en implementación **2c.1** (código pendiente).
+- **Título objetivo del acordeón:** **Historial de Auditoría LC - URLs INAPI**.
+- **Observaciones:** campo `observaciones` (y opcional detalle) en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) / ficha §2.2; migrar copy editorial de URLs coincidentes con el antiguo listado resolved (ranks 1, 9, 10, 15, 20) en **2c.3**.
+- **Filtros planificados (Etapa 5):** filtro por bucket de estado LC; orden asc/desc por visitas, auditorías, última revisión y % LC.
+- **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (§2 renombrado, §4 deprecaciones, diagrama §4), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/PRD.md`](../PRD.md) (v0.3.7), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md).
+
+### Próximos pasos:
+
+- **2c.1 (código):** eliminar acordeón y archivos `resolved-lc-*` en UI y repo.
+- **2c.2–2c.3:** renombrar título del acordeón, enriquecer observaciones en fichas.
+- **2b.4:** auditorías y última revisión en resumen de ficha.
+- **Etapa 5:** componente cliente con filtros y orden en tabla única.
+- **Nota:** la entrada [Consistencia de inventarios (misma fecha)](#devlog-2026-05-28-consistencia-inventarios-docs) describía **dos** acordeones; queda **supersedida** en lo relativo a «Estados URLs».
+
+---
+
+<a id="devlog-2026-05-28-consistencia-inventarios-docs"></a>
+
+## [2026-05-28] - Documentación | Consistencia de inventarios, tablas y pantallas mock en `/auditar`
+
+### Contexto y objetivos:
+
+Tras el feedback UX (Bernarda/Álvaro, mayo 2026) y la implementación parcial de las **etapas 1–3** (tabla de criterios en resultado, **20 fichas** Clarity y ruta de detalle), el equipo detectó **inconsistencias** entre secciones del mismo mock: URLs distintas para el mismo concepto «home», conteos de auditorías desalineados entre tabla e historial de ficha, filas «No aplica» en Clarity que debían mostrarse como **rechazadas** con % LC, y leyendas de iconos distintas entre inventarios y el **estado de aceptación** del informe en `/auditar/resultado`.
+
+Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo de pantallas y tablas (fuente única de datos, columnas, iconografía y colores de fila) para que la implementación en código quede alineada antes del siguiente commit de Etapa 3.
+
+### Implementación técnica:
+
+- **Fuente única (20 URLs Clarity):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) como maestro mock; la tabla resumida en UI deriva de ahí (no duplicar filas en varios `.ts` sin sincronía). Campos documentados: `encargadoRef`, `auditoriasRef`, `ultimaRevisionRef`, además de visitas, % LC, estado e `historialAuditorias` (longitud del historial = conteo de auditorías cuando es numérico).
+- **Fusión de secciones en `/auditar`:** se **retira** el acordeón independiente **«URLs más auditadas»**; sus columnas útiles (**Auditorías**, **Última revisión**) pasan a la tabla ampliada de **~20 URLs Clarity**. Permanecen **dos** bloques colapsables de inventario: (1) Clarity ampliado, (2) **Estados URLs** (antes «URLs con estados LC resueltos»).
+- **Tabla Clarity (columnas objetivo):** `#`, Ruta o etiqueta, **Encargado**, Visitas (ref.), **Auditorías (ref.)**, **Última revisión (ref.)**, % LC (ref.), Estado (ref.); enlaces a ficha `/auditar/inventario/clarity/[rank]`.
+- **Ficha por URL:** [`/auditar/inventario/clarity/[rank]`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) muestra resumen (incl. **Encargado: Fernando Arriagada** en mock), contexto editorial e historial con **N** fechas coherentes con `auditoriasRef` (p. ej. rank 1 → **5** auditorías y **5** filas de historial).
+- **Correcciones editoriales acordadas en tabla §2:** ranks **8, 15 y 18** con estado **Rechazado** y % **61,3 %**, **55,9 %** y **70,4 %** respectivamente (ya reflejados en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md)).
+- **Iconografía y color de fila unificados** con umbrales de negocio del checklist (≤80 % rechazado, 81–90 % aceptado con observaciones, ≥91 % aprobado): símbolos **!** (rojo), **✓** (azul), **✓✓** (verde), **—** (gris); bandas de fila en verde / naranja / rojo según franja. Misma regla en tabla Clarity, sección **Estados URLs** y celdas de historial en ficha. Detalle en [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15.
+- **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (estructura §2–§4), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md), [`docs/PRD.md`](../PRD.md), [`README.md`](../../README.md).
+
+### Próximos pasos:
+
+- **Implementación en código** (responsabilidad del equipo en repo): ampliar JSON y tipos, refactor de `auditar-inventory-sections`, helper visual LC compartido, ajustes en ficha `[rank]`; luego commit de Etapa 3 + consistencia.
+- **Etapa 4–5** del plan feedback UX: Calidad web mock y filtros en las **dos** tablas de inventario (ver [`docs/ROADMAP.md`](../ROADMAP.md)).
+- Actualizar [`data/ux/README.md`](../../data/ux/README.md) cuando el JSON maestro sustituya los espejos `most-audited-urls.json` / `clarity-inventory.json` en mantenimiento.
+
+**Nota (misma fecha):** la decisión de mantener un segundo acordeón **Estados URLs** queda **supersedida** por [Inventario único — Historial LC](#devlog-2026-05-28-inventario-unico-docs).
 
 ---
 
@@ -48,10 +140,9 @@ La **ficha de URL** resume contexto editorial (visitas Clarity, % LC de referenc
 
 ### Próximos pasos:
 
-- **Etapa 3:** ruta `/auditar/inventario/clarity/[rank]` y enlaces desde las secciones de inventario en `/auditar`.
+- **Etapa 3:** ruta `/auditar/inventario/clarity/[rank]` y enlaces desde inventario (base en repo; ver [consistencia documentada 2026-05-28](#devlog-2026-05-28-consistencia-inventarios-docs) para columnas, encargado e historial alineado).
 - **Etapa 4:** filas mock de calidad web e ítem de acordeón correspondiente.
-- **Etapa 5:** filtros cliente para las tres tablas de inventario.
-- Actualizar [`docs/ROADMAP.md`](../ROADMAP.md) al cerrar Etapa 3+ si el alcance del PR lo requiere; opcional sincronizar [`data/ux/clarity-inventory.json`](../../data/ux/clarity-inventory.json) como espejo documental.
+- **Etapa 5:** filtros cliente para las **dos** tablas de inventario (Clarity ampliado + Estados URLs).
 
 ---
 

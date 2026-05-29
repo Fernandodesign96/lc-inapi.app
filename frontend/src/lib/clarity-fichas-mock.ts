@@ -18,7 +18,7 @@ export function getClarityFichaByRank(rank: number): ClarityUrlFicha | undefined
 }
 
 export function isValidClarityFichaRank(rank: number): boolean {
-  return Number.isInteger(rank) && rank >= 1 && rank <= 20
+  return Number.isInteger(rank) && rank >= 1 && rank <= 22
 }
 
 /** Resumen de fila para la tabla de inventario en `/auditar`. */
@@ -26,7 +26,11 @@ export function clarityFichaToInventoryRow(f: ClarityUrlFicha) {
   return {
     rank: f.rank,
     rutaEtiqueta: f.rutaEtiqueta,
+    type_url: f.type_url,
+    encargadoRef: f.encargadoRef,
     visitasRef: f.visitasRef,
+    auditoriasRef: f.auditoriasRef,
+    ultimaRevisionRef: f.ultimaRevisionRef,
     porcentajeLcRef: f.porcentajeLcRef,
     estadoRef: f.estadoLcRef,
   }

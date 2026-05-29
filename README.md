@@ -41,7 +41,8 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | Recurso | Descripción |
 | --- | --- |
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
-| [data/audit-fixtures/](data/audit-fixtures/) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; convención y scripts en [data/audit-fixtures/README.md](data/audit-fixtures/README.md); ver [docs/ROADMAP.md](docs/ROADMAP.md) y [docs/DATABASE.md](docs/DATABASE.md) |
+| [data/audit-fixtures/](data/audit-fixtures/) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; convención y scripts en [data/audit-fixtures/README.md](data/audit-fixtures/README.md) |
+| [data/ux/clarity-fichas-mock.json](data/ux/clarity-fichas-mock.json) | **22 fichas** mock Calidad Web (objetivo): ranks 1–20 `tramites.inapi.cl`, 21–22 `sitioweb`; campo **`type_url`**; fuente de la tabla en `/auditar` — ver [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación (equivalente actual a `packages/contracts` del monorepo objetivo; ver [propuesta técnica integral](docs/PROPUESTA_TECNICA_INTEGRAL.md)) |
 
 Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
@@ -82,4 +83,6 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: el backlog mock principal está cerrado en repo; **Etapa 1 del plan de despliegue híbrido** (Vercel + GitHub Actions + verificación en URL) documentada arriba y en [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md). **Pendiente** el ítem **demo interna** con Equipo UX (grabación y notas en `docs/` o [docs/development/DEVLOG.md](docs/development/DEVLOG.md)). Completado en repo: design system en la UI; **home** como portal a **`/auditar`**; en **`/auditar`**: ingreso URL, **tres atajos** y propagación de **fixtures** (`data/audit-fixtures/`, API `GET /api/audit-fixtures/…`, importación JSON en resultado), inventarios en **barras colapsables** ([docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §15) y [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md); resultado mock (barra de cumplimiento, pasos a seguir, severidad/comentario en tabla); estado intermedio `/auditar/procesando`. La UI Next está en **`frontend/`**. Arquitectura Fase 2 (Nest ↔ **API Gateway** ↔ **Lambda** Python ↔ Claude, Supabase) en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) y [docs/adr/0006-lc-evaluation-python-claude-aws.md](docs/adr/0006-lc-evaluation-python-claude-aws.md).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: **demo interna** con Equipo UX (Etapa pendiente). Etapas **5b** y **5c** del inventario Calidad Web cerradas (2026-05-29): **`type_url`**, 22 URLs, filtro Trámites/Sitio Web, copy UI alineado al design system §15.
+
+**En repo hoy:** inventario **22 filas** en [`data/ux/clarity-fichas-mock.json`](data/ux/clarity-fichas-mock.json) (ranks 1–20 `tramites`, 21–22 `sitioweb`); filtros tipo/estado/orden en UI; fichas `/auditar/inventario/clarity/[rank]`.

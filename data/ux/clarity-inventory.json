@@ -2,26 +2,32 @@
   "schema_version": 1,
   "lista": "clarity_ampliado",
   "fuente_documental": "docs/ux/inventario-urls-clarity.md §2",
-  "nota": "Espejo máquina-legible del inventario Clarity (~20 filas). Mantener alineado con `frontend/src/lib/clarity-inventory-rows.ts` hasta existir generación o CI.",
+  "nota": "Espejo resumido del inventario Calidad Web (22 filas en mock actual). Mantener alineado con data/ux/clarity-fichas-mock.json y con CLARITY_INVENTORY_ROWS (frontend/src/lib/clarity-inventory-rows.ts). Sin type_url en espejo: la tabla UI lo toma del maestro.",
   "filas": [
     {
       "rank": 1,
-      "rutaEtiqueta": "Home `tramites.inapi.cl/`",
+      "rutaEtiqueta": "INAPI - Sitio de Trámites",
       "visitasRef": "432.572",
+      "auditoriasRef": "5",
+      "ultimaRevisionRef": "2026-05-28",
       "porcentajeLcRef": "60,0 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 2,
-      "rutaEtiqueta": "`Account/Login`",
+      "rutaEtiqueta": "Account / Login (Inicio de sesión)",
       "visitasRef": "209.811",
+      "auditoriasRef": "4",
+      "ultimaRevisionRef": "2026-05-27",
       "porcentajeLcRef": "65,2 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 3,
-      "rutaEtiqueta": "`Trademark/TrademarkFile` (Expediente)",
+      "rutaEtiqueta": "Trademark / TrademarkFile",
       "visitasRef": "198.337",
+      "auditoriasRef": "3",
+      "ultimaRevisionRef": "2026-05-26",
       "porcentajeLcRef": "61,5 %",
       "estadoRef": "Rechazado"
     },
@@ -29,62 +35,80 @@
       "rank": 4,
       "rutaEtiqueta": "Notificaciones Marcas",
       "visitasRef": "79.775",
+      "auditoriasRef": "2",
+      "ultimaRevisionRef": "2026-05-25",
       "porcentajeLcRef": "55,2 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 5,
-      "rutaEtiqueta": "`TrademarkSavedApplications`",
+      "rutaEtiqueta": "Trademark Saved Applications",
       "visitasRef": "65.628",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-24",
       "porcentajeLcRef": "64,3 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 6,
-      "rutaEtiqueta": "`TrademarkApplication/IndexTrademark`",
+      "rutaEtiqueta": "Trademark Application / Index Trademark",
       "visitasRef": "41.429",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-23",
       "porcentajeLcRef": "57,1 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 7,
-      "rutaEtiqueta": "`Login/claveunica` (Registro CU)",
+      "rutaEtiqueta": "Login / Clave Única (Modal)",
       "visitasRef": "38.519",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-22",
       "porcentajeLcRef": "62,1 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 8,
-      "rutaEtiqueta": "`LoadTrademarkApplication` (paso 1)",
+      "rutaEtiqueta": "Load Trademark Application",
       "visitasRef": "37.468",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-21",
       "porcentajeLcRef": "61,3 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 9,
-      "rutaEtiqueta": "`EstadosDiariosMarcas`",
+      "rutaEtiqueta": "Estados Diarios Marcas",
       "visitasRef": "31.929",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-20",
       "porcentajeLcRef": "70,4 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 10,
-      "rutaEtiqueta": "`TrademarkNizaClassifier`",
+      "rutaEtiqueta": "Trademark Niza Classifier",
       "visitasRef": "30.947",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-19",
       "porcentajeLcRef": "67,7 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 11,
-      "rutaEtiqueta": "`TrademarkUserDocument/SuccessConfirmation`",
+      "rutaEtiqueta": "Trademark User Document / Success Confirmation",
       "visitasRef": "23.779",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-18",
       "porcentajeLcRef": "72,0 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 12,
-      "rutaEtiqueta": "`TrademarkUserDocument` (Escritos)",
+      "rutaEtiqueta": "Trademark User Document (Escritos)",
       "visitasRef": "23.141",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-17",
       "porcentajeLcRef": "63,0 %",
       "estadoRef": "Rechazado"
     },
@@ -92,56 +116,90 @@
       "rank": 13,
       "rutaEtiqueta": "Confirmación Solicitud Marca",
       "visitasRef": "21.825",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-16",
       "porcentajeLcRef": "57,7 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 14,
-      "rutaEtiqueta": "`LoadTrademarkApplication` (revisión)",
+      "rutaEtiqueta": "Load Trademark Application (revisión)",
       "visitasRef": "18.654",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-15",
       "porcentajeLcRef": "59,4 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 15,
-      "rutaEtiqueta": "`Account/Register`",
+      "rutaEtiqueta": "Account / Register",
       "visitasRef": "17.603",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-14",
       "porcentajeLcRef": "55,9 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 16,
-      "rutaEtiqueta": "`TrademarkSecondPayment/SuccessConfirmation`",
+      "rutaEtiqueta": "Trademark Second Payment / Success Confirmation",
       "visitasRef": "14.609",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-13",
       "porcentajeLcRef": "68,0 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 17,
-      "rutaEtiqueta": "`TrademarkAnnotation`",
+      "rutaEtiqueta": "Trademark Annotation",
       "visitasRef": "13.600",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-12",
       "porcentajeLcRef": "59,3 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 18,
-      "rutaEtiqueta": "`EstadosDiariosPatentes`",
+      "rutaEtiqueta": "Estados Diarios Patentes",
       "visitasRef": "12.628",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-11",
       "porcentajeLcRef": "70,4 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 19,
-      "rutaEtiqueta": "`TrademarkRenewalApplication`",
+      "rutaEtiqueta": "Trademark Renewal Application",
       "visitasRef": "12.528",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-10",
       "porcentajeLcRef": "70,8 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 20,
-      "rutaEtiqueta": "`NotificacionesPatentes`",
+      "rutaEtiqueta": "Notificaciones Patentes",
       "visitasRef": "12.271",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-09",
       "porcentajeLcRef": "56,7 %",
+      "estadoRef": "Rechazado"
+    },
+    {
+      "rank": 21,
+      "rutaEtiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+      "visitasRef": "—",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "porcentajeLcRef": "92,0 %",
+      "estadoRef": "Aprobado"
+    },
+    {
+      "rank": 22,
+      "rutaEtiqueta": "Trámites Digitales",
+      "visitasRef": "16.059",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "porcentajeLcRef": "68,0 %",
       "estadoRef": "Rechazado"
     }
   ]
