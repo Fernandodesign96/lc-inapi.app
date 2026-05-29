@@ -42,7 +42,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | --- | --- |
 | [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
 | [data/audit-fixtures/](data/audit-fixtures/) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; convención y scripts en [data/audit-fixtures/README.md](data/audit-fixtures/README.md) |
-| [data/ux/clarity-fichas-mock.json](data/ux/clarity-fichas-mock.json) | **20 fichas** mock Clarity (URL, métricas, encargado, auditorías, historial); fuente única de la tabla de inventario en `/auditar` — ver [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md) |
+| [data/ux/clarity-fichas-mock.json](data/ux/clarity-fichas-mock.json) | **22 fichas** mock Calidad Web (objetivo): ranks 1–20 `tramites.inapi.cl`, 21–22 `sitioweb`; campo **`type_url`**; fuente de la tabla en `/auditar` — ver [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación (equivalente actual a `packages/contracts` del monorepo objetivo; ver [propuesta técnica integral](docs/PROPUESTA_TECNICA_INTEGRAL.md)) |
 
 Validación local: **un solo** `bun install` en la raíz (workspace Bun). Contratos y scripts en la raíz; Next en `frontend/`.
@@ -83,6 +83,6 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: **Etapa 1 del plan de despliegue híbrido** cerrada (Vercel + GitHub Actions). **Pendiente:** demo interna con Equipo UX; **implementación en código** del acuerdo de **inventarios consistentes** (documentado 2026-05-28 en [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md), [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) §13.1 y [docs/development/DEVLOG.md](docs/development/DEVLOG.md)).
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: feedback UX **Etapa 5b** — campo **`type_url`**, corrección rank 1 (`tramites.inapi.cl`), ranks **21–22** Sitio Web, filtro Trámites/Sitio Web en tabla. Documentación al día (2026-05-28); **código/JSON pendiente**. Luego **Etapa 5c** (copy UI) y **demo interna** con Equipo UX.
 
-**En repo hoy:** design system en UI; **home** → **`/auditar`**; ingreso URL, **tres atajos**, fixtures e importación JSON; **resultado** con tabla de 39 criterios (Sección, Criterio, severidad, comentario); **20 fichas** Clarity y ruta **`/auditar/inventario/clarity/[rank]`**; inventarios en acordeones (estructura objetivo: **2 tablas** — Clarity unificada + **Estados URLs**). Arquitectura Fase 2 en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y ADR 0006.
+**En repo hoy:** inventario **20 filas** en JSON (rank 1 aún apunta a `www.inapi.cl` — desalineado con doc); filtros LC/orden en UI; fichas `/auditar/inventario/clarity/[rank]`.

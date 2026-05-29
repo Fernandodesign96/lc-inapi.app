@@ -305,7 +305,7 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 
 ### 13.1 Iconografía LC en tablas de inventario y ficha (mock Fase 1)
 
-**Alcance:** tabla **Historial de Auditoría LC - URLs INAPI** (20 URLs Clarity en `/auditar`) y celdas de estado en **historial de ficha** (`/auditar/inventario/clarity/[rank]`). Debe ser **coherente** con el **estado de aceptación** del informe en `/auditar/resultado` y con `acceptanceStatusFromPercentage` ([`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)).
+**Alcance:** tarjeta y tabla **Historial de Auditorías URLs - INAPI** (20 URLs Calidad Web Sitio + Trámites en `/auditar`) y celdas de estado en **historial de ficha** (`/auditar/inventario/clarity/[rank]`). Debe ser **coherente** con el **estado de aceptación** del informe en `/auditar/resultado` y con `acceptanceStatusFromPercentage` ([`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)).
 
 | Estado de aceptación LC | Símbolo | Color del símbolo | Banda / fondo de fila (tabla Clarity) |
 | --- | --- | --- | --- |
@@ -314,7 +314,7 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 | Aprobado (≥ 91 %) | `✓✓` | Verde (`emerald`) | Verde |
 | No aplica (sin % ref.) | `—` | Gris (`muted`) | Gris |
 
-**Leyenda:** mostrar los cuatro ítems anteriores encima de la tabla de historial LC en `/auditar` (y en el historial de auditorías de la ficha cuando aplique).
+**Leyenda:** mostrar los cuatro ítems anteriores encima de la tabla de historial en `/auditar` (y en el historial de auditorías de la ficha cuando aplique).
 
 **Nota:** la iconografía de **criterios individuales** en `/auditar/resultado` (`cumple` / `incumple` / `no_aplica` con severidad) sigue en [`frontend/src/lib/criterio-evaluacion-visual.ts`](../../frontend/src/lib/criterio-evaluacion-visual.ts); §13.1 aplica al **estado LC agregado por URL**, no a cada fila A1–H1.
 
@@ -335,11 +335,12 @@ Referencia de producto: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-url
 
 **Uso:** agrupar en una sola pantalla (`/auditar`) **fuentes de información seccionada** sin competir con el **ingreso principal de URL** ni con los **tres atajos** editoriales.
 
-**Contenido objetivo (2026-05-28, actualizado):**
+**Contenido objetivo (2026-05-28):**
 
-1. **Historial de Auditoría LC - URLs INAPI** — único acordeón de inventario: tabla de **~20 URLs** Clarity (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado); enlaces a ficha por `rank`; **filtros y orden** planificados (estado, visitas, auditorías, última revisión, % LC).
+1. **Tarjeta:** **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** — contexto del bloque (Trámites ranks 1–20 + Sitio Web ranks 21–22).
+2. **Acordeón:** **Historial de Auditorías URLs - INAPI** — tabla de **~22 URLs** (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado, **Tipo**); enlaces a ficha por `rank`; **filtros:** tipo URL (`tramites` / `sitioweb` — planificado), estado LC, orden por visitas/auditorías/fecha/% LC (estado y orden implementados).
 
-Suprimidos en UI: **«URLs más auditadas»** (columnas fusionadas en el bloque 1) y **«URLs con estados LC resueltos»** / **Estados URLs** (observaciones en ficha). Detalle en [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
+Suprimidos en UI: **«URLs más auditadas»** (columnas fusionadas en el bloque 2), **«URLs con estados LC resueltos»** / **Estados URLs** (observaciones en ficha) y **«Calidad web (Sitio Web)»** como acordeón aparte (Etapa 4 cancelada). Detalle en [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
 | Criterio | Guía |
 | --- | --- |
