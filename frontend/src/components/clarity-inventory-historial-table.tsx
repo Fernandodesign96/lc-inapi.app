@@ -73,7 +73,7 @@ export function ClarityInventoryHistorialTable() {
       <div
         className="mb-3 grid gap-3 border-b border-border pb-3 sm:grid-cols-2 lg:grid-cols-5"
         role="group"
-        aria-label="Filtros y orden del historial LC URLs INAPI"
+        aria-label="Filtros y orden del historial de auditorías URLs INAPI"
       >
         <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
           Estado LC
@@ -117,10 +117,10 @@ export function ClarityInventoryHistorialTable() {
             }
           >
             <option value="rank">Volumen Clarity (#)</option>
-            <option value="visitas">Visitas (ref.)</option>
-            <option value="auditorias">Auditorías (ref.)</option>
-            <option value="ultimaRevision">Última revisión (ref.)</option>
-            <option value="porcentaje">% LC (ref.)</option>
+            <option value="visitas">Visitas</option>
+            <option value="auditorias">Auditorías</option>
+            <option value="ultimaRevision">Última revisión</option>
+            <option value="porcentaje">% LC</option>
           </select>
         </label>
         <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
@@ -151,8 +151,9 @@ export function ClarityInventoryHistorialTable() {
       </div>
       <Table>
         <TableCaption className="sr-only">
-          Historial de auditoría LC — URLs INAPI: visitas, encargado, auditorías,
-          última revisión, porcentaje LC y estado de referencia.
+          Historial de auditorías URLs INAPI — Calidad Web Sitio Web y Trámites:
+          posición, ruta, tipo de URL, encargado, visitas, auditorías, última
+          revisión, porcentaje LC y estado de referencia.
         </TableCaption>
         <TableHeader>
           <TableRow>
@@ -161,18 +162,18 @@ export function ClarityInventoryHistorialTable() {
             <TableHead>Tipo</TableHead>
             <TableHead className="whitespace-nowrap">Encargado</TableHead>
             <TableHead className="whitespace-nowrap text-right">
-              Visitas (ref.)
+              Visitas
             </TableHead>
             <TableHead className="whitespace-nowrap text-right">
-              Auditorías (ref.)
+              Auditorías
             </TableHead>
             <TableHead className="whitespace-nowrap">
-              Última revisión (ref.)
+              Última revisión
             </TableHead>
             <TableHead className="whitespace-nowrap text-right">
-              % LC (ref.)
+              % LC
             </TableHead>
-            <TableHead className="whitespace-nowrap">Estado (ref.)</TableHead>
+            <TableHead className="whitespace-nowrap">Estado</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -211,7 +212,7 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
         <Link
           href={clarityFichaHref(row.rank)}
           className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={`Ver ficha del historial LC, posición ${row.rank}`}
+          aria-label={`Ver ficha de la URL, posición ${row.rank}`}
         >
           {row.rank}
         </Link>
@@ -220,12 +221,13 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
         <Link
           href={clarityFichaHref(row.rank)}
           className="text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label={`Ver ficha: ${row.rutaEtiqueta}, posición ${row.rank}`}
         >
           {row.rutaEtiqueta}
         </Link>
       </TableCell>
       <TableCell className="whitespace-nowrap text-sm">
-        {row.type_url === "tramites" ? "Trámites" : "Sitio Web"}.
+        {row.type_url === "tramites" ? "Trámites" : "Sitio Web"}
       </TableCell>
       <TableCell className="whitespace-nowrap text-sm">{row.encargadoRef}</TableCell>
       <TableCell className="text-right tabular-nums">{row.visitasRef}</TableCell>

@@ -8,7 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-05-29 | [Documentación: `type_url`, corrección rank 1 Trámites y 22 URLs Sitio Web](#devlog-2026-05-29-type-url-inventario) |
+| 2026-05-29 | [Frontend: Cierre Etapas 5b y 5c — inventario Calidad Web con `type_url` y filtro Tipo](#devlog-2026-05-29-cierre-5b-5c-inventario) |
 | 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
 | 2026-05-28 | [Documentación: Consistencia de inventarios, tablas y pantallas mock en `/auditar`](#devlog-2026-05-28-consistencia-inventarios-docs) |
 | 2026-05-27 | [Frontend: Feedback UX — catálogo en tabla de criterios y mock de 20 fichas Clarity](#devlog-2026-05-27-feedback-ux-criterios-fichas) |
@@ -30,28 +30,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
-<a id="devlog-2026-05-29-type-url-inventario"></a>
+<a id="devlog-2026-05-29-cierre-5b-5c-inventario"></a>
 
-## [2026-05-29] - Documentación | `type_url`, corrección rank 1 Trámites y ampliación a 22 URLs Sitio Web
+## [2026-05-29] - Frontend | Cierre Etapas 5b y 5c: inventario Calidad Web con `type_url`
 
 ### Contexto y objetivos:
 
-Revisión del informe Clarity (docx en Drive) y capturas del panel **Mapas térmicos** (proyecto Sitio Web INAPI, 365 días). Se confirmó que el **rank 1** del inventario **no** es la home `www.inapi.cl`, sino la **landing del portal de trámites** `https://tramites.inapi.cl/` (pantalla previa al modal de login; título «Trámites y Servicios • INAPI»). Es fácil confundirla con `Account/Login` (rank 2) porque ambas comparten la misma cabecera.
+Cierre del bloque de feedback UX sobre el **inventario único** Calidad Web en `/auditar` (Trámites + Sitio Web). Tras revisar el extracto Clarity (365 días, mayo 2026) y capturas del panel Mapas térmicos, se confirmó que el **rank 1** es la **landing** `https://tramites.inapi.cl/` (no la home `www.inapi.cl`) y que la distinción Sitio Web vs Trámites debe vivir en **una sola tabla** mediante el campo **`type_url`** (`tramites` | `sitioweb`) y un **filtro Tipo** en UI — sin un segundo acordeón (Etapa 4 cancelada).
 
-Paralelamente, el extracto Clarity — configurado para **Sitio Web** — lista sobre todo URLs de **`tramites.inapi.cl`**, mientras la URL con **más visitas** es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059): página **informativa** con acordeones RNT (no el portal de aplicación). Clarity ranks 1, 2, 5, 11 y 12 son **variantes de URL** de esa misma pantalla (http/https, www, `inapi.gob.cl`). La **home** `https://www.inapi.cl/` **no aparece** en el top revisado.
-
-**Decisión:** mantener **una sola tabla**; distinguir filas con **`type_url`**: `tramites` | `sitioweb`; añadir filtro UI **URLs Trámites / URLs Sitio Web**; ampliar inventario a **22 URLs** (ranks 21–22: home + Trámites digitales).
+Objetivos de la jornada: (1) alinear JSON maestro y tipos TS a **22 URLs**; (2) implementar filtro y columna Tipo; (3) copy UI §15 sin fijar conteo de URLs en el intro; (4) mostrar tipo en ficha de detalle; (5) sincronizar documentación de producto y arquitectura.
 
 ### Implementación técnica:
 
-- **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (§2.0 tipos, tabla 22 filas, esquema `type_url`), [`docs/ROADMAP.md`](../ROADMAP.md) (Etapa **5b** pendiente), [`docs/PRD.md`](../PRD.md) (v0.3.9), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15, [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DATABASE.md`](../DATABASE.md), [`README.md`](../../README.md).
-- **Pendiente en código/JSON:** corregir rank 1 en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json); añadir ranks 21–22; propagar `type_url` a tipos TS y filtro en `clarity-inventory-historial-table.tsx`.
+- **Datos:** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — rank 1 corregido (`tramites.inapi.cl`, visitas ref. 432.572); ranks **21–22** `sitioweb` (home + Trámites digitales); `type_url` en las 22 fichas; observaciones rank **18** alineadas a patentes; notas raíz actualizadas. Espejo [`data/ux/clarity-inventory.json`](../../data/ux/clarity-inventory.json) con 22 filas.
+- **Frontend — tabla:** [`clarity-inventory-historial-table.tsx`](../../frontend/src/components/clarity-inventory-historial-table.tsx) — filtro **URLs Trámites / URLs Sitio Web / Todas**, columna **Tipo**, `aria-label` en controles, `caption` y enlaces accesibles en celdas rank/ruta.
+- **Frontend — orden/filtro:** [`clarity-inventory-sort.ts`](../../frontend/src/lib/clarity-inventory-sort.ts) — filtro `type_url` compuesto con estado LC (corrección de anidamiento).
+- **Frontend — sección `/auditar`:** [`auditar-inventory-sections.tsx`](../../frontend/src/components/auditar-inventory-sections.tsx) — títulos design system §15; párrafo introductorio sin «22 URLs» (inventario puede crecer).
+- **Frontend — ficha:** [`/auditar/inventario/clarity/[rank]/page.tsx`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) — campo **Tipo de URL** en resumen.
+- **Tipos:** [`clarity-url-ficha.ts`](../../frontend/src/lib/clarity-url-ficha.ts) — tipo `ClarityUrlFicha` con `type_url` (sin duplicado).
+- **Documentación sincronizada (2026-05-29):** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (filtro implementado, tabla ranks 21–22 con métricas mock), [`docs/ROADMAP.md`](../ROADMAP.md) (5b y **5c** `[x]`; Etapa 4 aclarada), [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`README.md`](../../README.md), [`data/ux/README.md`](../../data/ux/README.md).
+
+### 💡 Repaso técnico: Coherencia maestro ↔ tabla ↔ ficha:
+
+La UI **no** lee `type_url` del espejo `clarity-inventory.json`; la columna Tipo y el filtro derivan del **maestro** vía `clarity-fichas-mock.ts` / `clarity-inventory-rows.ts`. Mantener una sola fuente evita desalineaciones cuando el inventario crezca más allá de 22 filas.
 
 ### Próximos pasos:
 
-- **Etapa 5b (Ask + implementación):** JSON + tipos + filtro `type_url` + columna Tipo.
-- **Etapa 5c:** copy UI tarjeta/acordeón.
-- **Nota:** entradas previas del 2026-05-28 que asumían rank 1 = `www.inapi.cl` quedan **supersedidas** en rank 1 y conteo de filas.
+- **Demo interna** con Equipo UX (ROADMAP — único ítem Fase 1 pendiente del bloque inventario).
+- Ampliar inventario con más URLs del extracto Clarity cuando el equipo lo priorice (sin cambiar el patrón tabla única + `type_url`).
 
 ---
 

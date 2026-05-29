@@ -18,7 +18,7 @@ export function AuditarInventorySections() {
   return (
     <Card className="border-border bg-card">
       <CardHeader>
-        <CardTitle className="text-base">Tabla de Auditorías LC - URLs INAPI</CardTitle>
+        <CardTitle className="text-base">Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion
@@ -28,15 +28,14 @@ export function AuditarInventorySections() {
         >
           <AccordionItem value="historial-lc-inapi">
             <AccordionTrigger className="text-start text-sm sm:text-base">
-              Historial de Auditoría LC - URLs INAPI
+              Historial de Auditorías URLs - INAPI
             </AccordionTrigger>
             <AccordionContent className="px-0 sm:px-0">
               <div className="px-4 pb-1 pt-0">
                 <p className="mb-3 text-muted-foreground text-xs leading-relaxed">
-                  Registro mock de las 20 URLs INAPI priorizadas por volumen Clarity
-                  (referencia editorial). Filtre por estado LC u ordene por visitas,
-                  auditorías, última revisión o % LC. Use el número o la ruta para abrir
-                  la ficha de cada URL.
+                  Historial URLs INAPI: Calidad Web del Sitio Web + Trámites (Clarity).
+                  Puede usar los filtros para encontrar URLs por tipo de URL y estado LC,
+                  orden por visitas/auditorías/fecha/%
                 </p>
                 <ClarityInventoryHistorialTable />
               </div>

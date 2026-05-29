@@ -134,6 +134,12 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                   </dd>
                 </div>
                 <div>
+                  <dt className="text-muted-foreground">Tipo de URL</dt>
+                  <dd className="mt-0.5">
+                    {ficha.type_url === "tramites" ? "Trámites" : "Sitio Web"}
+                  </dd>
+                </div>
+                <div>
                   <dt className="text-muted-foreground">Ruta o etiqueta (Clarity)</dt>
                   <dd className="mt-0.5">{ficha.rutaEtiqueta}</dd>
                 </div>

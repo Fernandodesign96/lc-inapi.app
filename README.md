@@ -83,6 +83,6 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: feedback UX **Etapa 5b** — campo **`type_url`**, corrección rank 1 (`tramites.inapi.cl`), ranks **21–22** Sitio Web, filtro Trámites/Sitio Web en tabla. Documentación al día (2026-05-28); **código/JSON pendiente**. Luego **Etapa 5c** (copy UI) y **demo interna** con Equipo UX.
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: **demo interna** con Equipo UX (Etapa pendiente). Etapas **5b** y **5c** del inventario Calidad Web cerradas (2026-05-29): **`type_url`**, 22 URLs, filtro Trámites/Sitio Web, copy UI alineado al design system §15.
 
-**En repo hoy:** inventario **20 filas** en JSON (rank 1 aún apunta a `www.inapi.cl` — desalineado con doc); filtros LC/orden en UI; fichas `/auditar/inventario/clarity/[rank]`.
+**En repo hoy:** inventario **22 filas** en [`data/ux/clarity-fichas-mock.json`](data/ux/clarity-fichas-mock.json) (ranks 1–20 `tramites`, 21–22 `sitioweb`); filtros tipo/estado/orden en UI; fichas `/auditar/inventario/clarity/[rank]`.

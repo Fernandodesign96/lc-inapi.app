@@ -70,7 +70,7 @@ Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYST
 
 | Dimensión | Comportamiento |
 | --- | --- |
-| **Tipo de URL** | **URLs Trámites** (`tramites`) / **URLs Sitio Web** (`sitioweb`) / **Todas** — *planificado; pendiente de implementación en UI y JSON* |
+| **Tipo de URL** | **URLs Trámites** (`tramites`) / **URLs Sitio Web** (`sitioweb`) / **Todas** — implementado en UI (`clarity-inventory-historial-table.tsx`) y en JSON maestro |
 | **Estado LC** | Filtrar por bucket: Rechazado / Aceptado con observaciones / Aprobado / No aplica / Todos |
 | **Visitas (ref.)** | Orden ascendente o descendente |
 | **Auditorías (ref.)** | Orden ascendente o descendente |
@@ -120,7 +120,7 @@ Orden por volumen relativo en el extracto entregado al repositorio (sin pretende
 
 | # | Ruta o etiqueta | URL canónica | `type_url` | Visitas (ref.) | Auditorías | % LC (ref.) | Estado (ref.) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Landing Sitio de Trámites | `https://tramites.inapi.cl/` | `tramites` | 113* | 5 | 60,0 % | Rechazado |
+| 1 | Landing Sitio de Trámites | `https://tramites.inapi.cl/` | `tramites` | 432.572* | 5 | 60,0 % | Rechazado |
 | 2 | `Account/Login` | `https://tramites.inapi.cl/Account/Login` | `tramites` | 42* | 4 | 65,2 % | Rechazado |
 | 3 | `Trademark/TrademarkFile` | `https://tramites.inapi.cl/Trademark/TrademarkFile` | `tramites` | 67* | 3 | 61,5 % | Rechazado |
 | 4 | Notificaciones Marcas | `https://tramites.inapi.cl/Notificaciones` | `tramites` | 9* | 2 | 55,2 % | Rechazado |
@@ -137,17 +137,17 @@ Orden por volumen relativo en el extracto entregado al repositorio (sin pretende
 | 15 | `Account/Register` | `…/Account/Register` | `tramites` | *(editorial)* | 1 | 55,9 % | Rechazado |
 | 16 | SecondPayment Success | `…/TrademarkSecondPayment/SuccessConfirmation` | `tramites` | 6* | 1 | 68,0 % | Rechazado |
 | 17 | `TrademarkAnnotation` | `…/TrademarkAnnotation/GetTrademarkAnnotation` | `tramites` | 9* | 1 | 59,3 % | Rechazado |
-| 18 | `EstadosDiariosPatentes` | `…/EstadosDiariosPatentes` | `tramites` | 31* | 1 | 70,4 % | Rechazado |
+| 18 | `EstadosDiariosPatentes` | `…/EstadosDiariosPatentes` | `tramites` | 12.628* | 1 | 70,4 % | Rechazado |
 | 19 | `TrademarkRenewalApplication` | `…/TrademarkRenewalApplication` | `tramites` | *(editorial)* | 1 | 70,8 % | Rechazado |
 | 20 | `NotificacionesPatentes` | `…/NotificacionesPatentes` | `tramites` | *(editorial)* | 1 | 56,7 % | Rechazado |
-| **21** | **Home INAPI** | `https://www.inapi.cl/` | **`sitioweb`** | *(por definir)* | 1 | *(por definir)* | *(por definir)* |
-| **22** | **Trámites • Trámites digitales** | `https://www.inapi.cl/tramites/tramites-digitales` | **`sitioweb`** | **16.059*** | 1 | *(por definir)* | *(por definir)* |
+| **21** | **Home INAPI** | `https://www.inapi.cl/` | **`sitioweb`** | — | 1 | 92,0 % | Aprobado |
+| **22** | **Trámites • Trámites digitales** | `https://www.inapi.cl/tramites/tramites-digitales` | **`sitioweb`** | **16.059*** | 1 | 68,0 % | Rechazado |
 
-\* Visitas con asterisco: orden de magnitud del **extracto Clarity Sitio Web** (365 días, mayo 2026); filas «*(editorial)*» conservan métricas mock previas hasta volcado en JSON. Ranks 21–22: % LC y estado pendientes de criterio editorial en implementación.
+\* Visitas con asterisco: orden de magnitud del **extracto Clarity** (365 días, mayo 2026); filas «*(editorial)*» conservan métricas mock previas hasta volcado completo en JSON. Rank 21: visitas «—» (no aparece en el top Clarity revisado; criterio editorial).
 
 **Encargado (mock):** columna fija **Fernando Arriagada** (`encargadoRef` en JSON).
 
-**URLs absolutas:** dominio `tramites.inapi.cl` en ranks 1–20; `www.inapi.cl` en ranks 21–22. Detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — *pendiente alinear rank 1, añadir ranks 21–22 y campo `type_url`*.
+**URLs absolutas:** dominio `tramites.inapi.cl` en ranks 1–20; `www.inapi.cl` en ranks 21–22. Detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) (campo `type_url` en las 22 fichas).
 
 ### 2.2 Ficha de detalle por URL
 
@@ -219,4 +219,4 @@ flowchart TB
 
 ---
 
-*Última revisión documental: 2026-05-28 — corrección rank 1 (`tramites.inapi.cl`); campo `type_url`; ranks 21–22 Sitio Web; filtro Trámites/Sitio Web planificado; ver [`docs/development/DEVLOG.md`](../development/DEVLOG.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*
+*Última revisión documental: 2026-05-29 — inventario 22 URLs con `type_url`; filtro Trámites/Sitio Web y columna Tipo en UI; rank 1 = landing `tramites.inapi.cl`; ver [`docs/development/DEVLOG.md`](../development/DEVLOG.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*

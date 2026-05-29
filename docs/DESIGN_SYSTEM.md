@@ -305,7 +305,7 @@ Componentes shadcn previstos: `Button`, `Input`, `Form`, `Card`, `Table`, `Tabs`
 
 ### 13.1 Iconografía LC en tablas de inventario y ficha (mock Fase 1)
 
-**Alcance:** tarjeta y tabla **Historial de Auditorías URLs - INAPI** (20 URLs Calidad Web Sitio + Trámites en `/auditar`) y celdas de estado en **historial de ficha** (`/auditar/inventario/clarity/[rank]`). Debe ser **coherente** con el **estado de aceptación** del informe en `/auditar/resultado` y con `acceptanceStatusFromPercentage` ([`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)).
+**Alcance:** tarjeta y tabla **Historial de Auditorías URLs - INAPI** (22 URLs Calidad Web Sitio + Trámites en `/auditar`; columna **Tipo** y filtro `type_url`) y celdas de estado en **historial de ficha** (`/auditar/inventario/clarity/[rank]`). Debe ser **coherente** con el **estado de aceptación** del informe en `/auditar/resultado` y con `acceptanceStatusFromPercentage` ([`src/schemas/checklist.ts`](../../src/schemas/checklist.ts)).
 
 | Estado de aceptación LC | Símbolo | Color del símbolo | Banda / fondo de fila (tabla Clarity) |
 | --- | --- | --- | --- |
@@ -338,7 +338,7 @@ Referencia de producto: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-url
 **Contenido objetivo (2026-05-28):**
 
 1. **Tarjeta:** **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** — contexto del bloque (Trámites ranks 1–20 + Sitio Web ranks 21–22).
-2. **Acordeón:** **Historial de Auditorías URLs - INAPI** — tabla de **~22 URLs** (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado, **Tipo**); enlaces a ficha por `rank`; **filtros:** tipo URL (`tramites` / `sitioweb` — planificado), estado LC, orden por visitas/auditorías/fecha/% LC (estado y orden implementados).
+2. **Acordeón:** **Historial de Auditorías URLs - INAPI** — tabla de URLs Calidad Web (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado, **Tipo**); enlaces a ficha por `rank`; **filtros:** tipo URL (`tramites` / `sitioweb`), estado LC, orden por visitas/auditorías/fecha/% LC (implementados).
 
 Suprimidos en UI: **«URLs más auditadas»** (columnas fusionadas en el bloque 2), **«URLs con estados LC resueltos»** / **Estados URLs** (observaciones en ficha) y **«Calidad web (Sitio Web)»** como acordeón aparte (Etapa 4 cancelada). Detalle en [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 

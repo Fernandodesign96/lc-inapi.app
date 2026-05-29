@@ -2,7 +2,7 @@
   "schema_version": 1,
   "lista": "clarity_ampliado",
   "fuente_documental": "docs/ux/inventario-urls-clarity.md §2",
-  "nota": "Espejo máquina-legible del inventario Clarity (~20 filas). Mantener alineado con `frontend/src/lib/clarity-inventory-rows.ts` hasta existir generación o CI.",
+  "nota": "Espejo resumido del inventario Calidad Web (22 filas en mock actual). Mantener alineado con data/ux/clarity-fichas-mock.json y con CLARITY_INVENTORY_ROWS (frontend/src/lib/clarity-inventory-rows.ts). Sin type_url en espejo: la tabla UI lo toma del maestro.",
   "filas": [
     {
       "rank": 1,
@@ -180,7 +180,7 @@
       "rutaEtiqueta": "Notificaciones Patentes",
       "visitasRef": "12.271",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-9",
+      "ultimaRevisionRef": "2026-05-09",
       "porcentajeLcRef": "56,7 %",
       "estadoRef": "Rechazado"
     },

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "lista": "clarity_fichas_mock",
   "fuente_documental": "docs/ux/inventario-urls-clarity.md §2 + URLs mock inferidas",
-  "nota": "Mock Fase 1. Métricas alineadas a frontend/src/lib/clarity-inventory-rows.ts (fuente tabla /auditar). URLs absolutas con prefijo tramites.inapi.cl salvo prioridades canónicas documentadas.",
+  "nota": "Mock Fase 1. Inventario Calidad Web (Trámites + Sitio Web): fichas con type_url (tramites | sitioweb). Ranks 1–20: tramites.inapi.cl; ranks 21–22: www.inapi.cl. La tabla en /auditar deriva de este maestro vía frontend/src/lib/clarity-fichas-mock.ts y clarity-inventory-rows.ts.",
   "fichas": [
     {
       "rank": 1,
@@ -259,7 +259,7 @@
       "porcentajeLcRef": "70,4 %",
       "estadoLcRef": "Rechazado",
       "observaciones": "Lenguaje normativo; enlaces a instructivos deben ser explícitos.",
-      "observacionesDetalle": "Tablas y encabezados alineados al checklist en la ronda de cierre mock (ref. 2026-03-22).",
+      "observacionesDetalle": "Revisar términos técnicos de patentes en cabeceras y celdas de la consulta; homologar criterios LC con Estados Diarios Marcas (rank 9) en la ronda mock (ref. 2026-05-11)",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-20",
@@ -468,7 +468,7 @@
       "porcentajeLcRef": "70,4 %",
       "estadoLcRef": "Rechazado",
       "descripcion": "Consulta de estados diarios en el ámbito de patentes.",
-      "observaciones": "Alta de cuenta: simplificar etiquetas de campos obligatorios y ayudas contextuales en el registro.",
+      "observaciones": "Lenguaje normativo en tablas de estados diarios; encabezados de columnas y leyendas de fechas deben ser explícitos.",
       "encargadoRef": "Fernando Arriagada",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-11",
@@ -477,7 +477,7 @@
           "fecha": "2026-05-11",
           "estadoLcRef": "Rechazado",
           "porcentajeLcRef": "70,4 %",
-          "nota": "Informe LC mock de referencia."
+          "nota": "Mock editorial; tablas y encabezados de estados diarios patentes alineados al checklist."
         }
       ]
     },
