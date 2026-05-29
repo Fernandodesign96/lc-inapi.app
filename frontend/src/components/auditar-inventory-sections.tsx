@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/table"
 import { CLARITY_INVENTORY_ROWS } from "@/lib/clarity-inventory-rows"
 import { parsePorcentajeLcRef } from "@/lib/inventory-table-visuals"
-import { RESOLVED_LC_STATE_ROWS } from "@/lib/resolved-lc-state-rows"
 import {
   CeldaEstadoLcAceptacion,
   InventarioLeyendaLcAceptacion,
@@ -146,77 +145,7 @@ export function AuditarInventorySections() {
                 </Table>
               </div>
             </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="estados-resueltos">
-            <AccordionTrigger className="text-start text-sm sm:text-base">
-              URLs con estados LC resueltos (cierre editorial — mock)
-            </AccordionTrigger>
-            <AccordionContent className="px-0 sm:px-0">
-              <div className="px-4 pb-1 pt-0">
-                <p className="mb-3 text-muted-foreground text-xs leading-relaxed">
-                  Casos de ejemplo con cierre de ciclo LC en la narrativa del mock.
-                  Sustituir por datos validados o fixtures cuando existan en
-                  repositorio.
-                </p>
-                <InventarioLeyendaLcAceptacion />
-                <Table>
-                  <TableCaption className="sr-only">
-                    URLs con estado final de lenguaje claro y fecha de cierre de
-                    referencia.
-                  </TableCaption>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-10 whitespace-nowrap">#</TableHead>
-                      <TableHead>Página (ref.)</TableHead>
-                      <TableHead className="whitespace-nowrap">
-                        Estado LC final (ref.)
-                      </TableHead>
-                      <TableHead className="whitespace-nowrap">
-                        Fecha cierre (ref.)
-                      </TableHead>
-                      <TableHead>Observación</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {RESOLVED_LC_STATE_ROWS.map((row) => {
-                      const bucket = resolveLcAceptacionBucket({
-                        estadoLcRef: row.estadoLcFinalRef,
-                      })
-                      return (
-                        <TableRow
-                          key={row.rank}
-                          className={inventoryRowClassFromLcAceptacionBucket(bucket)}
-                        >
-                          <TableCell className="font-medium tabular-nums">
-                            {row.rank}
-                          </TableCell>
-                          <TableCell className="max-w-[min(100vw,24rem)] break-all sm:wrap-break-word">
-                            {row.paginaRef}
-                          </TableCell>
-                          <TableCell>
-                            <CeldaEstadoLcAceptacion
-                              bucket={bucket}
-                              etiqueta={row.estadoLcFinalRef}
-                            />
-                          </TableCell>
-                          <TableCell className="whitespace-nowrap font-medium tabular-nums text-foreground">
-                            {row.fechaCierreRef}
-                          </TableCell>
-                          <TableCell
-                            className="max-w-[min(100vw,20rem)] wrap-break-word text-muted-foreground"
-                            title={row.observacion}
-                          >
-                            <span className="line-clamp-2">{row.observacion}</span>
-                          </TableCell>
-                        </TableRow>
-                      )
-                    })}
-                  </TableBody>
-                </Table>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
+          </AccordionItem>          
         </Accordion>
       </CardContent>
     </Card>
