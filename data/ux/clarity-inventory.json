@@ -183,6 +183,24 @@
       "ultimaRevisionRef": "2026-05-9",
       "porcentajeLcRef": "56,7 %",
       "estadoRef": "Rechazado"
+    },
+    {
+      "rank": 21,
+      "rutaEtiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+      "visitasRef": "—",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "porcentajeLcRef": "92,0 %",
+      "estadoRef": "Aprobado"
+    },
+    {
+      "rank": 22,
+      "rutaEtiqueta": "Trámites Digitales",
+      "visitasRef": "16.059",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "porcentajeLcRef": "68,0 %",
+      "estadoRef": "Rechazado"
     }
   ]
 }

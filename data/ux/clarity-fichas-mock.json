@@ -527,6 +527,53 @@
           "nota": "Informe ficticio; homologación de términos con glosario INAPI."
         }
       ]
+    },
+    {
+      "rank": 21,
+      "nombre": "Home INAPI",
+      "rutaEtiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+      "url": "https://www.inapi.cl/",
+      "type_url": "sitioweb",
+      "visitasRef": "—",
+      "porcentajeLcRef": "92,0 %",
+      "estadoLcRef": "Aprobado",
+      "descripcion": "Portada institucional del sitio web INAPI: acceso a marcas, patentes, trámites y contenidos editoriales.",
+      "observaciones": "No aparece en el top Clarity Sitio Web revisado; incluida por criterio editorial y atajo «mejor LC» en §1.",
+      "encargadoRef": "Fernando Arriagada",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-05-28",
+          "estadoLcRef": "Aprobado",
+          "porcentajeLcRef": "92,0 %",
+          "nota": "Revisión mock inicial Sitio Web."
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "nombre": "Trámites • Trámites digitales",
+      "rutaEtiqueta": "Trámites Digitales",
+      "url": "https://www.inapi.cl/tramites/tramites-digitales",
+      "type_url": "sitioweb",
+      "visitasRef": "16.059",
+      "porcentajeLcRef": "68,0 %",
+      "estadoLcRef": "Rechazado",
+      "descripcion": "Listado informativo de trámites digitalizados (RNT nivel 4) en el sitio institucional: acordeones por trámite con enlace «Acceder» a ClaveÚnica.",
+      "observaciones": "Mayor volumen en extracto Clarity Sitio Web; no confundir con la landing del portal tramites.inapi.cl (rank 1).",
+      "observacionesDetalle": "Clarity registra variantes de URL (http/https, www, inapi.gob.cl) como filas distintas; en inventario solo la URL canónica https con www.",
+      "encargadoRef": "Fernando Arriagada",
+      "auditoriasRef": "1",
+      "ultimaRevisionRef": "2026-05-28",
+      "historialAuditorias": [
+        {
+          "fecha": "2026-05-28",
+          "estadoLcRef": "Rechazado",
+          "porcentajeLcRef": "68,0 %",
+          "nota": "Revisión mock inicial; priorizar copy de acordeones y CTAs «Acceder»."
+        }
+      ]
     }
   ]
 }
