@@ -4,6 +4,9 @@ import {
   resolveLcAceptacionBucket,
   type LcAceptacionBucket,
 } from "@/lib/lc-aceptacion-visual"
+import type { ClarityUrlType } from "@/lib/clarity-url-ficha"
+
+export type FiltroTypeUrlInventario = "todos" | ClarityUrlType
 
 export type FiltroEstadoLcInventario = "todos" | LcAceptacionBucket
 
@@ -60,6 +63,7 @@ export function filterAndSortClarityInventoryRows(
   rows: readonly ClarityInventoryRow[],
   options: {
     filtroEstado: FiltroEstadoLcInventario
+    filtroTypeUrl: FiltroTypeUrlInventario
     sortKey: ClarityInventarioSortKey
     sortDir: SortDirection
   },
@@ -74,6 +78,9 @@ export function filterAndSortClarityInventoryRows(
           estadoLcRef: row.estadoRef,
         }) === options.filtroEstado,
     )
+  }
+  if (options.filtroTypeUrl !== "todos") {
+    result = result.filter((row) => row.type_url === options.filtroTypeUrl)
   }
 
   const dir = options.sortDir === "asc" ? 1 : -1
@@ -107,8 +114,8 @@ export function clarityInventarioSortSummary(
   }
   if (sortKey === "rank") {
     return sortDir === "asc"
-      ? "Orden: volumen Clarity (# 1 → 20)"
-      : "Orden: volumen Clarity (# 20 → 1)"
+      ? "Orden: volumen Clarity (# 1 → 22)"
+      : "Orden: volumen Clarity (# 22 → 1)"
   }
   return sortDir === "desc"
     ? `Orden: ${campo} (mayor a menor)`

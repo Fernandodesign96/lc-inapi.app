@@ -23,6 +23,7 @@ import {
   type ClarityInventarioSortKey,
   type FiltroEstadoLcInventario,
   type SortDirection,
+  type FiltroTypeUrlInventario,
 } from "@/lib/clarity-inventory-sort"
 import { parsePorcentajeLcRef } from "@/lib/inventory-table-visuals"
 import {
@@ -41,6 +42,8 @@ const FILTER_SELECT_CLASS =
 export function ClarityInventoryHistorialTable() {
   const [filtroEstado, setFiltroEstado] =
     useState<FiltroEstadoLcInventario>("todos")
+  const [filtroTypeUrl, setFiltroTypeUrl] =
+    useState<FiltroTypeUrlInventario>("todos")
   const [sortKey, setSortKey] = useState<ClarityInventarioSortKey>("rank")
   const [sortDir, setSortDir] = useState<SortDirection>("asc")
 
@@ -48,16 +51,18 @@ export function ClarityInventoryHistorialTable() {
     () =>
       filterAndSortClarityInventoryRows(CLARITY_INVENTORY_ROWS, {
         filtroEstado,
+        filtroTypeUrl,
         sortKey,
         sortDir,
       }),
-    [filtroEstado, sortKey, sortDir],
+    [filtroEstado, filtroTypeUrl, sortKey, sortDir],
   )
 
   const sortSummary = clarityInventarioSortSummary(sortKey, sortDir)
 
   function resetFiltros() {
     setFiltroEstado("todos")
+    setFiltroTypeUrl("todos")
     setSortKey("rank")
     setSortDir("asc")
   }
@@ -66,7 +71,7 @@ export function ClarityInventoryHistorialTable() {
     <>
       <InventarioLeyendaLcAceptacion />
       <div
-        className="mb-3 grid gap-3 border-b border-border pb-3 sm:grid-cols-2 lg:grid-cols-4"
+        className="mb-3 grid gap-3 border-b border-border pb-3 sm:grid-cols-2 lg:grid-cols-5"
         role="group"
         aria-label="Filtros y orden del historial LC URLs INAPI"
       >
@@ -86,6 +91,20 @@ export function ClarityInventoryHistorialTable() {
             </option>
             <option value="aprobado">Aprobado</option>
             <option value="no_aplica">No aplica</option>
+          </select>
+        </label>
+        <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
+          Tipo de URL
+          <select
+            className={FILTER_SELECT_CLASS}
+            value={filtroTypeUrl}
+            onChange={(e) =>
+              setFiltroTypeUrl(e.target.value as FiltroTypeUrlInventario)
+            }
+          >
+            <option value="todos">Todas</option>
+            <option value="tramites">URLs Trámites</option>
+            <option value="sitioweb">URLs Sitio Web</option>
           </select>
         </label>
         <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
@@ -139,6 +158,7 @@ export function ClarityInventoryHistorialTable() {
           <TableRow>
             <TableHead className="w-10 whitespace-nowrap">#</TableHead>
             <TableHead>Ruta o etiqueta (Clarity)</TableHead>
+            <TableHead>Tipo</TableHead>
             <TableHead className="whitespace-nowrap">Encargado</TableHead>
             <TableHead className="whitespace-nowrap text-right">
               Visitas (ref.)
@@ -159,10 +179,10 @@ export function ClarityInventoryHistorialTable() {
           {filas.length === 0 ? (
             <TableRow>
               <TableCell
-                colSpan={8}
+                colSpan={9}
                 className="py-8 text-center text-muted-foreground text-sm"
               >
-                Ninguna URL coincide con el filtro de estado seleccionado.
+                Ninguna URL coincide con los filtros seleccionados.
               </TableCell>
             </TableRow>
           ) : (
@@ -203,6 +223,9 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
         >
           {row.rutaEtiqueta}
         </Link>
+      </TableCell>
+      <TableCell className="whitespace-nowrap text-sm">
+        {row.type_url === "tramites" ? "Trámites" : "Sitio Web"}.
       </TableCell>
       <TableCell className="whitespace-nowrap text-sm">{row.encargadoRef}</TableCell>
       <TableCell className="text-right tabular-nums">{row.visitasRef}</TableCell>
