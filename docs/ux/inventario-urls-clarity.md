@@ -2,13 +2,15 @@
 
 **Propósito:** fuente de verdad **documental** para el equipo UX/editorial: qué páginas concentran visitas según el marco **Calidad Web INAPI** (extracto **Microsoft Clarity**), cómo se relacionan con el **seguimiento de lenguaje claro** en el aplicativo mock (Fase 1) y cómo se presentan en **`/auditar`** y en las **fichas por URL**.
 
+**Fase 1.5 (piloto junio 2026):** el entregable operativo a TIC son **10 URLs** auditadas con Claude (ver [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) y [`../ROADMAP.md`](../ROADMAP.md)); este inventario de **22** filas sigue siendo la **referencia Calidad Web** completa, no la cola única del piloto.
+
 **Alcance analítico:** el inventario mock agrupa **22 URLs** en **una sola tabla** (§2.1): la mayoría son **Calidad Web — Trámites** (`tramites.inapi.cl`, aplicación de trámites) y **tres** son **Calidad Web — Sitio Web** (`www.inapi.cl`: home institucional y página informativa de trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
 
 **Paradoja Clarity (mayo 2026):** el proyecto Microsoft Clarity está asociado al **Sitio Web** INAPI, pero el extracto de páginas populares (365 días) muestra **mayormente URLs de `tramites.inapi.cl`**. La página con **más visitas** en ese extracto es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059 visitas) — contenido **informativo** con acordeones RNT, **no** el portal de login. La **home** `https://www.inapi.cl/` **no aparece** en el top Clarity revisado, aunque es la portada institucional; se incluye igual en inventario por criterio editorial. Detalle en §2.0.
 
 **Alcance LC:** Clarity/Calidad Web informa **comportamiento y volumen**; **no** sustituye una evaluación LC automática. Las columnas de **% cumplimiento LC** y **estado** reflejan **criterio editorial de referencia**, salvo donde exista fixture validado en repo.
 
-**Fuente máquina (mock Fase 1):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — **22 fichas** (objetivo tras próxima implementación; hoy **20** en repo) con URL absoluta, **`type_url`**, métricas, encargado, auditorías, última revisión e historial breve. La tabla en UI **deriva** de ese JSON (vía `frontend/src/lib/clarity-fichas-mock.ts`). Los identificadores internos (`clarity-*`, ruta `/inventario/clarity/[rank]`) son **legado de implementación**; semánticamente la lista es el historial unificado Calidad Web Sitio + Trámites.
+**Fuente máquina (mock Fase 1):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — **22 fichas** con URL absoluta, **`type_url`**, métricas, encargado, auditorías, última revisión e historial breve. La tabla en UI **deriva** de ese JSON (vía `frontend/src/lib/clarity-fichas-mock.ts`). Los identificadores internos (`clarity-*`, ruta `/inventario/clarity/[rank]`) son **legado de implementación**; semánticamente la lista es el historial unificado Calidad Web Sitio + Trámites.
 
 ---
 

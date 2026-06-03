@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-02 | [Estrategia: Fase 1.5 — piloto 10 URLs con Claude, reuniones UX y documentación operativa](#devlog-2026-06-02-fase-1-5-piloto-claude) |
 | 2026-05-29 | [Frontend: Cierre Etapas 5b y 5c — inventario Calidad Web con `type_url` y filtro Tipo](#devlog-2026-05-29-cierre-5b-5c-inventario) |
 | 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
 | 2026-05-28 | [Documentación: Consistencia de inventarios, tablas y pantallas mock en `/auditar`](#devlog-2026-05-28-consistencia-inventarios-docs) |
@@ -27,6 +28,51 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-02-fase-1-5-piloto-claude"></a>
+
+## [2026-06-02] - Estrategia | Fase 1.5: piloto 10 URLs con Claude, reuniones UX y documentación operativa
+
+### Contexto y objetivos:
+
+Tras cerrar en repo las Etapas **5b/5c** del inventario Calidad Web (22 URLs, `type_url`, filtros), el equipo UX (Bernarda, Camila) y liderazgo (Álvaro) priorizaron un **entregable concreto a TIC** antes de fin de año: auditar **10 páginas web** (no las 22 del inventario Clarity como cola única en esta oleada), con informe revisable, **PDF** descargable y **sustituciones de texto** en HTML para solicitudes accionables.
+
+Reuniones **2026-06-01** (Álvaro: enfoque «medio, no fin», trazabilidad futura, cautela con KPI «Auditorías») y **2026-06-02** (Equipo UX: alcance piloto, proveedor IA, flujo sin backend productivo). Se definió **Fase 1.5** en [`docs/ROADMAP.md`](../ROADMAP.md) como etapa de gestión UX + MVP documental, sin sustituir aún Fase 2 (Supabase/Nest/Lambda).
+
+Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; (2) comparar **Gemini** vs **Claude** en home `www.inapi.cl`; (3) dejar plan técnico para integrar export JSON Claude → `strictAuditRecordSchema` → UI → PDF en servidor.
+
+### Implementación técnica:
+
+- **Comparación IA (home):** [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
+- **Propuesta reunión:** [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
+- **Flujo operativo piloto:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) — Proyecto Claude, mensajes §3.2/3.3, tabla 10 URLs, alcances UI (`/auditar` acordeón piloto debajo de ingreso URL; `/auditar/resultado` con 8 bloques + PDF server-side).
+- **Roadmap:** nueva sección **Fase 1.5**; condición de entrada a Fase 2 actualizada; PDF adelantado en piloto (consolidación institucional en Fase 2/4).
+- **PRD / arquitectura / README / fase2 / diagramas:** alineados a Fase 1.5 y referencias cruzadas.
+- **Primera auditoría Claude (home):** JSON con 39 criterios y 17 sustituciones en mano del equipo; pendiente volcar en `data/claude-audits/` y enriquecer campos del mensaje §3.2 del flujo operativo.
+
+**Decisiones cerradas (resumen):**
+
+| ID | Acuerdo |
+| --- | --- |
+| D1 | MVP acotado: valor entregable (informe + PDF + HTML sustituciones) antes que infra completa |
+| D2 | Piloto **10 URLs** (subconjunto); inventario 22 sigue como referencia editorial |
+| D3 | **PDF** adelantado en Fase 1.5 (`@react-pdf/renderer`, Route Handler) |
+| D4 | **Claude** (Proyecto) como proveedor del piloto; Gemini queda como referencia comparativa |
+| D5–D6 | Sin producto paralelo de control de cambios; detección automática fuera de MVP |
+| — | Sin BD obligatoria ni sync automático Proyecto Claude ↔ app (export JSON manual → repo) |
+
+### 💡 Repaso técnico: Fase 1.5 vs Fase 2:
+
+Fase **1.5** reutiliza el mock y `strictAuditRecordSchema` con datos **importados** desde Claude; Fase **2** añade persistencia, auth y evaluación vía API. El inventario de 22 URLs en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) no se reemplaza: el piloto usa una **tabla maestra de 10 URLs** y JSON en `data/claude-audits/` (por implementar).
+
+### Próximos pasos:
+
+- Cerrar lista oficial de **10 URLs** con Bernarda (§2 del flujo operativo).
+- Implementar adaptador export Claude → Zod, carpeta `data/claude-audits/`, acordeón piloto en `/auditar`, pantalla resultado ampliada y API PDF.
+- Completar JSON home + auditorías restantes; entrega TIC: PDF + HTML corregido tras revisión UX.
+- Fase 2.0 (Supabase + contrato REST) cuando cierre el piloto 1.5 según [`docs/ROADMAP.md`](../ROADMAP.md).
 
 ---
 
@@ -56,7 +102,7 @@ La UI **no** lee `type_url` del espejo `clarity-inventory.json`; la columna Tipo
 
 ### Próximos pasos:
 
-- **Demo interna** con Equipo UX (ROADMAP — único ítem Fase 1 pendiente del bloque inventario).
+- *(Supersedido por Fase 1.5 — ver [2026-06-02](#devlog-2026-06-02-fase-1-5-piloto-claude).)* Demo interna UX y piloto 10 URLs con Claude documentados en ROADMAP Fase 1.5.
 - Ampliar inventario con más URLs del extracto Clarity cuando el equipo lo priorice (sin cambiar el patrón tabla única + `type_url`).
 
 ---

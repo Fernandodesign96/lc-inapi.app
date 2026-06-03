@@ -4,8 +4,8 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Proyecto** | LC INAPI APP — evaluación automatizada asistida por IA del checklist editorial |
-| **Versión PRD** | 0.3.9 |
-| **Estado** | En definición — Fase 1: mock UX e interfaz institucional; Fase 2: persistencia, API y evaluación con Claude (Python) según ADR |
+| **Versión PRD** | 0.4.0 |
+| **Estado** | Fase 1 mock cerrada en repo; **Fase 1.5** piloto 10 URLs (Claude + PDF + entrega TIC); Fase 2: persistencia, API y evaluación automatizada según ADR |
 | **Stack objetivo** | Next.js (App Router, Turbopack) · TypeScript · Tailwind · shadcn/ui · React Hook Form + Zod · Supabase (Auth, Postgres, RLS, Storage) · API de dominio **NestJS** + **Prisma** · evaluación LC **Python** + **Claude API** expuesta en **AWS** (**API Gateway** + **Lambda** por defecto; ECS/EC2 si aplica) · Bun · acuerdos en [propuesta técnica integral](PROPUESTA_TECNICA_INTEGRAL.md) |
 | **Normativa base** | Checklist Editorial INAPI v1.1 (derivado de RLC “Lenguaje claro para la web” y Calidad Web 2.0 dimensión contenido) |
 
@@ -91,10 +91,11 @@ En **Fase 2**, el flujo técnico previsto es: **Next** → **Nest** → (REST/JS
 
 | Fase | Entregable |
 | --- | --- |
-| **Fase 1 — Mock UX e interfaz** | UI alineada al design system; **home** como portal de acceso a **`/auditar`**; en **`/auditar`**: ingreso URL + tres atajos a resultado + **un** inventario Calidad Web (Sitio + Trámites) en **tarjeta + acordeón** — **22 URLs** con **`type_url`** y filtro Trámites/Sitio Web implementado; ficha `/auditar/inventario/clarity/[rank]` con observaciones; filtros LC/orden implementados; datos en `docs/ux/` y [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json); tabla de resultado con **Sección** y **Criterio** del checklist v1.1; fixtures JSON `strictAuditRecordSchema`; demo UX con feedback documentado. **Sin** backend productivo. Detalle en [`docs/ROADMAP.md`](ROADMAP.md) y [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md). |
-| **Fase 2 — Persistencia y evaluación** | Supabase + NestJS + Prisma; contrato HTTP FE ↔ API; servicio **Python** + **Claude API**; entorno compartido **AWS**. Tras **aprobación** del mock de Fase 1. |
+| **Fase 1 — Mock UX e interfaz** | UI alineada al design system; inventario **22 URLs** Calidad Web; fichas, filtros, fixtures `strictAuditRecordSchema`; **sin** backend productivo. [`docs/ROADMAP.md`](ROADMAP.md), [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md). |
+| **Fase 1.5 — Piloto LC con IA (10 URLs)** | **10 URLs** acordadas con UX/TIC; evaluación con **Proyecto Claude** (export JSON manual → repo); MVP: acordeón piloto en `/auditar`, resultado ampliado, **PDF** server-side; entrega **PDF + HTML** con sustituciones. Sin Supabase obligatorio. [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md). |
+| **Fase 2 — Persistencia y evaluación** | Supabase + NestJS + Prisma; contrato HTTP FE ↔ API; servicio **Python** + **Claude API**; entorno **AWS**. Tras cierre **Fase 1.5** (piloto 10 URLs con informe en MVP). |
 | **Fase 3 — Captura y endurecimiento** | Captura real (Cheerio vs Playwright — ADR); reintentos, costo y observabilidad del pipeline LLM. |
-| **Fase 4 — Cierre MVP** | Export real, histórico por URL en UI, pruebas con URLs reales |
+| **Fase 4 — Cierre MVP** | Export consolidado (PDF institucional persistido), histórico por URL en UI, pruebas con URLs reales *(PDF por URL adelantado en Fase 1.5)* |
 
 ---
 

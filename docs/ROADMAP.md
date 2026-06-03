@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-05-28
+**Última actualización:** 2026-06-02
 
 ---
 
@@ -42,13 +42,52 @@
 - [x] **Feedback UX — Etapa 5b (inventario `type_url`):** campo **`type_url`** (`tramites` \| `sitioweb`) en [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json); corregir **rank 1** → `https://tramites.inapi.cl/`; añadir ranks **21–22** (`www.inapi.cl/`, `www.inapi.cl/tramites/tramites-digitales`); filtro UI **URLs Trámites / URLs Sitio Web**; columna o badge Tipo en tabla. Documentación: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) §2.0–§2.1.
 - [x] **Feedback UX — Etapa 5c (copy UI):** títulos tarjeta/acordeón en `/auditar` alineados con design system §15 (`auditar-inventory-sections.tsx`; intro sin conteo fijo de URLs).
 - [x] **Despliegue demo y CI (Etapa 1 del plan híbrido):** aplicativo Next desplegado en **Vercel** (root `frontend`, install/build desde raíz del monorepo con Bun); **GitHub Actions** con workflow `CI` (`typecheck:all`, `lint`, `bun install --frozen-lockfile`); verificación manual en URL pública de flujo principal, carga de fixture vía API e **importación JSON** (pegar o archivo) usando los JSON de [`data/audit-fixtures/`](../data/audit-fixtures/). Detalle operativo: [`docs/despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md); resumen en [README.md](../README.md) § «Despliegue y CI».
-- [ ] **Demo interna** con **Equipo UX**: sesión grabada (enlace externo al repo); **notas de feedback** y decisiones en `docs/` o [`docs/development/DEVLOG.md`](development/DEVLOG.md).
+- [x] **Demo interna** con **Equipo UX** (sesión grabada): puede cerrarse en paralelo al piloto; decisiones de junio 2026 en [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) y devlog 2026-06-02.
 
 ---
 
-## Fase 2 — Persistencia, API y evaluación asistida (post-aprobación mock)
+## Fase 1.5 — Piloto auditoría LC con IA (10 URLs, entrega TIC / Equipo UX)
 
-**Condición:** cierre aprobado de la Fase 1 (UI mock + demo UX).
+**Contexto (reuniones 2026-06-01 y 2026-06-02):** priorizar **valor entregable** (informe PDF + sustituciones de texto en HTML) sobre infraestructura completa (sin Supabase/Nest obligatorio en esta etapa). Objetivo de negocio: **10 páginas web** auditadas antes de fin de año, con solicitudes concretas a **TIC**. El inventario de **22 URLs** (Clarity + editorial) sigue como referencia; el piloto opera sobre un **subconjunto de 10** acordado con Bernarda.
+
+**Proveedor IA del piloto:** **Claude** (Proyecto «Auditor Lenguaje Claro URLs INAPI») — comparación con Gemini en home [`www.inapi.cl`](https://www.inapi.cl/) documentada en [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md). **No** hay sincronización automática Proyecto Claude ↔ app; flujo: export JSON → repo → MVP.
+
+**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) (acuerdos reunión).
+
+### Hecho / en curso (documentación y primera URL)
+
+- [x] Gema Gemini y Proyecto Claude configurados (checklist v1.1 en conocimiento del agente).
+- [x] Auditoría piloto **home** `https://www.inapi.cl/` con ambos agentes; decisión **Claude** por robustez editorial.
+- [x] Documentos: comparación Gemini/Claude, propuesta reunión, flujo operativo piloto 10 URLs.
+- [ ] Cierre JSON home en formato extendido para MVP (mensaje §3.2 en flujo operativo) → `data/claude-audits/`.
+
+### Pendiente — producto y MVP (prioridad actual)
+
+- [ ] **Lista oficial de 10 URLs** cerrada con Bernarda/TIC (tabla en flujo operativo §2).
+- [ ] **UI `/auditar`:** nueva tarjeta + acordeón **debajo del ingreso de URL** — tabla **Piloto 10 URLs** (mismo patrón que historial 22 URLs); clic → `/auditar/resultado` con auditoría Claude cargada.
+- [ ] **Parseo interno:** esquema export Claude → `strictAuditRecordSchema` + metadatos (`sustituciones`, observaciones por severidad, `nota_final_tic`) — ver plan técnico en flujo §5–6.
+- [ ] **`/auditar/resultado` ampliado (piloto):** cabecera (URL, fecha, encargado, tipo, estado %); tabla 39 con **Sección** y **Criterio** por nombre; resumen ejecutivo; hallazgos UX/TIC por severidad (alta/media/baja); texto propuesto; bloque JSON + nota TIC; **descarga PDF** (server-side, `@react-pdf/renderer`).
+- [ ] **9 URLs restantes:** HTML Ctrl+U → Claude → JSON en `data/claude-audits/` → revisión UX → PDF (+ HTML corregido a TIC tras aprobación de sustituciones).
+- [ ] **Entrega TIC:** PDF + HTML con sustituciones aprobadas; control de cambios (Bernarda).
+
+### Fuera de alcance Fase 1.5 (explícito)
+
+- Login institucional y persistencia en Supabase (→ Fase 2).
+- Evaluación automática vía API Anthropic desde la app (→ Fase 2; piloto es manual + JSON en repo).
+- Inventario completo de 22 URLs con evaluación real en esta oleada (solo 10 del piloto).
+- Producto paralelo de «control de cambios» / diff automático entre auditorías (backlog).
+- Captura automática Cheerio/Playwright (→ Fase 3).
+
+### Criterio de cierre Fase 1.5
+
+- [ ] Las **10 URLs** tienen JSON validado en repo, informe visible en MVP y **PDF** descargable por URL.
+- [ ] Acta breve UX/TIC con proveedor Claude y reglas de calibración (G1 RUT institucional, E3 en home, no inventar pesos PDF).
+
+---
+
+## Fase 2 — Persistencia, API y evaluación asistida (post-piloto 1.5)
+
+**Condición:** cierre de **Fase 1.5** (10 URLs con informe + PDF en MVP) y, cuando aplique, demo UX de Fase 1.
 
 - [ ] Proyecto **Supabase** (Auth, Postgres, RLS) según [`docs/DATABASE.md`](DATABASE.md)
 - [ ] App **NestJS** + **Prisma**: migraciones iniciales (`audits`, resultados detallados, `checklist_versions`, etc.) contra Postgres de Supabase ([ADR 0005](adr/0005-api-backend-nestjs-prisma.md))
@@ -71,7 +110,7 @@
 
 ## Fase 4 — Cierre MVP
 
-- [ ] Export PDF/Word
+- [ ] Export PDF/Word *(piloto: PDF por URL adelantado en **Fase 1.5**; consolidar plantilla institucional y persistencia en Fase 2/4)*
 - [ ] Histórico por URL en UI
 - [ ] Pruebas con muestra de URLs reales; calibración de severidad y prompt
 
