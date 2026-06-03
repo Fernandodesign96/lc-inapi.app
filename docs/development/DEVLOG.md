@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-03 | [Frontend: Resultado — query `claudeAudit` y carga desde API piloto](#devlog-2026-06-03-resultado-claude-audit) |
 | 2026-06-02 | [Estrategia: Fase 1.5 — piloto 10 URLs con Claude, reuniones UX y documentación operativa](#devlog-2026-06-02-fase-1-5-piloto-claude) |
 | 2026-05-29 | [Frontend: Cierre Etapas 5b y 5c — inventario Calidad Web con `type_url` y filtro Tipo](#devlog-2026-05-29-cierre-5b-5c-inventario) |
 | 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
@@ -28,6 +29,41 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-03-resultado-claude-audit"></a>
+
+## [2026-06-03] - Frontend | Fase 1.5: resultado con query `claudeAudit` y API piloto
+
+### Contexto y objetivos:
+
+Tras el commit de API y esquema (`parseClaudeAuditFile`, `GET /api/claude-audits/[id]`, JSON home en `data/claude-audits/`), faltaba enlazar la pantalla **`/auditar/resultado`** con ese flujo sin romper fixtures ni mock por URL. El piloto exige abrir informes por id estable (`www-inapi-cl_2026-06-02`) mientras se mantiene la tabla de 39 criterios y el resto de bloques del mock.
+
+Objetivo: implementar **B3** del [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — prioridad de fuentes de datos, estados de carga/error y importación JSON compatible con export Claude.
+
+### Implementación técnica:
+
+- **`frontend/src/app/auditar/resultado/page.tsx`:** query `claudeAudit`; `useEffect` dedicado a `GET /api/claude-audits/{id}`; el cliente consume el bundle `{ audit, pilot }` con `parseStrictAuditRecord(raw.audit)` (no `parseClaudeAuditFile` sobre la respuesta API, que espera JSON plano del repo).
+- **Prioridad de datos:** `claudeAuditForDisplay` → fixture → import → mock por `url`; `urlDerivedAudit` no aplica si hay `fixture` o `claudeAudit`.
+- **UX:** mensajes «Cargando auditoría piloto…», error con enlace a `/auditar`, `descripcionOrigen` con `claude_audit_api`; import JSON deshabilitado cuando hay `fixture=` o `claudeAudit=` en la URL.
+- **Import manual:** `aplicarImportacion` sigue usando `parseClaudeAuditFile` para JSON pegado/archivo (formato canónico en `data/claude-audits/*.json`); fallback a `parseStrictAuditRecord`.
+- **Estado piloto:** `pilotMeta` desde `claudeBundle.pilot` queda preparado en memoria (`void pilotMeta`); UI de sustituciones/resumen/severidad → **B4**.
+
+### 💡 Repaso técnico: bundle API vs archivo JSON:
+
+| Origen | Forma | Parser en cliente |
+| --- | --- | --- |
+| API `/api/claude-audits/…` | `{ audit, pilot }` | `parseStrictAuditRecord(audit)` + `pilot` tal cual |
+| Pegado / archivo `.json` del repo | Campos checklist + extensiones en la raíz | `parseClaudeAuditFile` |
+
+Confundir ambos formatos producía errores Zod («Required» en todos los campos) al validar el bundle como si fuera archivo plano.
+
+### Próximos pasos:
+
+- **B4:** secciones piloto en resultado (sustituciones, resumen ejecutivo, hallazgos por severidad, nota TIC) usando `pilotMeta`.
+- **B5 (opcional):** en `/auditar`, enlace automático con `claudeAudit=` vía `claudeAuditIdForUrl`.
+- Tabla de 10 URLs en ingreso; PDF server-side (fase C del flujo).
 
 ---
 
