@@ -335,7 +335,9 @@ Referencia de producto: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-url
 
 **Uso:** agrupar en una sola pantalla (`/auditar`) **fuentes de información seccionada** sin competir con el **ingreso principal de URL** ni con los **tres atajos** editoriales.
 
-**Contenido objetivo (2026-05-28):**
+**Contenido objetivo (2026-06-02):**
+
+0. **Fase 1.5 (piloto TIC):** **Tarjeta + acordeón** «Piloto auditoría LC — 10 URLs» **debajo** del bloque «Ingreso de URL» y **antes** de atajos editoriales e inventario de 22 URLs — misma estructura §15; filas enlazan a `/auditar/resultado` con auditoría Claude. Ver [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md).
 
 1. **Tarjeta:** **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** — contexto del bloque (Trámites ranks 1–20 + Sitio Web ranks 21–22).
 2. **Acordeón:** **Historial de Auditorías URLs - INAPI** — tabla de URLs Calidad Web (Encargado, Visitas, Auditorías, Última revisión, % LC, Estado, **Tipo**); enlaces a ficha por `rank`; **filtros:** tipo URL (`tramites` / `sitioweb`), estado LC, orden por visitas/auditorías/fecha/% LC (implementados).

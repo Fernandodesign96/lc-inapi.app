@@ -9,4 +9,6 @@ Archivos máquina-legibles alineados a las tablas mostradas en **`/auditar`** (i
 
 **Deprecado (2026-05-28):** `resolved-lc-states.json` y `resolved-lc-state-rows.ts` — sustituidos por la tabla única de historial LC y observaciones en ficha.
 
+**Fase 1.5 (piloto):** las auditorías reales con Claude se versionarán en **`data/claude-audits/`** (por implementar; ver [`docs/flujo-piloto-10-urls-claude-mvp.md`](../../docs/flujo-piloto-10-urls-claude-mvp.md)). No sustituyen estos JSON de inventario Calidad Web.
+
 **Mantenimiento:** si cambia una fila en el `.ts` o en el documento UX, actualizar el JSON correspondiente (o automatizar en un script futuro). No hay validación CI dedicada a estos archivos en Fase 1; opcional según [`docs/ROADMAP.md`](../../docs/ROADMAP.md).

@@ -8,7 +8,7 @@ El objetivo es construir una plataforma web robusta que automatice la auditoría
 
 ### 1.1 Estado del repositorio (vs monorepo propuesto)
 
-La **§3** describe el **layout objetivo** del monorepo. En el repo **actual** (Fase 1 mock) la estructura difiere hasta integrar Nest y el servicio Python:
+La **§3** describe el **layout objetivo** del monorepo. En el repo **actual** (Fase 1 mock + **Fase 1.5** piloto Claude sin backend) la estructura difiere hasta integrar Nest y el servicio Python:
 
 | Elemento propuesto (§3) | Ubicación actual en el repo | Notas |
 | --- | --- | --- |

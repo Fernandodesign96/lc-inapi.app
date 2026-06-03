@@ -51,6 +51,15 @@ Hasta aprobar el mock de UI:
 - Next en `frontend/` sirve flujo **portal de acceso en `/` (CTA hacia `/auditar`, sin auth real)** → **ingreso de URL y atajos en `/auditar`** → (según implementación) **captura** y **resultado**, con datos generados o importados desde fixtures validados. Los **tres atajos** editoriales pueden **saltar** a **resultado** directo con query de URL en el mock, coherente con la narrativa de “URL ya auditada”.
 - En **`/auditar`**, **un** bloque de inventario mock Calidad Web (Sitio + Trámites): tarjeta **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** con acordeón **Historial de Auditorías URLs - INAPI** (tabla **22 URLs** objetivo; rank 1 = landing `tramites.inapi.cl`; ranks 21–22 = `sitioweb`; campo **`type_url`**; filtro Trámites/Sitio Web implementado; fuente [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json); filtros LC/orden en tabla) — más rutas de ficha **`/auditar/inventario/clarity/[rank]`** (ranks 1–22); patrón colapsable (título + flecha abajo + panel), ver [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15. Inventario documental: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 
+### 1.2.1 Fase 1.5 — Piloto auditoría con Claude (sin backend productivo)
+
+Etapa acordada junio 2026 ([`docs/ROADMAP.md`](ROADMAP.md) Fase 1.5, [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md)):
+
+- **Evaluación:** Proyecto Claude en interfaz web del proveedor; el operador exporta JSON y lo versiona en **`data/claude-audits/`** (adaptador hacia `strictAuditRecordSchema` — por implementar).
+- **UI:** acordeón **Piloto 10 URLs** debajo del ingreso de URL en `/auditar`; `/auditar/resultado` ampliado + **PDF** generado en servidor (Route Handler, `@react-pdf/renderer`).
+- **Sin** llamadas a API Anthropic desde la app ni Supabase en esta etapa.
+- El inventario de **22 URLs** Clarity permanece como referencia editorial; el piloto usa un subconjunto de **10** URLs para entrega TIC.
+
 ### 1.3 Entorno demo y CI (Fase 1, sin backend productivo)
 
 - **Vercel:** el `frontend/` (Next.js App Router) puede desplegarse como proyecto con **root** en esa carpeta y comandos de instalación/compilación que ejecuten `bun install` y `bun run build` desde la **raíz del monorepo** (donde está el workspace y `bun.lock`), para conservar el alias `@contracts/checklist` y los mismos scripts que en local.

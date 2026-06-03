@@ -12,7 +12,10 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Arquitectura objetivo (frontend, backend, IA) |
 | [docs/DATABASE.md](docs/DATABASE.md) | Modelo de datos Supabase y PostgreSQL |
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog (**Fase 1.5:** piloto 10 URLs + Claude + PDF) |
+| [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Flujo operativo piloto UX → JSON → MVP → entrega TIC |
+| [docs/Propuesta Análisis LC URLs.md](docs/Propuesta%20Análisis%20LC%20URLs.md) | Propuesta y acta reunión junio 2026 |
+| [docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md](docs/Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) | Comparación proveedores IA (home piloto) |
 | [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo, datos en fixtures y checklist post-despliegue |
 | [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Plan por etapas: Vercel, GitHub Actions, Supabase, Nest, AWS LC |
 | [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Acuerdos de reunión: roles, monorepo objetivo, Nest ↔ API Gateway ↔ Lambda ↔ Claude, Docker |
@@ -83,6 +86,6 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1**: **demo interna** con Equipo UX (Etapa pendiente). Etapas **5b** y **5c** del inventario Calidad Web cerradas (2026-05-29): **`type_url`**, 22 URLs, filtro Trámites/Sitio Web, copy UI alineado al design system §15.
+Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1.5** (piloto UX): **10 URLs** con **Claude** (Proyecto), JSON en repo → MVP → **PDF** + HTML con sustituciones a TIC. Flujo detallado: [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md). Fase 1 mock (inventario 22 URLs, `type_url`, filtros) cerrada en repo (2026-05-29).
 
-**En repo hoy:** inventario **22 filas** en [`data/ux/clarity-fichas-mock.json`](data/ux/clarity-fichas-mock.json) (ranks 1–20 `tramites`, 21–22 `sitioweb`); filtros tipo/estado/orden en UI; fichas `/auditar/inventario/clarity/[rank]`.
+**En repo hoy:** mock **22 filas** Calidad Web en [`data/ux/clarity-fichas-mock.json`](data/ux/clarity-fichas-mock.json); primera auditoría Claude (home) documentada — pendiente `data/claude-audits/` y UI piloto según flujo operativo.
