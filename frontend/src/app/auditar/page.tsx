@@ -6,6 +6,7 @@ import { Controller, useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 
 import { AuditarInventorySections } from "@/components/auditar-inventory-sections"
+import { AuditarClaudePilotSection } from "@/components/auditar-claude-pilot-section"
 import {
   Accordion,
   AccordionContent,
@@ -100,7 +101,7 @@ export default function AuditarPage() {
           </Button>
         </CardFooter>
       </Card>
-
+      <AuditarClaudePilotSection />
       <Card className="border-border bg-card">
         <CardHeader>
           <CardTitle className="text-base">

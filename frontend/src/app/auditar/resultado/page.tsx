@@ -5,6 +5,13 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { ZodError } from "zod"
 
+import type { ClaudeAuditBundle, ClaudeAuditPilotMeta } from "@contracts/claude-audit-pilot"
+import { parseClaudeAuditFile } from "@contracts/claude-audit-pilot"
+import {
+  buildDemoStrictAudit,
+  parseStrictAuditRecord,
+  type StrictAuditRecord,
+} from "@contracts/checklist"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -26,10 +33,18 @@ import {
 import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
 import {
-  buildDemoStrictAudit,
-  parseStrictAuditRecord,
-  type StrictAuditRecord,
-} from "@contracts/checklist"
+  formatFechaEvaluacion,
+  labelTipoPagina,
+  NotaEquipoTiContent,
+  ObservacionesSeveridadContent,
+  ResumenAuditoriaContent,
+  SustitucionesTextoContent,
+} from "@/components/resultado-claude-pilot-sections"
+import {
+  ResultadoInformeCollapsible,
+  ResultadoInformeCollapsibleGroup,
+  ResultadoInformePanel,
+} from "@/components/resultado-informe-collapsible"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
 import {
@@ -54,13 +69,11 @@ import {
   matchesLetraTipo,
   matchesSeveridadPastilla,
 } from "@/lib/criterios-evaluados-filters"
-
 import {
   formatCriterioEnunciado,
   formatSeccionTitulo,
 } from "@/lib/checklist-criterion-catalog"
 
-/** Cuerpo de secciones tipo “institucional”: mismo token en claro y oscuro (evita texto pensado para .dark sobre blanco hex). */
 const PANEL_BODY_CLASS = "bg-card text-card-foreground"
 
 const CRITERIOS_FILTER_SELECT_CLASS =
@@ -70,6 +83,8 @@ function ResultadoInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlRaw = searchParams.get("url")
+  const claudeAuditRaw = searchParams.get("claudeAudit")
+  const claudeAuditId = claudeAuditRaw?.trim() ? claudeAuditRaw.trim() : null
   const fixtureRaw = searchParams.get("fixture")
   const fixtureId = fixtureRaw?.trim() ? fixtureRaw.trim() : null
 
@@ -92,7 +107,7 @@ function ResultadoInner() {
   }, [urlDecoded])
 
   const urlDerivedAudit = useMemo((): StrictAuditRecord | null => {
-    if (fixtureId) return null
+    if (fixtureId || claudeAuditId) return null
     if (!auditUrl) return null
     const texto = `(mock) Contenido evaluado para ${auditUrl}`
     return (
@@ -105,13 +120,13 @@ function ResultadoInner() {
           : {}),
       })
     )
-  }, [auditUrl, fixtureId])
+  }, [auditUrl, fixtureId, claudeAuditId])
 
+  const [claudeBundle, setClaudeBundle] = useState<ClaudeAuditBundle | null>(null)
+  const [claudeFetchError, setClaudeFetchError] = useState<string | null>(null)
   const [fixtureAudit, setFixtureAudit] = useState<StrictAuditRecord | null>(null)
   const [fixtureFetchError, setFixtureFetchError] = useState<string | null>(null)
-  const [importedAudit, setImportedAudit] = useState<StrictAuditRecord | null>(
-    null,
-  )
+  const [importedAudit, setImportedAudit] = useState<StrictAuditRecord | null>(null)
   const [importDraft, setImportDraft] = useState("")
   const [importError, setImportError] = useState<string | null>(null)
 
@@ -122,9 +137,7 @@ function ResultadoInner() {
     useState<FiltroSeveridadPastilla>("todos")
 
   useEffect(() => {
-    if (!fixtureId) {
-      return
-    }
+    if (!fixtureId) return
 
     let cancelled = false
 
@@ -140,6 +153,7 @@ function ResultadoInner() {
         const parsed = parseStrictAuditRecord(data)
         if (!cancelled) {
           setFixtureAudit(parsed)
+          setClaudeBundle(null)
           setImportedAudit(null)
           setImportError(null)
           setFixtureFetchError(null)
@@ -162,6 +176,53 @@ function ResultadoInner() {
     }
   }, [fixtureId])
 
+  useEffect(() => {
+    if (!claudeAuditId) return
+
+    let cancelled = false
+
+    fetch(`/api/claude-audits/${encodeURIComponent(claudeAuditId)}`)
+      .then(async (r) => {
+        if (!r.ok) {
+          const body = await r.text()
+          throw new Error(body || `HTTP ${r.status}`)
+        }
+        return r.json() as Promise<unknown>
+      })
+      .then((data) => {
+        const raw = data as { audit: unknown; pilot?: ClaudeAuditPilotMeta }
+        const audit = parseStrictAuditRecord(raw.audit)
+        const bundle: ClaudeAuditBundle = {
+          audit,
+          pilot: raw.pilot ?? {},
+        }
+        if (!cancelled) {
+          setClaudeBundle(bundle)
+          setFixtureAudit(null)
+          setImportedAudit(null)
+          setImportError(null)
+          setClaudeFetchError(null)
+          setFiltroLetra("todas")
+          setFiltroEstado("todos")
+          setFiltroSeveridad("todos")
+        }
+      })
+      .catch((e: unknown) => {
+        if (!cancelled) {
+          setClaudeBundle(null)
+          setClaudeFetchError(
+            e instanceof Error
+              ? e.message
+              : "No se pudo cargar la auditoría piloto.",
+          )
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [claudeAuditId])
+
   const fixtureFetchErrorForDisplay = fixtureId ? fixtureFetchError : null
 
   const fixtureAuditForDisplay =
@@ -176,13 +237,38 @@ function ResultadoInner() {
     fixtureFetchErrorForDisplay === null &&
     fixtureAuditForDisplay === null
 
-  const auditoria: StrictAuditRecord | null =
-    fixtureAuditForDisplay ?? importedAudit ?? urlDerivedAudit ?? null
+  const claudeFetchErrorForDisplay = claudeAuditId ? claudeFetchError : null
 
-  const origenDatos: "fixture_api" | "import_json" | "url_mock" =
-    fixtureAuditForDisplay !== null
+  const claudeAuditForDisplay =
+    claudeAuditId &&
+    claudeBundle !== null &&
+    claudeBundle.audit.id === claudeAuditId
+      ? claudeBundle.audit
+      : null
+
+  const showClaudeLoading =
+    Boolean(claudeAuditId) &&
+    claudeFetchErrorForDisplay === null &&
+    claudeAuditForDisplay === null
+
+  const auditoria: StrictAuditRecord | null =
+    claudeAuditForDisplay ??
+    fixtureAuditForDisplay ??
+    importedAudit ??
+    urlDerivedAudit ??
+    null
+
+  const pilotMeta: ClaudeAuditPilotMeta | null = claudeBundle?.pilot ?? null
+
+  const origenDatos:
+    | "claude_audit_api"
+    | "fixture_api"
+    | "import_json"
+    | "url_mock" = claudeAuditForDisplay
+    ? "claude_audit_api"
+    : fixtureAuditForDisplay
       ? "fixture_api"
-      : importedAudit !== null
+      : importedAudit
         ? "import_json"
         : "url_mock"
 
@@ -197,7 +283,8 @@ function ResultadoInner() {
   }, [auditoria, filtroLetra, filtroEstado, filtroSeveridad])
 
   const letrasDisponibles = useMemo(
-    () => (auditoria ? letrasTipoDisponibles(auditoria.criterios_evaluados) : []),
+    () =>
+      auditoria ? letrasTipoDisponibles(auditoria.criterios_evaluados) : [],
     [auditoria],
   )
 
@@ -211,24 +298,33 @@ function ResultadoInner() {
     setImportError(null)
     try {
       const data: unknown = JSON.parse(importDraft)
-      const parsed = parseStrictAuditRecord(data)
-      setImportedAudit(parsed)
+      try {
+        const bundle = parseClaudeAuditFile(data)
+        setImportedAudit(bundle.audit)
+        setClaudeBundle(bundle)
+        setFixtureAudit(null)
+      } catch {
+        const parsed = parseStrictAuditRecord(data)
+        setImportedAudit(parsed)
+        setClaudeBundle(null)
+        setFixtureAudit(null)
+      }
       setFiltroLetra("todas")
       setFiltroEstado("todos")
       setFiltroSeveridad("todos")
     } catch (e) {
       if (e instanceof ZodError) {
-        setImportError("El JSON no cumple strictAuditRecordSchema.")
+        setImportError("El JSON no cumple el esquema de auditoría.")
       } else if (e instanceof SyntaxError) {
         setImportError("JSON inválido (revisa comillas y comas).")
       } else {
         setImportError("No se pudo importar el registro.")
       }
       setImportedAudit(null)
+      setClaudeBundle(null)
     }
   }
-
-  if (!fixtureId) {
+  if (!fixtureId && !claudeAuditId) {
     if (!urlDecoded) {
       router.replace("/auditar")
       return (
@@ -246,9 +342,28 @@ function ResultadoInner() {
     }
   }
 
+  if (showClaudeLoading) {
+    return (
+      <p className="text-muted-foreground text-sm">
+        Cargando auditoría piloto…
+      </p>
+    )
+  }
+
   if (showFixtureLoading) {
     return (
       <p className="text-muted-foreground text-sm">Cargando fixture…</p>
+    )
+  }
+
+  if (claudeAuditId && claudeFetchErrorForDisplay) {
+    return (
+      <div className="flex w-full flex-col gap-4">
+        <p className="text-sm text-destructive">{claudeFetchErrorForDisplay}</p>
+        <Button type="button" variant="outline" asChild>
+          <Link href="/auditar">Volver al ingreso</Link>
+        </Button>
+      </div>
     )
   }
 
@@ -267,29 +382,47 @@ function ResultadoInner() {
     return null
   }
 
+  const esInformePiloto = Boolean(pilotMeta)
+
+  const sustitucionesPiloto = pilotMeta?.sustituciones ?? []
+  const severidadPiloto = pilotMeta?.observaciones_lc_por_severidad
+  const tieneSeveridadPiloto = Boolean(
+    severidadPiloto &&
+      (severidadPiloto.hallazgos_prioridad_alta.length > 0 ||
+        severidadPiloto.hallazgos_prioridad_media.length > 0 ||
+        severidadPiloto.hallazgos_prioridad_baja.length > 0),
+  )
+
+  
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
 
   const descripcionOrigen =
-    origenDatos === "fixture_api"
-      ? "Datos cargados desde el fixture del repositorio (API /api/audit-fixtures/…, validado con strictAuditRecordSchema)."
-      : origenDatos === "import_json"
-        ? "Datos cargados desde JSON pegado o importado en el navegador (parseStrictAuditRecord)."
-        : "Datos generados en cliente con buildStrictAuditForAuditarUrl o buildDemoStrictAudit desde @contracts/checklist."
+    origenDatos === "claude_audit_api"
+      ? "Datos cargados desde auditoría piloto Claude en el repositorio (API /api/claude-audits/…)."
+      : origenDatos === "fixture_api"
+        ? "Datos cargados desde el fixture del repositorio (API /api/audit-fixtures/…, validado con strictAuditRecordSchema)."
+        : origenDatos === "import_json"
+          ? "Datos cargados desde JSON pegado o importado en el navegador."
+          : "Datos generados en cliente con buildStrictAuditForAuditarUrl o buildDemoStrictAudit desde @contracts/checklist."
+
+
 
   return (
     <div className="flex w-full flex-col gap-6">
+      {!claudeAuditId ? (
       <Card className="border-dashed">
         <CardHeader className="space-y-1.5">
           <CardTitle className="text-base">Demostración: importar JSON</CardTitle>
           <CardDescription>
-            Solo aplica si no hay un fixture activo en la URL (
-            <code className="rounded bg-muted px-1 text-xs">fixture=</code>
-            ). Puede pegar un registro completo aquí o volver a{" "}
+            Solo aplica si no hay{" "}
+            <code className="rounded bg-muted px-1 text-xs">fixture=</code> ni{" "}
+            <code className="rounded bg-muted px-1 text-xs">claudeAudit=</code>{" "}
+            en la URL. Puede pegar un registro completo aquí o volver a{" "}
             <Link href="/auditar" className="underline underline-offset-4">
               /auditar
-            </Link>{" "}
-            y usar el acceso «Ir a resultado para importar JSON».
+            </Link>
+            .
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
@@ -314,7 +447,7 @@ function ResultadoInner() {
             <Button
               type="button"
               variant="secondary"
-              disabled={!!fixtureId}
+              disabled={!!fixtureId || !!claudeAuditId}
               onClick={() => aplicarImportacion()}
             >
               Aplicar JSON
@@ -325,6 +458,7 @@ function ResultadoInner() {
               onClick={() => {
                 setImportDraft("")
                 setImportedAudit(null)
+                setClaudeBundle(null)
                 setImportError(null)
               }}
             >
@@ -355,7 +489,7 @@ function ResultadoInner() {
           </div>
         </CardContent>
       </Card>
-
+      ) : null}
       <Card>
         <CardHeader className="gap-4 space-y-0">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -374,17 +508,11 @@ function ResultadoInner() {
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          <section
-            className="overflow-hidden rounded-lg border border-border shadow-sm"
-            aria-labelledby="resultado-resumen-titulo"
-          >
-            <div
-              id="resultado-resumen-titulo"
-              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+        {esInformePiloto ? (
+            <ResultadoInformePanel
+              title="Datos de Auditoría"
+              id="resultado-datos-auditoria"
             >
-              Resumen
-            </div>
-            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
               <div className="grid gap-2 text-sm sm:grid-cols-2">
                 <p>
                   <span className="text-muted-foreground">URL:</span>{" "}
@@ -415,7 +543,9 @@ function ResultadoInner() {
                     aria-labelledby="resultado-cumplimiento-label"
                     value={auditoria.porcentaje_cumplimiento}
                     max={100}
-                    className={CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track}
+                    className={
+                      CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
+                    }
                     indicatorClassName={
                       CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
                     }
@@ -439,30 +569,152 @@ function ResultadoInner() {
                   <span className="text-muted-foreground">N/A:</span>{" "}
                   {auditoria.criterios_no_aplica}
                 </p>
+                <p>
+                  <span className="text-muted-foreground">
+                    Fecha de evaluación:
+                  </span>{" "}
+                  <span className="font-medium">
+                    {formatFechaEvaluacion(auditoria.fecha_evaluacion)}
+                  </span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Encargado:</span>{" "}
+                  <span className="font-medium">{auditoria.evaluador_uid}</span>
+                </p>
+                {pilotMeta?.tipo_pagina ? (
+                  <p>
+                    <span className="text-muted-foreground">
+                      Tipo de página:
+                    </span>{" "}
+                    <span className="font-medium">
+                      {labelTipoPagina(pilotMeta.tipo_pagina)}
+                    </span>
+                  </p>
+                ) : null}
+                <p className="sm:col-span-2">
+                  <span className="text-muted-foreground">Id auditoría:</span>{" "}
+                  <span className="font-mono text-xs">{auditoria.id}</span>
+                </p>
               </div>
-            </div>
-          </section>
-
-          <section
-            className="overflow-hidden rounded-lg border border-border shadow-sm"
-            aria-labelledby="resultado-pasos-titulo"
-          >
-            <div
-              id="resultado-pasos-titulo"
-              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+            </ResultadoInformePanel>
+          ) : (
+            <section
+              className="overflow-hidden rounded-lg border border-border shadow-sm"
+              aria-labelledby="resultado-resumen-titulo"
             >
-              {bloquePasos.titulo}
-            </div>
-            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
-              <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
-                {bloquePasos.pasos.map((paso) => (
-                  <li key={paso}>{paso}</li>
-                ))}
-              </ol>
-            </div>
-          </section>
+              <div
+                id="resultado-resumen-titulo"
+                className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+              >
+                Resumen
+              </div>
+              <div className={cn(PANEL_BODY_CLASS, "p-4")}>
+                <div className="grid gap-2 text-sm sm:grid-cols-2">
+                  <p>
+                    <span className="text-muted-foreground">URL:</span>{" "}
+                    <span className="font-medium break-all">{auditoria.url}</span>
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">Checklist:</span>{" "}
+                    <span className="font-medium">
+                      {auditoria.version_checklist}
+                    </span>
+                  </p>
+                  <div className="sm:col-span-2 space-y-2">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <span
+                        className="text-muted-foreground"
+                        id="resultado-cumplimiento-label"
+                      >
+                        Cumplimiento (criterios aplicables)
+                      </span>
+                      <span
+                        className="font-medium tabular-nums text-foreground"
+                        aria-labelledby="resultado-cumplimiento-label"
+                      >
+                        {auditoria.porcentaje_cumplimiento} %
+                      </span>
+                    </div>
+                    <Progress
+                      aria-labelledby="resultado-cumplimiento-label"
+                      value={auditoria.porcentaje_cumplimiento}
+                      max={100}
+                      className={
+                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
+                      }
+                      indicatorClassName={
+                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
+                      }
+                    />
+                  </div>
+                  <p>
+                    <span className="text-muted-foreground">Estado:</span>{" "}
+                    <span
+                      className="font-medium"
+                      title={auditoria.estado_aceptacion}
+                    >
+                      {etiquetaEstado}
+                    </span>
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">Aprobados:</span>{" "}
+                    {auditoria.criterios_aprobados} / aplicables{" "}
+                    {auditoria.criterios_aplicables}
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">N/A:</span>{" "}
+                    {auditoria.criterios_no_aplica}
+                  </p>
+                </div>
+              </div>
+            </section>
+          )}
+          {esInformePiloto ? (
+            <ResultadoInformeCollapsibleGroup>
+              {pilotMeta?.resumen_ejecutivo ? (
+                <ResultadoInformeCollapsible
+                  value="resumen-auditoria"
+                  title="Resumen Auditoría"
+                >
+                  <ResumenAuditoriaContent
+                    texto={pilotMeta.resumen_ejecutivo}
+                  />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              <ResultadoInformeCollapsible
+                value="pasos-seguir"
+                title="Pasos a seguir"
+              >
+                <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
+                  {bloquePasos.pasos.map((paso) => (
+                    <li key={paso}>{paso}</li>
+                  ))}
+                </ol>
+              </ResultadoInformeCollapsible>
+            </ResultadoInformeCollapsibleGroup>
+          ) : (
+            <section
+              className="overflow-hidden rounded-lg border border-border shadow-sm"
+              aria-labelledby="resultado-pasos-titulo"
+            >
+              <div
+                id="resultado-pasos-titulo"
+                className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+              >
+                {bloquePasos.titulo}
+              </div>
+              <div className={cn(PANEL_BODY_CLASS, "p-4")}>
+                <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
+                  {bloquePasos.pasos.map((paso) => (
+                    <li key={paso}>{paso}</li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+          )}
 
-          <div className="space-y-4">
+            {!esInformePiloto ? (
+            <div className="space-y-4">
             {auditoria.observaciones_lc ? (
               <section className="overflow-hidden rounded-lg border border-border shadow-sm">
                 <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
@@ -484,7 +736,9 @@ function ResultadoInner() {
                 id="resultado-texto-propuesto-titulo"
                 className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
               >
-                Texto propuesto
+                {pilotMeta
+                  ? "Texto propuesto — Para implementación por TIC (solo texto, sin tocar HTML)"
+                  : "Texto propuesto"}              
               </div>
               <div className={cn(PANEL_BODY_CLASS, "p-4")}>
                 {auditoria.texto_propuesto ? (
@@ -504,6 +758,7 @@ function ResultadoInner() {
               </div>
             </section>
           </div>
+        ) : null}
 
           <section
             className="overflow-hidden rounded-lg border border-border shadow-sm"
@@ -513,7 +768,9 @@ function ResultadoInner() {
               id="resultado-criterios-titulo"
               className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
             >
-              Criterios evaluados
+              {esInformePiloto
+                ? "39 Criterios Evaluados"
+                : "Criterios evaluados"}
             </div>
             <div className={cn(PANEL_BODY_CLASS, "p-0")}>
             <div
@@ -766,6 +1023,36 @@ function ResultadoInner() {
               </Table>
             </div>
           </section>
+          {esInformePiloto ? (
+            <ResultadoInformeCollapsibleGroup>
+              {tieneSeveridadPiloto && severidadPiloto ? (
+                <ResultadoInformeCollapsible
+                  value="observaciones-severidad"
+                  title="Observaciones finales por severidad"
+                >
+                  <ObservacionesSeveridadContent severidad={severidadPiloto} />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              {sustitucionesPiloto.length > 0 ? (
+                <ResultadoInformeCollapsible
+                  value="texto-propuesto"
+                  title="Texto propuesto"
+                >
+                  <SustitucionesTextoContent
+                    sustituciones={sustitucionesPiloto}
+                  />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              {pilotMeta?.nota_final_tic ? (
+                <ResultadoInformeCollapsible
+                  value="nota-equipo-ti"
+                  title="Nota para el equipo TI"
+                >
+                  <NotaEquipoTiContent texto={pilotMeta.nota_final_tic} />
+                </ResultadoInformeCollapsible>
+              ) : null}
+            </ResultadoInformeCollapsibleGroup>
+          ) : null}
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" asChild>
@@ -787,4 +1074,4 @@ export default function ResultadoPage() {
       <ResultadoInner />
     </Suspense>
   )
-}
+}          

@@ -204,7 +204,7 @@ Marcar acuerdo del equipo:
 | --- | --- | --- |
 | **Bernarda + equipo UX** | Cerrar lista oficial **10 URLs** del piloto | Inmediato |
 | **Fernando** | Volcar JSON home en `data/claude-audits/`; completar 9 URLs restantes vía Claude | Fase 1.5 |
-| **Fernando** | Implementar adaptador JSON, UI acordeón piloto, resultado ampliado, API PDF | Fase 1.5 |
+| **Fernando** | Implementar adaptador JSON, UI acordeón piloto, resultado piloto (7 bloques §4 flujo), API PDF | Fase 1.5 |
 | **Equipo UX** | Revisar sustituciones y aprobar HTML corregido antes de TIC | Por URL |
 | **Fernando** | DEVLOG y ROADMAP Fase 1.5 | Hecho 2026-06-02 |
 | **Camila / Fernando** | Supabase + Lambda (Fase 2) | Tras cierre piloto 10 URLs |

@@ -203,71 +203,64 @@ Para las **9 URLs restantes**, usar §3.1 + §3.2 adjuntando la plantilla canón
 
 ## 4. Estructura de `/auditar/resultado` (piloto Claude)
 
-Orden de bloques en pantalla (y en PDF):
+**Acuerdo UX (junio 2026):** orquestación en **siete bloques** con títulos de barra fijos. Solo **Datos de Auditoría** y **39 Criterios Evaluados** permanecen **siempre visibles** (sin acordeón). El resto usa el patrón de **barra colapsable** del design system (§15 en [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md); implementación sugerida: Accordion/Collapsible shadcn + cabecera institucional `#0F69C4`).
 
-### Sección 1 — Cabecera del informe
+**Modo piloto** (`?claudeAudit=` o import con metadatos `pilot`): aplicar orden y reglas de esta §4. **Modo mock/fixture** sin `pilot`: puede conservar bloques legacy (import JSON, narrativa `observaciones_lc` suelta) hasta unificar en fase posterior.
 
-| Campo | Fuente |
+### Orden en pantalla (y referencia para PDF — §8)
+
+| # | Título de barra / bloque | Desplegable | Contenido (fuente JSON / código) |
+| --- | --- | --- | --- |
+| 1 | **Datos de Auditoría** | No (siempre visible) | Fusión del resumen operativo + metadatos piloto: `url`, `version_checklist`, barra y etiqueta de `estado_aceptacion` + `porcentaje_cumplimiento`, conteos de criterios; `fecha_evaluacion`, `evaluador_uid`, `tipo_pagina` (`pilot`), `id` de auditoría. |
+| 2 | **Resumen Auditoría** | Sí (colapsable) | Párrafo `resumen_ejecutivo` (`pilot`) — sin reescribir. |
+| 3 | **Pasos a seguir** | Sí (colapsable) | Lista `PASOS_SEGUN_ESTADO[estado_aceptacion]` (copy mock por estado del informe). |
+| 4 | **39 Criterios Evaluados** | No (siempre visible) | Tabla `criterios_evaluados` con Sección, Criterio, Estado, Severidad, Comentario; filtros en [`criterios-evaluados-filters.ts`](../frontend/src/lib/criterios-evaluados-filters.ts). |
+| 5 | **Observaciones finales por severidad** | Sí (colapsable) | `observaciones_lc_por_severidad` (`pilot`): listas alta / media / baja. **No** duplicar en UI el párrafo `observaciones_lc` del núcleo si ya existen estas listas. |
+| 6 | **Texto propuesto** | Sí (colapsable) | Tabla `sustituciones[]` (`pilot`): `linea`, `criterio_id`, `original`, `propuesto`, `motivo`, `html_linea_aprox` opcional. Es el entregable accionable para TIC; el campo `texto_propuesto` del JSON puede omitirse en pantalla piloto si hay sustituciones. |
+| 7 | **Nota para el equipo TI** | Sí (colapsable) | `nota_final_tic` (`pilot`) — instrucciones operativas (p. ej. entidades HTML en búsqueda literal). |
+| 8 | **Descargar informe PDF** | — (acción, Fase C) | Botón «Descargar informe PDF»; documento server-side con bloques 1–7. Ver §8 abajo. |
+
+**Estado por defecto de acordeones (recomendación UX):** cerrados en bloques 2, 3, 5, 6 y 7 al abrir la URL; el usuario expande según necesidad. Bloques 1 y 4 siempre expandidos.
+
+**Bloques que no forman barra propia en piloto (evitar redundancia):**
+
+| Antes (mock / implementación intermedia B4) | Decisión piloto |
 | --- | --- |
-| Nombre de la URL | Etiqueta piloto o `rutaEtiqueta` |
-| Ruta / URL canónica | `url` |
-| Fecha de evaluación | `fecha_evaluacion` (formato legible Chile) |
-| Encargado | `evaluador` / `evaluador_uid` → «Fernando Arriagada Castillo» en piloto |
-| Tipo de página | `tipo_pagina`: Trámites \| Sitio Web |
-| Estado + porcentaje | Barra térmica + etiqueta (`rechazado` / `aceptado_con_observaciones` / `aprobado`) + `porcentaje_cumplimiento` % |
+| Tarjeta aparte «Datos del informe piloto» | Fusionar en **Datos de Auditoría** (fila 1). |
+| Sección «Observaciones» con `observaciones_lc` narrativo | Omitir si existe **Observaciones finales por severidad** (fila 5). |
+| Sección «Texto propuesto» con párrafo `texto_propuesto` | Sustituida por **Texto propuesto** = tabla de **sustituciones** (fila 6). |
+| Bloque JSON completo en pantalla | Opcional para desarrolladores; no obligatorio en demo UX. Incluir en PDF si se requiere trazabilidad. |
 
-*Reutilizar componentes actuales de resumen en* [`frontend/src/app/auditar/resultado/page.tsx`](../frontend/src/app/auditar/resultado/page.tsx)*.*
+### Detalle — bloque 1 (Datos de Auditoría)
 
-### Sección 2 — Observaciones
+| Campo en UI | Fuente |
+| --- | --- |
+| URL canónica | `audit.url` |
+| Checklist | `audit.version_checklist` |
+| Cumplimiento + barra | `audit.porcentaje_cumplimiento`, `audit.estado_aceptacion` |
+| Aprobados / aplicables / N/A | `audit.criterios_aprobados`, `criterios_aplicables`, `criterios_no_aplica` |
+| Fecha de evaluación | `audit.fecha_evaluacion` (formato legible Chile) |
+| Encargado | `audit.evaluador_uid` |
+| Tipo de página | `pilot.tipo_pagina` → etiqueta «Trámites» \| «Sitio web» |
+| Id auditoría | `audit.id` (p. ej. `www-inapi-cl_2026-06-02`) |
 
-Texto breve introductorio del informe (si Claude lo separa del resumen ejecutivo). Si no existe campo dedicado, omitir o fusionar con sección 4.
-
-### Sección 3 — Tabla de 39 criterios
+### Detalle — bloque 4 (39 Criterios Evaluados)
 
 | Columna | Contenido |
 | --- | --- |
-| Sección | `formatSeccionTitulo(id)` — nombre completo (ej. «Lenguaje claro») |
-| Criterio | `formatCriterioEnunciado(id)` — ej. «A1 El mensaje más importante…» |
-| Estado | cumple / incumple / no aplica (iconografía LC existente) |
-| Severidad | pastilla baja \| media \| alta |
-| Comentario | texto breve |
+| Sección | `formatSeccionTitulo(id)` |
+| Criterio | `formatCriterioEnunciado(id)` |
+| Estado | Iconografía LC (`cumple` / incumple / `no_aplica`) |
+| Severidad | Pastilla baja \| media \| alta |
+| Comentario | `comentario` por fila |
 
-**Filtros:** mismos que hoy (tipo A–H, estado visual, severidad) — [`criterios-evaluados-filters.ts`](../frontend/src/lib/criterios-evaluados-filters.ts).
-
-### Sección 4 — Resumen ejecutivo
-
-Párrafo tal cual `resumen_ejecutivo` de Claude (sin reescribir).
-
-### Sección 5 — Observaciones LC para equipo UX/TIC (por severidad)
-
-Subsecciones fijas:
-
-1. **Hallazgos prioritarios (severidad alta)**
-2. **Hallazgos medianamente prioritarios (severidad media)**
-3. **Hallazgos bajamente prioritarios (severidad baja)**
-
-Fuente: `observaciones_lc_por_severidad` del JSON (mensaje 3.2) o derivación automática desde filas `incumple` del adaptador.
-
-### Sección 6 — Texto propuesto
-
-Título: «Texto propuesto — Para implementación por TIC (solo texto, sin tocar HTML)».
-
-Contenido: campo `texto_propuesto` de Claude.
-
-### Sección 7 — Bloque JSON
-
-- Mostrar JSON formateado (colapsable o `<pre>` con scroll).
-- Debajo: **nota final para el equipo TIC** (`nota_final_tic`).
-
-*En producción piloto: opción «Copiar JSON» para desarrolladores; no es obligatorio para usuarios UX.*
-
-### Sección 8 — Descargar PDF
+### §8 — Descargar PDF (Fase C, fuera de B4)
 
 Botón primario: **«Descargar informe PDF»**.
 
 - Llama a `POST /api/audits/export/pdf` (plan: `@react-pdf/renderer`).
-- Incluye secciones 1–7 en el documento.
-- Nombre archivo sugerido: `informe-lc-[slug-url]-[fecha].pdf`.
+- Incluye los bloques 1–7 en el mismo orden de esta §4.
+- Nombre de archivo sugerido: `informe-lc-[slug-url]-[fecha].pdf`.
 
 ---
 
@@ -339,14 +332,14 @@ flowchart TB
 | 2.2 | Carpeta `data/claude-audits/` + JSON home | Fase A |
 | 2.3 | Componente tabla **10 URLs** debajo ingreso URL | Alcance §1.1 |
 | 2.4 | API `GET /api/claude-audits/[id]` + query en resultado | Fase B |
-| 2.5 | Pantalla resultado **8 secciones** §4 | Fase B |
+| 2.5 | Pantalla resultado **7 bloques** §4 (+ acordeones; refactor orquestación) | Fase B |
 | 2.6 | PDF server + botón descarga | Fase C |
 
 ### Paso 3 — Uso en demo / entrega TIC
 
 1. Abrir **`/auditar`** → expandir **«URLs auditadas — piloto junio 2026»**.
 2. Clic en fila **Home INAPI** (u otra con JSON en repo).
-3. Revisar secciones 1–7 en `/auditar/resultado`.
+3. Revisar bloques 1–7 en `/auditar/resultado` (§4).
 4. Clic **«Descargar informe PDF»**.
 5. Enviar PDF (+ HTML corregido si aplica) a TIC con ticket de control de cambios (Bernarda).
 
@@ -358,16 +351,19 @@ Mismo flujo §5 Paso 1–3. La tabla piloto mostrará estado «Pendiente» / «D
 
 ## 6. Mapeo JSON Claude → pantalla y PDF
 
-| Clave JSON (objetivo) | Sección UI/PDF |
+| Clave JSON (objetivo) | Bloque UI/PDF (§4) |
 | --- | --- |
-| `url`, `fecha_evaluacion`, `tipo_pagina`, `evaluador` | §1 Cabecera |
-| `porcentaje_cumplimiento`, `estado_aceptacion` | §1 Cabecera (barra) |
-| `criterios_evaluados[]` + catálogo checklist | §3 Tabla 39 |
-| `resumen_ejecutivo` | §4 |
-| `observaciones_lc_por_severidad` | §5 |
-| `texto_propuesto` | §6 |
-| JSON completo + `nota_final_tic` | §7 |
-| (generado server-side) | §8 PDF |
+| `url`, `fecha_evaluacion`, `evaluador_uid`, `version_checklist`, conteos, `porcentaje_cumplimiento`, `estado_aceptacion` | 1 — Datos de Auditoría |
+| `tipo_pagina` | 1 — Datos de Auditoría (`pilot`) |
+| `resumen_ejecutivo` | 2 — Resumen Auditoría |
+| (copy por `estado_aceptacion`) | 3 — Pasos a seguir |
+| `criterios_evaluados[]` + catálogo checklist | 4 — 39 Criterios Evaluados |
+| `observaciones_lc_por_severidad` | 5 — Observaciones finales por severidad |
+| `sustituciones[]` | 6 — Texto propuesto |
+| `nota_final_tic` | 7 — Nota para el equipo TI |
+| `observaciones_lc` (narrativa) | No mostrar en piloto si hay bloque 5 |
+| `texto_propuesto` (párrafo resumen) | No mostrar en piloto si hay `sustituciones` |
+| (generado server-side) | 8 — PDF |
 
 El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recalculará resumen con `summarizeEvaluations()` si hace falta para pasar `strictAuditRecordSchema`.
 
@@ -379,7 +375,8 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 - [x] JSON home export crudo en `data/claude-audits/www-inapi-cl_2026-06-02.export.json`.
 - [x] JSON home canónico en `data/claude-audits/www-inapi-cl_2026-06-02.json` (importable en `/auditar/resultado`).
 - [ ] Enviar a Claude la plantilla canónica + prompt §3.2 para fijar el formato en el Proyecto.
-- [ ] Alcance §1.1 y §4 acordado con Equipo UX.
+- [x] Alcance §1.1 acordado con Equipo UX.
+- [x] Orquestación §4 (orden de bloques, títulos de barra, acordeones) acordada junio 2026 — pendiente refactor UI en código.
 - [ ] Desarrollo Fases A–C del plan técnico iniciado.
 - [ ] Primera URL con PDF descargado validado en reunión UX.
 

@@ -8,6 +8,10 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
+| 2026-06-04 | [Frontend: Orquestación resultado piloto — 7 bloques §4 en código](#devlog-2026-06-04-resultado-orquestacion-codigo) |
+| 2026-06-03 | [Documentación: Orquestación UI resultado piloto — 7 bloques y acordeones](#devlog-2026-06-03-resultado-orquestacion-piloto) |
+| 2026-06-03 | [Frontend: Resultado — query `claudeAudit` y carga desde API piloto](#devlog-2026-06-03-resultado-claude-audit) |
 | 2026-06-02 | [Estrategia: Fase 1.5 — piloto 10 URLs con Claude, reuniones UX y documentación operativa](#devlog-2026-06-02-fase-1-5-piloto-claude) |
 | 2026-05-29 | [Frontend: Cierre Etapas 5b y 5c — inventario Calidad Web con `type_url` y filtro Tipo](#devlog-2026-05-29-cierre-5b-5c-inventario) |
 | 2026-05-28 | [Documentación: Inventario único — Historial LC en `/auditar`](#devlog-2026-05-28-inventario-unico-docs) |
@@ -31,6 +35,143 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-06-04-auditar-tabla-piloto"></a>
+
+## [2026-06-04] - Frontend | Fase 1.5: tabla piloto de 10 URLs en `/auditar`
+
+### Contexto y objetivos:
+
+Con la API (`GET /api/claude-audits/[id]`) y el informe en [`/auditar/resultado`](../flujo-piloto-10-urls-claude-mvp.md) ya orquestado según §4, faltaba el acceso operativo desde el ingreso de URL: la demo y la entrega TIC asumen expandir **«URLs auditadas — piloto junio 2026»** y abrir cada informe sin copiar ids ni queries a mano.
+
+Objetivo: cerrar el ítem **2.3** del plan técnico (Fase B) — tabla/acordeón bajo el formulario de URL, alimentada por [`frontend/src/lib/claude-audits-launch.ts`](../../frontend/src/lib/claude-audits-launch.ts), con estado por fila según exista JSON en `data/claude-audits/`.
+
+### Implementación técnica:
+
+- **`frontend/src/lib/claude-audits-launch.ts`:** tipo `ClaudePilotUrlRow` y arreglo `CLAUDE_PILOT_URL_ROWS` (10 filas según §2 del flujo; filas 2–10 con `claudeAuditId: null` hasta tener JSON). `resumenMvp` opcional en fila 1 (home: 45,5 %, rechazado, fecha, encargado) para no hacer fetch en `/auditar`. `CLAUDE_AUDIT_LAUNCHES` y `CLAUDE_AUDIT_ID_SET` se derivan solo de filas con id en repo; helper `pilotRowDisponibleEnMvp(row)`.
+- **`frontend/src/components/auditar-claude-pilot-section.tsx`:** tarjeta «Piloto auditoría LC — 10 URLs (entrega TIC)» + acordeón «URLs auditadas — piloto junio 2026»; tabla con columnas #, Página (etiqueta + URL), Tipo, % LC, Estado (`CeldaEstadoLcAceptacion`), Última evaluación (`formatFechaEvaluacion`), Encargado, MVP («Disponible» / «Pendiente»).
+- **Navegación:** filas disponibles enlazan a `/auditar/resultado?claudeAudit={id}&url={url}`; filas pendientes sin enlace (solo texto).
+- **`frontend/src/app/auditar/page.tsx`:** `<AuditarClaudePilotSection />` insertado **debajo** de «Ingreso de URL» y **antes** de prioridades mock / import JSON / inventario 22 URLs (§1.1 del flujo).
+
+### 💡 Repaso técnico: disponibilidad en MVP:
+
+| Condición | UI |
+| --- | --- |
+| `claudeAuditId` en fila y id ∈ `CLAUDE_AUDIT_ID_SET` | Enlaces activos, columna MVP «Disponible» |
+| Sin id o JSON aún no en allowlist | Sin enlace, métricas «—», MVP «Pendiente» |
+
+### Próximos pasos:
+
+- Ampliar `CLAUDE_PILOT_URL_ROWS` (URLs exactas filas 6–10 con Bernarda) y JSON en `data/claude-audits/` al ritmo de reuniones Claude (URLs 2–10).
+- **Opcional:** `claudeAuditIdForUrl` al enviar el formulario de URL si coincide con una fila del launch.
+- **Fase C:** PDF server-side y botón «Descargar informe PDF» con el mismo orden §4.
+- Script `validate:claude-audits` en CI (flujo §1.6).
+
+---
+
+<a id="devlog-2026-06-04-resultado-orquestacion-codigo"></a>
+
+## [2026-06-04] - Frontend | Fase 1.5: orquestación de `/auditar/resultado` — siete bloques en código
+
+### Contexto y objetivos:
+
+Tras [documentar la orquestación §4](#devlog-2026-06-03-resultado-orquestacion-piloto) y el [enlace por `claudeAudit`](#devlog-2026-06-03-resultado-claude-audit), el B4 interino duplicaba contenido (paneles al final + secciones mock). El equipo acordó un solo flujo piloto: metadatos fusionados, acordeones cerrados por defecto y tabla de sustituciones como «Texto propuesto».
+
+Objetivo: implementar el ítem **2.5** (Fase B) en código — [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §4.
+
+### Implementación técnica:
+
+- **`frontend/src/app/auditar/resultado/page.tsx`:** `esInformePiloto = Boolean(pilotMeta)`; ramas piloto vs mock/fixture.
+- **Bloques fijos:** `ResultadoInformePanel` «Datos de Auditoría» (resumen operativo + `fecha_evaluacion`, `evaluador_uid`, `tipo_pagina`, `id`); título «39 Criterios Evaluados» en piloto.
+- **Acordeones** (`resultado-informe-collapsible.tsx`, `defaultValue={[]}`): grupo 1 — Resumen Auditoría (`resumen_ejecutivo`), Pasos a seguir (`PASOS_SEGUN_ESTADO`); grupo 2 tras la tabla — Observaciones finales por severidad, Texto propuesto (`sustituciones[]`), Nota para el equipo TI (`nota_final_tic`).
+- **`frontend/src/components/resultado-claude-pilot-sections.tsx`:** exports de contenido y helpers (`formatFechaEvaluacion`, `labelTipoPagina`); sin monolito `ResultadoClaudePilotSections`.
+- **Omitido en piloto:** sección `observaciones_lc` narrativa y párrafo `texto_propuesto` (`{!esInformePiloto ? … : null}`); tarjeta import JSON oculta si hay `claudeAudit=` en la URL.
+
+### 💡 Repaso técnico: orden en pantalla (piloto):
+
+| # | Bloque | UI |
+| --- | --- | --- |
+| 1 | Datos de Auditoría | Panel fijo |
+| 2–3 | Resumen + Pasos | Acordeón (cerrado al cargar) |
+| 4 | 39 Criterios Evaluados | Tabla fija |
+| 5–7 | Severidad + Sustituciones + Nota TI | Acordeón (cerrado al cargar) |
+
+### Próximos pasos:
+
+- Tabla 10 URLs en `/auditar` (ítem 2.3) — ver [entrada tabla piloto](#devlog-2026-06-04-auditar-tabla-piloto).
+- Pulido visual: cabecera `#0F69C4` en triggers de acordeón (§15.1).
+- **Fase C:** PDF con bloques 1–7.
+
+---
+
+<a id="devlog-2026-06-03-resultado-claude-audit"></a>
+
+## [2026-06-03] - Frontend | Fase 1.5: resultado con query `claudeAudit` y API piloto
+
+### Contexto y objetivos:
+
+Tras el commit de API y esquema (`parseClaudeAuditFile`, `GET /api/claude-audits/[id]`, JSON home en `data/claude-audits/`), faltaba enlazar la pantalla **`/auditar/resultado`** con ese flujo sin romper fixtures ni mock por URL. El piloto exige abrir informes por id estable (`www-inapi-cl_2026-06-02`) mientras se mantiene la tabla de 39 criterios y el resto de bloques del mock.
+
+Objetivo: implementar **B3** del [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — prioridad de fuentes de datos, estados de carga/error y importación JSON compatible con export Claude.
+
+### Implementación técnica:
+
+- **`frontend/src/app/auditar/resultado/page.tsx`:** query `claudeAudit`; `useEffect` dedicado a `GET /api/claude-audits/{id}`; el cliente consume el bundle `{ audit, pilot }` con `parseStrictAuditRecord(raw.audit)` (no `parseClaudeAuditFile` sobre la respuesta API, que espera JSON plano del repo).
+- **Prioridad de datos:** `claudeAuditForDisplay` → fixture → import → mock por `url`; `urlDerivedAudit` no aplica si hay `fixture` o `claudeAudit`.
+- **UX:** mensajes «Cargando auditoría piloto…», error con enlace a `/auditar`, `descripcionOrigen` con `claude_audit_api`; import JSON deshabilitado cuando hay `fixture=` o `claudeAudit=` en la URL.
+- **Import manual:** `aplicarImportacion` sigue usando `parseClaudeAuditFile` para JSON pegado/archivo (formato canónico en `data/claude-audits/*.json`); fallback a `parseStrictAuditRecord`.
+- **B4 (interino):** componente `resultado-claude-pilot-sections.tsx` muestra metadatos piloto, resumen ejecutivo, severidad, sustituciones y nota TIC **debajo de la tabla**; pendiente **refactor de orquestación** según entrada [Orquestación UI resultado piloto](#devlog-2026-06-03-resultado-orquestacion-piloto).
+
+### 💡 Repaso técnico: bundle API vs archivo JSON:
+
+| Origen | Forma | Parser en cliente |
+| --- | --- | --- |
+| API `/api/claude-audits/…` | `{ audit, pilot }` | `parseStrictAuditRecord(audit)` + `pilot` tal cual |
+| Pegado / archivo `.json` del repo | Campos checklist + extensiones en la raíz | `parseClaudeAuditFile` |
+
+Confundir ambos formatos producía errores Zod («Required» en todos los campos) al validar el bundle como si fuera archivo plano.
+
+### Próximos pasos:
+
+- Refactor UI según [orquestación §4 acordada](#devlog-2026-06-03-resultado-orquestacion-piloto) (orden, acordeones, fusión de metadatos en Datos de Auditoría).
+- **B5 (opcional):** en `/auditar`, enlace automático con `claudeAudit=` vía `claudeAuditIdForUrl`.
+- Tabla de 10 URLs en ingreso (flujo §2.3); PDF server-side (fase C del flujo).
+
+---
+
+<a id="devlog-2026-06-03-resultado-orquestacion-piloto"></a>
+
+## [2026-06-03] - Documentación | Fase 1.5: orquestación UI de `/auditar/resultado` (piloto)
+
+### Contexto y objetivos:
+
+Tras **B3** (carga por `claudeAudit`) y un **B4 interino** que mostraba bloques piloto al final de la página, la revisión con el equipo detectó **redundancia** entre secciones mock (Resumen, Observaciones narrativas, Texto propuesto párrafo) y campos Claude (`observaciones_lc_por_severidad`, `sustituciones`). Se acordó una **única narrativa** para entrega TIC y menor carga visual mediante **barras colapsables**.
+
+Objetivo: fijar en `docs/` el orden definitivo de bloques, títulos de barra y qué contenido del JSON alimenta cada uno, antes del refactor en `page.tsx` y `resultado-claude-pilot-sections.tsx`.
+
+### Implementación técnica:
+
+- **[`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §4 reescrita:** siete bloques + PDF (§8); solo **Datos de Auditoría** y **39 Criterios Evaluados** sin acordeón; mapeo §6 actualizado (`sustituciones` → barra «Texto propuesto»; omitir `observaciones_lc` y `texto_propuesto` en piloto cuando aplique).
+- **[`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §15.1:** tabla de títulos de barra y reglas de acordeón para resultado piloto.
+- **[`docs/ROADMAP.md`](../ROADMAP.md), [`PRD.md`](../PRD.md), [`ARCHITECTURE.md`](../ARCHITECTURE.md):** alineados al nuevo alcance de pantalla resultado.
+
+**Orden acordado (títulos de barra):**
+
+1. Datos de Auditoría — `audit` + `pilot.tipo_pagina` (siempre visible).
+2. Resumen Auditoría — `resumen_ejecutivo` (colapsable).
+3. Pasos a seguir — copy por estado (colapsable).
+4. 39 Criterios Evaluados — tabla (siempre visible).
+5. Observaciones finales por severidad — `observaciones_lc_por_severidad` (colapsable).
+6. Texto propuesto — tabla `sustituciones` (colapsable).
+7. Nota para el equipo TI — `nota_final_tic` (colapsable).
+
+### Próximos pasos:
+
+- **Código (Fase B — ítem 2.5):** refactor `frontend/src/app/auditar/resultado/page.tsx` y `resultado-claude-pilot-sections.tsx` según §4 (no documentado en esta entrada).
+- **Fase B — ítem 2.3:** tabla 10 URLs en `/auditar`.
+- **Fase C:** PDF con el mismo orden de bloques.
+
+---
+
 <a id="devlog-2026-06-02-fase-1-5-piloto-claude"></a>
 
 ## [2026-06-02] - Estrategia | Fase 1.5: piloto 10 URLs con Claude, reuniones UX y documentación operativa
@@ -47,7 +188,7 @@ Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; 
 
 - **Comparación IA (home):** [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
 - **Propuesta reunión:** [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
-- **Flujo operativo piloto:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) — Proyecto Claude, mensajes §3.2/3.3, tabla 10 URLs, alcances UI (`/auditar` acordeón piloto debajo de ingreso URL; `/auditar/resultado` con 8 bloques + PDF server-side).
+- **Flujo operativo piloto:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) — Proyecto Claude, mensajes §3.2/3.3, tabla 10 URLs, alcances UI (`/auditar` acordeón piloto debajo de ingreso URL; `/auditar/resultado` con 7 bloques §4 + PDF server-side).
 - **Roadmap:** nueva sección **Fase 1.5**; condición de entrada a Fase 2 actualizada; PDF adelantado en piloto (consolidación institucional en Fase 2/4).
 - **PRD / arquitectura / README / fase2 / diagramas:** alineados a Fase 1.5 y referencias cruzadas.
 - **Primera auditoría Claude (home):** JSON con 39 criterios y 17 sustituciones en mano del equipo; pendiente volcar en `data/claude-audits/` y enriquecer campos del mensaje §3.2 del flujo operativo.
