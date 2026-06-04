@@ -381,10 +381,11 @@ function ResultadoInner() {
           ? "Datos cargados desde JSON pegado o importado en el navegador."
           : "Datos generados en cliente con buildStrictAuditForAuditarUrl o buildDemoStrictAudit desde @contracts/checklist."
 
-  void pilotMeta
+
 
   return (
     <div className="flex w-full flex-col gap-6">
+      {!claudeAuditId ? (
       <Card className="border-dashed">
         <CardHeader className="space-y-1.5">
           <CardTitle className="text-base">Demostración: importar JSON</CardTitle>
@@ -463,6 +464,7 @@ function ResultadoInner() {
           </div>
         </CardContent>
       </Card>
+      ) : null}
       <Card>
         <CardHeader className="gap-4 space-y-0">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -591,7 +593,9 @@ function ResultadoInner() {
                 id="resultado-texto-propuesto-titulo"
                 className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
               >
-                Texto propuesto
+                {pilotMeta
+                  ? "Texto propuesto — Para implementación por TIC (solo texto, sin tocar HTML)"
+                  : "Texto propuesto"}              
               </div>
               <div className={cn(PANEL_BODY_CLASS, "p-4")}>
                 {auditoria.texto_propuesto ? (
@@ -873,6 +877,7 @@ function ResultadoInner() {
               </Table>
             </div>
           </section>
+
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" asChild>

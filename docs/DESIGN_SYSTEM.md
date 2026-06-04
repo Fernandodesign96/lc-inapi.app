@@ -354,6 +354,22 @@ Suprimidos en UI: **«URLs más auditadas»** (columnas fusionadas en el bloque 
 
 Implementación sugerida en stack: primitiva **Accordion** o **Collapsible** de Radix (shadcn) + icono **Lucide** (`ChevronDown` / `ChevronUp`).
 
+### 15.1 Patrón UI: informe piloto en `/auditar/resultado` (Fase 1.5)
+
+**Uso:** pantalla de informe cuando la auditoría proviene de `data/claude-audits/` (`?claudeAudit=` o import con metadatos `pilot`). Orden y títulos de barra: [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4.
+
+| Bloque | Acordeón | Cabecera de barra (texto exacto) |
+| --- | --- | --- |
+| Datos de Auditoría | No | «Datos de Auditoría» — panel fijo con barra primaria `#0F69C4` (mismo patrón que secciones actuales de resultado). |
+| Resumen Auditoría | Sí | «Resumen Auditoría» |
+| Pasos a seguir | Sí | «Pasos a seguir» |
+| 39 Criterios Evaluados | No | «39 Criterios Evaluados» — tabla + leyenda + filtros siempre visibles. |
+| Observaciones finales por severidad | Sí | «Observaciones finales por severidad» |
+| Texto propuesto | Sí | «Texto propuesto» (cuerpo: tabla de sustituciones, no párrafo suelto). |
+| Nota para el equipo TI | Sí | «Nota para el equipo TI» |
+
+**Accesibilidad:** cada trigger colapsable con `aria-expanded`; teclado Enter/Espacio; foco visible (`--ring` §3.5). **Estado inicial recomendado:** acordeones 2, 3, 5, 6 y 7 **cerrados** al cargar la página.
+
 ---
 
 ## 16. Alcance MVP vs. kit completo

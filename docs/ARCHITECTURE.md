@@ -56,7 +56,7 @@ Hasta aprobar el mock de UI:
 Etapa acordada junio 2026 ([`docs/ROADMAP.md`](ROADMAP.md) Fase 1.5, [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md)):
 
 - **Evaluación:** Proyecto Claude en interfaz web del proveedor; el operador exporta JSON y lo versiona en **`data/claude-audits/`** (adaptador hacia `strictAuditRecordSchema` — por implementar).
-- **UI:** acordeón **Piloto 10 URLs** debajo del ingreso de URL en `/auditar`; `/auditar/resultado` ampliado + **PDF** generado en servidor (Route Handler, `@react-pdf/renderer`).
+- **UI:** acordeón **Piloto 10 URLs** debajo del ingreso de URL en `/auditar`; `/auditar/resultado` con **siete bloques** ordenados y acordeones (solo Datos de Auditoría + tabla 39 siempre visibles — ver [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4) + **PDF** generado en servidor (Route Handler, `@react-pdf/renderer`).
 - **Sin** llamadas a API Anthropic desde la app ni Supabase en esta etapa.
 - El inventario de **22 URLs** Clarity permanece como referencia editorial; el piloto usa un subconjunto de **10** URLs para entrega TIC.
 

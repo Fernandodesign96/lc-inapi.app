@@ -66,7 +66,7 @@
 - [ ] **Lista oficial de 10 URLs** cerrada con Bernarda/TIC (tabla en flujo operativo §2).
 - [ ] **UI `/auditar`:** nueva tarjeta + acordeón **debajo del ingreso de URL** — tabla **Piloto 10 URLs** (mismo patrón que historial 22 URLs); clic → `/auditar/resultado` con auditoría Claude cargada.
 - [ ] **Parseo interno:** esquema export Claude → `strictAuditRecordSchema` + metadatos (`sustituciones`, observaciones por severidad, `nota_final_tic`) — ver plan técnico en flujo §5–6.
-- [ ] **`/auditar/resultado` ampliado (piloto):** cabecera (URL, fecha, encargado, tipo, estado %); tabla 39 con **Sección** y **Criterio** por nombre; resumen ejecutivo; hallazgos UX/TIC por severidad (alta/media/baja); texto propuesto; bloque JSON + nota TIC; **descarga PDF** (server-side, `@react-pdf/renderer`).
+- [ ] **`/auditar/resultado` ampliado (piloto):** siete bloques en orden acordado ([`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4): **Datos de Auditoría** y **39 Criterios Evaluados** siempre visibles; **Resumen Auditoría**, **Pasos a seguir**, **Observaciones finales por severidad**, **Texto propuesto** (tabla `sustituciones`), **Nota para el equipo TI** en barras colapsables; sin duplicar `observaciones_lc` narrativo ni párrafo `texto_propuesto` cuando aplique piloto. **Descarga PDF** (server-side, `@react-pdf/renderer`) — Fase C.
 - [ ] **9 URLs restantes:** HTML Ctrl+U → Claude → JSON en `data/claude-audits/` → revisión UX → PDF (+ HTML corregido a TIC tras aprobación de sustituciones).
 - [ ] **Entrega TIC:** PDF + HTML con sustituciones aprobadas; control de cambios (Bernarda).
 

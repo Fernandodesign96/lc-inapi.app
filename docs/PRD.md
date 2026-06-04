@@ -92,7 +92,7 @@ En **Fase 2**, el flujo técnico previsto es: **Next** → **Nest** → (REST/JS
 | Fase | Entregable |
 | --- | --- |
 | **Fase 1 — Mock UX e interfaz** | UI alineada al design system; inventario **22 URLs** Calidad Web; fichas, filtros, fixtures `strictAuditRecordSchema`; **sin** backend productivo. [`docs/ROADMAP.md`](ROADMAP.md), [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md). |
-| **Fase 1.5 — Piloto LC con IA (10 URLs)** | **10 URLs** acordadas con UX/TIC; evaluación con **Proyecto Claude** (export JSON manual → repo); MVP: acordeón piloto en `/auditar`, resultado ampliado, **PDF** server-side; entrega **PDF + HTML** con sustituciones. Sin Supabase obligatorio. [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md). |
+| **Fase 1.5 — Piloto LC con IA (10 URLs)** | **10 URLs** acordadas con UX/TIC; evaluación con **Proyecto Claude** (export JSON manual → repo); MVP: acordeón piloto en `/auditar`, resultado con **siete bloques** (Datos de Auditoría + 39 criterios fijos; resto colapsable — §4 flujo piloto), **PDF** server-side; entrega **PDF + HTML** con sustituciones. Sin Supabase obligatorio. [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md). |
 | **Fase 2 — Persistencia y evaluación** | Supabase + NestJS + Prisma; contrato HTTP FE ↔ API; servicio **Python** + **Claude API**; entorno **AWS**. Tras cierre **Fase 1.5** (piloto 10 URLs con informe en MVP). |
 | **Fase 3 — Captura y endurecimiento** | Captura real (Cheerio vs Playwright — ADR); reintentos, costo y observabilidad del pipeline LLM. |
 | **Fase 4 — Cierre MVP** | Export consolidado (PDF institucional persistido), histórico por URL en UI, pruebas con URLs reales *(PDF por URL adelantado en Fase 1.5)* |
