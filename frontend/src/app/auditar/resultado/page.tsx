@@ -1055,6 +1055,16 @@ function ResultadoInner() {
           ) : null}
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
+          {esInformePiloto && claudeAuditId ? (
+            <Button type="button" asChild>
+              <a
+                href={`/api/claude-audits/${encodeURIComponent(claudeAuditId)}/export/pdf`}
+                download
+              >
+                Descargar informe PDF
+              </a>
+            </Button>
+          ) : null}
           <Button type="button" variant="outline" asChild>
             <Link href="/auditar">Nueva auditoría</Link>
           </Button>
