@@ -4,6 +4,7 @@ import type {
   ClaudeAuditPilotMeta,
   ClaudeSustitucion,
 } from "@contracts/claude-audit-pilot"
+export { formatFechaEvaluacion, labelTipoPagina } from "@/lib/informe-piloto-format"
 
 function SeveridadList({
   titulo,
@@ -23,22 +24,6 @@ function SeveridadList({
       </ul>
     </div>
   )
-}
-
-export function formatFechaEvaluacion(iso: string): string {
-  try {
-    return new Intl.DateTimeFormat("es-CL", {
-      dateStyle: "long",
-      timeStyle: "short",
-      timeZone: "America/Santiago",
-    }).format(new Date(iso))
-  } catch {
-    return iso
-  }
-}
-
-export function labelTipoPagina(tipo: "sitioweb" | "tramites"): string {
-  return tipo === "tramites" ? "Trámites" : "Sitio web"
 }
 
 export function ResumenAuditoriaContent({ texto }: { texto: string }) {

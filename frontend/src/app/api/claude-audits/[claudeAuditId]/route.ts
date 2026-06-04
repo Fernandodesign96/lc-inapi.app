@@ -1,46 +1,29 @@
-import { readFileSync } from "node:fs"
-import { join } from "node:path"
-
 import { NextResponse } from "next/server"
 
-import { parseClaudeAuditFile } from "@contracts/claude-audit-pilot"
-import { CLAUDE_AUDIT_ID_SET } from "@/lib/claude-audits-launch"
+import {
+  LoadClaudeAuditBundleError,
+  loadClaudeAuditBundle,
+} from "@/lib/load-claude-audit-bundle"
+
+function errorResponse(err: LoadClaudeAuditBundleError) {
+  const status =
+    err.code === "not_allowed" || err.code === "not_found" ? 404 : 500
+  return NextResponse.json({ error: err.message }, { status })
+}
 
 export async function GET(
   _request: Request,
   context: { params: Promise<{ claudeAuditId: string }> },
 ) {
   const { claudeAuditId: param } = await context.params
-  const claudeAuditId = decodeURIComponent(param)
-
-  if (!CLAUDE_AUDIT_ID_SET.has(claudeAuditId)) {
-    return NextResponse.json({ error: "Auditoría piloto no permitida" }, { status: 404 })
-  }
-
-  const repoRoot = process.env.LC_REPO_ROOT ?? join(process.cwd(), "..")
-  const filePath = join(repoRoot, "data", "claude-audits", `${claudeAuditId}.json`)
-
-  let rawText: string
-  try {
-    rawText = readFileSync(filePath, "utf8")
-  } catch {
-    return NextResponse.json({ error: "Archivo no encontrado" }, { status: 404 })
-  }
-
-  let data: unknown
-  try {
-    data = JSON.parse(rawText)
-  } catch {
-    return NextResponse.json({ error: "JSON inválido" }, { status: 500 })
-  }
 
   try {
-    const bundle = parseClaudeAuditFile(data)
+    const bundle = loadClaudeAuditBundle(param)
     return NextResponse.json(bundle)
-  } catch {
-    return NextResponse.json(
-      { error: "No cumple el esquema de auditoría piloto" },
-      { status: 500 },
-    )
+  } catch (e) {
+    if (e instanceof LoadClaudeAuditBundleError) {
+      return errorResponse(e)
+    }
+    return NextResponse.json({ error: "Error interno" }, { status: 500 })
   }
 }

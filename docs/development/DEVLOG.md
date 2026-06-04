@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-04 | [Frontend: Fase C — exportación PDF del informe piloto y descarga en resultado](#devlog-2026-06-04-fase-c-pdf) |
 | 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
 | 2026-06-04 | [Frontend: Orquestación resultado piloto — 7 bloques §4 en código](#devlog-2026-06-04-resultado-orquestacion-codigo) |
 | 2026-06-03 | [Documentación: Orquestación UI resultado piloto — 7 bloques y acordeones](#devlog-2026-06-03-resultado-orquestacion-piloto) |
@@ -32,6 +33,47 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-04-fase-c-pdf"></a>
+
+## [2026-06-04] - Frontend | Fase 1.5: exportación PDF del informe piloto (Fase C)
+
+### Contexto y objetivos:
+
+Con la [orquestación §4 en pantalla](#devlog-2026-06-04-resultado-orquestacion-codigo) y la [tabla de 10 URLs](#devlog-2026-06-04-auditar-tabla-piloto) operativas, faltaba el entregable de demo y TIC del flujo [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §8: **descargar un informe PDF** con los mismos bloques 1–7 que en `/auditar/resultado`, generado en servidor sin depender del «Guardar como PDF» del navegador.
+
+Objetivo: cerrar el ítem **2.6** (Fase C) — `@react-pdf/renderer`, ruta de exportación con la misma allowlist que `GET /api/claude-audits/[id]`, y botón **«Descargar informe PDF»** visible solo en informe piloto con `claudeAudit=` en la URL.
+
+### Implementación técnica:
+
+- **C0 — Dependencia:** `@react-pdf/renderer` en `frontend/package.json` (y `bun.lock` en raíz del monorepo).
+- **C1 — Lectura y formato compartidos:** `frontend/src/lib/load-claude-audit-bundle.ts` (lectura de `data/claude-audits/{id}.json`, `parseClaudeAuditFile`, errores tipados, `CLAUDE_AUDIT_ID_SET`); refactor de `frontend/src/app/api/claude-audits/[claudeAuditId]/route.ts` para reutilizar el helper; `frontend/src/lib/informe-piloto-format.ts` (`formatFechaEvaluacion`, `labelTipoPagina`) reexportado desde `resultado-claude-pilot-sections.tsx` para no acoplar PDF a `"use client"`.
+- **C2 — Nombre de archivo:** `frontend/src/lib/informe-piloto-filename.ts` — slug desde `audit.url`, fecha `YYYY-MM-DD` (zona Chile), sanitización y `contentDispositionAttachment` para `Content-Disposition` (p. ej. `informe-lc-inapi-cl_2026-06-03.pdf`).
+- **C3 — Documento PDF:** `frontend/src/lib/pdf/informe-piloto-pdf-styles.tsx` (cabeceras `#0F69C4`, estilos de tabla y listas; extensión `.tsx` por JSX en `PdfSectionBar`); `frontend/src/lib/pdf/informe-piloto-pdf-document.tsx` — componente `InformePilotoPdfDocument` con bloques 1–7 expandidos (sin acordeones): Datos de Auditoría, Resumen, Pasos (`PASOS_SEGUN_ESTADO`), 39 criterios (catálogo + `presentacionCriterio` / severidad), observaciones por severidad, tabla `sustituciones`, nota TI; reutiliza helpers de pantalla, no duplica JSX web.
+- **C4 — Ruta servidor:** `frontend/src/app/api/claude-audits/[claudeAuditId]/export/pdf/route.tsx` — `GET`, `export const runtime = "nodejs"`, `renderToBuffer` + `InformePilotoPdfDocument`, respuesta `application/pdf` con `Uint8Array(buffer)` (compatibilidad `Response` / TypeScript); mismos códigos HTTP que el GET JSON (`404` allowlist / no encontrado, `500` schema).
+- **C5 — UI:** `frontend/src/app/auditar/resultado/page.tsx` — en `CardFooter`, enlace primario a `/api/claude-audits/{id}/export/pdf` cuando `esInformePiloto && claudeAuditId`; «Nueva auditoría» en `outline` después.
+- **C6 — Verificación:** `bun run typecheck:all`, `bun run lint` y `bun run build` sin errores; ruta dinámica listada en build (`ƒ /api/claude-audits/[claudeAuditId]/export/pdf`); prueba manual home (`www-inapi-cl_2026-06-02`), cabeceras `200` + `content-disposition: attachment`, PDF legible con los siete bloques; id inválido → `404` JSON.
+
+**Desvío documentado respecto al flujo §8:** el doc menciona `POST /api/audits/export/pdf`; en el MVP la exportación es **`GET /api/claude-audits/[claudeAuditId]/export/pdf`** (misma fuente de datos y allowlist que la API piloto). No se aplicó `serverExternalPackages` en `next.config.ts` porque el build de producción pasó sin ello.
+
+### 💡 Repaso técnico: flujo piloto hasta PDF:
+
+| Paso | Usuario | Sistema |
+| --- | --- | --- |
+| 1 | Expande tabla en `/auditar` | Fila home «Disponible» → `?claudeAudit=…&url=…` |
+| 2 | Revisa informe | `GET /api/claude-audits/[id]` → bundle `{ audit, pilot }` |
+| 3 | Descarga PDF | `GET …/export/pdf` → mismo bundle → `renderToBuffer` |
+| 4 | Mock sin `claudeAudit` | Sin botón PDF (solo piloto con JSON en repo) |
+
+### Próximos pasos:
+
+- Abrir PR de Fase 1.5 (Fase B + Fase C) o merge de rama `feature/fase-1-5-implementacion-auditorias-claude-urls`.
+- Actualizar en docs de producto el §8 del flujo con la ruta `GET` real (opcional en el mismo PR).
+- **C7 (opcional):** script `validate:claude-audits` en raíz + CI (flujo §1.6; aún no existe en `package.json`).
+- JSON y filas 2–10 en `data/claude-audits/` y `CLAUDE_PILOT_URL_ROWS` al ritmo de auditorías Claude.
+- Pulido UX: triggers de acordeón con cabecera `#0F69C4` (§15.1 design system).
 
 ---
 
@@ -63,8 +105,7 @@ Objetivo: cerrar el ítem **2.3** del plan técnico (Fase B) — tabla/acordeón
 
 - Ampliar `CLAUDE_PILOT_URL_ROWS` (URLs exactas filas 6–10 con Bernarda) y JSON en `data/claude-audits/` al ritmo de reuniones Claude (URLs 2–10).
 - **Opcional:** `claudeAuditIdForUrl` al enviar el formulario de URL si coincide con una fila del launch.
-- **Fase C:** PDF server-side y botón «Descargar informe PDF» con el mismo orden §4.
-- Script `validate:claude-audits` en CI (flujo §1.6).
+- Script `validate:claude-audits` en CI (flujo §1.6) — ver [Fase C PDF](#devlog-2026-06-04-fase-c-pdf).
 
 ---
 
@@ -99,7 +140,7 @@ Objetivo: implementar el ítem **2.5** (Fase B) en código — [`docs/flujo-pilo
 
 - Tabla 10 URLs en `/auditar` (ítem 2.3) — ver [entrada tabla piloto](#devlog-2026-06-04-auditar-tabla-piloto).
 - Pulido visual: cabecera `#0F69C4` en triggers de acordeón (§15.1).
-- **Fase C:** PDF con bloques 1–7.
+- Exportación PDF — ver [Fase C](#devlog-2026-06-04-fase-c-pdf).
 
 ---
 
