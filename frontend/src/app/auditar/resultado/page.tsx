@@ -32,6 +32,19 @@ import {
 } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
+import {
+  formatFechaEvaluacion,
+  labelTipoPagina,
+  NotaEquipoTiContent,
+  ObservacionesSeveridadContent,
+  ResumenAuditoriaContent,
+  SustitucionesTextoContent,
+} from "@/components/resultado-claude-pilot-sections"
+import {
+  ResultadoInformeCollapsible,
+  ResultadoInformeCollapsibleGroup,
+  ResultadoInformePanel,
+} from "@/components/resultado-informe-collapsible"
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
 import {
@@ -369,6 +382,18 @@ function ResultadoInner() {
     return null
   }
 
+  const esInformePiloto = Boolean(pilotMeta)
+
+  const sustitucionesPiloto = pilotMeta?.sustituciones ?? []
+  const severidadPiloto = pilotMeta?.observaciones_lc_por_severidad
+  const tieneSeveridadPiloto = Boolean(
+    severidadPiloto &&
+      (severidadPiloto.hallazgos_prioridad_alta.length > 0 ||
+        severidadPiloto.hallazgos_prioridad_media.length > 0 ||
+        severidadPiloto.hallazgos_prioridad_baja.length > 0),
+  )
+
+  
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
 
@@ -483,17 +508,11 @@ function ResultadoInner() {
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          <section
-            className="overflow-hidden rounded-lg border border-border shadow-sm"
-            aria-labelledby="resultado-resumen-titulo"
-          >
-            <div
-              id="resultado-resumen-titulo"
-              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+        {esInformePiloto ? (
+            <ResultadoInformePanel
+              title="Datos de Auditoría"
+              id="resultado-datos-auditoria"
             >
-              Resumen
-            </div>
-            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
               <div className="grid gap-2 text-sm sm:grid-cols-2">
                 <p>
                   <span className="text-muted-foreground">URL:</span>{" "}
@@ -524,7 +543,9 @@ function ResultadoInner() {
                     aria-labelledby="resultado-cumplimiento-label"
                     value={auditoria.porcentaje_cumplimiento}
                     max={100}
-                    className={CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track}
+                    className={
+                      CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
+                    }
                     indicatorClassName={
                       CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
                     }
@@ -548,30 +569,152 @@ function ResultadoInner() {
                   <span className="text-muted-foreground">N/A:</span>{" "}
                   {auditoria.criterios_no_aplica}
                 </p>
+                <p>
+                  <span className="text-muted-foreground">
+                    Fecha de evaluación:
+                  </span>{" "}
+                  <span className="font-medium">
+                    {formatFechaEvaluacion(auditoria.fecha_evaluacion)}
+                  </span>
+                </p>
+                <p>
+                  <span className="text-muted-foreground">Encargado:</span>{" "}
+                  <span className="font-medium">{auditoria.evaluador_uid}</span>
+                </p>
+                {pilotMeta?.tipo_pagina ? (
+                  <p>
+                    <span className="text-muted-foreground">
+                      Tipo de página:
+                    </span>{" "}
+                    <span className="font-medium">
+                      {labelTipoPagina(pilotMeta.tipo_pagina)}
+                    </span>
+                  </p>
+                ) : null}
+                <p className="sm:col-span-2">
+                  <span className="text-muted-foreground">Id auditoría:</span>{" "}
+                  <span className="font-mono text-xs">{auditoria.id}</span>
+                </p>
               </div>
-            </div>
-          </section>
-
-          <section
-            className="overflow-hidden rounded-lg border border-border shadow-sm"
-            aria-labelledby="resultado-pasos-titulo"
-          >
-            <div
-              id="resultado-pasos-titulo"
-              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+            </ResultadoInformePanel>
+          ) : (
+            <section
+              className="overflow-hidden rounded-lg border border-border shadow-sm"
+              aria-labelledby="resultado-resumen-titulo"
             >
-              {bloquePasos.titulo}
-            </div>
-            <div className={cn(PANEL_BODY_CLASS, "p-4")}>
-              <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
-                {bloquePasos.pasos.map((paso) => (
-                  <li key={paso}>{paso}</li>
-                ))}
-              </ol>
-            </div>
-          </section>
+              <div
+                id="resultado-resumen-titulo"
+                className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+              >
+                Resumen
+              </div>
+              <div className={cn(PANEL_BODY_CLASS, "p-4")}>
+                <div className="grid gap-2 text-sm sm:grid-cols-2">
+                  <p>
+                    <span className="text-muted-foreground">URL:</span>{" "}
+                    <span className="font-medium break-all">{auditoria.url}</span>
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">Checklist:</span>{" "}
+                    <span className="font-medium">
+                      {auditoria.version_checklist}
+                    </span>
+                  </p>
+                  <div className="sm:col-span-2 space-y-2">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <span
+                        className="text-muted-foreground"
+                        id="resultado-cumplimiento-label"
+                      >
+                        Cumplimiento (criterios aplicables)
+                      </span>
+                      <span
+                        className="font-medium tabular-nums text-foreground"
+                        aria-labelledby="resultado-cumplimiento-label"
+                      >
+                        {auditoria.porcentaje_cumplimiento} %
+                      </span>
+                    </div>
+                    <Progress
+                      aria-labelledby="resultado-cumplimiento-label"
+                      value={auditoria.porcentaje_cumplimiento}
+                      max={100}
+                      className={
+                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
+                      }
+                      indicatorClassName={
+                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
+                      }
+                    />
+                  </div>
+                  <p>
+                    <span className="text-muted-foreground">Estado:</span>{" "}
+                    <span
+                      className="font-medium"
+                      title={auditoria.estado_aceptacion}
+                    >
+                      {etiquetaEstado}
+                    </span>
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">Aprobados:</span>{" "}
+                    {auditoria.criterios_aprobados} / aplicables{" "}
+                    {auditoria.criterios_aplicables}
+                  </p>
+                  <p>
+                    <span className="text-muted-foreground">N/A:</span>{" "}
+                    {auditoria.criterios_no_aplica}
+                  </p>
+                </div>
+              </div>
+            </section>
+          )}
+          {esInformePiloto ? (
+            <ResultadoInformeCollapsibleGroup>
+              {pilotMeta?.resumen_ejecutivo ? (
+                <ResultadoInformeCollapsible
+                  value="resumen-auditoria"
+                  title="Resumen Auditoría"
+                >
+                  <ResumenAuditoriaContent
+                    texto={pilotMeta.resumen_ejecutivo}
+                  />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              <ResultadoInformeCollapsible
+                value="pasos-seguir"
+                title="Pasos a seguir"
+              >
+                <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
+                  {bloquePasos.pasos.map((paso) => (
+                    <li key={paso}>{paso}</li>
+                  ))}
+                </ol>
+              </ResultadoInformeCollapsible>
+            </ResultadoInformeCollapsibleGroup>
+          ) : (
+            <section
+              className="overflow-hidden rounded-lg border border-border shadow-sm"
+              aria-labelledby="resultado-pasos-titulo"
+            >
+              <div
+                id="resultado-pasos-titulo"
+                className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
+              >
+                {bloquePasos.titulo}
+              </div>
+              <div className={cn(PANEL_BODY_CLASS, "p-4")}>
+                <ol className="list-decimal space-y-2 ps-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
+                  {bloquePasos.pasos.map((paso) => (
+                    <li key={paso}>{paso}</li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+          )}
 
-          <div className="space-y-4">
+            {!esInformePiloto ? (
+            <div className="space-y-4">
             {auditoria.observaciones_lc ? (
               <section className="overflow-hidden rounded-lg border border-border shadow-sm">
                 <div className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white">
@@ -615,6 +758,7 @@ function ResultadoInner() {
               </div>
             </section>
           </div>
+        ) : null}
 
           <section
             className="overflow-hidden rounded-lg border border-border shadow-sm"
@@ -624,7 +768,9 @@ function ResultadoInner() {
               id="resultado-criterios-titulo"
               className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
             >
-              Criterios evaluados
+              {esInformePiloto
+                ? "39 Criterios Evaluados"
+                : "Criterios evaluados"}
             </div>
             <div className={cn(PANEL_BODY_CLASS, "p-0")}>
             <div
@@ -877,7 +1023,36 @@ function ResultadoInner() {
               </Table>
             </div>
           </section>
-
+          {esInformePiloto ? (
+            <ResultadoInformeCollapsibleGroup>
+              {tieneSeveridadPiloto && severidadPiloto ? (
+                <ResultadoInformeCollapsible
+                  value="observaciones-severidad"
+                  title="Observaciones finales por severidad"
+                >
+                  <ObservacionesSeveridadContent severidad={severidadPiloto} />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              {sustitucionesPiloto.length > 0 ? (
+                <ResultadoInformeCollapsible
+                  value="texto-propuesto"
+                  title="Texto propuesto"
+                >
+                  <SustitucionesTextoContent
+                    sustituciones={sustitucionesPiloto}
+                  />
+                </ResultadoInformeCollapsible>
+              ) : null}
+              {pilotMeta?.nota_final_tic ? (
+                <ResultadoInformeCollapsible
+                  value="nota-equipo-ti"
+                  title="Nota para el equipo TI"
+                >
+                  <NotaEquipoTiContent texto={pilotMeta.nota_final_tic} />
+                </ResultadoInformeCollapsible>
+              ) : null}
+            </ResultadoInformeCollapsibleGroup>
+          ) : null}
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" asChild>
