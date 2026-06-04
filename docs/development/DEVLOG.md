@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
+| 2026-06-04 | [Frontend: Orquestación resultado piloto — 7 bloques §4 en código](#devlog-2026-06-04-resultado-orquestacion-codigo) |
 | 2026-06-03 | [Documentación: Orquestación UI resultado piloto — 7 bloques y acordeones](#devlog-2026-06-03-resultado-orquestacion-piloto) |
 | 2026-06-03 | [Frontend: Resultado — query `claudeAudit` y carga desde API piloto](#devlog-2026-06-03-resultado-claude-audit) |
 | 2026-06-02 | [Estrategia: Fase 1.5 — piloto 10 URLs con Claude, reuniones UX y documentación operativa](#devlog-2026-06-02-fase-1-5-piloto-claude) |
@@ -30,6 +32,74 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-04-auditar-tabla-piloto"></a>
+
+## [2026-06-04] - Frontend | Fase 1.5: tabla piloto de 10 URLs en `/auditar`
+
+### Contexto y objetivos:
+
+Con la API (`GET /api/claude-audits/[id]`) y el informe en [`/auditar/resultado`](../flujo-piloto-10-urls-claude-mvp.md) ya orquestado según §4, faltaba el acceso operativo desde el ingreso de URL: la demo y la entrega TIC asumen expandir **«URLs auditadas — piloto junio 2026»** y abrir cada informe sin copiar ids ni queries a mano.
+
+Objetivo: cerrar el ítem **2.3** del plan técnico (Fase B) — tabla/acordeón bajo el formulario de URL, alimentada por [`frontend/src/lib/claude-audits-launch.ts`](../../frontend/src/lib/claude-audits-launch.ts), con estado por fila según exista JSON en `data/claude-audits/`.
+
+### Implementación técnica:
+
+- **`frontend/src/lib/claude-audits-launch.ts`:** tipo `ClaudePilotUrlRow` y arreglo `CLAUDE_PILOT_URL_ROWS` (10 filas según §2 del flujo; filas 2–10 con `claudeAuditId: null` hasta tener JSON). `resumenMvp` opcional en fila 1 (home: 45,5 %, rechazado, fecha, encargado) para no hacer fetch en `/auditar`. `CLAUDE_AUDIT_LAUNCHES` y `CLAUDE_AUDIT_ID_SET` se derivan solo de filas con id en repo; helper `pilotRowDisponibleEnMvp(row)`.
+- **`frontend/src/components/auditar-claude-pilot-section.tsx`:** tarjeta «Piloto auditoría LC — 10 URLs (entrega TIC)» + acordeón «URLs auditadas — piloto junio 2026»; tabla con columnas #, Página (etiqueta + URL), Tipo, % LC, Estado (`CeldaEstadoLcAceptacion`), Última evaluación (`formatFechaEvaluacion`), Encargado, MVP («Disponible» / «Pendiente»).
+- **Navegación:** filas disponibles enlazan a `/auditar/resultado?claudeAudit={id}&url={url}`; filas pendientes sin enlace (solo texto).
+- **`frontend/src/app/auditar/page.tsx`:** `<AuditarClaudePilotSection />` insertado **debajo** de «Ingreso de URL» y **antes** de prioridades mock / import JSON / inventario 22 URLs (§1.1 del flujo).
+
+### 💡 Repaso técnico: disponibilidad en MVP:
+
+| Condición | UI |
+| --- | --- |
+| `claudeAuditId` en fila y id ∈ `CLAUDE_AUDIT_ID_SET` | Enlaces activos, columna MVP «Disponible» |
+| Sin id o JSON aún no en allowlist | Sin enlace, métricas «—», MVP «Pendiente» |
+
+### Próximos pasos:
+
+- Ampliar `CLAUDE_PILOT_URL_ROWS` (URLs exactas filas 6–10 con Bernarda) y JSON en `data/claude-audits/` al ritmo de reuniones Claude (URLs 2–10).
+- **Opcional:** `claudeAuditIdForUrl` al enviar el formulario de URL si coincide con una fila del launch.
+- **Fase C:** PDF server-side y botón «Descargar informe PDF» con el mismo orden §4.
+- Script `validate:claude-audits` en CI (flujo §1.6).
+
+---
+
+<a id="devlog-2026-06-04-resultado-orquestacion-codigo"></a>
+
+## [2026-06-04] - Frontend | Fase 1.5: orquestación de `/auditar/resultado` — siete bloques en código
+
+### Contexto y objetivos:
+
+Tras [documentar la orquestación §4](#devlog-2026-06-03-resultado-orquestacion-piloto) y el [enlace por `claudeAudit`](#devlog-2026-06-03-resultado-claude-audit), el B4 interino duplicaba contenido (paneles al final + secciones mock). El equipo acordó un solo flujo piloto: metadatos fusionados, acordeones cerrados por defecto y tabla de sustituciones como «Texto propuesto».
+
+Objetivo: implementar el ítem **2.5** (Fase B) en código — [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §4.
+
+### Implementación técnica:
+
+- **`frontend/src/app/auditar/resultado/page.tsx`:** `esInformePiloto = Boolean(pilotMeta)`; ramas piloto vs mock/fixture.
+- **Bloques fijos:** `ResultadoInformePanel` «Datos de Auditoría» (resumen operativo + `fecha_evaluacion`, `evaluador_uid`, `tipo_pagina`, `id`); título «39 Criterios Evaluados» en piloto.
+- **Acordeones** (`resultado-informe-collapsible.tsx`, `defaultValue={[]}`): grupo 1 — Resumen Auditoría (`resumen_ejecutivo`), Pasos a seguir (`PASOS_SEGUN_ESTADO`); grupo 2 tras la tabla — Observaciones finales por severidad, Texto propuesto (`sustituciones[]`), Nota para el equipo TI (`nota_final_tic`).
+- **`frontend/src/components/resultado-claude-pilot-sections.tsx`:** exports de contenido y helpers (`formatFechaEvaluacion`, `labelTipoPagina`); sin monolito `ResultadoClaudePilotSections`.
+- **Omitido en piloto:** sección `observaciones_lc` narrativa y párrafo `texto_propuesto` (`{!esInformePiloto ? … : null}`); tarjeta import JSON oculta si hay `claudeAudit=` en la URL.
+
+### 💡 Repaso técnico: orden en pantalla (piloto):
+
+| # | Bloque | UI |
+| --- | --- | --- |
+| 1 | Datos de Auditoría | Panel fijo |
+| 2–3 | Resumen + Pasos | Acordeón (cerrado al cargar) |
+| 4 | 39 Criterios Evaluados | Tabla fija |
+| 5–7 | Severidad + Sustituciones + Nota TI | Acordeón (cerrado al cargar) |
+
+### Próximos pasos:
+
+- Tabla 10 URLs en `/auditar` (ítem 2.3) — ver [entrada tabla piloto](#devlog-2026-06-04-auditar-tabla-piloto).
+- Pulido visual: cabecera `#0F69C4` en triggers de acordeón (§15.1).
+- **Fase C:** PDF con bloques 1–7.
 
 ---
 
