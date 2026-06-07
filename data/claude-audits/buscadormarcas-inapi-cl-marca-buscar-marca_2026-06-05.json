@@ -1,0 +1,641 @@
+{
+  "id": "buscadormarcas-inapi-cl-marca-buscar-marca_2026-06-05",
+  "url": "https://buscadormarcas.inapi.cl/Marca/BuscarMarca.aspx",
+  "fecha_evaluacion": "2026-06-05T04:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [HTML-L31]: «INAPI - Consulta de Marca» (title) | T006 [HTML-L379]: «PCT» (menú, sin definir) | T007 [HTML-L380]: «Sello de Origens» (error tipográfico) | T026 [HTML-L436]: «ACCESOS» | T027 [HTML-L467]: «Volver al Sitio» | T028 [HTML-L365]: «MENU» | T030 [HTML-L531]: «Registro» | T031 [HTML-L532]: «LINK EXTERNO» | T032 [HTML-L543]: «BUSCAR Y TRAMITAR» | T033 [HTML-L552]: «MARCAS» | T040 [HTML-L562]: «PATENTES» | T041–T042 [HTML-L685–686]: aviso Tesorería (display:none) con «republica» sin tilde | T044 [HTML-L719]: «Marca» (pestaña 1) | T045 [HTML-L720]: «Anotación» (pestaña 2) | T046 [HTML-L725]: «Buscador» (H3 acordeón) | T047 [HTML-L733]: «* Ingrese uno o más criterios para realizar la búsqueda.» | T059–T065 [HTML-L796–802]: opciones Tipo Solicitud en mayúsculas (MARCA COMERCIAL, MARCA PROTOCOLO DE MADRID, MARCA CERTIFICACIÓN, MARCA COLECTIVA, FRASE DE PROPAGANDA, INDICACION GEOGRAFICA, DENOMINACIÓN DE ORIGEN) | T067–T079 [HTML-L811–824]: opciones Tipo de Marca en mayúsculas (DENOMINATIVA, MIXTA, FIGURATIVA, SONORA, TRIDIMENSIONAL, DE POSICIÓN, DE PATRÓN, DE MOVIMIENTO, MULTIMEDIA, HOLOGRÁFICA, OLFATIVA, TÁCTIL, COMBINACIÓN DE COLORES) | T081–T089 [HTML-L835–843]: opciones Estado Trámite en mayúsculas (EN TRÁMITE, REGISTRADA, DENEGADA, CADUCADA, VENCIDA, DESISTIDA, ABANDONADA, ANULADA, ESPERANDO RENOVACIÓN) | T099 [HTML-L895]: tooltip «Criterio aplicable solo a solicitudes presentadas con anterioridad al 9 de mayo de 2022.» | T100 [HTML-L907]: «Buscar» | T101 [HTML-L910]: «Limpiar» | T102 [HTML-L921]: «Lista de Aciertos» (H3) | T111 [HTML-L963]: «Detalle» (H3) | T119 [HTML-L1016]: tooltip «Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.» | T127 [HTML-L1088]: «Prioridad» | T130 [HTML-L1111]: «Fallo» | T131 [HTML-L1115]: «Instancias Administrativas» | T136 [HTML-L1144]: «Anotaciones» | T141 [HTML-L1239]: «Numero del Registro:» (sin tilde) | T144 [HTML-L1397]: «RUT: 65.999.669-3» | T145 [HTML-L1399]: «Av. Libertador Bernardo O'higgins 194, piso 1, Santiago, Chile» | T152 [HTML-L1431]: «Política de privacidad» (enlace a PDF sin indicación) | T153 [HTML-L1441]: «©2017 INAPI. Todos los derechos reservados» (copyright desactualizado) | T154 [HTML-L1442]: «v 2.0.5.0» | T156–T158 [HTML-L1462–1464]: modal navegador incompatible",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H2 visible es «BUSCAR EN BASE DE DATOS» en mayúsculas y el H1 es «MARCAS», ninguno describe el propósito de la herramienta ni a quién va dirigida. No existe encabezado introductorio que explique qué puede hacer el usuario.",
+      "cita_textual": "H1: «MARCAS» / H2: «BUSCAR EN BASE DE DATOS» (HTML-L638) — T001 (title): «INAPI - Consulta de Marca»"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El formulario se presenta sin texto previo que contextualice para qué sirve la herramienta, a quién va dirigida ni cómo interpretar los resultados. La única guía es la instrucción mínima T047.",
+      "cita_textual": "T047 [HTML-L733]: «* Ingrese uno o más criterios para realizar la búsqueda.» — sin párrafo de propósito previo"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página usa acordeones con H3 para «Buscador», «Lista de Aciertos» y «Detalle». Las pestañas «Marca» y «Anotación» separan funcionalmente el contenido.",
+      "cita_textual": "T046, T102, T111, T044, T045"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "La página es un formulario interactivo. No existen bloques de texto continuo que superen 110 palabras."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La versión técnica del sistema «v 2.0.5.0» (T154) es información interna sin valor para la tarea del usuario. El aviso de Tesorería (T041–T042) permanece en el HTML aunque esté oculto con display:none.",
+      "cita_textual": "T154 [HTML-L1442]: «v 2.0.5.0» / T041–T042 [HTML-L684–688]: aviso Tesorería oculto"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El tooltip del botón «Ver Expediente» usa construcción con complemento antepuesto y voz pasiva implícita. El modal de navegador usa «pueden no trabajar como se supone», construcción pasiva.",
+      "cita_textual": "T119 [HTML-L1016]: «Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.» / T157 [HTML-L1463]: «algunas funciones pueden no trabajar como se supone»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Múltiples términos técnicos sin definición accesible para el ciudadano: «Indicación Geográfica», «Denominación de Origen», «Frase de Propaganda», «Instancias Administrativas», «Prioridad» (en contexto PI), «Anotación» (como tipo de trámite), la pestaña «Anotación» en sí misma.",
+      "cita_textual": "T064 [HTML-L801]: «INDICACION GEOGRAFICA» / T063 [HTML-L800]: «FRASE DE PROPAGANDA» / T065 [HTML-L802]: «DENOMINACIÓN DE ORIGEN» / T131 [HTML-L1115]: «Instancias Administrativas» / T127 [HTML-L1088]: «Prioridad» / T045 [HTML-L720]: «Anotación» (pestaña)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT (T006) aparece en el menú sin desarrollar en ningún punto de la página. Primera y única aparición.",
+      "cita_textual": "T006 [HTML-L379]: «PCT» (menú, sin definir)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos significativos en el contenido editorial de la herramienta. Los términos técnicos son propios del dominio PI, no anglicismos."
+    },
+    {
+      "id": "B5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de navegador usa tono negativo: «Está utilizando un navegador web no compatible con este sitio web.» Reformulable en positivo indicando qué hacer.",
+      "cita_textual": "T156 [HTML-L1462]: «Está utilizando un navegador web no compatible con este sitio web.»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La instrucción del formulario usa asterisco técnico sin explicar su significado al usuario. El tooltip de «Ver Expediente» usa imperativo distante «haga clic en el botón». El modal de navegador usa «Utilice o actualice/instale».",
+      "cita_textual": "T047 [HTML-L733]: «* Ingrese uno o más criterios para realizar la búsqueda.» / T158 [HTML-L1464]: «Utilice o actualice/instale uno de los siguientes navegadores»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático. Las etiquetas del formulario son directas."
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El tooltip T119 antepone el complemento circunstancial antes del verbo imperativo: «Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.» No sigue el orden SVP.",
+      "cita_textual": "T119 [HTML-L1016]: «Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Las etiquetas y textos de la herramienta usan presente simple donde hay texto corrido."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T157 contiene oración compleja con subordinada y relativa encadenada. T158 usa barra oblicua «actualice/instale» para condensar dos acciones distintas.",
+      "cita_textual": "T157 [HTML-L1463]: «Esto significa que algunas funciones pueden no trabajar como se supone, lo que puede dar lugar a comportamientos extraños al navegar.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada sección del formulario tiene una función clara. Los mensajes del modal de navegador desarrollan una sola idea por párrafo."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "No hay párrafos de más de 8 líneas en escritorio en el contenido visible."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es un formulario interactivo, no un artículo con 4 o más párrafos continuos."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No hay listas de requisitos que deban formularse en infinitivo. Los ítems del formulario son etiquetas de campos."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Cinco errores ortográficos: (1) «Sello de Origens» — letra sobrante; (2) «INDICACION GEOGRAFICA» — faltan tildes en INDICACIÓN y GEOGRÁFICA; (3) «republica» sin tilde ni mayúscula en aviso Tesorería; (4) «Numero del Registro:» — falta tilde; (5) «O'higgins» con H minúscula. Más el texto de desarrollo «LINK EXTERNO» no eliminado.",
+      "cita_textual": "T007 [HTML-L380]: «Sello de Origens» / T064 [HTML-L801]: «INDICACION GEOGRAFICA» / T042 [HTML-L686]: «republica» / T141 [HTML-L1239]: «Numero del Registro:» / T145 [HTML-L1399]: «O'higgins» / T031 [HTML-L532]: «LINK EXTERNO»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación en los textos visibles es correcta. No se detectan comas innecesarias ni ausencia de puntos."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de texto."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de este checklist."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Las opciones de los selectores y los menús usan listas <option> y <li> apropiadamente. No hay enumeraciones en texto corrido con comas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Más de 25 textos en mayúsculas totales: encabezados (ACCESOS, MENU, BUSCAR Y TRAMITAR, MARCAS, PATENTES), y todos los valores de los tres selectores principales: Tipo Solicitud (7 opciones), Tipo de Marca (13 opciones) y Estado Trámite (9 opciones).",
+      "cita_textual": "T026: «ACCESOS» / T028: «MENU» / T033: «MARCAS» / T040: «PATENTES» / T059–T065: opciones Tipo Solicitud / T067–T079: opciones Tipo de Marca / T081–T089: opciones Estado Trámite"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se usan adjetivos autopromocionales. La herramienta es objetiva y funcional."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece identificado en el title, en el logo, en el footer y en el copyright.",
+      "cita_textual": "T153 [HTML-L1441]: «©2017 INAPI. Todos los derechos reservados» / T143 [HTML-L1395]: «Instituto Nacional de Propiedad industrial (INAPI)»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de actualización de la página ni del sistema visible para el usuario. El copyright indica ©2017, lo que genera apariencia de sitio desactualizado.",
+      "cita_textual": "T153 [HTML-L1441]: «©2017 INAPI. Todos los derechos reservados» — año 2017 / (ausencia de fecha de actualización)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El title «INAPI - Consulta de Marca» y el H1 «MARCAS» no describen la tarea que el usuario puede realizar ni el alcance de la herramienta.",
+      "cita_textual": "T001 [HTML-L31] (title): «INAPI - Consulta de Marca» / H1: «MARCAS»"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia de la Propiedad Industrial» lleva a /protege-tu-idea — el slug no coincide con el texto visible. «Volver al Sitio» no especifica a qué sitio ni URL.",
+      "cita_textual": "T023 [HTML-L396]: «Observancia de la Propiedad Industrial» → slug /protege-tu-idea / T027 [HTML-L467]: «Volver al Sitio» (destino no especificado)"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El botón principal «Buscar» (T100) no indica qué se busca. «Limpiar» (T101) no describe qué se limpia. El mismo botón «Buscar» se repite en la pestaña Anotación sin diferenciación.",
+      "cita_textual": "T100 [HTML-L907]: «Buscar» (botón sin contexto) / T101 [HTML-L910]: «Limpiar» (sin indicar qué se limpia)"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Registro» (T030) es ambiguo entre registro de marca y registro de usuario. «Volver al Sitio» (T027) no describe el destino. «Fallo» (T130) como enlace expandible no es descriptivo para usuario no especializado.",
+      "cita_textual": "T030 [HTML-L531]: «Registro» / T027 [HTML-L467]: «Volver al Sitio» / T130 [HTML-L1111]: «Fallo»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» (T152) lleva directamente a un archivo PDF sin indicar el formato ni el peso.",
+      "cita_textual": "T152 [HTML-L1431]: «Política de privacidad» → enlace a .pdf sin indicación de formato ni peso"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones de acción («Buscar», «Limpiar», «Ver Expediente», «Ver Multimedia») están posicionados al final de sus secciones, no intercalados en el texto corrido.",
+      "cita_textual": "T100, T101, T118, T126"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Se expone el RUT institucional 65.999.669-3 en el footer. Aunque corresponde a persona jurídica pública y no vulnera privacidad de personas naturales, no aporta valor a la tarea del usuario en esta página de búsqueda. Revisión editorial coordinada con A5.",
+      "cita_textual": "T144 [HTML-L1397]: «RUT: 65.999.669-3» (footer)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El enlace a «Política de privacidad» está presente en el footer (T152), lo que implica información sobre derechos ARCO disponible.",
+      "cita_textual": "T152 [HTML-L1431]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El copyright indica ©2017, año desactualizado. No existe enlace visible a «Uso de los Contenidos de este Sitio» en el footer, a diferencia de la home.",
+      "cita_textual": "T153 [HTML-L1441]: «©2017 INAPI. Todos los derechos reservados» / (ausencia de enlace «Uso de los Contenidos de este Sitio»)"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas en esta página ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 13,
+  "porcentaje_cumplimiento": 39.4,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 20 incumplimientos sobre 33 criterios aplicables (39,4 %). Las correcciones de mayor impacto para TIC son: (1) corregir los cinco errores ortográficos detectados (D1): «Sello de Origens» → «Sello de Origen», «INDICACION GEOGRAFICA» → tildes, «republica» → «República», «Numero del Registro:» → tilde, «O'higgins» → «O'Higgins»; (2) eliminar «LINK EXTERNO» (texto de desarrollo no borrado); (3) normalizar los más de 25 textos en mayúsculas de los tres selectores del formulario (D7); (4) actualizar el copyright de ©2017 a ©2026 (E3/G3); (5) agregar fecha de actualización visible; (6) reformular el tooltip de «Ver Expediente» en voz activa y orden SVP (B1/C1); (7) agregar párrafo introductorio antes del formulario que explique el propósito de la herramienta (A2); (8) cambiar el title a «INAPI — Buscador de marcas registradas en Chile» (E4); (9) indicar formato PDF en «Política de privacidad» (F4); (10) añadir tooltips o glosario vinculado para términos técnicos sin definición (B2). El array sustituciones[] contiene 48 filas con cobertura 1:1 para los 20 criterios incumplidos.",
+  "observaciones_lc": "La herramienta de búsqueda de marcas INAPI obtiene un 39,4 % de cumplimiento sobre 33 criterios aplicables, resultado inferior al de la home (45,5 %), con estado RECHAZADO. Los 20 incumplimientos se distribuyen en siete categorías: ortografía (D1, con cinco errores concretos), uso de mayúsculas totales en más de 25 textos de selectores y encabezados (D7), ausencia de contexto introductorio para el formulario (A1, A2), términos técnicos PI sin definición (B2, B3), copyright desactualizado desde 2017 (E3, G3), voz pasiva y orden gramatical complejo en tooltips y modal (B1, C1, C3), y enlaces genéricos o sin descripción del destino (F2, F3). Las fortalezas editoriales son el uso de acordeones bien nombrados (A3), texto presente simple (C2), párrafos dentro del límite de extensión (A4, C5) y ausencia de frases de relleno (B7). El contenido técnico del formulario (etiquetas de campo, opciones de filtro) es funcionalmente correcto pero presenta oportunidades de mejora en accesibilidad semántica mediante glosario o tooltips contextuales.",
+  "resumen_ejecutivo": "La página https://buscadormarcas.inapi.cl/Marca/BuscarMarca.aspx fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 13 se cumplen, lo que arroja un 39,4 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 20 incumplimientos y se generaron 48 filas en sustituciones[] con cobertura 1:1. Los incumplimientos más críticos (severidad alta) son: voz pasiva en tooltip de «Ver Expediente» (B1), términos técnicos PI sin definición (B2), sigla PCT sin expandir (B3), cinco errores ortográficos incluyendo «Sello de Origens» y «INDICACION GEOGRAFICA» (D1), ausencia de fecha de actualización y copyright ©2017 desactualizado (E3), botón «Buscar» sin contexto descriptivo (F2), enlace a PDF de política de privacidad sin indicar formato (F4), y RUT institucional en footer sin aporte a la tarea (G1). Se requiere aplicar las sustituciones identificadas y agregar fecha de actualización antes de una nueva evaluación.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B1) El tooltip de «Ver Expediente» usa complemento antepuesto y construcción pasiva implícita: «Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.» Reescribir en activo y orden SVP.",
+      "(B2) Términos técnicos PI sin definición para el ciudadano: «Indicación Geográfica», «Denominación de Origen», «Frase de Propaganda», «Instancias Administrativas», «Prioridad» (contexto PI), pestaña «Anotación». Agregar tooltips o enlace a glosario.",
+      "(B3) La sigla PCT aparece en el menú sin definición en ningún punto de la página.",
+      "(D1) Cinco errores ortográficos: «Sello de Origens», «INDICACION GEOGRAFICA» (sin tildes), «republica» (sin tilde ni mayúscula), «Numero del Registro:» (sin tilde), «O'higgins» (H minúscula). Más texto de desarrollo «LINK EXTERNO» no eliminado.",
+      "(E3) Ausencia de fecha de actualización visible en la página. El copyright ©2017 refuerza apariencia de sistema desactualizado.",
+      "(F2) El botón principal «Buscar» no indica qué se busca; «Limpiar» no describe qué se limpia.",
+      "(F4) «Política de privacidad» enlaza directamente a un PDF sin indicar formato ni peso.",
+      "(G1) El RUT institucional 65.999.669-3 aparece en el footer sin aportar valor a la tarea del usuario en esta página."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A1) El H1 «MARCAS» y el H2 «BUSCAR EN BASE DE DATOS» en mayúsculas no describen el propósito de la herramienta.",
+      "(A2) No existe texto introductorio antes del formulario que explique qué puede buscar el usuario y cómo interpretar los resultados.",
+      "(B5) El modal de navegador usa tono negativo: «Está utilizando un navegador web no compatible con este sitio web.»",
+      "(B6) La instrucción del formulario usa asterisco técnico sin explicar su significado. El tooltip de «Ver Expediente» usa imperativo distante.",
+      "(C1) El tooltip T119 antepone el complemento antes del verbo, violando el orden SVP.",
+      "(C3) T157 contiene oración con subordinada y relativa encadenada. T158 usa barra oblicua para condensar dos acciones distintas.",
+      "(D7) Más de 25 textos en mayúsculas totales: encabezados y todos los valores de los tres selectores del formulario (Tipo Solicitud, Tipo de Marca, Estado Trámite).",
+      "(E4) El title «INAPI - Consulta de Marca» y el H1 «MARCAS» no describen la tarea del usuario.",
+      "(F1) «Observancia de la Propiedad Industrial» lleva a /protege-tu-idea (slug no coincide). «Volver al Sitio» no especifica el destino.",
+      "(F3) «Registro» es ambiguo; «Fallo» como enlace no descriptivo para el ciudadano general; «Volver al Sitio» sin destino.",
+      "(G3) Copyright ©2017 desactualizado. Ausencia de enlace «Uso de los Contenidos de este Sitio» en el footer."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) La versión técnica del sistema «v 2.0.5.0» es visible al usuario sin aportar valor a su tarea."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L31",
+      "original": "INAPI - Consulta de Marca",
+      "propuesto": "INAPI — Buscador de marcas registradas en Chile",
+      "criterio_id": "E4",
+      "motivo": "El title no describe la tarea del usuario; reemplazar por texto que indique la acción y el alcance."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L638",
+      "original": "BUSCAR EN BASE DE DATOS",
+      "propuesto": "Busca marcas en la base de datos de INAPI",
+      "criterio_id": "A1",
+      "motivo": "El H2 visible en mayúsculas no comunica el propósito; reformular con verbo activo y contexto institucional."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L730",
+      "original": "(ausencia)",
+      "propuesto": "Usa este formulario para buscar marcas registradas, en trámite o caducadas en Chile. Puedes filtrar por nombre, titular, tipo de marca y estado del trámite.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo introductorio dentro del acordeón antes del formulario; actualmente no existe texto de propósito."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L733",
+      "original": "* Ingrese uno o más criterios para realizar la búsqueda.",
+      "propuesto": "Ingrese al menos un criterio para buscar.",
+      "criterio_id": "B6",
+      "motivo": "Elimina el asterisco técnico sin explicación y simplifica la instrucción."
+    },
+    {
+      "linea": "T154",
+      "html_linea_aprox": "HTML-L1442",
+      "original": "v 2.0.5.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema visible al usuario sin valor para su tarea; eliminar del footer."
+    },
+    {
+      "linea": "T119",
+      "html_linea_aprox": "HTML-L1016",
+      "original": "Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.",
+      "propuesto": "Haz clic para ver el expediente completo en una nueva ventana.",
+      "criterio_id": "B1",
+      "motivo": "Elimina el complemento antepuesto y la construcción pasiva implícita; coloca el verbo imperativo al inicio."
+    },
+    {
+      "linea": "T119",
+      "html_linea_aprox": "HTML-L1016",
+      "original": "Para ver el expediente completo de la solicitud en una nueva ventana, haga clic en el botón.",
+      "propuesto": "Ver el expediente completo (se abre en nueva ventana).",
+      "criterio_id": "C1",
+      "motivo": "Alternativa editorial: elimina el imperativo distante y sigue orden SVP con nota de comportamiento entre paréntesis."
+    },
+    {
+      "linea": "T064",
+      "html_linea_aprox": "HTML-L801",
+      "original": "INDICACION GEOGRAFICA",
+      "propuesto": "Indicación Geográfica",
+      "criterio_id": "B2",
+      "motivo": "Agregar tooltip o enlace a glosario: «Denominación protegida que identifica un producto según su lugar de origen»."
+    },
+    {
+      "linea": "T063",
+      "html_linea_aprox": "HTML-L800",
+      "original": "FRASE DE PROPAGANDA",
+      "propuesto": "Frase de propaganda",
+      "criterio_id": "B2",
+      "motivo": "Término no familiar para el ciudadano general; agregar tooltip: «Lema o eslogan comercial susceptible de registro como marca»."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L802",
+      "original": "DENOMINACIÓN DE ORIGEN",
+      "propuesto": "Denominación de Origen",
+      "criterio_id": "B2",
+      "motivo": "Agregar tooltip: «Nombre que identifica un producto originario de una región, cuya calidad se debe exclusivamente a ese origen geográfico»."
+    },
+    {
+      "linea": "T131",
+      "html_linea_aprox": "HTML-L1115",
+      "original": "Instancias Administrativas",
+      "propuesto": "Etapas administrativas del trámite",
+      "criterio_id": "B2",
+      "motivo": "«Instancias Administrativas» es jerga legal no familiar; reemplazar por descripción funcional."
+    },
+    {
+      "linea": "T127",
+      "html_linea_aprox": "HTML-L1088",
+      "original": "Prioridad",
+      "propuesto": "Prioridad (fecha de solicitud previa en otro país)",
+      "criterio_id": "B2",
+      "motivo": "«Prioridad» en contexto PI tiene significado técnico específico; agregar glosa descriptiva."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L720",
+      "original": "Anotación",
+      "propuesto": "Anotación (cambios posteriores al registro)",
+      "criterio_id": "B2",
+      "motivo": "La pestaña «Anotación» es un término técnico registral no familiar para el ciudadano; agregar glosa."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "HTML-L379",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin definición en el menú; primera y única aparición en la página."
+    },
+    {
+      "linea": "T156",
+      "html_linea_aprox": "HTML-L1462",
+      "original": "Está utilizando un navegador web no compatible con este sitio web.",
+      "propuesto": "Tu navegador no es compatible con este sitio.",
+      "criterio_id": "B5",
+      "motivo": "Reemplaza tono negativo e impersonal por formulación directa y cercana."
+    },
+    {
+      "linea": "T158",
+      "html_linea_aprox": "HTML-L1464",
+      "original": "Utilice o actualice/instale uno de los siguientes navegadores para aprovechar al máximo este sitio web.",
+      "propuesto": "Para usar este sitio correctamente, instala o actualiza uno de estos navegadores:",
+      "criterio_id": "B6",
+      "motivo": "Reduce distancia formal, elimina barra oblicua y simplifica la instrucción."
+    },
+    {
+      "linea": "T157",
+      "html_linea_aprox": "HTML-L1463",
+      "original": "Esto significa que algunas funciones pueden no trabajar como se supone, lo que puede dar lugar a comportamientos extraños al navegar.",
+      "propuesto": "Algunas funciones pueden no operar correctamente.",
+      "criterio_id": "C3",
+      "motivo": "Simplifica oración con subordinada y relativa encadenada en una sola oración directa."
+    },
+    {
+      "linea": "T007",
+      "html_linea_aprox": "HTML-L380",
+      "original": "Sello de Origens",
+      "propuesto": "Sello de Origen",
+      "criterio_id": "D1",
+      "motivo": "Error tipográfico: letra «s» sobrante en «Origens»."
+    },
+    {
+      "linea": "T031",
+      "html_linea_aprox": "HTML-L532",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "D1",
+      "motivo": "Texto de desarrollo no eliminado visible en el modal de acceso."
+    },
+    {
+      "linea": "T064",
+      "html_linea_aprox": "HTML-L801",
+      "original": "INDICACION GEOGRAFICA",
+      "propuesto": "INDICACIÓN GEOGRÁFICA",
+      "criterio_id": "D1",
+      "motivo": "Faltan tildes en «INDICACIÓN» y «GEOGRÁFICA»."
+    },
+    {
+      "linea": "T141",
+      "html_linea_aprox": "HTML-L1239",
+      "original": "Numero del Registro:",
+      "propuesto": "Número del Registro:",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Número»."
+    },
+    {
+      "linea": "T145",
+      "html_linea_aprox": "HTML-L1399",
+      "original": "Av. Libertador Bernardo O'higgins",
+      "propuesto": "Av. Libertador Bernardo O'Higgins",
+      "criterio_id": "D1",
+      "motivo": "«O'Higgins» se escribe con H mayúscula (nombre propio chileno)."
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "HTML-L686",
+      "original": "Por trabajos por parte de Tesorería General de la republica hoy jueves 06/12",
+      "propuesto": "(eliminar nodo o corregir: «Por trabajos de la Tesorería General de la República, el jueves 06/12»)",
+      "criterio_id": "D1",
+      "motivo": "Aviso oculto (display:none) con error ortográfico «republica» sin tilde ni mayúscula; corregir o eliminar el nodo."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L436",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L365",
+      "original": "MENU",
+      "propuesto": "Menú",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas totales y sin tilde; corregir a «Menú»."
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "HTML-L543",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de modal en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T033",
+      "html_linea_aprox": "HTML-L552",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de sección en mayúsculas totales."
+    },
+    {
+      "linea": "T040",
+      "html_linea_aprox": "HTML-L562",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de sección en mayúsculas totales."
+    },
+    {
+      "linea": "T059",
+      "html_linea_aprox": "HTML-L796",
+      "original": "MARCA COMERCIAL",
+      "propuesto": "Marca comercial",
+      "criterio_id": "D7",
+      "motivo": "Valor de select en mayúsculas totales; normalizar a capitalización estándar (patrón aplicable a todas las opciones del selector Tipo Solicitud: T059–T065)."
+    },
+    {
+      "linea": "T067",
+      "html_linea_aprox": "HTML-L811",
+      "original": "DENOMINATIVA",
+      "propuesto": "Denominativa",
+      "criterio_id": "D7",
+      "motivo": "Valor de select Tipo de Marca en mayúsculas totales; normalizar (patrón aplicable a T067–T079: MIXTA, FIGURATIVA, SONORA, TRIDIMENSIONAL, DE POSICIÓN, DE PATRÓN, DE MOVIMIENTO, MULTIMEDIA, HOLOGRÁFICA, OLFATIVA, TÁCTIL, COMBINACIÓN DE COLORES)."
+    },
+    {
+      "linea": "T081",
+      "html_linea_aprox": "HTML-L835",
+      "original": "EN TRÁMITE",
+      "propuesto": "En trámite",
+      "criterio_id": "D7",
+      "motivo": "Valor de select Estado Trámite en mayúsculas totales; normalizar (patrón aplicable a T081–T089: REGISTRADA, DENEGADA, CADUCADA, VENCIDA, DESISTIDA, ABANDONADA, ANULADA, ESPERANDO RENOVACIÓN)."
+    },
+    {
+      "linea": "T153",
+      "html_linea_aprox": "HTML-L1441",
+      "original": "©2017",
+      "propuesto": "©2026",
+      "criterio_id": "E3",
+      "motivo": "Copyright con año 2017 crea apariencia de sistema desactualizado; actualizar al año en curso."
+    },
+    {
+      "linea": "T153",
+      "html_linea_aprox": "HTML-L1440",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible cerca del copyright o bajo el H2 principal; actualmente no existe."
+    },
+    {
+      "linea": "T023",
+      "html_linea_aprox": "HTML-L396",
+      "original": "Observancia de la Propiedad Industrial",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F1",
+      "motivo": "Enlace lleva a /protege-tu-idea; el texto visible debe describir el destino real, no la denominación técnica del área."
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L467",
+      "original": "Volver al Sitio",
+      "propuesto": "Volver al sitio principal de INAPI",
+      "criterio_id": "F1",
+      "motivo": "«Volver al Sitio» no especifica a qué sitio; agregar contexto descriptivo."
+    },
+    {
+      "linea": "T100",
+      "html_linea_aprox": "HTML-L907",
+      "original": "Buscar",
+      "propuesto": "Buscar marcas",
+      "criterio_id": "F2",
+      "motivo": "El botón principal no indica qué se busca; texto descriptivo mejora la comprensión del usuario."
+    },
+    {
+      "linea": "T101",
+      "html_linea_aprox": "HTML-L910",
+      "original": "Limpiar",
+      "propuesto": "Limpiar criterios de búsqueda",
+      "criterio_id": "F2",
+      "motivo": "«Limpiar» no describe qué se limpia; texto descriptivo evita confusión."
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L531",
+      "original": "Registro",
+      "propuesto": "Crear cuenta",
+      "criterio_id": "F3",
+      "motivo": "«Registro» es ambiguo entre registro de marca y registro de usuario; «Crear cuenta» describe la acción concreta."
+    },
+    {
+      "linea": "T130",
+      "html_linea_aprox": "HTML-L1111",
+      "original": "Fallo",
+      "propuesto": "Resolución del trámite",
+      "criterio_id": "F3",
+      "motivo": "«Fallo» es tecnicismo legal; «Resolución del trámite» es más comprensible para el ciudadano general."
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L467",
+      "original": "Volver al Sitio",
+      "propuesto": "Volver al sitio principal de INAPI (www.inapi.cl)",
+      "criterio_id": "F3",
+      "motivo": "El enlace no informa el destino; agregar URL de referencia para claridad."
+    },
+    {
+      "linea": "T152",
+      "html_linea_aprox": "HTML-L1431",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un archivo PDF sin indicar el formato; agregar indicación de tipo de archivo."
+    },
+    {
+      "linea": "T144",
+      "html_linea_aprox": "HTML-L1397",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "G1",
+      "motivo": "RUT institucional (persona jurídica pública, no persona natural); no aporta valor a la tarea en esta página. Mover a sección Quiénes somos o Transparencia. Revisión editorial coordinada con A5."
+    },
+    {
+      "linea": "T153",
+      "html_linea_aprox": "HTML-L1441",
+      "original": "©2017",
+      "propuesto": "©2026",
+      "criterio_id": "G3",
+      "motivo": "Copyright ©2017 desactualizado; actualizar al año en curso (coordinado con E3)."
+    },
+    {
+      "linea": "T153",
+      "html_linea_aprox": "HTML-L1437",
+      "original": "(ausencia)",
+      "propuesto": "<li><a href=\"https://www.inapi.cl/uso-de-los-contenidos-de-este-sitio\">Uso de los Contenidos de este Sitio</a></li>",
+      "criterio_id": "G3",
+      "motivo": "El footer del buscador no incluye el enlace «Uso de los Contenidos de este Sitio» presente en la home; insertar en la sección Accesos del footer."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) usar búsqueda literal con el campo «original» copiado exactamente — el HTML puede contener entidades como &#243; (ó), &#237; (í), &#225; (á) según el editor; (3) no modificar atributos HTML, clases, IDs ni rutas de enlace al hacer los reemplazos; (4) los selectores <select> del formulario contienen entre 7 y 13 opciones <option> en mayúsculas: aplicar la normalización de capitalización a TODAS las opciones de cada selector (Tipo Solicitud T059–T065, Tipo de Marca T067–T079, Estado Trámite T081–T089), no solo a las filas de ejemplo incluidas en sustituciones[]; (5) el nodo del aviso de Tesorería (T041–T042, HTML-L684–688) tiene display:none pero sigue presente en el HTML y contiene el error «republica» — coordinar con el equipo si se elimina completamente o se corrige para uso futuro; (6) la fila G3 con original «(ausencia)» requiere insertar un nuevo nodo <li> dentro del <ul> de la sección Accesos del footer (HTML-L1424–1432); (7) la corrección de D1 en «INDICACION GEOGRAFICA» y la de D7 comparten el mismo nodo — aplicar primero tildes y luego normalización de capitalización en una sola operación."
+}

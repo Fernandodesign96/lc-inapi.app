@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-07 | [Frontend: Piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`](#devlog-2026-06-07-piloto-json-claude) |
 | 2026-06-04 | [Frontend: Fase C — exportación PDF del informe piloto y descarga en resultado](#devlog-2026-06-04-fase-c-pdf) |
 | 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
 | 2026-06-04 | [Frontend: Orquestación resultado piloto — 7 bloques §4 en código](#devlog-2026-06-04-resultado-orquestacion-codigo) |
@@ -33,6 +34,63 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-07-piloto-json-claude"></a>
+
+## [2026-06-07] - Frontend | Fase 1.5: piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`
+
+### Contexto y objetivos:
+
+Tras cerrar la [exportación PDF (Fase C)](#devlog-2026-06-04-fase-c-pdf), el siguiente hito del piloto TIC es **contenido editorial real** en `data/claude-audits/`, no solo la home de junio. El viernes 5 (PC empresa, sin terminal ni git) se avanzó el **piloto operativo de 9 URLs** (8 `sitioweb` + 1 `tramites`), distinto de la tabla §2 inicial del flujo (10 URLs propuesta reunión 2-jun).
+
+Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md).
+
+### Implementación técnica:
+
+**Documentación (Fase A — empresa):**
+
+- **`docs/flujo-piloto-10-urls-claude-mvp.md`:** §3.1 verificación 1:1 al cerrar; §3.2 ampliado — `texto_propuesto` opcional frente a `sustituciones[]`, cobertura 1:1 obligatoria, tipos sustitución/inserción/eliminación, E3 con `original: "(ausencia)"`, calibración G1 (RUT institucional), `html_linea_aprox` en `<head>` e inserciones.
+- **`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`:** §9 alineado a §3.2 (G1/E3 con fila en sustituciones aunque sea ausencia o dato institucional).
+- **`docs/sesion-piloto-claude-2026-06-05.md`:** resumen ejecutivo, prompts §3.2 URL 3, checklist de archivos y pendientes.
+
+**Datos — `data/claude-audits/` (validados con `parseClaudeAuditFile` + `strictAuditRecordSchema`):**
+
+| # | Página | `id` | % LC | Incumple | Sustituciones | Cobertura 1:1 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Home INAPI | `www-inapi-cl_2026-06-02` | 45,5 % | 18 | 35 | OK |
+| 2 | Buscador Marcas | `buscadormarcas-inapi-cl-marca-buscar-marca_2026-06-05` | 39,4 % | 20 | 44 | OK |
+| 3 | Marcas `/marcas` | `www-inapi-cl-marcas_2026-06-05` | 48,5 % | 17 | 34 | OK |
+
+- **URL 1:** JSON home actualizado (cobertura 1:1 tras segunda corrida; alternativas editoriales T220/T522 aceptadas para UX; ajustes F4 Teletrabajo, resumen con 35 filas).
+- **URL 2:** flujo §3.1 → revisión aritmética → §3.2; archivo definitivo 5-jun.
+- **URL 3:** §3.1 en empresa; §3.2 en casa — JSON con un solo `criterio_id` por fila (separación de filas que mezclaban A2+A5, D1+C1, etc.), E3 inserción de fecha, F4 PDFs carrusel, E4 title ampliado.
+
+**Frontend — conexión MVP (casa, 7-jun):**
+
+- **`frontend/src/lib/claude-audits-launch.ts`:** tabla reducida a **9 filas** piloto (`pilotoNum` 1–9); filas 1–3 con `claudeAuditId` y `resumenMvp` (home, buscador marcas, marcas); filas 4–9 placeholder «Por definir» / `claudeAuditId: null` hasta cerrar lista con UX. `CLAUDE_AUDIT_ID_SET` y API/PDF incluyen automáticamente los tres ids.
+- Sin cambios en rutas ni componentes de resultado: el mismo flujo `?claudeAudit=` + [PDF](#devlog-2026-06-04-fase-c-pdf) aplica a las tres URLs.
+
+**No aplicado (decisión explícita):** Opción B nomenclatura `piloto-NN_…` (postergada; requiere renombrar JSON + TS + git). Script `validate:claude-audits` en CI (C7) sigue pendiente.
+
+### 💡 Repaso técnico: triple coincidencia de `id`:
+
+| Lugar | Ejemplo URL 3 |
+| --- | --- |
+| Archivo | `data/claude-audits/www-inapi-cl-marcas_2026-06-05.json` |
+| Campo `"id"` en JSON | `www-inapi-cl-marcas_2026-06-05` |
+| `claudeAuditId` en launch + query | `?claudeAudit=www-inapi-cl-marcas_2026-06-05` |
+
+`load-claude-audit-bundle.ts` solo sirve ids ∈ `CLAUDE_AUDIT_ID_SET`; registrar en `CLAUDE_PILOT_URL_ROWS` es obligatorio para API, tabla y PDF.
+
+### Próximos pasos:
+
+- URLs **4–9:** mismo flujo §3.1 → revisión → §3.2; plantilla obligatoria `www-inapi-cl_2026-06-02.json`.
+- Cerrar lista exacta de 9 URLs con Bernarda y alinear §2 de `flujo-piloto-10-urls-claude-mvp.md`.
+- Commit + PR: docs sesión, JSON 1–3, `claude-audits-launch.ts`.
+- **C7 (opcional):** `validate:claude-audits` en `package.json` y CI.
+- Opción B nomenclatura o mantener convención `slug-url_YYYY-MM-DD`.
 
 ---
 
@@ -72,7 +130,7 @@ Objetivo: cerrar el ítem **2.6** (Fase C) — `@react-pdf/renderer`, ruta de ex
 - Abrir PR de Fase 1.5 (Fase B + Fase C) o merge de rama `feature/fase-1-5-implementacion-auditorias-claude-urls`.
 - Actualizar en docs de producto el §8 del flujo con la ruta `GET` real (opcional en el mismo PR).
 - **C7 (opcional):** script `validate:claude-audits` en raíz + CI (flujo §1.6; aún no existe en `package.json`).
-- JSON y filas 2–10 en `data/claude-audits/` y `CLAUDE_PILOT_URL_ROWS` al ritmo de auditorías Claude.
+- JSON URLs 4–9 y filas en `CLAUDE_PILOT_URL_ROWS` — ver [sesión 2026-06-05](#devlog-2026-06-05-piloto-json-claude) (URLs 1–3 ya en repo y MVP).
 - Pulido UX: triggers de acordeón con cabecera `#0F69C4` (§15.1 design system).
 
 ---

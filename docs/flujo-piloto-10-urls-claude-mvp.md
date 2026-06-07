@@ -85,6 +85,8 @@ tipo_pagina: sitioweb
 Adjunto: [nombre].html (vista código fuente Ctrl+U).
 
 Ejecuta Fase 0 (texto T001…), tabla de 39 criterios, resumen, sustituciones y JSON según tus instrucciones del proyecto.
+
+Al cerrar con el mensaje §3.2, verifica cobertura 1:1: cada criterio "incumple" debe tener al menos una fila en sustituciones[] (reglas del contrato).
 ```
 
 ### 3.2 Entrega JSON canónico para el MVP (mensaje único — usar en cada URL)
@@ -139,7 +141,7 @@ CONTRATO OBLIGATORIO (strictAuditRecordSchema — núcleo importable en la app):
 
 3) texto_capturado: string (extracto T001… resumido si hace falta)
 
-4) texto_propuesto: string (un párrafo para TIC, sin reescribir toda la página)
+4) texto_propuesto: string (párrafo resumen opcional para TIC). La fuente de verdad accionable es sustituciones[] (ítem 8), no este párrafo. El MVP muestra la tabla de sustituciones en «Texto propuesto».
 
 5) observaciones_lc: string (párrafo consolidado de hallazgos)
 
@@ -153,9 +155,55 @@ EXTENSIONES PILOTO (mantener en el mismo JSON, después del núcleo):
      "hallazgos_prioridad_baja": [...]
    }
    (arrays de strings; puede ser [] si no hay hallazgos en esa severidad)
+   Cada hallazgo listado aquí DEBE tener al menos una fila equivalente en sustituciones[] (ítem 8). No dejes hallazgos solo en esta lista.
 
-8) sustituciones: [ { "linea", "original", "propuesto", "criterio_id", "motivo", "html_linea_aprox"? } ]
-   NO inventes pesos en MB; para PDF usa solo "(PDF)" si no conoces el peso.
+8) sustituciones: [ { "linea", "original", "propuesto", "criterio_id", "motivo", "html_linea_aprox" } ]
+   — Entregable principal para TIC (tabla «Texto propuesto» en el MVP).
+   — NO inventes pesos en MB; para documentos usa solo "(PDF)" si no conoces el peso en el CMS.
+
+   COBERTURA 1:1 (OBLIGATORIA):
+   - Por CADA criterio con estado "incumple" en criterios_evaluados[], incluye AL MENOS UNA fila en sustituciones[] con el mismo criterio_id.
+   - Puede haber varias filas para un mismo criterio_id (ej. D7: ACCESOS, BUSCADOR, MARCAS… cada uno en su fila).
+   - PROHIBIDO: dejar un incumplimiento solo en observaciones_lc_por_severidad sin propuesta en sustituciones[].
+   - Antes de entregar el JSON, verifica: cantidad de criterio_id distintos en sustituciones (solo incumplimientos) ≥ cantidad de filas "incumple" en criterios_evaluados. Si falta alguno, complétalo.
+
+   CAMPOS POR FILA:
+   - linea: identificador Tnnn del fragmento (o del punto de anclaje si es inserción).
+   - criterio_id: A1…H1 del incumplimiento que corrige esta fila.
+   - original: texto literal del HTML (con entidades &#243;, &aacute;, etc. si el fuente las usa) O "(ausencia)" / "(no existe en HTML)" si el problema es falta de contenido.
+   - propuesto: texto que TIC debe dejar en la página (sustitución, inserción o "(eliminar nodo)" si corresponde quitar un fragmento).
+   - motivo: por qué corrige el criterio (una frase clara).
+   - html_linea_aprox: referencia aproximada en el HTML (ej. "HTML-L780"). OBLIGATORIO en inserciones, eliminaciones y cambios en <head>/<meta>; recomendado en todas las filas.
+
+   CONTENIDO AUSENTE O INEXISTENTE (ej. E3 — fecha de publicación/última modificación de la PÁGINA):
+   - Si el incumplimiento es que NO EXISTE un elemento (fecha de actualización de la página, párrafo introductorio bajo un banner, glosa de sigla), igual debes crear una fila en sustituciones[]:
+     * original: "(ausencia)" o "(no existe en HTML)" (alineado con cita_textual del criterio).
+     * propuesto: el texto literal que TIC debe INSERTAR (ej. "Última actualización: 3 de junio de 2026").
+     * linea: Tnnn del punto de anclaje más cercano (ej. tras el H1 o en el footer).
+     * html_linea_aprox: línea o bloque donde insertar (<footer>, tras T384, etc.).
+   - E3 en home: exige fecha visible de la página principal, no basta con fechas de noticias individuales.
+
+   CALIBRACIÓN G1 (RUT, teléfonos, direcciones):
+   - El criterio G1 del checklist apunta a personas NATURALES (no exponer RUT/teléfono/dirección de ciudadanos).
+   - RUT, teléfono y dirección del INAPI como persona jurídica pública en pie de página NO son violación de privacidad de usuarios.
+   - Si G1 (o A5) queda "incumple" porque el RUT/dato institucional NO aporta valor a la tarea del usuario en esa URL, SÍ incluye fila en sustituciones[]:
+     * propuesto: quitar la línea del RUT del footer, o moverla a «Quiénes somos» / transparencia.
+     * motivo: aclarar que no es dato de persona natural, pero no aporta a la tarea en esta página.
+   - En comentario del criterio G1 puedes anotar: «RUT institucional; revisión editorial A5».
+
+   TIPOS DE PROPUESTA (usa el que corresponda):
+   | Tipo | Cuándo | original / propuesto |
+   | Sustitución | El texto existe y debe cambiar | original = literal HTML; propuesto = nuevo texto |
+   | Inserción | Falta fecha, intro bajo banner, glosa de sigla | original = "(ausencia)"; propuesto = bloque a insertar |
+   | Eliminación | Texto de desarrollo, RUT redundante (LINK EXTERNO) | original = fragmento; propuesto = "(eliminar nodo)" + motivo operativo |
+   | Reorden / estructura | A2 pirámide invertida | propuesto = párrafo de propósito ANTES del titular técnico; html_linea_aprox del bloque |
+   | Enlace / slug | F1, F3 | propuesto = texto visible que describe el destino; si el slug no puede cambiarse, motivo = «slug /ruta-actual; coordinar con TIC si se renombra» |
+
+   ESTILO DE LAS PROPUESTAS:
+   - Lenguaje claro, voz activa, sin mayúsculas en toda la palabra salvo siglas (PCT, INAPI).
+   - Una fila por cambio localizable; no agrupar criterios distintos en una sola fila salvo párrafo continuo (ej. T432–T435).
+
+   Orden sugerido del array: por sección A→H o por linea (Tnnn) ascendente.
 
 9) nota_final_tic: párrafo breve (backup HTML, entidades &#243;, búsqueda literal)
 
@@ -195,7 +243,7 @@ Sustituciones aprobadas:
 | --- | --- |
 | Export crudo Claude | Guardado: [`www-inapi-cl_2026-06-02.export.json`](../data/claude-audits/www-inapi-cl_2026-06-02.export.json) |
 | JSON canónico (import + plantilla Claude) | [`www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) — validado con `strictAuditRecordSchema` |
-| Prompt alineado al contrato | §3.2 (este documento) |
+| Prompt alineado al contrato (1:1 sustituciones, E3, G1) | §3.2 (este documento) |
 
 Para las **9 URLs restantes**, usar §3.1 + §3.2 adjuntando la plantilla canónica de la home.
 
@@ -308,7 +356,7 @@ flowchart TB
 ### Paso 0 — Alineación (una vez)
 
 1. Validar las **10 URLs** en tabla §2 con Bernarda y TIC.
-2. Acordar reglas de calibración ([`Comparación…`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) §9): G1 RUT institucional, E3 en home, no inventar pesos PDF.
+2. Usar reglas de calibración en **§3.2** (cobertura 1:1 sustituciones, E3 ausencias, G1 institucional) y [`Comparación…`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) §9.
 3. Confirmar proveedor: **Claude** (hecho).
 
 ### Paso 1 — Por cada URL del piloto

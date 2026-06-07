@@ -207,13 +207,13 @@ Leyenda: **G** = cumple/incumple más favorable a la página · **C** = más est
 
 ### Opción A — Elegir un proveedor para el piloto de 10 URLs
 
-**Claude** como agente principal de auditoría (Gema/Proyecto), con reglas de calibración acordadas:
+**Claude** como agente principal de auditoría (Gema/Proyecto), con reglas de calibración acordadas (detalle operativo en [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §3.2 — cobertura 1:1 `incumple` → `sustituciones[]`):
 
-1. **G1:** RUT y teléfono **institucional** en pie → `cumple` o `no_aplica` (no incumple).
-2. **E3 en home:** exigir fecha de actualización de la **página** o criterio acordado con Bernarda (¿solo noticias basta?).
+1. **G1:** RUT y teléfono **institucional** no son dato de persona natural; si se marca incumple por A5 (sin valor para la tarea), igual debe haber fila en `sustituciones[]` (quitar o mover RUT).
+2. **E3 en home:** exigir fecha de actualización de la **página** visible; si no existe, fila en `sustituciones[]` con `original: "(ausencia)"` e inserción propuesta (no basta con fechas de noticias).
 3. **Meta no visible:** incumplimientos en `<title>`/`<meta>` en sección aparte «SEO / metadatos», no mezclados con texto visible sin aviso.
 4. **F4:** exigir formato; **peso solo si consta en CMS** — prohibido inventar MB.
-5. **Salida JSON** alineada a fixtures del repo para futura integración en app.
+5. **Salida JSON** alineada a fixtures del repo; cada `incumple` con al menos una sustitución y `html_linea_aprox` cuando aplique.
 
 ### Opción B — Flujo híbrido (recomendado para calidad)
 
