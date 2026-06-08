@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-07 | [Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`](#devlog-2026-06-07-piloto-cierre-9-urls) |
 | 2026-06-07 | [Frontend: Piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`](#devlog-2026-06-07-piloto-json-claude) |
 | 2026-06-04 | [Frontend: Fase C — exportación PDF del informe piloto y descarga en resultado](#devlog-2026-06-04-fase-c-pdf) |
 | 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
@@ -34,6 +35,58 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-07-piloto-cierre-9-urls"></a>
+
+## [2026-06-07] - Estrategia | Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`
+
+### Contexto y objetivos:
+
+Continuación del [bloque matinal del 7-jun (URLs 1–3)](#devlog-2026-06-07-piloto-json-claude): completar el **piloto operativo de 9 URLs** acordado con UX/TIC — auditorías LC v1.1 vía Proyecto Claude (§3.1 → revisión aritmética y cobertura 1:1 → §3.2), JSON canónico en `data/claude-audits/` y registro en `frontend/src/lib/claude-audits-launch.ts` para tabla `/auditar`, API `GET /api/claude-audits/[id]` y [PDF](#devlog-2026-06-04-fase-c-pdf).
+
+Objetivos de la tarde: auditar y cerrar **URLs 4–9**, unificar nomenclatura de `id` (slug desde URL canónica + fecha), y dejar las nueve filas del piloto con `claudeAuditId` y `resumenMvp`. Encargado: Fernando Arriagada Castillo.
+
+### Implementación técnica:
+
+**Flujo editorial (Proyecto Claude, URLs 4–9):**
+
+- §3.1 con HTML Ctrl+U + checklist v1.1 (39 criterios A1–H1).
+- Revisión manual: conteos, % sobre aplicables, cobertura 1:1 `incumple` → `sustituciones[]`, calibración G1 (RUT institucional) y E3 (fecha visible de la página).
+- §3.2 reemisión cuando Claude entregaba JSON en la primera corrida o había errores narrativos (conteos en `texto_propuesto`, filas duplicadas E4, fila T100/E3 incoherente en SIAC, PCT sin fila en B3, etc.).
+- Plantilla obligatoria: `data/claude-audits/www-inapi-cl_2026-06-02.json`.
+
+**Datos — `data/claude-audits/` (URLs 4–9, 7-jun-2026):**
+
+| # | Página | URL | `tipo_pagina` | `id` | % LC | Estado |
+| --- | --- | --- | --- | --- | --- | --- |
+| 4 | Acerca de INAPI | `www.inapi.cl/acerca-de/inapi` | sitioweb | `www-inapi-cl-acerca-de-inapi_2026-06-07` | 34,3 % | rechazado |
+| 5 | Buscador de noticias | `www.inapi.cl/buscador?…noticias` | sitioweb | `www-inapi-cl-buscador-noticias_2026-06-07` | 34,5 % | rechazado |
+| 6 | Solicitud Nueva | `www.inapi.cl/marcas/tramites/solicitud-nueva` | sitioweb | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | 44,8 % | rechazado |
+| 7 | Sala de Prensa | `www.inapi.cl/sala-de-prensa/noticias` | sitioweb | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | 45,5 % | rechazado |
+| 8 | Formulario Contacto SIAC | `tramites.inapi.cl/siac` | tramites | `tramites-inapi-cl-siac_2026-06-07` | 51,5 % | rechazado |
+| 9 | Trámites y Servicios (landing) | `tramites.inapi.cl/` | tramites | `tramites-inapi-cl_2026-06-07` | 57,6 % | rechazado |
+
+Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resultados: URL 9 (57,6 %) y URL 8 (51,5 %). Patrones sistémicos en `tramites.inapi.cl`: mayúsculas en menú (D7), `v 2.3.89.0` en footer (A5), PDF sin «(PDF)» (F4), PCT sin definir (B3).
+
+**URL 8 — nomenclatura `id`:** slug `tramites-inapi-cl-siac_2026-06-07` (archivo, campo `"id"` y `claudeAuditId` en launch).
+
+**URL 9:** §3.2 con 29 filas, 14 incumplimientos; ajustes A3 (H4→H3), D1 «Titulos» en L900, modal TGR `(desactivar modal TGR)`.
+
+**Frontend — `claude-audits-launch.ts`:** filas 4–9 con `resumenMvp`; `CLAUDE_AUDIT_ID_SET` con los 9 ids.
+
+### Contexto de errores o disyuntivas:
+
+- Intermitencia del harness del agente en Cursor tras update (`Execution backend unavailable`); el repo y la terminal local estaban bien.
+- DEVLOG real en `docs/development/DEVLOG.md`; el flujo piloto cita `development/DEVLOG.md` sin `docs/` — pendiente corregir enlace.
+
+### Próximos pasos:
+
+- Revisión UX (Bernarda): sustituciones aprobadas, falsos positivos G1/D7.
+- `bun run validate:claude-audits` antes de commit.
+- Commit + PR; actualizar §2 de `flujo-piloto-10-urls-claude-mvp.md`.
+- §3.3 HTML corregido opcional; demo/PDF a TIC.
 
 ---
 

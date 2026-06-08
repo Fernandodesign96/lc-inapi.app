@@ -1,0 +1,568 @@
+{
+  "id": "www-inapi-cl-sala-de-prensa-noticias_2026-06-07",
+  "url": "https://www.inapi.cl/sala-de-prensa/noticias",
+  "fecha_evaluacion": "2026-06-07T18:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [HTML-L567]: «Conoce más» (menú → /propiedad-intelectual-e-industrial) | T004 [HTML-L570]: «PCT» (sin definir) | T018 [HTML-L584]: «Observancia» (→ /protege-tu-idea) | T021 [HTML-L633]: «ACCESOS» | T022 [HTML-L620]: «BUSCADOR» | T027 [HTML-L674]: «Registro» | T028 [HTML-L674]: «LINK EXTERNO» | T029 [HTML-L674]: «BUSCAR Y TRAMITAR» | T030 [HTML-L674]: «MARCAS» | T037 [HTML-L674]: «PATENTES» | T038 [HTML-L2]: «Noticias» (<title>) | H1 [HTML-L682]: «Sala de Prensa» | H2 [HTML-L683]: «Noticias» | T039 [HTML-L698]: «Home» (breadcrumb) | T040 [HTML-L713]: «Columnas» (menú tab) | T042 [HTML-L746]: «INAPI publica nueva versión de las Directrices de Marcas 2026» (H4 noticia 1) | T043 [HTML-L747]: «Lunes 01 junio de 2026» | T044 [HTML-L748–751]: «La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición de usuarios y usuarias una herramienta de apoyo y consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.» | T045 [HTML-L765]: «Chilenos son finalistas del Premio Europeo al Inventor 2026 por innovador biofiltro que combate la contaminación del aire» (H4 noticia 2) | T046 [HTML-L766]: «Miércoles 27 mayo de 2026» | T047 [HTML-L767]: «La tecnología desarrollada por Aníbal Montalva y Miguel Ángel Fernández utiliza plantas y microorganismos para reducir en más de un 90% las emisiones de material particulado y olores, ofreciendo una solución sustentable para mejorar la calidad del aire en zonas residenciales e industriales.» | T048 [HTML-L781]: «Startup chilena es finalista de los WIPO Global Awards 2026 por tecnología de detección temprana de incendios forestales» (H4 noticia 3) | T049 [HTML-L782]: «Miércoles 20 mayo de 2026» | T050 [HTML-L783]: «La empresa nacional Drovid fue seleccionada entre más de 1.300 postulaciones provenientes de 126 países, gracias a una solución basada en inteligencia artificial y drones que busca prevenir incendios forestales provocados por acción humana.» | T051 [HTML-L788]: «Ver todas las noticias» | T057 [HTML-L848]: «Tu consulta será atendida por un especialista.» | T063 [HTML-L854]: «RUT: 65.999.669-3» | T075 [HTML-L904]: «©2026 INAPI. Todos los derechos reservados»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El H1 «Sala de Prensa» y el H2 «Noticias» comunican el propósito de la página de inmediato. Las tres tarjetas de noticias aparecen en primer plano antes de cualquier otro contenido.",
+      "cita_textual": "H1 [HTML-L682]: «Sala de Prensa» / H2 [HTML-L683]: «Noticias»"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las tarjetas de noticias se presentan sin párrafo introductorio que explique al usuario qué tipo de noticias publica INAPI, con qué frecuencia ni cómo suscribirse o acceder al archivo completo. El titular de cada noticia va seguido del extracto sin contexto de sección.",
+      "cita_textual": "(ausencia de párrafo introductorio antes de T042) — las 3 tarjetas de noticias aparecen directamente bajo el H2"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página usa H1 «Sala de Prensa», H2 «Noticias» (banner), menú de tabs (Noticias | Columnas) y cada noticia tiene su propio H4. La estructura jerárquica es clara.",
+      "cita_textual": "H1 [HTML-L682] / H2 [HTML-L683] / T042, T045, T048 (H4 de cada noticia)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Cada extracto de noticia tiene menos de 60 palabras. La sección de noticias no supera las 110 palabras en total."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "T028 «LINK EXTERNO» no ha sido eliminado. La meta description («Sección donde podrás encontrar todas las noticias relacionadas con INAPI») es vaga e impersonal, sin orientar al usuario sobre el tipo de contenido ni cómo acceder a noticias anteriores.",
+      "cita_textual": "T028 [HTML-L674]: «LINK EXTERNO» / META DESC: «Sección donde podrás encontrar todas las noticias relacionadas con INAPI»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T057). El párrafo de la noticia 1 (T044) usa voz pasiva: «La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición…» — sujeto largo con participio pospuesto.",
+      "cita_textual": "T057 [HTML-L848]: «Tu consulta será atendida por un especialista.» / T044 [HTML-L748]: «La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición…»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "PCT (T004) en menú sin definir. «Observancia» (T018) sin glosa. «WIPO Global Awards» (T048) es sigla-nombre compuesto no familiar para el ciudadano general. «biofiltro» (T045) podría requerir glosa en contexto informativo.",
+      "cita_textual": "T004 [HTML-L570]: «PCT» / T018 [HTML-L584]: «Observancia» / T048 [HTML-L781]: «WIPO Global Awards 2026»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT (T004) aparece en el menú sin definición en ningún punto de esta página. «WIPO» en el titular T048 tampoco se define en la página.",
+      "cita_textual": "T004 [HTML-L570]: «PCT» (menú, sin expandir) / T048 [HTML-L781]: «WIPO Global Awards» (sin definir)"
+    },
+    {
+      "id": "B4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El titular T048 usa «Startup» en lugar del equivalente en español «empresa emergente» o «empresa nueva». «drones» (T050) está más naturalizado pero también tiene alternativa («vehículos aéreos no tripulados»).",
+      "cita_textual": "T048 [HTML-L781]: «Startup chilena es finalista…» / T050 [HTML-L783]: «…drones que busca prevenir…»"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los titulares de noticias y el CTA «Ver todas las noticias» están en formulación positiva. No hay formulaciones negativas o restrictivas.",
+      "cita_textual": "T051 [HTML-L788]: «Ver todas las noticias»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras» (T053). La meta description usa tono impersonal de tercera persona: «Sección donde podrás encontrar…».",
+      "cita_textual": "T053 [HTML-L848]: «Utiliza el canal de comunicación que prefieras:» / META DESC impersonal"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático en los titulares ni extractos de las noticias. El lenguaje es concreto y directo."
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T044 (noticia 1) abre con sujeto largo y modificador pospuesto: «La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición…» — el núcleo del sujeto («La actualización») está separado del verbo por una cláusula participial. T047 (noticia 2) usa gerundio al final: «ofreciendo una solución sustentable…» — complemento pospuesto.",
+      "cita_textual": "T044 [HTML-L748]: «La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición de usuarios y usuarias una herramienta de apoyo y consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los extractos usan tiempo presente simple: «pone a disposición», «facilita», «utiliza», «busca prevenir». Las fechas están en pasado apropiado.",
+      "cita_textual": "T044: «facilita el acceso» / T050: «busca prevenir incendios»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T047 (noticia 2) es una oración de ~52 palabras con múltiples subordinadas y cláusula participial final («ofreciendo una solución sustentable para mejorar la calidad del aire en zonas residenciales e industriales»). T044 también es una sola oración extensa.",
+      "cita_textual": "T047 [HTML-L767]: «La tecnología desarrollada por Aníbal Montalva y Miguel Ángel Fernández utiliza plantas y microorganismos para reducir en más de un 90% las emisiones de material particulado y olores, ofreciendo una solución sustentable para mejorar la calidad del aire en zonas residenciales e industriales.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada tarjeta de noticia desarrolla un solo tema. Los extractos son autocontenidos."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Todos los extractos de noticias tienen menos de 4 líneas en escritorio."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es un repositorio de tarjetas de noticias, no un artículo con 4 o más párrafos continuos. No aplica el criterio de resumen al inicio."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No hay listas de requisitos. No aplica."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Las tres imágenes de las noticias tienen alt vacío (alt='' en HTML-L742, L761, L777): las imágenes de noticias tienen función informativa y deben tener texto alternativo descriptivo. El alt «lobby» (HTML-L809) está en minúscula. El alt «codigo-etica» (HTML-L812) es identificador interno. El alt/title de PAC 2025 (HTML-L800) y MESU 2025 (HTML-L803) están vacíos.",
+      "cita_textual": "HTML-L742: alt='' (imagen noticia 1) / HTML-L761: alt='' (imagen noticia 2) / HTML-L777: alt='' (imagen noticia 3) / HTML-L809: alt='lobby' (minúscula) / HTML-L812: alt='codigo-etica'"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación en los extractos de noticias es correcta. No se detectan comas innecesarias ni ausencia de puntos."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Las tarjetas de noticias están correctamente estructuradas como elementos de lista implícita. No hay enumeraciones en texto corrido con comas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave. Los extractos son breves."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Textos en mayúsculas totales en el shell: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037). El <title> «Noticias» (T038) no es mayúsculas pero sí es genérico (evaluado en E4).",
+      "cita_textual": "T021: «ACCESOS» / T022: «BUSCADOR» / T029: «BUSCAR Y TRAMITAR» / T030: «MARCAS» / T037: «PATENTES»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Los titulares de noticias son descriptivos y factuales. No se usan adjetivos autopromocionales. Los extractos son objetivos.",
+      "cita_textual": "T042, T045, T048 — titulares de hechos concretos sin adjetivos valorativos"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el H1, en los titulares de noticias, en el footer y en el copyright.",
+      "cita_textual": "T075 [HTML-L904]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de actualización de la página visible. Las fechas de las noticias individuales (T043, T046, T049) no equivalen a una fecha de actualización de la sección. El copyright ©2026 tampoco lo reemplaza.",
+      "cita_textual": "(ausencia) — ningún Tnnn indica cuándo fue actualizada la sección Noticias"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «Noticias» (HTML-L2) — genérico, sin nombre de la institución ni descripción del contenido. No distingue esta sección de cualquier otra página de noticias de otro organismo.",
+      "cita_textual": "HTML-L2 (title): «Noticias» — sin contexto institucional ni descripción"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia» (T018) lleva a /protege-tu-idea — slug no coincide. «Conoce más» (T001) lleva a /propiedad-intelectual-e-industrial — texto no describe destino. El CTA «Ver todas las noticias» sí coincide con su destino /sala-de-prensa/noticias/todas-las-noticias.",
+      "cita_textual": "T018 [HTML-L584]: «Observancia» → /protege-tu-idea / T001 [HTML-L567]: «Conoce más» → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Conoce más» (T001) es enlace genérico sin descripción del destino. «Registro» (T027) en el modal de login es ambiguo.",
+      "cita_textual": "T001 [HTML-L567]: «Conoce más» / T027 [HTML-L674]: «Registro»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Registro» (T027) ambiguo. «Observancia» (T018) no describe el destino real.",
+      "cita_textual": "T027 [HTML-L674]: «Registro» / T018 [HTML-L584]: «Observancia»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres PDFs en el carrusel sin indicar formato ni peso: PAC 2025 (HTML-L800, alt/title vacíos), Informe Teletrabajo (HTML-L806, alt «Teletrabajo»), Código de Ética (HTML-L812, alt «codigo-etica» — identificador interno). MESU 2025 (HTML-L803) también tiene alt/title vacíos aunque no es PDF.",
+      "cita_textual": "HTML-L800: res-pac-2025.pdf, alt='' / HTML-L806: teletrabajo.pdf, alt='Teletrabajo' / HTML-L812: codigo-de-etica_inapi-2026.pdf, alt='codigo-etica'"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "El CTA «Ver todas las noticias» (T051) está al final de la sección de tarjetas, no intercalado en el texto corrido.",
+      "cita_textual": "T051 [HTML-L788]: «Ver todas las noticias»"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El RUT institucional 65.999.669-3 (T063) aparece en el footer. No aporta valor a la tarea del usuario en esta página de noticias.",
+      "cita_textual": "T063 [HTML-L854]: «RUT: 65.999.669-3»"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Existe enlace a «Política de privacidad» en el footer (T074).",
+      "cita_textual": "T074 [HTML-L892]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright ©2026 está actualizado (T075). Existe enlace «Uso de los Contenidos de este Sitio» (T072).",
+      "cita_textual": "T075 [HTML-L904]: «©2026 INAPI. Todos los derechos reservados» / T072 [HTML-L890]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado en esta página."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 45.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 18 incumplimientos sobre 33 criterios aplicables (45,5 %). Las correcciones de mayor impacto son: (1) agregar texto alternativo descriptivo a las tres imágenes de noticias con alt vacío (D1); (2) expandir WIPO como «Organización Mundial de la Propiedad Intelectual (OMPI)» en el titular T048 y PCT en el menú (B3); (3) reemplazar voz pasiva del modal de contacto y reformular el extracto de noticia 1 T044 (B1); (4) reemplazar «Startup» por «empresa emergente» en el titular T048 (B4); (5) agregar fecha de actualización visible de la sección (E3); (6) ampliar el <title> a «INAPI — Noticias institucionales de propiedad industrial» (E4); (7) indicar formato PDF en los tres ítems del carrusel (F4); (8) simplificar T047 en dos oraciones para eliminar el gerundio final (C3); (9) agregar meta description orientada a la tarea (A5); (10) normalizar mayúsculas totales en el modal (D7). El array sustituciones[] contiene 35 filas con cobertura 1:1 para los 18 criterios incumplidos.",
+  "observaciones_lc": "La sección Noticias de la Sala de Prensa de INAPI obtiene un 45,5 % de cumplimiento sobre 33 criterios aplicables — estado RECHAZADO. Los 18 incumplimientos se distribuyen en cuatro áreas principales: (1) accesibilidad de imágenes (D1 alta): las tres imágenes de noticias tienen alt vacío, lo que excluye a usuarios de lectores de pantalla; (2) siglas y extranjerismos sin definir (B3 alta, B4 baja): PCT en menú, WIPO en titular de noticia 3 sin expandir, y «Startup» sin alternativa en español; (3) calidad editorial de los extractos (B1 media, C1 media, C3 media): voz pasiva en el modal de contacto, sujeto largo con modificador pospuesto en el extracto de la noticia 1, y oración de 52 palabras con gerundio en el extracto de la noticia 2; (4) metadatos y fiabilidad (E3 alta, E4 media): title genérico «Noticias» y ausencia de fecha de actualización de la sección. Los incumplimientos sistémicos del shell también se repiten (D7, G1, LINK EXTERNO, «Conoce más»). Las fortalezas son la estructura con H1/H2 claros (A1, A3), el uso de tiempo presente (C2), los titulares descriptivos y objetivos (E1) y el copyright actualizado (G3).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/sala-de-prensa/noticias fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 15 se cumplen, lo que arroja un 45,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 18 incumplimientos y se generaron 35 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: tres imágenes de noticias con alt vacío (D1), voz pasiva en modal de contacto y en extracto de noticia 1 (B1), PCT y WIPO sin definir (B3), ausencia de fecha de actualización de la sección (E3), tres PDFs del carrusel sin indicar formato (F4), «Conoce más» como enlace genérico (F2), y RUT institucional en footer (G1). Los incumplimientos de severidad media incluyen extractos con oraciones densas (C1, C3), términos sin definición (B2), tono distante en el modal (B6), mayúsculas totales (D7) y title genérico (E4).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B1) El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T057). El extracto de noticia 1 (T044) tiene sujeto largo con participio pospuesto.",
+      "(B3) PCT (T004) en menú sin definición. WIPO (T048) en titular de noticia 3 sin expandir en ningún punto de la página.",
+      "(D1) Las tres imágenes de noticias tienen alt vacío (HTML-L742, L761, L777). El alt «lobby» (HTML-L809) en minúscula. El alt «codigo-etica» (HTML-L812) es identificador interno. PAC 2025 (HTML-L800) y MESU 2025 (HTML-L803) con alt vacíos.",
+      "(E3) Ausencia de fecha de actualización visible de la sección Noticias. Las fechas individuales de las noticias no equivalen a una fecha de actualización de la página.",
+      "(F2) «Conoce más» (T001) es enlace genérico sin descripción del destino.",
+      "(F4) Tres PDFs en el carrusel sin indicar formato ni peso: PAC 2025 (HTML-L800), Teletrabajo (HTML-L806), Código de Ética (HTML-L812).",
+      "(G1) RUT institucional 65.999.669-3 (T063) en el footer sin aportar valor al usuario."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Las tarjetas de noticias se presentan sin párrafo introductorio sobre el tipo de contenido que publica INAPI.",
+      "(B2) Términos sin definición: PCT (T004), «Observancia» (T018), «WIPO Global Awards» (T048).",
+      "(B6) Modal de contacto con imperativo distante: «Utiliza el canal de comunicación que prefieras» (T053). Meta description impersonal.",
+      "(C1) T044 abre con sujeto largo y participio pospuesto. T047 usa gerundio al final de la oración.",
+      "(C3) T047 (noticia 2) contiene una oración de ~52 palabras con múltiples subordinadas y gerundio final.",
+      "(D7) Mayúsculas totales: ACCESOS, BUSCADOR, BUSCAR Y TRAMITAR, MARCAS, PATENTES.",
+      "(E4) El <title> «Noticias» no incluye el nombre de la institución ni describe el contenido.",
+      "(F1) «Observancia» (T018) lleva a /protege-tu-idea (slug no coincide). «Conoce más» (T001) no describe el destino.",
+      "(F3) «Registro» (T027) ambiguo. «Observancia» (T018) no descriptivo del destino."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «LINK EXTERNO» (T028) no eliminado. Meta description vaga e impersonal.",
+      "(B4) «Startup» (T048) sin alternativa en español; «drones» (T050) más naturalizado pero tiene equivalente."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L848",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista de INAPI responderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "HTML-L748",
+      "original": "La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición de usuarios y usuarias una herramienta de apoyo y consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.",
+      "propuesto": "INAPI pone a disposición una herramienta de consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.",
+      "criterio_id": "B1",
+      "motivo": "Elimina el sujeto largo con participio pospuesto («impulsada por») y coloca a INAPI como sujeto activo al inicio."
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "HTML-L748",
+      "original": "La actualización impulsada por el Instituto Nacional de Propiedad Industrial pone a disposición de usuarios y usuarias una herramienta de apoyo y consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.",
+      "propuesto": "INAPI pone a disposición una herramienta de consulta que facilita el acceso a criterios y lineamientos técnicos en materia de marcas comerciales.",
+      "criterio_id": "C1",
+      "motivo": "Aplica orden SVP: coloca sujeto (INAPI) al inicio, elimina el modificador pospuesto y simplifica la estructura."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L767",
+      "original": "La tecnología desarrollada por Aníbal Montalva y Miguel Ángel Fernández utiliza plantas y microorganismos para reducir en más de un 90% las emisiones de material particulado y olores, ofreciendo una solución sustentable para mejorar la calidad del aire en zonas residenciales e industriales.",
+      "propuesto": "La tecnología usa plantas y microorganismos para reducir en más de un 90 % las emisiones de material particulado y olores en zonas residenciales e industriales. Fue desarrollada por Aníbal Montalva y Miguel Ángel Fernández.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de 52 palabras en dos oraciones simples; elimina el gerundio «ofreciendo» y coloca la información de autoría en oración independiente."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L767",
+      "original": "La tecnología desarrollada por Aníbal Montalva y Miguel Ángel Fernández utiliza plantas y microorganismos para reducir en más de un 90% las emisiones de material particulado y olores, ofreciendo una solución sustentable para mejorar la calidad del aire en zonas residenciales e industriales.",
+      "propuesto": "La tecnología usa plantas y microorganismos para reducir en más de un 90 % las emisiones de material particulado y olores en zonas residenciales e industriales. Fue desarrollada por Aníbal Montalva y Miguel Ángel Fernández.",
+      "criterio_id": "C1",
+      "motivo": "Alternativa para C1: elimina el participio pospuesto «desarrollada por» que precede al verbo principal y viola el orden SVP."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L725",
+      "original": "(ausencia de párrafo introductorio antes de las tarjetas)",
+      "propuesto": "Aquí encontrarás las últimas noticias publicadas por INAPI sobre propiedad industrial en Chile.",
+      "criterio_id": "A2",
+      "motivo": "Insertar frase introductoria breve bajo el H2 «Noticias» antes de las tarjetas para aplicar pirámide invertida."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L674",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Texto de desarrollo no eliminado en el modal de acceso; sin valor para el usuario."
+    },
+    {
+      "linea": "META-DESC",
+      "html_linea_aprox": "HTML-L3",
+      "original": "Sección donde podrás encontrar todas las noticias relacionadas con INAPI",
+      "propuesto": "Últimas noticias de INAPI sobre propiedad industrial en Chile: marcas, patentes, innovación y emprendimiento.",
+      "criterio_id": "A5",
+      "motivo": "La meta description es vaga e impersonal; reemplazar por descripción orientada a la tarea con términos clave relevantes."
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L570",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin definición en el menú; primera y única aparición en la página."
+    },
+    {
+      "linea": "T048",
+      "html_linea_aprox": "HTML-L781",
+      "original": "Startup chilena es finalista de los WIPO Global Awards 2026 por tecnología de detección temprana de incendios forestales",
+      "propuesto": "Empresa emergente chilena es finalista de los Premios Mundiales OMPI 2026 por tecnología de detección temprana de incendios forestales",
+      "criterio_id": "B3",
+      "motivo": "Expande WIPO como OMPI (Organización Mundial de la Propiedad Intelectual) en su primera aparición en la página."
+    },
+    {
+      "linea": "T048",
+      "html_linea_aprox": "HTML-L781",
+      "original": "Startup chilena es finalista de los WIPO Global Awards 2026 por tecnología de detección temprana de incendios forestales",
+      "propuesto": "Empresa emergente chilena es finalista de los Premios Mundiales OMPI 2026 por tecnología de detección temprana de incendios forestales",
+      "criterio_id": "B4",
+      "motivo": "Reemplaza «Startup» por «empresa emergente», equivalente en español, y «WIPO» por «OMPI»."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L584",
+      "original": "Observancia",
+      "propuesto": "Observancia (protección contra falsificaciones)",
+      "criterio_id": "B2",
+      "motivo": "«Observancia» es término técnico-legal; agregar glosa descriptiva en el menú."
+    },
+    {
+      "linea": "T053",
+      "html_linea_aprox": "HTML-L848",
+      "original": "Utiliza el canal de comunicación que prefieras:",
+      "propuesto": "Elige cómo contactarnos:",
+      "criterio_id": "B6",
+      "motivo": "Simplifica frase y reduce distancia formal del imperativo distante."
+    },
+    {
+      "linea": "META-DESC",
+      "html_linea_aprox": "HTML-L3",
+      "original": "Sección donde podrás encontrar todas las noticias relacionadas con INAPI",
+      "propuesto": "Últimas noticias de INAPI sobre propiedad industrial en Chile: marcas, patentes, innovación y emprendimiento.",
+      "criterio_id": "B6",
+      "motivo": "La meta description usa tono impersonal («Sección donde podrás encontrar»); reemplazar por tono cercano orientado al usuario."
+    },
+    {
+      "linea": "HTML-L742",
+      "html_linea_aprox": "HTML-L742",
+      "original": "alt=''",
+      "propuesto": "alt='Portada de las Directrices de Marcas 2026 publicadas por INAPI'",
+      "criterio_id": "D1",
+      "motivo": "La imagen de la noticia 1 tiene alt vacío; agregar texto alternativo descriptivo para usuarios de lectores de pantalla."
+    },
+    {
+      "linea": "HTML-L761",
+      "html_linea_aprox": "HTML-L761",
+      "original": "alt=''",
+      "propuesto": "alt='Premio Europeo al Inventor 2026 — biofiltro chileno que combate la contaminación del aire'",
+      "criterio_id": "D1",
+      "motivo": "La imagen de la noticia 2 tiene alt vacío; agregar texto alternativo descriptivo del contenido de la imagen."
+    },
+    {
+      "linea": "HTML-L777",
+      "html_linea_aprox": "HTML-L777",
+      "original": "alt=''",
+      "propuesto": "alt='Empresa Drovid, finalista de los Premios Mundiales OMPI 2026 por tecnología de detección de incendios'",
+      "criterio_id": "D1",
+      "motivo": "La imagen de la noticia 3 tiene alt vacío; agregar texto alternativo descriptivo."
+    },
+    {
+      "linea": "HTML-L809",
+      "html_linea_aprox": "HTML-L809",
+      "original": "alt='lobby'",
+      "propuesto": "alt='Ley del Lobby'",
+      "criterio_id": "D1",
+      "motivo": "«lobby» en minúscula es incorrecto; normalizar a «Ley del Lobby» para dar contexto al usuario."
+    },
+    {
+      "linea": "HTML-L812",
+      "html_linea_aprox": "HTML-L812",
+      "original": "alt='codigo-etica'",
+      "propuesto": "alt='Código de Ética INAPI 2026'",
+      "criterio_id": "D1",
+      "motivo": "«codigo-etica» es identificador interno; reemplazar con texto descriptivo."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L633",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L620",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Placeholder en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "HTML-L674",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de modal en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L674",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T037",
+      "html_linea_aprox": "HTML-L674",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L725",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible de la sección bajo el H2 «Noticias»; actualmente no existe."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L2",
+      "original": "Noticias",
+      "propuesto": "INAPI — Noticias institucionales de propiedad industrial",
+      "criterio_id": "E4",
+      "motivo": "El <title> genérico no incluye el nombre de la institución; ampliar para mejorar posicionamiento y claridad en pestañas del navegador."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L567",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a /propiedad-intelectual-e-industrial; el texto debe describir el destino."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L584",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a /protege-tu-idea; el texto visible no coincide con el destino real."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L567",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F2",
+      "motivo": "«Conoce más» es texto genérico que no describe el destino."
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L674",
+      "original": "Registro",
+      "propuesto": "Crear cuenta",
+      "criterio_id": "F3",
+      "motivo": "«Registro» es ambiguo entre registro de marca y creación de cuenta de usuario."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L584",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F3",
+      "motivo": "«Observancia» no describe el destino real /protege-tu-idea."
+    },
+    {
+      "linea": "HTML-L800",
+      "html_linea_aprox": "HTML-L800",
+      "original": "alt='' (enlace a res-pac-2025.pdf)",
+      "propuesto": "alt='Plan de Acción de Cumplimiento 2025 (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "Enlace a PDF sin texto ni indicación de formato; agregar alt descriptivo con indicación de tipo de archivo."
+    },
+    {
+      "linea": "HTML-L806",
+      "html_linea_aprox": "HTML-L806",
+      "original": "alt='Teletrabajo' (enlace a inapi_informes_teletrabajo.pdf)",
+      "propuesto": "alt='Informe de Teletrabajo INAPI (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "El alt «Teletrabajo» no indica que el destino es un PDF; reemplazar con nombre descriptivo e indicación de formato."
+    },
+    {
+      "linea": "HTML-L812",
+      "html_linea_aprox": "HTML-L812",
+      "original": "alt='codigo-etica' (enlace a codigo-de-etica_inapi-2026.pdf)",
+      "propuesto": "alt='Código de Ética INAPI 2026 (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "El alt «codigo-etica» es identificador interno; reemplazar con nombre completo e indicación de formato."
+    },
+    {
+      "linea": "T063",
+      "html_linea_aprox": "HTML-L854",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "G1",
+      "motivo": "RUT de persona jurídica pública; no aporta valor a la tarea del usuario en esta página de noticias. Mover a Transparencia o Quiénes somos."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) las imágenes de las tres noticias (HTML-L742, L761, L777) tienen el atributo alt presente pero vacío (alt='') — editar el atributo existente, no agregar uno nuevo; (3) el banner de noticias está en L679–L687 con H1 y H2 en el mismo <div class='texto-banner rs'> — las correcciones de A2 y E3 requieren INSERTAR nuevos nodos dentro de la sección principal (HTML-L725–L791), no reemplazar texto existente; (4) la meta description (HTML-L3 o siguiente) está en el bloque <head> comprimido — buscar name='description' para localizarla; (5) los alts del carrusel (HTML-L800, L803, L806, L809, L812) requieren editar el atributo alt de cada <img>; en L800 y L803 el alt está vacío (alt=''), no ausente; (6) el modal de contacto (HTML-L848) está comprimido en una sola línea — buscar 'Tu consulta ser' para localizar la cadena exacta con entidades; (7) el <title> (HTML-L2) está en línea separada — buscar 'Noticias\n</title>' para localizarlo; (8) el HTML puede contener entidades como &#243; (ó), &#225; (á), &aacute; (á), &#237; (í) que deben buscarse en forma codificada si el editor trabaja sobre HTML crudo."
+}

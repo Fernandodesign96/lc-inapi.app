@@ -1,0 +1,535 @@
+{
+  "id": "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07",
+  "url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+  "fecha_evaluacion": "2026-06-07T16:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [HTML-L563]: «Conoce más» (menú → /propiedad-intelectual-e-industrial) | T004 [HTML-L566]: «PCT» (sin definir) | T018 [HTML-L580]: «Observancia» (→ /protege-tu-idea) | T021 [HTML-L638]: «ACCESOS» | T022 [HTML-L616]: «BUSCADOR» | T025 [HTML-L688]: «INAPI» (modal login) | T027 [HTML-L688]: «Registro» | T029 [HTML-L688]: «BUSCAR Y TRAMITAR» | T030 [HTML-L688]: «MARCAS» | T037 [HTML-L688]: «PATENTES» | T038 [HTML-L712]: «Home» (breadcrumb) | T039 [HTML-L2]: «Solicitud Nueva» (<title> y breadcrumb nivel 4) | H1 [HTML-L696]: «Marcas» | H2 [HTML-L697]: «Trámites» | MENÚ TABS: T040 [HTML-L727]: «Para Informarse» | T041 [HTML-L729]: «Marcas según su tipo» | T042–T044: «Categoría de la Marca», «Tipo de Marca», «Tipo de Cobertura» | T045 [HTML-L744]: «Buscadores» | T046 [HTML-L688]: «Renovación» | T047 [HTML-L756]: «Anotación» | T048 [HTML-L759]: «Títulos y Certificados» | T049 [HTML-L762]: «Recursos para Usuarios» | T050 [HTML-L765]: «Formularios Descargables» | T051 [HTML-L770]: «Directrices» | TARJETAS TRÁMITES: T052 [HTML-L799]: «Solicitud Nueva y Pago Electrónico» (H4, → tramites.inapi.cl) | T053 [HTML-L810]: «Revisar y Pagar Solicitudes Guardadas» (H4) | T054 [HTML-L821]: «Publicación en el Diario Oficial» (H4, → pagos.diarioficial.cl, target=_blank sin aviso) | T055 [HTML-L832]: «Pizarra de Pagos (pago, renovación y anotación)» (H4) | T056 [HTML-L843]: «Presentación de Escritos» (H4) | CARRUSEL: L865: PAC 2025 (PDF, alt/title vacíos) | L868: MESU 2025 (alt/title vacíos) | L871: «Teletrabajo» (PDF) | L874: «lobby» (minúscula) | L877: «codigo-etica» (PDF, identificador interno) | MODAL CONTACTO: T057 [HTML-L912]: «¿Quieres contactarnos?» | T058 [HTML-L913]: «Utiliza el canal de comunicación que prefieras:» | T062 [HTML-L913]: «Tu consulta será atendida por un especialista.» | FOOTER: T068 [HTML-L919]: «RUT: 65.999.669-3» | T080 [HTML-L969]: «©2026 INAPI. Todos los derechos reservados»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El H1 es «Marcas» y el H2 es «Trámites» — ninguno comunica que el usuario está en la sección «Solicitud Nueva» ni qué puede hacer aquí. El breadcrumb sí indica «Solicitud Nueva» pero no como encabezado. No hay texto introductorio que explique el propósito de la página antes de las tarjetas de acción.",
+      "cita_textual": "H1 [HTML-L696]: «Marcas» / H2 [HTML-L697]: «Trámites» — el contexto específico «Solicitud Nueva» solo aparece en el breadcrumb y en el <title>"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página presenta directamente las 5 tarjetas de acción sin ningún texto introductorio que explique qué es una solicitud nueva, qué pasos implica, quién puede realizarla o qué necesita el usuario antes de comenzar. No aplica pirámide invertida.",
+      "cita_textual": "(ausencia de texto introductorio) — las 5 tarjetas H4 aparecen sin contexto previo: T052–T056 [HTML-L799–843]"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página está fragmentada con H1, H2 y un menú de tabs que organiza la sección Marcas. Las 5 tarjetas de acción están agrupadas bajo el contexto jerárquico Marcas > Trámites > Solicitud Nueva.",
+      "cita_textual": "H1 [HTML-L696]: «Marcas» / H2 [HTML-L697]: «Trámites» / menú tabs L726–L771"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "La página es un hub de navegación con tarjetas de acción. No hay bloques de texto continuo. Los títulos de las tarjetas (H4) son breves y directos."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La meta description («Sección donde podrás encontrar todas las solicitudes nuevas») es vaga y no orienta al usuario sobre la tarea. El carrusel incluye ítems con alt/title vacíos (PAC 2025, MESU 2025) y un alt «lobby» en minúscula, que no aportan valor de tarea.",
+      "cita_textual": "META DESC: «Sección donde podrás encontrar todas las solicitudes nuevas» / L865: alt='' (PAC 2025) / L874: alt='lobby'"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T062).",
+      "cita_textual": "T062 [HTML-L913]: «Tu consulta será atendida por un especialista.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "PCT (T004) en menú sin definir. «Observancia» (T018) sin glosa. «Pizarra de Pagos» (T055) es término interno de la plataforma no familiar para el ciudadano general. «Anotación» (T047) en menú lateral tampoco tiene glosa.",
+      "cita_textual": "T004 [HTML-L566]: «PCT» / T055 [HTML-L832]: «Pizarra de Pagos (pago, renovación y anotación)» / T047 [HTML-L756]: «Anotación»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT (T004) aparece en el menú sin definición en ningún punto de esta página.",
+      "cita_textual": "T004 [HTML-L566]: «PCT» (menú, sin expandir)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial de la página."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los títulos de las tarjetas de acción son positivos y directos: «Solicitud Nueva y Pago Electrónico», «Revisar y Pagar Solicitudes Guardadas», etc."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras» (T058). La meta description usa tono impersonal de tercera persona: «Sección donde podrás encontrar…».",
+      "cita_textual": "T058 [HTML-L913]: «Utiliza el canal de comunicación que prefieras:» / META DESC: «Sección donde podrás encontrar todas las solicitudes nuevas»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático en el contenido propio de la página."
+    },
+    {
+      "id": "C1",
+      "estado": "no_aplica",
+      "comentario": "La página es un hub de navegación con tarjetas de acción (H4 + enlace). No hay oraciones editoriales redactadas que evaluar con el criterio SVP."
+    },
+    {
+      "id": "C2",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido con tiempo verbal que evaluar. Los títulos de las tarjetas son nominales."
+    },
+    {
+      "id": "C3",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones en el contenido propio de la página. No aplica el criterio de complejidad de oraciones."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada tarjeta de acción desarrolla una sola idea/tarea. Las tarjetas están bien diferenciadas entre sí."
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de texto corrido que superen 8 líneas. Los únicos textos son los H4 de las tarjetas."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene bloques de párrafos continuos. No aplica el criterio de resumen al inicio."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No hay listas de requisitos en esta página. Las tarjetas son CTAs de acción, no pasos con requisitos."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El alt/title «lobby» (HTML-L874) usa minúscula en el carrusel — debería ser «Lobby» o «Ley del Lobby». El alt «codigo-etica» (HTML-L877) es un identificador interno, no texto descriptivo. El alt/title de PAC 2025 (HTML-L865) y MESU 2025 (HTML-L868) están vacíos.",
+      "cita_textual": "L874: alt='lobby' (minúscula) / L877: alt='codigo-etica' (identificador interno) / L865: alt='' (vacío) / L868: alt='' (vacío)"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "No hay texto corrido con puntuación que evaluar. Los títulos de las tarjetas están correctamente puntuados."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El menú de tabs y el menú lateral usan listas <ul><li> correctamente. No hay enumeraciones en texto corrido."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Textos en mayúsculas totales en el shell: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037).",
+      "cita_textual": "T021: «ACCESOS» / T022: «BUSCADOR» / T029: «BUSCAR Y TRAMITAR» / T030: «MARCAS» / T037: «PATENTES»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se usan adjetivos valorativos autopromocionales. Los títulos de las tarjetas son descriptivos y objetivos."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el H1 del contexto, en el footer y en el copyright.",
+      "cita_textual": "T080 [HTML-L969]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de última actualización visible en el contenido de la página. El copyright ©2026 no equivale a fecha de actualización del contenido.",
+      "cita_textual": "(ausencia) — ningún Tnnn indica fecha de actualización del contenido"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «Solicitud Nueva» (HTML-L2) — sin nombre de la institución ni descripción de la tarea. El H1 es «Marcas» y el H2 es «Trámites», pero ninguno expresa que el usuario está en la sección de solicitud nueva de marcas.",
+      "cita_textual": "HTML-L2 (title): «Solicitud Nueva» / H1 [HTML-L696]: «Marcas» / H2 [HTML-L697]: «Trámites»"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia» (T018) lleva a /protege-tu-idea — slug no coincide con el texto. «Conoce más» (T001) lleva a /propiedad-intelectual-e-industrial — texto no describe destino. La tarjeta T054 «Publicación en el Diario Oficial» lleva a pagos.diarioficial.cl (dominio externo, target=_blank) sin advertencia visible al usuario.",
+      "cita_textual": "T018 [HTML-L580]: «Observancia» → /protege-tu-idea / T054 [HTML-L815]: «Publicación en el Diario Oficial» → pagos.diarioficial.cl (externo, sin aviso)"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Conoce más» (T001) es enlace genérico que no describe el destino. «Registro» (T027) es ambiguo en el contexto del modal de login.",
+      "cita_textual": "T001 [HTML-L563]: «Conoce más» / T027 [HTML-L688]: «Registro»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Registro» (T027) es ambiguo entre registro de marca y cuenta de usuario. «Observancia» (T018) no describe el destino real. «Anotación» (T047) en el menú lateral es jerga registral sin descripción del destino para el ciudadano.",
+      "cita_textual": "T027 [HTML-L688]: «Registro» / T018 [HTML-L580]: «Observancia» / T047 [HTML-L756]: «Anotación»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres PDFs en el carrusel sin indicar formato ni peso: PAC 2025 (HTML-L865, alt/title vacíos), Informe Teletrabajo (HTML-L871, alt «Teletrabajo»), Código de Ética (HTML-L877, alt «codigo-etica»). El ítem MESU 2025 (HTML-L868) también tiene alt/title vacíos aunque no es PDF.",
+      "cita_textual": "HTML-L865: res-pac-2025.pdf, alt='' / HTML-L871: teletrabajo.pdf, alt='Teletrabajo' / HTML-L877: codigo-de-etica_inapi-2026.pdf, alt='codigo-etica'"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Las tarjetas de acción son los únicos CTAs de la página y están posicionadas como elementos de navegación principales, no intercaladas en texto corrido.",
+      "cita_textual": "T052–T056 [HTML-L799–843]"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El RUT institucional 65.999.669-3 (T068) aparece en el footer. Aunque es de persona jurídica pública, no aporta valor a la tarea del usuario en esta página de acceso a trámites.",
+      "cita_textual": "T068 [HTML-L919]: «RUT: 65.999.669-3»"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Existe enlace a «Política de privacidad» en el footer (T079).",
+      "cita_textual": "T079 [HTML-L957]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright ©2026 está actualizado (T080). Existe enlace «Uso de los Contenidos de este Sitio» (T077).",
+      "cita_textual": "T080 [HTML-L969]: «©2026 INAPI. Todos los derechos reservados» / T077 [HTML-L955]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 10,
+  "criterios_aplicables": 29,
+  "criterios_aprobados": 13,
+  "porcentaje_cumplimiento": 44.8,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 16 incumplimientos sobre 29 criterios aplicables (44,8 %). Las correcciones de mayor impacto son: (1) agregar un H2 o párrafo introductorio que explique al usuario qué es una solicitud nueva de marca, qué pasos implica y qué necesita antes de comenzar (A1, A2); (2) cambiar el H1 o agregar un H2 descriptivo: «Solicitud Nueva de Marca» (A1, E4); (3) ampliar el <title> a «INAPI — Solicitud Nueva de Marca: pasos y pagos» (E4); (4) agregar fecha de actualización visible (E3); (5) reemplazar voz pasiva del modal de contacto: «Tu consulta será atendida» → «Un especialista de INAPI responderá tu consulta» (B1); (6) indicar formato PDF en los tres ítems del carrusel y agregar alts descriptivos (F4, D1); (7) agregar aviso de redirección externa en la tarjeta «Publicación en el Diario Oficial» que abre pagos.diarioficial.cl (F1); (8) expandir PCT en menú (B3); (9) normalizar mayúsculas totales en modal (D7); (10) mejorar meta description con descripción orientada a la tarea del usuario (A5, B6). El array sustituciones[] contiene 32 filas con cobertura 1:1 para los 16 criterios incumplidos.",
+  "observaciones_lc": "La página /marcas/tramites/solicitud-nueva obtiene un 44,8 % de cumplimiento sobre 29 criterios aplicables — estado RECHAZADO. Con 10 criterios no aplicables, la página es principalmente un hub de navegación con tarjetas de acción, lo que elimina la mayoría de los criterios de redacción (C1–C3, C5–C7, D6). El problema central es estructural: la página no tiene texto editorial propio más allá de los títulos de las 5 tarjetas. El usuario que llega aquí sin contexto previo no sabe qué es una «Solicitud Nueva», qué pasos implica, ni si cumple los requisitos para iniciarla (A1, A2). Los 16 incumplimientos incluyen: ausencia de introducción al trámite (A1, A2), voz pasiva en el modal de contacto (B1), PCT sin definir (B3), tres PDFs del carrusel sin formato (F4), ausencia de fecha de actualización (E3), title genérico (E4), enlace externo sin aviso de redirección (F1), y los incumplimientos sistémicos del shell (D7, G1). La meta description («Sección donde podrás encontrar todas las solicitudes nuevas») es vaga e impersonal. El copyright está actualizado (©2026) y el footer incluye los enlaces de uso de contenidos (G3 cumple).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/marcas/tramites/solicitud-nueva fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Con 10 criterios no aplicables (hub de navegación sin texto editorial propio), de los 29 criterios aplicables 13 se cumplen, lo que arroja un 44,8 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 16 incumplimientos y se generaron 32 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: H1 «Marcas» sin comunicar el propósito de la página de solicitud nueva (A1), ausencia total de texto introductorio previo a las tarjetas de acción (A2), voz pasiva en modal de contacto (B1), PCT sin definir (B3), ausencia de fecha de actualización (E3), tres PDFs del carrusel sin indicar formato ni peso (F4), y RUT institucional en footer (G1). La corrección más impactante es agregar un párrafo introductorio y un H2 descriptivo que oriente al usuario sobre qué puede hacer y qué necesita antes de iniciar una solicitud nueva de marca.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) El H1 «Marcas» y el H2 «Trámites» no comunican el propósito específico de la página. El usuario no sabe que está en la sección de solicitud nueva ni qué puede hacer desde aquí.",
+      "(A2) La página no tiene texto introductorio. Las 5 tarjetas de acción aparecen directamente sin contexto sobre qué es una solicitud nueva, qué pasos implica ni qué necesita el usuario.",
+      "(B1) Modal de contacto con voz pasiva: «Tu consulta será atendida por un especialista» (T062). Reescribir en activa.",
+      "(B3) PCT (T004) en el menú sin definición en ningún punto de la página.",
+      "(E3) Ausencia de fecha de publicación o última actualización visible en el contenido de la página.",
+      "(F4) Tres PDFs del carrusel sin indicar formato ni peso: PAC 2025 (HTML-L865, alt vacío), Teletrabajo (HTML-L871, alt «Teletrabajo» sin indicar PDF), Código de Ética (HTML-L877, alt «codigo-etica»).",
+      "(G1) RUT institucional 65.999.669-3 (T068) en el footer sin aportar valor a la tarea del usuario."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A5) Meta description vaga e impersonal: «Sección donde podrás encontrar todas las solicitudes nuevas». No orienta al usuario sobre la tarea ni los pasos.",
+      "(B2) Términos sin definición para el ciudadano: PCT (T004), «Pizarra de Pagos» (T055), «Anotación» (T047), «Observancia» (T018).",
+      "(B6) Modal de contacto con imperativo distante: «Utiliza el canal de comunicación que prefieras» (T058). Meta description impersonal.",
+      "(D1) Alt «lobby» en minúscula (HTML-L874), alt «codigo-etica» como identificador interno (HTML-L877), alts vacíos en PAC 2025 (HTML-L865) y MESU 2025 (HTML-L868).",
+      "(D7) Mayúsculas totales: ACCESOS, BUSCADOR, BUSCAR Y TRAMITAR, MARCAS, PATENTES.",
+      "(E4) El <title> «Solicitud Nueva» no incluye el nombre de la institución ni describe la tarea completa.",
+      "(F1) La tarjeta «Publicación en el Diario Oficial» abre un dominio externo (pagos.diarioficial.cl) sin aviso visible de redirección. «Observancia» lleva a /protege-tu-idea (slug no coincide).",
+      "(F2) «Conoce más» (T001) es enlace genérico sin descripción del destino.",
+      "(F3) «Registro» (T027) ambiguo. «Observancia» (T018) y «Anotación» (T047) no descriptivos del destino."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) El carrusel incluye ítems con alt/title vacíos (PAC 2025, MESU 2025) y el alt «lobby» en minúscula que no aportan valor de tarea al usuario."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h2",
+      "html_linea_aprox": "HTML-L697",
+      "original": "Trámites",
+      "propuesto": "Solicitud Nueva de Marca",
+      "criterio_id": "A1",
+      "motivo": "Reemplazar o complementar el H2 «Trámites» por un encabezado que comunique el propósito específico de la página: el usuario debe saber que está en la sección de solicitud nueva."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L785",
+      "original": "(ausencia de texto introductorio antes de las tarjetas)",
+      "propuesto": "Para registrar una marca nueva en Chile, selecciona el trámite que necesitas. Debes tener usuario registrado en el sistema tramites.inapi.cl para iniciar la solicitud.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo introductorio antes de las 5 tarjetas de acción; actualmente el usuario llega directamente a los botones sin contexto de qué necesita o cómo funciona el proceso."
+    },
+    {
+      "linea": "META-DESC",
+      "html_linea_aprox": "HTML-L3",
+      "original": "Sección donde podrás encontrar todas las solicitudes nuevas",
+      "propuesto": "Inicia tu solicitud de registro de marca en Chile. Accede al formulario, revisa solicitudes guardadas y realiza los pagos correspondientes.",
+      "criterio_id": "A5",
+      "motivo": "La meta description es vaga e impersonal; reemplazar por descripción orientada a la tarea del usuario con verbos activos."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L688",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Texto de desarrollo no eliminado en el modal de acceso; visible para el usuario sin aportar valor a la tarea."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L913",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista de INAPI responderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L832",
+      "original": "Pizarra de Pagos (pago, renovación y anotación)",
+      "propuesto": "Pizarra de Pagos (pago, renovación y anotación) — tablero donde puedes pagar, renovar o anotar cambios en tu marca",
+      "criterio_id": "B2",
+      "motivo": "«Pizarra de Pagos» es término interno no familiar para el ciudadano; agregar glosa descriptiva en el título o en un tooltip."
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L566",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin definición en el menú; primera y única aparición en la página."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L913",
+      "original": "Utiliza el canal de comunicación que prefieras:",
+      "propuesto": "Elige cómo contactarnos:",
+      "criterio_id": "B6",
+      "motivo": "Simplifica frase y reduce distancia formal del imperativo distante."
+    },
+    {
+      "linea": "META-DESC",
+      "html_linea_aprox": "HTML-L3",
+      "original": "Sección donde podrás encontrar todas las solicitudes nuevas",
+      "propuesto": "Inicia tu solicitud de registro de marca en Chile. Accede al formulario, revisa solicitudes guardadas y realiza los pagos correspondientes.",
+      "criterio_id": "B6",
+      "motivo": "La meta description usa tono impersonal («Sección donde podrás encontrar»); reemplazar por texto cercano y orientado a la tarea."
+    },
+    {
+      "linea": "HTML-L874",
+      "html_linea_aprox": "HTML-L874",
+      "original": "alt='lobby'",
+      "propuesto": "alt='Ley del Lobby'",
+      "criterio_id": "D1",
+      "motivo": "«lobby» en minúscula es incorrecto; normalizar a «Ley del Lobby» para dar contexto al usuario."
+    },
+    {
+      "linea": "HTML-L877",
+      "html_linea_aprox": "HTML-L877",
+      "original": "alt='codigo-etica'",
+      "propuesto": "alt='Código de Ética INAPI 2026'",
+      "criterio_id": "D1",
+      "motivo": "«codigo-etica» es un identificador interno; reemplazar con texto descriptivo que informe al usuario."
+    },
+    {
+      "linea": "HTML-L865",
+      "html_linea_aprox": "HTML-L865",
+      "original": "alt=''",
+      "propuesto": "alt='Plan de Acción de Cumplimiento 2025 (PDF)'",
+      "criterio_id": "D1",
+      "motivo": "Alt vacío en el enlace al PAC 2025; agregar texto descriptivo con indicación de formato."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L638",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L616",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Placeholder en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "HTML-L688",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de modal en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L688",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal de búsqueda en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T037",
+      "html_linea_aprox": "HTML-L688",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal de búsqueda en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L785",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible en el cuerpo de la página; actualmente no existe."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L2",
+      "original": "Solicitud Nueva",
+      "propuesto": "INAPI — Solicitud Nueva de Marca: pasos y pagos",
+      "criterio_id": "E4",
+      "motivo": "El <title> genérico no incluye el nombre de la institución ni describe la tarea completa; ampliar para mejorar posicionamiento y claridad."
+    },
+    {
+      "linea": "T054",
+      "html_linea_aprox": "HTML-L815",
+      "original": "Publicación en el Diario Oficial",
+      "propuesto": "Publicación en el Diario Oficial (se abrirá el sitio externo pagos.diarioficial.cl)",
+      "criterio_id": "F1",
+      "motivo": "La tarjeta abre un dominio externo (pagos.diarioficial.cl, target=_blank) sin aviso visible; agregar indicación de redirección externa para no sorprender al usuario."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L580",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a /protege-tu-idea; el texto visible no coincide con el destino real."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L563",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F2",
+      "motivo": "«Conoce más» es texto genérico que no describe el destino /propiedad-intelectual-e-industrial."
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L688",
+      "original": "Registro",
+      "propuesto": "Crear cuenta",
+      "criterio_id": "F3",
+      "motivo": "«Registro» es ambiguo entre registro de marca y creación de cuenta de usuario."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L580",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F3",
+      "motivo": "«Observancia» no describe el destino real /protege-tu-idea."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L756",
+      "original": "Anotación",
+      "propuesto": "Anotación (cambios posteriores al registro)",
+      "criterio_id": "F3",
+      "motivo": "«Anotación» en el menú lateral es jerga registral no descriptiva del destino para el ciudadano general."
+    },
+    {
+      "linea": "HTML-L865",
+      "html_linea_aprox": "HTML-L865",
+      "original": "alt='' (enlace a res-pac-2025.pdf)",
+      "propuesto": "alt='Plan de Acción de Cumplimiento 2025 (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "Enlace a PDF sin texto ni indicación de formato; agregar alt descriptivo con indicación de tipo de archivo."
+    },
+    {
+      "linea": "HTML-L871",
+      "html_linea_aprox": "HTML-L871",
+      "original": "alt='Teletrabajo' (enlace a inapi_informes_teletrabajo.pdf)",
+      "propuesto": "alt='Informe de Teletrabajo INAPI (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "El alt «Teletrabajo» no indica que el destino es un PDF; reemplazar con nombre descriptivo e indicación de formato."
+    },
+    {
+      "linea": "HTML-L877",
+      "html_linea_aprox": "HTML-L877",
+      "original": "alt='codigo-etica' (enlace a codigo-de-etica_inapi-2026.pdf)",
+      "propuesto": "alt='Código de Ética INAPI 2026 (PDF)'",
+      "criterio_id": "F4",
+      "motivo": "El alt «codigo-etica» es identificador interno; reemplazar con nombre completo e indicación de formato."
+    },
+    {
+      "linea": "T068",
+      "html_linea_aprox": "HTML-L919",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "G1",
+      "motivo": "RUT de persona jurídica pública; no aporta valor a la tarea del usuario en esta página de trámites. Mover a sección Transparencia o Quiénes somos."
+    },
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L696",
+      "original": "Marcas",
+      "propuesto": "Marcas — Solicitud Nueva",
+      "criterio_id": "A1",
+      "motivo": "Alternativa: complementar el H1 con el contexto específico de la sección para que el usuario sepa dónde está sin necesidad de leer el breadcrumb."
+    },
+    {
+      "linea": "HTML-L868",
+      "html_linea_aprox": "HTML-L868",
+      "original": "alt='' (enlace a satisfaccion.gob.cl)",
+      "propuesto": "alt='Medición de Satisfacción Usuaria INAPI 2025'",
+      "criterio_id": "D1",
+      "motivo": "El alt vacío del ítem MESU 2025 no informa al usuario sobre el destino del enlace; agregar texto descriptivo."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L832",
+      "original": "Pizarra de Pagos (pago, renovación y anotación)",
+      "propuesto": "Panel de Pagos (pago, renovación y anotación de tu marca)",
+      "criterio_id": "B2",
+      "motivo": "Alternativa más clara: «Panel de Pagos» es más familiar que «Pizarra de Pagos» para el ciudadano general."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) las tarjetas de trámite (H4, HTML-L799–843) no tienen texto editorial entre ellas — las correcciones de A1, A2 y E3 requieren INSERTAR nuevos nodos de texto antes de la sección <section class='wrap-item-gestion'> (HTML-L786), no reemplazar texto existente; (3) la meta description está en el bloque <head> (HTML-L3) dentro de una línea comprimida — buscar el atributo name='description' para localizarla; (4) las correcciones de alt/title del carrusel (HTML-L865, L868, L871, L874, L877) requieren editar el atributo alt de cada <img> dentro de su <a> correspondiente — el alt vacío de L865 y L868 significa que el atributo existe pero está vacío, no que sea ausente; (5) el <title> (HTML-L2) está en una línea separada dentro del bloque <head> comprimido — buscar 'Solicitud Nueva' con la tabulación de L2; (6) la tarjeta «Publicación en el Diario Oficial» (HTML-L815) tiene target='_blank' para dominio externo pagos.diarioficial.cl — coordinar con el equipo si se agrega el aviso de redirección como texto en el H4 o como tooltip/aria-label; (7) el modal de contacto (HTML-L913) está comprimido en una sola línea — buscar 'Tu consulta ser' para localizar la cadena exacta; (8) el HTML puede contener entidades como &#243; (ó), &#225; (á), &aacute; (á) que deben buscarse en forma codificada si el editor trabaja sobre HTML crudo."
+}
