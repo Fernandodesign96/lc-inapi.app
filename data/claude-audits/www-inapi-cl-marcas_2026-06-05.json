@@ -1,0 +1,556 @@
+{
+  "id": "www-inapi-cl-marcas_2026-06-05",
+  "url": "https://www.inapi.cl/marcas",
+  "fecha_evaluacion": "2026-06-05T08:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [HTML-L569]: «Conoce más» (menú → /propiedad-intelectual-e-industrial) | T002 [HTML-L702]: «Marcas» (H1) | T004 [HTML-L572]: «PCT» (menú, sin definir) | T005 [HTML-L573]: «Sistema de Madrid» | T006 [HTML-L574]: «Sello de Origen» | T018 [HTML-L586]: «Observancia» (→ /protege-tu-idea) | T021 [HTML-L644]: «ACCESOS» | T022 [HTML-L645]: «BUSCADOR» | T027 [HTML-L694]: «Registro» | T028 [HTML-L694]: «LINK EXTERNO» | T029 [HTML-L694]: «BUSCAR Y TRAMITAR» | T030 [HTML-L694]: «MARCAS» | T037 [HTML-L694]: «PATENTES» | T038 [HTML-L717]: «Home» (breadcrumb) | T039 [HTML-L722]: «Para Informarse» (H3) | T041 [HTML-L741]: «Qué es una marca» (H4) | T042 [HTML-L743]: «Una marca es todo signo susceptible de representación gráfica, capaz de distinguir en el mercado; productos, servicios, o establecimientos comerciales o industriales.» | T043 [HTML-L755]: «Ventajas de registrar una marca» (H4) | T044 [HTML-L757]: «Los consumidores al momento de adquirir un producto o servicio, eligen una determinada marca debido a que tiene asociada una calidad y características determinadas.» | T045 [HTML-L769]: «Cómo registrar una marca» (H4) | T046 [HTML-L771]: «El procedimiento para registrar una marca comercial en Chile comprende básicamente tres etapas: ingreso y examen de forma de la solicitud, trámite de la publicación del extracto en el Diario Oficial y examen de fondo de la solicitud.» | T047 [HTML-L783]: «Tasas nacionales» (H4) | T048 [HTML-L785]: «Los pagos de tasas o derechos en el caso de marcas nuevas en Chile están divididos en dos etapas: al inicio de la presentación de la solicitud y al final de la tramitación.» | T049 [HTML-L794]: «Buscadores» (H2) | T050 [HTML-L799]: «Buscar en Base de datos» | T051 [HTML-L801]: «Notificaciones Diarias» | T052 [HTML-L803]: «Otros Buscadores» | T053 [HTML-L809]: «marcas según su tipo» (H2 — todo minúsculas) | T054–T057 [HTML-L815–818]: «Marca comercial», «Marca colectiva», «Marca de certificación», «Frase de propaganda» | T061–T064 [HTML-L856–886]: «Solicitud Nueva», «Renovación», «Anotación», «Títulos y Certificados» (H4 Trámites) | T065 [HTML-L945]: «¿Quieres contactarnos?» | T066 [HTML-L946]: «Utiliza el canal de comunicación que prefieras:» (H2 modal) | T070 [HTML-L946]: «Tu consulta será atendida por un especialista.» | T073 [HTML-L952]: «Dónde estamos» (H4 footer) | T076 [HTML-L952]: «RUT: 65.999.669-3» | T085 [HTML-L988]: «Uso de los Contenidos de este Sitio» | T087 [HTML-L990]: «Política de privacidad» | T088 [HTML-L1002]: «©2026 INAPI. Todos los derechos reservados»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El H1 «Marcas» está en la parte superior y comunica directamente el tema. Los bloques de «Para Informarse» aparecen primero, antes de buscadores y trámites.",
+      "cita_textual": "T002 [HTML-L702]: «Marcas» (H1)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los bloques de «Para Informarse» no siguen pirámide invertida: T046 describe el procedimiento administrativo antes de explicar el beneficio para el usuario. T044 describe el comportamiento del consumidor en lugar de orientar la acción del titular.",
+      "cita_textual": "T046 [HTML-L771]: «El procedimiento para registrar una marca comercial en Chile comprende básicamente tres etapas: ingreso y examen de forma de la solicitud, trámite de la publicación del extracto en el Diario Oficial y examen de fondo de la solicitud.»"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página está bien fragmentada: H1 «Marcas», H3 «Para Informarse», H2 «Buscadores», H2 «marcas según su tipo», H2 «Trámites», H4 por cada subtema. Cada sección tiene encabezado propio.",
+      "cita_textual": "T039 [HTML-L722]: «Para Informarse» / T049 [HTML-L794]: «Buscadores» / T053 [HTML-L809]: «marcas según su tipo»"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Ninguna sección supera 110 palabras. Los párrafos de «Para Informarse» tienen menos de 50 palabras cada uno."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T044 describe el comportamiento del consumidor en lugar de orientar la acción del titular de marca. El texto «LINK EXTERNO» (T028) sigue presente sin valor para el usuario.",
+      "cita_textual": "T044 [HTML-L757]: «Los consumidores al momento de adquirir un producto o servicio, eligen una determinada marca…» — no orienta la acción del usuario / T028 [HTML-L694]: «LINK EXTERNO»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista». El H2 del modal usa imperativo impersonal: «Utiliza el canal de comunicación que prefieras».",
+      "cita_textual": "T070 [HTML-L946]: «Tu consulta será atendida por un especialista.» / T066 [HTML-L946]: «Utiliza el canal de comunicación que prefieras:»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "PCT (T004), «Sistema de Madrid» (T005), «Observancia» (T018), «Frase de propaganda» (T057) y «Anotación» (T063) son términos técnicos PI sin definición accesible para el ciudadano general en esta página.",
+      "cita_textual": "T004 [HTML-L572]: «PCT» / T005 [HTML-L573]: «Sistema de Madrid» / T018 [HTML-L586]: «Observancia» / T057 [HTML-L818]: «Frase de propaganda» / T063 [HTML-L876]: «Anotación»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT (T004) aparece en el menú de navegación sin definición en ningún punto de esta página. Primera y única aparición.",
+      "cita_textual": "T004 [HTML-L572]: «PCT» (menú, sin expandir)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos significativos en el contenido editorial de la página. Los términos técnicos son propios del dominio PI, no anglicismos."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los CTA están formulados en positivo: «Buscar en Base de datos», «Notificaciones Diarias», «Solicitud Nueva», «Renovación». No hay formulaciones negativas.",
+      "cita_textual": "T050 [HTML-L799], T051 [HTML-L801], T061 [HTML-L856]"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras:». El placeholder del buscador usa mayúsculas completas: «BUSCADOR».",
+      "cita_textual": "T066 [HTML-L946]: «Utiliza el canal de comunicación que prefieras:» / T022 [HTML-L645]: «BUSCADOR»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático del tipo «valor agregado» o «para todos los efectos». El texto es conciso."
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T042 usa punto y coma interno para separar la aposición: «distinguir en el mercado; productos, servicios…» — la coma o los dos puntos son la puntuación correcta aquí. T044 abre con sujeto largo con aposición antes del verbo principal.",
+      "cita_textual": "T042 [HTML-L743]: «Una marca es todo signo susceptible de representación gráfica, capaz de distinguir en el mercado; productos, servicios, o establecimientos comerciales o industriales.»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "El texto usa tiempo presente simple en todos los bloques informativos: «es», «comprende», «están divididos».",
+      "cita_textual": "T042, T046, T048"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T046 condensa tres etapas del procedimiento en una sola oración larga con tres complementos coordinados. T044 contiene dos subordinadas encadenadas que dificultan la lectura rápida.",
+      "cita_textual": "T046 [HTML-L771]: «El procedimiento para registrar una marca comercial en Chile comprende básicamente tres etapas: ingreso y examen de forma de la solicitud, trámite de la publicación del extracto en el Diario Oficial y examen de fondo de la solicitud.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada párrafo de los cuatro bloques de «Para Informarse» desarrolla una sola idea."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos visibles tienen menos de 4 líneas en escritorio."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene 4 o más párrafos continuos en una misma sección; el contenido está fragmentado en tarjetas temáticas."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No hay listas de requisitos enumerados; los trámites se presentan como tarjetas de enlace, no como pasos con requisitos."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres problemas ortotipográficos: (1) punto y coma incorrecto en la definición de marca T042 — debería ser coma o dos puntos; (2) H2 «marcas según su tipo» (T053, HTML-L809) con minúscula al inicio de encabezado; (3) texto de desarrollo «LINK EXTERNO» (T028) no eliminado.",
+      "cita_textual": "T042 [HTML-L743]: punto y coma incorrecto / T053 [HTML-L809]: «marcas según su tipo» (minúscula en H2) / T028 [HTML-L694]: «LINK EXTERNO»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "Con la excepción del punto y coma de T042 (tratado en D1), la puntuación general en los textos visibles es correcta."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de texto."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de este checklist."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "La sección «marcas según su tipo» usa una lista de enlaces correctamente estructurada. No hay enumeraciones en texto corrido con comas.",
+      "cita_textual": "T054–T057 [HTML-L815–818]"
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Textos en mayúsculas totales: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037). Capitalización innecesaria en T050 «Buscar en Base de datos» (mayúscula en «Base») y T051 «Notificaciones Diarias» (mayúscula en «Diarias»).",
+      "cita_textual": "T021: «ACCESOS» / T022: «BUSCADOR» / T029: «BUSCAR Y TRAMITAR» / T030: «MARCAS» / T037: «PATENTES» / T050: «Buscar en Base de datos» / T051: «Notificaciones Diarias»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se usan adjetivos autopromocionales. El contenido es descriptivo y objetivo."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el H1 del breadcrumb, el logo, el footer y el copyright. La institución es claramente identificable.",
+      "cita_textual": "T088 [HTML-L1002]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de última actualización visible en el contenido de la página. El copyright ©2026 en el pie no equivale a fecha de actualización del contenido editorial.",
+      "cita_textual": "(ausencia) — ningún fragmento Tnnn indica fecha de actualización del contenido"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es solo «Marcas» (HTML-L1), demasiado genérico: no incluye el nombre de la institución ni describe la tarea. No es informativo en resultados de búsqueda ni en pestañas del navegador.",
+      "cita_textual": "HTML-L1 (title): «Marcas»"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia» (T018) lleva a /protege-tu-idea — el slug no coincide con el texto visible. «Conoce más» (T001) lleva a /propiedad-intelectual-e-industrial — texto no coincide con nombre de página destino.",
+      "cita_textual": "T018 [HTML-L586]: «Observancia» → /protege-tu-idea / T001 [HTML-L569]: «Conoce más» → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Conoce más» (T001) es enlace genérico que no describe el destino. Es el único incumplimiento claro de F2 en esta página; los demás CTAs de buscadores y trámites son suficientemente descriptivos.",
+      "cita_textual": "T001 [HTML-L569]: «Conoce más» — no describe el destino /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Registro» (T027) es ambiguo entre registro de marca y creación de cuenta de usuario. «Observancia» (T018) no describe el destino real. «Conoce más» (T001) no es descriptivo.",
+      "cita_textual": "T027 [HTML-L694]: «Registro» / T018 [HTML-L586]: «Observancia» / T001 [HTML-L569]: «Conoce más»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres enlaces en el carrusel de logos apuntan directamente a PDFs sin indicar formato ni peso: PAC 2025 (HTML-L898, sin texto visible), Informe Teletrabajo (HTML-L904, alt «Teletrabajo» no indica PDF), Código de Ética (HTML-L910, alt «codigo-etica» es identificador interno).",
+      "cita_textual": "HTML-L898: enlace a res-pac-2025.pdf sin texto descriptivo / HTML-L904: alt «Teletrabajo» sin indicación de formato / HTML-L910: alt «codigo-etica» sin indicación de formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los CTAs de acción («Buscar en Base de datos», «Notificaciones Diarias», «Solicitud Nueva») están al final de sus secciones, no intercalados en el texto corrido.",
+      "cita_textual": "T050, T051, T061"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El RUT institucional 65.999.669-3 (T076) aparece en el footer. Aunque es de persona jurídica pública y no vulnera privacidad de personas naturales, no aporta valor a la tarea del usuario en esta página de contenidos sobre marcas.",
+      "cita_textual": "T076 [HTML-L952]: «RUT: 65.999.669-3»"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Existe enlace a «Política de privacidad» en el footer (T087), lo que implica información sobre derechos ARCO disponible.",
+      "cita_textual": "T087 [HTML-L990]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright ©2026 (T088) está actualizado. Existe enlace «Uso de los Contenidos de este Sitio» (T085) en el footer, a diferencia del buscador (©2017).",
+      "cita_textual": "T088 [HTML-L1002]: «©2026 INAPI. Todos los derechos reservados» / T085 [HTML-L988]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas en esta página ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 16,
+  "porcentaje_cumplimiento": 48.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 17 incumplimientos sobre 33 criterios aplicables (48,5 %). Las correcciones de mayor impacto para TIC son: (1) reemplazar la voz pasiva del modal de contacto: «Tu consulta será atendida» → «Un especialista de INAPI responderá tu consulta» (B1); (2) expandir PCT como «Tratado de Cooperación en materia de Patentes (PCT)» en el menú (B3); (3) corregir el punto y coma incorrecto en la definición de marca T042 (D1/C1); (4) cambiar el H2 «marcas según su tipo» a «Marcas según su tipo» con mayúscula inicial (D1); (5) agregar fecha de actualización visible en el contenido (E3); (6) ampliar el <title> a «INAPI — Marcas: qué son, cómo registrarlas y tipos» (E4); (7) indicar formato PDF en los tres enlaces del carrusel: PAC 2025, Teletrabajo y Código de Ética (F4); (8) reorientar el párrafo T044 hacia el beneficio para el titular de marca (A2); (9) eliminar «LINK EXTERNO» (D1/A5); (10) normalizar ACCESOS, BUSCADOR, MARCAS, PATENTES en mayúsculas a capitalización estándar (D7). El array sustituciones[] contiene 34 filas con cobertura 1:1 para los 17 criterios incumplidos.",
+  "observaciones_lc": "La página /marcas de INAPI obtiene un 48,5 % de cumplimiento sobre 33 criterios aplicables — el mejor resultado entre las tres URLs auditadas, aunque sigue siendo Rechazado (≤80 %). Sus fortalezas son el H1 descriptivo (A1), la fragmentación en secciones con encabezados (A3), el uso de presente simple (C2) y la ausencia de adjetivos autopromocionales (E1). Los 17 incumplimientos se concentran en cuatro áreas: calidad ortotipográfica (D1: punto y coma incorrecto en la definición de marca, H2 en minúsculas, LINK EXTERNO no eliminado), lenguaje claro (B1: voz pasiva en modal, B3: PCT sin definición, B2: términos técnicos sin glosa), credibilidad y metadatos (E3: sin fecha de actualización, E4: title genérico), y enlaces (F4: tres PDFs sin indicar formato, F2: «Conoce más» genérico, F1/F3: Observancia con slug no coincidente). G3 y E2 se cumplen: el copyright está actualizado a ©2026 y el footer incluye el enlace «Uso de los Contenidos de este Sitio».",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/marcas fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 16 se cumplen, lo que arroja un 48,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 17 incumplimientos y se generaron 34 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: voz pasiva en modal de contacto (B1), sigla PCT sin definir (B3), errores ortotipográficos incluyendo punto y coma incorrecto en la definición de marca y H2 en minúsculas (D1), ausencia de fecha de actualización (E3), enlace «Conoce más» genérico (F2), tres PDFs del carrusel sin indicar formato (F4), y RUT institucional en footer sin aporte a la tarea (G1). Los incumplimientos de severidad media incluyen pirámide invertida incumplida en bloques informativos (A2), términos técnicos sin glosa (B2), oración compleja en el procedimiento de registro (C3), mayúsculas totales en encabezados y botones (D7), title genérico (E4), y slugs de enlace no coincidentes (F1, F3). Se requiere aplicar las sustituciones identificadas y agregar fecha de actualización antes de una nueva evaluación.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B1) El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T070). Reescribir en activa: «Un especialista de INAPI responderá tu consulta».",
+      "(B3) La sigla PCT (T004) aparece en el menú sin definición en ningún punto de la página.",
+      "(D1) Tres problemas ortotipográficos: punto y coma incorrecto en la definición de marca T042; H2 «marcas según su tipo» (T053) con minúscula inicial; texto de desarrollo «LINK EXTERNO» (T028) no eliminado.",
+      "(E3) Ausencia de fecha de publicación o de última actualización visible en el contenido de la página. El copyright ©2026 no equivale a fecha de actualización del contenido.",
+      "(F2) El enlace «Conoce más» (T001) en el menú no describe el destino /propiedad-intelectual-e-industrial.",
+      "(F4) Tres PDFs del carrusel de logos sin indicar formato ni peso: PAC 2025 (HTML-L898), Informe Teletrabajo (HTML-L904), Código de Ética (HTML-L910).",
+      "(G1) El RUT institucional 65.999.669-3 (T076) aparece en el footer sin aportar valor a la tarea del usuario en esta página."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Los bloques de «Para Informarse» no siguen pirámide invertida: T046 describe el proceso administrativo antes del beneficio para el usuario.",
+      "(A5) El párrafo T044 describe el comportamiento del consumidor en lugar de orientar la acción del titular de marca. «LINK EXTERNO» (T028) sigue presente.",
+      "(B2) Términos técnicos PI sin definición accesible: «Sistema de Madrid» (T005), «Observancia» (T018), «Frase de propaganda» (T057), «Anotación» (T063).",
+      "(B6) El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras:» (T066).",
+      "(C1) Punto y coma incorrecto en T042: «distinguir en el mercado; productos, servicios…» rompe el flujo gramatical.",
+      "(C3) T046 condensa tres etapas del registro en una sola oración densa; se beneficiaría de una lista numerada.",
+      "(D7) Textos en mayúsculas totales: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037). Capitalización innecesaria en «Base» (T050) y «Diarias» (T051).",
+      "(E4) El <title> «Marcas» es demasiado genérico: no incluye nombre institucional ni describe la tarea.",
+      "(F1) «Observancia» (T018) lleva a /protege-tu-idea; el slug no coincide. «Conoce más» (T001) lleva a una página cuyo nombre no describe el enlace.",
+      "(F3) «Registro» (T027) es ambiguo entre registro de marca y cuenta de usuario. «Observancia» (T018) y «Conoce más» (T001) no describen el destino."
+    ],
+    "hallazgos_prioridad_baja": []
+  },
+  "sustituciones": [
+    {
+      "linea": "T070",
+      "html_linea_aprox": "HTML-L946",
+      "original": "Tu consulta ser&aacute; atendida por un especialista.",
+      "propuesto": "Un especialista de INAPI responderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
+    },
+    {
+      "linea": "T066",
+      "html_linea_aprox": "HTML-L946",
+      "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:",
+      "propuesto": "Elige cómo contactarnos:",
+      "criterio_id": "B6",
+      "motivo": "Simplifica frase y reduce distancia formal del imperativo."
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "HTML-L757",
+      "original": "Los consumidores al momento de adquirir un producto o servicio, eligen una determinada marca debido a que tiene asociada una calidad y caracter&#237;sticas determinadas.",
+      "propuesto": "Registrar tu marca te permite diferenciarte en el mercado y proteger la reputación de tu negocio ante los consumidores.",
+      "criterio_id": "A2",
+      "motivo": "Reorienta el párrafo hacia el beneficio para el titular (pirámide invertida); el texto original describe al consumidor, no al usuario de la página."
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "HTML-L757",
+      "original": "Los consumidores al momento de adquirir un producto o servicio, eligen una determinada marca debido a que tiene asociada una calidad y caracter&#237;sticas determinadas.",
+      "propuesto": "Registrar tu marca te permite diferenciarte en el mercado y proteger la reputación de tu negocio ante los consumidores.",
+      "criterio_id": "A5",
+      "motivo": "El párrafo incluye información no necesaria para la tarea del usuario (comportamiento del consumidor); reemplazar por orientación accionable para el titular."
+    },
+    {
+      "linea": "T046",
+      "html_linea_aprox": "HTML-L771",
+      "original": "El procedimiento para registrar una marca comercial en Chile comprende b&#225;sicamente tres etapas: ingreso y examen de forma de la solicitud, tr&#225;mite de la publicaci&#243;n del extracto en el Diario Oficial y examen de fondo de la solicitud.",
+      "propuesto": "El registro de una marca en Chile tiene tres etapas: (1) ingreso y examen de forma de la solicitud; (2) publicación del extracto en el Diario Oficial; (3) examen de fondo. Conoce cada etapa en detalle.",
+      "criterio_id": "A2",
+      "motivo": "Aplica pirámide invertida: indica primero el número de etapas y luego las desglosa; el original no muestra el resultado antes del proceso."
+    },
+    {
+      "linea": "T046",
+      "html_linea_aprox": "HTML-L771",
+      "original": "El procedimiento para registrar una marca comercial en Chile comprende b&#225;sicamente tres etapas: ingreso y examen de forma de la solicitud, tr&#225;mite de la publicaci&#243;n del extracto en el Diario Oficial y examen de fondo de la solicitud.",
+      "propuesto": "El registro de una marca en Chile tiene tres etapas: (1) ingreso y examen de forma de la solicitud; (2) publicación del extracto en el Diario Oficial; (3) examen de fondo. Conoce cada etapa en detalle.",
+      "criterio_id": "C3",
+      "motivo": "Descompone la oración densa con tres complementos coordinados en una lista numerada; mejora la lectura rápida."
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L572",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin definición en el menú; primera y única aparición en la página."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L573",
+      "original": "Sistema de Madrid",
+      "propuesto": "Sistema de Madrid (registro internacional de marcas)",
+      "criterio_id": "B2",
+      "motivo": "Término técnico PI sin glosa para el ciudadano general."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L586",
+      "original": "Observancia",
+      "propuesto": "Observancia (protección contra falsificaciones)",
+      "criterio_id": "B2",
+      "motivo": "Término técnico-legal no familiar para el ciudadano general; agregar glosa descriptiva."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L818",
+      "original": "Frase de propaganda",
+      "propuesto": "Frase de propaganda (lema o eslogan comercial)",
+      "criterio_id": "B2",
+      "motivo": "Término no familiar fuera del ámbito PI; agregar glosa."
+    },
+    {
+      "linea": "T063",
+      "html_linea_aprox": "HTML-L876",
+      "original": "Anotaci&oacute;n",
+      "propuesto": "Anotación (cambios posteriores al registro)",
+      "criterio_id": "B2",
+      "motivo": "«Anotación» en contexto de trámites es jerga registral; agregar glosa para el ciudadano general."
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "HTML-L743",
+      "original": "Una marca es todo signo susceptible de representaci&#243;n gr&#225;fica, capaz de distinguir en el mercado; productos, servicios, o establecimientos comerciales o industriales.",
+      "propuesto": "Una marca es todo signo susceptible de representación gráfica, capaz de distinguir en el mercado productos, servicios o establecimientos comerciales o industriales.",
+      "criterio_id": "C1",
+      "motivo": "Reemplaza el punto y coma incorrecto por coma; elimina la preposición «o» redundante antes de «establecimientos». Mejora el orden gramatical del complemento."
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "HTML-L743",
+      "original": "Una marca es todo signo susceptible de representaci&#243;n gr&#225;fica, capaz de distinguir en el mercado; productos, servicios, o establecimientos comerciales o industriales.",
+      "propuesto": "Una marca es todo signo susceptible de representación gráfica, capaz de distinguir en el mercado productos, servicios o establecimientos comerciales o industriales.",
+      "criterio_id": "D1",
+      "motivo": "Punto y coma incorrecto en la definición de marca; la coma es la puntuación apropiada para separar los complementos del verbo «distinguir»."
+    },
+    {
+      "linea": "T053",
+      "html_linea_aprox": "HTML-L809",
+      "original": "marcas seg&#250;n su tipo",
+      "propuesto": "Marcas según su tipo",
+      "criterio_id": "D1",
+      "motivo": "El H2 de sección usa minúscula al inicio; debe comenzar con mayúscula como los demás encabezados de la página."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L694",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "D1",
+      "motivo": "Texto de desarrollo no eliminado visible en el modal de acceso; debe suprimirse antes de publicación."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L694",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Texto de desarrollo sin valor para la tarea del usuario; eliminar del modal de acceso."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L644",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L645",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Placeholder en mayúsculas completas; normalizar capitalización."
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "HTML-L694",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de modal en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L694",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal de búsqueda en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T037",
+      "html_linea_aprox": "HTML-L694",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "H4 de sección en modal de búsqueda en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T050",
+      "html_linea_aprox": "HTML-L799",
+      "original": "Buscar en Base de datos",
+      "propuesto": "Buscar en base de datos",
+      "criterio_id": "D7",
+      "motivo": "Mayúscula en «Base» innecesaria; normalizar capitalización del botón."
+    },
+    {
+      "linea": "T051",
+      "html_linea_aprox": "HTML-L801",
+      "original": "Notificaciones Diarias",
+      "propuesto": "Notificaciones diarias",
+      "criterio_id": "D7",
+      "motivo": "Mayúscula en «Diarias» innecesaria; normalizar capitalización del botón."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L722",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible bajo el H3 «Para Informarse» o en el pie antes del copyright; actualmente no existe en el contenido de la página."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L1",
+      "original": "Marcas",
+      "propuesto": "INAPI — Marcas: qué son, cómo registrarlas y tipos",
+      "criterio_id": "E4",
+      "motivo": "El title genérico «Marcas» no comunica el contexto institucional ni la tarea; ampliar para mejorar posicionamiento y claridad en pestañas del navegador."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L569",
+      "original": "Conoce m&#225;s",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a /propiedad-intelectual-e-industrial; el texto debe coincidir con el nombre o propósito de la página destino."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L569",
+      "original": "Conoce m&#225;s",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F2",
+      "motivo": "«Conoce más» es texto genérico que no describe el destino; reemplazar por texto descriptivo."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L586",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a /protege-tu-idea; el texto visible no coincide con el destino real."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L586",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca contra falsificaciones",
+      "criterio_id": "F3",
+      "motivo": "«Observancia» no describe el destino real; el usuario no especializado no sabe a qué accederá."
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L694",
+      "original": "Registro",
+      "propuesto": "Crear cuenta",
+      "criterio_id": "F3",
+      "motivo": "«Registro» es ambiguo entre registro de marca y creación de cuenta de usuario; «Crear cuenta» describe la acción concreta."
+    },
+    {
+      "linea": "F4-pac",
+      "html_linea_aprox": "HTML-L898",
+      "original": "(ausencia de texto visible)",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace al PAC 2025 no tiene texto visible ni indica formato; agregar texto descriptivo con indicación de tipo de archivo."
+    },
+    {
+      "linea": "F4-teletrabajo",
+      "html_linea_aprox": "HTML-L904",
+      "original": "Teletrabajo",
+      "propuesto": "Informe de Teletrabajo INAPI (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El alt/title «Teletrabajo» no indica que el destino es un PDF; reemplazar con nombre descriptivo e indicación de formato."
+    },
+    {
+      "linea": "F4-etica",
+      "html_linea_aprox": "HTML-L910",
+      "original": "codigo-etica",
+      "propuesto": "Código de Ética INAPI 2026 (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El alt/title «codigo-etica» es un identificador interno; reemplazar con nombre completo e indicación de formato."
+    },
+    {
+      "linea": "T076",
+      "html_linea_aprox": "HTML-L952",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "G1",
+      "motivo": "RUT de persona jurídica pública; no aporta valor a la tarea del usuario en esta página de contenidos. Mover a sección Quiénes somos o Transparencia."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) usar búsqueda literal con el campo «original» copiado exactamente — el HTML contiene entidades como &#243; (ó), &#225; (á), &#237; (í), &aacute; (á), &oacute; (ó) que deben buscarse en su forma codificada si el editor trabaja sobre HTML crudo; (3) no modificar atributos HTML, clases, IDs ni rutas de enlace; (4) los tres PDFs del carrusel (HTML-L898, L904, L910) usan atributos title y alt en etiquetas <img> — la corrección de F4 requiere editar el atributo alt de cada <img> y agregar un nodo de texto visible si el enlace actualmente no tiene ninguno (caso HTML-L898); (5) el H2 «marcas según su tipo» (HTML-L809) está dentro de un <span> dentro del <h2>: editar solo el texto del <span>, no el marcado; (6) la definición de marca T042 (HTML-L743) está dentro de un <p> dentro de un <div class=\"hover-subhome\"> — hay dos nodos H4 con el mismo texto (uno con class=\"rs_skip\" en HTML-L737 y otro en HTML-L741): editar ambos nodos para mantener consistencia; (7) el nodo de texto del <title> está en HTML-L1 dentro del bloque <head> comprimido en una sola línea — localizar con búsqueda de «<title>Marcas</title>»."
+}

@@ -1,0 +1,504 @@
+{
+  "id": "tramites-inapi-cl-siac_2026-06-07",
+  "url": "https://tramites.inapi.cl/siac",
+  "fecha_evaluacion": "2026-06-07T20:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "texto_capturado": "T003 [HTML-L76]: «Trámites y Servicios» (banner superior) | T004 [HTML-L80]: «FORMULARIO CONTACTO SIAC» (banner superior y navbar, todo mayúsculas) | T005 [HTML-L116]: «Marcas» (botón navbar) | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (botón navbar) | T059 [HTML-L170]: «Home» | T060 [HTML-L506]: «Iniciar Sesión» | T061 [HTML-L1108]: «Sistema Integral de Atención Ciudadana. (SIAC)» (encabezado del formulario — sigla sin definición previa en la página) | T062 [HTML-L1112]: «Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:» | T063 [HTML-L1117]: «Formulario» (leyenda del fieldset) | T064 [HTML-L1121]: «Tipo de Atención:» | T065–T068 [HTML-L1123–1126]: «Consulta», «Sugerencia», «Reclamo», «Felicitación» | OPCIÓN DEFECTO T064: «...Selecione...» [HTML-L1122] — error tipográfico (falta «cc») | T069 [HTML-L1131]: «Área de Atención:» | T070–T074 [HTML-L1133–1137]: «Trámite de Marca», «Trámite de Patentes», «Servicio en línea», «Capacitaciones, Talleres o Cursos», «General» | T075 [HTML-L1144]: «Rut:» (minúscula en u — debería ser «RUT:») | T076 [HTML-L1147]: «Género:» | T077 [HTML-L1148]: «Seleccione...» (correcto en este select) | T081–T086 [HTML-L1158–1192]: «Nombres:», «Apellidos:», «Correo Electrónico:», «Repita Correo Electrónico:», «Teléfono de contacto:», «Describa su solicitud (Máximo 7000 caracteres):» | T087 [HTML-L1203]: «Enviar» | T088 [HTML-L1204]: «Limpiar» | MODAL CONFIRMACIÓN T089 [HTML-L1225]: «Su consulta ha sido recibida» | T090 [HTML-L1232]: «Su número de atención es:  [vacío].  Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.» | T092 [HTML-L1265]: «Atención!» (sin tilde) | T093 [HTML-L1272]: «Para hacer seguimiento a su consulta debe iniciar sesión.» | FOOTER: T097 [HTML-L1359]: «Dónde estamos» | T100 [HTML-L1364]: «RUT: 65.999.669-3» | T101 [HTML-L1368]: «Carabineros de Chile Nº 195, Santiago, Chile» | T117 [HTML-L1400]: «Política de privacidad» (→ PDF) | T118 [HTML-L1415]: «©2026 INAPI. Todos los derechos reservados» | T120 [HTML-L1416]: «v 2.3.89.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página no tiene H1 ni H2. El encabezado del formulario usa el H5 de Bootstrap «card-header» con el texto «Sistema Integral de Atención Ciudadana. (SIAC)» — sigla sin definición ni contexto previo. El usuario que llega sin saber qué es el SIAC no recibe orientación inmediata sobre el propósito del formulario. El banner superior dice «FORMULARIO CONTACTO SIAC» en mayúsculas totales, sin ningún texto introductorio previo sobre qué puede hacer.",
+      "cita_textual": "(ausencia de H1/H2) — T004 [HTML-L80]: «FORMULARIO CONTACTO SIAC» (banner, todo mayúsculas) / T061 [HTML-L1108]: «Sistema Integral de Atención Ciudadana. (SIAC)» (card-header, primera mención del SIAC)"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "El formulario presenta primero el propósito general (T062: qué tipos de solicitudes se pueden enviar) antes de mostrar los campos. El orden del contenido sigue una lógica de pirámide invertida adecuada para un formulario.",
+      "cita_textual": "T062 [HTML-L1112]: «Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página no tiene H1 ni H2 ni H3. El único encabezado del contenido principal es el texto del card-header (no marcado semánticamente como encabezado jerárquico) y la leyenda «Formulario» del fieldset. La ausencia de estructura de encabezados impide la navegación accesible.",
+      "cita_textual": "(ausencia de H1, H2, H3) — T063 [HTML-L1117]: «Formulario» (leyenda del fieldset, no H)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "La instrucción introductoria (T062) es concisa. Las etiquetas de campo son directas. No hay bloques de texto extenso. La página no supera las 110 palabras de texto editorial."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La versión del sistema «v 2.3.89.0» (T120, HTML-L1416) es información técnica interna visible al usuario sin valor para su tarea. El modal de confirmación contiene un placeholder visible «Su número de atención es: [espacio vacío].» — cuando se carga la página sin haber enviado el formulario, el número está vacío.",
+      "cita_textual": "T120 [HTML-L1416]: «v 2.3.89.0» / T090 [HTML-L1232]: «Su número de atención es:  [vacío].»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "T093 usa voz pasiva: «Para hacer seguimiento a su consulta debe iniciar sesión» — la oración no tiene sujeto explícito activo. T090 también usa construcción pasiva impersonal: «Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada». El mensaje de confirmación usa «gracias» como cierre sin sujeto.",
+      "cita_textual": "T093 [HTML-L1272]: «Para hacer seguimiento a su consulta debe iniciar sesión.» / T090 [HTML-L1232]: «Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«SIAC» (T061, HTML-L1108) es una sigla que aparece como encabezado del formulario sin haber sido definida previamente en la página. El banner dice «FORMULARIO CONTACTO SIAC» pero no expande la sigla. Solo en el card-header aparece el nombre completo «Sistema Integral de Atención Ciudadana.», pero va seguido inmediatamente de la sigla entre paréntesis en la misma línea, y el punto antes del paréntesis es incorrecto.",
+      "cita_textual": "T004 [HTML-L80]: «FORMULARIO CONTACTO SIAC» (banner, sigla no definida) / T061 [HTML-L1108]: «Sistema Integral de Atención Ciudadana. (SIAC)» (primera definición — punto mal colocado antes del paréntesis)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«SIAC» aparece en el banner (T004, HTML-L80) sin definición previa. La primera definición aparece en el encabezado del formulario (T061, HTML-L1108), pero con punto incorrecto antes del paréntesis: «Sistema Integral de Atención Ciudadana. (SIAC)» — la norma es «Sistema Integral de Atención Ciudadana (SIAC)». Además, «PCT» aparece en el menú de Patentes (T048, HTML-L417: «Pagar Tasas PCT Fase Internacional» / T058: «Documentación Mínima PCT») sin definición en ningún punto visible de esta página.",
+      "cita_textual": "T004 [HTML-L80]: «FORMULARIO CONTACTO SIAC» / T061 [HTML-L1108]: «Sistema Integral de Atención Ciudadana. (SIAC)» (punto incorrecto antes del paréntesis) / T058 [HTML-L489]: «Documentación Mínima PCT»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial del formulario. Los términos del formulario son en español."
+    },
+    {
+      "id": "B5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T092 (modal de alerta) usa «Atención!» sin tilde en la exclamación de apertura — incorrecto en español. Además, el tono de este modal es negativo: advierte sobre la necesidad de iniciar sesión en lugar de explicar cómo hacerlo. El botón «Limpiar» (T088) implica que el formulario tiene datos que borrar, lo que es neutro pero podría reformularse.",
+      "cita_textual": "T092 [HTML-L1265]: «Atención!» (sin tilde de apertura «¡»)"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T062 usa tono impersonal de tercera persona: «Puede enviar consultas…» en lugar de dirigirse directamente al usuario. T093 usa imperativo implícito: «Para hacer seguimiento a su consulta debe iniciar sesión» — sin sujeto, tono distante. El texto de confirmación T090 usa tercera persona: «Se ha enviado un correo…» en lugar de «Te hemos enviado…» o «Enviamos un correo…».",
+      "cita_textual": "T062 [HTML-L1112]: «Puede enviar consultas, felicitaciones, reclamos o sugerencias…» / T090 [HTML-L1232]: «Se ha enviado un correo electrónico de confirmación…»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático en el formulario. Las etiquetas son directas y concisas."
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T093 antepone el complemento circunstancial al verbo: «Para hacer seguimiento a su consulta debe iniciar sesión.» — el verbo «debe» y el sujeto implícito van después del complemento. T090 también tiene orden no-SVP: «Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada» — sin sujeto al inicio.",
+      "cita_textual": "T093 [HTML-L1272]: «Para hacer seguimiento a su consulta debe iniciar sesión.»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Las etiquetas del formulario usan sustantivos y el texto introductorio usa presente simple: «Puede enviar». El modal de confirmación usa pretérito perfecto compuesto apropiado para una acción completada."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones en el formulario son simples y directas. T062 es la más larga (≈25 palabras) y dentro de la extensión aceptable."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada campo del formulario tiene una sola función. Los mensajes de los modales tratan una sola idea cada uno."
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de texto corrido extenso. El criterio no aplica a formularios con campos y etiquetas breves."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es un formulario, no un artículo con 4 o más párrafos continuos. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Los campos obligatorios del formulario no usan modo infinitivo ni están listados como requisitos en formato lista. Se podría añadir una leyenda que indique «Los campos marcados con * son obligatorios» y listar los requisitos de datos en infinitivo. Actualmente cada campo lleva (*) implícito en los mensajes de validación de data-val-required.",
+      "cita_textual": "T064 [HTML-L1121]: «Tipo de Atención:» / T075 [HTML-L1144]: «Rut:» — campos obligatorios sin indicación ni lista de requisitos previa"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Cuatro errores ortotipográficos: (1) «...Selecione...» (HTML-L1122) — falta «cc» en «Seleccione»; (2) «Sistema Integral de Atención Ciudadana. (SIAC)» (HTML-L1108) — el punto antes del paréntesis es incorrecto; debe ser «Sistema Integral de Atención Ciudadana (SIAC)»; (3) «Atención!» (HTML-L1265) — falta el signo de apertura «¡» en español; (4) «Rut:» (HTML-L1144) — en Chile el RUT se escribe «RUT» (acrónimo en mayúsculas).",
+      "cita_textual": "HTML-L1122: «...Selecione...» / HTML-L1108: «Sistema Integral de Atención Ciudadana. (SIAC)» / HTML-L1265: «Atención!» / HTML-L1144: «Rut:»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación general de los textos del formulario es correcta, con las excepciones tratadas en D1."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Las opciones de los selects están correctamente estructuradas como listas de opción. El footer usa <ul><li> para los enlaces."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«FORMULARIO CONTACTO SIAC» (T004, HTML-L80) en mayúsculas totales tanto en el banner superior como en el navbar. Los grupos del menú «MI INAPI» (T006), «TRAMITACIÓN» (T011), «PAGOS» (T019), «SERVICIOS» (T024) están todos en mayúsculas totales.",
+      "cita_textual": "T004 [HTML-L80]: «FORMULARIO CONTACTO SIAC» / T006 [HTML-L129]: «MI INAPI» / T011 [HTML-L159]: «TRAMITACIÓN» / T019 [HTML-L207]: «PAGOS» / T024 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se usan adjetivos valorativos autopromocionales. El formulario es objetivo y funcional."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner superior («INAPI -», T002), en el title (HTML-L31), en el footer (T098–T099) y en el copyright (T118).",
+      "cita_textual": "T002 [HTML-L31]: «INAPI -» / T118 [HTML-L1415]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de última actualización visible en el contenido de la página. El copyright ©2026 no equivale a fecha de actualización del formulario. La versión «v 2.3.89.0» (T120) es versión del sistema, no fecha de actualización del contenido.",
+      "cita_textual": "(ausencia) — ningún texto indica cuándo fue actualizado el formulario SIAC / T120 [HTML-L1416]: «v 2.3.89.0» (versión técnica, no fecha)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «FORMULARIO CONTACTO SIAC - INAPI - Sitio de Trámites» (HTML-L31) — todo en mayúsculas en la primera parte, sigla sin definición, y la descripción «Sitio de Trámites» es genérica. Podría ser «INAPI — Formulario de contacto: consultas, reclamos y sugerencias».",
+      "cita_textual": "HTML-L31 (title): «FORMULARIO CONTACTO SIAC - INAPI - Sitio de Trámites»"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los enlaces del footer coinciden correctamente con sus destinos: Contacto → /contacto, Facebook → facebook.com, etc. Los enlaces del menú de marcas y patentes son descriptivos del destino.",
+      "cita_textual": "T105 [HTML-L1382]: «Contacto» → https://www.inapi.cl/contacto"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "Los botones del formulario («Enviar», «Limpiar») y los enlaces del menú son descriptivos de la acción. No se detectan textos genéricos del tipo «Haz clic aquí» o «Más»."
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El botón «Continuar sin Iniciar Sesión» (HTML-L1275) es verboso y no sigue las convenciones de etiquetado de botones en LC. «Iniciar Sesión» (T060, HTML-L506) es adecuado. Los botones «OK» (T094) y «Aceptar» (T095) son genéricos — especialmente «Aceptar» (en el modal de confirmación) no indica qué se acepta.",
+      "cita_textual": "HTML-L1275: «Continuar sin Iniciar Sesión» (verboso) / T095 [HTML-L1234]: «Aceptar» (en modal de confirmación, sin contexto de qué se acepta)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» (T117, HTML-L1400) lleva directamente a un PDF (politica_de_privacidad.pdf) sin indicar el formato ni el peso. También «Descargar Formularios (PDF)» (T035, HTML-L737) en el menú de Marcas sí indica el formato — ese está correcto. La política de privacidad no.",
+      "cita_textual": "T117 [HTML-L1400]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato en el texto del enlace"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Enviar» y «Limpiar» (T087, T088) están al final del formulario, fuera del texto corrido. Los botones de los modales también están correctamente posicionados.",
+      "cita_textual": "T087 [HTML-L1203]: «Enviar» / T088 [HTML-L1204]: «Limpiar»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El formulario solicita el RUT del ciudadano usuario (T075, HTML-L1144) como dato necesario para identificar la consulta — esto es información esencial para el trámite y no se asimila a la exposición del RUT institucional en el footer. El RUT institucional 65.999.669-3 (T100, HTML-L1364) sí aparece en el footer sin aportar valor a la tarea, pero dado que este es el portal de trámites y el RUT institucional puede ser necesario para operaciones de pago, se calibra como datos institucionales de contexto. Nota: el criterio original se refiere a datos de personas naturales; el RUT institucional es de persona jurídica pública.",
+      "cita_textual": "T075 [HTML-L1144]: «Rut:» (dato del ciudadano, necesario para el trámite) / T100 [HTML-L1364]: «RUT: 65.999.669-3» (RUT institucional, persona jurídica)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El enlace «Política de privacidad» (T117, HTML-L1400) está presente en el footer, lo que implica información sobre derechos ARCO disponible.",
+      "cita_textual": "T117 [HTML-L1400]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright ©2026 está actualizado (T118, HTML-L1415). Existe enlace «Uso de los Contenidos de este Sitio» (T115, HTML-L1398).",
+      "cita_textual": "T118 [HTML-L1415]: «©2026 INAPI. Todos los derechos reservados» / T115 [HTML-L1398]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 17,
+  "porcentaje_cumplimiento": 51.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 16 incumplimientos sobre 33 criterios aplicables (51,5 %). Las correcciones de mayor impacto son: (1) agregar H1 descriptivo que explique el propósito del formulario y defina SIAC: «Formulario de contacto — Sistema Integral de Atención Ciudadana (SIAC)» (A1, B3, E4); (2) corregir el punto incorrecto en «Sistema Integral de Atención Ciudadana. (SIAC)» → «Sistema Integral de Atención Ciudadana (SIAC)» (D1, B3); (3) corregir «...Selecione...» → «Seleccione...» (D1); (4) corregir «Atención!» → «¡Atención!» (D1, B5); (5) corregir «Rut:» → «RUT:» (D1); (6) reformular T093 en voz activa y orden SVP: «Para dar seguimiento a tu consulta, inicia sesión» (B1, C1); (7) reformular T062 para dirigirse directamente al usuario: «Envía tu consulta, felicitación, reclamo o sugerencia a través de este formulario» (B6); (8) eliminar «v 2.3.89.0» del footer (A5); (9) agregar fecha de actualización visible (E3); (10) indicar formato PDF en «Política de privacidad» (F4); (11) normalizar mayúsculas en «FORMULARIO CONTACTO SIAC» y grupos del menú (D7). El array sustituciones[] contiene 28 filas con cobertura 1:1 para los 16 criterios incumplidos.",
+  "observaciones_lc": "El formulario SIAC de tramites.inapi.cl obtiene un 51,5 % de cumplimiento sobre 33 criterios aplicables — el mejor resultado relativo del piloto hasta ahora, aunque sigue siendo RECHAZADO. Al ser una página de formulario, algunos criterios de redacción y estructura de texto se adaptan a la naturaleza del contenido (C5, C6, D6 no aplican). Los 16 incumplimientos se distribuyen en: (1) estructura (A1, A3): ausencia total de H1/H2/H3; el encabezado del formulario está en un div, no en un elemento de encabezado semántico; (2) siglas y errores tipográficos (B2, B3, D1): «SIAC» en el banner sin definición previa, el punto incorrecto antes del paréntesis en la primera definición del nombre completo, «...Selecione...» en el primer select, «Atención!» sin tilde de apertura y «Rut:» con minúscula; (3) voz y tono (B1, B6, C1): voz pasiva en el mensaje de confirmación y en el modal de alerta, tono impersonal en el texto introductorio; (4) metadatos (E3, E4): sin fecha de actualización y title con mayúsculas totales y sigla no definida; (5) sistémicos del portal (D7, F3, F4): mayúsculas en grupos del menú, botones genéricos y PDF sin formato declarado. G1 cumple porque el RUT que se solicita es del ciudadano usuario — dato necesario para el trámite — no de terceros sin contexto.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/siac fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 17 se cumplen, lo que arroja un 51,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 16 incumplimientos y se generaron 28 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: ausencia de H1 para describir el propósito del formulario y definir SIAC (A1), voz pasiva en mensajes del sistema (B1), «SIAC» sin definición en el banner (B2, B3), cuatro errores ortotipográficos incluyendo «...Selecione...», punto incorrecto en la sigla, «Atención!» sin tilde de apertura y «Rut:» en minúscula (D1), ausencia de fecha de actualización (E3), y PDF de Política de privacidad sin indicar formato (F4). G1 cumple porque el formulario solicita el RUT del ciudadano como dato necesario para la gestión del trámite, no expone datos de terceros.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) La página no tiene H1 ni H2. El propósito del formulario y la sigla SIAC no se comunican con jerarquía semántica adecuada. El banner usa mayúsculas totales sin encabezado accesible.",
+      "(B1) Voz pasiva en mensajes del sistema: «Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada» (T090) y «Para hacer seguimiento a su consulta debe iniciar sesión» (T093) sin sujeto activo explícito.",
+      "(B2) «SIAC» aparece en el banner (T004) sin definición previa. La primera definición del nombre completo tiene un punto incorrecto antes del paréntesis.",
+      "(B3) «SIAC» sin definición en el banner. «PCT» aparece en el menú de Patentes sin expandir en ningún punto visible de esta página.",
+      "(D1) Cuatro errores: «...Selecione...» (falta «cc»); «Sistema Integral de Atención Ciudadana. (SIAC)» (punto incorrecto); «Atención!» (falta «¡» de apertura); «Rut:» (debería ser «RUT:»).",
+      "(E3) Ausencia de fecha de publicación o última actualización del formulario.",
+      "(F4) «Política de privacidad» enlaza directamente a un PDF sin indicar el formato ni el peso del archivo."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A3) La página no tiene H1, H2 ni H3. La única organización semántica es la leyenda del fieldset «Formulario».",
+      "(B5) «Atención!» (T092) sin signo de apertura «¡»; el modal de alerta usa tono negativo.",
+      "(B6) El texto introductorio (T062) usa segunda persona con usted implícito distante: «Puede enviar…» en lugar de «Envía tu consulta…». Los mensajes del sistema usan tercera persona impersonal.",
+      "(C1) T093 antepone el complemento circunstancial al verbo: «Para hacer seguimiento a su consulta debe iniciar sesión.» — no sigue orden SVP.",
+      "(D7) «FORMULARIO CONTACTO SIAC» en mayúsculas totales en el banner y el navbar. Los grupos del menú «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» también en mayúsculas.",
+      "(E4) El <title> «FORMULARIO CONTACTO SIAC - INAPI - Sitio de Trámites» tiene la primera parte en mayúsculas totales y la sigla SIAC sin definición.",
+      "(F3) «Continuar sin Iniciar Sesión» (HTML-L1275) es verboso. «Aceptar» (T095) en el modal de confirmación no indica qué se acepta."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.89.0» (T120) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(C7) Los campos obligatorios del formulario no están listados previamente como requisitos en formato lista con modo infinitivo."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L1107",
+      "original": "(ausencia de H1 — el card-header no es encabezado semántico)",
+      "propuesto": "<h1 class='sr-only'>Formulario de contacto — Sistema Integral de Atención Ciudadana (SIAC)</h1>",
+      "criterio_id": "A1",
+      "motivo": "La página no tiene H1; insertar encabezado semántico antes del formulario para accesibilidad y orientación al usuario. Puede ser visualmente oculto (sr-only) si el diseño del banner lo requiere."
+    },
+    {
+      "linea": "A3-legend",
+      "html_linea_aprox": "HTML-L1117",
+      "original": "Formulario",
+      "propuesto": "Formulario de contacto SIAC",
+      "criterio_id": "A3",
+      "motivo": "La leyenda del fieldset es el único elemento textual de organización semántica; ampliarla para que sea más descriptiva y accesible."
+    },
+    {
+      "linea": "T120",
+      "html_linea_aprox": "HTML-L1416",
+      "original": "v 2.3.89.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema visible al usuario sin valor para su tarea; eliminar del footer público."
+    },
+    {
+      "linea": "T090",
+      "html_linea_aprox": "HTML-L1232",
+      "original": "Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "propuesto": "Te enviamos un correo de confirmación a tu casilla de correo. ¡Gracias por contactarnos!",
+      "criterio_id": "B1",
+      "motivo": "Elimina la voz pasiva («Se ha enviado») y usa segunda persona directa; agrega signo de apertura a la exclamación de cierre."
+    },
+    {
+      "linea": "T093",
+      "html_linea_aprox": "HTML-L1272",
+      "original": "Para hacer seguimiento a su consulta debe iniciar sesión.",
+      "propuesto": "Para dar seguimiento a tu consulta, inicia sesión.",
+      "criterio_id": "B1",
+      "motivo": "Elimina la construcción impersonal sin sujeto; usa tuteo directo y orden SVP."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L1108",
+      "original": "Sistema Integral de Atención Ciudadana. (SIAC)",
+      "propuesto": "Sistema Integral de Atención Ciudadana (SIAC)",
+      "criterio_id": "B2",
+      "motivo": "Elimina el punto incorrecto antes del paréntesis; la norma es definir la sigla entre paréntesis inmediatamente después del nombre completo sin punto previo."
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L80",
+      "original": "FORMULARIO CONTACTO SIAC",
+      "propuesto": "Formulario de contacto — Sistema Integral de Atención Ciudadana (SIAC)",
+      "criterio_id": "B3",
+      "motivo": "El banner usa la sigla SIAC sin definición; expandir en su primera aparición visible para el usuario."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L1112",
+      "original": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
+      "propuesto": "Envía tu consulta, felicitación, reclamo o sugerencia a través de este formulario:",
+      "criterio_id": "B6",
+      "motivo": "Cambia el tono impersonal de tercera persona a segunda persona directa; simplifica la oración eliminando la frase redundante «disponible a continuación»."
+    },
+    {
+      "linea": "T092",
+      "html_linea_aprox": "HTML-L1265",
+      "original": "Atención!",
+      "propuesto": "¡Atención!",
+      "criterio_id": "B5",
+      "motivo": "En español la exclamación requiere el signo de apertura «¡»; su ausencia es un error ortográfico que también afecta el tono."
+    },
+    {
+      "linea": "T093",
+      "html_linea_aprox": "HTML-L1272",
+      "original": "Para hacer seguimiento a su consulta debe iniciar sesión.",
+      "propuesto": "Para dar seguimiento a tu consulta, inicia sesión.",
+      "criterio_id": "C1",
+      "motivo": "Coloca el verbo al inicio de la cláusula principal; elimina el complemento circunstancial antepuesto que viola el orden SVP."
+    },
+    {
+      "linea": "HTML-L1122",
+      "html_linea_aprox": "HTML-L1122",
+      "original": "...Selecione...",
+      "propuesto": "Seleccione...",
+      "criterio_id": "D1",
+      "motivo": "Error tipográfico: falta la «cc» en «Selecione»; debe ser «Seleccione» para la opción por defecto del selector Tipo de Atención."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L1108",
+      "original": "Sistema Integral de Atención Ciudadana. (SIAC)",
+      "propuesto": "Sistema Integral de Atención Ciudadana (SIAC)",
+      "criterio_id": "D1",
+      "motivo": "El punto antes del paréntesis es un error tipográfico; la norma es «nombre completo (SIGLA)» sin punto previo."
+    },
+    {
+      "linea": "T092",
+      "html_linea_aprox": "HTML-L1265",
+      "original": "Atención!",
+      "propuesto": "¡Atención!",
+      "criterio_id": "D1",
+      "motivo": "«Atención!» sin tilde de apertura es error ortográfico en español; la exclamación requiere «¡...!»."
+    },
+    {
+      "linea": "T075",
+      "html_linea_aprox": "HTML-L1144",
+      "original": "Rut:",
+      "propuesto": "RUT:",
+      "criterio_id": "D1",
+      "motivo": "En Chile el RUT (Rol Único Tributario) se escribe como acrónimo en mayúsculas; «Rut:» con minúscula es incorrecto."
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L80",
+      "original": "FORMULARIO CONTACTO SIAC",
+      "propuesto": "Formulario de contacto SIAC",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas totales en el banner superior; normalizar capitalización."
+    },
+    {
+      "linea": "T011",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T019",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización conservando la mayúscula institucional de «INAPI»."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1108",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible en el encabezado del formulario o al final del card-body; actualmente no existe."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "FORMULARIO CONTACTO SIAC - INAPI - Sitio de Trámites",
+      "propuesto": "INAPI — Formulario de contacto: consultas, reclamos y sugerencias (SIAC)",
+      "criterio_id": "E4",
+      "motivo": "El title tiene la primera parte en mayúsculas totales y la sigla sin definición implícita; reorganizar para que INAPI quede primero y la descripción de la tarea sea más clara."
+    },
+    {
+      "linea": "HTML-L1275",
+      "html_linea_aprox": "HTML-L1275",
+      "original": "Continuar sin Iniciar Sesión",
+      "propuesto": "Continuar sin sesión",
+      "criterio_id": "F3",
+      "motivo": "El texto del botón es verboso e inconsistente (mezcla mayúsculas en el infinitivo «Iniciar Sesión»); simplificar a «Continuar sin sesión»."
+    },
+    {
+      "linea": "T095",
+      "html_linea_aprox": "HTML-L1234",
+      "original": "Aceptar",
+      "propuesto": "Cerrar y enviar nuevo formulario",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» en el modal de confirmación de envío no describe la acción (recargar la página para enviar una nueva solicitud); el texto debe indicar qué sucede al hacer clic."
+    },
+    {
+      "linea": "T117",
+      "html_linea_aprox": "HTML-L1400",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato; agregar indicación de tipo de archivo."
+    },
+    {
+      "linea": "C7-requisitos",
+      "html_linea_aprox": "HTML-L1116",
+      "original": "(ausencia de indicación de campos obligatorios)",
+      "propuesto": "Los campos marcados con * son obligatorios: Tipo de Atención, Área de Atención, RUT, Nombres, Apellidos, Correo Electrónico, Teléfono, Descripción de la solicitud.",
+      "criterio_id": "C7",
+      "motivo": "Insertar nota de campos obligatorios antes del fieldset; actualmente el usuario descubre los campos requeridos solo cuando intenta enviar el formulario sin completarlos."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L1108",
+      "original": "Sistema Integral de Atención Ciudadana. (SIAC)",
+      "propuesto": "Sistema Integral de Atención Ciudadana (SIAC)",
+      "criterio_id": "B3",
+      "motivo": "Primera definición de la sigla con punto incorrecto antes del paréntesis; corregir para que la definición siga la norma: «nombre completo (SIGLA)»."
+    },
+    {
+      "linea": "T090",
+      "html_linea_aprox": "HTML-L1232",
+      "original": "Su número de atención es:  <strong id='ModalAttentionNumber'></strong>.  Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "propuesto": "Tu número de atención es: [número]. Te enviamos un correo de confirmación. ¡Gracias por contactarnos!",
+      "criterio_id": "B6",
+      "motivo": "El mensaje de confirmación usa tercera persona impersonal; reescribir en segunda persona directa (tuteo) y con tono cálido."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "«PCT» aparece en el menú de Patentes sin definición en ningún punto visible de esta página; primera aparición de la sigla en este contexto debe ir acompañada del nombre completo."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) el error «...Selecione...» (HTML-L1122) está en el atributo value y texto de un <option> dentro de un <select> — buscar la cadena literal «Selecione» (sin «cc») para localizarlo; (3) el punto incorrecto en «Sistema Integral de Atención Ciudadana. (SIAC)» (HTML-L1108) está en el texto del card-header — buscar «Ciudadana. (SIAC)» para localizarlo; (4) «Atención!» (HTML-L1265) está en el H5 de un modal — buscar «Atención!» con la entidad de la ó si el editor trabaja sobre HTML crudo; (5) «Rut:» (HTML-L1144) está en un <label> — buscar «>Rut:</label>» para localizarlo; (6) la fila A1-h1 requiere INSERTAR un nuevo nodo <h1> antes del div del formulario (HTML-L1103) — coordinar con TIC si se usa clase «sr-only» (Bootstrap) para mantener visualmente el diseño del banner; (7) «v 2.3.89.0» (HTML-L1416) está en un <p> dentro del div.footer-abajo — buscar «v 2.3» para localizarlo; (8) el modal de confirmación (HTML-L1221–1238) está comprimido en pocos nodos; el texto del mensaje (HTML-L1232) contiene el placeholder dinámico <strong id='ModalAttentionNumber'></strong> que no debe modificarse — solo el texto circundante; (9) el <title> (HTML-L31) está en el <head> — buscar «FORMULARIO CONTACTO SIAC» para localizarlo; (10) las correcciones del menú (D7) afectan texto en atributos JavaScript y nodos HTML — verificar que las correcciones no rompan las referencias en funciones ShowHideNavbar('Marcas') y ShowHideNavbar('Patentes')."
+}

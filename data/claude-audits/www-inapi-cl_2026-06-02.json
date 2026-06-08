@@ -253,10 +253,10 @@
   "criterios_aprobados": 15,
   "porcentaje_cumplimiento": 45.5,
   "estado_aceptacion": "rechazado",
-  "texto_propuesto": "Para las correcciones de mayor impacto se propone: (1) reemplazar «Tu consulta será atendida por un especialista» por «Un especialista de INAPI responderá tu consulta»; (2) expandir PCT como «Tratado de Cooperación en materia de Patentes (PCT)» y WIPO como «Organización Mundial de la Propiedad Intelectual (OMPI)» en su primera aparición; (3) cambiar el título de la página a «INAPI — Registro de marcas, patentes y propiedad industrial en Chile»; (4) agregar «(PDF)» a los botones de descarga de guías; (5) reemplazar «Conoce más» por textos descriptivos del destino («Conoce la propiedad industrial» y «Conoce la observancia y protección de tu marca»); (6) cambiar «Acceder» por «Acceder a la Plataforma de Información Tecnológica»; (7) normalizar todos los textos en mayúsculas totales a capitalización estándar; (8) corregir «documentaicón» a «documentación» en el atributo keywords y eliminar el botón «LINK EXTERNO»; (9) agregar una fecha de actualización visible en el cuerpo de la página; y (10) reemplazar «Login» por «Ingresar» o «Iniciar sesión».",
+  "texto_propuesto": "Resumen ejecutivo de las 35 filas en sustituciones[] (entregable accionable para TIC). Prioridades altas: voz activa en contacto (B1); siglas PCT y WIPO definidas (B3); corregir «documentaicón» en keywords y eliminar «LINK EXTERNO» (D1); insertar fecha de actualización de la página (E3); enlaces descriptivos en lugar de «Conoce más» y «Acceder» (F2); indicar «(PDF)» en guías de marcas y patentes y en el enlace «Teletrabajo» del carrusel (F4); revisar RUT en footer (G1, coordinado con A5). El detalle línea por línea (original, propuesto, html_linea_aprox, alternativas donde aplique) está en la tabla sustituciones del JSON.",
   "observaciones_lc": "La evaluación detecta 18 incumplimientos sobre 33 criterios aplicables (45,5 %). Los siete incumplimientos de severidad alta requieren corrección antes de la próxima publicación: voz pasiva (B1), siglas sin definir (B3), error ortográfico en keywords (D1), ausencia de fecha de actualización (E3), enlaces genéricos (F2), documentos sin formato declarado (F4) y exposición del RUT institucional sin propósito para el usuario (G1). Los incumplimientos de severidad media suman diez e incluyen uso excesivo de mayúsculas, orden gramatical, tono y descriptividad de enlaces; son abordables en una segunda iteración. El único incumplimiento de severidad baja es el uso de «Startup» y «Login» como extranjerismos. La estructura básica de la página, el tiempo verbal y la ausencia de jerga de relleno son fortalezas editoriales que deben preservarse.",
   "tipo_pagina": "sitioweb",
-  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue evaluada con el Checklist Editorial v1.1 (39 criterios). De los 33 criterios aplicables, solo 15 se cumplen, lo que arroja un 45,5 % de cumplimiento y un estado de aceptación RECHAZADO según los umbrales INAPI (≤80 % = rechazado). Los incumplimientos más críticos se concentran en voz pasiva en mensajes de contacto (B1), siglas PCT y WIPO sin definir (B3), ausencia de fecha de actualización de la página (E3), botones de descarga sin indicar formato ni peso (F4), uso extensivo de mayúsculas completas (D7), error tipográfico «documentaicón» en keywords (D1), y enlaces genéricos «Conoce más» y «Acceder» (F2). Los criterios de estructura básica —mensaje principal en la parte superior (A1), fragmentación en secciones con encabezados (A3), extensión de párrafos (A4, A5 parcialmente)— y el uso del tiempo presente (C2) se cumplen correctamente. Se requiere aplicar las 17 sustituciones identificadas y agregar fecha de actualización antes de una nueva evaluación.",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue evaluada con el Checklist Editorial v1.1 (39 criterios). De los 33 criterios aplicables, solo 15 se cumplen, lo que arroja un 45,5 % de cumplimiento y un estado de aceptación RECHAZADO según los umbrales INAPI (≤80 % = rechazado). Los incumplimientos más críticos se concentran en voz pasiva en mensajes de contacto (B1), siglas PCT y WIPO sin definir (B3), ausencia de fecha de actualización de la página (E3), enlaces a documentos sin indicar formato (F4: guías y «Teletrabajo» en carrusel), uso extensivo de mayúsculas completas (D7), error tipográfico «documentaicón» en keywords (D1), y enlaces genéricos «Conoce más» y «Acceder» (F2). Los criterios de estructura básica —mensaje principal en la parte superior (A1), fragmentación en secciones con encabezados (A3), extensión de párrafos (A4)— y el uso del tiempo presente (C2) se cumplen correctamente. Se identifican 18 incumplimientos; cada uno tiene al menos una propuesta en la tabla sustituciones (35 filas en total, con alternativas editoriales donde corresponde). Revisión UX previa a TIC recomendada.",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "(B1) Voz pasiva en el modal de contacto: «Tu consulta será atendida por un especialista» debe reescribirse en voz activa.",
@@ -264,7 +264,7 @@
       "(D1) Error tipográfico «documentaicón» en el atributo keywords de la página; además, el botón «LINK EXTERNO» parece texto de desarrollo no eliminado.",
       "(E3) No hay fecha de publicación ni de última modificación visible en el cuerpo de la página principal.",
       "(F2) Textos de enlace genéricos: «Conoce más» (dos instancias) y «Acceder» no describen el destino.",
-      "(F4) Los botones «Descargar guía de marcas» y «Descargar guía de patentes» no indican formato ni peso del archivo.",
+      "(F4) Los botones «Descargar guía de marcas» y «Descargar guía de patentes» y el enlace «Teletrabajo» del carrusel no indican formato ni peso del archivo.",
       "(G1) El RUT institucional 65.999.669-3 se publica en el footer sin aportar valor para la tarea del usuario."
     ],
     "hallazgos_prioridad_media": [
@@ -285,12 +285,20 @@
   },
   "sustituciones": [
     {
-      "linea": "T372",
-      "html_linea_aprox": "HTML-L780",
-      "original": "Tu consulta ser&aacute; atendida por un especialista.",
-      "propuesto": "Un especialista de INAPI responderá tu consulta.",
-      "criterio_id": "B1",
-      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
+      "linea": "T453",
+      "html_linea_aprox": "HTML-L895",
+      "original": "(ausencia)",
+      "propuesto": "Accede a información tecnológica de patentes para apoyar el desarrollo productivo sostenible de tu empresa.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo de propósito antes del titular técnico T454; el banner hoy coloca tecnicismo antes de explicar al usuario para qué sirve la plataforma."
+    },
+    {
+      "linea": "T522",
+      "html_linea_aprox": "HTML-L1080",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "El RUT institucional no aporta valor a la tarea del usuario en la página principal; mover a sección Quiénes somos o Transparencia si se requiere."
     },
     {
       "linea": "T177",
@@ -301,52 +309,132 @@
       "motivo": "Agrega sujeto explícito y usa verbos activos en lugar de nominalización pasiva."
     },
     {
-      "linea": "T007",
-      "html_linea_aprox": "HTML-L10",
-      "original": "Inapi - Instituto Nacional de Propiedad Industrial",
-      "propuesto": "INAPI — Registro de marcas, patentes y propiedad industrial en Chile",
-      "criterio_id": "E4",
-      "motivo": "Describe la tarea principal del sitio, no solo el nombre institucional."
+      "linea": "T372",
+      "html_linea_aprox": "HTML-L780",
+      "original": "Tu consulta ser&aacute; atendida por un especialista.",
+      "propuesto": "Un especialista de INAPI responderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
     },
     {
-      "linea": "T471",
-      "html_linea_aprox": "HTML-L930",
-      "original": "Descargar gu&iacute;a de marcas",
-      "propuesto": "Descargar guía de marcas (PDF)",
-      "criterio_id": "F4",
-      "motivo": "Informa el formato del archivo descargable; agregar peso cuando esté disponible en el CMS."
+      "linea": "T208",
+      "html_linea_aprox": "HTML-L402",
+      "original": "Sello de Origen",
+      "propuesto": "Sello de Origen (certificación de productos típicos de una región)",
+      "criterio_id": "B2",
+      "motivo": "«Sello de Origen» carece de glosa; agregar descripción breve en el enlace de menú o en texto de apoyo cercano."
     },
     {
-      "linea": "T473",
-      "html_linea_aprox": "HTML-L940",
-      "original": "Descargar gu&iacute;a de patentes",
-      "propuesto": "Descargar guía de patentes (PDF)",
-      "criterio_id": "F4",
-      "motivo": "Informa el formato del archivo descargable; agregar peso cuando esté disponible en el CMS."
+      "linea": "T220",
+      "html_linea_aprox": "HTML-L418",
+      "original": "Observancia",
+      "propuesto": "Observancia (protección contra piratería y falsificación)",
+      "criterio_id": "B2",
+      "motivo": "«Observancia» es término técnico-legal no familiar para el ciudadano general; agregar glosa descriptiva en el texto visible del enlace o en un tooltip."
     },
     {
-      "linea": "T203",
-      "html_linea_aprox": "HTML-L390",
-      "original": "Conoce m&#225;s",
-      "propuesto": "Conoce la propiedad industrial",
-      "criterio_id": "F2",
-      "motivo": "Reemplaza enlace genérico por texto descriptivo del destino /propiedad-intelectual-e-industrial."
+      "linea": "T206",
+      "html_linea_aprox": "HTML-L400",
+      "original": "PCT",
+      "propuesto": "PCT — Tratado de Cooperación en materia de Patentes",
+      "criterio_id": "B3",
+      "motivo": "La sigla PCT aparece sin definir en el menú principal; primera aparición debe ir acompañada de su nombre completo."
     },
     {
-      "linea": "T483",
-      "html_linea_aprox": "HTML-L1060",
-      "original": "Conoce más",
-      "propuesto": "Conoce la observancia y protección de tu marca",
-      "criterio_id": "F2",
-      "motivo": "Describe el destino específico /protege-tu-idea/pirateria-y-falsificacion."
+      "linea": "T442",
+      "html_linea_aprox": "HTML-L1050",
+      "original": "Startup chilena es finalista de los WIPO Global Awards 2026 por tecnolog&#237;a de detecci&#243;n temprana de incendios forestales",
+      "propuesto": "Empresa emergente chilena es finalista de los Premios Mundiales OMPI 2026 por tecnología de detección temprana de incendios forestales",
+      "criterio_id": "B3",
+      "motivo": "Expande WIPO como OMPI (Organización Mundial de la Propiedad Intelectual) y reemplaza «Startup» por equivalente en español."
     },
     {
-      "linea": "T459",
-      "html_linea_aprox": "HTML-L900",
-      "original": "Acceder",
-      "propuesto": "Acceder a la Plataforma de Información Tecnológica",
-      "criterio_id": "F2",
-      "motivo": "Describe el recurso al que se accede (plataforma de datos de patentes en Google Sites)."
+      "linea": "T300",
+      "html_linea_aprox": "HTML-L720",
+      "original": "Login",
+      "propuesto": "Ingresar",
+      "criterio_id": "B4",
+      "motivo": "Reemplaza anglicismo por equivalente en español."
+    },
+    {
+      "linea": "T362",
+      "html_linea_aprox": "HTML-L790",
+      "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:",
+      "propuesto": "Elige cómo contactarnos:",
+      "criterio_id": "B6",
+      "motivo": "Simplifica la frase y reduce distancia formal."
+    },
+    {
+      "linea": "T432",
+      "html_linea_aprox": "HTML-L1005",
+      "original": "La actualizaci&#243;n impulsada por el Instituto Nacional de Propiedad Industrial",
+      "propuesto": "INAPI publica una nueva herramienta de consulta que facilita el acceso a los criterios técnicos en materia de marcas comerciales.",
+      "criterio_id": "C1",
+      "motivo": "Coloca sujeto al inicio, simplifica la oración y elimina el modificador pospuesto. Sustituye el párrafo completo T432–T435."
+    },
+    {
+      "linea": "T440",
+      "html_linea_aprox": "HTML-L1040",
+      "original": "La tecnolog&#237;a desarrollada por An&#237;bal Montalva y Miguel &#193;ngel Fern&#225;ndez utiliza plantas y microorganismos para reducir en m&#225;s de un 90% las emisiones de material particulado y olores, ofreciendo una soluci&#243;n sustentable para mejorar la calidad del aire en zonas residenciales e industriales.",
+      "propuesto": "La tecnología usa plantas y microorganismos para reducir en más de un 90 % las emisiones de material particulado y olores en zonas residenciales e industriales. Fue desarrollada por Aníbal Montalva y Miguel Ángel Fernández.",
+      "criterio_id": "C3",
+      "motivo": "Oración demasiado larga con cláusula participial («ofreciendo»); separar en dos oraciones simples mejora la lectura rápida."
+    },
+    {
+      "linea": "T179",
+      "html_linea_aprox": "HTML-L68",
+      "original": "documentaicón",
+      "propuesto": "documentación",
+      "criterio_id": "D1",
+      "motivo": "Error tipográfico en el atributo content del meta keywords; corregir en bloque <head>."
+    },
+    {
+      "linea": "T278",
+      "html_linea_aprox": "HTML-L450",
+      "original": "Contraste de pagina",
+      "propuesto": "Contraste de página",
+      "criterio_id": "D1",
+      "motivo": "Corrige tilde faltante en «página»."
+    },
+    {
+      "linea": "T305",
+      "html_linea_aprox": "HTML-L715",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "D1",
+      "motivo": "Texto de desarrollo no eliminado visible en el modal de acceso; debe suprimirse antes de publicación."
+    },
+    {
+      "linea": "T264",
+      "html_linea_aprox": "HTML-L295",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T267",
+      "html_linea_aprox": "HTML-L298",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
+    },
+    {
+      "linea": "T322",
+      "html_linea_aprox": "HTML-L730",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de sección en mayúsculas completas; normalizar a capitalización estándar."
+    },
+    {
+      "linea": "T336",
+      "html_linea_aprox": "HTML-L745",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "Encabezado de sección en mayúsculas completas; normalizar a capitalización estándar."
     },
     {
       "linea": "T391",
@@ -381,44 +469,100 @@
       "motivo": "Consolida los tres fragmentos del banner (T455, T456) en una frase completa con capitalización normal."
     },
     {
-      "linea": "T300",
-      "html_linea_aprox": "HTML-L720",
-      "original": "Login",
-      "propuesto": "Ingresar",
-      "criterio_id": "B4",
-      "motivo": "Reemplaza anglicismo por equivalente en español."
+      "linea": "T456",
+      "html_linea_aprox": "HTML-L910",
+      "original": "PRODUCTIVO SOSTENIBLE",
+      "propuesto": "Productivo Sostenible",
+      "criterio_id": "D7",
+      "motivo": "Fragmento en mayúsculas completas; parte del banner que se consolida junto a T455 (ya cubierto)."
     },
     {
-      "linea": "T442",
-      "html_linea_aprox": "HTML-L1050",
-      "original": "Startup chilena es finalista de los WIPO Global Awards 2026 por tecnolog&#237;a de detecci&#243;n temprana de incendios forestales",
-      "propuesto": "Empresa emergente chilena es finalista de los Premios Mundiales OMPI 2026 por tecnología de detección temprana de incendios forestales",
-      "criterio_id": "B3",
-      "motivo": "Expande WIPO como OMPI (Organización Mundial de la Propiedad Intelectual) y reemplaza «Startup» por equivalente en español."
+      "linea": "T384",
+      "html_linea_aprox": "HTML-L855",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: 3 de junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "La página principal no muestra fecha de publicación ni de última modificación; insertar línea visible bajo el H1 o en el pie de página, antes del copyright."
     },
     {
-      "linea": "T362",
-      "html_linea_aprox": "HTML-L790",
-      "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:",
-      "propuesto": "Elige cómo contactarnos:",
-      "criterio_id": "B6",
-      "motivo": "Simplifica la frase y reduce distancia formal."
+      "linea": "T007",
+      "html_linea_aprox": "HTML-L10",
+      "original": "Inapi - Instituto Nacional de Propiedad Industrial",
+      "propuesto": "INAPI — Registro de marcas, patentes y propiedad industrial en Chile",
+      "criterio_id": "E4",
+      "motivo": "Describe la tarea principal del sitio, no solo el nombre institucional."
     },
     {
-      "linea": "T278",
-      "html_linea_aprox": "HTML-L450",
-      "original": "Contraste de pagina",
-      "propuesto": "Contraste de página",
-      "criterio_id": "D1",
-      "motivo": "Corrige tilde faltante en «página»."
+      "linea": "T220",
+      "html_linea_aprox": "HTML-L418",
+      "original": "Observancia",
+      "propuesto": "Protege tu marca e idea",
+      "criterio_id": "F1",
+      "motivo": "El enlace «Observancia» lleva a /protege-tu-idea; el texto visible no coincide con el nombre de la página de destino. Si el slug no puede renombrarse, actualizar el texto del enlace para que describa el destino."
     },
     {
-      "linea": "T432",
-      "html_linea_aprox": "HTML-L1005",
-      "original": "La actualizaci&#243;n impulsada por el Instituto Nacional de Propiedad Industrial",
-      "propuesto": "INAPI publica una nueva herramienta de consulta que facilita el acceso a los criterios técnicos en materia de marcas comerciales.",
-      "criterio_id": "C1",
-      "motivo": "Coloca sujeto al inicio, simplifica la oración y elimina el modificador pospuesto. Sustituye el párrafo completo T432–T435."
+      "linea": "T203",
+      "html_linea_aprox": "HTML-L390",
+      "original": "Conoce m&#225;s",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F2",
+      "motivo": "Reemplaza enlace genérico por texto descriptivo del destino /propiedad-intelectual-e-industrial."
+    },
+    {
+      "linea": "T459",
+      "html_linea_aprox": "HTML-L900",
+      "original": "Acceder",
+      "propuesto": "Acceder a la Plataforma de Información Tecnológica",
+      "criterio_id": "F2",
+      "motivo": "Describe el recurso al que se accede (plataforma de datos de patentes en Google Sites)."
+    },
+    {
+      "linea": "T483",
+      "html_linea_aprox": "HTML-L1060",
+      "original": "Conoce más",
+      "propuesto": "Conoce la observancia y protección de tu marca",
+      "criterio_id": "F2",
+      "motivo": "Describe el destino específico /protege-tu-idea/pirateria-y-falsificacion."
+    },
+    {
+      "linea": "T303",
+      "html_linea_aprox": "HTML-L722",
+      "original": "Registro",
+      "propuesto": "Crear cuenta",
+      "criterio_id": "F3",
+      "motivo": "«Registro» es ambiguo (¿registro de marca? ¿de usuario?); «Crear cuenta» describe la acción concreta del destino (alta de usuario en el sistema)."
+    },
+    {
+      "linea": "T471",
+      "html_linea_aprox": "HTML-L930",
+      "original": "Descargar gu&iacute;a de marcas",
+      "propuesto": "Descargar guía de marcas (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Informa el formato del archivo descargable; agregar peso cuando esté disponible en el CMS."
+    },
+    {
+      "linea": "T473",
+      "html_linea_aprox": "HTML-L940",
+      "original": "Descargar gu&iacute;a de patentes",
+      "propuesto": "Descargar guía de patentes (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Informa el formato del archivo descargable; agregar peso cuando esté disponible en el CMS."
+    },
+    {
+      "linea": "T492",
+      "html_linea_aprox": "HTML-L1015",
+      "original": "Teletrabajo",
+      "propuesto": "Teletrabajo (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Enlace del carrusel de logos a documento PDF sin indicar formato; alinear con guías T471 y T473. Agregar peso solo si consta en el CMS."
+    },
+    {
+      "linea": "T522",
+      "html_linea_aprox": "HTML-L1080",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "G1",
+      "motivo": "RUT institucional (persona jurídica pública, no persona natural); no aporta a la tarea del usuario en la página principal. Mover a sección Quiénes somos o Transparencia. Revisión editorial coordinada con A5."
     }
   ],
   "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) hacer backup del archivo antes de cualquier cambio; (2) usar búsqueda literal en el editor con el campo «original» copiado exactamente, ya que el HTML puede contener entidades como &#243; (ó), &#237; (í), &#225; (á), &iacute; (í), &oacute; (ó), &eacute; (é) y &aacute; (á) que deben buscarse en su forma codificada si el editor trabaja sobre el HTML crudo, o en su forma Unicode si el editor decodifica previamente; (3) no modificar atributos HTML, clases, IDs ni rutas de enlace al hacer los reemplazos; (4) para la sustitución T432 (párrafo completo), reemplazar los nodos de texto T432–T435 completos como una sola operación; (5) la corrección de «documentaicón» en el atributo content del meta keywords debe hacerse en el bloque <head> del HTML."

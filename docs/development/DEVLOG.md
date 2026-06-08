@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-07 | [Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`](#devlog-2026-06-07-piloto-cierre-9-urls) |
+| 2026-06-07 | [Frontend: Piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`](#devlog-2026-06-07-piloto-json-claude) |
 | 2026-06-04 | [Frontend: Fase C — exportación PDF del informe piloto y descarga en resultado](#devlog-2026-06-04-fase-c-pdf) |
 | 2026-06-04 | [Frontend: Tabla piloto 10 URLs en `/auditar`](#devlog-2026-06-04-auditar-tabla-piloto) |
 | 2026-06-04 | [Frontend: Orquestación resultado piloto — 7 bloques §4 en código](#devlog-2026-06-04-resultado-orquestacion-codigo) |
@@ -33,6 +35,115 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-07-piloto-cierre-9-urls"></a>
+
+## [2026-06-07] - Estrategia | Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`
+
+### Contexto y objetivos:
+
+Continuación del [bloque matinal del 7-jun (URLs 1–3)](#devlog-2026-06-07-piloto-json-claude): completar el **piloto operativo de 9 URLs** acordado con UX/TIC — auditorías LC v1.1 vía Proyecto Claude (§3.1 → revisión aritmética y cobertura 1:1 → §3.2), JSON canónico en `data/claude-audits/` y registro en `frontend/src/lib/claude-audits-launch.ts` para tabla `/auditar`, API `GET /api/claude-audits/[id]` y [PDF](#devlog-2026-06-04-fase-c-pdf).
+
+Objetivos de la tarde: auditar y cerrar **URLs 4–9**, unificar nomenclatura de `id` (slug desde URL canónica + fecha), y dejar las nueve filas del piloto con `claudeAuditId` y `resumenMvp`. Encargado: Fernando Arriagada Castillo.
+
+### Implementación técnica:
+
+**Flujo editorial (Proyecto Claude, URLs 4–9):**
+
+- §3.1 con HTML Ctrl+U + checklist v1.1 (39 criterios A1–H1).
+- Revisión manual: conteos, % sobre aplicables, cobertura 1:1 `incumple` → `sustituciones[]`, calibración G1 (RUT institucional) y E3 (fecha visible de la página).
+- §3.2 reemisión cuando Claude entregaba JSON en la primera corrida o había errores narrativos (conteos en `texto_propuesto`, filas duplicadas E4, fila T100/E3 incoherente en SIAC, PCT sin fila en B3, etc.).
+- Plantilla obligatoria: `data/claude-audits/www-inapi-cl_2026-06-02.json`.
+
+**Datos — `data/claude-audits/` (URLs 4–9, 7-jun-2026):**
+
+| # | Página | URL | `tipo_pagina` | `id` | % LC | Estado |
+| --- | --- | --- | --- | --- | --- | --- |
+| 4 | Acerca de INAPI | `www.inapi.cl/acerca-de/inapi` | sitioweb | `www-inapi-cl-acerca-de-inapi_2026-06-07` | 34,3 % | rechazado |
+| 5 | Buscador de noticias | `www.inapi.cl/buscador?…noticias` | sitioweb | `www-inapi-cl-buscador-noticias_2026-06-07` | 34,5 % | rechazado |
+| 6 | Solicitud Nueva | `www.inapi.cl/marcas/tramites/solicitud-nueva` | sitioweb | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | 44,8 % | rechazado |
+| 7 | Sala de Prensa | `www.inapi.cl/sala-de-prensa/noticias` | sitioweb | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | 45,5 % | rechazado |
+| 8 | Formulario Contacto SIAC | `tramites.inapi.cl/siac` | tramites | `tramites-inapi-cl-siac_2026-06-07` | 51,5 % | rechazado |
+| 9 | Trámites y Servicios (landing) | `tramites.inapi.cl/` | tramites | `tramites-inapi-cl_2026-06-07` | 57,6 % | rechazado |
+
+Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resultados: URL 9 (57,6 %) y URL 8 (51,5 %). Patrones sistémicos en `tramites.inapi.cl`: mayúsculas en menú (D7), `v 2.3.89.0` en footer (A5), PDF sin «(PDF)» (F4), PCT sin definir (B3).
+
+**URL 8 — nomenclatura `id`:** slug `tramites-inapi-cl-siac_2026-06-07` (archivo, campo `"id"` y `claudeAuditId` en launch).
+
+**URL 9:** §3.2 con 29 filas, 14 incumplimientos; ajustes A3 (H4→H3), D1 «Titulos» en L900, modal TGR `(desactivar modal TGR)`.
+
+**Frontend — `claude-audits-launch.ts`:** filas 4–9 con `resumenMvp`; `CLAUDE_AUDIT_ID_SET` con los 9 ids.
+
+### Contexto de errores o disyuntivas:
+
+- Intermitencia del harness del agente en Cursor tras update (`Execution backend unavailable`); el repo y la terminal local estaban bien.
+- DEVLOG real en `docs/development/DEVLOG.md`; el flujo piloto cita `development/DEVLOG.md` sin `docs/` — pendiente corregir enlace.
+
+### Próximos pasos:
+
+- Revisión UX (Bernarda): sustituciones aprobadas, falsos positivos G1/D7.
+- `bun run validate:claude-audits` antes de commit.
+- Commit + PR; actualizar §2 de `flujo-piloto-10-urls-claude-mvp.md`.
+- §3.3 HTML corregido opcional; demo/PDF a TIC.
+
+---
+
+<a id="devlog-2026-06-07-piloto-json-claude"></a>
+
+## [2026-06-07] - Frontend | Fase 1.5: piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`
+
+### Contexto y objetivos:
+
+Tras cerrar la [exportación PDF (Fase C)](#devlog-2026-06-04-fase-c-pdf), el siguiente hito del piloto TIC es **contenido editorial real** en `data/claude-audits/`, no solo la home de junio. El viernes 5 (PC empresa, sin terminal ni git) se avanzó el **piloto operativo de 9 URLs** (8 `sitioweb` + 1 `tramites`), distinto de la tabla §2 inicial del flujo (10 URLs propuesta reunión 2-jun).
+
+Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md).
+
+### Implementación técnica:
+
+**Documentación (Fase A — empresa):**
+
+- **`docs/flujo-piloto-10-urls-claude-mvp.md`:** §3.1 verificación 1:1 al cerrar; §3.2 ampliado — `texto_propuesto` opcional frente a `sustituciones[]`, cobertura 1:1 obligatoria, tipos sustitución/inserción/eliminación, E3 con `original: "(ausencia)"`, calibración G1 (RUT institucional), `html_linea_aprox` en `<head>` e inserciones.
+- **`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`:** §9 alineado a §3.2 (G1/E3 con fila en sustituciones aunque sea ausencia o dato institucional).
+- **`docs/sesion-piloto-claude-2026-06-05.md`:** resumen ejecutivo, prompts §3.2 URL 3, checklist de archivos y pendientes.
+
+**Datos — `data/claude-audits/` (validados con `parseClaudeAuditFile` + `strictAuditRecordSchema`):**
+
+| # | Página | `id` | % LC | Incumple | Sustituciones | Cobertura 1:1 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Home INAPI | `www-inapi-cl_2026-06-02` | 45,5 % | 18 | 35 | OK |
+| 2 | Buscador Marcas | `buscadormarcas-inapi-cl-marca-buscar-marca_2026-06-05` | 39,4 % | 20 | 44 | OK |
+| 3 | Marcas `/marcas` | `www-inapi-cl-marcas_2026-06-05` | 48,5 % | 17 | 34 | OK |
+
+- **URL 1:** JSON home actualizado (cobertura 1:1 tras segunda corrida; alternativas editoriales T220/T522 aceptadas para UX; ajustes F4 Teletrabajo, resumen con 35 filas).
+- **URL 2:** flujo §3.1 → revisión aritmética → §3.2; archivo definitivo 5-jun.
+- **URL 3:** §3.1 en empresa; §3.2 en casa — JSON con un solo `criterio_id` por fila (separación de filas que mezclaban A2+A5, D1+C1, etc.), E3 inserción de fecha, F4 PDFs carrusel, E4 title ampliado.
+
+**Frontend — conexión MVP (casa, 7-jun):**
+
+- **`frontend/src/lib/claude-audits-launch.ts`:** tabla reducida a **9 filas** piloto (`pilotoNum` 1–9); filas 1–3 con `claudeAuditId` y `resumenMvp` (home, buscador marcas, marcas); filas 4–9 placeholder «Por definir» / `claudeAuditId: null` hasta cerrar lista con UX. `CLAUDE_AUDIT_ID_SET` y API/PDF incluyen automáticamente los tres ids.
+- Sin cambios en rutas ni componentes de resultado: el mismo flujo `?claudeAudit=` + [PDF](#devlog-2026-06-04-fase-c-pdf) aplica a las tres URLs.
+
+**No aplicado (decisión explícita):** Opción B nomenclatura `piloto-NN_…` (postergada; requiere renombrar JSON + TS + git). Script `validate:claude-audits` en CI (C7) sigue pendiente.
+
+### 💡 Repaso técnico: triple coincidencia de `id`:
+
+| Lugar | Ejemplo URL 3 |
+| --- | --- |
+| Archivo | `data/claude-audits/www-inapi-cl-marcas_2026-06-05.json` |
+| Campo `"id"` en JSON | `www-inapi-cl-marcas_2026-06-05` |
+| `claudeAuditId` en launch + query | `?claudeAudit=www-inapi-cl-marcas_2026-06-05` |
+
+`load-claude-audit-bundle.ts` solo sirve ids ∈ `CLAUDE_AUDIT_ID_SET`; registrar en `CLAUDE_PILOT_URL_ROWS` es obligatorio para API, tabla y PDF.
+
+### Próximos pasos:
+
+- URLs **4–9:** mismo flujo §3.1 → revisión → §3.2; plantilla obligatoria `www-inapi-cl_2026-06-02.json`.
+- Cerrar lista exacta de 9 URLs con Bernarda y alinear §2 de `flujo-piloto-10-urls-claude-mvp.md`.
+- Commit + PR: docs sesión, JSON 1–3, `claude-audits-launch.ts`.
+- **C7 (opcional):** `validate:claude-audits` en `package.json` y CI.
+- Opción B nomenclatura o mantener convención `slug-url_YYYY-MM-DD`.
 
 ---
 
@@ -72,7 +183,7 @@ Objetivo: cerrar el ítem **2.6** (Fase C) — `@react-pdf/renderer`, ruta de ex
 - Abrir PR de Fase 1.5 (Fase B + Fase C) o merge de rama `feature/fase-1-5-implementacion-auditorias-claude-urls`.
 - Actualizar en docs de producto el §8 del flujo con la ruta `GET` real (opcional en el mismo PR).
 - **C7 (opcional):** script `validate:claude-audits` en raíz + CI (flujo §1.6; aún no existe en `package.json`).
-- JSON y filas 2–10 en `data/claude-audits/` y `CLAUDE_PILOT_URL_ROWS` al ritmo de auditorías Claude.
+- JSON URLs 4–9 y filas en `CLAUDE_PILOT_URL_ROWS` — ver [sesión 2026-06-05](#devlog-2026-06-05-piloto-json-claude) (URLs 1–3 ya en repo y MVP).
 - Pulido UX: triggers de acordeón con cabecera `#0F69C4` (§15.1 design system).
 
 ---
