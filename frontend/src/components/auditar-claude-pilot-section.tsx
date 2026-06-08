@@ -51,7 +51,7 @@ export function AuditarClaudePilotSection() {
     <Card className="border-border bg-card">
       <CardHeader>
         <CardTitle className="text-base">
-          Piloto auditoría LC — 10 URLs (entrega TIC)
+          Piloto auditoría LC — 9 URLs (entrega TIC)
         </CardTitle>
         <CardDescription>
           Auditorías Claude exportadas al repositorio. Abra una fila disponible

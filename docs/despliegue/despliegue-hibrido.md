@@ -14,6 +14,7 @@
 - [x] **Etapa 1.1:** proyecto Vercel con **Root Directory** `frontend`, **Install** `cd .. && bun install` y **Build** `cd .. && bun run build`; despliegue verificado en URL. **`LC_REPO_ROOT`** solo si `GET /api/audit-fixtures/...` no encontrara `data/` en runtime *(no requerido en el despliegue verificado a mayo 2026)*.
 - [x] **Etapa 1.2:** workflow [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml): `bun install --frozen-lockfile`, `bun run typecheck:all`, `bun run lint`; disparadores `push` a `main` y `feature/**`, `pull_request` a `main`, `workflow_dispatch`. Opción A (solo CI; deploy continúa en Vercel).
 - [x] **Etapa 1.3:** verificación manual en URL desplegada: `/`, `/auditar`, mock, fixture por API e **importación JSON** (pegar contenido o archivo; ejemplos válidos en `data/audit-fixtures/*.json`).
+- [x] **Etapa 1.4 (Fase 1.5 piloto):** verificación en Vercel de las **9 URLs** piloto: acordeón «URLs auditadas — piloto junio 2026» → `/auditar/resultado?claudeAudit=…` → **Descargar informe PDF** (`GET /api/claude-audits/[id]/export/pdf`). Misma dependencia de `data/claude-audits/` y `LC_REPO_ROOT` que fixtures *(verificado junio 2026)*.
 - [ ] **Etapa 2:** proyecto Supabase + env en Vercel/Nest según `DATABASE.md` y ADR 0005.
 - [ ] **Etapa 3:** desplegar Nest en Railway o AWS + CORS + variables a Supabase y AWS LC.
 - [ ] **Etapa 4:** pipeline LC en AWS según ADR 0006 e integración Nest ↔ API Gateway.
@@ -24,7 +25,7 @@
 ## Contexto del repo (relevante para el plan)
 
 - Monorepo **Bun** en raíz: [`package.json`](../../package.json) con `workspaces: ["frontend"]`, scripts `typecheck:all`, `build` → `bun run --cwd frontend build`.
-- Next **App Router** y API de fixtures: ruta dinámica `frontend/src/app/api/audit-fixtures/[fixtureId]/route.ts` ([abrir en repo](../../frontend/src/app/api/audit-fixtures/%5BfixtureId%5D/route.ts)) lee `data/audit-fixtures/*.json` con `LC_REPO_ROOT ?? join(process.cwd(), "..")` — en Vercel hay que garantizar que exista **`data/`** en el árbol de despliegue y, si el `cwd` no es `frontend/`, definir **`LC_REPO_ROOT`** (ver también [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
+- Next **App Router** y APIs de lectura en servidor: fixtures (`GET /api/audit-fixtures/[fixtureId]`) y piloto Claude (`GET /api/claude-audits/[id]`, `GET …/export/pdf`) leen `data/audit-fixtures/` y `data/claude-audits/` con `LC_REPO_ROOT ?? join(process.cwd(), "..")` — en Vercel hay que garantizar que exista **`data/`** en el árbol de despliegue y, si el `cwd` no es `frontend/`, definir **`LC_REPO_ROOT`** (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
 - Arquitectura objetivo ya descrita en [`../ARCHITECTURE.md`](../ARCHITECTURE.md), [`../ROADMAP.md`](../ROADMAP.md) y ADRs (p. ej. [ADR 0006](../adr/0006-lc-evaluation-python-claude-aws.md), [ADR 0005](../adr/0005-api-backend-nestjs-prisma.md)): **Nest + Prisma + Supabase**; evaluación LC vía **AWS** (API Gateway + Lambda + Claude).
 
 ```mermaid

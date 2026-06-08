@@ -2,11 +2,12 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-02 |
+| **Fecha** | 2026-06-02 (actualizado 2026-06-08) |
 | **Proveedor IA** | Claude (Proyecto «Auditor Lenguaje Claro URLs INAPI») |
-| **Objetivo** | Auditar 10 páginas para TIC antes de fin de año: informe en MVP + PDF descargable + sustituciones de texto |
-| **Plan técnico asociado** | Integración adaptador JSON, `data/claude-audits/`, PDF server ([plan en Cursor: *Integrar auditoría Claude MVP*]) |
-| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-02-fase-1-5-piloto-claude) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
+| **Objetivo** | Auditar páginas prioritarias para TIC antes de fin de año: informe en MVP + PDF descargable + sustituciones de texto |
+| **Alcance operativo en repo** | **9 URLs** con JSON, informe y PDF en MVP (merge a `main` 2026-06-08). Objetivo original de reunión: **10 URLs** — ver nota §2. |
+| **Plan técnico asociado** | Adaptador JSON (`src/schemas/claude-audit-pilot.ts`), `data/claude-audits/`, API + PDF server |
+| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-08-docs-fase-1-5) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
 
 ---
 
@@ -18,11 +19,11 @@
 | --- | --- |
 | **Ubicación** | **Justo debajo** de la tarjeta «Ingreso de URL» (barra de búsqueda), **antes** de «Prioridades demostrativas», «Importar auditoría» e inventario de 22 URLs. |
 | **Patrón UI** | Misma estructura que el inventario actual: **Card** + **Accordion** colapsable (design system §15). |
-| **Contenido** | Tabla con las **10 URLs del piloto TIC/UX** (no las 22 de Clarity), con columnas alineadas al historial existente donde aplique: `#`, ruta/etiqueta, tipo (`tramites` \| `sitioweb`), % LC, estado, última evaluación, encargado, enlace al resultado. |
-| **Comportamiento** | Clic en fila o en `#` / ruta → **`/auditar/resultado`** con auditoría Claude ya cargada (query p. ej. `?claudeAudit=www-inapi-cl_2026-06-02` o `?url=…&claudeAudit=…`). |
-| **Datos** | Fuente: JSON en [`data/claude-audits/`](../data/claude-audits/) (una vez implementado el plan) + tabla maestra piloto (§2). |
+| **Contenido** | Tabla con las URLs del piloto TIC/UX (no las 22 de Clarity), con columnas alineadas al historial existente donde aplique: `#`, ruta/etiqueta, tipo (`tramites` \| `sitioweb`), % LC, estado, última evaluación, encargado, columna MVP («Disponible» / «Pendiente»). |
+| **Comportamiento** | Clic en fila disponible → **`/auditar/resultado`** con auditoría Claude cargada (`?claudeAudit={id}&url={url}`). |
+| **Datos** | JSON en [`data/claude-audits/`](../data/claude-audits/) + tabla maestra en [`frontend/src/lib/claude-audits-launch.ts`](../frontend/src/lib/claude-audits-launch.ts) (§2). |
 
-**Título sugerido de la tarjeta:** «Piloto auditoría LC — 10 URLs (entrega TIC)».
+**Título en UI (implementado):** «Piloto auditoría LC — 9 URLs (entrega TIC)».
 
 **Título del acordeón:** «URLs auditadas — piloto junio 2026».
 
@@ -36,24 +37,42 @@ No hay sincronización automática entre el chat del Proyecto y la app. Flujo: *
 
 ---
 
-## 2. Las 10 URLs del piloto (lista de trabajo)
+## 2. URLs del piloto (lista operativa en repo)
 
-Cerrar la lista exacta con **Bernarda** y TIC. Propuesta inicial según reunión 2026-06-02 y cruce con inventario de 22 URLs:
+**Nota:** la reunión 2026-06-02 propuso **10 URLs** (tabla histórica al final de esta §2). En junio 2026 el equipo cerró **9 URLs** con auditoría Claude, JSON en repo y MVP «Disponible». La **10.ª URL** queda como decisión pendiente con Bernarda/TIC.
 
-| # piloto | URL canónica (objetivo) | `type_url` | Rank inventario 22 (ref.) | Estado Claude | Id archivo repo (`claudeAudit`) |
-| --- | --- | --- | --- | --- | --- |
-| 1 | `https://www.inapi.cl/` | `sitioweb` | 21 (Home INAPI) | Hecho (45,5 % rechazado) | `www-inapi-cl_2026-06-02` |
-| 2 | `https://www.inapi.cl/tramites/tramites-digitales` | `sitioweb` | 22 | Pendiente | `www-inapi-cl-tramites-digitales_YYYY-MM-DD` |
-| 3 | `https://tramites.inapi.cl/` | `tramites` | 1 (landing portal) | Pendiente | `tramites-inapi-cl_YYYY-MM-DD` |
-| 4 | `https://tramites.inapi.cl/Notificaciones` | `tramites` | 4 | Pendiente | `tramites-notificaciones_YYYY-MM-DD` |
-| 5 | `https://tramites.inapi.cl/Account/Login` | `tramites` | 2 | Pendiente | `tramites-account-login_YYYY-MM-DD` |
-| 6 | Buscador de marcas (URL exacta TIC) | `sitioweb` o `tramites` | *definir* | Pendiente | `…` |
-| 7 | Sección / listado trámites (URL exacta) | `sitioweb` | *definir* | Pendiente | `…` |
-| 8 | Noticias / Sala de prensa (URL exacta) | `sitioweb` | *definir* | Pendiente | `…` |
-| 9 | *Por definir con Bernarda* | — | — | Pendiente | `…` |
-| 10 | *Por definir con Bernarda* | — | — | Pendiente | `…` |
+| # piloto | Página (etiqueta UI) | URL canónica | `tipo_pagina` | % LC | Estado | Id repo (`claudeAudit`) | MVP |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Home INAPI | `https://www.inapi.cl/` | `sitioweb` | 45,5 % | rechazado | `www-inapi-cl_2026-06-02` | Disponible |
+| 2 | Buscador Marcas INAPI | `https://buscadormarcas.inapi.cl/Marca/BuscarMarca.aspx` | `sitioweb` | 39,4 % | rechazado | `buscadormarcas-inapi-cl-marca-buscar-marca_2026-06-05` | Disponible |
+| 3 | Marcas | `https://www.inapi.cl/marcas` | `sitioweb` | 48,5 % | rechazado | `www-inapi-cl-marcas_2026-06-05` | Disponible |
+| 4 | Acerca de INAPI | `https://www.inapi.cl/acerca-de/inapi` | `sitioweb` | 34,3 % | rechazado | `www-inapi-cl-acerca-de-inapi_2026-06-07` | Disponible |
+| 5 | Buscador de noticias | `https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0` | `sitioweb` | 34,5 % | rechazado | `www-inapi-cl-buscador-noticias_2026-06-07` | Disponible |
+| 6 | Solicitud Nueva | `https://www.inapi.cl/marcas/tramites/solicitud-nueva` | `sitioweb` | 44,8 % | rechazado | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | Disponible |
+| 7 | Sala de Prensa | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | 45,5 % | rechazado | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | Disponible |
+| 8 | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 51,5 % | rechazado | `tramites-inapi-cl-siac_2026-06-07` | Disponible |
+| 9 | Trámites y Servicios | `https://tramites.inapi.cl/` | `tramites` | 57,6 % | rechazado | `tramites-inapi-cl_2026-06-07` | Disponible |
+| 10 | *Por definir con Bernarda* | — | — | — | — | — | Pendiente |
 
 **Encargado (piloto):** Fernando Arriagada Castillo (columna fija en tabla hasta existir login real).
+
+**Convención `id`:** `slug-desde-url_YYYY-MM-DD` (archivo, campo `"id"` en JSON y `claudeAuditId` en launch deben coincidir).
+
+<details>
+<summary>Propuesta inicial reunión 2026-06-02 (10 URLs — referencia histórica)</summary>
+
+| # | URL propuesta | `type_url` | Rank inventario 22 |
+| --- | --- | --- | --- |
+| 1 | `https://www.inapi.cl/` | `sitioweb` | 21 |
+| 2 | `https://www.inapi.cl/tramites/tramites-digitales` | `sitioweb` | 22 |
+| 3 | `https://tramites.inapi.cl/` | `tramites` | 1 |
+| 4 | `https://tramites.inapi.cl/Notificaciones` | `tramites` | 4 |
+| 5 | `https://tramites.inapi.cl/Account/Login` | `tramites` | 2 |
+| 6–10 | Por definir con Bernarda | — | — |
+
+La lista operativa §2 (9 URLs) **no coincide línea a línea** con esta propuesta: se priorizaron páginas con mayor valor editorial para la demo TIC (buscador marcas, marcas, SIAC, etc.).
+
+</details>
 
 ---
 
@@ -245,7 +264,7 @@ Sustituciones aprobadas:
 | JSON canónico (import + plantilla Claude) | [`www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) — validado con `strictAuditRecordSchema` |
 | Prompt alineado al contrato (1:1 sustituciones, E3, G1) | §3.2 (este documento) |
 
-Para las **9 URLs restantes**, usar §3.1 + §3.2 adjuntando la plantilla canónica de la home.
+Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la plantilla canónica de la home. Las **9 URLs operativas** ya están en repo (junio 2026).
 
 ---
 
@@ -302,13 +321,13 @@ Para las **9 URLs restantes**, usar §3.1 + §3.2 adjuntando la plantilla canón
 | Severidad | Pastilla baja \| media \| alta |
 | Comentario | `comentario` por fila |
 
-### §8 — Descargar PDF (Fase C, fuera de B4)
+### §8 — Descargar PDF (Fase C — implementado)
 
-Botón primario: **«Descargar informe PDF»**.
+Botón primario: **«Descargar informe PDF»** (visible cuando `?claudeAudit=` en la URL).
 
-- Llama a `POST /api/audits/export/pdf` (plan: `@react-pdf/renderer`).
-- Incluye los bloques 1–7 en el mismo orden de esta §4.
-- Nombre de archivo sugerido: `informe-lc-[slug-url]-[fecha].pdf`.
+- Ruta implementada: **`GET /api/claude-audits/[claudeAuditId]/export/pdf`** (`@react-pdf/renderer`, `runtime = nodejs`).
+- Misma allowlist que `GET /api/claude-audits/[id]`; bloques 1–7 en el mismo orden de esta §4.
+- Nombre de archivo: `informe-lc-[slug-url]-[fecha].pdf` (ver `frontend/src/lib/informe-piloto-filename.ts`).
 
 ---
 
@@ -317,7 +336,7 @@ Botón primario: **«Descargar informe PDF»**.
 ```mermaid
 flowchart TB
   subgraph prep [Preparación]
-    A1[Lista 10 URLs cerrada con Bernarda]
+    A1[Lista piloto cerrada con Bernarda]
     A2[Backup HTML Ctrl+U por URL]
   end
 
@@ -335,9 +354,9 @@ flowchart TB
   end
 
   subgraph mvp [MVP Next]
-    D1[Nueva tabla 10 URLs en /auditar]
+    D1[Tabla piloto en /auditar]
     D2[Clic fila a /auditar/resultado]
-    D3[Pantalla 8 secciones]
+    D3[Pantalla 7 bloques + PDF]
     D4[Descargar PDF]
   end
 
@@ -355,7 +374,7 @@ flowchart TB
 
 ### Paso 0 — Alineación (una vez)
 
-1. Validar las **10 URLs** en tabla §2 con Bernarda y TIC.
+1. Validar alcance final del piloto (**9 URLs en repo** vs **10.ª URL** pendiente) con Bernarda y TIC.
 2. Usar reglas de calibración en **§3.2** (cobertura 1:1 sustituciones, E3 ausencias, G1 institucional) y [`Comparación…`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) §9.
 3. Confirmar proveedor: **Claude** (hecho).
 
@@ -372,16 +391,17 @@ flowchart TB
 | 1.7 | Revisión UX: filtrar falsos positivos (ej. G1 RUT); marcar sustituciones **aprobadas**. | Bernarda + Fernando |
 | 1.8 | (Opcional) Mensaje **§3.3** → HTML corregido para TIC. | Fernando |
 
-### Paso 2 — Implementación en MVP (desarrollo)
+### Paso 2 — Implementación en MVP (desarrollo) — **completado 2026-06-08**
 
-| Paso | Entregable código | Referencia plan |
+| Paso | Entregable código | Estado |
 | --- | --- | --- |
-| 2.1 | Esquema `ClaudeAuditExport` + adaptador → `StrictAuditRecord` | Fase A |
-| 2.2 | Carpeta `data/claude-audits/` + JSON home | Fase A |
-| 2.3 | Componente tabla **10 URLs** debajo ingreso URL | Alcance §1.1 |
-| 2.4 | API `GET /api/claude-audits/[id]` + query en resultado | Fase B |
-| 2.5 | Pantalla resultado **7 bloques** §4 (+ acordeones; refactor orquestación) | Fase B |
-| 2.6 | PDF server + botón descarga | Fase C |
+| 2.1 | Esquema `claude-audit-pilot.ts` + `parseClaudeAuditFile` → `StrictAuditRecord` | Hecho |
+| 2.2 | Carpeta `data/claude-audits/` + 9 JSON canónicos | Hecho |
+| 2.3 | Componente tabla piloto debajo ingreso URL | Hecho |
+| 2.4 | API `GET /api/claude-audits/[id]` + query en resultado | Hecho |
+| 2.5 | Pantalla resultado **7 bloques** §4 (+ acordeones) | Hecho |
+| 2.6 | `GET …/export/pdf` + botón descarga | Hecho |
+| 2.7 | `validate:claude-audits` en CI | Hecho (`typecheck:all`) |
 
 ### Paso 3 — Uso en demo / entrega TIC
 
@@ -391,9 +411,11 @@ flowchart TB
 4. Clic **«Descargar informe PDF»**.
 5. Enviar PDF (+ HTML corregido si aplica) a TIC con ticket de control de cambios (Bernarda).
 
-### Paso 4 — Repetir para URLs 2–10
+### Paso 4 — URLs 2–9 (completado) y 10.ª URL (opcional)
 
-Mismo flujo §5 Paso 1–3. La tabla piloto mostrará estado «Pendiente» / «Disponible en MVP» según exista JSON en `data/claude-audits/`.
+URLs **1–9:** flujo §5 Paso 1–3 ejecutado; todas «Disponible» en MVP (verificado local y Vercel, junio 2026).
+
+**10.ª URL:** repetir Paso 1 si Bernarda/TIC confirman alcance; la tabla mostrará «Pendiente» hasta existir JSON en `data/claude-audits/`.
 
 ---
 
@@ -417,16 +439,26 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 
 ---
 
-## 7. Checklist «listo para implementar»
+## 7. Checklist de cierre Fase 1.5
 
-- [ ] Lista §2 cerrada con Bernarda (10 URLs exactas).
-- [x] JSON home export crudo en `data/claude-audits/www-inapi-cl_2026-06-02.export.json`.
-- [x] JSON home canónico en `data/claude-audits/www-inapi-cl_2026-06-02.json` (importable en `/auditar/resultado`).
-- [ ] Enviar a Claude la plantilla canónica + prompt §3.2 para fijar el formato en el Proyecto.
-- [x] Alcance §1.1 acordado con Equipo UX.
-- [x] Orquestación §4 (orden de bloques, títulos de barra, acordeones) acordada junio 2026 — pendiente refactor UI en código.
-- [ ] Desarrollo Fases A–C del plan técnico iniciado.
-- [ ] Primera URL con PDF descargado validado en reunión UX.
+### Implementación (repo + despliegue)
+
+- [x] Lista operativa §2: **9 URLs** con JSON, informe y PDF en MVP.
+- [x] JSON home export crudo: `data/claude-audits/www-inapi-cl_2026-06-02.export.json`.
+- [x] JSON canónicos URLs 1–9 en `data/claude-audits/`.
+- [x] Plantilla §3.2 usada en Proyecto Claude para URLs 1–9.
+- [x] Alcance §1.1 implementado (`auditar-claude-pilot-section.tsx`).
+- [x] Orquestación §4 en código (`/auditar/resultado` modo piloto).
+- [x] Fases A–C del plan técnico (adaptador, API, PDF).
+- [x] Merge a `main`, CI y Vercel verificados (tabla → resultado → PDF).
+- [x] Script `validate:claude-audits` en `package.json` y `typecheck:all` / CI.
+
+### Entrega editorial (pendiente)
+
+- [ ] Decisión documentada: cierre en **9 URLs** o incorporación de **10.ª URL**.
+- [ ] Revisión UX (Bernarda): sustituciones aprobadas por URL.
+- [ ] Entrega TIC: PDF (+ HTML §3.3 donde aplique) y control de cambios.
+- [ ] Acta breve UX/TIC (proveedor Claude, reglas G1/E3/cobertura 1:1).
 
 ---
 
@@ -443,4 +475,4 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 
 ---
 
-*Documento operativo para el piloto junio 2026. Actualizar al cerrar la lista de 10 URLs y al implementar `data/claude-audits/`.*
+*Documento operativo para el piloto junio 2026. Última actualización: 2026-06-08 — 9 URLs operativas en MVP; pendiente cierre editorial con UX/TIC.*

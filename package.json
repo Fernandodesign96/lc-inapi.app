@@ -8,9 +8,10 @@
   "scripts": {
     "validate:checklist": "bun run src/scripts/validate-checklist-data.ts",
     "validate:audit-fixtures": "bun run src/scripts/validate-audit-fixtures.ts",
+    "validate:claude-audits": "bun run src/scripts/validate-claude-audits.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",
-    "typecheck:all": "bun run validate:checklist && bun run validate:audit-fixtures && bun run typecheck && bun run typecheck:frontend",
+    "typecheck:all": "bun run validate:checklist && bun run validate:audit-fixtures && bun run validate:claude-audits && bun run typecheck && bun run typecheck:frontend",
     "dev": "bun run --cwd frontend dev",
     "build": "bun run --cwd frontend build",
     "start": "bun run --cwd frontend start",

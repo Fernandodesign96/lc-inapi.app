@@ -1,9 +1,11 @@
 # Sesión piloto Claude — 5 junio 2026 (trabajo en PC empresa)
 
-**Autor:** Fernando Arriagada Castillo  
-**Contexto:** Piloto LC — 9 URLs (8 sitioweb + 1 trámites), distintas a la tabla «Piloto junio 2026» del MVP. Sin terminal ni git en este equipo; generación de JSON vía Proyecto Claude y revisión con Cursor (Composer).
+> **Documento histórico.** Las tareas de esta sesión quedaron **cerradas en repo** (URLs 1–9, merge a `main` 2026-06-08). Estado actual: [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §2 y [`development/DEVLOG.md`](development/DEVLOG.md).
 
-**Uso de este documento:** Al llegar a casa, copiar este archivo al repo, junto con los JSON y los docs actualizados. Pedir a Composer que lo lea para retomar: cerrar URL 3 (Marcas), continuar URLs 4–9, luego commit + PR + DEVLOG + Opción B de nomenclatura (opcional, en casa).
+**Autor:** Fernando Arriagada Castillo  
+**Contexto:** Piloto LC — 9 URLs (7 `sitioweb` + 2 `tramites` en lista final), distintas a la propuesta inicial de 10 URLs de la reunión 2026-06-02. Sin terminal ni git en este equipo; generación de JSON vía Proyecto Claude y revisión con Cursor (Composer).
+
+**Uso de este documento:** Bitácora del día en PC empresa; conservar como referencia de prompts §3.2 y decisiones editoriales. Para el estado vigente del piloto, usar el flujo operativo §2.
 
 ---
 
