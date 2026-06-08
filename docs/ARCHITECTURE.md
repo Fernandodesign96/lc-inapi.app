@@ -53,12 +53,13 @@ Hasta aprobar el mock de UI:
 
 ### 1.2.1 Fase 1.5 — Piloto auditoría con Claude (sin backend productivo)
 
-Etapa acordada junio 2026 ([`docs/ROADMAP.md`](ROADMAP.md) Fase 1.5, [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md)):
+Etapa acordada junio 2026 ([`docs/ROADMAP.md`](ROADMAP.md) Fase 1.5, [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md)). **Estado en repo (2026-06-08):** implementado y desplegado en `main`.
 
-- **Evaluación:** Proyecto Claude en interfaz web del proveedor; el operador exporta JSON y lo versiona en **`data/claude-audits/`** (adaptador hacia `strictAuditRecordSchema` — por implementar).
-- **UI:** acordeón **Piloto 10 URLs** debajo del ingreso de URL en `/auditar`; `/auditar/resultado` con **siete bloques** ordenados y acordeones (solo Datos de Auditoría + tabla 39 siempre visibles — ver [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4) + **PDF** generado en servidor (Route Handler, `@react-pdf/renderer`).
+- **Evaluación:** Proyecto Claude en interfaz web del proveedor; el operador exporta JSON y lo versiona en **`data/claude-audits/`**. Adaptador: [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) (`parseClaudeAuditFile` → `strictAuditRecordSchema` + metadatos piloto).
+- **API:** `GET /api/claude-audits/[id]` y `GET /api/claude-audits/[id]/export/pdf` (lectura desde `data/claude-audits/` con allowlist en [`frontend/src/lib/claude-audits-launch.ts`](../frontend/src/lib/claude-audits-launch.ts)).
+- **UI:** acordeón **Piloto auditoría LC** debajo del ingreso de URL en `/auditar`; `/auditar/resultado` con **siete bloques** ordenados y acordeones (solo Datos de Auditoría + tabla 39 siempre visibles — ver flujo §4) + botón **Descargar informe PDF** (`@react-pdf/renderer`, `runtime = nodejs`).
 - **Sin** llamadas a API Anthropic desde la app ni Supabase en esta etapa.
-- El inventario de **22 URLs** Clarity permanece como referencia editorial; el piloto usa un subconjunto de **10** URLs para entrega TIC.
+- **9 URLs operativas** con JSON en repo (7 `sitioweb` + 2 `tramites`); inventario **22 URLs** Clarity sigue como referencia editorial. Decisión pendiente sobre **10.ª URL** (ver flujo §2).
 
 ### 1.3 Entorno demo y CI (Fase 1, sin backend productivo)
 

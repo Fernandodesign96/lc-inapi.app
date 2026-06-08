@@ -1,4 +1,4 @@
-/** Filas del piloto 10 URLs (tabla en /auditar). */
+/** Filas del piloto 9 URLs (tabla en /auditar). */
 export type ClaudePilotUrlRow = {
   pilotoNum: number
   url: string

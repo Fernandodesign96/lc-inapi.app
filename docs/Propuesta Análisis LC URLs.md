@@ -16,7 +16,7 @@ El aplicativo debe ser un **medio para un fin**: ayudar a **mejorar el lenguaje 
 
 **Estado hoy (Fase 1 cerrada en repo):** mock de alta fidelidad con **22 URLs** Calidad Web (Clarity + criterio editorial), tabla única en `/auditar`, fichas por URL, filtros por tipo (`tramites` / `sitioweb`) y estado LC, contratos Zod y fixtures validados. **No hay backend productivo ni evaluación real con IA todavía.**
 
-**Acuerdo post-reunión (2026-06-02):** etapa intermedia **Fase 1.5** en [`ROADMAP.md`](ROADMAP.md) — piloto **10 URLs** con **Claude** (Proyecto), informe en MVP + **PDF** + HTML con sustituciones a TIC, **sin** backend productivo ni sync automático con el agente. Fase 2 (Supabase, Nest, Lambda) entra tras cerrar el piloto.
+**Acuerdo post-reunión (2026-06-02):** etapa intermedia **Fase 1.5** en [`ROADMAP.md`](ROADMAP.md) — piloto con **Claude** (Proyecto), informe en MVP + **PDF** + HTML con sustituciones a TIC, **sin** backend productivo ni sync automático con el agente. **Estado 2026-06-08:** **9 URLs** operativas en MVP (`main`); pendiente entrega formal a TIC. Fase 2 (Supabase, Nest, Lambda) entra tras cerrar el piloto editorialmente.
 
 **Proveedor LLM del piloto:** **Claude** (comparación home documentada en [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md)). Gemini institucional queda como opción de costo para **Fase 2** (Lambda), sujeta a piloto técnico posterior.
 
@@ -48,10 +48,12 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 
 | Entregable | Estado | Referencia |
 | --- | --- | --- |
-| Piloto **10 URLs** (no cola única de 22) | En curso | [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) |
+| Piloto **9 URLs** operativas en MVP (objetivo reunión: 10) | Implementado en `main` | [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §2 |
 | Comparación Gemini vs Claude (home) | Documentado | [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) |
-| UI piloto + PDF en MVP | Pendiente implementación | ROADMAP Fase 1.5 |
-| Acta y devlog | 2026-06-02 | [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-02-fase-1-5-piloto-claude) |
+| UI piloto + API + PDF en MVP | Implementado y verificado (local + Vercel) | ROADMAP Fase 1.5, devlog 2026-06-07/08 |
+| JSON en `data/claude-audits/` (URLs 1–9) | En repo | [`data/claude-audits/`](../data/claude-audits/) |
+| Entrega TIC + acta UX | Pendiente | Flujo §7 checklist editorial |
+| Devlog | Actualizado | [`development/DEVLOG.md`](development/DEVLOG.md) |
 
 ### 2.4 Pendiente en roadmap (post-piloto)
 

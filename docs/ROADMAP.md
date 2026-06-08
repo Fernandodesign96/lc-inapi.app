@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-06-02
+**Última actualización:** 2026-06-08
 
 ---
 
@@ -46,48 +46,58 @@
 
 ---
 
-## Fase 1.5 — Piloto auditoría LC con IA (10 URLs, entrega TIC / Equipo UX)
+## Fase 1.5 — Piloto auditoría LC con IA (9 URLs operativas, entrega TIC / Equipo UX)
 
-**Contexto (reuniones 2026-06-01 y 2026-06-02):** priorizar **valor entregable** (informe PDF + sustituciones de texto en HTML) sobre infraestructura completa (sin Supabase/Nest obligatorio en esta etapa). Objetivo de negocio: **10 páginas web** auditadas antes de fin de año, con solicitudes concretas a **TIC**. El inventario de **22 URLs** (Clarity + editorial) sigue como referencia; el piloto opera sobre un **subconjunto de 10** acordado con Bernarda.
+**Contexto (reuniones 2026-06-01 y 2026-06-02):** priorizar **valor entregable** (informe PDF + sustituciones de texto en HTML) sobre infraestructura completa (sin Supabase/Nest obligatorio en esta etapa). Objetivo de negocio original: **10 páginas web** auditadas antes de fin de año; en repo operan **9 URLs** del piloto junio 2026 (7 `sitioweb` + 2 `tramites`). El inventario de **22 URLs** (Clarity + editorial) sigue como referencia editorial.
 
-**Proveedor IA del piloto:** **Claude** (Proyecto «Auditor Lenguaje Claro URLs INAPI») — comparación con Gemini en home [`www.inapi.cl`](https://www.inapi.cl/) documentada en [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md). **No** hay sincronización automática Proyecto Claude ↔ app; flujo: export JSON → repo → MVP.
+**Proveedor IA del piloto:** **Claude** (Proyecto «Auditor Lenguaje Claro URLs INAPI») — comparación con Gemini en home [`www.inapi.cl`](https://www.inapi.cl/) documentada en [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md). **No** hay sincronización automática Proyecto Claude ↔ app; flujo: export JSON → repo → MVP → PDF.
 
 **Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) (acuerdos reunión).
 
-### Hecho / en curso (documentación y primera URL)
+### Hecho en repo (código + datos, merge a `main` 2026-06-08)
 
 - [x] Gema Gemini y Proyecto Claude configurados (checklist v1.1 en conocimiento del agente).
-- [x] Auditoría piloto **home** `https://www.inapi.cl/` con ambos agentes; decisión **Claude** por robustez editorial.
-- [x] Documentos: comparación Gemini/Claude, propuesta reunión, flujo operativo piloto 10 URLs.
-- [ ] Cierre JSON home en formato extendido para MVP (mensaje §3.2 en flujo operativo) → `data/claude-audits/`.
+- [x] Auditoría piloto **home** con ambos agentes; decisión **Claude** por robustez editorial.
+- [x] Documentos operativos: comparación Gemini/Claude, propuesta reunión, flujo piloto, sesión 2026-06-05.
+- [x] **9 JSON canónicos** en [`data/claude-audits/`](../data/claude-audits/) (URLs 1–9; ver tabla en [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §2).
+- [x] Esquema y adaptador: [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) (`parseClaudeAuditFile` → `strictAuditRecordSchema` + metadatos piloto).
+- [x] **UI `/auditar`:** tarjeta + acordeón piloto debajo del ingreso de URL ([`frontend/src/components/auditar-claude-pilot-section.tsx`](../frontend/src/components/auditar-claude-pilot-section.tsx); fuente [`frontend/src/lib/claude-audits-launch.ts`](../frontend/src/lib/claude-audits-launch.ts)).
+- [x] **API** `GET /api/claude-audits/[id]` + query `?claudeAudit=` en resultado.
+- [x] **`/auditar/resultado` ampliado (piloto):** siete bloques §4 (Datos de Auditoría + 39 criterios fijos; resto colapsable); sin import JSON cuando hay `claudeAudit`.
+- [x] **PDF server-side:** `GET /api/claude-audits/[id]/export/pdf` + botón «Descargar informe PDF» (`@react-pdf/renderer`).
+- [x] **CI** (`typecheck:all`, `lint`) y **Vercel** verificados con las 9 URLs (tabla → resultado → PDF).
 
-### Pendiente — producto y MVP (prioridad actual)
+### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
-- [ ] **Lista oficial de 10 URLs** cerrada con Bernarda/TIC (tabla en flujo operativo §2).
-- [ ] **UI `/auditar`:** nueva tarjeta + acordeón **debajo del ingreso de URL** — tabla **Piloto 10 URLs** (mismo patrón que historial 22 URLs); clic → `/auditar/resultado` con auditoría Claude cargada.
-- [ ] **Parseo interno:** esquema export Claude → `strictAuditRecordSchema` + metadatos (`sustituciones`, observaciones por severidad, `nota_final_tic`) — ver plan técnico en flujo §5–6.
-- [ ] **`/auditar/resultado` ampliado (piloto):** siete bloques en orden acordado ([`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4): **Datos de Auditoría** y **39 Criterios Evaluados** siempre visibles; **Resumen Auditoría**, **Pasos a seguir**, **Observaciones finales por severidad**, **Texto propuesto** (tabla `sustituciones`), **Nota para el equipo TI** en barras colapsables; sin duplicar `observaciones_lc` narrativo ni párrafo `texto_propuesto` cuando aplique piloto. **Descarga PDF** (server-side, `@react-pdf/renderer`) — Fase C.
-- [ ] **9 URLs restantes:** HTML Ctrl+U → Claude → JSON en `data/claude-audits/` → revisión UX → PDF (+ HTML corregido a TIC tras aprobación de sustituciones).
-- [ ] **Entrega TIC:** PDF + HTML con sustituciones aprobadas; control de cambios (Bernarda).
+- [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Bernarda/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
+- [ ] **Revisión UX (Bernarda):** sustituciones aprobadas, falsos positivos (G1 RUT institucional, D7 mayúsculas en `tramites.inapi.cl`).
+- [ ] **Entrega TIC:** PDF por URL (+ HTML corregido §3.3 tras aprobación); ticket de control de cambios.
+- [ ] **Acta breve UX/TIC** con proveedor Claude y reglas de calibración (G1, E3, cobertura 1:1 sustituciones).
+
+### Pendiente — código opcional (endurecimiento)
+
+- [x] Script `validate:claude-audits` en raíz + paso en `typecheck:all` / CI (C7 del flujo operativo).
+- [x] Copy UI «9 URLs» en tarjeta piloto (`auditar-claude-pilot-section.tsx`).
 
 ### Fuera de alcance Fase 1.5 (explícito)
 
 - Login institucional y persistencia en Supabase (→ Fase 2).
 - Evaluación automática vía API Anthropic desde la app (→ Fase 2; piloto es manual + JSON en repo).
-- Inventario completo de 22 URLs con evaluación real en esta oleada (solo 10 del piloto).
+- Inventario completo de 22 URLs con evaluación real en esta oleada (solo subconjunto piloto).
 - Producto paralelo de «control de cambios» / diff automático entre auditorías (backlog).
 - Captura automática Cheerio/Playwright (→ Fase 3).
 
 ### Criterio de cierre Fase 1.5
 
-- [ ] Las **10 URLs** tienen JSON validado en repo, informe visible en MVP y **PDF** descargable por URL.
-- [ ] Acta breve UX/TIC con proveedor Claude y reglas de calibración (G1 RUT institucional, E3 en home, no inventar pesos PDF).
+- [x] Las **9 URLs operativas** tienen JSON en repo, informe visible en MVP y **PDF** descargable por URL.
+- [ ] Acta breve UX/TIC y entrega formal a TIC (PDF + HTML aprobado donde aplique).
+- [ ] (Opcional) Decisión documentada sobre **10.ª URL** vs cierre en 9.
 
 ---
 
 ## Fase 2 — Persistencia, API y evaluación asistida (post-piloto 1.5)
 
-**Condición:** cierre de **Fase 1.5** (10 URLs con informe + PDF en MVP) y, cuando aplique, demo UX de Fase 1.
+**Condición:** cierre editorial de **Fase 1.5** (9 URLs con informe + PDF en MVP + entrega TIC) y, cuando aplique, demo UX de Fase 1.
 
 - [ ] Proyecto **Supabase** (Auth, Postgres, RLS) según [`docs/DATABASE.md`](DATABASE.md)
 - [ ] App **NestJS** + **Prisma**: migraciones iniciales (`audits`, resultados detallados, `checklist_versions`, etc.) contra Postgres de Supabase ([ADR 0005](adr/0005-api-backend-nestjs-prisma.md))

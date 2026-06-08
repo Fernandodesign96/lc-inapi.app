@@ -8,7 +8,7 @@
 | **Entrada** | HTML fuente (Ctrl+U, ~1341 líneas) |
 | **Agentes** | Gema Gemini «Auditor Lenguaje Claro URLs INAPI» · Proyecto Claude (mismas instrucciones base) |
 | **Audiencia** | Equipo UX (Bernarda, Camila, Álvaro) + TIC |
-| **Decisión equipo (2026-06-02)** | **Claude** como proveedor del piloto 10 URLs; ver [`ROADMAP.md`](ROADMAP.md) Fase 1.5 y [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) |
+| **Decisión equipo (2026-06-02)** | **Claude** como proveedor del piloto; **9 URLs** operativas en MVP (2026-06-08); ver [`ROADMAP.md`](ROADMAP.md) Fase 1.5 y [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) |
 
 ---
 

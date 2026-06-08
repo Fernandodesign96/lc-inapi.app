@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-08 | [Documentación: sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel](#devlog-2026-06-08-docs-fase-1-5) |
 | 2026-06-07 | [Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`](#devlog-2026-06-07-piloto-cierre-9-urls) |
 | 2026-06-07 | [Frontend: Piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`](#devlog-2026-06-07-piloto-json-claude) |
 | 2026-06-04 | [Frontend: Fase C — exportación PDF del informe piloto y descarga en resultado](#devlog-2026-06-04-fase-c-pdf) |
@@ -35,6 +36,35 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-06-08-docs-fase-1-5"></a>
+
+## [2026-06-08] - Documentación | Sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel
+
+### Contexto y objetivos:
+
+Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto (tabla `/auditar` → `/auditar/resultado` → PDF) y el **merge a `main`**, los documentos en `docs/` seguían reflejando el estado de junio 2026-02 (Fase 1.5 «pendiente de implementar»). Objetivo: alinear ROADMAP, flujo operativo, PRD, arquitectura, propuesta y despliegue con el estado real del repo.
+
+### Implementación técnica:
+
+**Documentos actualizados:**
+
+- [`docs/ROADMAP.md`](../ROADMAP.md) — Fase 1.5: ítems de código marcados hechos; pendientes editoriales (UX/TIC, acta, 10.ª URL) y `validate:claude-audits` opcional.
+- [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — §2 tabla operativa 9 URLs; checklist §7 dividido implementación/entrega; ruta PDF `GET` real; propuesta reunión en `<details>` histórico.
+- [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) §1.2.1, [`docs/Propuesta Análisis LC URLs.md`](../Propuesta%20Análisis%20LC%20URLs.md) §2.3 — estado 2026-06-08.
+- [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md) — Etapa 1.4 verificación piloto Vercel; APIs `claude-audits`.
+- [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md) — nota histórica al inicio.
+- [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — metadatos piloto 9 URLs.
+
+**Enlace corregido:** referencias `development/DEVLOG.md` → `docs/development/DEVLOG.md` en flujo operativo.
+
+### Próximos pasos:
+
+- Cierre editorial Fase 1.5: revisión UX (Bernarda), entrega TIC, acta breve.
+- (Opcional código) `validate:claude-audits` + CI; copy UI «10 URLs» → «9 URLs».
+- Decisión 10.ª URL vs cierre piloto en 9.
 
 ---
 
@@ -79,7 +109,7 @@ Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resul
 ### Contexto de errores o disyuntivas:
 
 - Intermitencia del harness del agente en Cursor tras update (`Execution backend unavailable`); el repo y la terminal local estaban bien.
-- DEVLOG real en `docs/development/DEVLOG.md`; el flujo piloto cita `development/DEVLOG.md` sin `docs/` — pendiente corregir enlace.
+- Enlace DEVLOG en flujo piloto corregido a `docs/development/DEVLOG.md` (2026-06-08).
 
 ### Próximos pasos:
 
@@ -358,7 +388,7 @@ Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; 
 
 ### 💡 Repaso técnico: Fase 1.5 vs Fase 2:
 
-Fase **1.5** reutiliza el mock y `strictAuditRecordSchema` con datos **importados** desde Claude; Fase **2** añade persistencia, auth y evaluación vía API. El inventario de 22 URLs en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) no se reemplaza: el piloto usa una **tabla maestra de 10 URLs** y JSON en `data/claude-audits/` (por implementar).
+Fase **1.5** reutiliza el mock y `strictAuditRecordSchema` con datos **importados** desde Claude; Fase **2** añade persistencia, auth y evaluación vía API. El inventario de 22 URLs en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) no se reemplaza: el piloto usa una **tabla maestra** (9 URLs operativas en junio 2026) y JSON en `data/claude-audits/` *(implementado — ver [2026-06-08](#devlog-2026-06-08-docs-fase-1-5))*.
 
 ### Próximos pasos:
 
