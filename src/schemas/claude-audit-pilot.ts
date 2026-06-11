@@ -38,16 +38,35 @@ export const claudeAuditPilotMetaSchema = z.object({
 
 export type ClaudeAuditPilotMeta = z.infer<typeof claudeAuditPilotMetaSchema>
 
-/** Archivo en data/claude-audits/*.json (canónico con extensiones). */
-export const claudeAuditFileSchema = strictAuditRecordSchema.and(
-  claudeAuditPilotMetaSchema,
-)
+/** Metadatos inventario Clarity (22 URLs) — obligatorio en `data/claude-audits/urls-clarity/*.json`. */
+export const clarityAuditMetaSchema = z.object({
+  serie: z.literal("clarity"),
+  rank: z.number().int().min(1).max(22),
+  nombre_ui: z.string().min(1),
+  ruta_etiqueta: z.string().min(1),
+  visitas_ref: z.string().min(1),
+  encargado_ref: z.string().min(1),
+  fuente_piloto_id: z.string().optional(),
+  descripcion: z.string().optional(),
+})
+
+export type ClarityAuditMeta = z.infer<typeof clarityAuditMetaSchema>
+
+export const claudeAuditClarityExtensionsSchema = z.object({
+  clarity_meta: clarityAuditMetaSchema.optional(),
+})
+
+/** Archivo en data/claude-audits/*.json (canónico con extensiones piloto y/o Clarity). */
+export const claudeAuditFileSchema = strictAuditRecordSchema
+  .and(claudeAuditPilotMetaSchema)
+  .and(claudeAuditClarityExtensionsSchema)
 
 export type ClaudeAuditFile = z.infer<typeof claudeAuditFileSchema>
 
 export type ClaudeAuditBundle = {
   audit: StrictAuditRecord
   pilot: ClaudeAuditPilotMeta
+  clarity?: ClarityAuditMeta
 }
 
 export function parseClaudeAuditFile(data: unknown): ClaudeAuditBundle {
@@ -60,5 +79,5 @@ export function parseClaudeAuditFile(data: unknown): ClaudeAuditBundle {
     sustituciones: file.sustituciones,
     nota_final_tic: file.nota_final_tic,
   }
-  return { audit, pilot }
+  return { audit, pilot, clarity: file.clarity_meta }
 }

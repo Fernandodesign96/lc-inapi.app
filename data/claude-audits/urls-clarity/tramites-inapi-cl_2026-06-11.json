@@ -1,0 +1,515 @@
+{
+    "id": "tramites-inapi-cl_2026-06-11",
+    "url": "https://tramites.inapi.cl/",
+    "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+    "evaluador_uid": "Fernando Arriagada Castillo",
+    "version_checklist": "1.1",
+    "tipo_pagina": "tramites",
+    "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner superior) | T003 [HTML-L76]: «Trámites y Servicios» | T005 [HTML-L116]: «Marcas» (botón navbar) | T006 [HTML-L129]: «MI INAPI» | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (botón navbar) | T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde) | T058 [HTML-L489]: «Documentación Mínima PCT» | T059 [HTML-L170]: «Home» | T060 [HTML-L506]: «Iniciar Sesión» | CUERPO PRINCIPAL: T061 [HTML-L990]: «Trámites INAPI» (H4) | T062 [HTML-L992]: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.» | T063 [HTML-L994]: «Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos.» | T064 [HTML-L996]: «Si aún no tiene su Clave Única o no sabe lo que es, por favor ingrese a https://claveunica.gob.cl/» | T066 [HTML-L998]: «Al conectarse a esta plataforma, usted podrá Solicitar Marcas y Patentes. También podrá presentar escritos en forma completamente electrónica.» | T067 [HTML-L1000]: «Para consultas, favor enviar un correo a inapi@inapi.cl» | T068 [HTML-L1008]: «Ingrese con Clave Única.» | T069 [HTML-L1012]: «ClaveÚnica» (sin espacio) | T070 [HTML-L1018]: «Registrarse» (H4) | T071 [HTML-L1019]: «Si es primera vez que ingresa al portal, regístrese. Requiere Clave Única.» | T073 [HTML-L1022]: «Opcionalmente, si el servicio para ingresar con Clave Única no está disponible, puede ingresar con su clave INAPI previamente registrada.» | T074 [HTML-L1022]: «Iniciar Sesión Clave INAPI» | MODAL TGR: T075 [HTML-L1029]: «Información» (H5) | T076 [HTML-L1035]: «Información de la Tesoreria General de la Republica (TGR)» (errores tipográficos) | T077 [HTML-L1037]: «Informamos que, debido a mejoras en nuestra infraestructura de TI, hoy lunes 19 de enero…» | T079 [HTML-L1041]: «Aceptar» | FOOTER: T084 [HTML-L1139]: «RUT: 65.999.669-3» | T085 [HTML-L1143]: «Carabineros de Chile Nº 195, Santiago, Chile» | T101 [HTML-L1175]: «Política de privacidad» (→ PDF) | T102 [HTML-L1190]: «©2026 INAPI. Todos los derechos reservados» | T103 [HTML-L1191]: «v 2.3.89.0»",
+    "criterios_evaluados": [
+      {
+        "id": "A1",
+        "estado": "incumple",
+        "severidad": "alta",
+        "comentario": "La página no tiene H1 ni H2 ni H3. El encabezado del bloque principal es un H4 «Trámites INAPI» (T061, HTML-L990), que no comunica el propósito de la página de ingreso al portal ni contextualiza al usuario sobre qué puede hacer. El <title> es «- INAPI - Sitio de Trámites» con un guion inicial que indica que la parte dinámica está vacía.",
+        "cita_textual": "(ausencia de H1) — T061 [HTML-L990]: «Trámites INAPI» (H4, no H1) / HTML-L31 title: «- INAPI - Sitio de Trámites» (guion inicial vacío)"
+      },
+      {
+        "id": "A2",
+        "estado": "cumple",
+        "comentario": "El bloque de contenido principal (T062–T067) presenta primero el propósito general («Para ingresar al sitio de trámites…»), luego las instrucciones para primera vez, y finalmente los detalles de recuperación. Aplica pirámide invertida adecuada para una landing de login.",
+        "cita_textual": "T062 [HTML-L992]: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.»"
+      },
+      {
+        "id": "A3",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "La página no tiene H1, H2 ni H3. Los únicos encabezados en el cuerpo son H4: «Trámites INAPI», «Iniciar Sesión» y «Registrarse». La ausencia de jerarquía semántica de encabezados impide la navegación accesible y el escaneo visual estructurado.",
+        "cita_textual": "(ausencia de H1, H2, H3) — H4 [HTML-L990]: «Trámites INAPI» / H4 [HTML-L1004]: «Iniciar Sesión» / H4 [HTML-L1018]: «Registrarse»"
+      },
+      {
+        "id": "A4",
+        "estado": "cumple",
+        "comentario": "Los párrafos del cuerpo principal tienen menos de 50 palabras cada uno. La sección de texto instructivo no supera las 110 palabras en total."
+      },
+      {
+        "id": "A5",
+        "estado": "incumple",
+        "severidad": "baja",
+        "comentario": "La versión técnica «v 2.3.89.0» (T103, HTML-L1191) es información interna visible al usuario sin valor para su tarea de ingreso al portal. El modal de aviso TGR (T076–T077) contiene una fecha desactualizada («hoy lunes 19 de enero») que ya no corresponde al presente, y permanece en el HTML aunque sea operativo.",
+        "cita_textual": "T103 [HTML-L1191]: «v 2.3.89.0» / T077 [HTML-L1037]: «hoy lunes 19 de enero…» (fecha desactualizada en modal TGR)"
+      },
+      {
+        "id": "B1",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "T062 usa «puede hacerlo con su Clave Única» — tono impersonal de usted sin sujeto explícito. T063 usa «Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única» — el verbo «debe hacerlo» no es voz pasiva pero es una construcción impersonal que se beneficiaría de reescritura activa. T073 usa «puede ingresar con su clave INAPI previamente registrada» — construcción distante.",
+        "cita_textual": "T062 [HTML-L992]: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.» / T063 [HTML-L994]: «Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única»"
+      },
+      {
+        "id": "B2",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "«PCT» aparece en el menú de Patentes (T048, T058) sin definición en ningún punto de esta página. «Clave INAPI» (T062, T073) podría requerir una nota explicativa para usuarios que no saben qué es. El modal TGR usa «TGR» (T076) sin expandir en esta página.",
+        "cita_textual": "T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T058 [HTML-L489]: «Documentación Mínima PCT» / T076 [HTML-L1035]: «Tesoreria General de la Republica (TGR)»"
+      },
+      {
+        "id": "B3",
+        "estado": "incumple",
+        "severidad": "alta",
+        "comentario": "«PCT» aparece en el menú de Patentes en dos instancias (T048 y T058) sin definición en ningún punto visible de esta página landing. Es la primera y única aparición de la sigla para el usuario que ingresa al portal.",
+        "cita_textual": "T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T058 [HTML-L489]: «Documentación Mínima PCT» — sin expandir en ningún punto de la página"
+      },
+      {
+        "id": "B4",
+        "estado": "cumple",
+        "comentario": "No se detectan extranjerismos en el contenido editorial del cuerpo principal. Los términos son en español."
+      },
+      {
+        "id": "B5",
+        "estado": "cumple",
+        "comentario": "Los textos del cuerpo principal están en formulación positiva: «puede hacerlo», «podrá Solicitar Marcas y Patentes». No hay formulaciones negativas dominantes."
+      },
+      {
+        "id": "B6",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "El texto instructivo usa la segunda persona formal «usted» de manera inconsistente: T063 usa «Si usted ingresa…» (formal) mientras T067 usa «favor enviar un correo» (imperativo distante sin pronombre). T073 mezcla «puede ingresar» con «su clave INAPI previamente registrada». El tuteo o el trato consistente en «usted» mejoraría la coherencia tonal.",
+        "cita_textual": "T063 [HTML-L994]: «Si usted ingresa por primera vez al sistema…» / T067 [HTML-L1000]: «Para consultas, favor enviar un correo a inapi@inapi.cl»"
+      },
+      {
+        "id": "B7",
+        "estado": "cumple",
+        "comentario": "No se detectan frases de relleno burocrático. El texto es directo y funcional."
+      },
+      {
+        "id": "C1",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "T062 antepone el complemento: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única…» — el verbo principal («puede hacerlo») queda después de un complemento largo. T067 antepone el complemento: «Para consultas, favor enviar un correo» — el verbo va al final.",
+        "cita_textual": "T062 [HTML-L992]: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.» / T067 [HTML-L1000]: «Para consultas, favor enviar un correo a inapi@inapi.cl»"
+      },
+      {
+        "id": "C2",
+        "estado": "cumple",
+        "comentario": "Los textos del cuerpo usan presente simple («puede hacerlo», «ingresa», «requiere») y futuro apropiado para las capacidades del portal («podrá Solicitar», «podrá presentar»)."
+      },
+      {
+        "id": "C3",
+        "estado": "cumple",
+        "comentario": "Las oraciones son simples o de extensión moderada (máximo ≈30 palabras). T073 es la más larga (~30 palabras) y dentro del límite aceptable."
+      },
+      {
+        "id": "C4",
+        "estado": "cumple",
+        "comentario": "Cada párrafo del cuerpo principal desarrolla una sola idea: acceso con Clave Única, primera vez, recuperación de acceso, capacidades del portal, contacto."
+      },
+      {
+        "id": "C5",
+        "estado": "cumple",
+        "comentario": "Todos los párrafos tienen menos de 4 líneas en escritorio."
+      },
+      {
+        "id": "C6",
+        "estado": "no_aplica",
+        "comentario": "La página no tiene 4 o más párrafos continuos de artículo. Los cinco párrafos del cuerpo son instrucciones de acceso cortas, no un bloque editorial continuo."
+      },
+      {
+        "id": "C7",
+        "estado": "no_aplica",
+        "comentario": "No hay listas de requisitos que deban formularse en infinitivo. Los párrafos son instrucciones de acceso, no pasos con requisitos listados."
+      },
+      {
+        "id": "D1",
+        "estado": "incumple",
+        "severidad": "alta",
+        "comentario": "Cuatro errores ortotipográficos: (1) «Titulos y Certificados Patentes» (T056, HTML-L471 y L900) — falta tilde en «Títulos»; (2) «Tesoreria General de la Republica» (T076, HTML-L1035) — faltan tildes en «Tesorería» y «República»; (3) «ClaveÚnica» (T069, HTML-L1012) — falta espacio entre «Clave» y «Única»; (4) <title> «- INAPI - Sitio de Trámites» (HTML-L31) — guion inicial indica variable dinámica vacía sin nombre de página.",
+        "cita_textual": "T056 [HTML-L471]: «Titulos y Certificados Patentes» / T076 [HTML-L1035]: «Tesoreria General de la Republica» / T069 [HTML-L1012]: «ClaveÚnica» / HTML-L31 title: «- INAPI - Sitio de Trámites»"
+      },
+      {
+        "id": "D2",
+        "estado": "cumple",
+        "comentario": "La puntuación general del cuerpo principal es correcta, con las excepciones tratadas en D1."
+      },
+      {
+        "id": "D3",
+        "estado": "no_aplica",
+        "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+      },
+      {
+        "id": "D4",
+        "estado": "no_aplica",
+        "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+      },
+      {
+        "id": "D5",
+        "estado": "cumple",
+        "comentario": "El footer usa listas <ul><li> correctamente. No hay enumeraciones en texto corrido con comas."
+      },
+      {
+        "id": "D6",
+        "estado": "no_aplica",
+        "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+      },
+      {
+        "id": "D7",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "Los grupos del menú de navegación están en mayúsculas totales: «MI INAPI» (T006), «TRAMITACIÓN» (T011), «PAGOS» (T019), «SERVICIOS» (T024). En el menú mobile también: «TRAMITACIÓN», «PAGOS», «SERVICIOS».",
+        "cita_textual": "T006 [HTML-L129]: «MI INAPI» / T011 [HTML-L159]: «TRAMITACIÓN» / T019 [HTML-L207]: «PAGOS» / T024 [HTML-L237]: «SERVICIOS»"
+      },
+      {
+        "id": "E1",
+        "estado": "cumple",
+        "comentario": "No se usan adjetivos valorativos autopromocionales en el cuerpo principal. Los textos son informativos y funcionales."
+      },
+      {
+        "id": "E2",
+        "estado": "cumple",
+        "comentario": "INAPI aparece identificado en el banner superior, en el H4 «Trámites INAPI», en el footer y en el copyright.",
+        "cita_textual": "T002 [HTML-L31]: «INAPI -» / T061 [HTML-L990]: «Trámites INAPI» / T102 [HTML-L1190]: «©2026 INAPI. Todos los derechos reservados»"
+      },
+      {
+        "id": "E3",
+        "estado": "incumple",
+        "severidad": "alta",
+        "comentario": "No existe fecha de publicación ni de última actualización del contenido de esta landing visible para el usuario. El copyright ©2026 no equivale a fecha de actualización del contenido. El modal TGR contiene «hoy lunes 19 de enero» — fecha desactualizada que nunca fue removida.",
+        "cita_textual": "(ausencia) — ningún texto indica cuándo fue actualizado el contenido de esta página / T077 [HTML-L1037]: «hoy lunes 19 de enero» (fecha desactualizada en modal TGR)"
+      },
+      {
+        "id": "E4",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "El <title> es «- INAPI - Sitio de Trámites» (HTML-L31) — el guion inicial indica que la variable dinámica con el nombre de la página está vacía. El title no describe el propósito de la landing ni invita al ingreso. Debería ser «INAPI — Portal de Trámites de Propiedad Industrial».",
+        "cita_textual": "HTML-L31 (title): «- INAPI - Sitio de Trámites» — guion inicial por variable dinámica vacía"
+      },
+      {
+        "id": "F1",
+        "estado": "cumple",
+        "comentario": "Los botones de login coinciden con sus destinos: «Iniciar Sesión Clave INAPI» → /Account/Login; «Regístrese» → /Account/ClaveUnicaRedirect. Los enlaces del footer (Contacto, Facebook, etc.) coinciden con sus destinos.",
+        "cita_textual": "T074 [HTML-L1022]: «Iniciar Sesión Clave INAPI» / T072 [HTML-L1019]: «Regístrese»"
+      },
+      {
+        "id": "F2",
+        "estado": "cumple",
+        "comentario": "Los botones de la landing son descriptivos: «Iniciar Sesión Clave INAPI», «Regístrese», «Contacto». No se detectan textos genéricos del tipo «Haz clic aquí» o «Más»."
+      },
+      {
+        "id": "F3",
+        "estado": "incumple",
+        "severidad": "media",
+        "comentario": "El botón «Aceptar» (T079, HTML-L1041) del modal TGR no describe qué se acepta. El botón «OK» (T078, HTML-L1069) del modal de alerta genérico es igualmente no descriptivo. El modal TGR contiene información operativa desactualizada y debería ser eliminado o actualizado.",
+        "cita_textual": "T079 [HTML-L1041]: «Aceptar» (modal TGR, sin indicar qué se acepta) / T078 [HTML-L1069]: «OK» (modal alerta genérico)"
+      },
+      {
+        "id": "F4",
+        "estado": "incumple",
+        "severidad": "alta",
+        "comentario": "«Política de privacidad» (T101, HTML-L1175) enlaza directamente a un PDF sin indicar el formato ni el peso.",
+        "cita_textual": "T101 [HTML-L1175]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato"
+      },
+      {
+        "id": "F5",
+        "estado": "cumple",
+        "comentario": "Los botones de acción («Regístrese», «Iniciar Sesión Clave INAPI») están posicionados fuera del texto corrido, en sus propias secciones de la landing."
+      },
+      {
+        "id": "G1",
+        "estado": "cumple",
+        "comentario": "El RUT 65.999.669-3 (T084) es de persona jurídica pública (INAPI), no de persona natural. Aparece en el footer del portal de trámites donde puede ser relevante para operaciones de pago. No aplica el criterio de privacidad de personas naturales. Como observación editorial (A5), el RUT no aporta directamente a la tarea de ingreso al portal, pero su presencia es justificable en el contexto de trámites institucionales.",
+        "cita_textual": "T084 [HTML-L1139]: «RUT: 65.999.669-3» (persona jurídica pública, no afecta G1)"
+      },
+      {
+        "id": "G2",
+        "estado": "cumple",
+        "comentario": "El enlace «Política de privacidad» (T101, HTML-L1175) está presente en el footer.",
+        "cita_textual": "T101 [HTML-L1175]: «Política de privacidad»"
+      },
+      {
+        "id": "G3",
+        "estado": "cumple",
+        "comentario": "El copyright ©2026 está actualizado (T102, HTML-L1190). Existe enlace «Uso de los Contenidos de este Sitio» (T099, HTML-L1173).",
+        "cita_textual": "T102 [HTML-L1190]: «©2026 INAPI. Todos los derechos reservados» / T099 [HTML-L1173]: «Uso de los Contenidos de este Sitio»"
+      },
+      {
+        "id": "H1",
+        "estado": "no_aplica",
+        "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado."
+      }
+    ],
+    "criterios_no_aplica": 6,
+    "criterios_aplicables": 33,
+    "criterios_aprobados": 19,
+    "porcentaje_cumplimiento": 57.6,
+    "estado_aceptacion": "rechazado",
+    "texto_propuesto": "Se identificaron 14 incumplimientos sobre 33 criterios aplicables (57,6 %). Las correcciones de mayor impacto son: (1) agregar H1 que describa el propósito de la landing: «Portal de Trámites de Propiedad Industrial — INAPI» (A1, E4); (2) corregir «Titulos y Certificados Patentes» → «Títulos y Certificados Patentes» en el menú (D1); (3) corregir «Tesoreria General de la Republica» → «Tesorería General de la República» en el modal TGR (D1); (4) corregir «ClaveÚnica» → «Clave Única» en el botón (D1); (5) actualizar o eliminar el modal TGR desactualizado con fecha «hoy lunes 19 de enero» (A5, E3); (6) agregar fecha de actualización visible (E3); (7) ampliar el <title> a «INAPI — Portal de Trámites: Marcas, Patentes y más» (E4); (8) expandir PCT en el menú de Patentes: «PCT (Tratado de Cooperación en materia de Patentes)» (B3); (9) indicar formato PDF en «Política de privacidad» (F4); (10) normalizar mayúsculas en grupos del menú: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (D7); (11) reformular T062 en segunda persona directa y orden SVP (B1, B6, C1). El array sustituciones[] contiene 29 filas con cobertura 1:1 para los 14 criterios incumplidos.",
+    "observaciones_lc": "La landing del portal de trámites de INAPI obtiene un 57,6 % de cumplimiento sobre 33 criterios aplicables — empatando con el SIAC y siendo los mejores resultados del piloto, aunque ambos siguen siendo RECHAZADOS. Los 14 incumplimientos se distribuyen en: (1) estructura semántica (A1, A3): ningún H1/H2/H3 en la página; los tres bloques de la landing usan H4, que no construye jerarquía accesible; (2) errores ortotipográficos (D1 alta): «Titulos» sin tilde en el menú de Patentes, «Tesoreria» y «Republica» sin tilde en el modal TGR, y «ClaveÚnica» sin espacio en el botón de login; (3) siglas sin definir (B2, B3): PCT en dos instancias del menú de Patentes sin expansión; (4) tono y construcción gramatical (B1, B6, C1): el texto instructivo usa «usted» de forma inconsistente, antepone complementos y mezcla registros formales e informales; (5) metadatos y fiabilidad (E3 alta, E4 media): title con variable dinámica vacía y ausencia de fecha de actualización; (6) el modal TGR (T076–T077) contiene una fecha operativa desactualizada («19 de enero») que nunca fue removida — no es contenido editorial estático pero su permanencia es un problema de mantenimiento que afecta E3 y A5. G1 cumple correctamente: el RUT en el footer del portal de trámites es de persona jurídica pública y puede ser relevante para operaciones de pago.",
+    "resumen_ejecutivo": "La página https://tramites.inapi.cl/ fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 19 se cumplen, lo que arroja un 57,6 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 14 incumplimientos y se generaron 29 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: ausencia de H1 que describa el propósito de la landing (A1), cuatro errores ortotipográficos incluyendo «Titulos», «Tesoreria General de la Republica» y «ClaveÚnica» (D1), PCT sin definir en el menú de Patentes (B3), ausencia de fecha de actualización y modal TGR con fecha desactualizada (E3), y PDF de Política de privacidad sin indicar formato (F4). G1 cumple correctamente porque el RUT en el footer es de persona jurídica pública en un contexto de portal de trámites. La landing cumple la mayoría de criterios de redacción (A2, A4, C2–C5, B4, B5, B7, E1, F1, F2) lo que refleja un texto instructivo conciso y funcional. Serie Clarity — rank 1 (432.572 visitas ref.). Misma auditoría LC que piloto TIC del 2026-06-07; HTML sin cambios editoriales relevantes.",
+    "observaciones_lc_por_severidad": {
+      "hallazgos_prioridad_alta": [
+        "(A1) La página no tiene H1. El bloque principal usa H4 «Trámites INAPI» sin jerarquía semántica accesible. El <title> tiene variable dinámica vacía («- INAPI - Sitio de Trámites»).",
+        "(B3) PCT aparece en dos instancias del menú de Patentes sin definición en ningún punto visible de esta página landing.",
+        "(D1) Cuatro errores ortotipográficos: «Titulos y Certificados Patentes» (falta tilde), «Tesoreria General de la Republica» (faltan dos tildes), «ClaveÚnica» (falta espacio), y el <title> con guion inicial vacío.",
+        "(E3) Ausencia de fecha de actualización del contenido de la landing. El modal TGR contiene una fecha operativa desactualizada («hoy lunes 19 de enero») que no fue removida.",
+        "(F4) «Política de privacidad» enlaza directamente a un PDF sin indicar el formato ni el peso."
+      ],
+      "hallazgos_prioridad_media": [
+        "(A3) Ningún H1/H2/H3 en la página; los tres bloques de la landing usan H4, que no construye jerarquía accesible para lectores de pantalla.",
+        "(B1) El texto instructivo usa construcciones impersonales: «Para ingresar al sitio de trámites de INAPI puede hacerlo» antepone complemento y omite sujeto activo.",
+        "(B2) PCT (T048, T058) sin definición. «TGR» en el modal sin expandir en esta página.",
+        "(B6) Tono inconsistente entre «usted» formal (T063) e imperativo sin pronombre (T067: «favor enviar un correo»).",
+        "(C1) T062 y T067 anteponen el complemento circunstancial al verbo principal, violando el orden SVP.",
+        "(D7) Grupos del menú en mayúsculas totales: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+        "(E4) El <title> «- INAPI - Sitio de Trámites» tiene guion inicial por variable dinámica vacía y no describe el propósito de la landing.",
+        "(F3) «Aceptar» (modal TGR, T079) y «OK» (modal genérico, T078) son botones no descriptivos de la acción."
+      ],
+      "hallazgos_prioridad_baja": [
+        "(A5) «v 2.3.89.0» (T103) es versión técnica del sistema visible al usuario sin valor para su tarea. El modal TGR con fecha desactualizada permanece en el HTML."
+      ]
+    },
+    "sustituciones": [
+      {
+        "linea": "A1-h1",
+        "html_linea_aprox": "HTML-L986",
+        "original": "(ausencia de H1 — los bloques principales usan H4)",
+        "propuesto": "<h1 class='sr-only'>Portal de Trámites de Propiedad Industrial — INAPI</h1>",
+        "criterio_id": "A1",
+        "motivo": "La página no tiene H1; insertar encabezado semántico antes del bloque principal para accesibilidad y orientación al usuario. Puede ser visualmente oculto (sr-only) si el diseño lo requiere."
+      },
+      {
+        "linea": "A3-h4-tramites",
+        "html_linea_aprox": "HTML-L990",
+        "original": "Trámites INAPI",
+        "propuesto": "<h2>Trámites INAPI</h2>",
+        "criterio_id": "A3",
+        "motivo": "El bloque principal usa H4 sin jerarquía semántica; promover a H2 (o H1 si no se inserta el anterior) para construir estructura accesible."
+      },
+      {
+        "linea": "A3-h4-login",
+        "html_linea_aprox": "HTML-L1004",
+        "original": "<h4>Iniciar Sesión</h4>",
+        "propuesto": "<h3>Iniciar Sesión</h3>",
+        "criterio_id": "A3",
+        "motivo": "El bloque de login usa H4 sin jerarquía semántica; promover a H3 para construir estructura accesible bajo el H2 «Trámites INAPI» propuesto."
+      },
+      {
+        "linea": "A3-h4-registro",
+        "html_linea_aprox": "HTML-L1018",
+        "original": "<h4>Registrarse</h4>",
+        "propuesto": "<h3>Registrarse</h3>",
+        "criterio_id": "A3",
+        "motivo": "El bloque de registro usa H4 sin jerarquía semántica; promover a H3 para construir estructura accesible."
+      },
+      {
+        "linea": "T103",
+        "html_linea_aprox": "HTML-L1191",
+        "original": "v 2.3.89.0",
+        "propuesto": "(eliminar nodo)",
+        "criterio_id": "A5",
+        "motivo": "Versión técnica del sistema visible al usuario sin valor para su tarea de ingreso al portal; eliminar del footer público."
+      },
+      {
+        "linea": "T062",
+        "html_linea_aprox": "HTML-L992",
+        "original": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+        "propuesto": "Ingresa al portal de trámites con tu Clave Única o con tu Clave INAPI.",
+        "criterio_id": "B1",
+        "motivo": "Elimina el complemento antepuesto y la construcción impersonal; usa segunda persona directa y orden SVP."
+      },
+      {
+        "linea": "T067",
+        "html_linea_aprox": "HTML-L1000",
+        "original": "Para consultas, favor enviar un correo a inapi@inapi.cl",
+        "propuesto": "¿Tienes dudas? Escríbenos a inapi@inapi.cl",
+        "criterio_id": "B1",
+        "motivo": "Elimina el complemento antepuesto y el imperativo distante «favor enviar»; usa segunda persona directa y tono cercano."
+      },
+      {
+        "linea": "T048",
+        "html_linea_aprox": "HTML-L417",
+        "original": "Pagar Tasas PCT Fase Internacional",
+        "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+        "criterio_id": "B3",
+        "motivo": "«PCT» aparece sin definición en el menú; primera aparición debe ir acompañada del nombre completo."
+      },
+      {
+        "linea": "T058",
+        "html_linea_aprox": "HTML-L489",
+        "original": "Documentación Mínima PCT",
+        "propuesto": "Documentación Mínima PCT",
+        "criterio_id": "B3",
+        "motivo": "La sigla PCT se define en la primera instancia (T048); en la segunda instancia (T058) se puede mantener solo la sigla ya conocida por el usuario."
+      },
+      {
+        "linea": "T076",
+        "html_linea_aprox": "HTML-L1035",
+        "original": "Información de la Tesoreria General de la Republica (TGR)",
+        "propuesto": "Información de la Tesorería General de la República (TGR)",
+        "criterio_id": "B2",
+        "motivo": "Expande TGR en su definición y corrige «Tesoreria» → «Tesorería» y «Republica» → «República»."
+      },
+      {
+        "linea": "T063",
+        "html_linea_aprox": "HTML-L994",
+        "original": "Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos.",
+        "propuesto": "Si es tu primera vez, ingresa con Clave Única y registra tus datos básicos.",
+        "criterio_id": "B6",
+        "motivo": "Simplifica la oración, elimina «usted» formal y usa tuteo directo consistente con el tono general de la landing."
+      },
+      {
+        "linea": "T062",
+        "html_linea_aprox": "HTML-L992",
+        "original": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+        "propuesto": "Ingresa al portal de trámites con tu Clave Única o con tu Clave INAPI.",
+        "criterio_id": "C1",
+        "motivo": "Coloca el verbo al inicio; elimina el complemento circunstancial antepuesto «Para ingresar al sitio de trámites de INAPI» que viola el orden SVP."
+      },
+      {
+        "linea": "T056",
+        "html_linea_aprox": "HTML-L471",
+        "original": "Titulos y Certificados Patentes",
+        "propuesto": "Títulos y Certificados Patentes",
+        "criterio_id": "D1",
+        "motivo": "Falta tilde en «Títulos»; error ortográfico en el menú de Patentes (aparece en HTML-L471 y L900)."
+      },
+      {
+        "linea": "T056-mobile",
+        "html_linea_aprox": "HTML-L900",
+        "original": "Titulos y Certificados Patentes",
+        "propuesto": "Títulos y Certificados Patentes",
+        "criterio_id": "D1",
+        "motivo": "Segunda instancia de «Titulos» sin tilde — en el menú mobile (HTML-L900); corregir junto con HTML-L471."
+      },
+      {
+        "linea": "T076",
+        "html_linea_aprox": "HTML-L1035",
+        "original": "Tesoreria General de la Republica",
+        "propuesto": "Tesorería General de la República",
+        "criterio_id": "D1",
+        "motivo": "Faltan tildes en «Tesorería» y «República» en el texto del modal TGR."
+      },
+      {
+        "linea": "T069",
+        "html_linea_aprox": "HTML-L1012",
+        "original": "ClaveÚnica",
+        "propuesto": "Clave Única",
+        "criterio_id": "D1",
+        "motivo": "Falta espacio entre «Clave» y «Única» en el texto del botón de login con Clave Única."
+      },
+      {
+        "linea": "E4-title",
+        "html_linea_aprox": "HTML-L31",
+        "original": "- INAPI - Sitio de Trámites",
+        "propuesto": "INAPI — Portal de Trámites: Marcas, Patentes y más",
+        "criterio_id": "D1",
+        "motivo": "El <title> tiene un guion inicial que indica variable dinámica vacía — no se muestra el nombre de la página; establecer un valor estático descriptivo para la landing."
+      },
+      {
+        "linea": "T006",
+        "html_linea_aprox": "HTML-L129",
+        "original": "MI INAPI",
+        "propuesto": "Mi INAPI",
+        "criterio_id": "D7",
+        "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización conservando la mayúscula institucional de «INAPI»."
+      },
+      {
+        "linea": "T011",
+        "html_linea_aprox": "HTML-L159",
+        "original": "TRAMITACIÓN",
+        "propuesto": "Tramitación",
+        "criterio_id": "D7",
+        "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+      },
+      {
+        "linea": "T019",
+        "html_linea_aprox": "HTML-L207",
+        "original": "PAGOS",
+        "propuesto": "Pagos",
+        "criterio_id": "D7",
+        "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+      },
+      {
+        "linea": "T024",
+        "html_linea_aprox": "HTML-L237",
+        "original": "SERVICIOS",
+        "propuesto": "Servicios",
+        "criterio_id": "D7",
+        "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+      },
+      {
+        "linea": "E3-ausencia",
+        "html_linea_aprox": "HTML-L990",
+        "original": "(ausencia)",
+        "propuesto": "Última actualización: junio de 2026",
+        "criterio_id": "E3",
+        "motivo": "Insertar fecha de actualización visible en el cuerpo de la landing bajo el H4 o H1; actualmente no existe."
+      },
+      {
+        "linea": "T077",
+        "html_linea_aprox": "HTML-L1037",
+        "original": "hoy lunes 19 de enero, entre las 16:00 y las 17:00 horas, se llevará a cabo una mantención programada.",
+        "propuesto": "(desactivar modal TGR)",
+        "criterio_id": "E3",
+        "motivo": "El modal TGR contiene fecha operativa desactualizada («19 de enero»); desactivar o eliminar el nodo hasta la próxima mantención programada."
+      },
+      {
+        "linea": "E4-title",
+        "html_linea_aprox": "HTML-L31",
+        "original": "- INAPI - Sitio de Trámites",
+        "propuesto": "INAPI — Portal de Trámites: Marcas, Patentes y más",
+        "criterio_id": "E4",
+        "motivo": "El <title> con guion inicial y descripción genérica no comunica el propósito de la landing ni orienta al usuario en pestañas del navegador."
+      },
+      {
+        "linea": "T079",
+        "html_linea_aprox": "HTML-L1041",
+        "original": "Aceptar",
+        "propuesto": "Entendido",
+        "criterio_id": "F3",
+        "motivo": "«Aceptar» en el modal TGR no describe qué se acepta; «Entendido» comunica que el usuario ha leído la información sin implicar un acuerdo."
+      },
+      {
+        "linea": "T078",
+        "html_linea_aprox": "HTML-L1069",
+        "original": "OK",
+        "propuesto": "Cerrar",
+        "criterio_id": "F3",
+        "motivo": "«OK» en el modal de alerta genérico es un anglicismo y no describe la acción; «Cerrar» es más descriptivo en español."
+      },
+      {
+        "linea": "T101",
+        "html_linea_aprox": "HTML-L1175",
+        "original": "Política de privacidad",
+        "propuesto": "Política de privacidad (PDF)",
+        "criterio_id": "F4",
+        "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+      },
+      {
+        "linea": "T063",
+        "html_linea_aprox": "HTML-L994",
+        "original": "Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos.",
+        "propuesto": "Si es tu primera vez, ingresa con Clave Única y registra tus datos básicos.",
+        "criterio_id": "B6",
+        "motivo": "Fila adicional B6: la inconsistencia de tono entre «usted» formal y otros fragmentos más directos afecta la experiencia del usuario."
+      },
+      {
+        "linea": "T073",
+        "html_linea_aprox": "HTML-L1022",
+        "original": "Opcionalmente, si el servicio para ingresar con Clave Única no está disponible, puede ingresar con su clave INAPI previamente registrada.",
+        "propuesto": "Si Clave Única no está disponible, puedes ingresar con tu clave INAPI registrada.",
+        "criterio_id": "C1",
+        "motivo": "Elimina el adverbio inicial «Opcionalmente» y el complemento antepuesto; simplifica la oración siguiendo orden SVP."
+      }
+    ],
+    "clarity_meta": {
+      "serie": "clarity",
+      "rank": 1,
+      "nombre_ui": "Landing Sitio de Trámites",
+      "ruta_etiqueta": "INAPI - Sitio de Trámites",
+      "visitas_ref": "432.572",
+      "encargado_ref": "Fernando Arriagada",
+      "fuente_piloto_id": "tramites-inapi-cl_2026-06-07",
+      "descripcion": "Landing del portal de trámites electrónicos INAPI (marcas y patentes). Pantalla previa al inicio de sesión; al pulsar ClaveÚnica se abre el flujo de login."
+    },
+    "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente: (1) el archivo HTML fue capturado como source view del navegador (browser-rendered view-source) en formato de tabla con line-number/line-content; las líneas reales del HTML de tramites.inapi.cl son las extraídas de ese formato (1324 líneas totales); (2) el error «Titulos» (HTML-L471 y L900) aparece en dos lugares del menú — corregir ambas instancias; (3) «ClaveÚnica» (HTML-L1012) está en el atributo de texto de un <span class='texto'> dentro del botón de Clave Única — buscar «ClaveÚnica» con la mayúscula interna para localizarlo; (4) el modal TGR (HTML-L1025–1045) es un modal estático con contenido operativo desactualizado; su eliminación o actualización requiere coordinación con el equipo de operaciones que lo gestiona — TIC debe confirmar si el modal se activa desde backend o es HTML estático; (5) el <title> (HTML-L31) en ASP.NET MVC probablemente se genera desde ViewBag.Title o Layout.cshtml — verificar si la landing tiene un ViewBag.Title asignado y establecer el valor estático propuesto en la vista correspondiente; (6) los grupos del menú en mayúsculas (D7: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS) están en nodos de texto dentro de <a class='nav-link disabled'> — buscar las cadenas exactas en mayúsculas para localizarlos; (7) las correcciones B1/B6/C1 requieren editar los <p> del div.col-md-6 (HTML-L986–L1002); verificar que los párrafos no están generados dinámicamente desde base de datos antes de editar el HTML estático. Copia serie Clarity. Fuente editorial piloto: tramites-inapi-cl_2026-06-07.json."
+  }

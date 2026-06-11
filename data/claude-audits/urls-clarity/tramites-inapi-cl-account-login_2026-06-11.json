@@ -1,0 +1,483 @@
+{
+  "id": "tramites-inapi-cl-account-login_2026-06-11",
+  "url": "https://tramites.inapi.cl/Account/Login",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 2,
+    "nombre_ui": "Inicio de sesión",
+    "ruta_etiqueta": "Account / Login (Inicio de sesión)",
+    "visitas_ref": "209.811",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Formulario de acceso con credenciales al sitio de trámites."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Trámites y Servicios» | T005 [HTML-L116]: «Marcas» (navbar) | T006 [HTML-L129]: «MI INAPI» | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (navbar) | T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también en L900) | T058 [HTML-L489]: «Documentación Mínima PCT» | T059 [HTML-L170]: «Home» | T060 [HTML-L506]: «Iniciar Sesión» | T061 [HTML-L983]: «Ingreso con Clave INAPI» (card-header, no H semántico) | CAMPOS: HTML-L998: placeholder «RUN» (sin label visible), data-val-required «El campo RUN es obligatorio.» | HTML-L1007: placeholder «Contraseña» (sin label visible), data-val-required «El campo Contraseña es obligatorio.» | HTML-L1020: botón «Ingresar» | T062 [HTML-L1032]: «¿Olvidó su contraseña INAPI?» | T063 [HTML-L1035]: «Clave Única» | T064 [HTML-L1057]: «OK» (modal alerta) | T065 [HTML-L1099]: «Aceptar» (modal confirm) | T066 [HTML-L1100]: «Cancelar» | T070 [HTML-L1127]: «RUT: 65.999.669-3» (footer) | T087 [HTML-L1163]: «Política de privacidad» (→ PDF) | T088 [HTML-L1178]: «©2026 INAPI. Todos los derechos reservados» | T089 [HTML-L1179]: «v 2.3.90.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página no tiene H1, H2 ni H3. El encabezado del formulario «Ingreso con Clave INAPI» (T061) está en un div.card-header sin valor semántico para lectores de pantalla. El <title> tiene variable dinámica vacía («- INAPI - Sitio de Trámites»).",
+      "cita_textual": "T061 [HTML-L983]: «Ingreso con Clave INAPI» (div.card-header, no H) / HTML-L31 title: «- INAPI - Sitio de Trámites»"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "El formulario presenta primero el acceso con Clave INAPI y luego la alternativa con Clave Única, en orden de uso más frecuente a alternativa. El enlace de recuperación de contraseña aparece después del botón principal.",
+      "cita_textual": "T061 [HTML-L983] → formulario → T062 [HTML-L1032] → T063 [HTML-L1035]"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Sin H1, H2 ni H3. El único texto organizativo es el div.card-header, que no construye jerarquía de encabezados accesible.",
+      "cita_textual": "(ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Formulario mínimo: dos campos, un botón, un enlace de recuperación y un botón alternativo Clave Única. Sin bloques de texto extenso."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "«v 2.3.90.0» (T089, HTML-L1179) es la versión técnica del sistema, visible al usuario sin aportar valor a la tarea de inicio de sesión.",
+      "cita_textual": "T089 [HTML-L1179]: «v 2.3.90.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El mensaje de validación usa tercera persona nominal pasiva: «El campo RUN es obligatorio.» (HTML-L998). El enlace de recuperación usa segunda persona formal distante: «¿Olvidó su contraseña INAPI?» (T062).",
+      "cita_textual": "HTML-L998: data-val-required «El campo RUN es obligatorio.» / T062 [HTML-L1032]: «¿Olvidó su contraseña INAPI?»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los campos del formulario usan solo placeholder sin label visible. El placeholder «RUN» no indica el formato esperado. «Clave INAPI» (T061) no se define ni contrasta con «Clave Única» en ningún punto de esta pantalla. PCT en el menú de Patentes (T048, T058) sin definición.",
+      "cita_textual": "HTML-L998: placeholder «RUN» (sin instrucción de formato) / T061 [HTML-L983]: «Ingreso con Clave INAPI» (sin explicación de qué es vs Clave Única)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece en el menú de Patentes en dos instancias (T048 «Pagar Tasas PCT» y T058 «Documentación Mínima PCT») sin definición en ningún punto visible de esta página.",
+      "cita_textual": "T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T058 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial del formulario."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Formulación positiva: «Ingresar», «Clave Única», «¿Olvidó su contraseña?». Sin formulaciones negativas dominantes."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El card-header usa sustantivo nominal impersonal: «Ingreso con Clave INAPI» en lugar de dirigirse al usuario con verbo activo. El enlace de recuperación mezcla registro formal «su» con el tono neutro del botón «Ingresar».",
+      "cita_textual": "T061 [HTML-L983]: «Ingreso con Clave INAPI» (impersonal nominal) / T062 [HTML-L1032]: «¿Olvidó su contraseña INAPI?» (formal distante)"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "Sin frases de relleno burocrático. El formulario es directo y funcional."
+    },
+    {
+      "id": "C1",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones editoriales redactadas. Los textos son etiquetas, placeholders y un enlace. No aplica el criterio de orden SVP."
+    },
+    {
+      "id": "C2",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido con tiempo verbal que evaluar. No aplica."
+    },
+    {
+      "id": "C3",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones complejas en el contenido propio de esta página. No aplica."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "El formulario tiene un solo propósito: autenticación con Clave INAPI. El botón alternativo de Clave Única está separado visualmente con <hr>."
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de texto. No aplica."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es un formulario de login, no un artículo con párrafos continuos. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El formulario no indica previamente qué campos son obligatorios ni los requisitos de acceso. No hay leyenda «*Campos obligatorios». Los mensajes de validación solo aparecen al intentar enviar sin rellenar.",
+      "cita_textual": "HTML-L998: data-val-required visible solo en error — sin leyenda previa de campos obligatorios"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres problemas: (1) «Titulos y Certificados Patentes» (T056, HTML-L471 y L900) — falta tilde en «Títulos»; (2) <title> «- INAPI - Sitio de Trámites» con guion inicial vacío por variable dinámica sin asignar; (3) los campos RUN y Contraseña no tienen <label> visible — se identifican solo por placeholder, lo que excluye a usuarios de tecnologías asistivas.",
+      "cita_textual": "T056 [HTML-L471]: «Titulos y Certificados Patentes» / HTML-L31: title con guion inicial / HTML-L998 y L1007: campos sin <label>"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación en los textos visibles es correcta."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li> correctamente. Sin enumeraciones en texto corrido con comas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T006), TRAMITACIÓN (T011), PAGOS (T019), SERVICIOS (T024).",
+      "cita_textual": "T006 [HTML-L129]: «MI INAPI» / T011 [HTML-L159]: «TRAMITACIÓN» / T019 [HTML-L207]: «PAGOS» / T024 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, en el card-header («Ingreso con Clave INAPI») y en el copyright.",
+      "cita_textual": "T088 [HTML-L1178]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización del formulario de login visible para el usuario. El copyright ©2026 no equivale a fecha de actualización del contenido.",
+      "cita_textual": "(ausencia) — ningún texto indica cuándo fue actualizado este formulario"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «- INAPI - Sitio de Trámites» con guion inicial por variable dinámica vacía. No describe la función específica de la página de inicio de sesión.",
+      "cita_textual": "HTML-L31 (title): «- INAPI - Sitio de Trámites»"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los enlaces coinciden con sus destinos: «¿Olvidó su contraseña INAPI?» → /Account/ForgotPassword; «Clave Única» → /Account/ClaveUnicaRedirect.",
+      "cita_textual": "T062 [HTML-L1032] / T063 [HTML-L1035]"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "Los botones y enlaces son descriptivos: «Ingresar», «Clave Única», «¿Olvidó su contraseña INAPI?». Sin textos genéricos del tipo «Haz clic aquí»."
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El botón «OK» (T064, HTML-L1057) del modal de alerta genérico es un anglicismo no descriptivo de la acción. «Aceptar» (T065, HTML-L1099) en el modal de confirmación no indica qué se acepta.",
+      "cita_textual": "T064 [HTML-L1057]: «OK» (anglicismo, no descriptivo) / T065 [HTML-L1099]: «Aceptar» (sin contexto de qué se acepta)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Política de privacidad» (T087, HTML-L1163) enlaza directamente a un PDF sin indicar formato ni peso.",
+      "cita_textual": "T087 [HTML-L1163]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "El botón «Ingresar» y el enlace «¿Olvidó su contraseña?» están posicionados dentro del formulario, fuera del texto corrido.",
+      "cita_textual": "HTML-L1020: «Ingresar» / T062 [HTML-L1032]"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "«RUT: 65.999.669-3» (T070, HTML-L1127) en el footer es de persona jurídica pública (INAPI), no de persona natural. Los campos RUN/Contraseña solicitan datos del ciudadano para su autenticación — dato necesario para la tarea. No aplica el criterio de privacidad de personas naturales.",
+      "cita_textual": "T070 [HTML-L1127]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T087) en el footer implica información ARCO disponible.",
+      "cita_textual": "T087 [HTML-L1163]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T088). Existe enlace «Uso de los Contenidos de este Sitio» (T085).",
+      "cita_textual": "T088 [HTML-L1178]: «©2026 INAPI. Todos los derechos reservados» / T085 [HTML-L1161]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 9,
+  "criterios_aplicables": 30,
+  "criterios_aprobados": 16,
+  "porcentaje_cumplimiento": 53.3,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 14 incumplimientos sobre 30 criterios aplicables (53,3 %). Las correcciones de mayor impacto para esta pantalla de alto tráfico (209.811 visitas) son: (1) insertar H1 semántico descriptivo como «Inicio de sesión — INAPI Trámites» (A1), idealmente con sr-only si el diseño lo requiere; (2) agregar <label> visible para los campos RUN y Contraseña — actualmente identificados solo por placeholder, lo que excluye a usuarios de tecnologías asistivas (D1 accesibilidad); (3) reformular el card-header a «Inicia sesión con tu Clave INAPI» con verbo activo y tuteo directo (B6, A3); (4) agregar ejemplo de formato al placeholder RUN: «RUN (ej. 12345678-9)» (B2); (5) cambiar «¿Olvidó su contraseña INAPI?» a «¿Olvidaste tu contraseña INAPI?» para tono consistente (B1); (6) corregir «Titulos y Certificados Patentes» → «Títulos y Certificados Patentes» en menú desktop (L471) y mobile (L900) (D1); (7) asignar title de página: «INAPI — Inicio de sesión: Clave INAPI y Clave Única» (E4); (8) expandir PCT en menú de Patentes (B3); (9) agregar fecha de actualización visible (E3); (10) normalizar mayúsculas en grupos del menú: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS (D7); (11) cambiar «OK» → «Cerrar» y «Aceptar» → «Confirmar» en modales (F3); (12) indicar formato PDF en «Política de privacidad» (F4). El array sustituciones[] contiene 25 filas con cobertura 1:1 para los 14 criterios incumplidos.",
+  "observaciones_lc": "La pantalla /Account/Login obtiene un 53,3 % de cumplimiento sobre 30 criterios aplicables — RECHAZADO, y es la segunda URL con mayor tráfico Clarity del portal (209.811 visitas). Con 9 criterios no aplicables propios de un formulario de login (C1, C2, C3, C5, C6, D3, D4, D6, H1), los 14 incumplimientos afectan directamente la experiencia de los usuarios más frecuentes del portal. Los problemas más críticos son estructurales y de accesibilidad: ausencia de H1/H3 semántico (A1, A3), campos del formulario sin <label> visible — solo placeholder (D1), y errores tipográficos en el menú de Patentes (D1). Le siguen problemas de orientación al usuario: «Clave INAPI» no se define ni contrasta con Clave Única para quienes desconocen la diferencia (B2), el tono mezcla registro formal «su» con neutro (B6), y no hay indicación previa de campos obligatorios (C7). Los patrones sistémicos del portal se repiten: PCT sin definir (B3), mayúsculas en grupos del menú (D7), PDF sin formato declarado (F4), versión técnica en footer (A5), title con variable dinámica vacía (E4). Las fortalezas son el orden lógico del formulario (A2), la ausencia de lenguaje autopromocional (E1), y que los botones y enlaces son descriptivos (F1, F2, F5).",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Account/Login fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 2 Clarity con 209.811 visitas de referencia. De los 30 criterios aplicables, 16 se cumplen, lo que arroja un 53,3 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 14 incumplimientos y se generaron 25 filas en sustituciones[] con cobertura 1:1. Los incumplimientos de severidad alta son: ausencia de H1 semántico (A1), campos del formulario sin label visible — accesibilidad crítica para 209.811 visitas (D1), PCT sin definir en menú de Patentes (B3), ausencia de fecha de actualización (E3), y PDF de Política de privacidad sin indicar formato (F4). Los de severidad media incluyen falta de jerarquía H3 (A3), mensajes de validación en tercera persona (B1), «Clave INAPI» sin definición ni contraste con Clave Única (B2), tono formal distante en el enlace de recuperación (B6), mayúsculas en grupos del menú (D7), y title con variable dinámica vacía (E4). Por el alto volumen de tráfico, la corrección de D1 (labels accesibles) y B2 (formato RUN) tiene el mayor impacto potencial en la experiencia del usuario.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) La página no tiene H1, H2 ni H3. El card-header «Ingreso con Clave INAPI» (T061) es un div sin semántica de encabezado. El <title> tiene variable dinámica vacía («- INAPI - Sitio de Trámites»).",
+      "(B3) PCT aparece en el menú de Patentes en dos instancias (T048 y T058) sin definición en ningún punto visible de esta página.",
+      "(D1) Tres problemas: «Titulos» sin tilde (HTML-L471 y L900); <title> con guion inicial vacío; campos RUN y Contraseña sin <label> visible, identificados solo por placeholder.",
+      "(E3) Ausencia de fecha de publicación o última actualización del formulario de login visible para el usuario.",
+      "(F4) «Política de privacidad» (T087) enlaza directamente a un PDF sin indicar formato ni peso."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A3) Sin H1/H2/H3; la ausencia de jerarquía semántica impide la navegación accesible y el escaneo estructurado.",
+      "(B1) Mensaje de validación usa tercera persona nominal: «El campo RUN es obligatorio.» Enlace de recuperación usa segunda persona formal distante: «¿Olvidó su contraseña INAPI?».",
+      "(B2) «Clave INAPI» sin definición ni contraste con Clave Única. Placeholder «RUN» sin instrucción de formato esperado.",
+      "(B6) Card-header impersonal nominal («Ingreso con Clave INAPI») mezcla de registro formal «su» con tono neutro del botón «Ingresar».",
+      "(D7) Grupos del menú en mayúsculas totales: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) <title> genérico con variable dinámica vacía; no describe la función de inicio de sesión.",
+      "(F3) «OK» es anglicismo no descriptivo en el modal de alerta. «Aceptar» sin contexto de qué se acepta en el modal de confirmación."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.90.0» (T089) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(C7) Sin indicación previa de campos obligatorios; el usuario descubre los requisitos solo al intentar enviar el formulario sin completarlos."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L981",
+      "original": "(ausencia de H1 — card-header es div sin semántica)",
+      "propuesto": "<h1 class='sr-only'>Inicio de sesión — INAPI Trámites</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico antes del card para accesibilidad y orientación al usuario. La clase sr-only lo hace visualmente oculto si el diseño del card lo requiere, pero accesible para lectores de pantalla."
+    },
+    {
+      "linea": "A3-card",
+      "html_linea_aprox": "HTML-L983",
+      "original": "Ingreso con Clave INAPI",
+      "propuesto": "<h2>Inicia sesión con tu Clave INAPI</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2 para construir jerarquía semántica accesible bajo el H1 propuesto; reformular con verbo activo y tuteo directo."
+    },
+    {
+      "linea": "T089",
+      "html_linea_aprox": "HTML-L1179",
+      "original": "v 2.3.90.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema visible al usuario sin valor para la tarea de inicio de sesión; eliminar del footer público."
+    },
+    {
+      "linea": "HTML-L998",
+      "html_linea_aprox": "HTML-L998",
+      "original": "data-val-required=\"El campo RUN es obligatorio.\"",
+      "propuesto": "data-val-required=\"Ingresa tu RUN para continuar.\"",
+      "criterio_id": "B1",
+      "motivo": "El mensaje de validación usa tercera persona nominal pasiva; reformular en segunda persona directa y activa. Editar la anotación [Required] en el modelo C# del servidor."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L1032",
+      "original": "¿Olvidó su contraseña INAPI?",
+      "propuesto": "¿Olvidaste tu contraseña INAPI?",
+      "criterio_id": "B1",
+      "motivo": "Cambiar de segunda persona formal «su» a tuteo directo para tono coherente con el resto del portal."
+    },
+    {
+      "linea": "HTML-L998",
+      "html_linea_aprox": "HTML-L998",
+      "original": "placeholder=\"RUN\"",
+      "propuesto": "placeholder=\"RUN (ej. 12345678-9)\"",
+      "criterio_id": "B2",
+      "motivo": "El placeholder no indica el formato esperado del RUN; agregar ejemplo para reducir errores de ingreso entre los 209.811 visitantes."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L983",
+      "original": "Ingreso con Clave INAPI",
+      "propuesto": "Inicia sesión con tu Clave INAPI",
+      "criterio_id": "B2",
+      "motivo": "El card-header nominal no explica la diferencia con Clave Única ni orienta al usuario; reformular con verbo activo que indica la acción y el método."
+    },
+    {
+      "linea": "T048",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera aparición de PCT en la página; expandir la sigla en su primera mención visible para el usuario."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir también para garantizar comprensión independientemente del orden de lectura del menú, ya que T048 y T058 pueden leerse en secuencias distintas."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L983",
+      "original": "Ingreso con Clave INAPI",
+      "propuesto": "Inicia sesión con tu Clave INAPI",
+      "criterio_id": "B6",
+      "motivo": "El sustantivo nominal impersonal «Ingreso con» no se dirige al usuario; reformular con verbo activo en segunda persona directa para tono cercano."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L1032",
+      "original": "¿Olvidó su contraseña INAPI?",
+      "propuesto": "¿Olvidaste tu contraseña INAPI?",
+      "criterio_id": "B6",
+      "motivo": "El posesivo «su» (usted formal) es inconsistente con el tono directo del botón «Ingresar»; usar tuteo para tono uniforme."
+    },
+    {
+      "linea": "C7-req",
+      "html_linea_aprox": "HTML-L989",
+      "original": "(ausencia de indicación de campos obligatorios)",
+      "propuesto": "Los campos RUN y Contraseña son obligatorios.",
+      "criterio_id": "C7",
+      "motivo": "Insertar nota de campos obligatorios dentro del card-body antes del primer campo; el usuario actualmente los descubre solo al intentar enviar sin completarlos."
+    },
+    {
+      "linea": "T056",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T056-mobile",
+      "html_linea_aprox": "HTML-L900",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L900); corregir junto con HTML-L471."
+    },
+    {
+      "linea": "D1-label-run",
+      "html_linea_aprox": "HTML-L993",
+      "original": "(ausencia de <label> visible para el campo RUN)",
+      "propuesto": "<label for=\"RUN\">RUN</label>",
+      "criterio_id": "D1",
+      "motivo": "El campo RUN no tiene <label> visible; los usuarios de tecnologías asistivas solo ven el placeholder, que desaparece al escribir. Insertar dentro del div.form-group antes del input-group."
+    },
+    {
+      "linea": "D1-label-pw",
+      "html_linea_aprox": "HTML-L1002",
+      "original": "(ausencia de <label> visible para el campo Contraseña)",
+      "propuesto": "<label for=\"Password\">Contraseña</label>",
+      "criterio_id": "D1",
+      "motivo": "El campo Contraseña no tiene <label> visible; mismo problema de accesibilidad que el RUN. Insertar dentro del div.form-group antes del input-group."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando la mayúscula institucional de «INAPI»."
+    },
+    {
+      "linea": "T011",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T019",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L983",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible en el card-header o al inicio del card-body; actualmente no existe en esta página de alto tráfico."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "- INAPI - Sitio de Trámites",
+      "propuesto": "INAPI — Inicio de sesión: Clave INAPI y Clave Única",
+      "criterio_id": "E4",
+      "motivo": "El <title> tiene guion inicial por variable dinámica vacía y no describe la función específica de esta pantalla; asignar ViewBag.Title = «Inicio de sesión» en AccountController.Login()."
+    },
+    {
+      "linea": "T064",
+      "html_linea_aprox": "HTML-L1057",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» es anglicismo no descriptivo de la acción en el modal de alerta; «Cerrar» es más claro en español. Nota: este modal está en _Layout.cshtml — el cambio es transversal a todas las páginas del portal."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1099",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» en el modal de confirmación no indica qué se acepta; «Confirmar» es más descriptivo. Coordinar con TIC — este modal está en _Layout.cshtml."
+    },
+    {
+      "linea": "T087",
+      "html_linea_aprox": "HTML-L1163",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso; agregar indicación de tipo de archivo."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Account/Login: (1) hacer backup antes de cualquier cambio; (2) las correcciones A1/A3 (H1/H2 semánticos), E3 (fecha), C7 (nota de campos obligatorios) y D1 (labels) requieren editar la vista Razor de AccountController.Login — buscar el archivo Account/Login.cshtml o Views/Account/Login.cshtml en el proyecto ASP.NET MVC; (3) los <label> para RUN y Contraseña (D1) deben insertarse dentro de cada <div class=\"form-group\"> antes del <div class=\"input-group\">, con el atributo for apuntando al id del input (RUN y Password respectivamente); (4) el mensaje de validación data-val-required (HTML-L998) se origina en la anotación [Required(ErrorMessage = \"...\")] del modelo C# — cambiar el texto ahí, no en el HTML generado; (5) el error «Titulos» (HTML-L471 y HTML-L900) aparece en dos nodos del layout de navegación — corregir en el componente compartido que genera el menú de Patentes (desktop y mobile); (6) el <title> (HTML-L31) se genera desde ViewBag.Title en el _Layout.cshtml del portal — asignar ViewBag.Title = \"Inicio de sesión\" en la acción AccountController.Login(); (7) los botones «OK» (HTML-L1057) y «Aceptar» (HTML-L1099) de los modales Bootstrap están en la vista compartida _Layout.cshtml — el cambio es transversal a todas las páginas del portal; coordinar con TIC para aplicarlo de forma controlada; (8) el HTML extraído proviene de un source-view del navegador (formato tabla con line-number/line-content); las líneas reales del HTML de tramites.inapi.cl corresponden a las 1312 líneas extraídas de ese formato; (9) el HTML puede contener entidades como &#243; (ó), &#225; (á) en la versión compilada — buscar las cadenas literales en los archivos .cshtml fuente antes de editar."
+}

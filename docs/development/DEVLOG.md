@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-11 | [Estrategia: Serie Clarity — JSON ranks 1–3 y 21, prompts §3.5 y esquema `clarity_meta`](#devlog-2026-06-11-serie-clarity-json) |
 | 2026-06-08 | [Documentación: sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel](#devlog-2026-06-08-docs-fase-1-5) |
 | 2026-06-07 | [Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`](#devlog-2026-06-07-piloto-cierre-9-urls) |
 | 2026-06-07 | [Frontend: Piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`](#devlog-2026-06-07-piloto-json-claude) |
@@ -38,6 +39,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
 
 ---
+
+<a id="devlog-2026-06-11-serie-clarity-json"></a>
+
+## [2026-06-11] - Estrategia | Serie Clarity: auditorías JSON ranks 1–3 y 21 (día en PC empresa)
+
+### Contexto y objetivos:
+
+Continuar la **Fase 1.5** ampliando el piloto de 9 URLs hacia el **inventario Clarity de 22 URLs** (`/auditar`, acordeón Historial). Objetivo del día (PC empresa, sin WSL): generar JSON canónicos vía Proyecto Claude con el **mismo contrato** del piloto (7 bloques en `/auditar/resultado`), en carpeta `data/claude-audits/urls-clarity/`, sin cableado de frontend (pendiente en casa). Rama: `feature/clarity-22-urls-auditorias-claude-json`.
+
+### Implementación técnica:
+
+**Documentación:**
+
+- [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — nueva **§3.5** (prompts §3.5.1 entrada y §3.5.2 salida para Clarity), checklist serie 22 URLs, mapeo `clarity_meta` en §6.
+
+**Esquema:**
+
+- [`src/schemas/claude-audit-pilot.ts`](../../src/schemas/claude-audit-pilot.ts) — `clarityAuditMetaSchema`, extensión opcional `clarity_meta` en `parseClaudeAuditFile` (rank, visitas, etiquetas UI, `fuente_piloto_id`).
+
+**JSON en `data/claude-audits/urls-clarity/` (4 archivos):**
+
+| Rank | URL | `id` | Origen | % LC |
+| --- | --- | --- | --- | --- |
+| 1 | `https://tramites.inapi.cl/` | `tramites-inapi-cl_2026-06-11`
 
 <a id="devlog-2026-06-08-docs-fase-1-5"></a>
 
