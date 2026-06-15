@@ -12,7 +12,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { clarityFichaHref } from "@/lib/clarity-ficha-path"
+import { formatFechaEvaluacion } from "@/components/resultado-claude-pilot-sections"
+import {
+  clarityLaunchByRank,
+  clarityRowDisponibleEnMvp,
+  resultadoClarityHref,
+} from "@/lib/clarity-audits-launch"
+import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
 import {
   CLARITY_INVENTORY_ROWS,
   type ClarityInventoryRow,
@@ -174,13 +180,14 @@ export function ClarityInventoryHistorialTable() {
               % LC
             </TableHead>
             <TableHead className="whitespace-nowrap">Estado</TableHead>
+            <TableHead className="whitespace-nowrap">Informe</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {filas.length === 0 ? (
             <TableRow>
               <TableCell
-                colSpan={9}
+                colSpan={10}
                 className="py-8 text-center text-muted-foreground text-sm"
               >
                 Ninguna URL coincide con los filtros seleccionados.
@@ -198,33 +205,69 @@ export function ClarityInventoryHistorialTable() {
 }
 
 function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
-  const bucket = resolveLcAceptacionBucket({
-    porcentajeLcRef: row.porcentajeLcRef,
-    estadoLcRef: row.estadoRef,
-  })
-  const pct = parsePorcentajeLcRef(row.porcentajeLcRef)
+  const launch = clarityLaunchByRank(row.rank)
+  const href = launch ? resultadoClarityHref(launch) : null
+  const resumen = launch?.resumenMvp
+
+  const porcentajeLc = resumen
+    ? `${resumen.porcentajeLc} %`
+    : row.porcentajeLcRef
+  const pct = resumen ? resumen.porcentajeLc : parsePorcentajeLcRef(row.porcentajeLcRef)
+
+  const bucket = resumen
+    ? resumen.estadoAceptacion
+    : resolveLcAceptacionBucket({
+        porcentajeLcRef: row.porcentajeLcRef,
+        estadoLcRef: row.estadoRef,
+      })
+
+  const estadoEtiqueta = resumen
+    ? ETIQUETA_ESTADO_ACEPTACION[resumen.estadoAceptacion]
+    : row.estadoRef
+
+  const ultimaRevision = resumen
+    ? formatFechaEvaluacion(resumen.fechaEvaluacionIso)
+    : row.ultimaRevisionRef
 
   return (
     <TableRow
-      className={inventoryRowClassFromLcAceptacionBucket(bucket)}
+      className={cn(
+        inventoryRowClassFromLcAceptacionBucket(bucket),
+        href && "cursor-pointer hover:bg-muted/40 focus-within:bg-muted/40",
+      )}
     >
       <TableCell className="font-medium tabular-nums">
-        <Link
-          href={clarityFichaHref(row.rank)}
-          className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={`Ver ficha de la URL, posición ${row.rank}`}
-        >
-          {row.rank}
-        </Link>
+        {href ? (
+          <Link
+            href={href}
+            className="font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label={`Ver informe LC, posición ${row.rank}`}
+          >
+            {row.rank}
+          </Link>
+        ) : (
+          row.rank
+        )}
       </TableCell>
       <TableCell className="max-w-[min(100vw,28rem)] wrap-break-word">
-        <Link
-          href={clarityFichaHref(row.rank)}
-          className="text-foreground underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label={`Ver ficha: ${row.rutaEtiqueta}, posición ${row.rank}`}
-        >
-          {row.rutaEtiqueta}
-        </Link>
+        {href ? (
+          <Link
+            href={href}
+            className="text-sm font-medium leading-snug text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label={`Ver informe: ${row.rutaEtiqueta}, posición ${row.rank}`}
+          >
+            {row.rutaEtiqueta}
+          </Link>
+        ) : (
+          <span className="text-sm font-medium leading-snug text-foreground">
+            {row.rutaEtiqueta}
+          </span>
+        )}
+        {launch ? (
+          <p className="mt-0.5 break-all text-xs text-muted-foreground">
+            {launch.url}
+          </p>
+        ) : null}
       </TableCell>
       <TableCell className="whitespace-nowrap text-sm">
         {row.type_url === "tramites" ? "Trámites" : "Sitio Web"}
@@ -234,16 +277,25 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
       <TableCell className="text-right tabular-nums font-medium">
         {row.auditoriasRef}
       </TableCell>
-      <TableCell className="text-right tabular-nums font-medium">
-        {row.ultimaRevisionRef}
+      <TableCell className="text-right tabular-nums font-medium whitespace-nowrap">
+        {ultimaRevision}
       </TableCell>
       <TableCell
-        className={cn("text-right", porcentajeLcAceptacionTextClass(pct))}
+        className={cn("text-right tabular-nums", porcentajeLcAceptacionTextClass(pct))}
       >
-        {row.porcentajeLcRef}
+        {porcentajeLc}
       </TableCell>
       <TableCell>
-        <CeldaEstadoLcAceptacion bucket={bucket} etiqueta={row.estadoRef} />
+        <CeldaEstadoLcAceptacion bucket={bucket} etiqueta={estadoEtiqueta} />
+      </TableCell>
+      <TableCell>
+        {href && launch && clarityRowDisponibleEnMvp(launch) ? (
+          <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
+            Disponible
+          </span>
+        ) : (
+          <span className="text-xs text-muted-foreground">Pendiente</span>
+        )}
       </TableCell>
     </TableRow>
   )

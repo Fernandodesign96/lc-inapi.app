@@ -1,0 +1,563 @@
+{
+  "id": "tramites-inapi-cl-notificaciones_2026-06-11",
+  "url": "https://tramites.inapi.cl/Notificaciones",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 4,
+    "nombre_ui": "Notificaciones Marcas",
+    "ruta_etiqueta": "Notificaciones Marcas",
+    "visitas_ref": "79.775",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Pantalla de consulta de notificaciones electrónicas de marcas en el sitio de trámites."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Trámites y Servicios» | T004 [HTML-L31]: «Notificaciones Electrónicas» (parte del title) | T005 [HTML-L116]: «Marcas» (navbar activo) | T006 [HTML-L129]: «MI INAPI» | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (navbar) | T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L906) | T058 [HTML-L489]: «Documentación Mínima PCT» | T059 [HTML-L170]: «Home» | T060 [HTML-L507]: «Perfil [Nombre usuario]» | T061 [HTML-L511]: «Cerrar Sesión» | T063 [HTML-L1055]: «Notificaciones Electrónicas de Marcas» (card-header div, no H) | T064 [HTML-L1063]: «Mostrar filtros de búsqueda» (enlace colapsable) | T065 [HTML-L1069]: «En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)» (falta espacio antes del paréntesis) | T066 [HTML-L1076]: «Número de Solicitud» (label) | T067 [HTML-L1085]: «Fecha de notificación» (label) | T068 [HTML-L1095]: «Titular/Solicitante» (label) | T069 [HTML-L1107]: «RUN Notificado:» | T070 [HTML-L1107]: «[RUN usuario]» (dato del usuario autenticado — anonimizado en repo) | T071 [HTML-L1111]: «Nombre:» | T072 [HTML-L1111]: «[Nombre usuario]» (nombre del usuario autenticado — anonimizado en repo) | T073 [HTML-L1115]: «Última actualización de notificaciones:» | T074 [HTML-L1115]: «11/06/2026 08:00:00 a. m.» (fecha del sistema, no de la página) | T075 [HTML-L1119]: «Ver Estado Diario Marcas» (botón) | T076 [HTML-L1143]: «Resultados» (leyenda fieldset) | T077 [HTML-L1146]: «No se encontraron resultados.» (mensaje vacío grilla) | T079 [HTML-L1184]: «Advertencia» (H5 modal — se muestra automáticamente al cargar) | T080 [HTML-L1191]: «Las notificaciones electrónicas disponibles como cortesía  en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan la notificación legal, la cual se realiza por el estado diario (Art. 13 de la Ley 19.039).» (doble espacio antes de «en») | T081 [HTML-L1195]: «La Ley obliga a notificar electrónicamente solo la demanda de oposición, la observación de fondo y la resolución que acepta el registro solicitado. Para otras resoluciones, el interesado debe revisar siempre los estados diarios.» | T082–T084 [HTML-L1200]: «Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13.» | T085 [HTML-L1205]: «OK» (botón modal Advertencia) | T086 [HTML-L1361]: «Aceptar» | T087 [HTML-L1362]: «Cancelar» | T108 [HTML-L1425]: «Política de privacidad» (→ PDF) | T109–T110 [HTML-L1440–1441]: «©2026 INAPI. Todos los derechos reservados» / «v 2.3.90.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página no tiene H1, H2 ni H3. El card-header «Notificaciones Electrónicas de Marcas» (T063) es texto plano en un div, sin semántica de encabezado. Las tabs de Marcas y Patentes son enlaces sin encabezado. El <title> usa guiones simples.",
+      "cita_textual": "T063 [HTML-L1055]: «Notificaciones Electrónicas de Marcas» (div.card-header, no H) / (ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T065 intenta una frase introductoria pero es imprecisa e impersonal: no explica qué son las notificaciones electrónicas ni su diferencia con la notificación legal. El fallo tipográfico INAPI(Marcas) refuerza la sensación de texto poco cuidado.",
+      "cita_textual": "T065 [HTML-L1069]: «En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Sin H1, H2 ni H3. Las tabs de navegación Marcas/Patentes son <a> sin encabezado. El fieldset «Resultados» usa <legend> sin H. Ninguna sección tiene jerarquía semántica accesible.",
+      "cita_textual": "(ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "El modal de Advertencia tiene tres párrafos de menos de 60 palabras cada uno. Los textos del formulario son breves y la leyenda del fieldset es concisa."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "«v 2.3.90.0» (T110, HTML-L1441) es versión técnica del sistema sin valor para el usuario.",
+      "cita_textual": "T110 [HTML-L1441]: «v 2.3.90.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "T065 usa voz impersonal sin sujeto: «puede revisar» (¿quién?). T080 usa voz pasiva: «la cual se realiza por el estado diario». T081 usa tercera persona distante: «el interesado debe revisar siempre».",
+      "cita_textual": "T065 [HTML-L1069]: «En esta pantalla puede revisar» / T080 [HTML-L1191]: «la cual se realiza por el estado diario» / T081 [HTML-L1195]: «el interesado debe revisar»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Notificaciones electrónicas» no se define en la pantalla para usuarios que no conocen el concepto. «Estado diario» es término técnico PI sin glosa. «Resolución Exenta 138» es nomenclatura interna sin contexto. PCT en el menú de Patentes sin definición.",
+      "cita_textual": "T063 [HTML-L1055]: «Notificaciones Electrónicas de Marcas» (sin definición previa) / T081 [HTML-L1197]: «estados diarios» (sin glosa)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece en T048 y T058 del menú de Patentes sin definición en ningún punto visible de esta página.",
+      "cita_textual": "T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T058 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos significativos en el contenido editorial propio de la página."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los botones «Buscar», «Limpiar», «Ver Estado Diario Marcas» están en formulación positiva.",
+      "cita_textual": "T075 [HTML-L1119]: «Ver Estado Diario Marcas»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T065 usa «puede» impersonal sin dirigirse al usuario. T081 usa «el interesado» en tercera persona masculino no inclusivo ni directo.",
+      "cita_textual": "T065 [HTML-L1069]: «puede revisar» (impersonal) / T081 [HTML-L1195]: «el interesado»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "T082–T084: «Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13» — nomenclatura interna burocrática sin contexto accionable para el ciudadano.",
+      "cita_textual": "T082–T084 [HTML-L1200]: «Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13.»"
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T080 antepone un sujeto enumerado de 13 palabras antes del verbo principal «no reemplazan». T081 encadena tres complementos antes de llegar a la acción del usuario.",
+      "cita_textual": "T080 [HTML-L1191]: «Las notificaciones electrónicas disponibles como cortesía en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan…»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los textos del modal usan presente indicativo correcto: «no reemplazan», «obliga», «debe revisar». Las etiquetas del formulario son nominales, apropiado para formularios."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T080 es una oración de ≈40 palabras con cláusula relativa interpolada entre el sujeto enumerado y el verbo principal; podría dividirse en dos oraciones simples.",
+      "cita_textual": "T080 [HTML-L1191–1192]: oración de ≈40 palabras con cláusula relativa interpolada"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada sección tiene un propósito único: filtros de búsqueda, grilla de resultados, datos del usuario, modal de advertencia legal."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos del modal de Advertencia tienen menos de 4 líneas cada uno. Los textos del formulario son etiquetas breves."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene 4 o más párrafos continuos editoriales. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El campo «Número de Solicitud» no tiene ejemplo de formato. El mensaje de validación del campo fecha expone el nombre técnico interno «CreationDateF» al usuario en lugar de una etiqueta descriptiva en español.",
+      "cita_textual": "HTML-L1087: data-val-date «El campo CreationDateF debe ser una fecha.» (nombre técnico expuesto)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Cuatro errores: (1) «Titulos y Certificados Patentes» (HTML-L471 y L906) — falta tilde en «Títulos»; (2) title con guiones simples en lugar de em dash; (3) T065: «INAPI(Marcas)» — falta espacio antes del paréntesis; (4) T080: doble espacio entre «cortesía» y «en» (HTML-L1191).",
+      "cita_textual": "T056 [HTML-L471]: «Titulos y Certificados Patentes» / T065 [HTML-L1069]: «INAPI(Marcas)» / T080 [HTML-L1191]: «cortesía  en» (doble espacio)"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación general de los párrafos del modal y los textos del formulario es correcta, con las excepciones tratadas en D1."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li> correctamente."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave. Los párrafos del modal son breves."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T006), TRAMITACIÓN (T011), PAGOS (T019), SERVICIOS (T024).",
+      "cita_textual": "T006 [HTML-L129]: «MI INAPI» / T011 [HTML-L159]: «TRAMITACIÓN» / T019 [HTML-L207]: «PAGOS» / T024 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales en el contenido editorial."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, en el card-header y en el copyright.",
+      "cita_textual": "T109 [HTML-L1440]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de actualización de la página visible. La fecha «Última actualización de notificaciones: 11/06/2026 08:00:00 a. m.» (T073–T074) es la fecha del sistema de notificaciones del usuario logueado, no de la URL. El copyright ©2026 tampoco equivale.",
+      "cita_textual": "T073–T074 [HTML-L1115]: «Última actualización de notificaciones: 11/06/2026 08:00:00 a. m.» (fecha del sistema de notificaciones, no de la página) / (ausencia de fecha de actualización de la URL)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «Notificaciones Electrónicas - INAPI - Sitio de Trámites» con guiones simples y sin distinguir entre Marcas y Patentes — la pantalla sirve para ambas mediante tabs.",
+      "cita_textual": "HTML-L31: «Notificaciones Electrónicas - INAPI - Sitio de Trámites» (guiones simples; ambiguo entre Marcas y Patentes)"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El botón «Ver Estado Diario Marcas» (T075) usa el singular «Estado Diario» mientras la URL destino es «EstadosDiariosMarcas» (plural). El enlace «Resolución Exenta 138» (T083) lleva a un PDF sin indicarlo en el texto del enlace.",
+      "cita_textual": "T075 [HTML-L1119]: «Ver Estado Diario Marcas» (singular) vs URL: «EstadosDiariosMarcas» (plural) / T083 [HTML-L1200]: «Resolución Exenta 138» → PDF sin indicar"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "Los botones principales son descriptivos: «Buscar», «Limpiar», «Ver Estado Diario Marcas». Sin textos genéricos del tipo «Haz clic aquí»."
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«OK» (T085, HTML-L1205) en el modal de Advertencia es anglicismo no descriptivo de la acción. «Aceptar» (T086, HTML-L1361) en el modal de confirmación no indica qué se acepta.",
+      "cita_textual": "T085 [HTML-L1205]: «OK» / T086 [HTML-L1361]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Política de privacidad» (T108, HTML-L1425) enlaza directamente a un PDF sin indicar formato. «Resolución Exenta 138» (T083, HTML-L1200) también enlaza a un PDF sin indicar formato ni peso.",
+      "cita_textual": "T108 [HTML-L1425]: «Política de privacidad» → PDF sin formato / T083 [HTML-L1200]: «Resolución Exenta 138» → PDF sin indicar"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Buscar» y «Limpiar» están al final del formulario. Los botones de los modales están al pie de cada modal.",
+      "cita_textual": "HTML-L1127: «Buscar» / HTML-L1128: «Limpiar»"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El RUN y el nombre completo del usuario autenticado aparecen en el HTML estático capturado con Ctrl+U (HTML-L1107 y L1111 respectivamente). Son datos personales de persona natural que se exponen en el source view sin protección adicional. Los datos deberían cargarse exclusivamente mediante llamadas Ajax autenticadas, no embebidos en el HTML generado por el servidor. Nota: los valores reales han sido anonimizados en este documento de repo como «[RUN usuario]» y «[Nombre usuario]».",
+      "cita_textual": "HTML-L1107: «RUN Notificado: [RUN usuario]» (dato de persona natural visible en HTML estático) / HTML-L1111: «Nombre: [Nombre usuario]» (nombre real en HTML estático)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T108) en el footer implica información ARCO disponible.",
+      "cita_textual": "T108 [HTML-L1425]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T109). Existe «Uso de los Contenidos de este Sitio» (T106).",
+      "cita_textual": "T109 [HTML-L1440]: «©2026 INAPI. Todos los derechos reservados» / T106 [HTML-L1423]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 5,
+  "criterios_aplicables": 34,
+  "criterios_aprobados": 14,
+  "porcentaje_cumplimiento": 41.2,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 20 incumplimientos sobre 34 criterios aplicables (41,2 %) para esta pantalla de 79.775 visitas. Las correcciones de mayor impacto son: (1) insertar H1 semántico: «Notificaciones Electrónicas de Marcas» (A1); (2) resolver G1 crítico: los datos personales del usuario (RUN y nombre) se embeben en el HTML estático — cargar solo mediante Ajax autenticado, nunca en el HTML renderizado por el servidor (G1); (3) reformular T065 para explicar el propósito y la limitación legal en tono directo: «Aquí puedes revisar las notificaciones que INAPI te ha enviado sobre tus trámites de marcas. Estas son de cortesía y no reemplazan la notificación legal» (A2, B1, B6); (4) simplificar T080 en dos oraciones: «Las notificaciones electrónicas de esta plataforma son de cortesía. No reemplazan la notificación legal, que se realiza por el estado diario (Art. 13 de la Ley 19.039).» (C1, C3); (5) corregir cuatro errores tipográficos: «Titulos» → «Títulos» en menú desktop (L471) y mobile (L906), «INAPI(Marcas)» → «INAPI (Marcas)», y eliminar el doble espacio en T080 (D1); (6) expandir PCT en el menú de Patentes (B3); (7) cambiar «OK» → «Entendido» y «Aceptar» → «Confirmar» en modales (F3); (8) indicar formato PDF en «Política de privacidad» y «Resolución Exenta 138» (F4); (9) agregar fecha de actualización de la URL (E3); (10) actualizar title: «Notificaciones Electrónicas de Marcas — INAPI — Sitio de Trámites» (E4); (11) normalizar mayúsculas en los grupos del menú (D7). El array sustituciones[] contiene 33 filas con cobertura 1:1 para los 20 criterios incumplidos.",
+  "observaciones_lc": "La pantalla de Notificaciones Electrónicas de Marcas obtiene un 41,2 % de cumplimiento sobre 34 criterios aplicables — RECHAZADO, rank 4 Clarity con 79.775 visitas. El hallazgo más crítico es G1: el RUN y el nombre completo del usuario autenticado aparecen en el HTML estático capturado con Ctrl+U — datos personales de persona natural expuestos en el source view. A esto se suman 7 incumplimientos de severidad alta: sin H1/H2/H3 (A1), voz pasiva e impersonal en el párrafo introductorio y el modal de Advertencia (B1), «notificaciones electrónicas» y «estado diario» sin definición contextual (B2), PCT sin expandir (B3), cuatro errores tipográficos en distintas secciones (D1), sin fecha de actualización de la URL (E3), y dos PDFs sin indicar formato (F4). Los 9 incumplimientos de severidad media incluyen la falta de introducción explicativa del propósito de la pantalla (A2, A3), el uso de «el interesado» en tercera persona (B6), la oración densa del modal Advertencia (C1, C3), mayúsculas en grupos del menú (D7), title ambiguo entre Marcas y Patentes (E4), inconsistencia singular/plural en el botón de estado diario (F1), y botones no descriptivos en modales (F3). El modal de Advertencia (T079–T085) es valioso — aparece automáticamente al cargar — pero su tono formal distante y el anglicismo «OK» restan efectividad.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Notificaciones fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 4 Clarity con 79.775 visitas. De los 34 criterios aplicables, 14 se cumplen, lo que arroja un 41,2 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 20 incumplimientos y se generaron 33 filas en sustituciones[] con cobertura 1:1. El hallazgo de mayor gravedad es G1: el RUN y el nombre completo del usuario autenticado se exponen en el HTML estático capturado con Ctrl+U, vulnerando la protección de datos personales — los datos deben cargarse exclusivamente mediante Ajax autenticado. Los demás incumplimientos de severidad alta son: ausencia de H1 semántico (A1), voz pasiva e impersonal en textos de la pantalla (B1), terminología técnica sin definición («notificaciones electrónicas», «estado diario», PCT) (B2, B3), cuatro errores tipográficos incluyendo «Titulos» sin tilde (D1), ausencia de fecha de actualización de la URL (E3), y dos PDFs sin indicar formato (F4).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1, H2 ni H3. El card-header «Notificaciones Electrónicas de Marcas» (T063) es un div sin semántica de encabezado. Title con guiones simples.",
+      "(B1) T065 usa voz impersonal sin sujeto: «puede revisar». T080 usa voz pasiva: «la cual se realiza por el estado diario». T081 usa tercera persona distante: «el interesado debe revisar siempre».",
+      "(B2) «Notificaciones electrónicas» sin definición para usuarios nuevos. «Estado diario» sin glosa. «Resolución Exenta 138» sin contexto accionable. PCT en menú de Patentes sin definición.",
+      "(B3) PCT en dos instancias del menú de Patentes (T048 y T058) sin definición.",
+      "(D1) Cuatro errores: «Titulos y Certificados Patentes» sin tilde (HTML-L471 y L906); title con guiones simples; «INAPI(Marcas)» sin espacio en T065; doble espacio «cortesía  en» en T080.",
+      "(E3) Sin fecha de actualización de la página URL. La fecha visible (T073–T074) corresponde al sistema de notificaciones del usuario, no a la URL.",
+      "(F4) «Política de privacidad» (T108) y «Resolución Exenta 138» (T083) enlazan a PDFs sin indicar formato ni peso.",
+      "(G1) El RUN y el nombre completo del usuario autenticado aparecen en el HTML estático capturado con Ctrl+U — datos personales de persona natural expuestos en el source view. Deben cargarse solo mediante Ajax autenticado."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) T065 no explica qué son las notificaciones electrónicas ni cómo se diferencian de la notificación legal para usuarios nuevos.",
+      "(A3) Sin H1/H2/H3; tabs de Marcas/Patentes sin encabezado semántico; fieldset «Resultados» sin jerarquía.",
+      "(B6) T065 usa «puede» impersonal; T081 usa «el interesado» en tercera persona masculino no inclusivo.",
+      "(C1) T080 tiene sujeto enumerado de 13 palabras antes del verbo «no reemplazan».",
+      "(C3) T080 es una oración de ≈40 palabras con cláusula relativa interpolada entre sujeto y verbo.",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) Title con guiones simples; no distingue entre notificaciones de Marcas y de Patentes.",
+      "(F1) «Ver Estado Diario Marcas» en singular vs URL destino en plural «EstadosDiariosMarcas». «Resolución Exenta 138» enlaza a PDF sin indicar en el texto del enlace.",
+      "(F3) «OK» (anglicismo) en modal Advertencia. «Aceptar» sin contexto en modal de confirmación."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.90.0» (T110) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(B7) «Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13» — nomenclatura interna burocrática sin contexto accionable.",
+      "(C7) Campo «Número de Solicitud» sin ejemplo de formato. Validación del campo fecha expone el nombre técnico «CreationDateF» al usuario."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L1052",
+      "original": "(ausencia de H1 — card-header es div sin semántica)",
+      "propuesto": "<h1 class='sr-only'>Notificaciones Electrónicas de Marcas</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor principal; sr-only si el diseño del card lo requiere, pero accesible para lectores de pantalla."
+    },
+    {
+      "linea": "A3-card",
+      "html_linea_aprox": "HTML-L1055",
+      "original": "Notificaciones Electrónicas de Marcas",
+      "propuesto": "<h2>Notificaciones Electrónicas de Marcas</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2 para construir jerarquía semántica accesible bajo el H1 propuesto."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1069",
+      "original": "En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)",
+      "propuesto": "Aquí puedes revisar las notificaciones que INAPI te ha enviado sobre tus trámites de marcas. Estas notificaciones son de cortesía y no reemplazan la notificación legal.",
+      "criterio_id": "A2",
+      "motivo": "Reformular la introducción para explicar el propósito y la limitación legal en tono directo y tuteo; corregir INAPI(Marcas) y el tono impersonal."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1069",
+      "original": "En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)",
+      "propuesto": "Aquí puedes revisar las notificaciones que INAPI te ha enviado sobre tus trámites de marcas.",
+      "criterio_id": "B1",
+      "motivo": "Elimina «puede revisar» impersonal sin sujeto; usa segunda persona directa con tuteo."
+    },
+    {
+      "linea": "T080",
+      "html_linea_aprox": "HTML-L1191",
+      "original": "la cual se realiza por el estado diario",
+      "propuesto": "que INAPI realiza por el estado diario",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la voz pasiva «se realiza» por voz activa «realiza INAPI»."
+    },
+    {
+      "linea": "T081",
+      "html_linea_aprox": "HTML-L1195",
+      "original": "el interesado debe revisar siempre los estados diarios disponibles en",
+      "propuesto": "debes revisar siempre los estados diarios disponibles en",
+      "criterio_id": "B1",
+      "motivo": "Elimina «el interesado» (tercera persona distante) y usa segunda persona directa."
+    },
+    {
+      "linea": "T063",
+      "html_linea_aprox": "HTML-L1055",
+      "original": "Notificaciones Electrónicas de Marcas",
+      "propuesto": "Notificaciones Electrónicas de Marcas — avisos sobre tus trámites enviados por INAPI (de cortesía, no reemplazan la notificación legal)",
+      "criterio_id": "B2",
+      "motivo": "Agregar glosa descriptiva en el card-header para que el usuario comprenda qué son las notificaciones electrónicas y su alcance legal sin necesidad de abrir el modal de Advertencia."
+    },
+    {
+      "linea": "T048",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú; expandir la sigla en su primera mención visible."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para garantizar comprensión independiente del orden de lectura del menú."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1069",
+      "original": "En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)",
+      "propuesto": "Aquí puedes revisar las notificaciones que INAPI te ha enviado sobre tus trámites de marcas.",
+      "criterio_id": "B6",
+      "motivo": "T065 usa «puede» impersonal sin dirigirse al usuario; cambiar a tuteo directo consistente con el portal."
+    },
+    {
+      "linea": "T081",
+      "html_linea_aprox": "HTML-L1195",
+      "original": "el interesado debe revisar siempre los estados diarios",
+      "propuesto": "debes revisar siempre los estados diarios",
+      "criterio_id": "B6",
+      "motivo": "«El interesado» es tercera persona masculino no inclusivo; reformular en segunda persona directa."
+    },
+    {
+      "linea": "T082-T084",
+      "html_linea_aprox": "HTML-L1200",
+      "original": "Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13.",
+      "propuesto": "Para más información, consulta la Resolución Exenta 138 de INAPI (numerales 11 a 13) sobre tramitación electrónica.",
+      "criterio_id": "B7",
+      "motivo": "Simplifica la nomenclatura burocrática; elimina el título completo del instructivo sin contexto accionable para el ciudadano."
+    },
+    {
+      "linea": "T080",
+      "html_linea_aprox": "HTML-L1191",
+      "original": "Las notificaciones electrónicas disponibles como cortesía  en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan la notificación legal, la cual se realiza por el estado diario (Art. 13 de la Ley 19.039).",
+      "propuesto": "Las notificaciones electrónicas de esta plataforma son de cortesía. No reemplazan la notificación legal, que INAPI realiza por el estado diario (Art. 13 de la Ley 19.039).",
+      "criterio_id": "C1",
+      "motivo": "Divide la oración; coloca el verbo principal al inicio de la segunda oración para seguir orden SVP; elimina el sujeto enumerado de 13 palabras antes del verbo."
+    },
+    {
+      "linea": "T080",
+      "html_linea_aprox": "HTML-L1191",
+      "original": "Las notificaciones electrónicas disponibles como cortesía  en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan la notificación legal, la cual se realiza por el estado diario (Art. 13 de la Ley 19.039).",
+      "propuesto": "Las notificaciones electrónicas de esta plataforma son de cortesía. No reemplazan la notificación legal, que INAPI realiza por el estado diario (Art. 13 de la Ley 19.039).",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de ≈40 palabras con cláusula relativa interpolada en dos oraciones simples para facilitar la lectura."
+    },
+    {
+      "linea": "HTML-L1087",
+      "html_linea_aprox": "HTML-L1087",
+      "original": "El campo CreationDateF debe ser una fecha.",
+      "propuesto": "El campo Fecha de fin debe ser una fecha válida.",
+      "criterio_id": "C7",
+      "motivo": "El mensaje de validación expone el nombre técnico interno «CreationDateF»; reemplazar por etiqueta descriptiva en español. Editar en la anotación de validación del modelo C#."
+    },
+    {
+      "linea": "T056",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T056-mobile",
+      "html_linea_aprox": "HTML-L906",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L906); corregir junto con HTML-L471."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1069",
+      "original": "INAPI(Marcas)",
+      "propuesto": "INAPI (Marcas)",
+      "criterio_id": "D1",
+      "motivo": "Falta espacio entre «INAPI» y «(Marcas)» — error tipográfico en el párrafo introductorio."
+    },
+    {
+      "linea": "T080",
+      "html_linea_aprox": "HTML-L1191",
+      "original": "cortesía  en esta plataforma",
+      "propuesto": "cortesía en esta plataforma",
+      "criterio_id": "D1",
+      "motivo": "Doble espacio entre «cortesía» y «en» — error tipográfico en el modal de Advertencia."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI» en mayúsculas."
+    },
+    {
+      "linea": "T011",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar capitalización."
+    },
+    {
+      "linea": "T019",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1055",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización de la página: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización de la URL en el card-header o bajo el H1 propuesto; la fecha T073–T074 es del sistema de notificaciones del usuario, no de la página."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Notificaciones Electrónicas - INAPI - Sitio de Trámites",
+      "propuesto": "Notificaciones Electrónicas de Marcas — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples por em dash; agregar «de Marcas» para distinguir de las notificaciones de Patentes cuando el usuario cambia de tab."
+    },
+    {
+      "linea": "T075",
+      "html_linea_aprox": "HTML-L1119",
+      "original": "Ver Estado Diario Marcas",
+      "propuesto": "Ver Estados Diarios de Marcas",
+      "criterio_id": "F1",
+      "motivo": "El botón usa «Estado Diario» en singular pero la URL destino es «EstadosDiariosMarcas» en plural; alinear texto y nomenclatura."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1200",
+      "original": "Resolución Exenta 138",
+      "propuesto": "Resolución Exenta 138 (PDF)",
+      "criterio_id": "F1",
+      "motivo": "El enlace lleva a un PDF; el texto del enlace debe indicar el formato para que el usuario sepa qué va a abrir."
+    },
+    {
+      "linea": "T085",
+      "html_linea_aprox": "HTML-L1205",
+      "original": "OK",
+      "propuesto": "Entendido",
+      "criterio_id": "F3",
+      "motivo": "«OK» es anglicismo no descriptivo en el modal de Advertencia; «Entendido» comunica que el usuario ha leído la información sin implicar un acuerdo."
+    },
+    {
+      "linea": "T086",
+      "html_linea_aprox": "HTML-L1361",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» no indica qué se acepta en el modal de confirmación; «Confirmar» es más descriptivo. Coordinar con TIC — está en _Layout.cshtml."
+    },
+    {
+      "linea": "T108",
+      "html_linea_aprox": "HTML-L1425",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1200",
+      "original": "Resolución Exenta 138",
+      "propuesto": "Resolución Exenta 138 (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace a la Resolución 138 lleva a un PDF sin indicar el formato; fila independiente para criterio F4 además de la fila F1."
+    },
+    {
+      "linea": "G1-run",
+      "html_linea_aprox": "HTML-L1107",
+      "original": "RUN Notificado: [RUN usuario] (dato de persona natural embebido en HTML estático)",
+      "propuesto": "(proteger: cargar RUN y nombre del usuario exclusivamente mediante llamada Ajax autenticada; nunca embeber en el HTML generado por el servidor)",
+      "criterio_id": "G1",
+      "motivo": "El RUN y el nombre completo del usuario autenticado se exponen en el HTML estático capturado con Ctrl+U, vulnerando la protección de datos personales de persona natural. Los datos del usuario deben cargarse solo tras verificación de sesión activa mediante Ajax, no en el HTML renderizado."
+    },
+    {
+      "linea": "T110",
+      "html_linea_aprox": "HTML-L1441",
+      "original": "v 2.3.90.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema visible al usuario sin valor para su tarea de consulta de notificaciones; eliminar del footer público."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Notificaciones: (1) hacer backup antes de cualquier cambio; (2) PRIORIDAD MÁXIMA — corrección G1: el RUN y el nombre del usuario autenticado se embeben en el HTML estático del servidor (HTML-L1107 y L1111); revisar el mecanismo de renderizado en la vista Razor del controlador ElectronicNotifications — los datos del usuario deben cargarse exclusivamente mediante llamadas Ajax autenticadas tras verificar la sesión activa, no inyectarse en el HTML generado (el archivo HTML adjunto fue capturado con Ctrl+U y contiene datos personales reales del evaluador; tratar con cuidado y no publicar en repositorios públicos); (3) las correcciones A1/A3 (H1/H2) y E3 (fecha) requieren editar la vista Razor — localizar el div.card-header de «Notificaciones Electrónicas de Marcas» (HTML-L1054–1056); (4) T065 (HTML-L1069) es un <p> dentro del <fieldset> de filtros — localizar «En esta pantalla puede revisar»; (5) los párrafos del modal Advertencia (HTML-L1191–1202) están en un <div id=\"ModalInfoAnuncio\"> dentro de la vista de notificaciones — localizar y editar T080 y T081; (6) el doble espacio en T080 (HTML-L1191: «cortesía  en») puede no ser visible en el editor si muestra HTML renderizado; buscar con regex «cortesía\\s{2,}» en el archivo fuente; (7) el error «Titulos» (HTML-L471 y L906) está en el componente compartido del menú de Patentes — corregir en ambas instancias; (8) el mensaje de validación «El campo CreationDateF debe ser una fecha.» (HTML-L1087) se origina en la anotación de validación del modelo C# — cambiar el ErrorMessage en el modelo; (9) los botones «OK» (HTML-L1205) y «Aceptar» (HTML-L1361) — «OK» está en el modal específico de Advertencia de esta vista; «Aceptar» está en _Layout.cshtml; verificar cuál pertenece a cada contexto antes de editar; (10) el title (HTML-L31) se genera desde ViewBag.Title — asignar «Notificaciones Electrónicas de Marcas» en el controlador y actualizar el separador a em dash en el _Layout.cshtml."
+}

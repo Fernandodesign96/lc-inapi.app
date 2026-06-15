@@ -6,6 +6,7 @@ import {
   type ClaudeAuditBundle,
 } from "@contracts/claude-audit-pilot"
 import { CLAUDE_AUDIT_ID_SET } from "@/lib/claude-audits-launch"
+import { CLARITY_AUDIT_ID_SET } from "@/lib/clarity-audits-launch"
 
 export type LoadClaudeAuditBundleErrorCode =
   | "not_allowed"
@@ -27,13 +28,21 @@ function repoRoot(): string {
   return process.env.LC_REPO_ROOT ?? join(process.cwd(), "..")
 }
 
+function isAllowedClaudeAuditId(id: string): boolean {
+  return CLAUDE_AUDIT_ID_SET.has(id) || CLARITY_AUDIT_ID_SET.has(id)
+}
+
 function claudeAuditFilePath(claudeAuditId: string): string {
-  return join(repoRoot(), "data", "claude-audits", `${claudeAuditId}.json`)
+  const base = join(repoRoot(), "data", "claude-audits")
+  if (CLARITY_AUDIT_ID_SET.has(claudeAuditId)) {
+    return join(base, "urls-clarity", `${claudeAuditId}.json`)
+  }
+  return join(base, `${claudeAuditId}.json`)
 }
 
 /**
- * Lee y valida un JSON canónico de data/claude-audits/{id}.json.
- * Solo ids en CLAUDE_AUDIT_ID_SET (misma regla que la API).
+ * Lee y valida JSON canónico del piloto (data/claude-audits/) o Clarity (urls-clarity/).
+ * Solo ids en CLAUDE_AUDIT_ID_SET ∪ CLARITY_AUDIT_ID_SET.
  */
 export function loadClaudeAuditBundle(claudeAuditId: string): ClaudeAuditBundle {
   const id = decodeURIComponent(claudeAuditId.trim())
@@ -42,10 +51,10 @@ export function loadClaudeAuditBundle(claudeAuditId: string): ClaudeAuditBundle 
     throw new LoadClaudeAuditBundleError("not_allowed", "Id de auditoría vacío")
   }
 
-  if (!CLAUDE_AUDIT_ID_SET.has(id)) {
+  if (!isAllowedClaudeAuditId(id)) {
     throw new LoadClaudeAuditBundleError(
       "not_allowed",
-      "Auditoría piloto no permitida",
+      "Auditoría no permitida",
     )
   }
 

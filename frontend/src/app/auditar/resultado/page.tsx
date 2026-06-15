@@ -5,7 +5,11 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { ZodError } from "zod"
 
-import type { ClaudeAuditBundle, ClaudeAuditPilotMeta } from "@contracts/claude-audit-pilot"
+import type {
+  ClaudeAuditBundle,
+  ClaudeAuditPilotMeta,
+  ClarityAuditMeta,
+} from "@contracts/claude-audit-pilot"
 import { parseClaudeAuditFile } from "@contracts/claude-audit-pilot"
 import {
   buildDemoStrictAudit,
@@ -190,11 +194,16 @@ function ResultadoInner() {
         return r.json() as Promise<unknown>
       })
       .then((data) => {
-        const raw = data as { audit: unknown; pilot?: ClaudeAuditPilotMeta }
+        const raw = data as {
+          audit: unknown
+          pilot?: ClaudeAuditPilotMeta
+          clarity?: ClarityAuditMeta
+        }
         const audit = parseStrictAuditRecord(raw.audit)
         const bundle: ClaudeAuditBundle = {
           audit,
           pilot: raw.pilot ?? {},
+          ...(raw.clarity ? { clarity: raw.clarity } : {}),
         }
         if (!cancelled) {
           setClaudeBundle(bundle)
@@ -259,6 +268,8 @@ function ResultadoInner() {
     null
 
   const pilotMeta: ClaudeAuditPilotMeta | null = claudeBundle?.pilot ?? null
+
+  const clarityMeta = claudeBundle?.clarity ?? null
 
   const origenDatos:
     | "claude_audit_api"
@@ -590,6 +601,42 @@ function ResultadoInner() {
                       {labelTipoPagina(pilotMeta.tipo_pagina)}
                     </span>
                   </p>
+                ) : null}
+                {clarityMeta ? (
+                  <>
+                    <p>
+                      <span className="text-muted-foreground">
+                        Rank Clarity:
+                      </span>{" "}
+                      <span className="font-medium tabular-nums">
+                        {clarityMeta.rank}
+                      </span>
+                    </p>
+                    <p>
+                      <span className="text-muted-foreground">
+                        Nombre UI:
+                      </span>{" "}
+                      <span className="font-medium">
+                        {clarityMeta.nombre_ui}
+                      </span>
+                    </p>
+                    <p>
+                      <span className="text-muted-foreground">
+                        Ruta / etiqueta:
+                      </span>{" "}
+                      <span className="font-medium">
+                        {clarityMeta.ruta_etiqueta}
+                      </span>
+                    </p>
+                    <p>
+                      <span className="text-muted-foreground">
+                        Visitas (ref.):
+                      </span>{" "}
+                      <span className="font-medium tabular-nums">
+                        {clarityMeta.visitas_ref}
+                      </span>
+                    </p>
+                  </>
                 ) : null}
                 <p className="sm:col-span-2">
                   <span className="text-muted-foreground">Id auditoría:</span>{" "}

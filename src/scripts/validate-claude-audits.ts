@@ -12,6 +12,12 @@ const launchPath = join(
   "../../frontend/src/lib/claude-audits-launch.ts",
 )
 
+const clarityAuditsDir = join(auditsDir, "urls-clarity")
+const clarityLaunchPath = join(
+  __dirname,
+  "../../frontend/src/lib/clarity-audits-launch.ts",
+)
+
 function entryName(entry: string | Buffer): string {
   return typeof entry === "string" ? entry : entry.toString("utf8")
 }
@@ -26,78 +32,136 @@ function registeredLaunchIds(): Set<string> {
   return ids
 }
 
-const names = readdirSync(auditsDir)
-  .map(entryName)
-  .filter((n) => n.endsWith(".json") && !n.endsWith(".export.json"))
-  .sort()
-
-if (names.length === 0) {
-  console.error(`No se encontraron JSON canónicos en ${auditsDir}.`)
-  process.exit(1)
+/** Ids registrados en CLARITY_AUDIT_BY_RANK (misma regla que la API Clarity). */
+function registeredClarityLaunchIds(): Set<string> {
+  const source = readFileSync(clarityLaunchPath, "utf8")
+  const ids = new Set<string>()
+  for (const match of source.matchAll(/^\s+id:\s*"([^"]+)"/gm)) {
+    ids.add(match[1])
+  }
+  return ids
 }
 
-const launchIds = registeredLaunchIds()
-const fileIds = new Set<string>()
-let ok = 0
+type ValidateFolderResult = {
+  ok: number
+  fileIds: Set<string>
+}
 
-for (const name of names) {
-  const filePath = join(auditsDir, name)
-  const expectedId = basename(name, ".json")
-  const rawText = readFileSync(filePath, "utf8")
-  let data: unknown
+function validateAuditJsonFolder(
+  dir: string,
+  label: string,
+  options?: { requireClarityMeta?: boolean },
+): ValidateFolderResult {
+  let names: string[]
   try {
-    data = JSON.parse(rawText)
-  } catch (e) {
-    console.error(`JSON inválido (${name}):`, e)
+    names = readdirSync(dir)
+      .map(entryName)
+      .filter((n) => n.endsWith(".json") && !n.endsWith(".export.json"))
+      .sort()
+  } catch {
+    console.error(`No se pudo leer carpeta ${label}: ${dir}`)
     process.exit(1)
   }
-  try {
-    const { audit } = parseClaudeAuditFile(data)
-    if (audit.id !== expectedId) {
+
+  const fileIds = new Set<string>()
+  let ok = 0
+
+  for (const name of names) {
+    const filePath = join(dir, name)
+    const expectedId = basename(name, ".json")
+    const rawText = readFileSync(filePath, "utf8")
+    let data: unknown
+    try {
+      data = JSON.parse(rawText)
+    } catch (e) {
+      console.error(`JSON inválido (${label}/${name}):`, e)
+      process.exit(1)
+    }
+    try {
+      const bundle = parseClaudeAuditFile(data)
+      if (bundle.audit.id !== expectedId) {
+        console.error(
+          `Id incoherente (${label}/${name}): campo "id"="${bundle.audit.id}" ≠ nombre "${expectedId}".`,
+        )
+        process.exit(1)
+      }
+      if (options?.requireClarityMeta && !bundle.clarity) {
+        console.error(
+          `Falta clarity_meta (${label}/${name}): obligatorio en urls-clarity/.`,
+        )
+        process.exit(1)
+      }
+      fileIds.add(bundle.audit.id)
+    } catch (e) {
+      console.error(`Fallo parseClaudeAuditFile (${label}/${name}):`)
+      if (e instanceof ZodError) {
+        console.error(JSON.stringify(e.flatten(), null, 2))
+        console.error(e.issues)
+      } else {
+        console.error(e)
+      }
+      process.exit(1)
+    }
+    ok += 1
+  }
+
+  return { ok, fileIds }
+}
+
+function alignLaunchWithFiles(
+  launchIds: Set<string>,
+  fileIds: Set<string>,
+  dir: string,
+  launchLabel: string,
+): void {
+  for (const id of launchIds) {
+    const filePath = join(dir, `${id}.json`)
+    if (!existsSync(filePath)) {
       console.error(
-        `Id incoherente (${name}): campo "id"="${audit.id}" ≠ nombre de archivo "${expectedId}".`,
+        `Falta archivo para id registrado en ${launchLabel}: ${id}`,
       )
       process.exit(1)
     }
-    fileIds.add(audit.id)
-  } catch (e) {
-    console.error(`Fallo parseClaudeAuditFile (${name}):`)
-    if (e instanceof ZodError) {
-      console.error(JSON.stringify(e.flatten(), null, 2))
-      console.error(e.issues)
-    } else {
-      console.error(e)
+    if (!fileIds.has(id)) {
+      console.error(
+        `Id registrado en ${launchLabel} sin JSON validado: ${id}`,
+      )
+      process.exit(1)
     }
-    process.exit(1)
   }
-  ok += 1
-}
 
-for (const id of launchIds) {
-  const filePath = join(auditsDir, `${id}.json`)
-  if (!existsSync(filePath)) {
-    console.error(
-      `Falta archivo para id registrado en claude-audits-launch.ts: ${id}`,
-    )
-    process.exit(1)
-  }
-  if (!fileIds.has(id)) {
-    console.error(
-      `Id registrado en launch sin JSON canónico validado: ${id}`,
-    )
-    process.exit(1)
+  for (const id of fileIds) {
+    if (!launchIds.has(id)) {
+      console.error(
+        `JSON en ${dir} sin registro en ${launchLabel}: ${id}`,
+      )
+      process.exit(1)
+    }
   }
 }
 
-for (const id of fileIds) {
-  if (!launchIds.has(id)) {
-    console.error(
-      `JSON en repo sin registro en claude-audits-launch.ts: ${id}`,
-    )
-    process.exit(1)
-  }
-}
+// --- Piloto (9 URLs) ---
+const pilotLaunchIds = registeredLaunchIds()
+const pilot = validateAuditJsonFolder(auditsDir, "piloto")
+alignLaunchWithFiles(
+  pilotLaunchIds,
+  pilot.fileIds,
+  auditsDir,
+  "claude-audits-launch.ts",
+)
+
+// --- Serie Clarity (urls-clarity/) ---
+const clarityLaunchIds = registeredClarityLaunchIds()
+const clarity = validateAuditJsonFolder(clarityAuditsDir, "clarity", {
+  requireClarityMeta: true,
+})
+alignLaunchWithFiles(
+  clarityLaunchIds,
+  clarity.fileIds,
+  clarityAuditsDir,
+  "clarity-audits-launch.ts",
+)
 
 console.log(
-  `OK — ${ok} auditoría(s) Claude validadas (parseClaudeAuditFile) y alineadas con claude-audits-launch.ts (${launchIds.size} id(s) en MVP).`,
+  `OK — ${pilot.ok} auditoría(s) piloto + ${clarity.ok} Clarity validadas (parseClaudeAuditFile) y alineadas con launch (${pilotLaunchIds.size} + ${clarityLaunchIds.size} id(s)).`,
 )

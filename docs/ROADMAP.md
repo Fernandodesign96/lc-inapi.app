@@ -67,6 +67,13 @@
 - [x] **PDF server-side:** `GET /api/claude-audits/[id]/export/pdf` + botón «Descargar informe PDF» (`@react-pdf/renderer`).
 - [x] **CI** (`typecheck:all`, `lint`) y **Vercel** verificados con las 9 URLs (tabla → resultado → PDF).
 
+### Extensión serie Clarity 22 URLs (junio 2026, rama `feature/clarity-22-urls-auditorias-claude-json`)
+
+- [x] **Cableado MVP:** tabla Historial 22 URLs → `/auditar/resultado` + PDF vía `clarity-audits-launch.ts` y `load-claude-audit-bundle.ts` (`urls-clarity/`).
+- [x] **Esquema `clarity_meta`** en JSON serie Clarity; `validate:claude-audits` ampliado a subcarpeta `urls-clarity/`.
+- [x] **5 JSON** en repo (ranks 1–4 y 21); rank 4 (Notificaciones) añadido en casa junto al cableado.
+- [ ] **JSON ranks 5–20 y 22** vía Proyecto Claude (§3.5 del flujo operativo).
+
 ### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
 - [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Bernarda/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
