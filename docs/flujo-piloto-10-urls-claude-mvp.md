@@ -2,12 +2,12 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-02 (actualizado 2026-06-08) |
+| **Fecha** | 2026-06-02 (actualizado 2026-06-15) |
 | **Proveedor IA** | Claude (Proyecto «Auditor Lenguaje Claro URLs INAPI») |
 | **Objetivo** | Auditar páginas prioritarias para TIC antes de fin de año: informe en MVP + PDF descargable + sustituciones de texto |
 | **Alcance operativo en repo** | **9 URLs** con JSON, informe y PDF en MVP (merge a `main` 2026-06-08). Objetivo original de reunión: **10 URLs** — ver nota §2. |
 | **Plan técnico asociado** | Adaptador JSON (`src/schemas/claude-audit-pilot.ts`), `data/claude-audits/`, API + PDF server |
-| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-08-docs-fase-1-5) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
+| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-15-clarity-cableado-mvp) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
 
 ---
 
@@ -17,7 +17,7 @@
 
 | Requisito | Detalle |
 | --- | --- |
-| **Ubicación** | **Justo debajo** de la tarjeta «Ingreso de URL» (barra de búsqueda), **antes** de «Prioridades demostrativas», «Importar auditoría» e inventario de 22 URLs. |
+| **Ubicación** | **Justo debajo** de la tarjeta «Ingreso de URL» (barra de búsqueda), **antes** de «Importar auditoría» y del inventario Clarity de 22 URLs. |
 | **Patrón UI** | Misma estructura que el inventario actual: **Card** + **Accordion** colapsable (design system §15). |
 | **Contenido** | Tabla con las URLs del piloto TIC/UX (no las 22 de Clarity), con columnas alineadas al historial existente donde aplique: `#`, ruta/etiqueta, tipo (`tramites` \| `sitioweb`), % LC, estado, última evaluación, encargado, columna MVP («Disponible» / «Pendiente»). |
 | **Comportamiento** | Clic en fila disponible → **`/auditar/resultado`** con auditoría Claude cargada (`?claudeAudit={id}&url={url}`). |
@@ -268,7 +268,7 @@ Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la p
 
 ### 3.5 Serie Clarity — 22 URLs (inventario Calidad Web)
 
-**Contexto:** las **22 URLs** del acordeón **Historial de Auditorías URLs - INAPI** en `/auditar` (ranks 1–22, priorización por visitas Clarity) usan el **mismo contrato JSON** y las **mismas siete secciones** en `/auditar/resultado` que el piloto de 9 URLs (§4). La diferencia operativa es la carpeta de destino, el bloque `clarity_meta` y la futura tabla de lanzamiento Clarity (análoga a [`claude-audits-launch.ts`](../frontend/src/lib/claude-audits-launch.ts)).
+**Contexto:** las **22 URLs** del acordeón **Historial de Auditorías URLs - INAPI** en `/auditar` (ranks 1–22, priorización por visitas Clarity) usan el **mismo contrato JSON** y las **mismas siete secciones** en `/auditar/resultado` que el piloto de 9 URLs (§4). La diferencia operativa es la carpeta de destino, el bloque `clarity_meta` y la tabla de lanzamiento Clarity en [`clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts).
 
 | Aspecto | Piloto (9 URLs) | Serie Clarity (22 URLs) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la p
 | **Plantilla JSON** | [`www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) | [`tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/urls-clarity/tramites-inapi-cl_2026-06-11.json) (con `clarity_meta`) |
 | **Maestro rank / visitas** | Tabla §2 (piloto) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
 | **Metadatos extra** | Solo `tipo_pagina` + extensiones piloto | **`clarity_meta` obligatorio** (rank, visitas, etiquetas UI) |
-| **MVP `/auditar`** | Acordeón piloto (implementado) | Tabla 22 URLs — **pendiente cableado** (en casa) |
+| **MVP `/auditar`** | Acordeón piloto (implementado) | Tabla 22 URLs con enlace a resultado/PDF cuando hay JSON (implementado junio 2026) |
 
 **URLs que se repiten** con el piloto (misma URL canónica, dos fuentes válidas): p. ej. rank **1** = `https://tramites.inapi.cl/` (piloto #9); rank **21** = `https://www.inapi.cl/` (piloto #1). Si el HTML no cambió, se puede **copiar** el JSON del piloto, actualizar `id`/`fecha_evaluacion`/`clarity_meta` y conservar criterios y sustituciones.
 
@@ -399,7 +399,7 @@ Si un campo opcional no aplica, omite la clave o usa [] en arrays. Nunca uses nu
 | 4 | Revisión Cursor: aritmética, cobertura 1:1, `clarity_meta` vs ficha. |
 | 5 | (En casa) Registrar en tabla launch Clarity + enlace fila inventario → `/auditar/resultado?claudeAudit={id}`. |
 
-**Estado junio 2026 (serie Clarity):** ranks **1** y **21** con JSON en `urls-clarity/`; ranks **2–20** y **22** pendientes.
+**Estado junio 2026 (serie Clarity):** JSON en `urls-clarity/` para ranks **1, 2, 3, 4 y 21**; ranks **5–20** y **22** pendientes.
 
 ---
 
@@ -600,10 +600,10 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 
 - [x] Prompts §3.5.1 y §3.5.2 documentados (entrada + JSON con `clarity_meta`).
 - [x] Esquema `clarity_meta` en [`claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts).
-- [x] JSON ranks **1** y **21** en `data/claude-audits/urls-clarity/`.
-- [ ] JSON ranks **2–20** y **22** en `urls-clarity/`.
-- [ ] Tabla launch Clarity + cableado inventario `/auditar` → resultado/PDF (misma lógica piloto).
-- [ ] `validate:claude-audits` ampliado a subcarpeta `urls-clarity/`.
+- [x] JSON ranks **1, 2, 3, 4 y 21** en `data/claude-audits/urls-clarity/`.
+- [ ] JSON ranks **5–20** y **22** en `urls-clarity/`.
+- [x] Tabla launch Clarity + cableado inventario `/auditar` → resultado/PDF (misma lógica piloto).
+- [x] `validate:claude-audits` ampliado a subcarpeta `urls-clarity/`.
 - [ ] Sincronizar `porcentajeLcRef` / `estadoLcRef` en fichas mock con % real del JSON.
 
 ---
@@ -617,10 +617,11 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 | Inventario 22 URLs (referencia) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
 | JSON serie Clarity (22 URLs) | [`data/claude-audits/urls-clarity/`](../data/claude-audits/urls-clarity/) |
 | Esquema piloto + clarity_meta | [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) |
+| Launch serie Clarity (22 URLs) | [`frontend/src/lib/clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts) |
 | Comparación Gemini vs Claude | [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) |
 | Página auditar actual | [`frontend/src/app/auditar/page.tsx`](../frontend/src/app/auditar/page.tsx) |
 | Página resultado actual | [`frontend/src/app/auditar/resultado/page.tsx`](../frontend/src/app/auditar/resultado/page.tsx) |
 
 ---
 
-*Documento operativo para el piloto junio 2026. Última actualización: 2026-06-11 — 9 URLs piloto en MVP; serie Clarity 22 URLs (prompts §3.5, JSON ranks 1 y 21 en urls-clarity/).*
+*Documento operativo para el piloto junio 2026. Última actualización: 2026-06-15 — 9 URLs piloto en MVP; serie Clarity cableada en `/auditar` (5 JSON: ranks 1–4 y 21; validate CI ampliado).*

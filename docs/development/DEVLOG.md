@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-15 | [Frontend: Serie Clarity — cableado MVP en `/auditar`, CI y 5 JSON en `urls-clarity`](#devlog-2026-06-15-clarity-cableado-mvp) |
 | 2026-06-11 | [Estrategia: Serie Clarity — JSON ranks 1–3 y 21, prompts §3.5 y esquema `clarity_meta`](#devlog-2026-06-11-serie-clarity-json) |
 | 2026-06-08 | [Documentación: sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel](#devlog-2026-06-08-docs-fase-1-5) |
 | 2026-06-07 | [Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`](#devlog-2026-06-07-piloto-cierre-9-urls) |
@@ -40,6 +41,49 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+---
+
+<a id="devlog-2026-06-15-clarity-cableado-mvp"></a>
+
+## [2026-06-15] - Frontend | Serie Clarity: cableado MVP en `/auditar` y validación CI
+
+### Contexto y objetivos:
+
+Tras generar los primeros JSON en `data/claude-audits/urls-clarity/` ([entrada 2026-06-11](#devlog-2026-06-11-serie-clarity-json)), el objetivo del día era **conectar** el inventario de 22 URLs en `/auditar` con el mismo flujo operativo del piloto de 9 URLs: tabla → resultado con siete bloques → PDF, sin duplicar lógica de render. Rama: `feature/clarity-22-urls-auditorias-claude-json`.
+
+### Implementación técnica:
+
+**Frontend `/auditar`:**
+
+- [`frontend/src/app/auditar/page.tsx`](../../frontend/src/app/auditar/page.tsx) — eliminada tarjeta «Prioridades demostrativas LC»; orden: Ingreso → Piloto 9 URLs → Historial Clarity (22) → Importar JSON.
+- [`frontend/src/lib/clarity-audits-launch.ts`](../../frontend/src/lib/clarity-audits-launch.ts) — registro de 22 filas desde `CLARITY_FICHAS_MOCK`; `claudeAuditId` y `resumenMvp` para ranks con JSON (1–4 y 21).
+- [`frontend/src/components/clarity-inventory-historial-table.tsx`](../../frontend/src/components/clarity-inventory-historial-table.tsx) — columna Informe (`Pendiente` / enlace Ver informe → `?claudeAudit=`).
+- [`frontend/src/lib/load-claude-audit-bundle.ts`](../../frontend/src/lib/load-claude-audit-bundle.ts) — allowlist unión piloto ∪ Clarity; lectura desde `urls-clarity/`.
+- [`frontend/src/app/auditar/resultado/page.tsx`](../../frontend/src/app/auditar/resultado/page.tsx) — conserva `clarity_meta` en bundle; muestra rank y visitas en Datos de Auditoría.
+
+**Datos (serie Clarity, 5 JSON):**
+
+| Rank | `id` | % LC |
+| --- | --- | --- |
+| 1 | `tramites-inapi-cl_2026-06-11` | 57,6 % |
+| 2 | `tramites-inapi-cl-account-login_2026-06-11` | 53,3 % |
+| 3 | `tramites-inapi-cl-trademark-trademarkfile_2026-06-11` | 40,0 % |
+| 4 | `tramites-inapi-cl-notificaciones_2026-06-11` | 41,2 % |
+| 21 | `www-inapi-cl_2026-06-11` | 45,5 % |
+
+**CI y documentación:**
+
+- [`src/scripts/validate-claude-audits.ts`](../../src/scripts/validate-claude-audits.ts) — valida piloto + `urls-clarity/` (exige `clarity_meta`).
+- [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — checklist §7 y §3.5 actualizados al cableado MVP.
+
+### Próximos pasos:
+
+- JSON rank **5** (`TrademarkSavedApplications`) y ranks **6–20** y **22** vía Proyecto Claude (§3.5).
+- Actualizar `porcentajeLcRef` en `clarity-fichas-mock.json` con % reales de auditorías Claude donde existan.
+- Decisión sobre ruta `/auditar/inventario/clarity/[rank]` (sigue existiendo; la tabla ya enlaza a resultado).
+
+---
+
 <a id="devlog-2026-06-11-serie-clarity-json"></a>
 
 ## [2026-06-11] - Estrategia | Serie Clarity: auditorías JSON ranks 1–3 y 21 (día en PC empresa)
@@ -62,7 +106,18 @@ Continuar la **Fase 1.5** ampliando el piloto de 9 URLs hacia el **inventario Cl
 
 | Rank | URL | `id` | Origen | % LC |
 | --- | --- | --- | --- | --- |
-| 1 | `https://tramites.inapi.cl/` | `tramites-inapi-cl_2026-06-11`
+| 1 | `https://tramites.inapi.cl/` | `tramites-inapi-cl_2026-06-11` | Claude §3.5.1→§3.5.2 | 57,6 % |
+| 2 | `https://tramites.inapi.cl/Account/Login` | `tramites-inapi-cl-account-login_2026-06-11` | Claude §3.5.1→§3.5.2 | 53,3 % |
+| 3 | `https://tramites.inapi.cl/Trademark/TrademarkFile` | `tramites-inapi-cl-trademark-trademarkfile_2026-06-11` | Claude §3.5.1→§3.5.2 | 40,0 % |
+| 21 | `https://www.inapi.cl/` | `www-inapi-cl_2026-06-11` | Claude §3.5.1→§3.5.2 | 45,5 % |
+
+### Próximos pasos:
+
+- Cableado MVP en casa: `clarity-audits-launch.ts`, tabla Historial → `/auditar/resultado` y PDF.
+- JSON ranks 4–20 y 22 vía Proyecto Claude (§3.5).
+- Ampliar `validate:claude-audits` a `urls-clarity/`.
+
+---
 
 <a id="devlog-2026-06-08-docs-fase-1-5"></a>
 

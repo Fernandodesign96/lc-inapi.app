@@ -6,6 +6,8 @@
 
 **Alcance analítico:** el inventario mock agrupa **22 URLs** en **una sola tabla** (§2.1): la mayoría son **Calidad Web — Trámites** (`tramites.inapi.cl`, aplicación de trámites) y **tres** son **Calidad Web — Sitio Web** (`www.inapi.cl`: home institucional y página informativa de trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
 
+**Serie Clarity junio 2026 (extensión Fase 1.5):** cuando existe JSON en [`data/claude-audits/urls-clarity/`](../../data/claude-audits/urls-clarity/), la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5. **Estado 2026-06-15:** 5/22 con informe (ranks 1–4 y 21).
+
 **Paradoja Clarity (mayo 2026):** el proyecto Microsoft Clarity está asociado al **Sitio Web** INAPI, pero el extracto de páginas populares (365 días) muestra **mayormente URLs de `tramites.inapi.cl`**. La página con **más visitas** en ese extracto es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059 visitas) — contenido **informativo** con acordeones RNT, **no** el portal de login. La **home** `https://www.inapi.cl/` **no aparece** en el top Clarity revisado, aunque es la portada institucional; se incluye igual en inventario por criterio editorial. Detalle en §2.0.
 
 **Alcance LC:** Clarity/Calidad Web informa **comportamiento y volumen**; **no** sustituye una evaluación LC automática. Las columnas de **% cumplimiento LC** y **estado** reflejan **criterio editorial de referencia**, salvo donde exista fixture validado en repo.
@@ -87,7 +89,7 @@ Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYST
 
 | Columna | Descripción |
 | --- | --- |
-| `#` | Rank 1–22; enlace a ficha `/auditar/inventario/clarity/[rank]` |
+| `#` | Rank 1–22; enlace principal a `/auditar/resultado?claudeAudit=` cuando hay JSON en `urls-clarity/`; ficha `/auditar/inventario/clarity/[rank]` sigue disponible |
 | Ruta o etiqueta (Clarity) | Etiqueta documental; enlace a la misma ficha |
 | **Tipo** | `type_url`: **Trámites** \| **Sitio Web** (badge o columna; derivado del JSON) |
 | **Encargado** | Responsable mock de seguimiento (Fase 1: **Fernando Arriagada** en todas las filas) |
