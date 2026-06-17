@@ -1,0 +1,507 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkuserdocument_2026-06-11",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 12,
+    "nombre_ui": "Presentación de escritos",
+    "ruta_etiqueta": "Trademark User Document (Escritos)",
+    "visitas_ref": "23.141",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Escritos Guardados de Marcas» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900) | T057 [HTML-L489]: «Documentación Mínima PCT» | T057b [HTML-L170]: «Home» (breadcrumb) | T058 [HTML-L1029]: «Escritos Guardados de Marcas» (card-header div, no H semántico) | T059 [HTML-L1033]: «Filtros de Búsqueda» (leyenda fieldset, capitalización tipo título) | T060 [HTML-L1039]: «N° de Atención» (label) | T061 [HTML-L1048]: «N° de Solicitud» (label) | T062 [HTML-L1057]: «N° de Escrito» (label) | T063 [HTML-L1066]: «Estado» (label select) | T064 [HTML-L1068]: «Borrador» (primera opción select — sin opción «Todos» por defecto) | T065 [HTML-L1069]: «Confirmada con Pago» | T066 [HTML-L1070]: «Confirmada sin Pago» | T067 [HTML-L1077]: «Buscar» | T068 [HTML-L1078]: «Limpiar» | T069 [HTML-L1085]: «Presentar Nuevo Escrito de Marca» (botón secundario) | T070 [HTML-L1097]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» | T071 [HTML-L1101]: «Resultados» (leyenda fieldset) | T072 [HTML-L1110]: «N° Atención» (th — inconsistente con label T060) | T073 [HTML-L1112]: «N° Solicitud Marca» (th — inconsistente con label T061) | T074 [HTML-L1113]: «Categoría» (th) | T075 [HTML-L1114]: «Tipo» (th) | T076 [HTML-L1115]: «Signo o Denominación» (th) | T077 [HTML-L1116]: «N° Escrito» (th — inconsistente con label T062) | T078 [HTML-L1117]: «Tipo Escrito» (th, capitalización tipo título) | T079 [HTML-L1118]: «Última Actualización» (th, capitalización tipo título) | T080 [HTML-L1119]: «Estado» (th) | T081 [HTML-L1120]: «Acciones» (th) | T082 [HTML-L1133]: «¿Está seguro de que desea eliminar el escrito?» (texto JS confirm, usted implícito) | T083 [HTML-L1151]: «Se ha eliminado el borrador del escrito guardado.» (mensaje JS, voz pasiva) | T084 [HTML-L1189]: «OK» (botón modal alerta local) | T085 [HTML-L1231]: «Aceptar» (botón modal confirm _Layout) | T086 [HTML-L1232]: «Cancelar» | T087 [HTML-L1259]: «RUT: 65.999.669-3» (footer, persona jurídica pública) | T103 [HTML-L1293]: «Uso de los Contenidos de este Sitio» | T107 [HTML-L1295]: «Política de privacidad» (→ PDF) | T108 [HTML-L1310]: «©2026 INAPI. Todos los derechos reservados» | T109 [HTML-L1311]: «v 2.3.91.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "comentario": "Sin H1, H2 ni H3. El card-header «Escritos Guardados de Marcas» (T058, HTML-L1029) es un div sin semántica de encabezado.",
+      "severidad": "alta",
+      "cita_textual": "T058 [HTML-L1029]: div.card-header (no H) / (ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "comentario": "La página va directamente al formulario sin texto introductorio que explique qué son los «Escritos Guardados», qué estados pueden tener ni la diferencia entre «Confirmada con Pago» y «Confirmada sin Pago».",
+      "severidad": "media",
+      "cita_textual": "(ausencia de texto introductorio) — el formulario abre directamente con los campos de filtro"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "comentario": "Sin H1/H2/H3. El contenido se organiza mediante fieldsets y leyendas sin jerarquía semántica de encabezados accesible.",
+      "severidad": "media",
+      "cita_textual": "(ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "No hay bloques de texto extenso. Los textos del formulario son breves."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "comentario": "«v 2.3.91.0» (T109, HTML-L1311) es versión técnica del sistema sin valor para el usuario.",
+      "severidad": "baja",
+      "cita_textual": "T109 [HTML-L1311]: «v 2.3.91.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "comentario": "T082 (JS): «¿Está seguro de que desea eliminar el escrito?» — usted implícito. T083 (JS): «Se ha eliminado el borrador del escrito guardado.» — voz pasiva.",
+      "severidad": "media",
+      "cita_textual": "T082 [HTML-L1133]: «¿Está seguro de que desea eliminar el escrito?» / T083 [HTML-L1151]: «Se ha eliminado el borrador del escrito guardado.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "comentario": "«Escrito» es jerga PI sin definición contextual: en este contexto es un documento formal que el usuario presenta a INAPI dentro de un trámite de marca en curso. «Categoría» y «Tipo» en la tabla son términos ambiguos sin glosa. PCT en menú de Patentes sin definición.",
+      "severidad": "media",
+      "cita_textual": "T058 [HTML-L1029]: «Escritos Guardados de Marcas» (sin definición de «escrito») / T069 [HTML-L1085]: «Presentar Nuevo Escrito de Marca» (sin glosa)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "comentario": "PCT aparece en T047 y T057 del menú de Patentes sin definición.",
+      "severidad": "alta",
+      "cita_textual": "T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T057 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial propio."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los botones son positivos: «Buscar», «Limpiar», «Presentar Nuevo Escrito de Marca». La advertencia T070 es informativa."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "comentario": "T082 usa «¿Está seguro de que desea?» — formal de usted. T070 usa «su última modificación» — posesivo de usted.",
+      "severidad": "media",
+      "cita_textual": "T082 [HTML-L1133]: «¿Está seguro de que desea eliminar el escrito?» / T070 [HTML-L1097]: «su última modificación»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No hay frases de relleno burocrático. El texto es directo y funcional."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Los textos propios del formulario son nominales (etiquetas) o imperativos breves. No hay oraciones largas que violen SVP."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los mensajes de JS usan pretérito perfecto compuesto apropiado para acciones completadas."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones son breves. T070 es la más larga (≤25 palabras) dentro del límite recomendado."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "El formulario tiene propósito único: buscar y gestionar escritos guardados."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "T070 ocupa ≈2 líneas en escritorio. Sin párrafos extensos."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "No hay artículos con 4 o más párrafos continuos. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "comentario": "El select «Estado» no tiene opción por defecto «Todos» — la primera opción cargada es «Borrador», preseleccionando implícitamente ese filtro. Inconsistencias entre labels y encabezados de columna: «N° de Atención» (label) vs «N° Atención» (th); «N° de Solicitud» vs «N° Solicitud Marca»; «N° de Escrito» vs «N° Escrito».",
+      "severidad": "baja",
+      "cita_textual": "HTML-L1068: select Estado sin opción «Todos» / T072 [HTML-L1110]: «N° Atención» vs T060: «N° de Atención» (inconsistente)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "comentario": "Cuatro errores (sin incluir el title, tratado en E4): (1) «Titulos y Certificados Patentes» (T055, HTML-L471 y L900) — falta tilde en «Títulos»; (2) T059 «Filtros de Búsqueda» — capitalización tipo título; (3) T078 «Tipo Escrito» — capitalización tipo título en th; (4) T079 «Última Actualización» — capitalización tipo título en th.",
+      "severidad": "alta",
+      "cita_textual": "T055 [HTML-L471]: «Titulos y Certificados Patentes» / T059 [HTML-L1033]: «Filtros de Búsqueda» / T078 [HTML-L1117]: «Tipo Escrito» / T079 [HTML-L1118]: «Última Actualización»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación de los textos visibles es correcta. T070 usa comillas tipográficas correctamente."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li>. Los encabezados de tabla usan <th> apropiadamente."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas. No aplica."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T005), TRAMITACIÓN (T010), PAGOS (T017), SERVICIOS (T022).",
+      "severidad": "media",
+      "cita_textual": "T005 [HTML-L129]: «MI INAPI» / T010 [HTML-L159]: «TRAMITACIÓN» / T017 [HTML-L207]: «PAGOS» / T022 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, el card-header y el copyright.",
+      "cita_textual": "T108 [HTML-L1310]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "comentario": "Sin fecha de publicación ni de última actualización visible de la página URL. El copyright ©2026 no equivale.",
+      "severidad": "alta",
+      "cita_textual": "(ausencia de fecha de actualización de la URL)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "comentario": "El <title> es «Escritos Guardados de Marcas - INAPI - Sitio de Trámites» con guiones simples en lugar de em dash.",
+      "severidad": "media",
+      "cita_textual": "HTML-L31: «Escritos Guardados de Marcas - INAPI - Sitio de Trámites» (guiones simples)"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "El formulario envía al endpoint correcto. El botón «Presentar Nuevo Escrito de Marca» lleva a la URL de presentación."
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "Botones descriptivos: «Buscar», «Limpiar», «Presentar Nuevo Escrito de Marca». Sin textos genéricos."
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "comentario": "«OK» (T084, HTML-L1189) en el modal de alerta local. «Aceptar» (T085, HTML-L1231) en el modal confirm del _Layout.",
+      "severidad": "media",
+      "cita_textual": "T084 [HTML-L1189]: «OK» (modal alerta local) / T085 [HTML-L1231]: «Aceptar» (_Layout)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "comentario": "«Política de privacidad» (T107, HTML-L1295) enlaza directamente a un PDF sin indicar formato ni peso.",
+      "severidad": "alta",
+      "cita_textual": "T107 [HTML-L1295]: «Política de privacidad» → PDF sin indicar"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Buscar» y «Limpiar» están al final del fieldset del formulario. Los botones de los modales al pie de cada modal."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "No se detectan datos personales de personas naturales en el HTML estático del body. El RUT 65.999.669-3 (T087) es de persona jurídica pública. El nombre del usuario no aparece embebido en el body (a diferencia de ranks 4 y 7).",
+      "cita_textual": "T087 [HTML-L1259]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T107) en el footer implica información ARCO disponible.",
+      "cita_textual": "T107 [HTML-L1295]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T108). Existe «Uso de los Contenidos de este Sitio» (T103).",
+      "cita_textual": "T108 [HTML-L1310]: «©2026 INAPI. Todos los derechos reservados» / T103 [HTML-L1293]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 5,
+  "criterios_aplicables": 34,
+  "criterios_aprobados": 19,
+  "porcentaje_cumplimiento": 55.9,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 15 incumplimientos sobre 34 criterios aplicables (55,9 %) para esta pantalla del módulo de escritos de marca (rank 12 Clarity, 23.141 visitas). Las correcciones de mayor impacto son: (1) insertar H1 semántico y promover el card-header a H2 (A1, A3); (2) agregar párrafo introductorio que explique qué son los escritos guardados (A2); (3) corregir cuatro errores tipográficos: «Titulos», «Filtros de Búsqueda», «Tipo Escrito» y «Última Actualización» (D1); (4) agregar opción «Todos» al select de Estado y normalizar los nombres entre labels y encabezados de columna (C7); (5) reformular los mensajes de sistema T082 y T083 en tuteo directo (B1, B6); (6) expandir PCT en el menú de Patentes (B3); (7) agregar fecha de actualización de la página (E3); (8) reemplazar guiones simples por em dash en el title (E4); (9) normalizar mayúsculas en grupos del menú (D7); (10) cambiar «OK» → «Cerrar» y «Aceptar» → «Confirmar» en modales (F3); (11) indicar formato PDF en «Política de privacidad» (F4). El array sustituciones[] contiene 28 filas con cobertura 1:1 para los 15 criterios incumplidos.",
+  "observaciones_lc": "La pantalla del módulo de escritos de marca (/Trademark/TrademarkUserDocument, rank 12 Clarity) obtiene un 55,9 % de cumplimiento sobre 34 criterios aplicables — RECHAZADO. Los 15 incumplimientos siguen principalmente patrones transversales del portal, con tres hallazgos específicos: (1) C7: el select de Estado preselecciona «Borrador» sin opción por defecto «Todos» — mismo patrón que rank 5; (2) inconsistencias léxicas entre los labels del formulario y los encabezados de columna (C7); (3) los mensajes de sistema (T082 confirm, T083 eliminación) usan tono formal de usted y voz pasiva (B1, B6). G1 cumple: no hay datos personales embebidos en el HTML estático.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkUserDocument fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 12 Clarity con 23.141 visitas (módulo de presentación y gestión de escritos de marca). De los 34 criterios aplicables, 19 se cumplen, lo que arroja un 55,9 % de cumplimiento y un estado RECHAZADO (≤80 %). Se detectaron 15 incumplimientos y se generaron 28 filas en sustituciones[] con cobertura 1:1. Los 5 incumplimientos de severidad alta son: A1 (sin H semántico), B3 (PCT), D1 (cuatro errores tipográficos), E3 (sin fecha de actualización) y F4 (PDF sin formato). G1 cumple: no hay datos personales embebidos en el HTML estático, a diferencia de los ranks 4 y 7.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1, H2 ni H3. El card-header «Escritos Guardados de Marcas» (T058) es un div sin semántica de encabezado.",
+      "(B3) PCT en T047 y T057 del menú de Patentes sin definición.",
+      "(D1) Cuatro errores: «Titulos y Certificados Patentes» sin tilde (HTML-L471 y L900); «Filtros de Búsqueda» en capitalización tipo título (T059); «Tipo Escrito» (T078) y «Última Actualización» (T079) en los <th> de la tabla con capitalización tipo título.",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la URL.",
+      "(F4) «Política de privacidad» (T107) enlaza directamente a un PDF sin indicar formato ni peso."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique qué son los escritos guardados ni los estados disponibles.",
+      "(A3) Sin H1/H2/H3; el contenido se organiza solo con fieldsets y leyendas.",
+      "(B1) T082 usa usted implícito: «¿Está seguro de que desea eliminar el escrito?». T083 usa voz pasiva: «Se ha eliminado el borrador del escrito guardado.»",
+      "(B2) «Escrito» es jerga PI sin definición contextual para el ciudadano general. «Categoría» y «Tipo» en la tabla son ambiguos.",
+      "(B6) Tono formal de usted en los mensajes de sistema: «¿Está seguro de que desea?» y «su última modificación».",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) Title con guiones simples en lugar de em dash.",
+      "(F3) «OK» en modal de alerta local. «Aceptar» en modal confirm del _Layout."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.91.0» (T109) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(C7) Select «Estado» sin opción por defecto «Todos»: preselecciona «Borrador» implícitamente. Inconsistencias léxicas entre labels del formulario y encabezados de columna de la tabla."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L1022",
+      "original": "(ausencia de H1)",
+      "propuesto": "<h1 class='sr-only'>Escritos Guardados de Marcas</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor principal."
+    },
+    {
+      "linea": "A3-card",
+      "html_linea_aprox": "HTML-L1029",
+      "original": "Escritos Guardados de Marcas (div.card-header)",
+      "propuesto": "<h2>Escritos Guardados de Marcas</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2 para jerarquía semántica accesible."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L1031",
+      "original": "(ausencia de párrafo introductorio)",
+      "propuesto": "Aquí puedes consultar y gestionar los escritos de marca que has guardado. Un escrito es un documento formal que presentas a INAPI dentro de un trámite de marca en curso.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo introductorio que explique qué son los escritos guardados y los estados disponibles."
+    },
+    {
+      "linea": "T109",
+      "html_linea_aprox": "HTML-L1311",
+      "original": "v 2.3.91.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema sin valor para el usuario; eliminar del footer público."
+    },
+    {
+      "linea": "T082-B1",
+      "html_linea_aprox": "HTML-L1133",
+      "original": "¿Está seguro de que desea eliminar el escrito?",
+      "propuesto": "¿Quieres eliminar este escrito? Esta acción no se puede deshacer.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza «Está seguro de que desea» (usted formal) por tuteo directo; agrega consecuencia de la acción."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1151",
+      "original": "Se ha eliminado el borrador del escrito guardado.",
+      "propuesto": "El borrador del escrito fue eliminado correctamente.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la voz pasiva refleja «Se ha eliminado» por construcción más directa."
+    },
+    {
+      "linea": "T058-B2",
+      "html_linea_aprox": "HTML-L1029",
+      "original": "Escritos Guardados de Marcas",
+      "propuesto": "Escritos Guardados de Marcas — documentos formales presentados a INAPI en trámites de marca",
+      "criterio_id": "B2",
+      "motivo": "Agregar glosa descriptiva al card-header para que el usuario comprenda qué son los escritos sin necesidad de contexto previo."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú de Patentes sin definición; expandir la sigla."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para comprensión independiente."
+    },
+    {
+      "linea": "T082-B6",
+      "html_linea_aprox": "HTML-L1133",
+      "original": "¿Está seguro de que desea eliminar el escrito?",
+      "propuesto": "¿Quieres eliminar este escrito?",
+      "criterio_id": "B6",
+      "motivo": "Elimina «Está seguro de que desea» (usted formal); usa tuteo directo."
+    },
+    {
+      "linea": "C7-select",
+      "html_linea_aprox": "HTML-L1067",
+      "original": "(primera opción «Borrador» sin opción «Todos»)",
+      "propuesto": "<option value=\"\">Todos</option> (insertar como primera opción del select Estado antes de «Borrador»)",
+      "criterio_id": "C7",
+      "motivo": "El select preselecciona «Borrador» implícitamente; agregar opción por defecto «Todos» para que el usuario vea todos sus escritos sin cambiar el filtro."
+    },
+    {
+      "linea": "T072",
+      "html_linea_aprox": "HTML-L1110",
+      "original": "N° Atención",
+      "propuesto": "N° de Atención",
+      "criterio_id": "C7",
+      "motivo": "Inconsistencia con el label T060 «N° de Atención»; normalizar."
+    },
+    {
+      "linea": "T073",
+      "html_linea_aprox": "HTML-L1112",
+      "original": "N° Solicitud Marca",
+      "propuesto": "N° de Solicitud",
+      "criterio_id": "C7",
+      "motivo": "Inconsistencia con el label T061 «N° de Solicitud»; normalizar."
+    },
+    {
+      "linea": "T077",
+      "html_linea_aprox": "HTML-L1116",
+      "original": "N° Escrito",
+      "propuesto": "N° de Escrito",
+      "criterio_id": "C7",
+      "motivo": "Inconsistencia con el label T062 «N° de Escrito»; normalizar."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T055-mobile",
+      "html_linea_aprox": "HTML-L900",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L900)."
+    },
+    {
+      "linea": "T059",
+      "html_linea_aprox": "HTML-L1033",
+      "original": "Filtros de Búsqueda",
+      "propuesto": "Filtros de búsqueda",
+      "criterio_id": "D1",
+      "motivo": "Capitalización tipo título en la leyenda del fieldset; usar capitalización de sentencia."
+    },
+    {
+      "linea": "T078",
+      "html_linea_aprox": "HTML-L1117",
+      "original": "Tipo Escrito",
+      "propuesto": "Tipo de escrito",
+      "criterio_id": "D1",
+      "motivo": "Capitalización tipo título en <th>; usar capitalización de sentencia y agregar preposición."
+    },
+    {
+      "linea": "T079",
+      "html_linea_aprox": "HTML-L1118",
+      "original": "Última Actualización",
+      "propuesto": "Última actualización",
+      "criterio_id": "D1",
+      "motivo": "Capitalización tipo título en <th>; usar capitalización de sentencia."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI»."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1029",
+      "original": "(ausencia de fecha de actualización)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización de la URL bajo el H2 propuesto."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Escritos Guardados de Marcas - INAPI - Sitio de Trámites",
+      "propuesto": "Escritos Guardados de Marcas — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples (-) por em dash (—) según la norma tipográfica."
+    },
+    {
+      "linea": "T084",
+      "html_linea_aprox": "HTML-L1189",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en el modal de alerta local; «Cerrar» es más descriptivo en español."
+    },
+    {
+      "linea": "T085",
+      "html_linea_aprox": "HTML-L1231",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» sin contexto en el modal confirm del _Layout; «Confirmar» es más descriptivo. Cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "T107",
+      "html_linea_aprox": "HTML-L1295",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en la vista del módulo TrademarkUserDocument (escritos de marca): (1) hacer backup antes de cualquier cambio; (2) correcciones A1/A3 (H1/H2), A2 (párrafo introductorio) y E3 (fecha) — insertar antes del <div class=\"row\"> (HTML-L1025); (3) CORRECCIÓN C7 CRÍTICA: agregar <option value=\"\">Todos</option> como primera opción del select «Estado» (HTML-L1067–1071) en la vista Razor; verificar que el controlador acepte string vacío o null para devolver todos los escritos; (4) las inconsistencias de nomenclatura entre labels y <th> (C7, filas 12–14) requieren editar los <th> de la tabla (HTML-L1110, L1112, L1116); (5) los mensajes de JS T082 (HTML-L1133) y T083 (HTML-L1151) son strings inline en la vista Razor — localizar «¿Está seguro de que desea eliminar» y «Se ha eliminado el borrador»; (6) «Filtros de Búsqueda» (D1, HTML-L1033) es la <legend> del fieldset; (7) «Tipo Escrito» y «Última Actualización» (D1, HTML-L1117–1118) son <th> estáticos; (8) el botón «OK» (F3, HTML-L1189) del modal de alerta está en la vista local; el «Aceptar» (HTML-L1231) del modal confirm está en _Layout.cshtml — cambio transversal; (9) «Titulos» (HTML-L471 y L900) en el layout compartido del menú de Patentes; (10) el title se genera desde ViewBag.Title en el layout — actualizar separador a em dash."
+}

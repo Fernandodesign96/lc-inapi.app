@@ -1,0 +1,560 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkapplication-loadtrademarkapplication_2026-06-11",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkApplication/LoadTrademarkApplication",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 7,
+    "nombre_ui": "Solicitud de Marca",
+    "ruta_etiqueta": "Trademark / TrademarkApplication / LoadTrademarkApplication",
+    "visitas_ref": "47.938",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Pantalla de carga/edición del formulario de solicitud de marca en el wizard de tramitación."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Solicitud de Marca» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T018 [HTML-L207]: «PAGOS» | T023 [HTML-L237]: «SERVICIOS» | T035 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L906) | T057 [HTML-L489]: «Documentación Mínima PCT» | T058 [HTML-L170]: «Home» | T059 [HTML-L507]: «Perfil [Nombre usuario]» (anonimizado) | T060 [HTML-L511]: «Cerrar Sesión» | T061 [HTML-L507]: «[Nombre usuario]» (anonimizado) | T062 [HTML-L1118]: «Identificación de la solicitud» (card-header div, no H semántico) | T063 [HTML-L1132]: «Número de atención» (label en H6) | T064 [HTML-L1133]: «[N° atención]» (anonimizado, dato del trámite) | T065 [HTML-L1138]: «Denominación/Signo» (label en H6) | T066 [HTML-L1139]: «[Denominación]» (anonimizado, nombre de la solicitud de marca) | T067 [HTML-L1143]: «Categoría» (label en H6) | T068 [HTML-L31]: «Marca» (valor) | T069 [HTML-L1147]: «Tipo de marca» (label en H6) | T070 [HTML-L1148]: «Denominativa» (valor) | T071 [HTML-L1154]: «Última actualización» (label en H6) | T072 [HTML-L1155]: «[fecha sistema]» (timestamp del trámite del usuario, no de la página) | T073 [HTML-L1159]: «Usuario» (label en H6) | T074 [HTML-L1160]: «[RUN usuario]» (RUN real de persona natural en HTML estático del body — anonimizado en repo) | T075 [HTML-L274]: «Datos» (tab 1 activo) | T076 [HTML-L1188]: «Clases» (tab 2) | T077 [HTML-L1191]: «Prioridad» (tab 3) | T078 [HTML-L1194]: «Solicitante» (tab 4) | T079 [HTML-L1197]: «Representante» (tab 5) | T080 [HTML-L417]: «Tasas» (tab 6) | T081 [HTML-L1203]: «Revisión» (tab 7) | T082 [HTML-L1245]: «Datos Generales de la Solicitud» (card-header div, no H semántico) | T083 [HTML-L1250]: «Complete la información requerida.» (imperativo de usted implícito) | T084 [HTML-L1258]: «Indique la categoría, tipo y denominación de la solicitud de marca» (leyenda fieldset) | T085 [HTML-L1278]: «Tipo de solicitud» (label — distinto del rank 6 que decía «Tipo de marca») | T086 [HTML-L1300]: «Traducción» (label) | T087 [HTML-L1310]: «Transliteración» (label) | T158 [HTML-L1326]: «Guardar» (botón wizard) | T159 [HTML-L1331]: «>> Siguiente» (botón — doble chevron ASCII inconsistente) | T088 [HTML-L1345]: «Ayuda - Tipos de solicitud de marca» (H5 modal) | T089 [HTML-L1351]: «Información sobre tipos de solicitud de marcas:» (dos puntos innecesarios) | T097 [HTML-L1363]: «Marca compuesta exclusivamente por un sonido o combinación de sonidos que se percibe mediante el sentido del olfato.» (ERROR: debe decir 'audición') | T112 [HTML-L1386]: «Táctiles:» (plural inconsistente) | T116a [HTML-L1394]: «OK» (botón modal ayuda tipos) | T117 [HTML-L1405]: «Ayuda - Tipos de categoría de marca» (H5 modal) | T122 [HTML-L1417]: «Corresponden a expresiones que, acompañando a una marca registrada,  están destinadas a publicitarla...» (doble espacio interno) | T116b [HTML-L1427]: «OK» (botón modal ayuda categorías) | T127 [HTML-L1605]: «Aceptar» (modal confirm _Layout) | T132 [HTML-L1633]: «RUT: 65.999.669-3» (footer, persona jurídica pública) | T147 [HTML-L1667]: «Uso de los Contenidos de este Sitio» | T149 [HTML-L1669]: «Política de privacidad» (→ PDF) | T150 [HTML-L1684]: «©2026 INAPI. Todos los derechos reservados» | T152 [HTML-L1685]: «v 2.3.90.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Sin H1, H2 ni H3. Los card-headers «Identificación de la solicitud» (T062) y «Datos Generales de la Solicitud» (T082) son divs sin semántica. Los campos de datos del trámite usan H6 semánticamente incorrecto como etiquetas de campo.",
+      "cita_textual": "T062 [HTML-L1118]: div.card-header (no H) / T082 [HTML-L1245]: div.card-header (no H) / H6 [HTML-L1131–1161]: campos de datos con H6 como etiquetas"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La única frase introductoria del tab activo es «Complete la información requerida.» (T083) — imperativo impersonal sin contexto de qué información, cuántos tabs quedan ni qué documentos necesitará el usuario.",
+      "cita_textual": "T083 [HTML-L1250]: «Complete la información requerida.»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Sin H1/H2/H3. Los card-headers son divs y los campos de datos usan H6 inapropiadamente. No hay jerarquía semántica accesible para lectores de pantalla.",
+      "cita_textual": "(ausencia de H1, H2, H3) / H6 [HTML-L1131–1161]: abuso semántico de H6 para etiquetas de campo"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los textos del tab activo son breves. Los párrafos de los modales de ayuda tienen menos de 40 palabras."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "«v 2.3.90.0» (T152, HTML-L1685) es versión técnica del sistema sin valor para el usuario.",
+      "cita_textual": "T152 [HTML-L1685]: «v 2.3.90.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T083 «Complete la información requerida.» — imperativo de usted implícito sin sujeto activo. T084 «Indique la categoría, tipo y denominación…» — mismo patrón imperativo formal.",
+      "cita_textual": "T083 [HTML-L1250]: «Complete la información requerida.» / T084 [HTML-L1258]: «Indique la categoría, tipo y denominación de la solicitud de marca»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Denominación/Signo» (T065, T084) es término técnico PI sin glosa en el formulario principal. «Transliteración» (T087) carece de definición visible. «Prioridad» (T077) es un término legal sin explicación en el contexto del wizard. PCT en el menú de Patentes sin definición.",
+      "cita_textual": "T065 [HTML-L1138]: «Denominación/Signo» (sin glosa) / T087 [HTML-L1310]: «Transliteración» (sin definición visible)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece en T047 y T057 del menú de Patentes sin definición en ningún punto visible de esta página.",
+      "cita_textual": "T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T057 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial propio de la página."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los botones y textos del formulario están en formulación positiva. No hay formulaciones negativas dominantes en el flujo principal."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T083 usa imperativo formal de usted implícito: «Complete la información requerida». T084 usa el mismo patrón: «Indique la categoría…». El tono es impersonal y distante, sin dirigirse directamente al usuario.",
+      "cita_textual": "T083 [HTML-L1250]: «Complete la información requerida.» / T084 [HTML-L1258]: «Indique la categoría, tipo y denominación de la solicitud de marca»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No hay frases de relleno burocrático en el flujo principal del wizard."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las instrucciones del tab son breves. Las leyendas y etiquetas son nominales, apropiado para formularios."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los imperativos del formulario usan presente apropiado. Las definiciones de los modales usan presente descriptivo."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T122 (Frase de Propaganda en modal de categorías, HTML-L1417) es la misma oración densa de ≈ 35 palabras con doble espacio que en el rank 6 — texto copiado entre vistas.",
+      "cita_textual": "T122 [HTML-L1417]: oración de ≈ 35 palabras con doble espacio «registrada,  están destinadas»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada tab del wizard tiene un propósito único. Cada modal de ayuda trata un solo tipo/categoría."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos de los modales están dentro del límite de líneas."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene 4 o más párrafos continuos editoriales. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "«Complete la información requerida.» (T083) no indica qué campos son obligatorios. El campo «Transliteración» (T087) no tiene indicación de cuándo debe usarse fuera del tooltip del ícono de ayuda.",
+      "cita_textual": "T083 [HTML-L1250]: sin indicación de campos obligatorios ni requisitos previos"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Cuatro errores (sin incluir el title, tratado en E4): (1) «Titulos y Certificados Patentes» (T055, HTML-L471 y L906) — falta tilde en «Títulos»; (2) T089 «Información sobre tipos de solicitud de marcas:» — dos puntos innecesarios; (3) T112 «Táctiles:» — plural inconsistente con todos los demás tipos en singular; (4) ERROR CONCEPTUAL GRAVE: T097 (HTML-L1363) define «Sonora» como marca que «se percibe mediante el sentido del olfato» — debe decir «sentido de la audición». El rank 6 tiene la definición correcta; esta vista tiene el error.",
+      "cita_textual": "T055 [HTML-L471]: «Titulos y Certificados Patentes» / T097 [HTML-L1363]: «...se percibe mediante el sentido del olfato.» (debe ser «audición») / T112 [HTML-L1386]: «Táctiles:» (plural)"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T122 tiene doble espacio entre «registrada,» y «están» (HTML-L1417) — mismo error que en el rank 6, copiado junto con el texto del modal.",
+      "cita_textual": "T122 [HTML-L1417]: «registrada,  están destinadas» (doble espacio)"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li> correctamente."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave en el flujo principal."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T005), TRAMITACIÓN (T010), PAGOS (T018), SERVICIOS (T023).",
+      "cita_textual": "T005 [HTML-L129]: «MI INAPI» / T010 [HTML-L159]: «TRAMITACIÓN» / T018 [HTML-L207]: «PAGOS» / T023 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales en el contenido editorial."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, el card-header de identificación y el copyright.",
+      "cita_textual": "T150 [HTML-L1684]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de actualización de la página URL visible. La fecha «Última actualización» visible (T071–T072, HTML-L1154–1155) es el timestamp de la última modificación del trámite del usuario, no de la página. El copyright ©2026 tampoco equivale.",
+      "cita_textual": "T071–T072 [HTML-L1154–1155]: «Última actualización: [fecha sistema]» (timestamp del trámite del usuario, no de la URL) / (ausencia de fecha de actualización de la página)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «Solicitud de Marca - INAPI - Sitio de Trámites» con guiones simples en lugar de em dash. No describe el paso del wizard en curso.",
+      "cita_textual": "HTML-L31: «Solicitud de Marca - INAPI - Sitio de Trámites» (guiones simples)"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los botones «Guardar» y «>> Siguiente» llevan a las acciones correctas. Los tabs del wizard llevan al partial view correspondiente.",
+      "cita_textual": "T158 [HTML-L1326]: «Guardar» / T159 [HTML-L1331]: «>> Siguiente»"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El botón «>> Siguiente» (T159, HTML-L1331) usa el doble chevron tipográfico ASCII «>>» — no es el símbolo correcto, ni un ícono accesible, ni sigue las convenciones de los botones del portal.",
+      "cita_textual": "T159 [HTML-L1331]: «>> Siguiente» (doble chevron ASCII, no estándar ni coherente con los botones del portal)"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«OK» (T116a HTML-L1394; T116b HTML-L1427) en los dos modales de ayuda locales. «Aceptar» (T127, HTML-L1605) en el modal confirm del _Layout.",
+      "cita_textual": "T116a [HTML-L1394]: «OK» (modal ayuda tipos) / T116b [HTML-L1427]: «OK» (modal ayuda categorías) / T127 [HTML-L1605]: «Aceptar» (_Layout)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Política de privacidad» (T149, HTML-L1669) enlaza directamente a un PDF sin indicar formato ni peso.",
+      "cita_textual": "T149 [HTML-L1669]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Guardar» y «>> Siguiente» están al final del formulario fuera del texto corrido.",
+      "cita_textual": "T158 [HTML-L1326]: «Guardar» / T159 [HTML-L1331]: «>> Siguiente»"
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El RUN real del usuario logueado ([RUN usuario], HTML-L1160) aparece en el HTML estático del body dentro del card «Identificación de la solicitud» — en un <h6> con label «Usuario». No es solo el menú de perfil: está embebido en el HTML del body visible con Ctrl+U, igual que en /Notificaciones (rank 4). La denominación ([Denominación], HTML-L1139) y el número de atención ([N° atención], HTML-L1133) también son datos del trámite embebidos. Los datos del usuario deben cargarse solo mediante Ajax autenticado.",
+      "cita_textual": "HTML-L1160: «Usuario: [RUN usuario]» (RUN de persona natural en HTML estático del body) / HTML-L1139: «Denominación/Signo: [Denominación]»"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T149) en el footer implica información ARCO disponible.",
+      "cita_textual": "T149 [HTML-L1669]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T150). Existe «Uso de los Contenidos de este Sitio» (T147).",
+      "cita_textual": "T150 [HTML-L1684]: «©2026 INAPI. Todos los derechos reservados» / T147 [HTML-L1667]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 5,
+  "criterios_aplicables": 34,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 44.1,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 19 incumplimientos sobre 34 criterios aplicables (44,1 %) para esta pantalla de 47.938 visitas. Las correcciones de mayor impacto son: (1) PRIORIDAD TIC #1: corregir el error conceptual grave en la definición de «Sonora» (T097, HTML-L1363) — dice «sentido del olfato», debe decir «sentido de la audición» (D1); (2) PRIORIDAD TIC #2: proteger el RUN del usuario — cargar solo mediante Ajax autenticado, no embeber en el HTML del body (G1); (3) insertar H1 semántico y promover card-headers a H2/H3 (A1, A3); (4) reformular T083 y T084 en tuteo directo: «Completa los datos de tu solicitud» / «Indica la categoría, el tipo y la denominación» (B1, B6); (5) agregar glosa a «Denominación/Signo» y «Transliteración» (B2); (6) expandir PCT en menú de Patentes (B3); (7) corregir cuatro errores tipográficos: «Titulos» → «Títulos» (desktop y mobile), dos puntos en T089, plural Táctiles → Táctil (D1); (8) agregar fecha de actualización de la página (E3); (9) reemplazar guiones simples por em dash en el title (E4); (10) cambiar «>> Siguiente» → «Siguiente →» (F2); (11) cambiar «OK» → «Cerrar» en modales locales y «Aceptar» → «Confirmar» en modal _Layout (F3); (12) indicar formato PDF en «Política de privacidad» (F4). El array sustituciones[] contiene 33 filas con cobertura 1:1 para los 19 criterios incumplidos.",
+  "observaciones_lc": "La pantalla wizard de carga/edición de solicitud de marca obtiene un 44,1 % de cumplimiento sobre 34 criterios aplicables — RECHAZADO, rank 7 Clarity con 47.938 visitas. Dos hallazgos son exclusivos y críticos de esta URL: (1) D1 — error conceptual grave: la definición del tipo «Sonora» (HTML-L1363) dice «sentido del olfato» en lugar de «sentido de la audición» — la misma vista del rank 6 (IndexTrademark) tiene la definición correcta, lo que confirma que son dos vistas Razor distintas con el modal copiado y un error introducido en esta copia; (2) G1 — el RUN real del usuario logueado aparece embebido en el HTML estático del body dentro del card «Identificación de la solicitud», igual que en /Notificaciones (rank 4). Los demás incumplimientos siguen los patrones del portal: sin H semántico (A1, A3), imperativos formales de usted (B1, B6), términos técnicos sin glosa (B2), PCT sin expandir (B3), doble espacio y plural «Táctiles» heredados del rank 6 (C3, D2, D1), mayúsculas en el menú (D7), title con guiones simples (E4), «>> Siguiente» con chevron ASCII (F2), «OK»/«Aceptar» en modales (F3), PDF sin formato (F4).",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkApplication/LoadTrademarkApplication fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 7 Clarity con 47.938 visitas. De los 34 criterios aplicables, 15 se cumplen, lo que arroja un 44,1 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 19 incumplimientos y se generaron 33 filas en sustituciones[] con cobertura 1:1. PRIORIDAD TIC #1: la definición de «Sonora» (HTML-L1363) dice «sentido del olfato» — error conceptual grave que desinforma a los 47.938 visitantes; debe corregirse a «sentido de la audición». PRIORIDAD TIC #2: el RUN real del usuario logueado aparece embebido en el HTML estático del body (G1 alta), igual que en /Notificaciones (rank 4). Los 6 incumplimientos de severidad alta son: A1 (sin H semántico), B3 (PCT), D1 (cuatro errores tipográficos incl. Sonora/olfato), E3 (sin fecha de página), F4 (PDF sin formato), G1 (RUN). Los 11 de severidad media incluyen la falta de orientación en el wizard (A2, A3), tono impersonal (B1, B6), términos sin glosa (B2), modal denso con doble espacio (C3, D2), mayúsculas en menú (D7), title con guiones simples (E4), chevron ASCII en botón (F2) y botones no descriptivos en modales (F3).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1/H2/H3. Card-headers son divs. Los campos de la solicitud usan H6 semánticamente incorrecto como etiquetas de campo.",
+      "(B3) PCT en T047 y T057 del menú de Patentes sin definición.",
+      "(D1) Cuatro errores: «Titulos» sin tilde (HTML-L471 y L906); T089 con dos puntos innecesarios; T112 «Táctiles:» en plural; ERROR CONCEPTUAL GRAVE: T097 (HTML-L1363) define «Sonora» con «sentido del olfato» — debe ser «sentido de la audición».",
+      "(E3) Sin fecha de actualización de la página URL. La fecha visible (T072) es del trámite del usuario, no de la URL.",
+      "(F4) «Política de privacidad» (T149) enlaza a PDF sin indicar formato ni peso.",
+      "(G1) El RUN real del usuario logueado ([RUN usuario], HTML-L1160) aparece en el HTML estático del body dentro del card «Identificación de la solicitud». Dato de persona natural expuesto con Ctrl+U — igual que /Notificaciones (rank 4)."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) «Complete la información requerida.» no explica qué información, cuántos tabs quedan ni qué documentos necesitará el usuario.",
+      "(A3) Sin H1/H2/H3; H6 usados semánticamente incorrectos como etiquetas de campo.",
+      "(B1) «Complete la información requerida.» y «Indique la categoría…» — imperativos de usted implícito sin sujeto activo.",
+      "(B2) «Denominación/Signo», «Transliteración» y «Prioridad» son términos técnicos sin glosa visible en el flujo principal.",
+      "(B6) Tono impersonal formal en las instrucciones del tab activo: «Complete», «Indique» sin sujeto.",
+      "(C3) T122 (Frase de Propaganda) — oración de ≈ 35 palabras con doble espacio, heredada del rank 6.",
+      "(D2) Doble espacio en T122 («registrada,  están»), copiado junto con el texto del modal.",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) Title con guiones simples; no describe el paso del wizard en curso.",
+      "(F2) «>> Siguiente» usa doble chevron ASCII inconsistente con las convenciones del portal.",
+      "(F3) «OK» en dos modales de ayuda locales; «Aceptar» en modal confirm del _Layout."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.90.0» (T152) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(C7) Sin indicación de campos obligatorios ni requisitos previos en el tab activo."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L1112",
+      "original": "(ausencia de H1 — card-headers son divs)",
+      "propuesto": "<h1 class='sr-only'>Solicitud de Marca — Datos Generales</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor principal."
+    },
+    {
+      "linea": "A3-h2-id",
+      "html_linea_aprox": "HTML-L1118",
+      "original": "Identificación de la solicitud",
+      "propuesto": "<h2>Identificación de la solicitud</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header de identificación a H2 para jerarquía semántica accesible."
+    },
+    {
+      "linea": "A3-h3-datos",
+      "html_linea_aprox": "HTML-L1245",
+      "original": "Datos Generales de la Solicitud",
+      "propuesto": "<h3>Datos generales de la solicitud</h3>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header del tab a H3; aplicar capitalización de sentencia."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1250",
+      "original": "Complete la información requerida.",
+      "propuesto": "Completa los datos de tu solicitud para continuar.",
+      "criterio_id": "A2",
+      "motivo": "Reformular en tuteo directo; agregar contexto de propósito del tab para orientar al usuario."
+    },
+    {
+      "linea": "T152",
+      "html_linea_aprox": "HTML-L1685",
+      "original": "v 2.3.90.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema sin valor para el usuario; eliminar del footer público."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1250",
+      "original": "Complete la información requerida.",
+      "propuesto": "Completa los datos de tu solicitud para continuar.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza el imperativo de usted implícito «Complete» por tuteo directo."
+    },
+    {
+      "linea": "T084",
+      "html_linea_aprox": "HTML-L1258",
+      "original": "Indique la categoría, tipo y denominación de la solicitud de marca",
+      "propuesto": "Indica la categoría, el tipo y la denominación de tu solicitud de marca",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza «Indique» (usted formal) por tuteo directo; agrega artículo «el» por claridad."
+    },
+    {
+      "linea": "T065",
+      "html_linea_aprox": "HTML-L1138",
+      "original": "Denominación/Signo",
+      "propuesto": "Denominación o signo de la marca",
+      "criterio_id": "B2",
+      "motivo": "«Denominación/Signo» es término técnico PI; reemplazar por texto descriptivo en lenguaje natural."
+    },
+    {
+      "linea": "T087",
+      "html_linea_aprox": "HTML-L1310",
+      "original": "Transliteración",
+      "propuesto": "Transliteración (escritura fonética en caracteres del alfabeto latino)",
+      "criterio_id": "B2",
+      "motivo": "Agregar breve glosa al label de Transliteración para usuarios que no conocen el término."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú de Patentes sin definición; expandir la sigla."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para comprensión independiente."
+    },
+    {
+      "linea": "T083",
+      "html_linea_aprox": "HTML-L1250",
+      "original": "Complete la información requerida.",
+      "propuesto": "Completa los datos de tu solicitud para continuar.",
+      "criterio_id": "B6",
+      "motivo": "Eliminar el «usted» implícito en «Complete»; usar tuteo directo consistente con el portal."
+    },
+    {
+      "linea": "T084",
+      "html_linea_aprox": "HTML-L1258",
+      "original": "Indique la categoría, tipo y denominación de la solicitud de marca",
+      "propuesto": "Indica la categoría, el tipo y la denominación de tu solicitud de marca",
+      "criterio_id": "B6",
+      "motivo": "Mismo cambio de tono: reemplaza «Indique» formal por tuteo directo."
+    },
+    {
+      "linea": "T122",
+      "html_linea_aprox": "HTML-L1417",
+      "original": "Corresponden a expresiones que, acompañando a una marca registrada,  están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.",
+      "propuesto": "Son lemas o esloganes que acompañan a una marca registrada y buscan publicitarla. Se protegen en conjunto con la marca para distinguir productos o servicios.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de ≈ 35 palabras en dos oraciones simples; elimina el doble espacio interno heredado del rank 6."
+    },
+    {
+      "linea": "C7-req",
+      "html_linea_aprox": "HTML-L1250",
+      "original": "(ausencia de indicación de campos obligatorios)",
+      "propuesto": "Los campos marcados con * son obligatorios.",
+      "criterio_id": "C7",
+      "motivo": "Insertar nota de campos obligatorios antes del formulario del tab activo."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T055-mobile",
+      "html_linea_aprox": "HTML-L906",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L906)."
+    },
+    {
+      "linea": "T097",
+      "html_linea_aprox": "HTML-L1363",
+      "original": "Marca compuesta exclusivamente por un sonido o combinación de sonidos que se percibe mediante el sentido del olfato.",
+      "propuesto": "Marca compuesta exclusivamente por un sonido o combinación de sonidos que se percibe mediante el sentido de la audición.",
+      "criterio_id": "D1",
+      "motivo": "ERROR CONCEPTUAL GRAVE: «Sonora» se percibe por la audición, no por el olfato. Corregir urgentemente — el rank 6 (IndexTrademark.cshtml) tiene la definición correcta; esta vista (LoadTrademarkApplication.cshtml) tiene el error en el modal copiado."
+    },
+    {
+      "linea": "T089",
+      "html_linea_aprox": "HTML-L1351",
+      "original": "Información sobre tipos de solicitud de marcas:",
+      "propuesto": "Información sobre tipos de solicitud de marcas",
+      "criterio_id": "D1",
+      "motivo": "Eliminar los dos puntos al final del párrafo introductorio del modal — innecesarios antes del contenido."
+    },
+    {
+      "linea": "T112",
+      "html_linea_aprox": "HTML-L1386",
+      "original": "Táctiles:",
+      "propuesto": "Táctil:",
+      "criterio_id": "D1",
+      "motivo": "Plural inconsistente con todos los demás tipos de marca que van en singular."
+    },
+    {
+      "linea": "T122",
+      "html_linea_aprox": "HTML-L1417",
+      "original": "registrada,  están destinadas",
+      "propuesto": "registrada, están destinadas",
+      "criterio_id": "D2",
+      "motivo": "Doble espacio entre «registrada,» y «están»; eliminar espacio extra — mismo error copiado desde el rank 6."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI»."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T023",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1118",
+      "original": "(ausencia de fecha de actualización de la página)",
+      "propuesto": "Última actualización de la página: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización de la URL bajo el H2 propuesto; T072 es el timestamp del trámite del usuario, no de la página."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Solicitud de Marca - INAPI - Sitio de Trámites",
+      "propuesto": "Solicitud de Marca — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples (-) por em dash (—) según la norma tipográfica."
+    },
+    {
+      "linea": "T159",
+      "html_linea_aprox": "HTML-L1331",
+      "original": ">> Siguiente",
+      "propuesto": "Siguiente →",
+      "criterio_id": "F2",
+      "motivo": "Reemplazar el doble chevron ASCII «>>» por una flecha tipográfica → o un ícono Bootstrap consistente con el portal."
+    },
+    {
+      "linea": "T116a",
+      "html_linea_aprox": "HTML-L1394",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en el modal de ayuda de tipos (local en LoadTrademarkApplication.cshtml); «Cerrar» es más claro en español."
+    },
+    {
+      "linea": "T116b",
+      "html_linea_aprox": "HTML-L1427",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en el modal de ayuda de categorías (local en LoadTrademarkApplication.cshtml)."
+    },
+    {
+      "linea": "T127",
+      "html_linea_aprox": "HTML-L1605",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» sin contexto en modal confirm del _Layout; «Confirmar» es más descriptivo. Cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "T149",
+      "html_linea_aprox": "HTML-L1669",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    },
+    {
+      "linea": "G1-run",
+      "html_linea_aprox": "HTML-L1160",
+      "original": "[RUN usuario] (RUN de persona natural en HTML estático del body)",
+      "propuesto": "(proteger: cargar el RUN del usuario exclusivamente mediante Ajax autenticado; no embeber en el HTML del body generado por el servidor)",
+      "criterio_id": "G1",
+      "motivo": "El RUN real del usuario aparece en el HTML estático del card «Identificación de la solicitud» — igual problema que /Notificaciones (rank 4). Los datos del usuario deben cargarse solo tras verificación de sesión activa."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de LoadTrademarkApplication: (1) hacer backup antes de cualquier cambio; (2) PRIORIDAD #1 — ERROR CONCEPTUAL D1: la definición de «Sonora» (HTML-L1363) en el modal ModalApplicationTypeHelp de la vista LoadTrademarkApplication.cshtml dice «sentido del olfato» — corregir a «sentido de la audición»; verificar que IndexTrademark.cshtml (rank 6) mantiene la definición correcta para no introducir el error allí; (3) PRIORIDAD #2 — G1: el RUN del usuario (HTML-L1160) está en el HTML estático del body dentro del partial view del card de identificación — revisar si el partial view GetGeneralDataTab o la vista principal LoadTrademarkApplication.cshtml inyecta este dato en el HTML renderizado; los datos del usuario deben cargarse exclusivamente mediante Ajax autenticado, no en el HTML generado por el servidor; (4) las correcciones A1/A3 (H1/H2/H3) y E3 (fecha) requieren editar la vista Razor LoadTrademarkApplication.cshtml — insertar antes del primer div.card (HTML-L1116); (5) el botón «>> Siguiente» (HTML-L1331) está en el partial view del tab de datos generales (GetGeneralDataTab) — cambiar el atributo value a «Siguiente →» y verificar que la función SetGoToNextTab(true) no dependa del string «>> Siguiente»; (6) los botones «OK» (HTML-L1394, L1427) están en los modales de ayuda de la vista local; el «Aceptar» (HTML-L1605) está en _Layout.cshtml — cambio transversal; (7) el doble espacio en T122 (HTML-L1417) está en el modal de categorías de la vista local — localizar «registrada,  están»; (8) «Titulos» (HTML-L471 y L906) en el layout compartido del menú de Patentes; (9) el title se genera desde ViewBag.Title en el layout — actualizar separador a em dash; (10) el comentario HTML-L1114 «<!-- Título viene desde el controller según si es Marca o IG / DO -->» confirma que el card-header se genera dinámicamente — revisar el action LoadTrademarkApplication() para localizar el ViewBag que asigna el texto del card-header."
+}

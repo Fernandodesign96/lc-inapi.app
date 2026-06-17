@@ -1,0 +1,517 @@
+{
+  "id": "tramites-inapi-cl-estadosdiariosmarcas_2026-06-11",
+  "url": "https://tramites.inapi.cl/EstadosDiariosMarcas",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 9,
+    "nombre_ui": "Estados diarios de marcas",
+    "ruta_etiqueta": "Estados Diarios Marcas",
+    "visitas_ref": "37.557",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Consulta pública de estados diarios de publicación de marcas; filtros de búsqueda, tablas de resultados y encabezados con terminología normativa o jurídica."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Estados Diarios de Marcas» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900) | T057 [HTML-L489]: «Documentación Mínima PCT» | T057b [HTML-L170]: «Home» | T058 [HTML-L999]: «Últimos Estados Diarios Disponibles» (card-header div, no H) | T059 [HTML-L1001]: tooltip «Si algun estado diario no está disponible se debe a que aún no ha sido publicada. Hora estimada: 11am.» (falta tilde; concordancia errónea; 11am sin espacio) | T060 [HTML-L1007]: «Estado Diario (Versión corta)» (card-header, mayúscula) | T061 [HTML-L1012]: «2026-06-16» (texto ancla descarga corta) | T062 [HTML-L1021]: «Estado Diario (Versión extendida)» | T063 [HTML-L1026]: «2026-06-16» (texto ancla descarga extendida) | T064 [HTML-L1036]: «Presentaciones» | T065 [HTML-L1041]: «2026-06-15» (texto ancla Presentaciones) | T066 [HTML-L1054]: «Estados Diarios Anteriores (últimos 30 días)» (card-header div, no H) | T067 [HTML-L1061]: «Fecha» (th tabla) | T068 [HTML-L1062]: «Estado Diario (versión corta)» (th, minúscula inconsistente con T060) | T069 [HTML-L1063]: «Estado Diario (versión extendida)» (th, minúscula) | T070 [HTML-L1064]: «Presentaciones» (th) | T071 [HTML-L1071]: «2024-07-17» (primera fila tabla) | T100 [HTML-L7941]: «Uso de los Contenidos de este Sitio» | T102 [HTML-L7943]: «Política de privacidad» (→ PDF) | T103 [HTML-L7958]: «©2026 INAPI. Todos los derechos reservados» | T104 [HTML-L7959]: «v 2.3.91.0» | T105 [HTML-L7837]: «OK» (modal alerta _Layout) | T106 [HTML-L7879]: «Aceptar» (modal confirm _Layout)",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "comentario": "Sin H1, H2 ni H3. Los card-headers principales («Últimos Estados Diarios Disponibles» T058 y «Estados Diarios Anteriores (últimos 30 días)» T066) son divs sin semántica de encabezado. Los sub-card-headers también son divs.",
+      "severidad": "alta",
+      "cita_textual": "T058 [HTML-L999]: div.card-header (no H) / T066 [HTML-L1054]: div.card-header (no H) / (ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "comentario": "Sin texto introductorio que explique qué son los estados diarios, para qué sirven, cuándo se publican ni qué formatos hay. El tooltip (T059) es la única ayuda contextual, solo accesible en hover y con errores tipográficos.",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1001]: tooltip «Si algun estado diario…» (única ayuda, solo en hover, con errores)"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "comentario": "Sin H1/H2/H3. Los dos bloques principales se diferencian solo visualmente por colores, sin jerarquía semántica accesible.",
+      "severidad": "media",
+      "cita_textual": "(ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "No hay texto editorial extenso. Los card-headers son concisos dentro de su limitación semántica."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "comentario": "«v 2.3.91.0» (T104, HTML-L7959) es versión técnica del sistema sin valor para el usuario.",
+      "severidad": "baja",
+      "cita_textual": "T104 [HTML-L7959]: «v 2.3.91.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "cumple",
+      "comentario": "No hay texto editorial con voz pasiva o construcciones impersonales problemáticas. Las etiquetas de los cards son nominales."
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "comentario": "«Estado Diario» (T058, T060, T066–T069) es término técnico PI sin definición en la página. «Presentaciones» (T064, T070) puede ser ambiguo para el ciudadano general. PCT en el menú de Patentes sin definición.",
+      "severidad": "media",
+      "cita_textual": "T058 [HTML-L999]: «Últimos Estados Diarios Disponibles» (sin definición) / T064 [HTML-L1036]: «Presentaciones» (sin glosa)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "comentario": "PCT aparece en T047 y T057 del menú de Patentes sin definición en ningún punto visible de esta página.",
+      "severidad": "alta",
+      "cita_textual": "T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T057 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial propio."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los textos de los card-headers son neutros y descriptivos. Sin formulaciones negativas."
+    },
+    {
+      "id": "B6",
+      "estado": "cumple",
+      "comentario": "Los pocos textos de la página no tienen tono de segunda persona ni registros mezclados."
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "Sin frases de relleno burocrático. Las etiquetas son directas y funcionales."
+    },
+    {
+      "id": "C1",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones editoriales redactadas en el cuerpo principal. No aplica."
+    },
+    {
+      "id": "C2",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones con verbos que evaluar en el contenido editorial principal. No aplica."
+    },
+    {
+      "id": "C3",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones extensas en el contenido editorial. No aplica."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Los dos bloques principales (últimos disponibles / histórico 30 días) tienen propósitos claramente diferenciados."
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de texto. No aplica."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene artículos con párrafos continuos. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "comentario": "Los enlaces de descarga usan como texto ancla solo fechas ISO («2026-06-16») sin descripción del tipo de archivo ni formato. La tabla histórica (≈330 filas × 3 columnas) también usa fechas ISO. El tooltip T059 tiene falta de concordancia de género.",
+      "severidad": "media",
+      "cita_textual": "T061 [HTML-L1012]: «2026-06-16» (texto ancla sin descripción) / T059 [HTML-L1001]: «no ha sido publicada» (sujeto masculino, adjetivo en femenino)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "comentario": "Tres errores (sin incluir el title, tratado en E4): (1) «Titulos y Certificados Patentes» (T055, HTML-L471 y L900) — falta tilde en «Títulos»; (2) tooltip T059: «Si algun estado diario» — falta tilde en «algún»; (3) inconsistencia de capitalización: card-headers usan «Versión» (mayúscula, T060/T062) mientras los encabezados de columna usan «versión» (minúscula, T068/T069).",
+      "severidad": "alta",
+      "cita_textual": "T055 [HTML-L471]: «Titulos y Certificados Patentes» / T059 [HTML-L1001]: «Si algun» (falta tilde) / T060 [HTML-L1007] vs T068 [HTML-L1062]: capitalización inconsistente «Versión»/«versión»"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "comentario": "Tooltip T059: (1) «no ha sido publicada» — concordancia de género errónea, «Estado Diario» es masculino; (2) «11am» sin espacio ni puntos, inconsistente con el estilo del portal («11:00 a. m.»).",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1001]: «no ha sido publicada» (concordancia errónea) / «11am» (formato inconsistente)"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li> correctamente. Los encabezados de la tabla usan <th> apropiadamente.",
+      "cita_textual": "HTML-L1060–1065: encabezados de tabla con <th>"
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas. No aplica."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T005), TRAMITACIÓN (T010), PAGOS (T017), SERVICIOS (T022).",
+      "severidad": "media",
+      "cita_textual": "T005 [HTML-L129]: «MI INAPI» / T010 [HTML-L159]: «TRAMITACIÓN» / T017 [HTML-L207]: «PAGOS» / T022 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner y en el copyright.",
+      "cita_textual": "T103 [HTML-L7958]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "comentario": "Sin fecha de publicación ni de última actualización visible de la página URL. El copyright ©2026 no equivale. Las fechas en la tabla son de los estados diarios publicados, no de la URL.",
+      "severidad": "alta",
+      "cita_textual": "(ausencia de fecha de actualización de la URL) / T071 [HTML-L1071]: «2024-07-17» (fecha de un estado diario, no de la página)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "comentario": "El <title> es «Estados Diarios de Marcas - INAPI - Sitio de Trámites» con guiones simples en lugar de em dash.",
+      "severidad": "media",
+      "cita_textual": "HTML-L31: «Estados Diarios de Marcas - INAPI - Sitio de Trámites» (guiones simples)"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los sub-cards y la tabla histórica apuntan a /Trademark/TrademarkDailyStatus/DownloadFile con los parámetros correctos para cada archivo.",
+      "cita_textual": "HTML-L1012: href /Trademark/TrademarkDailyStatus/DownloadFile?stream_id=... (destino correcto)"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "comentario": "Los textos ancla de los 6 enlaces en «Últimos» y de los ≈990 enlaces en la tabla histórica son solo fechas ISO («2026-06-16», «2024-07-17») sin descripción del tipo de documento ni formato. El ícono Font Awesome no es texto alternativo suficiente para tecnologías asistivas.",
+      "severidad": "alta",
+      "cita_textual": "T061 [HTML-L1012]: «2026-06-16» (texto ancla sin descripción) / T071 [HTML-L1074]: «2024-07-17» (texto ancla en tabla histórica)"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "comentario": "«OK» (T105, HTML-L7837) en el modal de alerta del _Layout. «Aceptar» (T106, HTML-L7879) en el modal confirm del _Layout.",
+      "severidad": "media",
+      "cita_textual": "T105 [HTML-L7837]: «OK» (_Layout) / T106 [HTML-L7879]: «Aceptar» (_Layout)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "comentario": "Los enlaces de descarga no indican el formato del archivo. «Política de privacidad» (T102, HTML-L7943) enlaza a PDF sin indicar formato. Nota: TIC debe confirmar el formato real de DownloadFile por tipo de columna.",
+      "severidad": "alta",
+      "cita_textual": "T061 [HTML-L1012]: enlace de descarga sin formato indicado / T102 [HTML-L7943]: «Política de privacidad» → PDF sin indicar"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los enlaces de descarga están posicionados dentro de sus respectivos cards. Sin botones de acción fuera de lugar."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "Página de consulta pública sin sesión requerida. Sin datos personales de personas naturales en el HTML estático. El RUT 65.999.669-3 del footer es de persona jurídica pública.",
+      "cita_textual": "HTML-L7895: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T102) en el footer implica información ARCO disponible.",
+      "cita_textual": "T102 [HTML-L7943]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T103). Existe «Uso de los Contenidos de este Sitio» (T100).",
+      "cita_textual": "T103 [HTML-L7958]: «©2026 INAPI. Todos los derechos reservados» / T100 [HTML-L7941]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 9,
+  "criterios_aplicables": 30,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 50.0,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 15 incumplimientos sobre 30 criterios aplicables (50,0 %) para esta página de consulta pública con 37.557 visitas. Las correcciones de mayor impacto son: (1) corregir los textos ancla de todos los enlaces de descarga — los ≈990 enlaces de la tabla histórica y los 6 de «Últimos» usan fechas ISO desnudas; agregar descripción del tipo de documento y formato (F2, F4, C7); (2) insertar H1 semántico y promover card-headers a H2 (A1, A3); (3) agregar párrafo introductorio sobre los estados diarios (A2); (4) corregir tres errores tipográficos: «Titulos», «algun» sin tilde, y «Versión»/«versión» inconsistente (D1); (5) corregir concordancia de género y formato de hora en el tooltip (D2); (6) expandir PCT en menú de Patentes (B3); (7) agregar fecha de actualización de la URL (E3); (8) reemplazar guiones simples por em dash en el title (E4); (9) normalizar mayúsculas en grupos del menú (D7); (10) cambiar «OK» → «Cerrar» y «Aceptar» → «Confirmar» en modales del _Layout (F3); (11) indicar formato en «Política de privacidad» (F4). El array sustituciones[] contiene 29 filas con cobertura 1:1 para los 15 criterios incumplidos.",
+  "observaciones_lc": "La página de Estados Diarios de Marcas obtiene un 50,0 % de cumplimiento sobre 30 criterios aplicables — RECHAZADO, rank 9 Clarity con 37.557 visitas. Es la primera URL de consulta pública del piloto, lo que elimina los problemas G1 de ranks 4 y 7. El hallazgo más crítico es F2/F4/C7: todos los textos ancla de descarga son fechas ISO desnudas («2026-06-16», «2024-07-17») afectando 6 enlaces en «Últimos» y ≈990 enlaces en la tabla histórica; el usuario no sabe qué tipo de archivo ni en qué formato descarga. Le siguen: ausencia de H semántico (A1, A3); sin párrafo introductorio (A2); tres errores tipográficos incluyendo «Titulos» sin tilde y la inconsistencia «Versión»/«versión» (D1); problemas de concordancia y formato en el tooltip de ayuda (D2); y los patrones transversales del portal.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/EstadosDiariosMarcas fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 9 Clarity con 37.557 visitas y la primera URL de consulta pública del piloto. De los 30 criterios aplicables, 15 se cumplen, lo que arroja un 50,0 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 15 incumplimientos y se generaron 29 filas en sustituciones[] con cobertura 1:1. El hallazgo más crítico es F2/F4/C7: los ≈990 enlaces de descarga de la tabla histórica y los 6 de «Últimos» usan fechas ISO como único texto ancla sin describir el tipo ni el formato del archivo. Los 6 incumplimientos de alta son: A1 (sin H semántico), B3 (PCT), D1 (tres errores tipográficos), E3 (sin fecha de página), F2 (texto ancla no descriptivo) y F4 (formato no indicado). G1 cumple: página pública sin datos personales.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1, H2 ni H3. Los dos bloques principales son div.card-header sin semántica de encabezado.",
+      "(B3) PCT en T047 y T057 del menú de Patentes sin definición.",
+      "(D1) Tres errores: «Titulos y Certificados Patentes» sin tilde (HTML-L471 y L900); tooltip «Si algun» sin tilde en «algún»; inconsistencia «Versión»/«versión» entre card-headers y encabezados de columna.",
+      "(E3) Sin fecha de actualización visible de la URL. Las fechas de la tabla son de los estados diarios publicados, no de la página.",
+      "(F2) Los ≈990 enlaces de la tabla histórica y los 6 de «Últimos» usan fechas ISO como único texto ancla, sin descripción del tipo de documento ni formato.",
+      "(F4) Los enlaces de descarga no indican el formato del archivo. «Política de privacidad» enlaza a PDF sin indicar formato. TIC debe confirmar el formato real de DownloadFile por tipo de columna."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique qué son los estados diarios, cuándo se publican ni qué contienen. El tooltip es la única ayuda, solo en hover.",
+      "(A3) Sin H1/H2/H3; los bloques se diferencian solo visualmente, sin jerarquía semántica accesible.",
+      "(B2) «Estado Diario» sin definición en la página. «Presentaciones» puede ser ambiguo para el ciudadano general.",
+      "(C7) Los textos ancla de descarga son fechas ISO sin descripción del documento. El tooltip tiene concordancia de género errónea.",
+      "(D2) Tooltip T059: «no ha sido publicada» con género erróneo (sujeto masculino); «11am» sin espacio ni puntos.",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) Title con guiones simples en lugar de em dash.",
+      "(F3) «OK» y «Aceptar» en modales del _Layout — cambio transversal."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.91.0» (T104) es versión técnica del sistema visible al usuario sin valor para su tarea."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L995",
+      "original": "(ausencia de H1)",
+      "propuesto": "<h1 class='sr-only'>Estados Diarios de Marcas</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor principal."
+    },
+    {
+      "linea": "A3-h2-ultimos",
+      "html_linea_aprox": "HTML-L999",
+      "original": "Últimos Estados Diarios Disponibles",
+      "propuesto": "<h2>Últimos estados diarios disponibles</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2; aplicar capitalización de sentencia."
+    },
+    {
+      "linea": "A3-h2-anteriores",
+      "html_linea_aprox": "HTML-L1054",
+      "original": "Estados Diarios Anteriores (últimos 30 días)",
+      "propuesto": "<h2>Estados diarios anteriores (últimos 30 días)</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2; aplicar capitalización de sentencia."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L997",
+      "original": "(ausencia de párrafo introductorio)",
+      "propuesto": "Los estados diarios de marcas son los documentos oficiales donde INAPI publica las resoluciones diarias sobre solicitudes de marcas. Se publican de lunes a viernes a partir de las 11:00 a. m.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo introductorio antes del primer card para orientar al usuario."
+    },
+    {
+      "linea": "T104",
+      "html_linea_aprox": "HTML-L7959",
+      "original": "v 2.3.91.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica sin valor para el usuario; eliminar del footer público."
+    },
+    {
+      "linea": "T059-B2",
+      "html_linea_aprox": "HTML-L1001",
+      "original": "Si algun estado diario no está disponible se debe a que aún no ha sido publicada. Hora estimada: 11am.",
+      "propuesto": "Si algún estado diario no está disponible, es porque aún no se ha publicado. Hora estimada de publicación: 11:00 a. m.",
+      "criterio_id": "B2",
+      "motivo": "Corrige «algun», la concordancia de género y el formato de hora; mejora la comprensión del único texto de ayuda de la página."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú de Patentes sin definición; expandir la sigla."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para comprensión independiente."
+    },
+    {
+      "linea": "T061-C7",
+      "html_linea_aprox": "HTML-L1012",
+      "original": "2026-06-16 (texto ancla enlace descarga versión corta)",
+      "propuesto": "Estado diario versión corta — 16/06/2026 (archivo descargable)",
+      "criterio_id": "C7",
+      "motivo": "El texto ancla es solo una fecha ISO sin descripción del tipo de documento; agregar nombre y formato de fecha legible. Nota: TIC debe confirmar el formato real (PDF/XLSX) para reemplazar «(archivo descargable)»."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T055-mobile",
+      "html_linea_aprox": "HTML-L900",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L900)."
+    },
+    {
+      "linea": "T059-tilde",
+      "html_linea_aprox": "HTML-L1001",
+      "original": "Si algun estado diario",
+      "propuesto": "Si algún estado diario",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «algún» en el texto del tooltip."
+    },
+    {
+      "linea": "T060",
+      "html_linea_aprox": "HTML-L1007",
+      "original": "Estado Diario (Versión corta)",
+      "propuesto": "Estado diario (versión corta)",
+      "criterio_id": "D1",
+      "motivo": "Capitalización inconsistente con el encabezado de columna T068; normalizar «versión» en minúscula en ambos."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L1021",
+      "original": "Estado Diario (Versión extendida)",
+      "propuesto": "Estado diario (versión extendida)",
+      "criterio_id": "D1",
+      "motivo": "Misma inconsistencia de capitalización con T069; normalizar."
+    },
+    {
+      "linea": "T059-concordancia",
+      "html_linea_aprox": "HTML-L1001",
+      "original": "no ha sido publicada. Hora estimada: 11am.",
+      "propuesto": "no se ha publicado. Hora estimada de publicación: 11:00 a. m.",
+      "criterio_id": "D2",
+      "motivo": "(1) «publicada» en femenino cuando el sujeto «Estado Diario» es masculino — corregir a «publicado»; (2) «11am» sin espacio ni puntos — normalizar a «11:00 a. m.»."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI»."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L999",
+      "original": "(ausencia de fecha de actualización de la URL)",
+      "propuesto": "Última actualización de la página: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización de la URL bajo el H2 propuesto; las fechas de la tabla son de los estados diarios publicados, no de la página."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Estados Diarios de Marcas - INAPI - Sitio de Trámites",
+      "propuesto": "Estados Diarios de Marcas — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples (-) por em dash (—) según la norma tipográfica."
+    },
+    {
+      "linea": "T061-F2",
+      "html_linea_aprox": "HTML-L1012",
+      "original": "2026-06-16 (texto ancla versión corta)",
+      "propuesto": "Estado diario versión corta — 16/06/2026",
+      "criterio_id": "F2",
+      "motivo": "El texto ancla debe describir el tipo de documento; cambiar de fecha ISO a descripción + fecha localizada."
+    },
+    {
+      "linea": "T063-F2",
+      "html_linea_aprox": "HTML-L1026",
+      "original": "2026-06-16 (texto ancla versión extendida)",
+      "propuesto": "Estado diario versión extendida — 16/06/2026",
+      "criterio_id": "F2",
+      "motivo": "Misma corrección para el enlace de versión extendida."
+    },
+    {
+      "linea": "T065-F2",
+      "html_linea_aprox": "HTML-L1041",
+      "original": "2026-06-15 (texto ancla Presentaciones)",
+      "propuesto": "Presentaciones — 15/06/2026",
+      "criterio_id": "F2",
+      "motivo": "Misma corrección para el enlace de Presentaciones."
+    },
+    {
+      "linea": "tabla-F2",
+      "html_linea_aprox": "HTML-L1074",
+      "original": "ídcono fa-download + fecha ISO (repetido en ≈3 columnas x 330 filas)",
+      "propuesto": "Cambiar el template de celda en la vista Razor para agregar texto descriptivo al <a>: «Descargar versión corta [fecha]» / «Descargar versión extendida [fecha]» / «Descargar presentaciones [fecha]»",
+      "criterio_id": "F2",
+      "motivo": "Los ≈990 enlaces de la tabla histórica usan solo íconos sin texto alternativo suficiente y fecha ISO como ancla; corregir en el bucle @foreach de la vista Razor."
+    },
+    {
+      "linea": "T105",
+      "html_linea_aprox": "HTML-L7837",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en el modal de alerta del _Layout; «Cerrar» es más claro en español. Cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "T106",
+      "html_linea_aprox": "HTML-L7879",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» sin contexto en el modal confirm del _Layout; «Confirmar» es más descriptivo. Cambio transversal."
+    },
+    {
+      "linea": "T061-F4",
+      "html_linea_aprox": "HTML-L1012",
+      "original": "2026-06-16 (sin formato indicado)",
+      "propuesto": "Estado diario versión corta — 16/06/2026 (archivo descargable)",
+      "criterio_id": "F4",
+      "motivo": "El enlace de descarga no indica el formato del archivo. TIC debe confirmar si es PDF o XLSX por tipo de columna para reemplazar «(archivo descargable)» por el formato específico."
+    },
+    {
+      "linea": "T102",
+      "html_linea_aprox": "HTML-L7943",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en EstadosDiariosMarcas.cshtml: (1) hacer backup antes de cualquier cambio; (2) correcciones A1/A3 (H1/H2), A2 (párrafo introductorio) y E3 (fecha) — insertar antes del <div id=\"MainBodyContainer\"> (HTML-L993) o inmediatamente antes del primer div.card (HTML-L998); (3) el tooltip de ayuda (HTML-L1001) está en el atributo title del span .fa-question-circle del card-header de «Últimos» — corregir «algun», «publicada» y «11am» directamente en la vista; (4) la inconsistencia de capitalización entre card-headers («Versión», HTML-L1007 y L1021) y encabezados de tabla («versión», HTML-L1062–1063) — normalizar a minúscula en ambos contextos; (5) CORRECCIÓN CLAVE — textos ancla de la tabla histórica: los ≈990 enlaces se generan en un bucle @foreach en la vista Razor; cambiar el template de celda para incluir texto descriptivo del tipo de documento junto con la fecha localizada; el JS DataTables no depende del texto ancla (usa el href); (6) los textos ancla de los tres sub-cards de «Últimos» (HTML-L1012, L1026, L1041) son <a> con texto de fecha ISO dentro de los div.card-body — cambiar el texto del <a> en la vista; (7) VERIFICAR CON TIC: el formato real de los archivos que devuelve /Trademark/TrademarkDailyStatus/DownloadFile; si siempre es PDF, usar «(PDF)»; si varía por columna, usar el formato específico en cada tipo; (8) «Titulos» (HTML-L471 y L900) en el layout compartido del menú de Patentes; (9) el title se genera desde ViewBag.Title en el layout — actualizar el separador a em dash; (10) «OK» (HTML-L7837) y «Aceptar» (HTML-L7879) están en _Layout.cshtml — cambio transversal a todas las páginas del portal; (11) la tabla DataTables tiene ≈8.000 líneas de HTML (datos de 2024-07-17 a 2026-06-15); verificar que el mensaje de tabla vacía esté configurado en español y sea consistente con el lenguaje claro del portal."
+}

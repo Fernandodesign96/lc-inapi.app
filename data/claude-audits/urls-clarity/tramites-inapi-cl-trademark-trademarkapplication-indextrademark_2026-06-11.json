@@ -1,0 +1,608 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkapplication-indextrademark_2026-06-11",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 6,
+    "nombre_ui": "Solicitar Marca",
+    "ruta_etiqueta": "Trademark / TrademarkApplication / IndexTrademark",
+    "visitas_ref": "52.693",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Punto de partida del flujo de presentación de solicitud de marca."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Solicitar Marca» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T046 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T054 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L906) | T056 [HTML-L489]: «Documentación Mínima PCT» | T057 [HTML-L170]: «Home» | T058 [HTML-L507]: «Perfil [Nombre usuario]» (anonimizado) | T059 [HTML-L511]: «Cerrar Sesión» | T060 [HTML-L507]: «[Nombre usuario]» (anonimizado) | T061 [HTML-L1159]: «Nueva Solicitud» (card-header div, no H semántico) | T062 [HTML-L1168]: «Indique la categoría, tipo y denominación de la solicitud de marca» (leyenda principal) | T063 [HTML-L1172]: «Categoría» (label) | T064 [HTML-L1174]: «Seleccione...» (opción por defecto) | T065 [HTML-L1175]: «Marca» | T066 [HTML-L1176]: «Frase de Propaganda» | T067 [HTML-L1177]: «Marca Colectiva» | T068 [HTML-L1178]: «Marca de Certificación» | T069 [HTML-L1187]: «Tipo de marca» (label) | T070 [HTML-L998]: «Denominación/Signo» (label) | T071 [HTML-L1208]: «Registro base de la solicitud» (leyenda fieldset) | T072 [HTML-L1212]: «Número de registro base» (label) | T073 [HTML-L1227]: «Información del Registro Base» (leyenda, capitalización tipo título) | T074 [HTML-L1230]: «Acá van los datos de la marca base» (H1 placeholder de desarrollo en div oculto) | T155 [HTML-L1248]: «Cancelar» (botón) | T156 [HTML-L1249]: «Guardar» (botón principal) | T157 [HTML-L1250]: «Buscar» (botón registro base) | T075 [HTML-L1260]: «Ayuda - Tipos de solicitud de marca» (H5 modal) | T076 [HTML-L1266]: «Información sobre tipos de solicitud de marcas:» (dos puntos innecesarios al final) | T077 [HTML-L1268]: «Denominativa:» | T079 [HTML-L1271]: «Figurativa:» | T081 [HTML-L1274]: «Mixta:» | T083 [HTML-L1277]: «Sonora:» | T085 [HTML-L1280]: «Tridimensional:» | T099 [HTML-L1301]: «Táctiles:» (plural inconsistente) | T104 [HTML-L1320]: «Ayuda - Tipos de categoría de marca» (H5) | T109 [HTML-L1332]: «Corresponden a expresiones que, acompañando a una marca registrada,  están destinadas a publicitarla…» (modal Frase de Propaganda; doble espacio) | T114 [HTML-L1353]: «Información sobre marca tridimensional» (H5) | T115 [HTML-L1360]: instrucciones con comillas curvadas inconsistentes «\"denominación/signo\"» | T116 [HTML-L1363]: segunda instancia comillas curvadas en modal tridimensional | T117 [HTML-L1366]: «la oficina eliminará de oficio el campo denominación» | T118 [HTML-L1382]: «Información sobre marca denominativa» (H5) | T119 [HTML-L1389]: «Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación,» | T120 [HTML-L1389]: «NO será posible cambiar con posterioridad la denominación solicitada.» (mayúsculas para énfasis) | T121 [HTML-L1392]: «Recuerde que podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca, pero» | T122 [HTML-L1392]: «NO podrá solicitar la devolución de la tasa pagada en la primera solicitud.» | T123 [HTML-L1407]: «Información sobre marca mixta» (H5) | T124 [HTML-L1414]: instrucciones modal marca mixta (tercera persona) | T126 [HTML-L1418]: «se cambiará de oficio el campo denominación» (pasiva institucional) | T128 [HTML-L1418]: cierre instrucciones modal mixta | T103 [HTML-L1309]: «OK» (botón cierre en 6 modales de ayuda) | T129 [HTML-L1483]: «Aceptar» (modal confirm) | T134 [HTML-L1511]: «RUT: 65.999.669-3» (footer, persona jurídica) | T149 [HTML-L1545]: «Uso de los Contenidos de este Sitio» | T151 [HTML-L1547]: «Política de privacidad» (→ PDF) | T152 [HTML-L1562]: «©2026 INAPI. Todos los derechos reservados» | T154 [HTML-L1563]: «v 2.3.90.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El único H1 visible es «Acá van los datos de la marca base» (T074, HTML-L1230) — placeholder de desarrollo en un div oculto que solo aparece en el flujo de Frase de Propaganda. No es el H1 descriptivo de la pantalla principal. El card-header «Nueva Solicitud» (T061) es un div sin semántica. El title usa guiones simples.",
+      "cita_textual": "T074 [HTML-L1230]: «Acá van los datos de la marca base» (H1 placeholder, no encabezado de página) / T061 [HTML-L1159]: div.card-header «Nueva Solicitud» (no H)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La pantalla va directamente al formulario sin texto introductorio que oriente al usuario: qué tipos de solicitud existen (13), qué categorías hay (4), qué documentos necesitará ni cuántos pasos tiene el proceso. Las definiciones están solo en los modales de ayuda, no en el flujo principal.",
+      "cita_textual": "(ausencia de párrafo introductorio) — el formulario abre directamente con los selects de Categoría y Tipo"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 de la pantalla es un placeholder de desarrollo. No hay H2 ni H3 para el flujo principal. El contenido se organiza mediante <legend> y div.card-header sin jerarquía semántica correcta.",
+      "cita_textual": "T074 [HTML-L1230]: H1 placeholder / (ausencia de H2, H3 para el flujo principal)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los textos propios del formulario son breves. Los modales de ayuda tienen párrafos de menos de 40 palabras cada uno."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "«v 2.3.90.0» (T154, HTML-L1563) es versión técnica del sistema sin valor para el usuario.",
+      "cita_textual": "T154 [HTML-L1563]: «v 2.3.90.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "T119 usa «Asegurarse que» — imperativo en infinitivo impersonal. T121 usa «Recuerde que» — formal de usted. Los mensajes de alerta JS usan tercera persona nominal pasiva: «Debe ingresar un número de registro válido», «No se ha encontrado un registro base sin expirar».",
+      "cita_textual": "T119 [HTML-L1389]: «Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente…» / T121 [HTML-L1392]: «Recuerde que podrá desistirse…»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Frase de Propaganda» (T066) aparece como opción del select sin definición en el formulario principal. «Denominación/Signo» (T070) es término técnico PI sin glosa. Los 13 tipos de marca solo están definidos en los modales de ayuda, no en el flujo principal. PCT en menú de Patentes sin definición.",
+      "cita_textual": "T066 [HTML-L1176]: «Frase de Propaganda» (sin definición fuera del modal) / T070 [HTML-L998]: «Denominación/Signo» (sin glosa)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT en T046 y T056 del menú de Patentes sin definición en ningún punto visible de esta página.",
+      "cita_textual": "T046 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T056 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial propio de la página."
+    },
+    {
+      "id": "B5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T120 y T122 usan «NO» en mayúsculas totales para énfasis en advertencias de los modales. Las negritas ya comunican la importancia; el uso adicional de mayúsculas en «NO» puede percibirse como tono agresivo y viola la norma tipográfica.",
+      "cita_textual": "T120 [HTML-L1389]: «NO será posible cambiar con posterioridad la denominación solicitada.» / T122 [HTML-L1392]: «NO podrá solicitar la devolución de la tasa pagada…»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los modales de ayuda mezclan registros: T119 usa infinitivo impersonal «Asegurarse», T121 usa «Recuerde» (usted formal), T124 usa tercera persona y T126/T128 usan pasiva institucional «se cambiará de oficio». No hay tono consistente.",
+      "cita_textual": "T119 [HTML-L1389]: «Asegurarse que» / T121 [HTML-L1392]: «Recuerde que» / T126 [HTML-L1418]: «se cambiará de oficio»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "T117: «la oficina eliminará de oficio el campo denominación» — «de oficio» es tecnicismo jurídico-administrativo sin valor para el ciudadano. T121: «podrá desistirse de la solicitud» — «desistirse» es término jurídico; podría decir «podrás retirar la solicitud».",
+      "cita_textual": "T117 [HTML-L1366]: «la oficina eliminará de oficio el campo denominación» / T121 [HTML-L1392]: «podrá desistirse de la solicitud»"
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T119 antepone la cláusula causal al verbo principal: «Asegurarse que en el campo... se digite correctamente... ya que al ingresar su solicitud pagando la tasa...». T121 también tiene complementos antes del verbo. No sigue orden SVP.",
+      "cita_textual": "T119 [HTML-L1389]: cláusula causal antepuesta al verbo principal"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los textos de los modales usan presente simple e imperativo apropiados. Las definiciones de tipos de marca usan presente descriptivo correcto."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T109 (Frase de Propaganda en modal de categorías): oración de ≈ 35 palabras con múltiples cláusulas de relativo encadenadas. También tiene un doble espacio interno.",
+      "cita_textual": "T109 [HTML-L1332]: «Corresponden a expresiones que, acompañando a una marca registrada,  están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada modal de ayuda trata un solo tipo/categoría. El formulario principal tiene una sola función por fieldset."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos de los modales están dentro del límite de líneas. El formulario principal es breve."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página no tiene 4 o más párrafos continuos editoriales en el flujo principal. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El formulario no indica qué tipos de datos se esperan: la leyenda «Indique la categoría, tipo y denominación» no describe cómo elegir. El campo «Número de registro base» no tiene ejemplo de formato numérico.",
+      "cita_textual": "T072 [HTML-L1212]: «Número de registro base» — sin formato ejemplo"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Cuatro errores (sin incluir el title, tratado en E4): (1) «Titulos y Certificados Patentes» (T054, HTML-L471 y L906) — falta tilde en «Títulos»; (2) T073 «Información del Registro Base» — capitalización tipo título, debe ser «Información del registro base»; (3) T076 «Información sobre tipos de solicitud de marcas:» — los dos puntos al final son innecesarios antes del contenido del modal; (4) T099 «Táctiles:» — plural inconsistente con todos los demás tipos de marca que van en singular.",
+      "cita_textual": "T054 [HTML-L471]: «Titulos y Certificados Patentes» / T073 [HTML-L1227]: capitalización tipo título / T076 [HTML-L1266]: dos puntos innecesarios al final / T099 [HTML-L1301]: «Táctiles:» (plural, debe ser «Táctil:»)"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T109 tiene un doble espacio antes de «están» (HTML-L1332: «registrada,  están destinadas»). T115 y T116 usan comillas curvadas (“”) inconsistentes con el formulario principal que usa el nombre del campo sin comillas.",
+      "cita_textual": "T109 [HTML-L1332]: doble espacio «registrada,  están» / T115-T116 [HTML-L1360, L1363]: comillas curvadas «\"denominación/signo\"»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li> correctamente. Las listas de tipos de marca en los modales usan correctamente H5 + párrafo."
+    },
+    {
+      "id": "D6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "T120 y T122 usan «NO» en mayúsculas para énfasis — las negritas ya comunican la prioridad; el uso adicional de mayúsculas en «NO» es redundante y viola la norma tipográfica.",
+      "cita_textual": "T120 [HTML-L1389]: «NO» en mayúsculas redundante junto a negrita"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T005), TRAMITACIÓN (T010), PAGOS (T017), SERVICIOS (T022).",
+      "cita_textual": "T005 [HTML-L129]: «MI INAPI» / T010 [HTML-L159]: «TRAMITACIÓN» / T017 [HTML-L207]: «PAGOS» / T022 [HTML-L237]: «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales. Las definiciones de tipos de marca son objetivas."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, el card-header y el copyright.",
+      "cita_textual": "T152 [HTML-L1562]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Sin fecha de publicación ni de última actualización visible de la página. El copyright ©2026 no equivale a fecha de actualización del contenido.",
+      "cita_textual": "(ausencia) — ningún Tnnn indica fecha de actualización de la URL"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> es «Solicitar Marca - INAPI - Sitio de Trámites» con guiones simples en lugar de em dash. El card-header «Nueva Solicitud» (T061) generado dinámicamente no describe específicamente que se trata de una solicitud de marca.",
+      "cita_textual": "HTML-L31: «Solicitar Marca - INAPI - Sitio de Trámites» (guiones simples)"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "El botón Cancelar lleva a /Trademark/TrademarkSavedApplications (destino coherente). Los íconos de ayuda abren los modales correctos. El botón Buscar del campo de registro base busca en el registro correcto.",
+      "cita_textual": "T155 [HTML-L1248]: «Cancelar» → /Trademark/TrademarkSavedApplications / T157 [HTML-L1250]: «Buscar» (registro base)"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "Botones descriptivos: «Guardar», «Cancelar», «Buscar» (campo registro base). Sin textos genéricos del tipo «Haz clic aquí».",
+      "cita_textual": "T155 [HTML-L1248]: «Cancelar» / T156 [HTML-L1249]: «Guardar» / T157 [HTML-L1250]: «Buscar»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«OK» (T103, HTML-L1309) se repite en los botones de cierre de seis modales de ayuda. «Aceptar» (T129, HTML-L1483) en el modal confirm genérico. Todos son anglicismos o etiquetas no descriptivas de la acción.",
+      "cita_textual": "T103 [HTML-L1309]: «OK» (en 6 modales de ayuda) / T129 [HTML-L1483]: «Aceptar» (modal confirm genérico)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Política de privacidad» (T151, HTML-L1547) enlaza directamente a un PDF sin indicar formato ni peso.",
+      "cita_textual": "T151 [HTML-L1547]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Guardar» y «Cancelar» están al final del formulario fuera del texto corrido.",
+      "cita_textual": "T155 [HTML-L1248]: «Cancelar» / T156 [HTML-L1249]: «Guardar»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "RUT: 65.999.669-3 (T134) es de persona jurídica pública. El nombre del usuario en el menú de perfil (T058, T060) es dato en sesión activa, no embebido inseguramente en el HTML estático del body.",
+      "cita_textual": "T134 [HTML-L1511]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T151) en el footer implica información ARCO disponible.",
+      "cita_textual": "T151 [HTML-L1547]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T152). Existe «Uso de los Contenidos de este Sitio» (T149).",
+      "cita_textual": "T152 [HTML-L1562]: «©2026 INAPI. Todos los derechos reservados» / T149 [HTML-L1545]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 4,
+  "criterios_aplicables": 35,
+  "criterios_aprobados": 14,
+  "porcentaje_cumplimiento": 40.0,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 21 incumplimientos sobre 35 criterios aplicables (40,0 %) para esta pantalla de 52.693 visitas. Las correcciones de mayor impacto son: (1) PRIORIDAD TIC: el H1 «Acá van los datos de la marca base» (T074) es un placeholder de desarrollo en un div oculto que quedó en producción — reemplazarlo por «Datos del registro base» e insertar H1/H2 semánticos reales para la pantalla (A1); (2) agregar párrafo introductorio que explique qué tipos de solicitud existen y qué necesita el usuario antes de comenzar (A2); (3) reformular T119 «Asegurarse que» a «Antes de continuar, escribe correctamente la marca...» (B1, C1); (4) cambiar «Recuerde que» (T121) por «Puedes retirar la solicitud» (B1, B6, B7); (5) reemplazar «NO» en mayúsculas en T120 y T122 por minúscula en negrita (B5, D6); (6) corregir cuatro errores tipográficos: «Titulos» → «Títulos» (desktop y mobile), capitaliz. tipo título en T073, dos puntos en T076, plural «Táctiles» → «Táctil» (D1); (7) expandir PCT en menú de Patentes (B3); (8) agregar fecha de actualización visible (E3); (9) reemplazar guiones simples por em dash en el title (E4); (10) normalizar mayúsculas en grupos del menú (D7); (11) cambiar «OK» → «Cerrar» en 6 modales de ayuda y «Aceptar» → «Confirmar» en modal confirm (F3); (12) indicar formato PDF en «Política de privacidad» (F4). El array sustituciones[] contiene 38 filas con cobertura 1:1 para los 21 criterios incumplidos.",
+  "observaciones_lc": "La pantalla de inicio del flujo de solicitud de marca obtiene un 40,0 % de cumplimiento sobre 35 criterios aplicables — RECHAZADO, rank 6 Clarity con 52.693 visitas. El hallazgo más crítico es A1: el único H1 visible en toda la pantalla es «Acá van los datos de la marca base» (HTML-L1230) — texto placeholder de desarrollo en un div oculto que quedó en producción. Para los 52.693 visitantes, este H1 nunca es el encabezado de la pantalla principal. Los 21 incumplimientos se distribuyen en cuatro capas: (1) estructura semántica (A1, A3): H1 placeholder y ausencia de H2/H3 para el flujo principal; (2) calidad de los textos de los modales de ayuda (B1, B5, B6, B7, C1, C3): mezcla de «Asegurarse», «Recuerde», «de oficio» y «NO» en mayúsculas; (3) errores tipográficos (D1, D2): «Titulos» sin tilde, «Táctiles» en plural, capitaliz. tipo título, doble espacio, comillas curvadas; (4) ausencia de orientación al usuario (A2, B2): sin párrafo introductorio ni definiciones accesibles fuera de los modales de ayuda.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 6 Clarity con 52.693 visitas. De los 35 criterios aplicables, 14 se cumplen, lo que arroja un 40,0 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 21 incumplimientos y se generaron 38 filas en sustituciones[] con cobertura 1:1. PRIORIDAD TIC #1: el H1 «Acá van los datos de la marca base» (T074, HTML-L1230) es un placeholder de desarrollo en un div oculto que quedó en producción — nunca describe la pantalla principal y debe reemplazarse antes de cualquier otra corrección. Los 6 incumplimientos de severidad alta son: A1 (H1 placeholder), B1 (imperativo impersonal en modales), B3 (PCT sin definir), D1 (cuatro errores tipográficos), E3 (sin fecha de actualización), F4 (PDF sin formato). Los 11 de severidad media incluyen falta de introducción (A2, A3), términos sin definición (B2), «NO» en mayúsculas (B5), mezcla de tonos (B6), oración densa en modal (C3), doble espacio y comillas curvadas (D2), mayúsculas en menú (D7), title (E4) y botones «OK»/«Aceptar» (F3).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) PRIORIDAD TIC: el único H1 es el placeholder «Acá van los datos de la marca base» (T074, HTML-L1230) en un div oculto. El card-header «Nueva Solicitud» es un div sin semántica. No hay H semántico real para la pantalla principal.",
+      "(B1) T119 usa «Asegurarse que» (infinitivo impersonal). T121 usa «Recuerde que» (formal de usted). Mensajes JS usan tercera persona nominal pasiva.",
+      "(B3) PCT en T046 y T056 del menú de Patentes sin definición.",
+      "(D1) Cuatro errores: «Titulos» sin tilde (HTML-L471 y L906); T073 «Información del Registro Base» en capitalización tipo título; T076 con dos puntos innecesarios; T099 «Táctiles:» en plural inconsistente.",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la página.",
+      "(F4) «Política de privacidad» (T151) enlaza a PDF sin indicar formato ni peso."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique qué tipos de solicitud existen, qué categorías hay ni qué necesita el usuario antes de comenzar.",
+      "(A3) H1 es un placeholder de desarrollo; sin H2/H3 para el flujo principal.",
+      "(B2) «Frase de Propaganda», «Denominación/Signo» y los 13 tipos de marca solo definidos en modales de ayuda, no en el flujo principal.",
+      "(B5) «NO» en mayúsculas para énfasis en T120 y T122 — tono percibido como agresivo; las negritas ya comunican la importancia.",
+      "(B6) Los modales mezclan: «Asegurarse» (infinitivo), «Recuerde» (usted), «se cambiará de oficio» (pasiva institucional).",
+      "(C1) T119 antepone la cláusula causal al verbo principal.",
+      "(C3) T109 (Frase de Propaganda) tiene ≈ 35 palabras con múltiples relativas encadenadas y un doble espacio interno.",
+      "(D2) Doble espacio en T109 («registrada,  están»); comillas curvadas en T115-T116 inconsistentes con el campo del formulario.",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(E4) Title con guiones simples en lugar de em dash.",
+      "(F3) «OK» en seis modales de ayuda; «Aceptar» en modal confirm genérico."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.90.0» (T154) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(B7) «de oficio» y «desistirse» son tecnicismos jurídicos sin equivalente claro para el ciudadano.",
+      "(C7) Sin indicación de formato para el campo «Número de registro base»; sin descripción previa de qué información necesitará el usuario.",
+      "(D6) «NO» en mayúsculas redundante cuando ya hay negrita en T120 y T122."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1-page",
+      "html_linea_aprox": "HTML-L1150",
+      "original": "(ausencia de H1 de página)",
+      "propuesto": "<h1 class='sr-only'>Solicitar Marca — nueva solicitud</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor; el H1 existente T074 es un placeholder de desarrollo."
+    },
+    {
+      "linea": "A1-h2-card",
+      "html_linea_aprox": "HTML-L1159",
+      "original": "Nueva Solicitud",
+      "propuesto": "<h2>Nueva solicitud de marca</h2>",
+      "criterio_id": "A1",
+      "motivo": "Promover el card-header a H2 con descripción más completa."
+    },
+    {
+      "linea": "T074",
+      "html_linea_aprox": "HTML-L1230",
+      "original": "Acá van los datos de la marca base",
+      "propuesto": "Datos del registro base",
+      "criterio_id": "A1",
+      "motivo": "El H1 placeholder de desarrollo debe reemplazarse por texto descriptivo y funcional del contenedor dinámico."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L1157",
+      "original": "(ausencia de párrafo introductorio)",
+      "propuesto": "Para registrar una marca en Chile necesitas indicar la categoría, el tipo y la denominación. Ten los datos a mano antes de comenzar.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo introductorio antes del card del formulario para orientar al usuario."
+    },
+    {
+      "linea": "A3-legend",
+      "html_linea_aprox": "HTML-L1168",
+      "original": "Indique la categoría, tipo y denominación de la solicitud de marca",
+      "propuesto": "<h3>Categoría, tipo y denominación de la solicitud</h3>",
+      "criterio_id": "A3",
+      "motivo": "Promover la leyenda principal a H3 para construir jerarquía semántica accesible."
+    },
+    {
+      "linea": "T154",
+      "html_linea_aprox": "HTML-L1563",
+      "original": "v 2.3.90.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema visible al usuario sin valor para la tarea; eliminar del footer público."
+    },
+    {
+      "linea": "T119",
+      "html_linea_aprox": "HTML-L1389",
+      "original": "Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación,",
+      "propuesto": "Antes de continuar, escribe correctamente la marca en el campo «Denominación/Signo»: una vez que pagues la tasa de presentación,",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza «Asegurarse que» (infinitivo impersonal) por imperativo directo en tuteo; coloca la acción al inicio (SVP)."
+    },
+    {
+      "linea": "T121",
+      "html_linea_aprox": "HTML-L1392",
+      "original": "Recuerde que podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca, pero",
+      "propuesto": "Puedes retirar la solicitud y presentar una nueva, pero",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza «Recuerde que» (formal de usted) por tuteo directo; simplifica «desistirse de la solicitud» por «retirar la solicitud»."
+    },
+    {
+      "linea": "T066",
+      "html_linea_aprox": "HTML-L1176",
+      "original": "Frase de Propaganda",
+      "propuesto": "Frase de Propaganda — expresión publicitaria vinculada a una marca registrada",
+      "criterio_id": "B2",
+      "motivo": "Agregar glosa descriptiva al valor del select para que el usuario comprenda qué es una Frase de Propaganda sin abrir el modal de ayuda."
+    },
+    {
+      "linea": "T070",
+      "html_linea_aprox": "HTML-L998",
+      "original": "Denominación/Signo",
+      "propuesto": "Denominación o signo de la marca",
+      "criterio_id": "B2",
+      "motivo": "«Denominación/Signo» es término técnico PI con barra diagonal; reemplazar por texto descriptivo en lenguaje natural."
+    },
+    {
+      "linea": "T046",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "PCT sin definición en primera instancia del menú de Patentes; expandir la sigla."
+    },
+    {
+      "linea": "T056",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para comprensión independiente del orden de lectura del menú."
+    },
+    {
+      "linea": "T120",
+      "html_linea_aprox": "HTML-L1389",
+      "original": "NO será posible cambiar con posterioridad la denominación solicitada.",
+      "propuesto": "no será posible cambiar la denominación solicitada.",
+      "criterio_id": "B5",
+      "motivo": "«NO» en mayúsculas para énfasis es innecesario cuando ya hay negrita; reemplazar por minúscula manteniendo la negrita."
+    },
+    {
+      "linea": "T122",
+      "html_linea_aprox": "HTML-L1392",
+      "original": "NO podrá solicitar la devolución de la tasa pagada en la primera solicitud.",
+      "propuesto": "no podrás recuperar la tasa pagada.",
+      "criterio_id": "B5",
+      "motivo": "«NO» en mayúsculas redundante; simplificar además el texto y usar tuteo."
+    },
+    {
+      "linea": "T119",
+      "html_linea_aprox": "HTML-L1389",
+      "original": "Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación,",
+      "propuesto": "Antes de continuar, escribe correctamente la marca en el campo «Denominación/Signo»: una vez que pagues la tasa de presentación,",
+      "criterio_id": "B6",
+      "motivo": "Elimina «Asegurarse» impersonal; usa tuteo directo consistente con el resto del portal."
+    },
+    {
+      "linea": "T121",
+      "html_linea_aprox": "HTML-L1392",
+      "original": "Recuerde que podrá desistirse de la solicitud",
+      "propuesto": "Puedes retirar la solicitud",
+      "criterio_id": "B6",
+      "motivo": "Reemplaza «Recuerde que» (usted formal) por tuteo directo."
+    },
+    {
+      "linea": "T117",
+      "html_linea_aprox": "HTML-L1366",
+      "original": "la oficina eliminará de oficio el campo denominación",
+      "propuesto": "INAPI eliminará automáticamente el campo denominación",
+      "criterio_id": "B7",
+      "motivo": "«De oficio» es tecnicismo jurídico sin valor para el ciudadano; reemplazar por «automáticamente»."
+    },
+    {
+      "linea": "T121",
+      "html_linea_aprox": "HTML-L1392",
+      "original": "podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca",
+      "propuesto": "podrás retirar la solicitud y presentar una nueva",
+      "criterio_id": "B7",
+      "motivo": "«Desistirse» es tecnicismo jurídico; reemplazar por «retirar la solicitud»."
+    },
+    {
+      "linea": "T119",
+      "html_linea_aprox": "HTML-L1389",
+      "original": "Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación,",
+      "propuesto": "Antes de continuar, escribe correctamente la marca en el campo «Denominación/Signo»: una vez que pagues la tasa de presentación,",
+      "criterio_id": "C1",
+      "motivo": "Coloca el imperativo activo al inicio; elimina el complemento causal antepuesto («ya que al ingresar...»)."
+    },
+    {
+      "linea": "T109",
+      "html_linea_aprox": "HTML-L1332",
+      "original": "Corresponden a expresiones que, acompañando a una marca registrada,  están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.",
+      "propuesto": "Son lemas o esloganes que acompañan a una marca registrada y buscan publicitarla. Se protegen en conjunto con la marca para distinguir productos o servicios.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de ≈ 35 palabras en dos oraciones simples; elimina las relativas encadenadas y el doble espacio interno."
+    },
+    {
+      "linea": "C7-formato",
+      "html_linea_aprox": "HTML-L1212",
+      "original": "Número de registro base",
+      "propuesto": "Número de registro base (ej. 1234567)",
+      "criterio_id": "C7",
+      "motivo": "Agregar ejemplo de formato numérico al label del campo para reducir errores de ingreso."
+    },
+    {
+      "linea": "T054",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T054-mobile",
+      "html_linea_aprox": "HTML-L906",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de «Titulos» sin tilde — menú mobile (HTML-L906)."
+    },
+    {
+      "linea": "T073",
+      "html_linea_aprox": "HTML-L1227",
+      "original": "Información del Registro Base",
+      "propuesto": "Información del registro base",
+      "criterio_id": "D1",
+      "motivo": "Capitalización tipo título; usar capitalización de sentencia."
+    },
+    {
+      "linea": "T099",
+      "html_linea_aprox": "HTML-L1301",
+      "original": "Táctiles:",
+      "propuesto": "Táctil:",
+      "criterio_id": "D1",
+      "motivo": "Plural inconsistente con todos los demás tipos de marca que van en singular (Denominativa, Figurativa, Mixta, etc.)."
+    },
+    {
+      "linea": "T076",
+      "html_linea_aprox": "HTML-L1266",
+      "original": "Información sobre tipos de solicitud de marcas:",
+      "propuesto": "Información sobre tipos de solicitud de marcas",
+      "criterio_id": "D1",
+      "motivo": "Los dos puntos al final del párrafo introductorio del modal son innecesarios antes del listado de definiciones."
+    },
+    {
+      "linea": "T109",
+      "html_linea_aprox": "HTML-L1332",
+      "original": "registrada,  están destinadas",
+      "propuesto": "registrada, están destinadas",
+      "criterio_id": "D2",
+      "motivo": "Doble espacio entre «registrada,» y «están»; eliminar espacio extra."
+    },
+    {
+      "linea": "T115",
+      "html_linea_aprox": "HTML-L1360",
+      "original": "campo “denom/signo”",
+      "propuesto": "campo «Denominación/Signo»",
+      "criterio_id": "D2",
+      "motivo": "Comillas curvadas inconsistentes con el formulario principal; usar comillas angulares y capitalizar igual que el label del campo."
+    },
+    {
+      "linea": "T120",
+      "html_linea_aprox": "HTML-L1389",
+      "original": "NO será posible cambiar con posterioridad la denominación solicitada.",
+      "propuesto": "no será posible cambiar la denominación solicitada.",
+      "criterio_id": "D6",
+      "motivo": "«NO» en mayúsculas es redundante cuando ya hay negrita; quitar mayúsculas manteniendo la negrita."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI» en mayúsculas."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1159",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible en el card-header o bajo el H1 propuesto; actualmente no existe."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Solicitar Marca - INAPI - Sitio de Trámites",
+      "propuesto": "Solicitar Marca — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples (-) por em dash (—) según la norma tipográfica."
+    },
+    {
+      "linea": "T103",
+      "html_linea_aprox": "HTML-L1309",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en los 6 modales de ayuda locales; «Cerrar» es más claro en español. Nota: estas instancias están en la vista local IndexTrademark.cshtml, no en _Layout.cshtml."
+    },
+    {
+      "linea": "T129",
+      "html_linea_aprox": "HTML-L1483",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» sin contexto en modal confirm genérico; «Confirmar» es más descriptivo. Coordinar con TIC — está en _Layout.cshtml."
+    },
+    {
+      "linea": "T151",
+      "html_linea_aprox": "HTML-L1547",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark: (1) hacer backup antes de cualquier cambio; (2) PRIORIDAD #1: el H1 «Acá van los datos de la marca base» (HTML-L1230) es texto de desarrollo en el <div id=\"DivRegistryNumberInfo\"> de la vista Razor IndexTrademark.cshtml — reemplazar por «Datos del registro base» y agregar el H1/H2 semántico de la página antes del div.card (HTML-L1157); (3) el card-header «Nueva Solicitud» (HTML-L1159) se genera dinámicamente desde el controller — revisar el action IndexTrademark para localizar el ViewBag que asigna el texto; (4) los modales de ayuda T119/T121 (HTML-L1389, L1392) están en la vista local de la página, en los modales ModalCategoryDenominativa y ModalCategoryMixta; (5) los seis botones «OK» (HTML-L1309, L1342, L1371, L1396, L1422, L1441) están en los modales de ayuda de la vista local IndexTrademark.cshtml — se pueden corregir sin afectar el resto del portal; (6) el «Aceptar» (HTML-L1483) del modal confirm genérico está en _Layout.cshtml — cambio transversal; (7) el doble espacio en T109 (HTML-L1332) está en el <p> del modal ModalApplicationCategoryHelp — localizar «registrada,  están»; (8) las comillas curvadas de T115-T116 (HTML-L1360, L1363) están en el modal ModalCategory3D de la vista local; (9) «Titulos» (HTML-L471 y L906) en el layout compartido del menú de Patentes; (10) el <title> se genera desde ViewBag.Title en el layout — actualizar separador a em dash; (11) T073 «Información del Registro Base» (HTML-L1227) está en la leyenda del fieldset de búsqueda de registro base — corregir capitalización; (12) T099 «Táctiles:» (HTML-L1301) está en el modal ModalApplicationTypeHelp — corregir a «Táctil:»."
+}

@@ -1,6 +1,6 @@
 /**
  * Filas del inventario ampliado Clarity — derivadas de `data/ux/clarity-fichas-mock.json`.
- * Fuente editorial: `docs/ux/inventario-urls-clarity.md` §2 (tabla 22 filas).
+ * Fuente editorial: `docs/ux/inventario-urls-clarity.md` §2 (tabla 17 filas).
  */
 import {
   CLARITY_FICHAS_MOCK,
