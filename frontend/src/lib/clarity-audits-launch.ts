@@ -1,6 +1,6 @@
 import { CLARITY_FICHAS_MOCK } from "@/lib/clarity-fichas-mock"
 
-/** Filas serie Clarity (22 URLs — tabla en /auditar). */
+/** Filas serie Clarity (17 URLs — tabla en /auditar). */
 export type ClarityAuditLaunchRow = {
   rank: number
   url: string
@@ -56,10 +56,82 @@ const CLARITY_AUDIT_BY_RANK: Record<
       evaluadorUid: "Fernando Arriagada Castillo",
     },
   },
-  21: {
+  5: {
+    id: "tramites-inapi-cl-trademark-trademarksavedapplications_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 47.1,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  6: {
+    id: "tramites-inapi-cl-trademark-trademarkapplication-indextrademark_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 40.0,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  7: {
+    id: "tramites-inapi-cl-trademark-trademarkapplication-loadtrademarkapplication_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 44.1,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  9: {
+    id: "tramites-inapi-cl-estadosdiariosmarcas_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 50.0,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  10: {
+    id: "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 44.1,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  12: {
+    id: "tramites-inapi-cl-trademark-trademarkuserdocument_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 55.9,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  14: {
+    id: "tramites-inapi-cl-trademark-trademarkannotation_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 50.0,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  16: {
     id: "www-inapi-cl_2026-06-11",
     resumenMvp: {
       porcentajeLc: 45.5,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  17: {
+    id: "www-inapi-cl-tramites-tramites-digitales_2026-06-11",
+    resumenMvp: {
+      porcentajeLc: 41.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",

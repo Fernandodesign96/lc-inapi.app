@@ -9,7 +9,7 @@ export type ClarityHistorialAuditoriaMock = {
 /** Origen Calidad Web: portal de aplicación vs sitio institucional. */
 export type ClarityUrlType = "tramites" | "sitioweb"
 
-/** Ficha completa de una URL del inventario Clarity (~22 filas objetivo). */
+/** Ficha completa de una URL del inventario Clarity (~17 filas objetivo). */
 export type ClarityUrlFicha = {
   rank: number
   nombre: string

@@ -38,10 +38,10 @@ export const claudeAuditPilotMetaSchema = z.object({
 
 export type ClaudeAuditPilotMeta = z.infer<typeof claudeAuditPilotMetaSchema>
 
-/** Metadatos inventario Clarity (22 URLs) — obligatorio en `data/claude-audits/urls-clarity/*.json`. */
+/** Metadatos inventario Clarity (17 URLs) — obligatorio en `data/claude-audits/urls-clarity/*.json`. */
 export const clarityAuditMetaSchema = z.object({
   serie: z.literal("clarity"),
-  rank: z.number().int().min(1).max(22),
+  rank: z.number().int().min(1).max(17),
   nombre_ui: z.string().min(1),
   ruta_etiqueta: z.string().min(1),
   visitas_ref: z.string().min(1),

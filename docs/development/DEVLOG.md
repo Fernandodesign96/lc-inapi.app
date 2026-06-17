@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-11 | [Estrategia: Cierre oleada auditable Clarity — inventario 17 URLs y ranks 14 y 17](#devlog-2026-06-11-clarity-cierre-oleada-auditable) |
 | 2026-06-15 | [Frontend: Serie Clarity — cableado MVP en `/auditar`, CI y 5 JSON en `urls-clarity`](#devlog-2026-06-15-clarity-cableado-mvp) |
 | 2026-06-11 | [Estrategia: Serie Clarity — JSON ranks 1–3 y 21, prompts §3.5 y esquema `clarity_meta`](#devlog-2026-06-11-serie-clarity-json) |
 | 2026-06-08 | [Documentación: sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel](#devlog-2026-06-08-docs-fase-1-5) |
@@ -40,6 +41,31 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
 
 ---
+
+---
+
+---
+
+<a id="devlog-2026-06-11-clarity-cierre-oleada-auditable"></a>
+
+## [2026-06-11] - Estrategia | Cierre oleada auditable Clarity — inventario 17 URLs y ranks 14 y 17
+
+### Contexto y objetivos:
+
+Cerrar la primera oleada auditable de la serie Clarity tras comprimir el inventario editorial de 22 a 17 ranks (eliminación de duplicados y filas repetidas), incorporar los JSON de los ranks **14** (`TrademarkAnnotation`) y **17** (`www.inapi.cl/tramites/tramites-digitales`) y dejar cableado el launch en `/auditar`. Los ranks **8** (Login ClaveÚnica) y **11** (SuccessConfirmation escritos) quedan fuera por falta de acceso al HTML; el rank **13** (modal de confirmación de pago) no es auditable con Ctrl+U; el rank **15** (Renovación de marca) queda pendiente para otra sesión.
+
+### Implementación técnica:
+
+- **`data/claude-audits/urls-clarity/`:** 13 JSON con `clarity_meta` — últimos añadidos: `tramites-inapi-cl-trademark-trademarkannotation_2026-06-11` (50,0 % LC) y `www-inapi-cl-tramites-tramites-digitales_2026-06-11` (41,7 % LC, el más bajo de la serie).
+- **Inventario:** `clarity-fichas-mock.json` y `clarity-inventory.json` reestructurados a 17 filas; esquema `clarity_meta.rank` con `max(17)` en `claude-audit-pilot.ts`.
+- **Launch:** `clarity-audits-launch.ts` registra los 13 ranks con informe; tabla Historial enlaza a `/auditar/resultado?claudeAudit=`.
+- **CI:** `validate:claude-audits` valida piloto (9) + Clarity (13 ids).
+
+### Próximos pasos:
+
+- Rank **15** Renovación de marca (requiere sesión en tramites.inapi.cl).
+- Ranks **8** y **11** cuando exista acceso al HTML de esas pantallas.
+- Sincronizar documentación (`flujo-piloto`, `inventario-urls-clarity`, ROADMAP) de referencias a 22 URLs hacia el inventario de 17.
 
 ---
 

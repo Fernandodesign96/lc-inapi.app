@@ -1,0 +1,691 @@
+{
+  "id": "www-inapi-cl-tramites-tramites-digitales_2026-06-11",
+  "url": "https://www.inapi.cl/tramites/tramites-digitales",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 17,
+    "nombre_ui": "Trámites • Trámites digitales",
+    "ruta_etiqueta": "Trámites Digitales",
+    "visitas_ref": "16.059",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Listado informativo de trámites digitalizados (RNT nivel 4) en el sitio institucional: acordeones por trámite con enlace «Acceder» a ClaveÚnica."
+  },
+  "texto_capturado": "T008 [HTML-L691]: H1 «Trámites» (genérico, no describe el contenido específico de la página) | T038 [HTML-L692]: H2 «Trámites digitales» (más descriptivo que su propio H1) | T040 [HTML-L709]: «Trámites Digitales» (breadcrumb) | T052 [HTML-L809]: «El listado de trámite más abajo considera aquellos incluidos en el Registro Nacional de Trámites del Estado (RNT). Todos estos trámites están plenamente digitalizados (nivel 4) según lo indica el RNT\".» (comilla espuria final) | T053 [HTML-L826]: H3 «Registro de anotaciones de marcas comerciales» | T055 [HTML-L836]: «Permite presentar solicitudes de anotaciones marginales que afectan a registros de marcas comerciales.» | T056 [HTML-L838]: «Para este trámite se requiere Claveunica.» (falta tilde en «Única»; 6 instancias: L838, L853, L869, L884, L925, L940) | T057 [HTML-L839]: «Acceder» (CTA genérico, repetido en 10 acordeones) | T058 [HTML-L842]: H3 «Registro de anotaciones de patentes de invención» | T059 [HTML-L852]: «Permite presentar solicitudes de anotaciones marginales que afectan a registros de patentes de invención.» | T060 [HTML-L857]: H3 «Registro de marcas comerciales» | T061 [HTML-L867]: «Permite la protección, a nivel nacional, de los registros de marcas comerciales que distinguen productos, servicios y establecimientos industriales.» («sólo» con tilde anacrónica más adelante en la oración) | T062 [HTML-L868]: «La marca otorga a su dueño el derecho exclusivo y excluyente de utilizarla en la forma que se le ha conferido en el registro. Además, le faculta para impedir que un tercero utilice, sin su consentimiento, marcas idénticas o similares.» | T063 [HTML-L873]: H3 «Registro de patente de invención» | T064 [HTML-L883]: «Permite solicitar el registro de una patente, que es un derecho exclusivo que concede el Estado para proteger una patente de: invención, modelo de utilidad, diseño o dibujo industrial...» | T065 [HTML-L888]: H3 «Registro o Custodia de Poderes y Personerías» | T066 [HTML-L898]: «Permite a los solicitantes de una marca o patente presentar sólo una vez el documento original o copia digital integra...» («sólo» anacrónico; «integra» sin tilde) | T067 [HTML-L901]: H3 «Sistema Integrado de Atención a la Ciudadanía (SIAC)» | T068 [HTML-L911]: «Permite realizar consultas, opiniones, sugerencias, felicitaciones o reclamos.» | T069 [HTML-L914]: H3 «Solicitar títulos y certificados del registro de marcas comerciales» | T070 [HTML-L924]: «Permite solicitar título del registro de marcas comerciales otorgado y varios tipos de certificados.» | T071 [HTML-L929]: H3 «Solicitar títulos y certificados del registro de patentes invención» (falta preposición «de») | T072 [HTML-L939]: «Permite solicitar título del registro de patentes de invención otorgado y varios tipos de certificados.» | T073 [HTML-L941]: «Acceder.» (CTA con punto final inconsistente) | T074 [HTML-L944]: H3 «Solicitud de Acceso a la Información Pública (Ley 20.285)» | T075 [HTML-L954]: «Permite a cualquier persona solicitar información de carácter pública según lo establecido en la Ley 20.285 de Transparencia o Acceso a la Información Pública.» | T076 [HTML-L958]: H3 «Solicitud de Audiencia (Ley del Lobby N° 20.730)» | T077 [HTML-L968]: «Permite a cualquier persona solicitar audiencia o con los sujetos pasivos de Lobby del Servicio cumpliendo con los requisitos de la Ley 20.730.» (error sintáctico: «audiencia o con») | T079 [HTML-L1040]: H2 «Utiliza el canal de comunicación que prefieras:» (H2 en widget flotante de contacto — interrumpe jerarquía editorial) | T098 [HTML-L1082]: «Uso de los Contenidos de este Sitio» | T100 [HTML-L1084]: «Política de privacidad» (→ PDF) | T101 [HTML-L1096]: «©2026»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "comentario": "El H1 Trámites (HTML-L691) es un título genérico del área de la web, igual para todas las páginas del área de Trámites. No describe el contenido específico de esta URL. El H2 Trámites digitales (HTML-L692) es más descriptivo que su propio H1, creando una inversión funcional de la jerarquía.",
+      "severidad": "alta",
+      "cita_textual": "T008 [HTML-L691]: H1 Trámites (genérico, igual para todas las páginas del área)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "comentario": "T052 no sigue pirámide invertida: empieza con orientación a la pantalla («el listado de trámite más abajo») en vez de explicar primero qué puede hacer el ciudadano. No explica qué es el RNT ni qué significa nivel 4. Los acordeones usan siempre «Permite [infinitivo]» sin perspectiva del ciudadano.",
+      "severidad": "media",
+      "cita_textual": "T052 [HTML-L809]: «El listado de trámite más abajo considera aquellos incluidos en el RNT…» (sin pirámide invertida ni explicación de nivel 4)"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "comentario": "El H1 es genérico para todo el área. El H2 del widget de contacto flotante (T079, HTML-L1040) interrumpe la jerarquía editorial de la página al reutilizar H2 para contenido no relacionado con el artículo principal.",
+      "severidad": "media",
+      "cita_textual": "T008 [HTML-L691]: H1 genérico / T079 [HTML-L1040]: H2 en widget de contacto flotante que interrumpe la jerarquía editorial"
+    },
+    {
+      "id": "A4",
+      "estado": "incumple",
+      "comentario": "T061 (marcas comerciales): párrafo de ≈50 palabras con sujeto largo antepuesto. T062: párrafo adicional de ≈40 palabras; juntos superan el umbral de extensión. T066 (Poderes y Personerías): oración de ≈45 palabras con múltiples complementos antes del verbo. T064 (patentes): enumeración de subtipos en un solo párrafo de ≈45 palabras.",
+      "severidad": "media",
+      "cita_textual": "T061 [HTML-L867]: párrafo de ≈50 palabras / T066 [HTML-L898]: oración de ≈45 palabras"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple",
+      "comentario": "No hay versión técnica de sistema visible en el contenido de www.inapi.cl."
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "comentario": "Todos los acordeones usan la misma estructura impersonal «Permite [infinitivo]» sin dirigirse al ciudadano. T062: «le faculta para impedir» y «su consentimiento» — usted formal. T066: «Permite a los solicitantes» — tercera persona.",
+      "severidad": "media",
+      "cita_textual": "T055 [HTML-L836]: «Permite presentar solicitudes» (impersonal sistemático) / T062 [HTML-L868]: «le faculta», «su consentimiento»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "comentario": "Múltiples términos PI sin definición: «anotaciones marginales» (T055, T059) sin glosa; «nivel 4 del RNT» sin explicación; «Personérías» (T065) es término jurídico chileno de nicho; SIAC expandido en el título pero sin definición del concepto; meta description solo menciona marcas omitiendo el resto.",
+      "severidad": "alta",
+      "cita_textual": "T055 [HTML-L836]: «anotaciones marginales» (sin glosa) / T052 [HTML-L809]: «nivel 4» sin explicación"
+    },
+    {
+      "id": "B3",
+      "estado": "cumple",
+      "comentario": "PCT aparece en el menú superior como ítem de navegación, no en el contenido editorial de los acordeones."
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos problemáticos en el contenido editorial de los acordeones."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los CTAs son positivos: Acceder. Las descripciones de los trámites son informativas, no restrictivas."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "comentario": "Tono impersonal sistemático en los 10 acordeones. T062: «su consentimiento» y «le faculta» — usted formal. T066: «Permite a los solicitantes» — tercera persona en vez de dirigirse al usuario.",
+      "severidad": "media",
+      "cita_textual": "T062 [HTML-L868]: «su consentimiento», «le faculta» / T066 [HTML-L898]: «Permite a los solicitantes»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "comentario": "T052: «considera aquellos incluidos en» es verbo burocrático innecesario; podría decir simplemente «forman parte del».",
+      "severidad": "baja",
+      "cita_textual": "T052 [HTML-L809]: «considera aquellos incluidos en el Registro Nacional de Trámites del Estado»"
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "comentario": "T061: sujeto de 13 palabras antes del verbo principal («Permite la protección, a nivel nacional, de los registros de marcas comerciales»). T066: complementos de ≈20 palabras antes del infinitivo principal («Permite a los solicitantes de una marca o patente»).",
+      "severidad": "media",
+      "cita_textual": "T061 [HTML-L867]: sujeto de 13 palabras antes del verbo / T066 [HTML-L898]: complemento largo antes del verbo"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los verbos usan presente indicativo e infinitivo apropiados para descripciones de trámites."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "comentario": "T061: párrafo de ≈50 palabras. T066: oración de ≈45 palabras. T064: párrafo de ≈45 palabras con enumeración de subtipos. Todos superan el límite recomendado de 30 palabras.",
+      "severidad": "media",
+      "cita_textual": "T061 [HTML-L867]: ≈50 palabras / T066 [HTML-L898]: ≈45 palabras en una oración"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada acordeón trata un único trámite con propósito definido."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "La mayoría de los acordeones tiene 1-2 párrafos breves. La excepción es el acordeón de marcas comerciales (2 párrafos densos)."
+    },
+    {
+      "id": "C6",
+      "estado": "incumple",
+      "comentario": "El acordeón «Registro de marcas comerciales» combina dos párrafos de alto contenido jurídico (T061 y T062) con más de 80 palabras combinadas y sin subtitulo ni separación visual entre la descripción del trámite y los efectos jurídicos de la marca, dificultando el escaneo del ciudadano.",
+      "severidad": "media",
+      "cita_textual": "T061-T062 [HTML-L867-868]: dos párrafos jurídicos densos de >80 palabras combinadas sin ayudas de lectura"
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "comentario": "T052 no explica qué significa nivel 4 del RNT. T056 menciona Claveunica sin glosa de qué es ni cómo obtenerla. T071 «patentes invención» sin preposición crea ambigüedad sobre si invención modifica patentes o es un tipo separado.",
+      "severidad": "media",
+      "cita_textual": "T052 [HTML-L809]: nivel 4 sin explicación / T071 [HTML-L929]: «patentes invención» sin preposición"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "comentario": "Siete errores tipográficos (sin incluir el title): (1) Claveunica sin tilde en 6 instancias (L838, L853, L869, L884, L925, L940); (2) sólo con tilde anacrónica (L867, L898); (3) integra sin tilde (L898); (4) T073 Acceder. con punto final inconsistente (L941); (5) T071 patentes invención sin preposición de; (6) T052 comilla espuria RNT antes del punto; (7) T077 error sintáctico audiencia o con.",
+      "severidad": "alta",
+      "cita_textual": "T056 [HTML-L838]: Claveunica (×6) / T066 [HTML-L898]: integra / T073 [HTML-L941]: Acceder. / T077 [HTML-L968]: audiencia o con"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "comentario": "T052 termina con RNT\". — comilla de cierre espuria que queda después del punto, creando puntuación incorrecta. T077: «solicitar audiencia o con los sujetos» — la conjunción o es un error sintáctico que da una lectura sin sentido.",
+      "severidad": "media",
+      "cita_textual": "T052 [HTML-L809]: RNT\". (comilla espuria + punto en orden incorrecto) / T077 [HTML-L968]: audiencia o con los sujetos"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Los acordeones usan H3 correctamente para los títulos de cada trámite. El footer usa listas ul/li."
+    },
+    {
+      "id": "D6",
+      "estado": "incumple",
+      "comentario": "T061-T062 (acordeón de marcas comerciales): el texto extenso de contenido jurídico no destaca en negrita los conceptos clave («derecho exclusivo», «marcas idénticas o similares») que ayudarían al ciudadano a escanear rápidamente el contenido antes de decidir acceder al trámite.",
+      "severidad": "baja",
+      "cita_textual": "T061-T062 [HTML-L867-868]: texto jurídico extenso sin negritas en conceptos clave"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "comentario": "El menú utility bar tiene elementos en mayúsculas totales: ACCESOS (T021), BUSCADOR (T022), INAPI (T025), BUSCAR Y TRAMITAR (T029). H4 MARCAS y H4 PATENTES en el menú sticky también van en mayúsculas totales.",
+      "severidad": "media",
+      "cita_textual": "T021: ACCESOS / T022: BUSCADOR / T029: BUSCAR Y TRAMITAR / H4: MARCAS, PATENTES"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Los textos de los acordeones son objetivos e informativos. Sin valorativos autopromocionales."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el navbar y en el footer como institución responsable."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "comentario": "Sin fecha de publicación ni de última actualización visible. Los trámites pueden cambiar sus requisitos y el ciudadano no sabe si la información está vigente.",
+      "severidad": "alta",
+      "cita_textual": "(ausencia de fecha de actualización de la URL)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "comentario": "El title es solo Trámites Digitales sin nombre institucional ni separador. La meta description menciona solo marcas siendo incompleta para una página que cubre también patentes, transparencia y lobby.",
+      "severidad": "media",
+      "cita_textual": "HTML-L2: Trámites Digitales (sin INAPI ni separador) / meta description incompleta: solo menciona marcas"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "comentario": "El href del CTA de certificados de marcas (HTML-L926) tiene un espacio antes de la URL: href=\" https://tramites.inapi.cl/...\", lo que puede causar que el enlace no funcione en algunos navegadores. Los CTAs Acceder no indican el destino antes del clic.",
+      "severidad": "media",
+      "cita_textual": "HTML-L926: href=\" https://tramites.inapi.cl/Trademark/TrademarkCertificate\" (espacio inicial en la URL)"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "comentario": "Los 10 CTAs de los acordeones son Acceder genérico repetido. Para un lector de pantalla o un usuario que escanea los enlaces de la página, Acceder 10 veces seguidas no aporta contexto del destino.",
+      "severidad": "alta",
+      "cita_textual": "T057 [HTML-L839]: Acceder (repetido 10 veces sin descripción del destino)"
+    },
+    {
+      "id": "F3",
+      "estado": "cumple",
+      "comentario": "No hay modales con OK/Aceptar en el contenido editorial de esta página del sitio institucional."
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "comentario": "Política de privacidad (T100, HTML-L1084) enlaza a PDF sin indicar el formato ni el peso.",
+      "severidad": "media",
+      "cita_textual": "T100 [HTML-L1084]: Política de privacidad → PDF sin indicar formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los CTAs Acceder están al final de cada acordeón, correctamente posicionados."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "Página pública sin datos personales de personas naturales en el HTML estático. RUT 65.999.669-3 es de persona jurídica pública."
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Política de privacidad (T100) en el footer implica información ARCO disponible.",
+      "cita_textual": "T100 [HTML-L1084]: Política de privacidad"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright 2026 actualizado (T101). Existe Uso de los Contenidos de este Sitio (T098).",
+      "cita_textual": "T101 [HTML-L1096]: ©2026 / T098 [HTML-L1082]: Uso de los Contenidos de este Sitio"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay indicadores de versión anterior del contenido ni rótulos de archivado."
+    }
+  ],
+  "criterios_no_aplica": 3,
+  "criterios_aplicables": 36,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 41.7,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 21 incumplimientos sobre 36 criterios aplicables (41,7 %) para esta página con 16.059 visitas. Las correcciones de mayor impacto son: (1) los 10 CTAs Acceder genéricos deben convertirse en textos descriptivos del destino específico de cada acordeón (F2 alta); (2) corregir Claveunica → Clave Única en las 6 instancias (D1 alta); (3) reescribir el párrafo introductorio T052 en perspectiva del ciudadano, explicando qué significa nivel 4 y eliminando la comilla espuria (A2, D1); (4) actualizar el H1 genérico Trámites por un título que describa el contenido específico de la URL (A1); (5) reformular los acordeones de Permite [infinitivo] a segunda persona directa (B1, B6); (6) definir anotaciones marginales y otros términos PI en contexto (B2); (7) agregar fecha de actualización visible (E3); (8) corregir error sintáctico en T077, sólo → solo, integra → íntegra, Acceder. (D1, D2); (9) corregir el href con espacio en L926 (F1); (10) mejorar title y meta description (E4). El array sustituciones[] contiene 49 filas con cobertura 1:1 para los 21 criterios incumplidos.",
+  "observaciones_lc": "La página Trámites Digitales obtiene un 41,7 % de cumplimiento sobre 36 criterios aplicables — RECHAZADO, rank 17 Clarity con 16.059 visitas. Es la página con menor % LC de la serie Clarity auditada hasta ahora. Los 21 incumplimientos se distribuyen en: (1) F2 alta: los 10 CTAs Acceder son texto genérico repetido sin describir el destino — el hallazgo más impactante para accesibilidad; (2) D1 alta: 7 errores tipográficos, destacando Claveunica en 6 instancias, sólo anacrónico e integra sin tilde; (3) A1 alta: H1 Trámites genérico que no describe el contenido específico de la URL; (4) B2 alta: anotaciones marginales y nivel 4 sin definición; (5) tono impersonal sistemático en los 10 acordeones con Permite [infinitivo]. G1 cumple correctamente: página pública sin PII.",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/tramites/tramites-digitales fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 17 Clarity con 16.059 visitas. De los 36 criterios aplicables, 15 se cumplen, lo que arroja un 41,7 % de cumplimiento — el más bajo de la serie auditada — y un estado RECHAZADO (≤80 %). Se detectaron 21 incumplimientos y se generaron 49 filas en sustituciones[] con cobertura 1:1. Los 5 incumplimientos de severidad alta son: A1 (H1 genérico), B2 (términos PI sin definición), D1 (7 errores tipográficos incl. Claveunica x6), E3 (sin fecha de actualización) y F2 (10 CTAs Acceder genéricos). G1 cumple: página pública sin datos personales en el HTML.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) El H1 Trámites (HTML-L691) es genérico para todo el área de Trámites; el H2 Trámites digitales es más descriptivo que su propio H1.",
+      "(B2) Anotaciones marginales (T055, T059) sin glosa. Nivel 4 del RNT sin explicación. Personerías sin glosa. Meta description solo menciona marcas, omitiendo patentes, transparencia y lobby.",
+      "(D1) 7 errores: Claveunica sin tilde (×6 instancias: L838, L853, L869, L884, L925, L940); sólo anacrónico (L867, L898); integra sin tilde (L898); Acceder. con punto (L941); patentes invención sin de (L929); comilla espuria RNT\" (L809); error sintáctico audiencia o con (L968).",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la página.",
+      "(F2) Los 10 CTAs de los acordeones son Acceder genérico repetido sin descripción del destino. Inaccesible para lectores de pantalla y usuarios que escanean los enlaces."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) T052 no sigue pirámide invertida; no explica qué es el RNT ni qué significa nivel 4. Los acordeones usan Permite impersonal sin perspectiva del ciudadano.",
+      "(A3) H1 genérico. El H2 del widget de contacto flotante interrumpe la jerarquía editorial de la página.",
+      "(A4) T061-T062 (marcas): texto jurídico de >80 palabras combinadas. T066 (Poderes): oración de 45 palabras. T064 (patentes): párrafo de 45 palabras.",
+      "(B1) Permite [infinitivo] impersonal sistemático en los 10 acordeones. T062: le faculta, su consentimiento (usted formal).",
+      "(B6) Tono impersonal: Permite a los solicitantes en T066 (tercera persona). T062: su consentimiento, le faculta.",
+      "(C1) T061: sujeto de 13 palabras antes del verbo. T066: complemento largo antes del verbo.",
+      "(C3) T061: 50 palabras. T066: 45 palabras. T064: 45 palabras — todos sobre el límite.",
+      "(C6) Acordeón de marcas comerciales: dos párrafos jurídicos sin subtitulo ni ayudas de lectura.",
+      "(C7) Nivel 4 del RNT sin explicación. Claveunica sin glosa. T071 patentes invención sin de.",
+      "(D2) Comilla espuria RNT\". en T052. Error sintáctico audiencia o con en T077.",
+      "(D7) Menú utility bar en mayúsculas: ACCESOS, BUSCADOR, BUSCAR Y TRAMITAR, MARCAS, PATENTES.",
+      "(E4) Title Trámites Digitales sin nombre institucional. Meta description incompleta.",
+      "(F1) href con espacio inicial en URL de certificados de marcas (L926).",
+      "(F4) Política de privacidad enlaza a PDF sin indicar formato."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(B7) T052: considera aquellos incluidos en es verbo burocrático; reemplazar por forman parte del.",
+      "(D6) T061-T062: texto jurídico extenso sin negritas en conceptos clave (derecho exclusivo, marcas idénticas o similares)."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L691",
+      "original": "Trámites (H1 genérico)",
+      "propuesto": "Trámites digitales en INAPI",
+      "criterio_id": "A1",
+      "motivo": "El H1 debe describir el contenido específico de la página, no el área genérica del sitio."
+    },
+    {
+      "linea": "T052-A2",
+      "html_linea_aprox": "HTML-L809",
+      "original": "El listado de trámite más abajo considera aquellos incluidos en el Registro Nacional de Trámites del Estado (RNT). Todos estos trámites están plenamente digitalizados (nivel 4) según lo indica el RNT\".",
+      "propuesto": "En esta página puedes acceder a los trámites digitales de INAPI que forman parte del Registro Nacional de Trámites del Estado (RNT). Todos están disponibles en línea en nivel 4 de digitalización, el más completo: puedes iniciarlos, pagarlos y recibirlos completamente en línea.",
+      "criterio_id": "A2",
+      "motivo": "Reescribir en perspectiva del ciudadano; explicar nivel 4; eliminar la comilla espuria."
+    },
+    {
+      "linea": "T079-A3",
+      "html_linea_aprox": "HTML-L1040",
+      "original": "Utiliza el canal de comunicación que prefieras: (H2 en widget flotante de contacto)",
+      "propuesto": "Cambiar de H2 a p o span para que no interrumpa la jerarquía editorial de la página.",
+      "criterio_id": "A3",
+      "motivo": "El H2 del widget de contacto flotante interrumpe la jerarquía semántica del artículo principal; el widget no forma parte del contenido de la página."
+    },
+    {
+      "linea": "T061-A4",
+      "html_linea_aprox": "HTML-L867",
+      "original": "Permite la protección, a nivel nacional, de los registros de marcas comerciales que distinguen productos, servicios y establecimientos industriales. Los que distinguen establecimientos comerciales sólo rigen para la ciudad o área geográfica en que estén instalados.",
+      "propuesto": "Con este trámite puedes registrar una marca comercial en Chile. Una marca distingue tus productos, servicios o establecimientos de los de otros en el mercado. Las marcas de establecimientos comerciales tienen cobertura geográfica limitada a la ciudad donde operan.",
+      "criterio_id": "A4",
+      "motivo": "Reducir la extensión del párrafo de 50 palabras; dividir en oraciones más cortas; mejorar la legibilidad para el ciudadano."
+    },
+    {
+      "linea": "T055-B1",
+      "html_linea_aprox": "HTML-L836",
+      "original": "Permite presentar solicitudes de anotaciones marginales que afectan a registros de marcas comerciales.",
+      "propuesto": "Con este trámite puedes presentar una anotación marginal sobre un registro de marca comercial, como un cambio de titular o una cesión de derechos.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza Permite impersonal por segunda persona directa; define anotaciones marginales en contexto."
+    },
+    {
+      "linea": "T062-B1",
+      "html_linea_aprox": "HTML-L868",
+      "original": "La marca otorga a su dueño el derecho exclusivo y excluyente de utilizarla en la forma que se le ha conferido en el registro. Además, le faculta para impedir que un tercero utilice, sin su consentimiento, marcas idénticas o similares.",
+      "propuesto": "Tener una marca registrada te da el derecho exclusivo de usarla y de impedir que otros usen marcas idénticas o similares sin tu permiso.",
+      "criterio_id": "B1",
+      "motivo": "Elimina le faculta, su consentimiento (usted formal); reformula en tuteo directo; simplifica."
+    },
+    {
+      "linea": "T064-B1",
+      "html_linea_aprox": "HTML-L883",
+      "original": "Permite solicitar el registro de una patente, que es un derecho exclusivo que concede el Estado para proteger una patente de: invención, modelo de utilidad, diseño o dibujo industrial, esquema de trazado o topografía.",
+      "propuesto": "Con este trámite puedes solicitar el registro de una patente: un derecho exclusivo que el Estado te otorga para proteger tu invención, modelo de utilidad, diseño industrial o esquema de trazado.",
+      "criterio_id": "B1",
+      "motivo": "Segunda persona activa; simplifica la enumeración."
+    },
+    {
+      "linea": "T075-B1",
+      "html_linea_aprox": "HTML-L954",
+      "original": "Permite a cualquier persona solicitar información de carácter pública según lo establecido en la Ley 20.285 de Transparencia o Acceso a la Información Pública.",
+      "propuesto": "Puedes solicitar información pública de INAPI amparada en la Ley de Transparencia (Ley 20.285). Cualquier persona puede hacer esta solicitud.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza Permite a cualquier persona por segunda persona activa."
+    },
+    {
+      "linea": "T055-B2",
+      "html_linea_aprox": "HTML-L836",
+      "original": "anotaciones marginales que afectan a registros de marcas comerciales",
+      "propuesto": "anotaciones marginales sobre un registro de marca comercial. Una anotación marginal es un cambio legal sobre el registro, como un cambio de titular, una cesión de derechos o una renuncia.",
+      "criterio_id": "B2",
+      "motivo": "Define anotaciones marginales en contexto para el ciudadano sin experiencia PI."
+    },
+    {
+      "linea": "T067-B2",
+      "html_linea_aprox": "HTML-L901",
+      "original": "Sistema Integrado de Atención a la Ciudadanía (SIAC) (H3)",
+      "propuesto": "Sistema Integrado de Atención a la Ciudadanía (SIAC) — consultas, sugerencias y reclamos",
+      "criterio_id": "B2",
+      "motivo": "Agregar glosa al título del acordeón para que el ciudadano sepa de qué trata sin abrirlo."
+    },
+    {
+      "linea": "T052-nivel4",
+      "html_linea_aprox": "HTML-L809",
+      "original": "nivel 4",
+      "propuesto": "nivel 4 de digitalización (el más completo: puedes iniciar, pagar y recibir el resultado completamente en línea)",
+      "criterio_id": "B2",
+      "motivo": "El término nivel 4 del RNT no tiene significado obvio para el ciudadano; agregar glosa."
+    },
+    {
+      "linea": "T062-B6",
+      "html_linea_aprox": "HTML-L868",
+      "original": "su consentimiento, le faculta",
+      "propuesto": "tu permiso, puedes impedir",
+      "criterio_id": "B6",
+      "motivo": "Elimina usted formal (su, le); usa tuteo directo."
+    },
+    {
+      "linea": "T066-B6",
+      "html_linea_aprox": "HTML-L898",
+      "original": "Permite a los solicitantes de una marca o patente presentar sólo una vez el documento original o copia digital integra que otorga el poder a un representante para que tramite marcas o patentes.",
+      "propuesto": "Con este trámite puedes registrar el poder que otorgas a un representante legal para que tramite marcas o patentes por ti. Solo necesitas presentar el documento original o una copia digital íntegra una sola vez.",
+      "criterio_id": "B6",
+      "motivo": "Elimina a los solicitantes (tercera persona); usa tuteo; corrige sólo → solo; integra → íntegra."
+    },
+    {
+      "linea": "T052-B7",
+      "html_linea_aprox": "HTML-L809",
+      "original": "considera aquellos incluidos en el Registro Nacional de Trámites del Estado",
+      "propuesto": "forman parte del Registro Nacional de Trámites del Estado",
+      "criterio_id": "B7",
+      "motivo": "Considera es verbo burocrático innecesario; reemplazar por forman parte del."
+    },
+    {
+      "linea": "T061-C1",
+      "html_linea_aprox": "HTML-L867",
+      "original": "Permite la protección, a nivel nacional, de los registros de marcas comerciales que distinguen productos, servicios y establecimientos industriales.",
+      "propuesto": "Con este trámite puedes registrar una marca comercial en Chile para proteger productos, servicios o establecimientos industriales.",
+      "criterio_id": "C1",
+      "motivo": "Elimina el sujeto de 13 palabras antes del verbo; coloca la acción del ciudadano al inicio."
+    },
+    {
+      "linea": "T066-C3",
+      "html_linea_aprox": "HTML-L898",
+      "original": "Permite a los solicitantes de una marca o patente presentar sólo una vez el documento original o copia digital integra que otorga el poder a un representante para que tramite marcas o patentes.",
+      "propuesto": "Con este trámite registras el poder que le das a un representante legal. Solo necesitas presentar el documento original o copia digital íntegra una vez.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de 45 palabras en dos oraciones simples."
+    },
+    {
+      "linea": "T061-C6",
+      "html_linea_aprox": "HTML-L867",
+      "original": "[texto combinado T061 + T062 sin separación visual]",
+      "propuesto": "Dividir en dos bloques con subtitulo entre ellos: párrafo 1 (descripción del trámite) + subtitulo p o strong «Qué te da el registro:» + párrafo 2 (efectos jurídicos).",
+      "criterio_id": "C6",
+      "motivo": "El texto jurídico de 80 palabras sin ayudas de lectura dificulta el escaneo; agregar separación visual entre descripción del trámite y efectos jurídicos."
+    },
+    {
+      "linea": "T052-C7",
+      "html_linea_aprox": "HTML-L809",
+      "original": "nivel 4",
+      "propuesto": "nivel 4 (en el que puedes completar todo el trámite en línea: solicitud, pago y resultado)",
+      "criterio_id": "C7",
+      "motivo": "Explicar qué significa nivel 4 del RNT para el ciudadano."
+    },
+    {
+      "linea": "D1-clave-L838",
+      "html_linea_aprox": "HTML-L838",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 1 (acordeón anotaciones marcas, L838)."
+    },
+    {
+      "linea": "D1-clave-L853",
+      "html_linea_aprox": "HTML-L853",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 2 (acordeón anotaciones patentes, L853)."
+    },
+    {
+      "linea": "D1-clave-L869",
+      "html_linea_aprox": "HTML-L869",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 3 (acordeón marcas comerciales, L869)."
+    },
+    {
+      "linea": "D1-clave-L884",
+      "html_linea_aprox": "HTML-L884",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 4 (acordeón patentes, L884)."
+    },
+    {
+      "linea": "D1-clave-L925",
+      "html_linea_aprox": "HTML-L925",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 5 (acordeón títulos marcas, L925)."
+    },
+    {
+      "linea": "D1-clave-L940",
+      "html_linea_aprox": "HTML-L940",
+      "original": "Claveunica",
+      "propuesto": "Clave Única",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en Única — instancia 6 (acordeón títulos patentes, L940)."
+    },
+    {
+      "linea": "D1-solo-L867",
+      "html_linea_aprox": "HTML-L867",
+      "original": "sólo",
+      "propuesto": "solo",
+      "criterio_id": "D1",
+      "motivo": "Sólo con tilde anacrónico como adverbio — RAE 2010 recomienda solo sin tilde (L867)."
+    },
+    {
+      "linea": "D1-solo-L898",
+      "html_linea_aprox": "HTML-L898",
+      "original": "sólo",
+      "propuesto": "solo",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia de sólo anacrónico (L898)."
+    },
+    {
+      "linea": "D1-integra",
+      "html_linea_aprox": "HTML-L898",
+      "original": "integra",
+      "propuesto": "íntegra",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en íntegra (adjetivo)."
+    },
+    {
+      "linea": "D1-acceder-punto",
+      "html_linea_aprox": "HTML-L941",
+      "original": "Acceder.",
+      "propuesto": "Acceder",
+      "criterio_id": "D1",
+      "motivo": "Punto final inconsistente dentro del CTA — todos los demás Acceder no llevan punto."
+    },
+    {
+      "linea": "D1-patentes-inv",
+      "html_linea_aprox": "HTML-L929",
+      "original": "patentes invención",
+      "propuesto": "patentes de invención",
+      "criterio_id": "D1",
+      "motivo": "Falta la preposición de entre patentes e invención."
+    },
+    {
+      "linea": "D1-comilla",
+      "html_linea_aprox": "HTML-L809",
+      "original": "RNT\".",
+      "propuesto": "RNT.",
+      "criterio_id": "D1",
+      "motivo": "Eliminar la comilla de cierre espuria antes del punto final."
+    },
+    {
+      "linea": "D1-sintaxis-lobby",
+      "html_linea_aprox": "HTML-L968",
+      "original": "solicitar audiencia o con los sujetos pasivos de Lobby",
+      "propuesto": "solicitar una audiencia con los sujetos pasivos de lobby",
+      "criterio_id": "D1",
+      "motivo": "Eliminar la conjunción o que crea un error sintáctico; agregar artículo una; normalizar Lobby a minúscula."
+    },
+    {
+      "linea": "D2-comilla",
+      "html_linea_aprox": "HTML-L809",
+      "original": "RNT\".",
+      "propuesto": "RNT.",
+      "criterio_id": "D2",
+      "motivo": "Comilla de cierre espuria antes del punto final — puntuación incorrecta."
+    },
+    {
+      "linea": "T061-D6",
+      "html_linea_aprox": "HTML-L867",
+      "original": "la protección... derecho exclusivo... marcas idénticas o similares (sin negritas)",
+      "propuesto": "Destacar en negrita las frases clave: derecho exclusivo, marcas idénticas o similares, en el acordeón de marcas comerciales para facilitar el escaneo.",
+      "criterio_id": "D6",
+      "motivo": "El texto jurídico extenso sin negritas dificulta que el ciudadano identifique rápidamente la información clave antes de decidir acceder al trámite."
+    },
+    {
+      "linea": "D7-accesos",
+      "html_linea_aprox": "HTML-L642",
+      "original": "ACCESOS",
+      "propuesto": "Accesos",
+      "criterio_id": "D7",
+      "motivo": "Elemento del utility bar en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L692",
+      "original": "(ausencia de fecha de actualización)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización de la página bajo el H2 Trámites digitales."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L2",
+      "original": "Trámites Digitales",
+      "propuesto": "Trámites Digitales — INAPI",
+      "criterio_id": "E4",
+      "motivo": "El title debe incluir el nombre institucional y el separador."
+    },
+    {
+      "linea": "E4-metadesc",
+      "html_linea_aprox": "HTML-L567",
+      "original": "Encuentra todos los trámites de las solicitudes en línea de la sección de marcas",
+      "propuesto": "Accede a los trámites digitales de INAPI: marcas, patentes, poderes, transparencia y lobby. Todos disponibles en línea en nivel 4 del Registro Nacional de Trámites.",
+      "criterio_id": "E4",
+      "motivo": "La meta description solo menciona marcas siendo incompleta; ampliar para cubrir todos los trámites."
+    },
+    {
+      "linea": "F1-href-espacio",
+      "html_linea_aprox": "HTML-L926",
+      "original": "href=\" https://tramites.inapi.cl/Trademark/TrademarkCertificate\"",
+      "propuesto": "href=\"https://tramites.inapi.cl/Trademark/TrademarkCertificate\"",
+      "criterio_id": "F1",
+      "motivo": "El espacio inicial en la URL puede causar que el enlace falle en algunos navegadores; eliminar el espacio."
+    },
+    {
+      "linea": "F2-cta-1",
+      "html_linea_aprox": "HTML-L839",
+      "original": "Acceder (acordeón Registro de anotaciones de marcas)",
+      "propuesto": "Acceder al registro de anotaciones de marcas",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico sin descripción del destino; cada uno de los 10 acordeones debe tener CTA único y descriptivo."
+    },
+    {
+      "linea": "F2-cta-2",
+      "html_linea_aprox": "HTML-L854",
+      "original": "Acceder (acordeón Registro de anotaciones de patentes)",
+      "propuesto": "Acceder al registro de anotaciones de patentes",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-3",
+      "html_linea_aprox": "HTML-L870",
+      "original": "Acceder (acordeón Registro de marcas comerciales)",
+      "propuesto": "Acceder al registro de marcas comerciales",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-4",
+      "html_linea_aprox": "HTML-L885",
+      "original": "Acceder (acordeón Registro de patentes)",
+      "propuesto": "Acceder al registro de patentes",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-5",
+      "html_linea_aprox": "HTML-L899",
+      "original": "Acceder (acordeón Poderes y Personerías)",
+      "propuesto": "Acceder al registro de poderes y ponerías",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-6",
+      "html_linea_aprox": "HTML-L911",
+      "original": "Acceder (acordeón SIAC)",
+      "propuesto": "Acceder al SIAC",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-7",
+      "html_linea_aprox": "HTML-L926",
+      "original": "Acceder (acordeón títulos y certificados marcas)",
+      "propuesto": "Acceder a títulos y certificados de marcas",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-8",
+      "html_linea_aprox": "HTML-L941",
+      "original": "Acceder. (acordeón títulos y certificados patentes)",
+      "propuesto": "Acceder a títulos y certificados de patentes",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico con punto inconsistente; texto descriptivo del destino."
+    },
+    {
+      "linea": "F2-cta-9",
+      "html_linea_aprox": "HTML-L955",
+      "original": "Acceder (acordeón Transparencia Ley 20.285)",
+      "propuesto": "Acceder al portal de transparencia",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino (portal externo portaltransparencia.cl)."
+    },
+    {
+      "linea": "F2-cta-10",
+      "html_linea_aprox": "HTML-L969",
+      "original": "Acceder (acordeón Audiencia Ley Lobby)",
+      "propuesto": "Acceder a solicitar audiencia (Ley Lobby)",
+      "criterio_id": "F2",
+      "motivo": "CTA genérico; texto descriptivo del destino (portal externo leylobby.gob.cl)."
+    },
+    {
+      "linea": "T100-F4",
+      "html_linea_aprox": "HTML-L1084",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el CMS Sitefinity 15.0 (www.inapi.cl): (1) hacer backup antes de cualquier cambio; (2) el H1 Trámites (HTML-L691) se genera desde la plantilla de página interior del área de Trámites — puede estar controlado por la plantilla y no ser editable individualmente; coordincar con TIC para que el H1 refleje el contenido de cada página hija; (3) el párrafo introductorio T052 (HTML-L809) es un bloque sfContentBlock sf-Long-text editable desde el panel de contenido de Sitefinity — es donde está la comilla espuria RNT\"; (4) los textos de los 10 acordeones (T055–T077) son bloques de contenido individuales en Sitefinity — cada uno editable desde el panel del acordeón correspondiente; priorizar Claveunica → Clave Única en las 6 instancias; (5) el href con espacio (HTML-L926) puede estar en el campo URL del CTA del acordeón de certificados de marcas en Sitefinity — verificar y eliminar el espacio inicial; (6) los CTAs Acceder son campos de texto del botón en Sitefinity — cambiar el texto de cada uno de los 10 botones según el destino específico (ver filas F2-cta-1 a F2-cta-10); (7) el H2 del widget de contacto flotante (HTML-L1040) corresponde a un widget reutilizable — coordinar con TIC para cambiar el tag H2 a p sin afectar el estilo visual; (8) el title y la meta description se gestionan desde los campos de SEO de la página en Sitefinity — actualizar en propiedades de la página; (9) los errores tipográficos sólo (L867, L898), integra (L898), el punto en Acceder. (L941) y el error sintáctico de T077 (L968) se corrigen en el CMS editando el texto del acordeón correspondiente; (10) si el H1 no es editable sin cambiar la plantilla, como solución mínima insertar un p con clase visible entre H1 y H2 que aclare que esta sección cubre los trámites digitalizados de INAPI."
+}

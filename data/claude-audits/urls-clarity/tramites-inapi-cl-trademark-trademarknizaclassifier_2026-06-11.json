@@ -1,0 +1,647 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-06-11",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkNizaClassifier",
+  "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 10,
+    "nombre_ui": "Clasificador de Niza",
+    "ruta_etiqueta": "Trademark Niza Classifier",
+    "visitas_ref": "30.947",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Herramienta de búsqueda y selección de clases de la clasificación de Niza."
+  },
+  "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Clasificador de Productos y Servicios» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900) | T057 [HTML-L489]: «Documentación Mínima PCT» | T057b [HTML-L170]: «Home» (breadcrumb) | T058 [HTML-L1056]: «Clasificador de Productos y Servicios» (card-header div, no H semántico) | T059 [HTML-L1060]: «El Clasificador de Productos y Servicios de INAPI le permite buscar las palabras o términos para clasificar los productos y servicios necesarios para la solicitud de marca.» | T060 [HTML-L1062]: «Adicionalmente esta nueva versión del Clasificador ofrece la traducción al inglés de un gran número de descripciones de productos y servicios.» (falta coma tras «Adicionalmente») | T061 [HTML-L1066]: «Filtros de Búsqueda» (leyenda fieldset, capitalización tipo título) | T062 [HTML-L1073]: «Buscar en Idioma :» (label, espacio antes de dos puntos) | T063 [HTML-L1083]: «Procedencia :» (label, espacio antes de dos puntos) | T064 [HTML-L1084]: tooltip «Ayuda» (no descriptivo) | T065-T068 [HTML-L1086-1097]: checkboxes «NIZA», «INAPI», «ADP», «MADRID» (siglas sin glosa) | T069 [HTML-L1107]: «Palabra :» (label) | T070 [HTML-L1113]: «Clases de Niza :» (label) | T071 [HTML-L1116]: placeholder «ej: 1,2,3» | T072 [HTML-L1131]: «Búsqueda por coincidencia» | T073 [HTML-L1134]: «Búsqueda texto exacto» | T074 [HTML-L1144]: «Buscar» | T075 [HTML-L1145]: «Limpiar» | T076 [HTML-L1146]: «Exportar búsqueda a Excel» | T077 [HTML-L1160]: «Resultados» (leyenda fieldset) | T078 [HTML-L1166]: «Clase» (th) | T079 [HTML-L1167]: «Descripción Español» (th, falta preposición «en») | T080 [HTML-L1168]: «Descripción Inglés» (th) | T081 [HTML-L1169]: «INAPI» (th sigla) | T082 [HTML-L1170]: «ADP» (th sigla) | T083 [HTML-L1171]: «NIZA» (th sigla) | T084 [HTML-L1172]: «MADRID» (th sigla) | T085 [HTML-L1187]: «Listado Completo de Productos Y Servicios» («Y» mayúscula, descarga Excel sin indicar formato) | T086 [HTML-L1195]: «Si desea acceder al listado alfabético de la Clasificación de Niza, usted puede consultar el que proporciona la Organización Mundial de la Propiedad Intelectual (OMPI).» | T087 [HTML-L1195]: «Clic aquí para ver» (texto ancla genérico) | T088 [HTML-L1487]: «Clases de Niza» (H5 modal ModalNizaClass) | T089 [HTML-L1497]: «Seleccionar todos los Productos» | T090 [HTML-L1543]: «Seleccionar todos los Servicios» | T091 [HTML-L1569]: «Ok» (botón modal Clases, k minúscula inconsistente) | T092 [HTML-L1570]: «Limpiar» (botón modal Clases) | T093 [HTML-L1580]: «Clases de Niza» (H5 modal ModalHelpClasses) | T094 [HTML-L1587]: «Dato a incorporar sólo en caso que usted conozca el catálogo del Clasificador Internacional de Niza o le interese una categoría perteneciente a un rubro en particular.» («sólo» con tilde anacrónica; «usted» formal) | T095 [HTML-L1592]: «Puede seleccionar el ícono del libro a la derecha de este campo para ver las clases para productos y servicios.» | T096 [HTML-L1602]: «Aceptar» (botón modal ModalHelpClasses) | T097 [HTML-L1613]: «Ayuda de Procedencia» (H5) | T098 [HTML-L1619]: «Se refiere al origen o fuente de la descripción o término.» | T099 [HTML-L1620]: «NIZA:» (H5) | T100 [HTML-L1622]: «INAPI:» (H5) | T101 [HTML-L1624]: «ADP:» (H5) | T102 [HTML-L1626]: «PROTOCOLO DE MADRID:» (H5 en todo mayúsculas, inconsistente) | T107 [HTML-L1630]: «Aceptar» (botón modal Procedencia) | T108 [HTML-L1649]: «OK» (botón modal alerta Bootstrap local) | T109 [HTML-L1691]: «Aceptar» (botón modal confirm _Layout) | T114 [HTML-L1719]: «RUT: 65.999.669-3» (footer, persona jurídica) | T128 [HTML-L1753]: «Uso de los Contenidos de este Sitio» | T130 [HTML-L1755]: «Política de privacidad» (→ PDF) | T131 [HTML-L1770]: «©2026 INAPI. Todos los derechos reservados» | T132 [HTML-L1771]: «v 2.3.91.0»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "comentario": "Sin H1, H2 ni H3. El card-header «Clasificador de Productos y Servicios» (T058, HTML-L1056) es un div sin semántica de encabezado. Los H5 solo aparecen en los modales de ayuda.",
+      "severidad": "alta",
+      "cita_textual": "T058 [HTML-L1056]: div.card-header (no H) / (ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "comentario": "Los dos párrafos introductorios (T059–T060) explican el propósito pero no orientan al usuario en los pasos: qué es «Procedencia», cómo funciona la búsqueda, ni qué hacer con los resultados. Las instrucciones de uso están repartidas en dos modales de ayuda.",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1060]: «El Clasificador… le permite buscar» (sin paso a paso ni instrucción de uso en flujo principal)"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "comentario": "Sin H1/H2/H3. El formulario y los resultados se organizan solo mediante fieldsets y leyendas, sin jerarquía semántica de encabezados.",
+      "severidad": "media",
+      "cita_textual": "(ausencia de H1, H2, H3)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los párrafos introductorios tienen menos de 50 palabras. Los modales de ayuda son concisos."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "comentario": "«v 2.3.91.0» (T132, HTML-L1771) es versión técnica del sistema sin valor para el usuario.",
+      "severidad": "baja",
+      "cita_textual": "T132 [HTML-L1771]: «v 2.3.91.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "comentario": "T059 usa «le permite buscar» — tercera persona formal de usted implícito. T094 (modal de Clases) usa «usted conozca» y «le interese». T095 usa «Puede seleccionar» sin sujeto. T098 (modal Procedencia) usa «Se refiere» — voz pasiva refleja.",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1060]: «le permite buscar» / T094 [HTML-L1587]: «usted conozca» / T098 [HTML-L1619]: «Se refiere al origen»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "comentario": "Las siglas NIZA, ADP, MADRID e INAPI aparecen como opciones de filtro sin definición visible en el formulario (solo en el modal de Procedencia). OMPI aparece en el card-footer sin expandir en el texto de introducción. PCT en el menú de Patentes sin definición.",
+      "severidad": "alta",
+      "cita_textual": "T065–T068 [HTML-L1086–1097]: «NIZA», «INAPI», «ADP», «MADRID» (siglas sin glosa en el formulario)"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "comentario": "PCT aparece en T047 y T057 del menú de Patentes sin definición en ningún punto visible de esta página.",
+      "severidad": "alta",
+      "cita_textual": "T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» / T057 [HTML-L489]: «Documentación Mínima PCT» — sin expandir"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en el contenido editorial propio de la página."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los textos del formulario y los modales están en formulación positiva. Sin formulaciones negativas dominantes."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "comentario": "T059 usa «le» (usted formal), T094 usa «usted» explícito, T095 usa sin pronombre. No hay tono consistente de segunda persona en la herramienta.",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1060]: «le permite» / T094 [HTML-L1587]: «usted conozca» / T095 [HTML-L1592]: «Puede seleccionar» (sin pronombre)"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "comentario": "T060: «Adicionalmente» es palabra de relleno burocrático; podría simplificarse. T094: «Dato a incorporar sólo en caso que usted conozca» es frase nominal burocrática sin verbo activo.",
+      "severidad": "baja",
+      "cita_textual": "T060 [HTML-L1062]: «Adicionalmente» / T094 [HTML-L1587]: «Dato a incorporar sólo en caso que»"
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "comentario": "T059 antepone un sujeto de 8 palabras al verbo principal: «El Clasificador de Productos y Servicios de INAPI le permite buscar». T098 antepone el complemento: «Se refiere al origen o fuente de la descripción o término.»",
+      "severidad": "media",
+      "cita_textual": "T059 [HTML-L1060]: sujeto de 8 palabras antes del verbo"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los textos usan presente indicativo apropiado para una herramienta de búsqueda."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones de los textos editoriales son de extensión moderada (≤30 palabras)."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada sección tiene propósito único: filtros, resultados, ayuda de clases, ayuda de procedencia."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos de los modales están dentro del límite de líneas."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "No hay artículos con 4 o más párrafos continuos. No aplica."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "comentario": "Los cuatro labels del formulario tienen espacio previo a los dos puntos: «Buscar en Idioma :», «Procedencia :», «Palabra :», «Clases de Niza :» — violación tipográfica en español (los dos puntos van sin espacio previo).",
+      "severidad": "media",
+      "cita_textual": "T062 [HTML-L1073]: «Buscar en Idioma :» (espacio antes de dos puntos) / T063 [HTML-L1083]: «Procedencia :»"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "comentario": "Seis errores (sin incluir el title, tratado en E4): (1) «Titulos y Certificados Patentes» (T055, L471 y L900) — falta tilde; (2) T061 «Filtros de Búsqueda» — capitalización tipo título; (3) T079 «Descripción Español» — falta preposición «en»; (4) T080 «Descripción Inglés» — falta preposición «en»; (5) T085 «Listado Completo de Productos Y Servicios» — «Y» mayúscula en medio del sintagma; (6) T094 «sólo» — la RAE recomienda «solo» sin tilde cuando es adverbio (2010).",
+      "severidad": "alta",
+      "cita_textual": "T055 [HTML-L471]: «Titulos» / T079 [HTML-L1167]: «Descripción Español» / T085 [HTML-L1187]: «Y» mayúscula / T094 [HTML-L1587]: «sólo»"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "comentario": "T060: falta coma después de «Adicionalmente» (adverbio de frase al inicio de oración). Labels T062–T063–T069–T070: espacio previo a los dos puntos. T091: «Ok» con k minúscula — inconsistente con «OK» del portal (acrónimo en mayúsculas).",
+      "severidad": "media",
+      "cita_textual": "T060 [HTML-L1062]: «Adicionalmente esta nueva versión» (falta coma) / T062: «Buscar en Idioma :» / T091 [HTML-L1569]: «Ok»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El footer usa listas <ul><li>. Los encabezados de columna usan <th> apropiadamente."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas. No aplica."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "comentario": "Grupos del menú en mayúsculas totales: MI INAPI (T005), TRAMITACIÓN (T010), PAGOS (T017), SERVICIOS (T022). H5 «PROTOCOLO DE MADRID:» (T102, HTML-L1626) en todo mayúsculas — inconsistente con los demás H5 del mismo modal.",
+      "severidad": "media",
+      "cita_textual": "T005–T022 [HTML-L129–237] / T102 [HTML-L1626]: «PROTOCOLO DE MADRID:» (H5 en todo mayúsculas)"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Sin adjetivos valorativos autopromocionales. Los textos son funcionales."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI aparece en el banner, el card-header y el copyright.",
+      "cita_textual": "T131 [HTML-L1770]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "comentario": "Sin fecha de publicación ni de última actualización visible de la herramienta. El copyright ©2026 no equivale.",
+      "severidad": "alta",
+      "cita_textual": "(ausencia de fecha de actualización de la URL)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "comentario": "El <title> es «Clasificador de Productos y Servicios - INAPI - Sitio de Trámites» con guiones simples en lugar de em dash.",
+      "severidad": "media",
+      "cita_textual": "HTML-L31: «Clasificador de Productos y Servicios - INAPI - Sitio de Trámites» (guiones simples)"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "El formulario envía al endpoint correcto. El botón «Exportar búsqueda a Excel» descarga el archivo correcto. El enlace OMPI en el card-footer apunta a la URL correcta."
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "comentario": "T087: «Clic aquí para ver» es texto genérico de enlace. T064: el tooltip del ícono de ayuda de Procedencia dice solo «Ayuda» — no describe qué tipo de ayuda ofrece.",
+      "severidad": "alta",
+      "cita_textual": "T087 [HTML-L1195]: «Clic aquí para ver» (texto genérico) / T064 [HTML-L1084]: tooltip «Ayuda» (no descriptivo)"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "comentario": "T091: «Ok» (HTML-L1569) en el modal de Clases — anglicismo con k minúscula. T096: «Aceptar» (HTML-L1602) en modal ayuda Clases — no descriptivo. T107: «Aceptar» (HTML-L1630) en modal Procedencia. T108: «OK» (HTML-L1649) en modal alerta Bootstrap local. T109: «Aceptar» (HTML-L1691) en modal confirm _Layout.",
+      "severidad": "media",
+      "cita_textual": "T091 [HTML-L1569]: «Ok» / T096 [HTML-L1602]: «Aceptar» / T107 [HTML-L1630]: «Aceptar» / T108 [HTML-L1649]: «OK» / T109 [HTML-L1691]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "comentario": "T085: «Listado Completo de Productos Y Servicios» es un enlace que descarga un Excel sin indicar el formato. T130: «Política de privacidad» (HTML-L1755) enlaza a PDF sin indicar formato.",
+      "severidad": "alta",
+      "cita_textual": "T085 [HTML-L1187]: descarga Excel sin indicar formato / T130 [HTML-L1755]: «Política de privacidad» → PDF sin indicar"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones «Buscar», «Limpiar» y «Exportar» están al final del formulario. Los botones de los modales están al pie de cada modal."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "La herramienta es de consulta de clasificación; no se detectan datos personales de personas naturales en el HTML estático. El RUT 65.999.669-3 (T114) es de persona jurídica pública.",
+      "cita_textual": "T114 [HTML-L1719]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "«Política de privacidad» (T130) en el footer implica información ARCO disponible.",
+      "cita_textual": "T130 [HTML-L1755]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright ©2026 actualizado (T131). Existe «Uso de los Contenidos de este Sitio» (T128).",
+      "cita_textual": "T131 [HTML-L1770]: «©2026 INAPI. Todos los derechos reservados» / T128 [HTML-L1753]: «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 5,
+  "criterios_aplicables": 34,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 44.1,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 19 incumplimientos sobre 34 criterios aplicables (44,1 %) para esta herramienta con 30.947 visitas. Las correcciones de mayor impacto son: (1) insertar H1 semántico y promover el card-header a H2 (A1, A3); (2) agregar glosas breves a las siglas NIZA, ADP, MADRID e INAPI directamente en el formulario — sin necesidad de abrir el modal (B2); (3) corregir seis errores tipográficos: «Titulos», «Filtros de Búsqueda», «Descripción Español»/«Inglés» sin preposición, «Y» mayúscula en el enlace de descarga, «sólo» anacrónico (D1); (4) reformular T059 en tuteo directo (B1, B6, C1); (5) cambiar «Clic aquí para ver» por texto descriptivo del destino OMPI (F2); (6) indicar formato Excel en el enlace de descarga y PDF en Política de privacidad (F4); (7) expandir PCT en el menú de Patentes (B3); (8) agregar fecha de actualización visible (E3); (9) eliminar espacios antes de los dos puntos en los labels (C7, D2); (10) normalizar mayúsculas en menú y H5 «PROTOCOLO DE MADRID» (D7); (11) reemplazar guiones simples por em dash en el title (E4); (12) cambiar «Ok»/«OK»/«Aceptar» en los modales locales y del _Layout (F3). El array sustituciones[] contiene 44 filas con cobertura 1:1 para los 19 criterios incumplidos.",
+  "observaciones_lc": "El Clasificador de Niza obtiene un 44,1 % de cumplimiento sobre 34 criterios aplicables — RECHAZADO, rank 10 Clarity con 30.947 visitas. Los 19 incumplimientos se concentran en: (1) siglas sin definición accesible en el formulario (B2 alta): NIZA, ADP, MADRID e INAPI solo se definen en el modal de Procedencia, no en el formulario donde aparecen; (2) seis errores tipográficos (D1 alta) incluyendo «Descripción Español»/«Descripción Inglés» sin preposición; (3) el enlace «Clic aquí para ver» (F2 alta) es el texto genérico más clásico del portal; (4) mezcla de registros en el tono (B1, B6 media): «le» formal, «usted» explícito y sin pronombre en la misma herramienta. Los espacios previos a los dos puntos en los cuatro labels del formulario (C7/D2) son un patrón único de esta URL. Se destacan positivamente los modales de ayuda contextuales para Clases y Procedencia, y que OMPI se expande correctamente en el card-footer.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkNizaClassifier fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 10 Clarity con 30.947 visitas. De los 34 criterios aplicables, 15 se cumplen, lo que arroja un 44,1 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 19 incumplimientos y se generaron 44 filas en sustituciones[] con cobertura 1:1. Los 7 incumplimientos de severidad alta son: A1 (sin H semántico), B2 (siglas NIZA/ADP/MADRID sin definición en el formulario), B3 (PCT), D1 (seis errores tipográficos), E3 (sin fecha de actualización), F2 («Clic aquí para ver») y F4 (descarga Excel sin formato indicado). G1 cumple: la herramienta es de consulta de clasificación sin datos personales en el HTML estático.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1, H2 ni H3. El card-header «Clasificador de Productos y Servicios» (T058) es un div sin semántica de encabezado.",
+      "(B2) Las siglas NIZA, ADP, MADRID e INAPI aparecen como opciones de filtro sin definición visible en el formulario; el usuario debe abrir el modal de Procedencia para entenderlas. OMPI aparece sin expandir en el texto introductorio de T086.",
+      "(B3) PCT en T047 y T057 del menú de Patentes sin definición.",
+      "(D1) Seis errores: «Titulos» sin tilde (L471 y L900); «Filtros de Búsqueda» en capitalización tipo título; «Descripción Español» y «Descripción Inglés» sin preposición «en»; «Y» mayúscula en «Listado Completo de Productos Y Servicios»; «sólo» con tilde anacrónica (RAE 2010).",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la herramienta.",
+      "(F2) «Clic aquí para ver» (T087) es texto genérico de enlace. Tooltip de ayuda de Procedencia (T064) dice solo «Ayuda» sin descripción.",
+      "(F4) El enlace «Listado Completo» (T085) descarga un Excel sin indicar el formato. «Política de privacidad» enlaza a PDF sin indicar formato."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Los dos párrafos introductorios no orientan al usuario paso a paso; las instrucciones de uso están repartidas en dos modales de ayuda.",
+      "(A3) Sin H1/H2/H3; el contenido se organiza solo con fieldsets, sin jerarquía semántica accesible.",
+      "(B1) T059 usa «le permite» (formal). T094 usa «usted conozca». T098 usa «Se refiere» (pasiva). Mezcla de voz activa e impersonal.",
+      "(B6) Tono inconsistente: «le» (usted formal), «usted» explícito y sin pronombre en la misma herramienta.",
+      "(C1) T059 antepone un sujeto de 8 palabras al verbo principal.",
+      "(C7) Los cuatro labels del formulario tienen espacio previo a los dos puntos: «Idioma :», «Procedencia :», «Palabra :», «Clases de Niza :».",
+      "(D2) Falta coma después de «Adicionalmente» (T060). Espacio previo a dos puntos en todos los labels. «Ok» con k minúscula (T091).",
+      "(D7) Grupos del menú en mayúsculas. H5 «PROTOCOLO DE MADRID:» en todo mayúsculas, inconsistente con los demás H5 del modal.",
+      "(E4) Title con guiones simples en lugar de em dash.",
+      "(F3) «Ok», «OK» y «Aceptar» en modales locales y del _Layout sin describir la acción."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.91.0» (T132) es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(B7) «Adicionalmente» (T060) es palabra de relleno. «Dato a incorporar sólo en caso que usted conozca» (T094) es construcción nominal burocrática sin verbo activo."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L1050",
+      "original": "(ausencia de H1)",
+      "propuesto": "<h1 class='sr-only'>Clasificador de Niza</h1>",
+      "criterio_id": "A1",
+      "motivo": "Insertar H1 semántico accesible antes del contenedor principal."
+    },
+    {
+      "linea": "A3-card",
+      "html_linea_aprox": "HTML-L1056",
+      "original": "Clasificador de Productos y Servicios (div.card-header)",
+      "propuesto": "<h2>Clasificador de Productos y Servicios</h2>",
+      "criterio_id": "A3",
+      "motivo": "Promover el card-header a H2 para construir jerarquía semántica accesible."
+    },
+    {
+      "linea": "T059-A2",
+      "html_linea_aprox": "HTML-L1060",
+      "original": "El Clasificador de Productos y Servicios de INAPI le permite buscar las palabras o términos para clasificar los productos y servicios necesarios para la solicitud de marca.",
+      "propuesto": "El Clasificador de Productos y Servicios te permite buscar palabras o términos para clasificar los productos y servicios de tu solicitud de marca. Usa los filtros para buscar por palabra, clase o fuente (Procedencia).",
+      "criterio_id": "A2",
+      "motivo": "Reformular en tuteo directo; agregar orientación de uso mínima; simplificar la oración."
+    },
+    {
+      "linea": "T132",
+      "html_linea_aprox": "HTML-L1771",
+      "original": "v 2.3.91.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema sin valor para el usuario; eliminar del footer público."
+    },
+    {
+      "linea": "T059-B1",
+      "html_linea_aprox": "HTML-L1060",
+      "original": "le permite buscar las palabras o términos para clasificar los productos y servicios necesarios",
+      "propuesto": "te permite buscar palabras o términos para clasificar los productos y servicios",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza «le» (usted formal) por «te» (tuteo directo); simplifica la oración."
+    },
+    {
+      "linea": "T094-B1",
+      "html_linea_aprox": "HTML-L1587",
+      "original": "Dato a incorporar sólo en caso que usted conozca el catálogo del Clasificador Internacional de Niza o le interese una categoría perteneciente a un rubro en particular.",
+      "propuesto": "Usa este campo si conoces la clasificación de Niza o si quieres buscar por una categoría específica.",
+      "criterio_id": "B1",
+      "motivo": "Elimina «usted», «le interese», «Dato a incorporar» y «sólo» con tilde; usa tuteo directo."
+    },
+    {
+      "linea": "T098-B1",
+      "html_linea_aprox": "HTML-L1619",
+      "original": "Se refiere al origen o fuente de la descripción o término.",
+      "propuesto": "Indica el origen o fuente de cada descripción o término.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la voz pasiva refleja «Se refiere» por voz activa «Indica»."
+    },
+    {
+      "linea": "T065-T068",
+      "html_linea_aprox": "HTML-L1086",
+      "original": "NIZA / INAPI / ADP / MADRID (checkboxes sin glosa)",
+      "propuesto": "Agregar glosas al formulario: NIZA (Clasificación Internacional), INAPI (descripciones nacionales), ADP (Alianza del Pacífico), MADRID (Protocolo de Madrid) — o añadir atributo title descriptivo a cada checkbox.",
+      "criterio_id": "B2",
+      "motivo": "Las siglas de procedencia no tienen definición visible en el formulario; el usuario debe abrir el modal de Procedencia para entenderlas."
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "HTML-L417",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú de Patentes sin definición; expandir la sigla."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L489",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT; expandir para comprensión independiente."
+    },
+    {
+      "linea": "T059-B6",
+      "html_linea_aprox": "HTML-L1060",
+      "original": "le permite buscar las palabras o términos",
+      "propuesto": "te permite buscar palabras o términos",
+      "criterio_id": "B6",
+      "motivo": "Elimina el «le» formal; usa tuteo directo consistente con el resto del portal."
+    },
+    {
+      "linea": "T094-B6",
+      "html_linea_aprox": "HTML-L1587",
+      "original": "usted conozca el catálogo del Clasificador Internacional de Niza o le interese",
+      "propuesto": "conoces la clasificación de Niza o quieres buscar",
+      "criterio_id": "B6",
+      "motivo": "Elimina «usted» explícito y «le interese»; usa tuteo directo."
+    },
+    {
+      "linea": "T060-B7",
+      "html_linea_aprox": "HTML-L1062",
+      "original": "Adicionalmente esta nueva versión del Clasificador ofrece la traducción al inglés de un gran número de descripciones de productos y servicios.",
+      "propuesto": "También ofrece la traducción al inglés de un gran número de descripciones de productos y servicios.",
+      "criterio_id": "B7",
+      "motivo": "«Adicionalmente» es palabra de relleno; reemplazar por «También» más directo."
+    },
+    {
+      "linea": "T059-C1",
+      "html_linea_aprox": "HTML-L1060",
+      "original": "El Clasificador de Productos y Servicios de INAPI le permite buscar las palabras o términos para clasificar los productos y servicios necesarios para la solicitud de marca.",
+      "propuesto": "El Clasificador de Productos y Servicios te permite buscar palabras o términos para clasificar los productos y servicios de tu solicitud de marca.",
+      "criterio_id": "C1",
+      "motivo": "Coloca el sujeto antes del verbo sin la frase nominal de 8 palabras; simplifica."
+    },
+    {
+      "linea": "T062",
+      "html_linea_aprox": "HTML-L1073",
+      "original": "Buscar en Idioma :",
+      "propuesto": "Buscar en idioma:",
+      "criterio_id": "C7",
+      "motivo": "Elimina el espacio antes de los dos puntos; normaliza capitalización a sentencia."
+    },
+    {
+      "linea": "T063",
+      "html_linea_aprox": "HTML-L1083",
+      "original": "Procedencia :",
+      "propuesto": "Procedencia:",
+      "criterio_id": "C7",
+      "motivo": "Elimina el espacio previo a los dos puntos."
+    },
+    {
+      "linea": "T069",
+      "html_linea_aprox": "HTML-L1107",
+      "original": "Palabra :",
+      "propuesto": "Palabra:",
+      "criterio_id": "C7",
+      "motivo": "Elimina el espacio previo a los dos puntos."
+    },
+    {
+      "linea": "T070",
+      "html_linea_aprox": "HTML-L1113",
+      "original": "Clases de Niza :",
+      "propuesto": "Clases de Niza:",
+      "criterio_id": "C7",
+      "motivo": "Elimina el espacio previo a los dos puntos."
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L471",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Falta tilde en «Títulos» — menú desktop (HTML-L471)."
+    },
+    {
+      "linea": "T055-mobile",
+      "html_linea_aprox": "HTML-L900",
+      "original": "Titulos y Certificados Patentes",
+      "propuesto": "Títulos y Certificados Patentes",
+      "criterio_id": "D1",
+      "motivo": "Segunda instancia — menú mobile (HTML-L900)."
+    },
+    {
+      "linea": "T061",
+      "html_linea_aprox": "HTML-L1066",
+      "original": "Filtros de Búsqueda",
+      "propuesto": "Filtros de búsqueda",
+      "criterio_id": "D1",
+      "motivo": "Capitalización tipo título; usar capitalización de sentencia."
+    },
+    {
+      "linea": "T079",
+      "html_linea_aprox": "HTML-L1167",
+      "original": "Descripción Español",
+      "propuesto": "Descripción en español",
+      "criterio_id": "D1",
+      "motivo": "Falta preposición «en» y capitalización de sentencia."
+    },
+    {
+      "linea": "T080",
+      "html_linea_aprox": "HTML-L1168",
+      "original": "Descripción Inglés",
+      "propuesto": "Descripción en inglés",
+      "criterio_id": "D1",
+      "motivo": "Falta preposición «en» y capitalización de sentencia."
+    },
+    {
+      "linea": "T085-D1",
+      "html_linea_aprox": "HTML-L1187",
+      "original": "Listado Completo de Productos Y Servicios",
+      "propuesto": "Listado completo de productos y servicios",
+      "criterio_id": "D1",
+      "motivo": "«Y» mayúscula en medio del sintagma; aplicar capitalización de sentencia."
+    },
+    {
+      "linea": "T094-D1",
+      "html_linea_aprox": "HTML-L1587",
+      "original": "sólo",
+      "propuesto": "solo",
+      "criterio_id": "D1",
+      "motivo": "La RAE recomienda «solo» sin tilde cuando es adverbio (Ortografía 2010)."
+    },
+    {
+      "linea": "T060-D2",
+      "html_linea_aprox": "HTML-L1062",
+      "original": "Adicionalmente esta nueva versión",
+      "propuesto": "Adicionalmente, esta nueva versión",
+      "criterio_id": "D2",
+      "motivo": "Insertar coma después de «Adicionalmente» (adverbio de frase al inicio de oración)."
+    },
+    {
+      "linea": "T062-D2",
+      "html_linea_aprox": "HTML-L1073",
+      "original": "Buscar en Idioma :",
+      "propuesto": "Buscar en idioma:",
+      "criterio_id": "D2",
+      "motivo": "Elimina el espacio previo a los dos puntos — violación tipográfica en español."
+    },
+    {
+      "linea": "T091",
+      "html_linea_aprox": "HTML-L1569",
+      "original": "Ok",
+      "propuesto": "Aceptar selección",
+      "criterio_id": "D2",
+      "motivo": "«Ok» con k minúscula es inconsistente con el estilo del portal; el contexto del botón merece texto descriptivo."
+    },
+    {
+      "linea": "T102",
+      "html_linea_aprox": "HTML-L1626",
+      "original": "PROTOCOLO DE MADRID:",
+      "propuesto": "Protocolo de Madrid:",
+      "criterio_id": "D7",
+      "motivo": "H5 en todo mayúsculas inconsistente con los demás H5 del mismo modal."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "HTML-L129",
+      "original": "MI INAPI",
+      "propuesto": "Mi INAPI",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar conservando «INAPI»."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L159",
+      "original": "TRAMITACIÓN",
+      "propuesto": "Tramitación",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L207",
+      "original": "PAGOS",
+      "propuesto": "Pagos",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L237",
+      "original": "SERVICIOS",
+      "propuesto": "Servicios",
+      "criterio_id": "D7",
+      "motivo": "Grupo del menú en mayúsculas totales; normalizar."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1056",
+      "original": "(ausencia de fecha de actualización)",
+      "propuesto": "Última actualización: junio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible bajo el H2 propuesto."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L31",
+      "original": "Clasificador de Productos y Servicios - INAPI - Sitio de Trámites",
+      "propuesto": "Clasificador de Productos y Servicios — INAPI — Sitio de Trámites",
+      "criterio_id": "E4",
+      "motivo": "Reemplazar guiones simples (-) por em dash (—)."
+    },
+    {
+      "linea": "T087",
+      "html_linea_aprox": "HTML-L1195",
+      "original": "Clic aquí para ver",
+      "propuesto": "Ver el clasificador de Niza de la OMPI",
+      "criterio_id": "F2",
+      "motivo": "«Clic aquí para ver» es texto genérico; reemplazar con descripción del destino."
+    },
+    {
+      "linea": "T064",
+      "html_linea_aprox": "HTML-L1084",
+      "original": "title=\"Ayuda\"",
+      "propuesto": "title=\"Ver definición de cada fuente (NIZA, INAPI, ADP, MADRID)\"",
+      "criterio_id": "F2",
+      "motivo": "El tooltip «Ayuda» no describe qué tipo de ayuda ofrece."
+    },
+    {
+      "linea": "T091-F3",
+      "html_linea_aprox": "HTML-L1569",
+      "original": "Ok",
+      "propuesto": "Aceptar selección",
+      "criterio_id": "F3",
+      "motivo": "«Ok» con k minúscula es anglicismo con capitalización mixta; reemplazar por texto descriptivo de la acción (copiar selección al campo)."
+    },
+    {
+      "linea": "T096",
+      "html_linea_aprox": "HTML-L1602",
+      "original": "Aceptar",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» en el modal de ayuda de Clases no indica qué se acepta; «Cerrar» es más descriptivo."
+    },
+    {
+      "linea": "T107",
+      "html_linea_aprox": "HTML-L1630",
+      "original": "Aceptar",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» en el modal de Procedencia no indica qué se acepta; «Cerrar» es más descriptivo."
+    },
+    {
+      "linea": "T108",
+      "html_linea_aprox": "HTML-L1649",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "«OK» anglicismo en el modal de alerta Bootstrap local; «Cerrar» es más claro."
+    },
+    {
+      "linea": "T109",
+      "html_linea_aprox": "HTML-L1691",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "«Aceptar» sin contexto en el modal confirm del _Layout; «Confirmar» es más descriptivo. Cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "T085-F4",
+      "html_linea_aprox": "HTML-L1187",
+      "original": "Listado Completo de Productos Y Servicios",
+      "propuesto": "Listado completo de productos y servicios (Excel)",
+      "criterio_id": "F4",
+      "motivo": "El enlace descarga un archivo Excel sin indicar el formato."
+    },
+    {
+      "linea": "T130",
+      "html_linea_aprox": "HTML-L1755",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en TrademarkNizaClassifier.cshtml: (1) hacer backup antes de cualquier cambio; (2) correcciones A1/A3 (H1/H2) y E3 (fecha) — insertar antes del <div class=\"row\"> (HTML-L1052) o del div.card (HTML-L1054); (3) los cuatro labels con espacio previo a los dos puntos (C7/D2, HTML-L1073, L1083, L1107, L1113) son <label> en la vista Razor — localizar «Idioma :», «Procedencia :», «Palabra :», «Clases de Niza :»; (4) los encabezados de columna «Descripción Español» y «Descripción Inglés» (D1, HTML-L1167–1168) son <th> estáticos en la vista; (5) «Filtros de Búsqueda» (D1, HTML-L1066) es una <legend> — cambiar capitalización; (6) el botón «Ok» (D2/F3, HTML-L1569) del modal ModalNizaClass está en la vista local — cambiar el texto del botón; (7) los botones «Aceptar» de los modales ModalHelpClasses (HTML-L1602) y ModalHelpSource (HTML-L1630) están en la vista local; (8) el botón «OK» del modal de alerta Bootstrap personalizado (HTML-L1649) está en la vista local (no en _Layout); (9) el botón «Aceptar» del modal confirm genérico (HTML-L1691) está en _Layout.cshtml — cambio transversal; (10) el tooltip de Procedencia (F2, HTML-L1084) es el atributo title del <i class=\"inapi-icon\"> — cambiar de «Ayuda» a descripción completa; (11) el enlace «Clic aquí para ver» (F2, HTML-L1195) está en el <p> del card-footer — cambiar el texto del <a>; (12) el enlace «Listado Completo» (F4, HTML-L1187) es un <a href=\"#\"> con onclick=\"downloadCSV(1)\" — cambiar el texto del enlace sin afectar el onclick y agregar «(Excel)» al final; (13) «Titulos» (HTML-L471 y L900) en el layout compartido del menú de Patentes; (14) el H5 «PROTOCOLO DE MADRID:» (HTML-L1626) en el modal ModalHelpSource de la vista local; (15) el title se genera desde ViewBag.Title en el layout — actualizar separador a em dash; (16) los grupos del menú en mayúsculas (HTML-L129–237) en el layout compartido — cambio transversal."
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "lista": "clarity_ampliado",
   "fuente_documental": "docs/ux/inventario-urls-clarity.md §2",
-  "nota": "Espejo resumido del inventario Calidad Web (22 filas en mock actual). Mantener alineado con data/ux/clarity-fichas-mock.json y con CLARITY_INVENTORY_ROWS (frontend/src/lib/clarity-inventory-rows.ts). Sin type_url en espejo: la tabla UI lo toma del maestro.",
+  "nota": "Espejo resumido del inventario Calidad Web (17 filas en mock actual). Mantener alineado con data/ux/clarity-fichas-mock.json y con CLARITY_INVENTORY_ROWS (frontend/src/lib/clarity-inventory-rows.ts). Sin type_url en espejo: la tabla UI lo toma del maestro.",
   "filas": [
     {
       "rank": 1,
@@ -51,38 +51,38 @@
     },
     {
       "rank": 6,
-      "rutaEtiqueta": "Trademark Application / Index Trademark",
-      "visitasRef": "41.429",
+      "rutaEtiqueta": "Trademark / TrademarkApplication / IndexTrademark",
+      "visitasRef": "52.693",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-23",
-      "porcentajeLcRef": "57,1 %",
+      "porcentajeLcRef": "40,0 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 7,
-      "rutaEtiqueta": "Login / Clave Única (Modal)",
-      "visitasRef": "38.519",
+      "rutaEtiqueta": "Trademark / TrademarkApplication / LoadTrademarkApplication",
+      "visitasRef": "47.938",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-22",
-      "porcentajeLcRef": "62,1 %",
+      "porcentajeLcRef": "44,1 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 8,
-      "rutaEtiqueta": "Load Trademark Application",
-      "visitasRef": "37.468",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-21",
-      "porcentajeLcRef": "61,3 %",
-      "estadoRef": "Rechazado"
+      "rutaEtiqueta": "Login / claveunica",
+      "visitasRef": "—",
+      "auditoriasRef": "0",
+      "ultimaRevisionRef": "—",
+      "porcentajeLcRef": "—",
+      "estadoRef": "Pendiente"
     },
     {
       "rank": 9,
       "rutaEtiqueta": "Estados Diarios Marcas",
-      "visitasRef": "31.929",
+      "visitasRef": "37.557",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-20",
-      "porcentajeLcRef": "70,4 %",
+      "porcentajeLcRef": "50,0 %",
       "estadoRef": "Rechazado"
     },
     {
@@ -91,115 +91,70 @@
       "visitasRef": "30.947",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-19",
-      "porcentajeLcRef": "67,7 %",
+      "porcentajeLcRef": "44,1 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 11,
       "rutaEtiqueta": "Trademark User Document / Success Confirmation",
       "visitasRef": "23.779",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-18",
-      "porcentajeLcRef": "72,0 %",
-      "estadoRef": "Rechazado"
+      "auditoriasRef": "0",
+      "ultimaRevisionRef": "—",
+      "porcentajeLcRef": "—",
+      "estadoRef": "Pendiente"
     },
     {
       "rank": 12,
       "rutaEtiqueta": "Trademark User Document (Escritos)",
       "visitasRef": "23.141",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-17",
-      "porcentajeLcRef": "63,0 %",
+      "ultimaRevisionRef": "2026-06-11",
+      "porcentajeLcRef": "55,9 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 13,
       "rutaEtiqueta": "Confirmación Solicitud Marca",
       "visitasRef": "21.825",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-16",
-      "porcentajeLcRef": "57,7 %",
-      "estadoRef": "Rechazado"
+      "auditoriasRef": "0",
+      "ultimaRevisionRef": "—",
+      "porcentajeLcRef": "—",
+      "estadoRef": "Pendiente"
     },
     {
       "rank": 14,
-      "rutaEtiqueta": "Load Trademark Application (revisión)",
-      "visitasRef": "18.654",
+      "rutaEtiqueta": "Trademark / TrademarkAnnotation",
+      "visitasRef": "13.600",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-15",
-      "porcentajeLcRef": "59,4 %",
+      "ultimaRevisionRef": "2026-06-11",
+      "porcentajeLcRef": "50,0 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 15,
-      "rutaEtiqueta": "Account / Register",
-      "visitasRef": "17.603",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-14",
-      "porcentajeLcRef": "55,9 %",
-      "estadoRef": "Rechazado"
+      "rutaEtiqueta": "Trademark / TrademarkRenewalApplication",
+      "visitasRef": "12.528",
+      "auditoriasRef": "0",
+      "ultimaRevisionRef": "—",
+      "porcentajeLcRef": "—",
+      "estadoRef": "Pendiente"
     },
     {
       "rank": 16,
-      "rutaEtiqueta": "Trademark Second Payment / Success Confirmation",
-      "visitasRef": "14.609",
+      "rutaEtiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+      "visitasRef": "—",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-13",
-      "porcentajeLcRef": "68,0 %",
+      "ultimaRevisionRef": "2026-06-11",
+      "porcentajeLcRef": "45,5 %",
       "estadoRef": "Rechazado"
     },
     {
       "rank": 17,
-      "rutaEtiqueta": "Trademark Annotation",
-      "visitasRef": "13.600",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-12",
-      "porcentajeLcRef": "59,3 %",
-      "estadoRef": "Rechazado"
-    },
-    {
-      "rank": 18,
-      "rutaEtiqueta": "Estados Diarios Patentes",
-      "visitasRef": "12.628",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-11",
-      "porcentajeLcRef": "70,4 %",
-      "estadoRef": "Rechazado"
-    },
-    {
-      "rank": 19,
-      "rutaEtiqueta": "Trademark Renewal Application",
-      "visitasRef": "12.528",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-10",
-      "porcentajeLcRef": "70,8 %",
-      "estadoRef": "Rechazado"
-    },
-    {
-      "rank": 20,
-      "rutaEtiqueta": "Notificaciones Patentes",
-      "visitasRef": "12.271",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-09",
-      "porcentajeLcRef": "56,7 %",
-      "estadoRef": "Rechazado"
-    },
-    {
-      "rank": 21,
-      "rutaEtiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
-      "visitasRef": "—",
-      "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-28",
-      "porcentajeLcRef": "92,0 %",
-      "estadoRef": "Aprobado"
-    },
-    {
-      "rank": 22,
       "rutaEtiqueta": "Trámites Digitales",
       "visitasRef": "16.059",
       "auditoriasRef": "1",
-      "ultimaRevisionRef": "2026-05-28",
-      "porcentajeLcRef": "68,0 %",
+      "ultimaRevisionRef": "2026-06-11",
+      "porcentajeLcRef": "41,7 %",
       "estadoRef": "Rechazado"
     }
   ]

@@ -114,8 +114,8 @@ export function clarityInventarioSortSummary(
   }
   if (sortKey === "rank") {
     return sortDir === "asc"
-      ? "Orden: volumen Clarity (# 1 → 22)"
-      : "Orden: volumen Clarity (# 22 → 1)"
+      ? "Orden: volumen Clarity (# 1 → 17)"
+      : "Orden: volumen Clarity (# 17 → 1)"
   }
   return sortDir === "desc"
     ? `Orden: ${campo} (mayor a menor)`
