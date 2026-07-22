@@ -25,27 +25,42 @@ Este documento resume **qué ya se cuida en el repo**, **qué se endureció en l
 
 ---
 
-## 3. Pendiente tras despliegue híbrido y backend (checklist)
+## 3. Garantías del stack local IA (Fases 0–4)
 
-La **Etapa 1** del plan (Vercel + CI básico + verificación del mock en URL) quedó operativa; los ítems siguientes aplican cuando exista **Nest**, **Supabase** y exposición pública más exigente.
+El stack de orquestación IA corre íntegramente en local (WSL). Las siguientes garantías son **arquitectónicas**, no solo reglas de configuración.
 
-Plan operativo por etapas (Vercel, Actions, Supabase, Nest, AWS): [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
+| Garantía | Mecanismo |
+| --- | --- |
+| Ningún documento interno sale a internet | Todo el procesamiento corre en WSL; Chroma es un proceso local en el puerto 8000 |
+| Los PDFs normativos no se versionan | `documentos/` está en `.gitignore`; solo existe localmente y en el servidor TI |
+| Los vectores no se versionan | `rag/chroma_db/` está en `.gitignore` |
+| Los embeddings no llaman a APIs externas | `@xenova/transformers` corre 100 % offline en CPU tras la descarga inicial del modelo |
+| Claude Code no envía los PDFs a Anthropic | Los documentos se leen como texto en el contexto local de la sesión de WSL |
+| Colecciones A y B completamente aisladas | Scripts de ingesta separados (`ingest-a.ts` / `ingest-b.ts`); colecciones Chroma distintas; barrera arquitectónica, no solo configuración |
+| Datos sensibles INAPI fuera del RAG | RUT/RUN, solicitudes de marca, resultados del buscador de anterioridades, credenciales y tokens nunca se ingresan en las colecciones |
+| Caso G1 (datos en HTML) | Se detecta como incumplimiento del criterio; no se almacena en el RAG ni en el repo |
 
-Aplicar cuando el backend y los entornos compartidos estén en uso; conviene asignar responsable (TI / desarrollo).
+---
+
+## 4. Pendiente — frontend y backend (fases posteriores no iniciadas)
+
+La **Etapa 1** del plan (Vercel + CI + piloto) quedó operativa. Los ítems siguientes aplican cuando exista un **backend de dominio** (Railway), **Supabase** y exposición pública más exigente. En las **Fases 0–4 actuales** (orquestación local con Claude Code Pro) no hay backend desplegado que los requiera.
+
+Plan operativo por etapas: [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
 
 - [ ] **Cabeceras HTTP** en Next (CSP, `frame-ancestors` / anti-clickjacking, HSTS en dominio definitivo).
-- [ ] **CORS** explícito en Nest; orígenes solo front y herramientas acordadas.
+- [ ] **CORS** explícito en el backend; orígenes solo front y herramientas acordadas.
 - [ ] **Autenticación** en rutas que sirvan datos de auditoría o fixtures no públicos.
-- [ ] **Rate limiting** en API pública y en Gateway hacia evaluación LLM.
-- [ ] **Tamaño máximo** de cuerpos JSON (importación en UI y payloads Nest) para reducir abuso DoS.
-- [ ] **Variables de entorno** en panel de deploy: mínimo privilegio, rotación, sin `LC_REPO_ROOT` u otras rutas controlables por atacante sin control de cambios.
-- [ ] **Supabase RLS** y políticas según [`docs/DATABASE.md`](DATABASE.md).
-- [ ] **Nest ↔ API Gateway / Lambda:** autenticación de servicio (IAM, JWT de servicio, mTLS) según [`docs/PROPUESTA_TECNICA_INTEGRAL.md`](PROPUESTA_TECNICA_INTEGRAL.md) §5.
+- [ ] **Rate limiting** en API pública.
+- [ ] **Tamaño máximo** de cuerpos JSON (importación en UI) para reducir abuso DoS.
+- [ ] **Variables de entorno** en panel de deploy: mínimo privilegio, rotación.
+- [ ] **Supabase RLS** y políticas según [`docs/DATABASE.md`](DATABASE.md) — cuando exista Supabase.
+- [ ] **Autenticación de servicio** entre el backend y el servidor TI / MCP server — cuando exista backend.
 - [ ] **Revisión de dependencias** (CI con auditoría opcional) y secret scanning en GitHub.
 
 ---
 
-## 4. Referencias
+## 5. Referencias
 
 | Documento | Contenido relacionado |
 | --- | --- |
