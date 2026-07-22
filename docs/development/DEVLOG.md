@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-22 | [Infraestructura: Fase 1 — Registro MCP Playwright en Claude Code Pro](#devlog-2026-07-22-fase-1-playwright-mcp) |
 | 2026-07-22 | [Estrategia: Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)](#devlog-2026-07-22-fase-0-claude-skills) |
 | 2026-07-21 | [Documentación: AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)](#devlog-2026-07-21-ai-stack-v2) |
 | 2026-06-28 | [Documentación: Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun](#devlog-2026-06-28-stack-orquestacion-mei) |
@@ -48,6 +49,22 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ---
 
 ---
+
+<a id="devlog-2026-07-22-fase-1-playwright-mcp"></a>
+
+## [2026-07-22] - Infraestructura | Fase 1 — Registro MCP Playwright en Claude Code Pro
+
+### Contexto y objetivos:
+
+Inicio de la **Fase 1** del procedimiento de implementación del AI Stack v2. El objetivo es registrar el servidor MCP de Playwright en Claude Code Pro para habilitar la captura automatizada de HTML de URLs del inventario Clarity sin intervención manual (Ctrl+U). La Fase 0 está completada y mergeada en `main`; este trabajo se realiza en la rama `feat/playwright-mcp`.
+
+El MCP de Playwright permite que Claude Code Pro navegue URLs reales, ejecute JavaScript del lado del cliente y extraiga el HTML renderizado (DOM completo), resolviendo el problema identificado en la sesión de jun-2026: el HTML capturado con Ctrl+U en `tramites.inapi.cl` no refleja el DOM real inyectado por el servidor ASP.NET MVC.
+
+### Implementación técnica:
+
+- **Comando de registro:**
+  ```bash
+  claude mcp add playwright npx @playwright/mcp@latest
 
 ---
 
