@@ -95,41 +95,93 @@
 
 ---
 
-## Fase 2 — Persistencia, API y evaluación asistida (post-piloto 1.5)
+## Fase 0 — Contexto Claude Code (sin instalar nada)
 
-**Condición:** cierre editorial de **Fase 1.5** (9 URLs con informe + PDF en MVP + entrega TIC) y, cuando aplique, demo UX de Fase 1.
+**Condición:** cierre editorial de **Fase 1.5** (entrega TIC) y actualización de documentación ([ADR 0008](adr/0008-typescript-sobre-python-para-rag.md), [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md), [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md)).
 
-- [ ] Proyecto **Supabase** (Auth, Postgres, RLS) según [`docs/DATABASE.md`](DATABASE.md)
-- [ ] App **NestJS** + **Prisma**: migraciones iniciales (`audits`, resultados detallados, `checklist_versions`, etc.) contra Postgres de Supabase ([ADR 0005](adr/0005-api-backend-nestjs-prisma.md))
-- [ ] **Contrato HTTP** frontend ↔ API de dominio; Next (Server Actions / Route Handlers) solo donde aporte valor frente a llamadas directas al API
-- [ ] **Evaluación de lenguaje claro con Claude API** vía **servicio Python** en **AWS** (preferencia documentada: **API Gateway** + **Lambda**; alternativa ECS/EC2 si límites de Lambda no bastan). Contrato **REST/JSON** entre Nest y API Gateway; validación de salida alineada a [ADR 0004](adr/0004-llm-checklist-evaluation-and-versioning.md) y [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md)
-- [ ] **Integración y seguridad:** definir autenticación **Nest ↔ API Gateway** (claves, IAM, mTLS o JWT de servicio) y secretos Anthropic solo en servidor/Lambda; cuestionario abierto en [`docs/PROPUESTA_TECNICA_INTEGRAL.md`](PROPUESTA_TECNICA_INTEGRAL.md) §5
-- [ ] **Desarrollo local:** **Docker** para el servicio Python de evaluación (paridad con AWS), según propuesta técnica integral
-- [ ] **Reestructura de monorepo (opcional / acordada):** migrar hacia `apps/frontend`, `apps/backend-api`, `apps/evaluation-service` y `packages/contracts` cuando el equipo lo priorice (hoy: `frontend/` + `src/schemas/`; ver tabla en propuesta técnica §1.1)
-- [ ] **Entorno compartido en AWS** (desarrollo o staging) para API, gateway y lambdas, sin depender de equipos personales encendidos
+- [ ] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
+- [ ] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
+- [ ] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
+
+**Resultado:** Claude Code ya tiene contexto completo del proyecto desde la primera sesión, sin infraestructura adicional.
 
 ---
 
-## Fase 3 — Captura real y endurecimiento del pipeline
+## Fase 1 — MCP Playwright (captura de HTML)
 
-- [ ] Servicio de **captura** de contenido URL (Cheerio vs Playwright — ADR dedicado)
-- [ ] **Reintentos**, límites de costo, caché y observabilidad del pipeline LLM en producción
-- [ ] **Versionado de prompts** en repositorio o tabla, alineado a `prompt_version` en persistencia
+**Condición:** entorno WSL disponible con Claude Code Pro instalado.
+
+- [ ] `claude mcp add playwright npx @playwright/mcp@latest`
+- [ ] Probar captura de una URL del inventario Clarity; verificar que el HTML se guarda en `auditorias/htmls/`
+- [ ] Documentar el resultado en el devlog
+
+**Resultado:** Claude Code puede navegar URLs y extraer HTML completo sin intervención manual.
 
 ---
 
-## Fase 4 — Cierre MVP
+## Fase 2 — RAG (colecciones A y B)
 
-- [ ] Export PDF/Word *(piloto: PDF por URL adelantado en **Fase 1.5**; consolidar plantilla institucional y persistencia en Fase 2/4)*
-- [ ] Histórico por URL en UI
-- [ ] Pruebas con muestra de URLs reales; calibración de severidad y prompt
+**Condición:** Chroma instalado en WSL y PDFs normativos disponibles localmente.
+
+- [ ] Crear `rag/` con `package.json` y `tsconfig.json` (dependencias: `chromadb`, `@xenova/transformers`, `langchain`)
+- [ ] `bun install` en `rag/`
+- [ ] Levantar Chroma local: `chroma run --path ./rag/chroma_db --port 8000`
+- [ ] Poner PDFs en `documentos/` (solo local; nunca al repo)
+- [ ] `bun run ingest:b` — ingesta Colección B (datos ya en el repo)
+- [ ] `bun run ingest:a` — ingesta Colección A (requiere PDFs en `documentos/`)
+- [ ] Probar con `bun run query "criterio D7 encabezados mayúsculas"` — verificar resultados relevantes
+- [ ] `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts`
+
+**Resultado:** Claude Code puede consultar criterios y precedentes semánticamente con dos colecciones aisladas.
+
+---
+
+## Fase 3 — Flujo completo de auditoría
+
+**Condición:** Fases 0, 1 y 2 completadas.
+
+- [ ] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
+- [ ] Verificar que el JSON generado pasa `validate-claude-audits.ts`
+- [ ] Escalar a lote de URLs con subagents en paralelo
+- [ ] Verificar que los Hooks validan JSONs automáticamente al guardarse
+- [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3)
+
+**Resultado:** auditoría completa automatizada de principio a fin, escalable a lotes.
+
+---
+
+## Fase 4 — Producción (servidor TI)
+
+**Condición:** flujo completo validado en local (Fase 3) y coordinación con TI INAPI.
+
+- [ ] Coordinar con Álvaro / Bernarda / Octavio: viabilidad del servidor, puertos, OS, capacidad CPU
+- [ ] Copiar `rag/chroma_db/` al servidor TI (no hay que reingestar)
+- [ ] Levantar `mcp-server.ts` como servicio en el servidor TI
+- [ ] Configurar Claude Code en los equipos del equipo para apuntar al servidor remoto
+- [ ] Verificar flujo completo desde distintas máquinas del equipo
+
+**Resultado:** el equipo completo puede usar el RAG desde sus máquinas sin depender del equipo de desarrollo encendido.
+
+---
+
+## Backlog — persistencia y backend (fase posterior)
+
+Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite persistencia multiusuario o autenticación institucional.
+
+- [ ] Proyecto **Supabase** (PostgreSQL 16, Auth, RLS) según [`docs/DATABASE.md`](DATABASE.md)
+- [ ] API de dominio en **Railway** (tier gratuito) — decisión de tecnología pendiente de ADR específico cuando se inicie
+- [ ] Autenticación institucional con TI INAPI (magic link, Google Workspace u otro)
+- [ ] Histórico por URL en UI con persistencia real
+- [ ] Auditorías programadas (cron)
+- [ ] Roles (revisor vs editor)
+- [ ] Panel de métricas agregadas
 
 ---
 
 ## Dependencias externas
 
-- Alineación con TI INAPI (dominios, auth institucional, políticas de datos).
-- **Hosting API Nest (cuando exista código):** decisión **Railway** vs **AWS** (misma nube que Lambda LC u operación simplificada); anotar en este roadmap o en ADR breve al formalizar.
+- Alineación con TI INAPI (Octavio): viabilidad del servidor interno para producción IA (Fase 4).
+- Alineación con Álvaro / Bernarda: entrega TIC del piloto 1.5 (PDFs + HTML corregido).
 - Prioridades CORFO / OpenProject (ajustar fechas con liderazgo).
 
 ---
