@@ -2,6 +2,12 @@
 
 ## Estado
 
+**Supersedido — 2026-07-21**
+
+> **Nota de supersesión:** La capa de orquestación descrita en este ADR (NestJS como coordinador de LLM, captura y persistencia) fue reemplazada por **Claude Code Pro** como orquestador principal — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md). El concepto de un backend de dominio en Railway (tier gratuito) sigue siendo válido para una fase futura si el producto necesita persistencia multiusuario o autenticación institucional, pero no es bloqueante para ninguna fase actual del procedimiento de implementación. El contenido original del ADR se conserva como registro histórico de la decisión.
+
+---
+
 Aceptado — 2026-05-13
 
 ## Contexto
