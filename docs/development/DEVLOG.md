@@ -65,8 +65,22 @@ El MCP de Playwright permite que Claude Code Pro navegue URLs reales, ejecute Ja
 - **Comando de registro:**
   ```bash
   claude mcp add playwright npx @playwright/mcp@latest
+  ```
+- **Config generada:** `~/.claude.json` (local por máquina, no versionada). Referencia en `.claude/CLAUDE.md` §8.
+- **Dependencia de sistema:** Chrome no estaba instalado en WSL; se instaló con `npx playwright install chrome` (descarga `google-chrome-stable` 150.0.7871.181 y FFmpeg vía `apt-get`; operación con `sudo`).
+- **Directorio de salida:** `auditorias/htmls/` creado con `.gitkeep`; `auditorias/htmls/*.html` y `.playwright-mcp/` agregados a `.gitignore`.
 
----
+**Prueba de humo — `https://tramites.inapi.cl/` (2026-07-22):**
+
+- HTML capturado: **53,771 bytes, DOM renderizado completo** (JS ejecutado por Chrome headless).
+- Confirmación DOM real: navbar con grupos en mayúsculas (`MI INAPI`, `TRAMITACIÓN`, `PAGOS`, `SERVICIOS`), modal TGR («hoy lunes 19 de enero…»), footer con `RUT: 65.999.669-3`, widget Zoho SalesIQ cargado.
+- Versión del sistema actualizada: `v 2.3.96.0` (era `v 2.3.89.0` en auditoría de junio 2026).
+- `<title>` corregido parcialmente por TI: `INAPI — Portal de Trámites: Marcas, Patentes y máss` — **typo** (`máss` con doble `s`); pendiente corrección en `_Layout.cshtml`.
+- Incidencia: Claude guardó el resultado del MCP como string JSON en lugar de HTML puro (comillas envolventes y escapes); corregido en la misma sesión sobreescribiendo con el contenido des-escapado.
+
+### Próximos pasos:
+
+- Fase 2: configurar RAG local con Chroma (`feat/rag-workspace`): `bun install` en `rag/`, levantar Chroma en puerto 8000, ingestar colecciones B y A.
 
 <a id="devlog-2026-07-22-fase-0-claude-skills"></a>
 

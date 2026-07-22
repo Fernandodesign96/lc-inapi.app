@@ -120,9 +120,9 @@
 
 **Condición:** entorno WSL disponible con Claude Code Pro instalado.
 
-- [ ] `claude mcp add playwright npx @playwright/mcp@latest`
-- [ ] Probar captura de una URL del inventario Clarity; verificar que el HTML se guarda en `auditorias/htmls/`
-- [ ] Documentar el resultado en el devlog
+- [x] `claude mcp add playwright npx @playwright/mcp@latest`
+- [x] Probar captura de una URL del inventario Clarity; verificar que el HTML se guarda en `auditorias/htmls/`
+- [x] Documentar el resultado en el devlog
 
 **Resultado:** Claude Code puede navegar URLs y extraer HTML completo sin intervención manual.
 
