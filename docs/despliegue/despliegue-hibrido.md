@@ -30,24 +30,30 @@
 
 ```mermaid
 flowchart LR
-  subgraph ux [Fase_demo_UX]
+  subgraph ux [Etapas_0-1_completadas]
     GH[GitHub]
     GHA[GitHub_Actions]
     V[Vercel_Next]
   end
-  subgraph f2 [Fase_2]
-    SB[Supabase]
-    Nest[Nest_Railway_o_AWS]
+  subgraph rag [Etapa_2_RAG_local]
+    CH[Chroma_local]
+    XE[xenova_transformers]
+    RM[RAG_MCP_server]
   end
-  subgraph lc [Pipeline_LC]
-    AWS[AWS_API_Gateway_Lambda_Claude]
+  subgraph cc [Etapa_3_Claude_Code]
+    PW[Playwright_MCP]
+    CCP[Claude_Code_Pro_WSL]
+  end
+  subgraph ti [Etapa_4_Servidor_TI]
+    TI[Chroma_servidor_INAPI]
   end
   GH --> GHA
   GH --> V
-  V --> SB
-  V --> Nest
-  Nest --> SB
-  Nest --> AWS
+  CCP -->|captura HTML| PW
+  CCP -->|consulta RAG| RM
+  RM --> CH
+  CH --> XE
+  CH -.->|copia a produccion| TI
 ```
 
 ---
@@ -91,26 +97,47 @@ Elegir A o B según preferencia de equipo (menos secretos vs. un solo sitio para
 
 ---
 
-## Etapa 2 — **Supabase** (cuando arranque Fase 2 en código)
+## Etapa 2 — **RAG local** (Chroma + @xenova/transformers)
 
-- Crear **proyecto Supabase** (dev/staging primero).
-- Variables en **Vercel** (y luego en Nest): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`; secretos **solo servidor** para service role / Nest (nunca `NEXT_PUBLIC_*` para claves sensibles).
-- Conectar según [`../DATABASE.md`](../DATABASE.md) y RLS; Nest + Prisma contra el Postgres de Supabase según [ADR 0005](../adr/0005-api-backend-nestjs-prisma.md).
+Entorno: WSL con Bun y Chroma instalados. Referencia: [ADR 0010](../adr/0010-rag-local-chroma-xenova-transformers.md).
+
+- Crear workspace `rag/` con `package.json`, `tsconfig.json` y scripts `ingest:a`, `ingest:b`, `query`.
+- `bun install` en `rag/` (instala `chromadb`, `@xenova/transformers`, `langchain`).
+- Levantar Chroma local: `chroma run --path ./rag/chroma_db --port 8000`.
+- Poner los 6 PDFs normativos en `documentos/` (local; en `.gitignore`; nunca al repo).
+- `bun run ingest:b` → ingesta Colección B (material del repo; ya disponible).
+- `bun run ingest:a` → ingesta Colección A (PDFs normativos).
+- Verificar con `bun run query "criterio D7 encabezados mayúsculas"`.
+- Registrar el MCP server: `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts`.
+
+**Verificación:** Claude Code responde preguntas sobre criterios usando el RAG MCP.
 
 ---
 
-## Etapa 3 — **Nest** (API de dominio): Railway **o** AWS
+## Etapa 3 — **Flujo completo de auditoría** (Claude Code Pro + MCP)
 
-- **Si Railway:** servicio contenedor o Node con el repo del backend; variables de entorno a Supabase y a URL del servicio Python/AWS cuando exista.
-- **Si AWS (ECS/Fargate, App Runner, EC2, etc.):** alinear con política TI y con el mismo VPC/endpoints que Lambda si aplica.
-- **Contrato HTTP** front ↔ Nest según [`../ARCHITECTURE.md`](../ARCHITECTURE.md); CORS y URLs de Vercel (preview vs production) documentados.
+Entorno: WSL con Claude Code Pro, Playwright MCP y RAG MCP configurados. Referencia: [ADR 0009](../adr/0009-claude-code-pro-como-orquestador.md).
+
+- Probar flujo end-to-end con una URL: Playwright MCP captura HTML → RAG MCP provee contexto → Claude Code genera JSON canónico.
+- Verificar que el JSON pasa `validate-claude-audits.ts` y los Hooks se disparan automáticamente.
+- Probar lote de URLs con subagents en paralelo.
+- Calibrar con Equipo UX (G1, D7, E3) y documentar reglas en el devlog.
+
+**Verificación:** auditoría completa automatizada de principio a fin; JSON válido en `data/claude-audits/`; PDF descargable en el frontend.
 
 ---
 
-## Etapa 4 — **Pipeline LC en AWS** (evaluación asistida)
+## Etapa 4 — **Producción en servidor TI** (Chroma como servicio)
 
-- Seguir [ADR 0006](../adr/0006-lc-evaluation-python-claude-aws.md) y [propuesta técnica](../PROPUESTA_TECNICA_INTEGRAL.md): API Gateway, Lambda Python, Claude; autenticación servicio-a-servicio con Nest por definir.
-- **No sustituye** el hosting del front en Vercel: Nest invoca AWS; el front sigue hablando principalmente con Nest (o Server Actions acotadas).
+Entorno: servidor interno INAPI (Octavio). Referencia: [PROPUESTA_TECNICA_INTEGRAL.md](../PROPUESTA_TECNICA_INTEGRAL.md) §6 Fase 4.
+
+- Coordinar con Álvaro / Octavio: viabilidad del servidor, puertos disponibles, OS, capacidad CPU (para `@xenova/transformers`).
+- Copiar `rag/chroma_db/` al servidor (no hay que reingestar; los vectores son portables).
+- Levantar `rag/mcp-server.ts` como servicio persistente en el servidor TI.
+- Configurar Claude Code en cada equipo del equipo para apuntar al MCP server remoto (ajustar URL en `claude mcp add rag-auditoria`).
+- Verificar flujo completo desde al menos dos máquinas distintas del equipo.
+
+**Verificación:** el equipo completo puede auditar URLs sin depender del equipo de desarrollo encendido; `documentos/` y `chroma_db/` nunca salen al repo ni a internet.
 
 ---
 
