@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-22 | [Estrategia: Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)](#devlog-2026-07-22-fase-0-claude-skills) |
+| 2026-07-21 | [Documentación: AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)](#devlog-2026-07-21-ai-stack-v2) |
 | 2026-06-28 | [Documentación: Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun](#devlog-2026-06-28-stack-orquestacion-mei) |
 | 2026-06-11 | [Estrategia: Cierre oleada auditable Clarity — inventario 17 URLs y ranks 14 y 17](#devlog-2026-06-11-clarity-cierre-oleada-auditable) |
 | 2026-06-15 | [Frontend: Serie Clarity — cableado MVP en `/auditar`, CI y 5 JSON en `urls-clarity`](#devlog-2026-06-15-clarity-cableado-mvp) |
@@ -46,6 +48,90 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ---
 
 ---
+
+---
+
+<a id="devlog-2026-07-22-fase-0-claude-skills"></a>
+
+## [2026-07-22] - Estrategia | Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)
+
+### Contexto y objetivos:
+
+Cierre de la **Fase 0** del procedimiento de implementación del AI Stack v2 (definido en `docs/PROPUESTA_TECNICA_INTEGRAL.md`). El objetivo era dotar a Claude Code Pro de contexto permanente del proyecto y conocimiento especializado cargado bajo demanda, sin instalar ninguna dependencia nueva. Trabajo realizado en entorno WSL (Ubuntu), rama `feat/claude-md-skills`.
+
+### Implementación técnica:
+
+**Archivos creados:**
+
+- **`.claude/CLAUDE.md`** (524 líneas, 18 secciones) — contexto permanente del proyecto: dominio, checklist v1.1 con 39 criterios y calibraciones INAPI, contratos JSON canónico, rutas clave, reglas permanentes, patrones sistémicos transversales, stack AI v2, workflows operativos (captura HTML, auditoría completa, generación PDF, lotes con subagentes), comandos de referencia rápida, política `no_aplica`, arquitectura sub-subagentes y seguridad.
+- **`.claude/skills/auditoria-lc.md`** (241 líneas) — skill especializada en auditoría de lenguaje claro: los 39 criterios con su calibración INAPI real (extraída de los 9 JSONs canónicos del piloto), patrones sistémicos de `_Layout.cshtml`, umbrales de aceptación, fases de inventario/evaluación/validación, y grupos de sub-subagentes.
+- **`.claude/skills/pesquisa-criterios.md`** (178 líneas) — skill de consulta al RAG MCP: guía de uso de colecciones A (normativa) y B (precedentes), queries recomendadas, flujo combinado A+B con ejemplo de comentario fundamentado, y fallback sin RAG con `rg`/`jq`.
+- **`.claude/skills/auditoria-calidad-web.md`** (168 líneas) — skill de marco normativo: mapa de los 6 documentos normativos (CW 2.0, RLC, Meta MEI, IEW, IESD, UI Kit Gobierno), tabla `source → criterio` para los 39 criterios, contexto INAPI por `tipo_pagina` y guías de citas en JSON.
+
+**Arquitectura de sub-subagentes:**
+
+Se definió y documentó la arquitectura de **5 grupos temáticos** para el análisis robusto por sección del checklist dentro de cada URL auditada. Aplica desde Fase 3 con Playwright MCP + RAG MCP activos:
+
+| Grupo | Secciones | Criterios |
+|---|---|---|
+| 1 — Estructura y Objetividad | A + E | A1–A5, E1–E4 |
+| 2 — Lenguaje y Redacción | B + C | B1–B7, C1–C7 |
+| 3 — Mecánica | D | D1–D7 |
+| 4 — Enlaces | F | F1–F5 |
+| 5 — Datos y Archivo | G + H | G1–G3, H1 |
+
+**Documentación actualizada:**
+
+- `docs/ARCHITECTURE.md` — Capa 4 describe los 5 grupos de sub-subagentes.
+- `docs/ROADMAP.md` — Fase 3 incluye ítem de sub-subagentes y consolidación.
+- `docs/PROPUESTA_TECNICA_INTEGRAL.md` — Fase 3 desglosa 6 pasos.
+
+### Próximos pasos:
+
+- Merge `feat/claude-md-skills` → `main` (PR con los 7 commits de Fase 0).
+- Fase 1: registrar Playwright MCP en Claude Code Pro (`claude mcp add playwright npx @playwright/mcp@latest`) y probar captura de una URL del inventario Clarity.
+- Rama: `feat/playwright-mcp`.
+
+---
+
+<a id="devlog-2026-07-21-ai-stack-v2"></a>
+
+## [2026-07-21] - Documentación | AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)
+
+### Contexto y objetivos:
+
+Sesión de documentación realizada en el PC de la empresa (sin acceso WSL) para alinear todo el repositorio con el **AI Stack v2** acordado: TypeScript + Bun, Claude Code Pro como orquestador, Playwright MCP, Chroma RAG local con `@xenova/transformers`. Los ADRs anteriores de NestJS (0005) y Python/AWS (0006) quedaban huérfanos sin documentación de reemplazo; la arquitectura real no reflejaba las decisiones tomadas desde junio 2026.
+
+### Implementación técnica:
+
+**ADRs nuevos:**
+
+- **`docs/adr/0008-typescript-sobre-python-para-rag.md`** — justifica TypeScript + Bun sobre Python para la capa RAG; LangChain.js, Chroma, `@xenova/transformers`.
+- **`docs/adr/0009-claude-code-pro-como-orquestador.md`** — documenta Claude Code Pro como orquestador principal sin API de pago; CLAUDE.md, Skills, Subagents, Hooks, MCP servers (Playwright y RAG).
+- **`docs/adr/0010-rag-local-chroma-xenova-transformers.md`** — especifica las dos colecciones Chroma aisladas (A normativa / B repo), modelo de embeddings multilingüe, scripts de ingesta y workspace `rag/`.
+
+**ADRs marcados como supersedidos:**
+
+- `docs/adr/0005-api-backend-nestjs-prisma.md` → supersedido por ADR-0009.
+- `docs/adr/0006-lc-evaluation-python-claude-aws.md` → supersedido por ADR-0008 y ADR-0009.
+
+**Documentos reescritos:**
+
+- **`docs/ARCHITECTURE.md`** — diagrama de 5 capas del AI Stack v2; tabla de componentes por capa.
+- **`docs/PROPUESTA_TECNICA_INTEGRAL.md`** — v2.0 con el procedimiento de implementación en Fases 0–4.
+- **`docs/ROADMAP.md`** — reemplaza fases desactualizadas (Python/NestJS/AWS) por el procedimiento Fases 0–4.
+- **`docs/despliegue/despliegue-hibrido.md`** — plan de despliegue Etapas 2–4 hacia servidor TI INAPI.
+- **`docs/SECURITY.md`** — sección de garantías del stack local IA (Fases 0–4).
+- **`README.md`** — tabla de ADRs completa y nuevo próximo paso.
+
+**Otros cambios:**
+
+- `docs/adr/0004-llm-checklist-evaluation-and-versioning.md` — nota de actualización sobre Playwright y Claude Code Pro.
+- `.gitignore` — `rag/chroma_db/` y `documentos/` añadidos.
+
+### Próximos pasos (al volver al entorno WSL):
+
+- Crear rama `feat/claude-md-skills` y ejecutar Fase 0: `CLAUDE.md` + 3 skills.
 
 ---
 
