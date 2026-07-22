@@ -108,9 +108,9 @@
 
 **Condición:** cierre editorial de **Fase 1.5** (entrega TIC) y actualización de documentación ([ADR 0008](adr/0008-typescript-sobre-python-para-rag.md), [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md), [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md)).
 
-- [ ] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
-- [ ] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
-- [ ] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
+- [x] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
+- [x] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
+- [x] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
 
 **Resultado:** Claude Code ya tiene contexto completo del proyecto desde la primera sesión, sin infraestructura adicional.
 
