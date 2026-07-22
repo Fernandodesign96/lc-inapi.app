@@ -192,3 +192,227 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 | **Runtime** | Bun | Coherente con el monorepo existente; `bun.lock` único |
 
 Referencias completas: `docs/ARCHITECTURE.md` · `docs/PROPUESTA_TECNICA_INTEGRAL.md` · `docs/adr/`.
+
+---
+
+## 11. Workflow — Captura HTML con Playwright MCP
+
+*Aplica desde Fase 1. En Fase 0 usar Ctrl+U manual o HTML adjunto en prompt.*
+
+1. Verificar que el servidor Playwright MCP está activo (`claude mcp list`).
+2. Llamar `playwright_navigate` con la URL objetivo.
+3. Esperar carga completa — usar `networkidle` o pausa de 2 s tras `DOMContentLoaded`.
+4. Llamar `playwright_get_content` → obtener HTML del DOM renderizado (no Ctrl+U).
+5. Guardar en `auditorias/htmls/{slug-url}_{YYYY-MM-DD}.html` (crear carpeta si no existe).
+6. **Nunca** subir HTMLs al repo — `auditorias/htmls/` está en `.gitignore`.
+7. Si la URL requiere autenticación (ej. `tramites.inapi.cl/Account/Login`), capturar solo la pantalla pre-login salvo que existan credenciales de sesión configuradas en `.env.local`.
+
+**Diferencia DOM renderizado vs Ctrl+U:** en URLs Trámites el JS inyectado desde BE modifica el DOM; la línea 1000 de Ctrl+U puede no coincidir con el código fuente TI. Usar siempre DOM como fuente de verdad editorial y `fragmento_busqueda` como ancla para TI (ver `docs/stack-orquestación.md` §3).
+
+---
+
+## 12. Workflow — Auditoría completa de una URL
+
+*Flujo de referencia. Ver prompts detallados en `docs/flujo-piloto-10-urls-claude-mvp.md` §3.1–§3.2.*
+
+### Paso 1 — Preparación
+- Identificar URL objetivo y `tipo_pagina` (`sitioweb` | `tramites`).
+- Obtener HTML (Playwright MCP §11, o Ctrl+U si Fase 0).
+- Para serie Clarity: leer metadatos en `data/ux/clarity-fichas-mock.json` (rank, `nombre_ui`, `visitas_ref`).
+- ¿Existe JSON previo para la misma URL y mismo HTML? → Copiar, actualizar `id`/`fecha`/`clarity_meta`, conservar criterios y sustituciones.
+
+### Paso 2 — Primera pasada (inventario + evaluación en prosa)
+Prompt §3.1 del flujo. Entregar:
+- Inventario `T001: «texto» (contexto)` de todos los nodos relevantes.
+- Tabla de 39 criterios (id, estado, severidad si incumple, comentario, `cita_textual`).
+- Resumen numérico preliminar + lista de sustituciones.
+
+### Paso 3 — Segunda pasada (JSON canónico)
+Prompt §3.2 del flujo. Reglas de contrato:
+- Exactamente **39 objetos** en `criterios_evaluados[]`, orden A1…H1.
+- Estado: SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
+- `severidad` SOLO si `estado = "incumple"` — omitir la clave en `cumple`/`no_aplica`.
+- `cita_textual`: omitir la clave si no hay cita (nunca `null`).
+- Cobertura 1:1 obligatoria: cada `incumple` → al menos una fila en `sustituciones[]`.
+- Todo hallazgo en `observaciones_lc_por_severidad` DEBE tener fila equivalente en `sustituciones[]`.
+- Resumen numérico coherente con el array: `criterios_aprobados` = conteo de `"cumple"`.
+- `porcentaje_cumplimiento` = `criterios_aprobados / criterios_aplicables × 100` (un decimal).
+- Para serie Clarity: añadir bloque `clarity_meta` con `serie`, `rank`, `nombre_ui`, `ruta_etiqueta`, `visitas_ref`, `encargado_ref`.
+
+### Paso 4 — Validación y guardado
+```bash
+# Guardar el JSON en la ruta correcta
+# Piloto:   data/claude-audits/{id}.json
+# Clarity:  data/claude-audits/urls-clarity/{id}.json
+
+bun run validate:claude-audits   # debe pasar sin errores
+```
+
+### Paso 5 — Commit y DEVLOG
+```bash
+git add data/claude-audits/...
+git commit -m "feat(audits): agregar auditoría {slug-url} — {estado_aceptacion} {porcentaje}%"
+# Añadir entrada en docs/development/DEVLOG.md (formato .agents/workflows/devlog-standard.md)
+```
+
+---
+
+## 13. Workflow — Generación del PDF del informe
+
+*El PDF está implementado desde Fase C (jun 2026). No requiere código nuevo.*
+
+### Generar PDF desde la UI (flujo normal)
+1. Navegar a `/auditar/resultado?claudeAudit={id}&url={url}`.
+2. Hacer clic en **«Descargar informe PDF»** (botón visible cuando hay `?claudeAudit=`).
+3. El PDF se genera server-side desde `GET /api/claude-audits/[id]/export/pdf`.
+
+### API directa
+```
+GET /api/claude-audits/{id}/export/pdf
+```
+- Nombre del archivo de descarga: `informe-lc-{slug-url}-{fecha}.pdf` (lógica en `frontend/src/lib/informe-piloto-filename.ts`).
+- Misma allowlist que `GET /api/claude-audits/[id]`.
+- Motor: `@react-pdf/renderer`, `runtime = nodejs`.
+
+### Contenido del PDF (mismos 7 bloques de `/auditar/resultado`)
+| Bloque | Contenido |
+| --- | --- |
+| 1 | Datos de Auditoría (`url`, checklist, cumplimiento, fecha, evaluador) |
+| 2 | Resumen (`resumen_ejecutivo`) |
+| 3 | Pasos a seguir (según `estado_aceptacion`) |
+| 4 | 39 criterios evaluados (tabla completa) |
+| 5 | Observaciones por severidad (`observaciones_lc_por_severidad`) |
+| 6 | Texto propuesto (tabla `sustituciones[]`) |
+| 7 | Nota para TI (`nota_final_tic`) |
+
+### Troubleshooting
+- Si el botón PDF no aparece: verificar que el JSON existe en `data/claude-audits/` y que el parámetro `?claudeAudit={id}` está en la URL del resultado.
+- Si el PDF falla en Vercel: verificar que `LC_REPO_ROOT` apunta al directorio raíz del monorepo y que `data/claude-audits/` está incluido en el árbol de despliegue.
+- Si `@react-pdf` lanza error de fuentes: las fuentes Roboto deben estar disponibles en el servidor (ver `frontend/src/app/api/claude-audits/[id]/export/pdf/route.ts`).
+
+---
+
+## 14. Workflow — Lote de URLs con subagentes en paralelo
+
+*Aplica desde Fase 3 (flujo completo automatizado).*
+
+### Preparación del lote
+1. Definir la lista de URLs objetivo (extraer de `data/ux/clarity-fichas-mock.json` o del inventario).
+2. Verificar que Playwright MCP y RAG MCP están activos.
+3. Crear un directorio de trabajo temporal `auditorias/lote-{fecha}/` para HTMLs del lote.
+
+### Ejecución con subagentes
+- Crear **un subagente por URL**; cada uno ejecuta el workflow §12 de forma independiente.
+- Sincronización: el sistema de archivos es el canal — cada subagente escribe su JSON en `data/claude-audits/` al terminar.
+- **No lanzar el siguiente subagente hasta que el anterior haya guardado su JSON** para evitar condiciones de carrera.
+- Límite recomendado: lotes de **5 URLs máximo** antes de verificar resultados.
+
+### Verificación del lote
+```bash
+bun run validate:claude-audits   # verifica todos los JSONs del directorio
+```
+- Revisar que `porcentaje_cumplimiento` y `estado_aceptacion` son coherentes entre sí.
+- Revisar que no hay criterios duplicados (`incumple` en arreglo + fila en `sustituciones[]`).
+
+### Commit del lote
+```bash
+git add data/claude-audits/
+git commit -m "feat(audits): agregar lote {N} URLs — serie Clarity ranks {A}–{B}"
+```
+
+---
+
+## 15. Comandos de referencia rápida
+
+```bash
+# ── Validación ─────────────────────────────────────────────────────────────
+bun run validate:claude-audits            # valida todos los JSONs del repo
+bun run typecheck:all                     # TypeScript + lint completo (CI)
+
+# ── RAG (Fase 2+) ──────────────────────────────────────────────────────────
+chroma run --path ./rag/chroma_db --port 8000   # levantar Chroma (dejar corriendo)
+bun run rag/ingest-b.ts                   # ingestar colección B (datos del repo)
+bun run rag/ingest-a.ts                   # ingestar colección A (PDFs normativos)
+bun run rag/query.ts "criterio D7"        # probar consulta semántica
+
+# ── MCP ────────────────────────────────────────────────────────────────────
+claude mcp add playwright npx @playwright/mcp@latest
+claude mcp add rag-auditoria bun /ruta/absoluta/rag/mcp-server.ts
+claude mcp list                           # verificar servidores activos y estado
+
+# ── Frontend ───────────────────────────────────────────────────────────────
+cd frontend && bun run dev                # servidor local (puerto 3000)
+bun run build                             # build de producción
+bun run lint                              # linter
+
+# ── Git (convención) ───────────────────────────────────────────────────────
+git log --oneline -10                     # ver últimos commits
+git stash push -u -m "descripcion"        # guardar cambios con untracked
+git push origin main                      # subir a remoto
+```
+
+---
+
+## 16. Política de `no_aplica` — cuándo usar cada criterio
+
+| Criterio | Usar `no_aplica` cuando... | Ejemplo |
+| --- | --- | --- |
+| A4 | La página es un formulario, pantalla de estado o panel de tramitación sin bloques de texto editorial | `tramites.inapi.cl/Trademark/TrademarkApplication` |
+| A5 | No hay texto institucional o de relleno visible — solo contenido funcional | Páginas de sólo formulario |
+| C6 | El texto tiene menos de 4 párrafos continuos en la página | Home con secciones tipo tarjeta corta |
+| C7 | No hay listas de requisitos en la página | Páginas de portal/home sin listados de pasos |
+| D3 | El espaciado entre párrafos es criterio CSS/visual — declarar fuera del alcance editorial en esta auditoría | Aplica a casi todas las páginas |
+| D4 | La alineación del texto es criterio CSS/visual — fuera del alcance editorial | Aplica a casi todas las páginas |
+| D6 | No hay texto corrido extenso que requiera destacar palabras clave con negritas | Páginas tipo portal con titulares cortos |
+| G2 | La página es interna o transaccional sin exposición pública de política de privacidad | Pantallas de tramitación post-login |
+| H1 | No hay versiones anteriores publicadas ni rótulos de contenido archivado | La mayoría de URLs del inventario |
+
+**Regla de oro:** `no_aplica` = el criterio no puede evaluarse porque el supuesto del criterio no existe en la página. No usar `no_aplica` para evitar marcar un incumplimiento evidente.
+
+---
+
+## 17. Seguridad y datos sensibles
+
+Referencia completa: `docs/SECURITY.md`.
+
+### Garantías arquitectónicas del stack local IA (Fases 0–4)
+
+| Garantía | Mecanismo |
+| --- | --- |
+| Ningún documento interno sale a internet | Todo corre en WSL; Chroma es proceso local (puerto 8000) |
+| PDFs normativos no versionados | `documentos/` en `.gitignore`; solo existe localmente y en servidor TI |
+| Vectores no versionados | `rag/chroma_db/` en `.gitignore` |
+| Embeddings offline | `@xenova/transformers` corre 100 % en CPU tras descarga inicial |
+| Claude Code no envía PDFs a Anthropic | Los documentos se leen como texto en el contexto local de WSL |
+| Colecciones A y B aisladas | Scripts separados (`ingest-a.ts` / `ingest-b.ts`); barrera arquitectónica |
+
+### Datos que NUNCA entran al RAG ni al repo
+
+- RUT/RUN, nombres, correos o teléfonos de personas naturales.
+- Solicitudes de marca o expedientes de tramitación.
+- Resultados del buscador de anterioridades de marcas.
+- Credenciales, tokens de sesión, claves API o secretos de cualquier tipo.
+- Si aparecen datos personales en HTML capturado → registrar como incumplimiento G1 pero **no almacenar** el fragmento en el RAG.
+
+### Reglas de higiene en commits y fixtures
+
+- **Secretos:** nunca en `NEXT_PUBLIC_*`, variables de entorno visibles, ni commits. Solo en `.env.local` (en `.gitignore`).
+- **Fixtures y datos UX:** usar personas y documentos ficticios o anonimizados (acordado con TI/legal). No incluir RUN, nombres propios reales ni volcados de BD en `data/`.
+- **`evaluador_uid` en fixtures:** usar `"fixture@inapi.cl"` o el nombre real solo si el JSON es un canónico de producción validado.
+- **API fixtures (`GET /api/audit-fixtures/[fixtureId]`):** la ruta tiene allowlist de `fixtureId` — no exponer path traversal.
+
+### Variables de entorno requeridas
+
+| Variable | Entorno | Descripción |
+| --- | --- | --- |
+| `LC_REPO_ROOT` | Vercel / producción | Ruta raíz del monorepo; requerida si el `cwd` en runtime no es la raíz (ver `docs/despliegue/despliegue-hibrido.md`) |
+| `CHROMA_PORT` | Local / servidor TI | Puerto de Chroma (defecto `8000`); configurar en `.env.local` |
+
+### Checklist antes de cada push a `main`
+
+- [ ] No hay `console.log` con URLs, tokens ni datos de usuarios.
+- [ ] Ningún archivo `.env*` real en el staging area (`git status`).
+- [ ] Los JSONs canónicos no contienen datos personales reales (solo `evaluador_uid` del auditor).
+- [ ] `rag/chroma_db/` y `documentos/` no aparecen en el staging area.
+- [ ] `bun run validate:claude-audits` pasa sin errores.
+- [ ] `bun run typecheck:all` pasa sin errores.
