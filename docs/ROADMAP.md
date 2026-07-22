@@ -151,7 +151,9 @@
 
 - [ ] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
 - [ ] Verificar que el JSON generado pasa `validate-claude-audits.ts`
-- [ ] Escalar a lote de URLs con subagents en paralelo
+- [ ] Implementar arquitectura de **sub-subagentes por grupo temático** (5 grupos: A+E, B+C, D, F, G+H) — ver [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17
+- [ ] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
+- [ ] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
 - [ ] Verificar que los Hooks validan JSONs automáticamente al guardarse
 - [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3)
 
