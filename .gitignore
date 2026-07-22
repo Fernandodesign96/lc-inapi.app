@@ -58,3 +58,10 @@ rag/chroma_db/
 
 # Documentos normativos — PDFs institucionales (solo local y servidor TI; nunca al repo)
 documentos/
+
+# HTMLs capturados por Playwright MCP (solo local; no versionar contenido, solo el .gitkeep)
+auditorias/htmls/*.html
+
+# Configuración local de Claude Code Pro (personal por máquina; no versionar)
+# El comando para registrar el MCP está en .claude/CLAUDE.md §8
+# ~/.claude.json
