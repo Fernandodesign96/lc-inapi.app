@@ -14,6 +14,8 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog (**Fase 1.5:** piloto 10 URLs + Claude + PDF) |
 | [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Flujo operativo piloto UX → JSON → MVP → entrega TIC |
+| [docs/stack-orquestación.md](docs/stack-orquestación.md) | Flujo operativo MEI: DevTools DOM, `fragmento_busqueda`, Excel B/C/D |
+| [docs/plantilla-excel-mei-bcd.md](docs/plantilla-excel-mei-bcd.md) | Plantilla Excel 18 columnas para entrega MEI (criterios B, C, D) |
 | [docs/Propuesta Análisis LC URLs.md](docs/Propuesta%20Análisis%20LC%20URLs.md) | Propuesta y acta reunión junio 2026 |
 | [docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md](docs/Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) | Comparación proveedores IA (home piloto) |
 | [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo, datos en fixtures y checklist post-despliegue |

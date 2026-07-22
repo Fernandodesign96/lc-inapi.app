@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-06-28 | [Documentación: Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun](#devlog-2026-06-28-stack-orquestacion-mei) |
 | 2026-06-11 | [Estrategia: Cierre oleada auditable Clarity — inventario 17 URLs y ranks 14 y 17](#devlog-2026-06-11-clarity-cierre-oleada-auditable) |
 | 2026-06-15 | [Frontend: Serie Clarity — cableado MVP en `/auditar`, CI y 5 JSON en `urls-clarity`](#devlog-2026-06-15-clarity-cableado-mvp) |
 | 2026-06-11 | [Estrategia: Serie Clarity — JSON ranks 1–3 y 21, prompts §3.5 y esquema `clarity_meta`](#devlog-2026-06-11-serie-clarity-json) |
@@ -43,6 +44,40 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ---
 
 ---
+
+---
+
+---
+
+<a id="devlog-2026-06-28-stack-orquestacion-mei"></a>
+
+## [2026-06-28] - Documentación | Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun
+
+### Contexto y objetivos:
+
+Tras conversación con equipo TI (implementación en Trámites) y alineación con Bernarda sobre entrega MEI (30-jun-2026), se documentó el problema **Ctrl+U vs DOM vs código fuente TI**, el rol complementario **DevTools IA vs Claude Proyecto**, y un flujo en 6 pasos con entregables duales: Excel B/C/D (humano) + JSON MVP (sistema).
+
+### Implementación técnica:
+
+- **Nuevo:** [`docs/stack-orquestación.md`](../stack-orquestación.md) — arquitectura Agente–Analista–Validador, 6 pasos, herramientas (MCP, Playwright, Cursor SDK), hitos MEI, plan hasta 30-jun.
+- **Nuevo:** [`docs/plantilla-excel-mei-bcd.md`](../plantilla-excel-mei-bcd.md) — columnas, TSV de ejemplo (URL Clasificador / Trámites), reglas y puente Excel → `sustituciones[]`.
+- **Actualizado:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — §3.6 DevTools + **Prompt maestro v2** (§3.6.1); nota en §3.2 sobre `fragmento_busqueda` vs `html_linea_aprox`.
+- **Actualizado:** [`docs/ROADMAP.md`](../ROADMAP.md) — pendientes MEI y re-auditoría Trámites con DOM.
+
+### Aprendizajes:
+
+- Línea HTML en Ctrl+U no es ancla fiable en Trámites (JS inyectado en BE).
+- DevTools IA encuentra hallazgos B/C/D que Claude con Ctrl+U puede omitir (duplicados desktop/mobile, typos en `<title>`).
+- Checklist completo no debe re-pegarse en cada sesión; prioridad MEI y fragmento único reducen fricción con TI.
+
+### Próximos pasos:
+
+- Ejecutar Prompt §3.6.1 en URLs Trámites prioritarias; llenar Excel con Bernarda.
+- Post-MEI: extender schema `claudeSustitucionSchema` con `fragmento_busqueda` opcional; script Playwright de captura DOM.
+
+### Actualización 2026-06-27
+
+- Prompt maestro v2 calibrado con **home INAPI** (`https://www.inapi.cl/`, `sitioweb`, `27-06-2026`) y checklist **v2.0** en §3.6.1 del flujo y §4 de stack-orquestación.
 
 ---
 

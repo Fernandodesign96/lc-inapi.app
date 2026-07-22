@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-06-08
+**Última actualización:** 2026-07-22
 
 ---
 
@@ -52,7 +52,7 @@
 
 **Proveedor IA del piloto:** **Claude** (Proyecto «Auditor Lenguaje Claro URLs INAPI») — comparación con Gemini en home [`www.inapi.cl`](https://www.inapi.cl/) documentada en [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md). **No** hay sincronización automática Proyecto Claude ↔ app; flujo: export JSON → repo → MVP → PDF.
 
-**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) (acuerdos reunión).
+**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/stack-orquestación.md`](stack-orquestación.md) · [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) (acuerdos reunión).
 
 ### Hecho en repo (código + datos, merge a `main` 2026-06-08)
 
@@ -76,6 +76,8 @@
 
 ### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
+- [ ] **Entrega MEI:** Excel correcciones B/C/D (ortografía, redacción, LC) con Bernarda — plantilla [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md); flujo DevTools DOM en [`docs/stack-orquestación.md`](stack-orquestación.md) y prompt §3.6.1 en [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md).
+- [ ] **Consolidar** hallazgos DevTools del inventario extendido (~20 URLs) en un único Excel para TI (`fragmento_busqueda` como ancla principal).
 - [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Bernarda/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
 - [ ] **Revisión UX (Bernarda):** sustituciones aprobadas, falsos positivos (G1 RUT institucional, D7 mayúsculas en `tramites.inapi.cl`).
 - [ ] **Entrega TIC:** PDF por URL (+ HTML corregido §3.3 tras aprobación); ticket de control de cambios.

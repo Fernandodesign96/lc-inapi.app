@@ -2,12 +2,12 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-02 (actualizado 2026-06-15) |
+| **Fecha** | 2026-06-02 (actualizado 2026-06-27) |
 | **Proveedor IA** | Claude (Proyecto «Auditor Lenguaje Claro URLs INAPI») |
 | **Objetivo** | Auditar páginas prioritarias para TIC antes de fin de año: informe en MVP + PDF descargable + sustituciones de texto |
 | **Alcance operativo en repo** | **9 URLs** con JSON, informe y PDF en MVP (merge a `main` 2026-06-08). Objetivo original de reunión: **10 URLs** — ver nota §2. |
 | **Plan técnico asociado** | Adaptador JSON (`src/schemas/claude-audit-pilot.ts`), `data/claude-audits/`, API + PDF server |
-| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-15-clarity-cableado-mvp) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
+| **Referencias** | [`ROADMAP.md`](ROADMAP.md) (Fase 1.5) · [`stack-orquestación.md`](stack-orquestación.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) · [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) §11 · [`development/DEVLOG.md`](development/DEVLOG.md#devlog-2026-06-28-stack-orquestacion-mei) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
 
 ---
 
@@ -193,6 +193,7 @@ EXTENSIONES PILOTO (mantener en el mismo JSON, después del núcleo):
    - propuesto: texto que TIC debe dejar en la página (sustitución, inserción o "(eliminar nodo)" si corresponde quitar un fragmento).
    - motivo: por qué corrige el criterio (una frase clara).
    - html_linea_aprox: referencia aproximada en el HTML (ej. "HTML-L780"). OBLIGATORIO en inserciones, eliminaciones y cambios en <head>/<meta>; recomendado en todas las filas.
+   - **Nota jun 2026 (Trámites / MEI):** en URLs con JS inyectado en BE, `html_linea_aprox` desde Ctrl+U puede no coincidir con la línea en código TI. Para implementación, documentar en `nota_final_tic` el **fragmento único buscable** (ver [`stack-orquestación.md`](stack-orquestación.md) §3 y [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md)). Evolución futura del schema: campos `fragmento_busqueda` y `ubicacion_contextual`.
 
    CONTENIDO AUSENTE O INEXISTENTE (ej. E3 — fecha de publicación/última modificación de la PÁGINA):
    - Si el incumplimiento es que NO EXISTE un elemento (fecha de actualización de la página, párrafo introductorio bajo un banner, glosa de sigla), igual debes crear una fila en sustituciones[]:
@@ -265,6 +266,96 @@ Sustituciones aprobadas:
 | Prompt alineado al contrato (1:1 sustituciones, E3, G1) | §3.2 (este documento) |
 
 Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la plantilla canónica de la home. Las **9 URLs operativas** ya están en repo (junio 2026).
+
+### 3.6 Auditoría con DevTools IA (DOM + entrega MEI)
+
+**Contexto (jun 2026):** conversación con equipo TI y Bernarda confirmó que **Ctrl+U no coincide** con la línea de implementación en código (JS inyectado en BE, DOM dinámico). Para hitos MEI (30-jun-2026) el flujo complementario usa **DevTools IA** sobre el **DOM renderizado**, con **fragmento único buscable** para TI (no `HTML-Lnnn` como identificador principal). Checklist de referencia en prompt: **v2.0**.
+
+**Documentación completa:** [`stack-orquestación.md`](stack-orquestación.md) (6 pasos, arquitectura, herramientas). **Excel MEI (solo B/C/D):** [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
+
+| Paso | Acción |
+| --- | --- |
+| 1 | Inspeccionar DOM (Elements); clasificar `VISIBLE` / `METADATA` / `SISTEMA` |
+| 2 | Aplicar checklist con prioridad D1 → C → B → D7 (MEI); 39 criterios completos en segunda pasada Claude §3.2 |
+| 3 | Localizar con `fragmento_busqueda` (etiqueta + atributos + texto) |
+| 4 | Proponer reescritura LC (B2, B5, B6) |
+| 5 | Entregable A: Excel B/C/D; Entregable B: JSON MVP §3.2 |
+| 6 | Validar que el cambio no rompe `id`/`class`/`onclick` ni layout mobile |
+
+**Limitaciones DevTools IA:** el chat se borra al cerrar Chrome; puede persistir si cambias de URL en la **misma pestaña**. Exportar resultados a Excel/JSON antes de cerrar.
+
+#### 3.6.1 Prompt maestro v2 (copiar en DevTools IA)
+
+**Ejemplo canónico:** home INAPI (`https://www.inapi.cl/`, auditoría 27-jun-2026). Para **otras URLs**, cambiar en `<contexto>` solo `url`, `tipo_pagina` y `fecha_auditoria`. No adjuntar el checklist completo de 39 puntos — el prompt embebe prioridades MEI.
+
+```text
+<rol>
+Eres el auditor de campo INAPI para entrega MEI (30-jun-2026).
+Analizas el DOM RENDERIZADO (Elements), no el código fuente estático Ctrl+U.
+</rol>
+
+<contexto>
+Institución: INAPI (Instituto Nacional de Propiedad Industrial), Chile.
+Checklist: Lenguaje Claro v2.0 (39 criterios A1–H1) — en esta sesión PRIORIZA entrega MEI.
+URL: https://www.inapi.cl/
+tipo_pagina: sitioweb
+fecha_auditoria: 27-06-2026
+auditor: Fernando Arriagada Castillo
+Guía de referencia: https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf
+</contexto>
+
+<prioridad_mei>
+Orden de análisis (implementación inmediata primero):
+1) D1 — ortografía y gramática
+2) C1–C7 — redacción, claridad, estructura textual
+3) B1–B7 — lenguaje claro (voz activa, tuteo, tono positivo)
+4) D7 — mayúsculas sostenidas
+No omitas hallazgos B/C/D visibles aunque no evalúes aún A/E/F/G/H en detalle.
+</prioridad_mei>
+
+<capas>
+Clasifica cada hallazgo:
+- VISIBLE: texto/enlace/botón que ve el ciudadano
+- METADATA: <title>, meta
+- SISTEMA: overlays Ajax, nodos técnicos no orientados al ciudadano
+- DUPLICADO: misma cadena en menú desktop y mobile → DOS filas separadas
+Para Excel MEI exporta principalmente VISIBLE + METADATA.
+</capas>
+
+<localizacion_tecnica>
+PROHIBIDO usar número de línea HTML como identificador principal.
+Por cada hallazgo incluye fragmento_busqueda: snippet HTML único con etiqueta de apertura, atributos estables (id, class, href, onclick si aplica) y texto original.
+html_linea_aprox (Ctrl+U) es OPCIONAL y secundario.
+Si el texto no aparece en Ctrl+U, indica origen_probable: backend-i18n | vista-razor | bundle-js.
+</localizacion_tecnica>
+
+<reglas_lc>
+- Voz activa; evitar jerga jurídica/burocrática (ej. «Escritos» → «Borradores»).
+- Tuteo y tono cercano (ej. «MI INAPI» → «Mi INAPI»).
+- Botones descriptivos (ej. «Ok» → «Aceptar selección»).
+- Un solo criterio_id por fila (B*, C*, D*).
+- Si el término legal debe mantenerse, marca requiere_validacion_tic = si.
+- Entidades HTML en original (&#8230;, &#243;); propuesto en texto legible + nota si aplica.
+</reglas_lc>
+
+<tarea>
+PASO 1 — Recorre el DOM visible: título, menús (desktop Y mobile por separado), breadcrumbs, botones, modales, overlays de carga.
+PASO 2 — Lista hallazgos B/C/D en tabla con columnas EXACTAS:
+| num | ubicacion_contextual | capa | texto_original | texto_propuesto | criterio_id | motivo | fragmento_busqueda | html_linea_aprox | duplicado_de | origen_probable | requiere_validacion_tic |
+PASO 3 — Traduce términos técnicos/jurídicos según B2, B5, B6.
+PASO 4 — Al final, resumen: total hallazgos, desglose por criterio, URLs de menú revisadas.
+PASO 5 — Pregunta de cierre: para cada cambio, ¿rompe JS, layout mobile o hay segunda ocurrencia?
+</tarea>
+
+<salida>
+Entregable A: tabla lista para copiar a Excel (TSV si es posible).
+Entregable B (opcional): bloque JSON reducido con url, fecha, auditor y array hallazgos[]
+(sin repetir checklist completo).
+NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
+</salida>
+```
+
+**Después de DevTools:** revisión con Bernarda → Excel [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Para informe institucional completo y MVP/PDF, segunda pasada **Claude §3.1 + §3.2** (o consolidar hallazgos DevTools en `sustituciones[]` del JSON).
 
 ### 3.5 Serie Clarity — 22 URLs (inventario Calidad Web)
 
