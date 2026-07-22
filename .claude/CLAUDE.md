@@ -239,6 +239,26 @@ Prompt §3.2 del flujo. Reglas de contrato:
 - `porcentaje_cumplimiento` = `criterios_aprobados / criterios_aplicables × 100` (un decimal).
 - Para serie Clarity: añadir bloque `clarity_meta` con `serie`, `rank`, `nombre_ui`, `ruta_etiqueta`, `visitas_ref`, `encargado_ref`.
 
+### Tipos de propuesta en `sustituciones[]`
+
+Cada fila en `sustituciones[]` debe corresponder a **uno** de estos cinco tipos:
+
+| Tipo | Cuándo usarlo | `original` | `propuesto` |
+| --- | --- | --- | --- |
+| **Sustitución** | El texto existe y debe cambiar | Literal del HTML (con entidades `&#243;`, etc.) | Texto corregido en lenguaje claro |
+| **Inserción** | El elemento no existe: falta fecha, intro, glosa de sigla, `alt` en imagen | `"(ausencia)"` o `"(no existe en HTML)"` | Bloque literal que TI debe insertar |
+| **Eliminación** | El fragmento debe quitarse: texto de dev, RUT redundante, `LINK EXTERNO` | Fragmento literal | `"(eliminar nodo)"` + nota en `motivo` |
+| **Reorden / estructura** | El contenido existe pero en orden incorrecto (A2 pirámide invertida) | Titular técnico que aparece primero | Párrafo de propósito que debe ir antes; `html_linea_aprox` del bloque contenedor |
+| **Enlace / slug** | F1, F3: nombre del enlace ≠ nombre del destino | Texto del enlace actual | Texto descriptivo del destino; si el slug no puede renombrarse, anotarlo en `motivo` |
+
+**Reglas de estilo de las propuestas:**
+- Lenguaje claro, voz activa, sin mayúsculas en toda la palabra salvo siglas reconocidas (PCT, INAPI, OMPI).
+- Una fila por cambio localizable; no agrupar criterios distintos en una fila salvo párrafo continuo (ej. T432–T435 como bloque único).
+- No inventar pesos en MB para documentos; usar solo `"(PDF)"` si no se conoce el peso exacto en el CMS.
+- Orden sugerido del array: por sección A→H o por `linea` (Tnnn) ascendente.
+
+**Regla para `no_aplica` con propuesta excepcional:** si un criterio es `no_aplica` por la estructura actual de la página, pero TI podría incorporar el elemento en una mejora futura, documentar la recomendación en el campo `comentario` del criterio — **no** crear fila en `sustituciones[]` salvo que sea una mejora explícitamente acordada con UX/Bernarda.
+
 ### Paso 4 — Validación y guardado
 ```bash
 # Guardar el JSON en la ruta correcta
@@ -369,9 +389,95 @@ git push origin main                      # subir a remoto
 
 **Regla de oro:** `no_aplica` = el criterio no puede evaluarse porque el supuesto del criterio no existe en la página. No usar `no_aplica` para evitar marcar un incumplimiento evidente.
 
+**Regla de `no_aplica` con propuesta excepcional:** si el criterio no aplica por la estructura actual pero TI podría incorporarlo en una mejora futura (ej. C6 — la página hoy tiene 3 párrafos, pero al ampliar contenido necesitará resumen inicial), documentar la recomendación en `comentario`. No crear fila en `sustituciones[]` salvo que esté acordado explícitamente con UX/Bernarda.
+
 ---
 
-## 17. Seguridad y datos sensibles
+## 17. Arquitectura de sub-subagentes por grupo de secciones
+
+*Aplica desde Fase 3 (flujo completo automatizado). Requiere Playwright MCP + RAG MCP activos.*
+
+### Motivación
+
+Evaluar los 39 criterios en una sola pasada puede sacrificar profundidad en secciones complejas (B/C lingüística, F/G compliance). Esta arquitectura delega cada grupo de secciones a un sub-subagente especializado, garantizando análisis robusto y consistente.
+
+### 5 grupos temáticos
+
+| Grupo | Secciones | Criterios | Foco |
+| --- | --- | --- | --- |
+| **1 — Estructura y Objetividad** | A + E | A1–A5, E1–E4 | Organización de contenido, pirámide invertida, fechas, títulos representativos |
+| **2 — Lenguaje y Redacción** | B + C | B1–B7, C1–C7 | Voz activa, tuteo, siglas, oraciones simples, párrafos de una idea |
+| **3 — Mecánica** | D | D1–D7 | Ortografía, puntuación, formato visual, mayúsculas sostenidas |
+| **4 — Enlaces** | F | F1–F5 | Descriptividad de CTAs, coherencia nombre/destino, PDFs con formato |
+| **5 — Datos y Archivo** | G + H | G1–G3, H1 | Datos personales, derechos ARCO, versiones archivadas |
+
+### Flujo completo (por URL)
+
+```
+Agente raíz
+│
+├── [1] Playwright MCP → captura HTML → texto_capturado (compartido)
+│
+├── [2] Sub-subagente Grupo 1 (A+E) ← texto_capturado + skill auditoria-lc §A,§E
+├── [3] Sub-subagente Grupo 2 (B+C) ← texto_capturado + skill auditoria-lc §B,§C
+├── [4] Sub-subagente Grupo 3 (D)   ← texto_capturado + skill auditoria-lc §D
+├── [5] Sub-subagente Grupo 4 (F)   ← texto_capturado + skill auditoria-lc §F
+└── [6] Sub-subagente Grupo 5 (G+H) ← texto_capturado + skill auditoria-lc §G,§H
+        │
+        ↓ (cada uno entrega: array de criterios de su sección + sustituciones parciales)
+        │
+├── [7] Agente raíz consolida los 5 outputs:
+│       - Une los 5 arrays → exactamente 39 criterios, orden A1…H1
+│       - Une todos los sustituciones[] de los 5 grupos
+│       - Calcula resumen numérico (criterios_aprobados, porcentaje, estado_aceptacion)
+│       - Escribe el JSON canónico completo
+│
+└── [8] validate:claude-audits (Hook automático)
+```
+
+### Reglas de consolidación (agente raíz — paso 7)
+
+- **El `texto_capturado` se captura UNA SOLA VEZ** y se pasa como contexto a los 5 sub-subagentes. No capturar el HTML 5 veces.
+- **Sin superposición de criterios:** cada criterio es evaluado por exactamente un grupo. Si hay duda (ej. E4 vs D1 para el `<title>`): E4 es de Grupo 1, D1 de Grupo 3.
+- **Consolidación de `sustituciones[]`:** unir los arrays de los 5 grupos. Si dos grupos proponen cambio para el mismo `linea`, el agente raíz retiene la propuesta del grupo con `severidad` más alta y anota el conflicto en `nota_final_tic`.
+- **Verificación de completitud antes de cerrar:** contar filas en `criterios_evaluados[]` = 39; verificar cobertura 1:1 entre `incumple` y `sustituciones[]`.
+- **No lanzar el paso 7 hasta que los 5 sub-subagentes hayan entregado su output.**
+
+### Instrucción de contexto para cada sub-subagente
+
+Al lanzar cada sub-subagente, incluir siempre:
+1. El `texto_capturado` completo (HTML inventariado T001…).
+2. La URL, `tipo_pagina` y `fecha` de la auditoría.
+3. Las secciones del checklist que debe evaluar (ej. "Evalúa SOLO los criterios A1–A5 y E1–E4").
+4. La instrucción: "Entrega SOLO el array de criterios de tu sección + el array de sustituciones[] correspondiente. No calcules el resumen total."
+5. La calibración aplicable a su sección (ver §2 de este CLAUDE.md).
+
+### Skill que carga cada sub-subagente
+
+| Grupo | Skill principal | Secciones del checklist |
+| --- | --- | --- |
+| Grupo 1 (A+E) | `auditoria-lc.md` §A y §E | Estructura y Objetividad |
+| Grupo 2 (B+C) | `auditoria-lc.md` §B y §C | Lenguaje y Redacción |
+| Grupo 3 (D) | `auditoria-lc.md` §D | Mecánica |
+| Grupo 4 (F) | `auditoria-lc.md` §F | Enlaces |
+| Grupo 5 (G+H) | `auditoria-lc.md` §G y §H | Datos y Archivo |
+
+Para fundamentos normativos de cualquier sección, cargar también `auditoria-calidad-web.md`.
+Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B.
+
+### Ventajas vs una sola pasada
+
+| Aspecto | Pasada única | Sub-subagentes (5 grupos) |
+| --- | --- | --- |
+| Profundidad en B/C (lingüística) | Media — comparte contexto con 39 criterios | Alta — el agente se concentra solo en 14 criterios |
+| Consistencia en D (typos masivos) | Puede perder ocurrencias | Grupo dedicado — revisa el HTML íntegro solo para D |
+| Trazabilidad de errores | Difícil aislar qué sección falló | Error acotado al grupo que lo produjo |
+| Tiempo total | Más rápido | Más lento (paralelo), pero más preciso |
+| Riesgo de conflicto entre criterios | Alto (D1 vs E4, G1 vs A5) | Bajo — la asignación por grupo elimina la ambigüedad |
+
+---
+
+## 18. Seguridad y datos sensibles
 
 Referencia completa: `docs/SECURITY.md`.
 
