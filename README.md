@@ -18,7 +18,7 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | [docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md](docs/Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) | Comparación proveedores IA (home piloto) |
 | [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo, datos en fixtures y checklist post-despliegue |
 | [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Plan por etapas: Vercel, GitHub Actions, Supabase, Nest, AWS LC |
-| [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Acuerdos de reunión: roles, monorepo objetivo, Nest ↔ API Gateway ↔ Lambda ↔ Claude, Docker |
+| [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Propuesta técnica v2.0: AI Stack de 5 capas, procedimiento de implementación (Fases 0–4), decisiones técnicas clave |
 | [docs/development/DEVLOG.md](docs/development/DEVLOG.md) | Bitácora de desarrollo |
 
 ---
@@ -27,15 +27,18 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 
 Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 
-| # | Título |
-| --- | --- |
-| 0001 | [Plantilla y propósito de los ADR](docs/adr/0001-record-architecture-decisions.md) |
-| 0002 | [Stack: Next.js, Bun y Supabase](docs/adr/0002-stack-next-bun-supabase.md) |
-| 0003 | [Contract-first: mocks con Zod](docs/adr/0003-contract-first-mocking-with-zod.md) |
-| 0004 | [Evaluación con LLM y versionado de prompts](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) |
-| 0005 | [API de dominio: NestJS y Prisma](docs/adr/0005-api-backend-nestjs-prisma.md) |
-| 0006 | [Evaluación LC: Python, Claude API y AWS](docs/adr/0006-lc-evaluation-python-claude-aws.md) |
-| 0007 | [Modelo lógico de datos, formato de entrada y parseo (pre-conexiones)](docs/adr/0007-modelo-datos-parseo-pre-conexiones.md) |
+| # | Título | Estado |
+| --- | --- | --- |
+| 0001 | [Plantilla y propósito de los ADR](docs/adr/0001-record-architecture-decisions.md) | Aceptado |
+| 0002 | [Stack: Next.js, Bun y Supabase](docs/adr/0002-stack-next-bun-supabase.md) | Aceptado |
+| 0003 | [Contract-first: mocks con Zod](docs/adr/0003-contract-first-mocking-with-zod.md) | Aceptado |
+| 0004 | [Evaluación con LLM y versionado de prompts](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) | Aceptado |
+| 0005 | [API de dominio: NestJS y Prisma](docs/adr/0005-api-backend-nestjs-prisma.md) | **Supersedido** por ADR 0009 |
+| 0006 | [Evaluación LC: Python, Claude API y AWS](docs/adr/0006-lc-evaluation-python-claude-aws.md) | **Supersedido** por ADR 0008 y ADR 0009 |
+| 0007 | [Modelo lógico de datos, formato de entrada y parseo (pre-conexiones)](docs/adr/0007-modelo-datos-parseo-pre-conexiones.md) | Borrador |
+| 0008 | [TypeScript sobre Python para RAG y orquestación](docs/adr/0008-typescript-sobre-python-para-rag.md) | Aceptado |
+| 0009 | [Claude Code Pro como orquestador principal](docs/adr/0009-claude-code-pro-como-orquestador.md) | Aceptado |
+| 0010 | [RAG local con Chroma y @xenova/transformers](docs/adr/0010-rag-local-chroma-xenova-transformers.md) | Aceptado |
 
 ---
 
@@ -84,8 +87,23 @@ Pauta base para el formato del [devlog](docs/development/DEVLOG.md) y para los m
 
 ---
 
+## AI Stack
+
+El sistema de auditoría automatizada se organiza en 5 capas. Detalle completo en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md).
+
+| Capa | Tecnología |
+| --- | --- |
+| Orquestación | Claude Code Pro (WSL, suscripción existente) |
+| Captura HTML | Playwright MCP |
+| Embeddings | `@xenova/transformers` — offline en CPU |
+| Base vectorial | Chroma local → servidor TI INAPI en producción |
+| Pipeline RAG | LangChain.js (TypeScript) |
+| Frontend | Next.js en Vercel |
+
+---
+
 ## Próximo paso
 
-Seguir [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 1.5** (piloto UX): **10 URLs** con **Claude** (Proyecto), JSON en repo → MVP → **PDF** + HTML con sustituciones a TIC. Flujo detallado: [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md). Fase 1 mock (inventario 22 URLs, `type_url`, filtros) cerrada en repo (2026-05-29).
+**Fase 1.5 operativa** (9 URLs con JSON, resultado y PDF en Vercel). Pendiente: entrega formal TIC (PDF + HTML aprobado). Detalle: [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md).
 
-**En repo hoy:** mock **22 filas** Calidad Web en [`data/ux/clarity-fichas-mock.json`](data/ux/clarity-fichas-mock.json); primera auditoría Claude (home) documentada — pendiente `data/claude-audits/` y UI piloto según flujo operativo.
+**Siguiente fase:** [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 0** — crear `.claude/CLAUDE.md` y las 3 Skills para que Claude Code Pro tenga contexto completo del proyecto desde la primera sesión.

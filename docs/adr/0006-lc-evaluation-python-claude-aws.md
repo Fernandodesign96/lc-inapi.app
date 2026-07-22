@@ -2,6 +2,18 @@
 
 ## Estado
 
+**Supersedido — 2026-07-21**
+
+> **Nota de supersesión:** Cada decisión central de este ADR fue reemplazada en julio 2026:
+> - **Python → TypeScript + Bun** para el motor de análisis y el RAG — ver [ADR 0008](0008-typescript-sobre-python-para-rag.md).
+> - **Claude API (de pago) → Claude Code Pro** (suscripción existente, sin costo adicional) como orquestador — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md).
+> - **AWS Lambda / API Gateway → servidor TI INAPI** (Octavio) en producción y WSL local en desarrollo.
+> - **HuggingFace Python → `@xenova/transformers`** (NPM) para embeddings offline — ver [ADR 0010](0010-rag-local-chroma-xenova-transformers.md).
+>
+> El contenido original del ADR se conserva como registro histórico. La ratificación con TI / Camila que estaba pendiente ya no aplica en los términos aquí descritos.
+
+---
+
 Propuesto — 2026-05-13 (ratificación formal de topología AWS: pendiente cierre con TI / Camila; ver [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md))
 
 ## Contexto

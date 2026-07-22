@@ -52,3 +52,9 @@ test-results/
 
 # PDF del UI Kit (referencia en Google Drive; no versionar)
 docs/uikit_gob/*.pdf
+
+# RAG — base de datos vectorial generada al ingestar (no versionar)
+rag/chroma_db/
+
+# Documentos normativos — PDFs institucionales (solo local y servidor TI; nunca al repo)
+documentos/

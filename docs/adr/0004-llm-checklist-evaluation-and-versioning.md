@@ -2,7 +2,12 @@
 
 ## Estado
 
-Propuesto — 2026-05-13
+Aceptado — 2026-05-13 · Nota de actualización: 2026-07-21
+
+> **Actualización (2026-07-21):**
+> - **LLM en uso:** en las fases actuales (Fases 0–4 del procedimiento de implementación), el LLM es **Claude Code Pro** (suscripción existente, sin API key, sin costo adicional) — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md). La Anthropic API de pago se re-evalúa en fases futuras si el chatbot del sitio web la requiere.
+> - **Captura HTML:** la decisión pendiente sobre Cheerio vs Playwright fue resuelta: **Playwright MCP** fue elegido como herramienta de captura — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md).
+> - El **contrato JSON** (`criterionEvaluationSchema` × 39, `strictAuditRecordSchema`), la **validación Zod**, los **reintentos** y el **versionado** de `checklist_version` / `prompt_version` siguen siendo la fuente de verdad independientemente del proveedor LLM.
 
 ## Contexto
 
