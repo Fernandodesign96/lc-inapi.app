@@ -29,6 +29,15 @@ T002 [HTML-L{n}]: «texto literal» (contexto: ...)
 - Si no existe un elemento esperado (fecha, H1, alt en imagen): registrarlo como `(ausencia de H1)`, `(ausencia de fecha)`, etc.
 - Los `html_linea_aprox` del inventario son los que se usan en `sustituciones[]`; deben corresponder al HTML real capturado.
 
+### Pantallas con sesión autenticada (`captura_con_sesion: true`)
+
+Ver `CLAUDE.md` §19. Reglas adicionales para el inventario:
+
+- **Valores de campos del usuario logueado** (RUT, nombre, correo, marca, expediente): registrar como  
+  `T042 [HTML-L512]: «[valor de sesión — no transcribir]» (contexto: campo «RUT del solicitante» prellenado)`.
+- **Sí inventariar** etiquetas, placeholders de ayuda, textos de instrucción, títulos de sección y botones — con el texto literal institucional.
+- **No** incluir en `original`/`propuesto` de sustituciones valores reales del solicitante.
+
 ---
 
 ## Fase 1 — Evaluación de los 39 criterios (checklist v1.1)
@@ -157,9 +166,23 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 
 | ID | Criterio | Verificación | Calibración INAPI |
 |---|---|---|---|
-| G1 | Sin RUT, teléfonos ni direcciones de personas naturales | Buscar patrones numéricos de RUT y teléfonos | **Regla calibrada:** RUT institucional (persona jurídica pública) = `cumple`; RUN/nombre de persona natural en HTML estático = `incumple alta` |
+| G1 | Sin RUT, teléfonos ni direcciones de personas naturales | Buscar patrones en copy **institucional** y exposición indebida | **HTML público:** RUT institucional (persona jurídica pública) = `cumple`; RUN/nombre en HTML estático = `incumple alta`. **Sesión autenticada (§19):** datos del solicitante en su formulario = **esperados**; evaluar exposición indebida de terceros o datos fuera del contexto del trámite |
 | G2 | Información sobre derechos ARCO visible | Enlace o sección en política de privacidad | `no_aplica` en páginas internas/transaccionales post-login |
 | G3 | Condiciones de uso publicadas | Copyright o licencia Creative Commons | Generalmente cumple en INAPI |
+
+**Grupo 5 (sub-subagente G+H) con `captura_con_sesion: true`:**
+
+Instrucción obligatoria al lanzar el agente:
+
+> Evalúa G1–G3 según CLAUDE.md §19. No marques incumple en G1 por RUT, nombre, correo o marca del usuario en campos de su trámite. Evalúa si etiquetas, ayudas y orden del formulario son entendibles. Anonimiza todas las citas y sustituciones.
+
+| Situación | G1 | Severidad típica |
+|---|---|---|
+| RUT del solicitante en campo de formulario propio | `cumple` | — |
+| Nombre de marca en trámite activo del usuario | `cumple` | — |
+| RUN de tercero en listado público sin anonimizar | `incumple` | alta |
+| Etiqueta de campo ambigua («Dato 1», sin ayuda) | Evaluar en B2/C1, no G1 | media |
+| Copy institucional con error ortográfico en etiqueta | D1, no G1 | según D1 |
 
 ---
 
@@ -197,6 +220,7 @@ Verificar ANTES de escribir el JSON final:
 - [ ] ¿El `id` del archivo sigue el patrón `{slug-url}_{YYYY-MM-DD}`?
 - [ ] ¿`severidad` solo existe en criterios con `estado = "incumple"`?
 - [ ] ¿No hay `null` en ningún campo del JSON?
+- [ ] Si `captura_con_sesion: true`: ¿ningún valor real del solicitante en `cita_textual`, `original` o `propuesto`?
 
 ---
 

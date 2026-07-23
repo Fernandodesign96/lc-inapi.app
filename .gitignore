@@ -59,6 +59,9 @@ rag/chroma_db/
 # Documentos normativos — PDFs institucionales (solo local y servidor TI; nunca al repo)
 documentos/
 
+# Sesión Playwright (cookies ClaveÚnica / Clave INAPI — nunca al repo)
+auditorias/.auth/*.json
+
 # Capturas Playwright: versionar .html y .txt; ignorar auxiliares binarios
 auditorias/htmls/**/*.png
 auditorias/htmls/**/*.jpg

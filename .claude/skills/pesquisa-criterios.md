@@ -152,6 +152,7 @@ portal de tramites."
 - Para los 39 criterios del checklist: basta con `checklist-criteria.json` + esta skill.
 - Para los patrones sistémicos (D7, D1, F3, F4, E3, E4, B3, H1): están documentados en `auditoria-lc.md` con las calibraciones INAPI ya incorporadas.
 - Para decidir `no_aplica`: consultar primero la sección §16 de `CLAUDE.md` antes de abrir el RAG.
+- **Capturas con sesión autenticada:** el RAG no sustituye §19 de `CLAUDE.md`. No ingresar HTML con PII a Colección B; los precedentes deben ser JSON ya anonimizados del repo.
 
 ---
 

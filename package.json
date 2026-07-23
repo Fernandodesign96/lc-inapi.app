@@ -9,6 +9,7 @@
     "validate:checklist": "bun run src/scripts/validate-checklist-data.ts",
     "validate:audit-fixtures": "bun run src/scripts/validate-audit-fixtures.ts",
     "validate:claude-audits": "bun run src/scripts/validate-claude-audits.ts",
+    "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",
     "typecheck:all": "bun run validate:checklist && bun run validate:audit-fixtures && bun run validate:claude-audits && bun run typecheck && bun run typecheck:frontend",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
+    "playwright": "^1.61.1",
     "typescript": "^5.8.0"
   }
 }

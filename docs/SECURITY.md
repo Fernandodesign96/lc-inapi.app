@@ -1,6 +1,6 @@
 # Seguridad y datos — LC INAPI (Fase 1 mock → Fase 2+)
 
-**Última actualización:** 2026-05-22
+**Última actualización:** 2026-07-23
 
 Este documento resume **qué ya se cuida en el repo**, **qué se endureció en la Fase 1 mock**, y **qué falta afinar** cuando exista despliegue público, backend (Nest), Supabase y el pipeline de evaluación.
 
@@ -38,7 +38,10 @@ El stack de orquestación IA corre íntegramente en local (WSL). Las siguientes 
 | Claude Code no envía los PDFs a Anthropic | Los documentos se leen como texto en el contexto local de la sesión de WSL |
 | Colecciones A y B completamente aisladas | Scripts de ingesta separados (`ingest-a.ts` / `ingest-b.ts`); colecciones Chroma distintas; barrera arquitectónica, no solo configuración |
 | Datos sensibles INAPI fuera del RAG | RUT/RUN, solicitudes de marca, resultados del buscador de anterioridades, credenciales y tokens nunca se ingresan en las colecciones |
-| Caso G1 (datos en HTML) | Se detecta como incumplimiento del criterio; no se almacena en el RAG ni en el repo |
+| `storageState` Playwright | `auditorias/.auth/*.json` en `.gitignore`; cookies de sesión ClaveÚnica solo en disco local del auditor |
+| Caso G1 — HTML público | RUN/nombre en HTML estático público → incumplimiento editorial |
+| Caso G1 — pantalla autenticada | Datos del solicitante en su formulario → **no** es incumplimiento; evaluar claridad de etiquetas (ver `CLAUDE.md` §19) |
+| JSON canónico | Anonimizar PII del solicitante en citas y sustituciones; solo `evaluador_uid` del auditor puede ser nombre real |
 
 ---
 
@@ -67,4 +70,5 @@ Plan operativo por etapas: [`despliegue/despliegue-hibrido.md`](despliegue/despl
 | [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) | Capas, secretos en servidor |
 | [`docs/despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) | Plan de despliegue por etapas y checklist |
 | [`docs/DATABASE.md`](DATABASE.md) | RLS, roles |
+| [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) | Captura autenticada, `storageState`, anonimización |
 | [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md) | Regeneración de fixtures y privacidad |
