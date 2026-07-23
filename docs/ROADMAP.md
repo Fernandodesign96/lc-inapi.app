@@ -186,6 +186,7 @@ Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite
 - [ ] Auditorías programadas (cron)
 - [ ] Roles (revisor vs editor)
 - [ ] Panel de métricas agregadas
+- [ ] **Historial versionado por URL en UI** (`feat/frontend-audit-history`): listar auditorías por fecha bajo `data/claude-audits/{tramites|sitioweb}/{fecha}/`; filtros Meta MEI Trámites/Sitio Web. Los acordeones piloto/Clarity pueden mantenerse como vistas de launch hasta esa rama.
 
 ---
 
