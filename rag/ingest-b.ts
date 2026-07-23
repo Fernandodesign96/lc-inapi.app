@@ -54,7 +54,10 @@ async function ingestFile(
   const metadatas: Record<string, string>[] = [];
 
   for (let i = 0; i < chunks.length; i++) {
-    const output = await embedder(chunks[i], { pooling: "mean", normalize: true });
+    const output = await (embedder as unknown as (text: string, opts: object) => Promise<{ data: Float32Array }>)(
+        chunks[i],
+        { pooling: "mean", normalize: true }
+      );
     ids.push(`${relPath.replace(/\//g, "_").replace(/\./g, "-")}_chunk_${i}`);
     embeddings.push(Array.from(output.data as Float32Array));
     documents.push(chunks[i]);
