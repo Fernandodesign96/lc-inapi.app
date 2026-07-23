@@ -18,16 +18,26 @@ export type ClarityAuditLaunchRow = {
 /** Ranks con JSON en data/claude-audits/urls-clarity/ (junio 2026). */
 const CLARITY_AUDIT_BY_RANK: Record<
   number,
-  { id: string; resumenMvp: NonNullable<ClarityAuditLaunchRow["resumenMvp"]> }
+  {
+    id: string
+    resumenMvp: NonNullable<ClarityAuditLaunchRow["resumenMvp"]>
+    /** Auditorías anteriores de la misma URL, conservadas en data/ pero no vigentes en el MVP. */
+    history?: { id: string }[]
+  }
 > = {
   1: {
-    id: "tramites-inapi-cl_2026-06-11",
+    id: "tramites-inapi-cl_2026-07-22",
     resumenMvp: {
-      porcentajeLc: 57.6,
+      porcentajeLc: 60.6,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl_2026-06-11",
+      },
+    ],
   },
   2: {
     id: "tramites-inapi-cl-account-login_2026-06-11",
