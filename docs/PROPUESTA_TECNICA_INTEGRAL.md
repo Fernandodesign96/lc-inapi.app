@@ -190,8 +190,10 @@ Para lotes, los pasos 1–6 corren en **paralelo con subagents** (un subagente p
 ### Fase 3 — Flujo completo de auditoría
 1. Probar flujo con una URL: Playwright → RAG → análisis → JSON.
 2. Validar que el JSON generado pasa `validate-claude-audits.ts`.
-3. Escalar a lote de URLs con subagents en paralelo.
-4. Verificar que los Hooks validan JSONs automáticamente.
+3. Implementar arquitectura de sub-subagentes por grupo temático (5 grupos: A+E, B+C, D, F, G+H); ver `.claude/CLAUDE.md` §17.
+4. Verificar consolidación correcta de los 5 outputs: 39 criterios, cobertura 1:1 incumple→sustituciones.
+5. Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL).
+6. Verificar que los Hooks validan JSONs automáticamente.
 
 **Resultado:** auditoría completa automatizada de principio a fin.
 

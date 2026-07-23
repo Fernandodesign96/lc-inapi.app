@@ -91,7 +91,7 @@ Componentes:
 | **Claude Code Pro** | Orquestador principal; corre en terminal WSL |
 | **CLAUDE.md** | Contexto permanente del proyecto en cada sesión |
 | **Skills** | `.claude/skills/auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md` |
-| **Subagents** | Un subagente por URL para auditorías en paralelo |
+| **Subagents** | Un subagente por URL para auditorías en paralelo; dentro de cada URL, 5 sub-subagentes por grupo temático (A+E, B+C, D, F, G+H) |
 | **Hooks** | Validación automática de JSONs al guardarse |
 | **Playwright MCP** | Navega URLs, extrae HTML completo |
 | **RAG MCP** | Expone colecciones A y B a Claude Code como herramientas de búsqueda semántica |

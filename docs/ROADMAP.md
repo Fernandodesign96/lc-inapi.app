@@ -108,9 +108,9 @@
 
 **Condición:** cierre editorial de **Fase 1.5** (entrega TIC) y actualización de documentación ([ADR 0008](adr/0008-typescript-sobre-python-para-rag.md), [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md), [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md)).
 
-- [ ] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
-- [ ] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
-- [ ] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
+- [x] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
+- [x] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
+- [x] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
 
 **Resultado:** Claude Code ya tiene contexto completo del proyecto desde la primera sesión, sin infraestructura adicional.
 
@@ -151,7 +151,9 @@
 
 - [ ] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
 - [ ] Verificar que el JSON generado pasa `validate-claude-audits.ts`
-- [ ] Escalar a lote de URLs con subagents en paralelo
+- [ ] Implementar arquitectura de **sub-subagentes por grupo temático** (5 grupos: A+E, B+C, D, F, G+H) — ver [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17
+- [ ] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
+- [ ] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
 - [ ] Verificar que los Hooks validan JSONs automáticamente al guardarse
 - [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3)
 
