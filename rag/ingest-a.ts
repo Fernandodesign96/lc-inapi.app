@@ -112,8 +112,11 @@ async function main() {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
-      const output = await embedder(chunk, { pooling: "mean", normalize: true });
-      const embedding = Array.from(output.data as Float32Array);
+      const output = await (embedder as unknown as (text: string, opts: object) => Promise<{ data: Float32Array }>)(
+        chunk,
+        { pooling: "mean", normalize: true }
+      );
+      const embedding = Array.from(output.data);
 
       ids.push(`${basename(pdfFile, ".pdf")}_chunk_${i}`);
       embeddings.push(embedding);
