@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-22 | [Infraestructura: Fase 1 — Registro MCP Playwright en Claude Code Pro](#devlog-2026-07-22-fase-1-playwright-mcp) |
 | 2026-07-22 | [Estrategia: Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)](#devlog-2026-07-22-fase-0-claude-skills) |
 | 2026-07-21 | [Documentación: AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)](#devlog-2026-07-21-ai-stack-v2) |
 | 2026-06-28 | [Documentación: Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun](#devlog-2026-06-28-stack-orquestacion-mei) |
@@ -49,7 +50,37 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
----
+<a id="devlog-2026-07-22-fase-1-playwright-mcp"></a>
+
+## [2026-07-22] - Infraestructura | Fase 1 — Registro MCP Playwright en Claude Code Pro
+
+### Contexto y objetivos:
+
+Inicio de la **Fase 1** del procedimiento de implementación del AI Stack v2. El objetivo es registrar el servidor MCP de Playwright en Claude Code Pro para habilitar la captura automatizada de HTML de URLs del inventario Clarity sin intervención manual (Ctrl+U). La Fase 0 está completada y mergeada en `main`; este trabajo se realiza en la rama `feat/playwright-mcp`.
+
+El MCP de Playwright permite que Claude Code Pro navegue URLs reales, ejecute JavaScript del lado del cliente y extraiga el HTML renderizado (DOM completo), resolviendo el problema identificado en la sesión de jun-2026: el HTML capturado con Ctrl+U en `tramites.inapi.cl` no refleja el DOM real inyectado por el servidor ASP.NET MVC.
+
+### Implementación técnica:
+
+- **Comando de registro:**
+  ```bash
+  claude mcp add playwright npx @playwright/mcp@latest
+  ```
+- **Config generada:** `~/.claude.json` (local por máquina, no versionada). Referencia en `.claude/CLAUDE.md` §8.
+- **Dependencia de sistema:** Chrome no estaba instalado en WSL; se instaló con `npx playwright install chrome` (descarga `google-chrome-stable` 150.0.7871.181 y FFmpeg vía `apt-get`; operación con `sudo`).
+- **Directorio de salida:** `auditorias/htmls/` creado con `.gitkeep`; `auditorias/htmls/*.html` y `.playwright-mcp/` agregados a `.gitignore`.
+
+**Prueba de humo — `https://tramites.inapi.cl/` (2026-07-22):**
+
+- HTML capturado: **53,771 bytes, DOM renderizado completo** (JS ejecutado por Chrome headless).
+- Confirmación DOM real: navbar con grupos en mayúsculas (`MI INAPI`, `TRAMITACIÓN`, `PAGOS`, `SERVICIOS`), modal TGR («hoy lunes 19 de enero…»), footer con `RUT: 65.999.669-3`, widget Zoho SalesIQ cargado.
+- Versión del sistema actualizada: `v 2.3.96.0` (era `v 2.3.89.0` en auditoría de junio 2026).
+- `<title>` corregido parcialmente por TI: `INAPI — Portal de Trámites: Marcas, Patentes y máss` — **typo** (`máss` con doble `s`); pendiente corrección en `_Layout.cshtml`.
+- Incidencia: Claude guardó el resultado del MCP como string JSON en lugar de HTML puro (comillas envolventes y escapes); corregido en la misma sesión sobreescribiendo con el contenido des-escapado.
+
+### Próximos pasos:
+
+- Fase 2: configurar RAG local con Chroma (`feat/rag-workspace`): `bun install` en `rag/`, levantar Chroma en puerto 8000, ingestar colecciones B y A.
 
 <a id="devlog-2026-07-22-fase-0-claude-skills"></a>
 
