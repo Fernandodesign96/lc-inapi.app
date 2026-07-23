@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-23 | [Infraestructura: Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs](#devlog-2026-07-23-fase-3-audit-full-flow) |
 | 2026-07-22 | [Infraestructura: Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro](#devlog-2026-07-22-fase-2-rag-mcp) |
 | 2026-07-22 | [Infraestructura: Fase 1 — Registro MCP Playwright en Claude Code Pro](#devlog-2026-07-22-fase-1-playwright-mcp) |
 | 2026-07-22 | [Estrategia: Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)](#devlog-2026-07-22-fase-0-claude-skills) |
@@ -46,6 +47,51 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
 
 ---
+
+## [2026-07-23] - Infraestructura | Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs {#devlog-2026-07-23-fase-3-audit-full-flow}
+
+**Rama:** `feat/audit-full-flow` | **Entorno:** WSL2 Ubuntu (PC casa)
+
+Cierre de la **Fase 3** del AI Stack v2. Se implementó y validó el flujo completo de auditoría end-to-end: Playwright MCP → RAG MCP → sub-subagentes → JSON canónico → validate:claude-audits.
+
+### Artefactos entregados
+
+- `.cursor/hooks.json` + `.cursor/hooks/validate-audit.sh` — Hook que valida automáticamente JSONs canónicos al guardar en `data/claude-audits/`
+- `.claude/prompts/audit-lote.md` — Plantilla reutilizable para auditar lotes de hasta 5 URLs con arquitectura sub-subagentes (§17)
+
+### Smoke test — URL única (rank 1)
+
+| Campo | Valor |
+|---|---|
+| URL | `https://tramites.inapi.cl/` |
+| Flujo | Playwright MCP → RAG MCP (precedente jun-2026) → 39 criterios → JSON |
+| Resultado | 60.6% — rechazado |
+| validate | ✅ OK |
+
+### Lote 5 URLs — arquitectura sub-subagentes §17
+
+| Rank | URL | % | Estado | validate |
+|---|---|---|---|---|
+| 2 | `tramites.inapi.cl/Account/Login` | 51.7% | rechazado | ✅ |
+| 8 | `tramites.inapi.cl/Login/claveunica` | — | saltada (redirige a ClaveÚnica externo) | — |
+| 9 | `tramites.inapi.cl/EstadosDiariosMarcas` | 50.0% | rechazado | ✅ |
+| 16 | `www.inapi.cl/` | 54.5% | rechazado | ✅ |
+| 17 | `www.inapi.cl/tramites/tramites-digitales` | 41.7% | rechazado | ✅ |
+
+**validate final:** OK — 9 piloto + 18 Clarity validadas
+
+### Calibraciones aplicadas en esta sesión
+
+- **G1:** RUT institucional corregido a `cumple` en rank 16 (contradicción con CLAUDE.md §2 resuelta)
+- **A4:** páginas puramente funcionales (formulario/tabla sin bloque editorial) → `no_aplica`
+- **F3:** propuesta unificada a «Aceptar» (siguiendo CLAUDE.md §6)
+- **rank 17** sin correcciones TIC desde jun-2026 — prioridad próximo sprint
+
+### Próximos pasos
+
+- Fase 4: levantar servidor RAG en TI INAPI y distribuir acceso al equipo
+- URLs protegidas (ranks 5–7, 11–13, 15): pendientes de flujo de autenticación
+- Calibrar severidad G1, D7, E3 con Equipo UX (Bernarda)
 
 ---
 
