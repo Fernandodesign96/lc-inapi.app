@@ -223,8 +223,8 @@ Estos 8 patrones aparecen en la mayoría de URLs del inventario INAPI y proviene
 
 | Serie | Ruta |
 |---|---|
-| Piloto general (9 URLs) | `data/claude-audits/{id}.json` |
-| Serie Clarity (22 URLs) | `data/claude-audits/urls-clarity/{id}.json` |
+| Trámites | `data/claude-audits/tramites/{YYYY-MM-DD}/{id}.json` |
+| Sitio Web | `data/claude-audits/sitioweb/{YYYY-MM-DD}/{id}.json` |
 
 Formato del `id`: `{slug-de-la-url}_{YYYY-MM-DD}`
 Ejemplos reales del repo:

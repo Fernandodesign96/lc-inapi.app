@@ -51,8 +51,8 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 | Ruta | Descripción |
 | --- | --- |
 | `data/checklist-criteria.json` | Fuente de verdad — 39 criterios con enunciado, verificación y fuente normativa |
-| `data/claude-audits/` | JSONs canónicos del piloto (9 URLs, formato `{slug}_{fecha}.json`) |
-| `data/claude-audits/urls-clarity/` | JSONs de la serie Clarity (17 ranks) con bloque `clarity_meta` |
+| `data/claude-audits/tramites/{YYYY-MM-DD}/` | JSONs Meta MEI Trámites (piloto + Clarity) |
+| `data/claude-audits/sitioweb/{YYYY-MM-DD}/` | JSONs Meta MEI Sitio Web (piloto + Clarity) |
 | `auditorias/htmls/` | HTMLs capturados por Playwright MCP (crear si no existe; en `.gitignore`) |
 | `src/schemas/claude-audit-pilot.ts` | Esquema Zod `strictAuditRecordSchema` — fuente de verdad del contrato JSON |
 | `src/schemas/url-audit.ts` | Esquema Zod complementario para auditorías de URL |
@@ -262,8 +262,8 @@ Cada fila en `sustituciones[]` debe corresponder a **uno** de estos cinco tipos:
 ### Paso 4 — Validación y guardado
 ```bash
 # Guardar el JSON en la ruta correcta
-# Piloto:   data/claude-audits/{id}.json
-# Clarity:  data/claude-audits/urls-clarity/{id}.json
+# Convención: data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json
+# El id sigue siendo {slug}_{YYYY-MM-DD}; la fecha del path debe coincidir con el sufijo del id.
 
 bun run validate:claude-audits   # debe pasar sin errores
 ```

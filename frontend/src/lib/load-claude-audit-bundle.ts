@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs"
+import { existsSync, readFileSync } from "node:fs"
 import { join } from "node:path"
 
 import {
@@ -32,18 +32,45 @@ function isAllowedClaudeAuditId(id: string): boolean {
   return CLAUDE_AUDIT_ID_SET.has(id) || CLARITY_AUDIT_ID_SET.has(id)
 }
 
-function claudeAuditFilePath(claudeAuditId: string): string {
-  const base = join(repoRoot(), "data", "claude-audits")
-  if (CLARITY_AUDIT_ID_SET.has(claudeAuditId)) {
-    return join(base, "urls-clarity", `${claudeAuditId}.json`)
-  }
-  return join(base, `${claudeAuditId}.json`)
+/** Extrae YYYY-MM-DD del id canónico (`slug_2026-07-22`). */
+function auditDateFromId(claudeAuditId: string): string | null {
+  const match = claudeAuditId.match(/_(\d{4}-\d{2}-\d{2})$/)
+  return match?.[1] ?? null
 }
 
 /**
- * Lee y valida JSON canónico del piloto (data/claude-audits/) o Clarity (urls-clarity/).
+ * Resolución Opción A:
+ * data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json
+ * Prueba ambas raíces MEI; la fecha sale del id.
+ */
+function claudeAuditFilePath(claudeAuditId: string): string {
+  const base = join(repoRoot(), "data", "claude-audits")
+  const date = auditDateFromId(claudeAuditId)
+  if (!date) {
+    throw new LoadClaudeAuditBundleError(
+      "not_found",
+      "Id sin fecha YYYY-MM-DD al final",
+    )
+  }
+
+  const candidates = [
+    join(base, "tramites", date, `${claudeAuditId}.json`),
+    join(base, "sitioweb", date, `${claudeAuditId}.json`),
+  ]
+
+  for (const candidate of candidates) {
+    if (existsSync(candidate)) return candidate
+  }
+
+  // Fallback: primer candidato (el catch de readFileSync → not_found)
+  return candidates[0]
+}
+
+/**
+ * Lee y valida JSON canónico bajo data/claude-audits/{tramites|sitioweb}/{fecha}/.
  * Solo ids en CLAUDE_AUDIT_ID_SET ∪ CLARITY_AUDIT_ID_SET.
  */
+
 export function loadClaudeAuditBundle(claudeAuditId: string): ClaudeAuditBundle {
   const id = decodeURIComponent(claudeAuditId.trim())
 

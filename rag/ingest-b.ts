@@ -1,10 +1,9 @@
 /**
  * ingest-b.ts — Ingesta Colección B: material de trabajo del repo
  *
- * Fuente: archivos versionados en el propio repo
  *   - data/checklist-criteria.json
- *   - data/claude-audits/**\/*.json  (piloto)
- *   - data/claude-audits/urls-clarity/**\/*.json
+ *   - data/claude-audits/tramites/ (recursivo, archivos .json)
+ *   - data/claude-audits/sitioweb/ (recursivo, archivos .json)
  *   - docs/adr/*.md
  *
  * Uso: bun run ingest:b
@@ -13,7 +12,7 @@
  * IMPORTANTE: ejecutar ANTES de ingest:a (los datos del repo ya existen).
  * NUNCA incluir en esta colección: RUT de personas naturales, expedientes,
  * credenciales ni resultados del buscador de anterioridades (ver SECURITY.md).
- */
+*/
 
 import { ChromaClient } from "chromadb";
 import { pipeline } from "@xenova/transformers";
@@ -101,24 +100,24 @@ async function main() {
     console.log(`✓ checklist-criteria.json (${n} chunks)`);
   }
 
-  // 2. JSONs canónicos piloto (data/claude-audits/*.json)
-  const pilotJsons = await glob("data/claude-audits/*.json", { cwd: REPO_ROOT });
-  for (const f of pilotJsons) {
-    if (f.includes("normalize-export")) continue; // excluir scripts
-    const n = await ingestFile(collection, embedder, join(REPO_ROOT, f), "auditoria_piloto");
+  // 2. JSONs canónicos (Meta MEI + fecha)
+  const auditJsons = await glob("data/claude-audits/{tramites,sitioweb}/**/*.json", {
+    cwd: REPO_ROOT,
+  });
+  let auditCount = 0;
+  for (const f of auditJsons) {
+    if (f.endsWith(".export.json")) continue;
+    const tipo =
+      f.includes("/tramites/") || f.includes("\\tramites\\")
+        ? "auditoria_tramites"
+        : "auditoria_sitioweb";
+    const n = await ingestFile(collection, embedder, join(REPO_ROOT, f), tipo);
     totalChunks += n;
+    auditCount += 1;
     console.log(`✓ ${f} (${n} chunks)`);
   }
 
-  // 3. JSONs serie Clarity (data/claude-audits/urls-clarity/*.json)
-  const clarityJsons = await glob("data/claude-audits/urls-clarity/*.json", { cwd: REPO_ROOT });
-  for (const f of clarityJsons) {
-    const n = await ingestFile(collection, embedder, join(REPO_ROOT, f), "auditoria_clarity");
-    totalChunks += n;
-    console.log(`✓ ${f} (${n} chunks)`);
-  }
-
-  // 4. ADRs
+  // 3. ADRs
   const adrs = await glob("docs/adr/*.md", { cwd: REPO_ROOT });
   for (const f of adrs) {
     const n = await ingestFile(collection, embedder, join(REPO_ROOT, f), "adr");
@@ -127,7 +126,10 @@ async function main() {
   }
 
   console.log(`\n=== Ingesta Colección B completada: ${totalChunks} chunks totales ===`);
-  console.log(`Archivos: 1 checklist + ${pilotJsons.length - 1} piloto + ${clarityJsons.length} clarity + ${adrs.length} ADRs`);
+  console.log(`Archivos: 1 checklist + ${auditCount} auditorías + ${adrs.length} ADRs`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
