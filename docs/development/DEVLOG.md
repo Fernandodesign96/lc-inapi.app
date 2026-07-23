@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-22 | [Infraestructura: Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro](#devlog-2026-07-22-fase-2-rag-mcp) |
 | 2026-07-22 | [Infraestructura: Fase 1 — Registro MCP Playwright en Claude Code Pro](#devlog-2026-07-22-fase-1-playwright-mcp) |
 | 2026-07-22 | [Estrategia: Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)](#devlog-2026-07-22-fase-0-claude-skills) |
 | 2026-07-21 | [Documentación: AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)](#devlog-2026-07-21-ai-stack-v2) |
@@ -47,6 +48,17 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ---
 
 ---
+
+## [2026-07-22] - Infraestructura | Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro {#devlog-2026-07-22-fase-2-rag-mcp}
+
+**Rama:** `feat/rag-workspace` | **Entorno:** WSL2 Ubuntu (PC casa)
+
+Cierre de la **Fase 2** del AI Stack v2. Se registra el servidor MCP `rag-auditoria` en Claude Code Pro, completando la integración RAG local con Chroma y `@xenova/transformers`. El servidor expone dos herramientas nativas a Claude: `rag_search_normativa` (Colección A) y `rag_search_precedentes` (Colección B).
+
+### Comando ejecutado
+
+```bash
+claude mcp add rag-auditoria bun /home/fernando/projects/lc-inapi-app/rag/mcp-server.ts
 
 ---
 
