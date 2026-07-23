@@ -17,7 +17,7 @@
 
 | Requisito | Detalle |
 | --- | --- |
-| **Ubicación** | **Justo debajo** de la tarjeta «Ingreso de URL» (barra de búsqueda), **antes** de «Importar auditoría» y del inventario Clarity de 22 URLs. |
+| **Ubicación** | **Justo debajo** de la tarjeta «Ingreso de URL» (barra de búsqueda), **antes** de «Importar auditoría» y del inventario Clarity de 17 URLs. |
 | **Patrón UI** | Misma estructura que el inventario actual: **Card** + **Accordion** colapsable (design system §15). |
 | **Contenido** | Tabla con las URLs del piloto TIC/UX (no las 22 de Clarity), con columnas alineadas al historial existente donde aplique: `#`, ruta/etiqueta, tipo (`tramites` \| `sitioweb`), % LC, estado, última evaluación, encargado, columna MVP («Disponible» / «Pendiente»). |
 | **Comportamiento** | Clic en fila disponible → **`/auditar/resultado`** con auditoría Claude cargada (`?claudeAudit={id}&url={url}`). |
@@ -357,24 +357,26 @@ NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
 
 **Después de DevTools:** revisión con Bernarda → Excel [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Para informe institucional completo y MVP/PDF, segunda pasada **Claude §3.1 + §3.2** (o consolidar hallazgos DevTools en `sustituciones[]` del JSON).
 
-### 3.5 Serie Clarity — 22 URLs (inventario Calidad Web)
+### 3.5 Serie Clarity — 17 URLs (inventario Calidad Web)
 
-**Contexto:** las **22 URLs** del acordeón **Historial de Auditorías URLs - INAPI** en `/auditar` (ranks 1–22, priorización por visitas Clarity) usan el **mismo contrato JSON** y las **mismas siete secciones** en `/auditar/resultado` que el piloto de 9 URLs (§4). La diferencia operativa es la carpeta de destino, el bloque `clarity_meta` y la tabla de lanzamiento Clarity en [`clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts).
+**Contexto:** las **17 URLs** del acordeón **Historial de Auditorías URLs - INAPI** en `/auditar` (ranks 1–17; inventario comprimido desde las 22 filas históricas) usan el **mismo contrato JSON** y las **mismas siete secciones** en `/auditar/resultado` que el piloto de 9 URLs (§4). La diferencia operativa es la ruta Meta MEI por fecha, el bloque `clarity_meta` y la tabla de lanzamiento en [`clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts).
 
-| Aspecto | Piloto (9 URLs) | Serie Clarity (22 URLs) |
+| Aspecto | Piloto (9 URLs) | Serie Clarity (17 URLs) |
 | --- | --- | --- |
-| **Fuente inventario** | Instrumento evaluación calidad (7+2) | Extracto Clarity + criterio editorial (ranks 21–22) |
-| **Carpeta JSON** | `data/claude-audits/` | `data/claude-audits/urls-clarity/` |
-| **Plantilla JSON** | [`www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) | [`tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/urls-clarity/tramites-inapi-cl_2026-06-11.json) (con `clarity_meta`) |
+| **Fuente inventario** | Instrumento evaluación calidad (7+2) | Extracto Clarity + criterio editorial (ranks 16–17 Sitio Web) |
+| **Carpeta JSON** | `data/claude-audits/{tramites\|sitioweb}/` (raíz legacy piloto) | `data/claude-audits/{tramites\|sitioweb}/{YYYY-MM-DD}/{id}.json` |
+| **Plantilla JSON** | [`sitioweb/2026-06-02/www-inapi-cl_2026-06-02.json`](../data/claude-audits/sitioweb/2026-06-02/www-inapi-cl_2026-06-02.json) | [`tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json) (con `clarity_meta`) |
 | **Maestro rank / visitas** | Tabla §2 (piloto) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
 | **Metadatos extra** | Solo `tipo_pagina` + extensiones piloto | **`clarity_meta` obligatorio** (rank, visitas, etiquetas UI) |
-| **MVP `/auditar`** | Acordeón piloto (implementado) | Tabla 22 URLs con enlace a resultado/PDF cuando hay JSON (implementado junio 2026) |
+| **MVP `/auditar`** | Acordeón piloto (implementado) | Tabla 17 URLs con enlace a resultado/PDF cuando hay JSON |
 
-**URLs que se repiten** con el piloto (misma URL canónica, dos fuentes válidas): p. ej. rank **1** = `https://tramites.inapi.cl/` (piloto #9); rank **21** = `https://www.inapi.cl/` (piloto #1). Si el HTML no cambió, se puede **copiar** el JSON del piloto, actualizar `id`/`fecha_evaluacion`/`clarity_meta` y conservar criterios y sustituciones.
+**Estado jul-2026:** **13/17** con informe en repo; ranks **8, 11, 13, 15** en **Pendiente TI** (sin acceso operativo). Captura post-login: [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
 
-**Convención `id`:** `slug-desde-url_YYYY-MM-DD` — debe coincidir con el nombre de archivo (`{id}.json`).
+**URLs que se repiten** con el piloto (misma URL canónica, dos fuentes válidas): p. ej. rank **1** = `https://tramites.inapi.cl/` (piloto #9); rank **16** = `https://www.inapi.cl/` (piloto #1). Si el HTML no cambió, se puede **copiar** el JSON del piloto, actualizar `id`/`fecha_evaluacion`/`clarity_meta` y conservar criterios y sustituciones.
 
-**Rama de trabajo:** `feature/clarity-22-urls-auditorias-claude-json`.
+**Convención `id`:** `slug-desde-url_YYYY-MM-DD` — debe coincidir con el nombre de archivo; la carpeta `{YYYY-MM-DD}` debe coincidir con el sufijo del `id`.
+
+**Rama de trabajo histórica:** `feature/clarity-22-urls-auditorias-claude-json`. **Rama Fase 3.3:** `feat/audit-remaining-urls`.
 
 #### 3.5.1 Primera corrida Clarity (§3.1 adaptado)
 
@@ -383,11 +385,11 @@ Mensaje tipo (HTML adjunto + metadatos de la ficha Clarity):
 ```text
 Audita con checklist v1.1 (39 criterios A1–H1).
 
-CONTEXTO — Serie Clarity (22 URLs INAPI):
-Esta auditoría alimenta el inventario Clarity en /auditar (priorización por visitas). El JSON final irá a data/claude-audits/urls-clarity/ con el mismo contrato del piloto (§3.2) más el bloque clarity_meta (§3.5.2). En /auditar/resultado se muestran las mismas siete secciones que el piloto: Datos de Auditoría, Resumen, Pasos a seguir, 39 criterios, Observaciones por severidad, Texto propuesto (sustituciones), Nota para TI.
+CONTEXTO — Serie Clarity (17 URLs INAPI):
+Esta auditoría alimenta el inventario Clarity en /auditar (priorización por visitas). El JSON final irá a data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json con el mismo contrato del piloto (§3.2) más el bloque clarity_meta (§3.5.2). En /auditar/resultado se muestran las mismas siete secciones que el piloto: Datos de Auditoría, Resumen, Pasos a seguir, 39 criterios, Observaciones por severidad, Texto propuesto (sustituciones), Nota para TI.
 
 METADATOS CLARITY (tomar de data/ux/clarity-fichas-mock.json — rank [N]):
-- rank: [1–22]
+- rank: [1–17]
 - nombre_ui: [campo nombre de la ficha]
 - ruta_etiqueta: [campo rutaEtiqueta]
 - url canónica: [campo url]
@@ -418,18 +420,18 @@ Al terminar, indica: incumplimientos, % LC y si cada incumple tiene al menos una
 #### 3.5.2 Entrega JSON canónico Clarity (§3.2 adaptado)
 
 **Plantilla de referencia:** adjunta  
-[`data/claude-audits/urls-clarity/tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/urls-clarity/tramites-inapi-cl_2026-06-11.json)  
-(o cualquier JSON ya cerrado en `urls-clarity/` con `clarity_meta`).
+[`data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json)  
+(o cualquier JSON ya cerrado bajo `tramites/` o `sitioweb/` con `clarity_meta`).
 
 Usar **en el mismo hilo** tras §3.5.1 (o mensaje nuevo con HTML + plantilla). Copiar y pegar:
 
 ```text
-Necesito UN solo bloque JSON válido para integrar en nuestro MVP (Next.js) — serie Clarity (22 URLs).
+Necesito UN solo bloque JSON válido para integrar en nuestro MVP (Next.js) — serie Clarity (17 URLs).
 NO repitas la tabla de 39 criterios en prosa.
 NO uses el campo "evaluador" — usa "evaluador_uid".
 NO uses null en ningún campo: omite la clave si no aplica.
 
-Adjunto como REFERENCIA OBLIGATORIA un JSON canónico de urls-clarity/ ya validado (misma estructura, mismas reglas que piloto §3.2 + clarity_meta §3.5.2).
+Adjunto como REFERENCIA OBLIGATORIA un JSON canónico de tramites/ o sitioweb/ ya validado (misma estructura, mismas reglas que piloto §3.2 + clarity_meta §3.5.2).
 
 Para esta auditoría, sustituye solo los valores según la URL, el HTML adjunto y la ficha Clarity (rank [N]):
 
@@ -447,11 +449,11 @@ CONTRATO OBLIGATORIO — núcleo LC (idéntico a §3.2 ítems 1–5 y extensione
 - resumen_ejecutivo, observaciones_lc_por_severidad, sustituciones[] (cobertura 1:1 obligatoria), nota_final_tic.
 - Mismas reglas E3, G1, tipos de propuesta y estilo §3.2 ítem 8.
 
-EXTENSIÓN CLARITY — clarity_meta (OBLIGATORIO en urls-clarity/):
+EXTENSIÓN CLARITY — clarity_meta (OBLIGATORIO en tramites/ o sitioweb/):
 
 10) clarity_meta: {
       "serie": "clarity",
-      "rank": [entero 1–22, de clarity-fichas-mock.json],
+      "rank": [entero 1–17, de clarity-fichas-mock.json],
       "nombre_ui": "[ficha.nombre]",
       "ruta_etiqueta": "[ficha.rutaEtiqueta]",
       "visitas_ref": "[ficha.visitasRef — string, ej. \"432.572\" o \"—\"]",
@@ -464,7 +466,7 @@ EXTENSIÓN CLARITY — clarity_meta (OBLIGATORIO en urls-clarity/):
 - porcentaje_cumplimiento y estado_aceptacion del JSON son la fuente de verdad LC (pueden diferir del mock editorial previo en la ficha).
 - resumen_ejecutivo: puede mencionar rank y visitas; no sustituye clarity_meta.
 
-Guardar en repo como: data/claude-audits/urls-clarity/{id}.json
+Guardar en repo como: data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json
 
 Entrega SOLO el JSON, sin texto antes ni después:
 
@@ -486,11 +488,11 @@ Si un campo opcional no aplica, omite la clave o usa [] en arrays. Nunca uses nu
 | --- | --- |
 | 1 | Consultar rank y metadatos en [`clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json). |
 | 2 | ¿Existe JSON piloto para la misma URL y mismo HTML? → Copiar, nuevo `id`/fecha, rellenar `clarity_meta`; si no → §3.5.1 + §3.5.2. |
-| 3 | Guardar en `data/claude-audits/urls-clarity/{id}.json`. |
+| 3 | Guardar en `data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json`. |
 | 4 | Revisión Cursor: aritmética, cobertura 1:1, `clarity_meta` vs ficha. |
 | 5 | (En casa) Registrar en tabla launch Clarity + enlace fila inventario → `/auditar/resultado?claudeAudit={id}`. |
 
-**Estado junio 2026 (serie Clarity):** JSON en `urls-clarity/` para ranks **1, 2, 3, 4 y 21**; ranks **5–20** y **22** pendientes.
+**Estado jul-2026 (serie Clarity):** **13/17** JSON en `tramites/` y `sitioweb/`; ranks **8, 11, 13, 15** en **Pendiente TI**. Re-auditoría DOM con sesión: [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
 
 ---
 
@@ -687,15 +689,15 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 - [ ] Entrega TIC: PDF (+ HTML §3.3 donde aplique) y control de cambios.
 - [ ] Acta breve UX/TIC (proveedor Claude, reglas G1/E3/cobertura 1:1).
 
-### Serie Clarity — 22 URLs (junio 2026)
+### Serie Clarity — 17 URLs (jul-2026)
 
 - [x] Prompts §3.5.1 y §3.5.2 documentados (entrada + JSON con `clarity_meta`).
 - [x] Esquema `clarity_meta` en [`claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts).
-- [x] JSON ranks **1, 2, 3, 4 y 21** en `data/claude-audits/urls-clarity/`.
-- [ ] JSON ranks **5–20** y **22** en `urls-clarity/`.
+- [x] **13/17** ranks con JSON bajo `data/claude-audits/{tramites|sitioweb}/{fecha}/`.
+- [ ] Ranks **8, 11, 13, 15** — Pendiente TI (coordinación acceso).
 - [x] Tabla launch Clarity + cableado inventario `/auditar` → resultado/PDF (misma lógica piloto).
-- [x] `validate:claude-audits` ampliado a subcarpeta `urls-clarity/`.
-- [ ] Sincronizar `porcentajeLcRef` / `estadoLcRef` en fichas mock con % real del JSON.
+- [x] `validate:claude-audits` ampliado a `tramites/` y `sitioweb/` (Meta MEI + fecha).
+- [ ] Sincronizar `porcentajeLcRef` / `estadoLcRef` en fichas mock con % real del JSON (donde aplique).
 
 ---
 
@@ -705,10 +707,11 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 | --- | --- |
 | Checklist 39 criterios | [`data/checklist-criteria.json`](../data/checklist-criteria.json) |
 | Contrato auditoría estricta | [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) |
-| Inventario 22 URLs (referencia) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
-| JSON serie Clarity (22 URLs) | [`data/claude-audits/urls-clarity/`](../data/claude-audits/urls-clarity/) |
+| Inventario 17 URLs (referencia) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
+| JSON serie Clarity (Meta MEI) | [`data/claude-audits/tramites/`](../data/claude-audits/tramites/) · [`data/claude-audits/sitioweb/`](../data/claude-audits/sitioweb/) |
+| Fase 3.3 captura autenticada | [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
 | Esquema piloto + clarity_meta | [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) |
-| Launch serie Clarity (22 URLs) | [`frontend/src/lib/clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts) |
+| Launch serie Clarity (17 URLs) | [`frontend/src/lib/clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts) |
 | Comparación Gemini vs Claude | [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) |
 | Página auditar actual | [`frontend/src/app/auditar/page.tsx`](../frontend/src/app/auditar/page.tsx) |
 | Página resultado actual | [`frontend/src/app/auditar/resultado/page.tsx`](../frontend/src/app/auditar/resultado/page.tsx) |
