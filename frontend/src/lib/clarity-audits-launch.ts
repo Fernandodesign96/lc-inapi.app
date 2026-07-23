@@ -40,13 +40,18 @@ const CLARITY_AUDIT_BY_RANK: Record<
     ],
   },
   2: {
-    id: "tramites-inapi-cl-account-login_2026-06-11",
+    id: "tramites-inapi-cl-account-login_2026-07-22",
     resumenMvp: {
-      porcentajeLc: 53.3,
+      porcentajeLc: 51.7,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-account-login_2026-06-11",
+      },
+    ],
   },
   3: {
     id: "tramites-inapi-cl-trademark-trademarkfile_2026-06-11",
@@ -94,13 +99,18 @@ const CLARITY_AUDIT_BY_RANK: Record<
     },
   },
   9: {
-    id: "tramites-inapi-cl-estadosdiariosmarcas_2026-06-11",
+    id: "tramites-inapi-cl-estadosdiariosmarcas_2026-07-22",
     resumenMvp: {
       porcentajeLc: 50.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-estadosdiariosmarcas_2026-06-11",
+      },
+    ],
   },
   10: {
     id: "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-06-11",
@@ -130,22 +140,32 @@ const CLARITY_AUDIT_BY_RANK: Record<
     },
   },
   16: {
-    id: "www-inapi-cl_2026-06-11",
+    id: "www-inapi-cl_2026-07-22",
     resumenMvp: {
-      porcentajeLc: 45.5,
+      porcentajeLc: 54.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "www-inapi-cl_2026-06-11",
+      },
+    ],
   },
   17: {
-    id: "www-inapi-cl-tramites-tramites-digitales_2026-06-11",
+    id: "www-inapi-cl-tramites-tramites-digitales_2026-07-22",
     resumenMvp: {
       porcentajeLc: 41.7,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "www-inapi-cl-tramites-tramites-digitales_2026-06-11",
+      },
+    ],
   },
 }
 

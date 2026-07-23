@@ -1,0 +1,511 @@
+{
+  "id": "www-inapi-cl_2026-07-22",
+  "url": "https://www.inapi.cl/",
+  "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "sitioweb",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 16,
+    "nombre_ui": "Home INAPI",
+    "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+    "visitas_ref": "—",
+    "encargado_ref": "Fernando Arriagada",
+    "fuente_piloto_id": "www-inapi-cl_2026-06-02",
+    "descripcion": "Reevaluación (Fase 3, arquitectura sub-subagentes CLAUDE.md §17) de la portada institucional. Corrige la calibración de G1 (RUT institucional) mal aplicada en la auditoría de junio y confirma correcciones de TIC (ACCESOS, Contraste de página, LINK EXTERNO) junto con contenido de noticias renovado."
+  },
+  "texto_capturado": "T007 [title]: «INAPI - Instituto Nacional de Propiedad Industrial» (sin cambios, guion simple) | T177 [meta description]: «Organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.» (nominalización pasiva, sin cambios) | meta keywords (DOS etiquetas duplicadas en <head>): ambas con typo «idicadores»; la segunda además con «documentaicón» y coma sobrante final | T264: «Accesos» (footer, YA CORREGIDO desde «ACCESOS») | T267: «BUSCADOR» (cabecera global, excluido de D7 por calibración) | T278: «Contraste de página» (YA CORREGIDO desde «Contraste de pagina») | T295: modal login — YA NO contiene «Login»/«Registro»/«LINK EXTERNO» (removidos) | T322: «MARCAS» | T336: «PATENTES» | T391: «BUSCADOR DE PATENTES» | T406: «BUSCADOR DE marcas» | T384: «Te queremos ayudar a utilizar la propiedad industrial» (H1) | Menú: «Observancia», «Sello de Origen», «PCT» (/pct) sin definir | Novedades (H3, contenido renovado): «Asamblea de la OMPI ratifica por unanimidad a INAPI como Autoridad Internacional PCT por 10 años más» + párrafo «La decisión de la Unión del PCT en Ginebra da continuidad al rol de la oficina chilena como prestadora de servicios de búsqueda y examen preliminar internacional para 14 países de América Latina y el Caribe.» (36 palabras, una sola oración) | T450: «Plataforma de Datos» (H3) → «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE» | T459: «Acceder» | T467: «Guías para usuarios» (H3) → «Descargar guía de marcas» / «Descargar guía de patentes» (sin formato) | T362: «Utiliza el canal de comunicación que prefieras:» (modal contacto) | T372: «Tu consulta será atendida por un especialista.» (voz pasiva, modal contacto) | Footer: «RUT: 65.999.669-3» | «Política de privacidad» | «©2026 INAPI. Todos los derechos reservados» | «Uso de los Contenidos de este Sitio»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El H1 hero comunica el propósito de la institución de inmediato; buscador y accesos principales permanecen en la parte superior. Sin cambios.",
+      "cita_textual": "H1: «Te queremos ayudar a utilizar la propiedad industrial»"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los titulares de sección siguen sin texto introductorio previo. Los banners de Plataforma de Datos mantienen tecnicismo antes de explicar el propósito. Sin cambios.",
+      "cita_textual": "H3 «Plataforma de Datos» → «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» — sin texto previo que explique el propósito"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página sigue usando H1/H3/H4 para delimitar Hero, Novedades, Plataforma de Datos, Guías para usuarios, Cuenta Pública 2026 y footer. Sin cambios."
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "El bloque continuo más largo (párrafo de noticia OMPI/PCT, ≈36 palabras) no supera 110 palabras."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El RUT institucional sigue en el footer sin aportar valor a la tarea del usuario en el home. Los fragmentos «PROGRAMA DE DESARROLLO/PRODUCTIVO SOSTENIBLE» siguen sin contexto accionable. No es un hallazgo de privacidad (ver G1, calibración CLAUDE.md §2); es un asunto de relevancia del contenido para la tarea.",
+      "cita_textual": "«RUT: 65.999.669-3» (footer) / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Verificado en vivo: el modal de contacto sigue con voz pasiva «Tu consulta será atendida por un especialista.» La meta description sigue con nominalización pasiva. Sin cambios.",
+      "cita_textual": "«Tu consulta será atendida por un especialista.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia» y «Sello de Origen» siguen sin definición en el menú. Sin cambios.",
+      "cita_textual": "Observancia / Sello de Origen"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "WIPO ya no aparece (reemplazado por «OMPI», sigla correcta en español, en el nuevo titular). Sin embargo PCT sigue sin expandirse la primera vez que aparece, tanto en el menú (/pct) como en el nuevo titular «Asamblea de la OMPI ratifica... Autoridad Internacional PCT».",
+      "cita_textual": "«Asamblea de la OMPI ratifica por unanimidad a INAPI como Autoridad Internacional PCT por 10 años más»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "Reclasificado de «incumple baja» (junio) a «cumple»: verificado en vivo que «Login», «Registro» y «Startup» ya no aparecen en el HTML actual (contenido reemplazado). OMPI, sigla ya traducida, refuerza el cumplimiento."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "Los CTAs visibles mantienen tono positivo. Sin cambios."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de contacto mantiene el imperativo distante «Utiliza el canal de comunicación que prefieras:». Sin cambios.",
+      "cita_textual": "«Utiliza el canal de comunicación que prefieras:»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno burocrático. Sin cambios."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Reclasificado de «incumple media» (junio) a «cumple»: el párrafo problemático de junio (sujeto largo pospuesto) ya no está publicado. Las tres noticias vigentes siguen mayormente orden sujeto-verbo-predicado.",
+      "cita_textual": "«La decisión de la Unión del PCT en Ginebra da continuidad al rol de la oficina chilena...»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Predomina presente y pretérito simple en las noticias de portada. Sin cambios."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El párrafo del nuevo titular OMPI/PCT es una oración única de 36 palabras (supera el umbral de 30 de la calibración INAPI), aunque desarrolla una sola idea. El patrón de junio (cláusula participial) ya no está, pero el problema de extensión reaparece en la noticia nueva.",
+      "cita_textual": "«La decisión de la Unión del PCT en Ginebra da continuidad al rol de la oficina chilena como prestadora de servicios de búsqueda y examen preliminar internacional para 14 países de América Latina y el Caribe.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada párrafo de noticia desarrolla una sola idea. Sin cambios."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos de noticia ocupan 1-3 líneas en escritorio. Sin cambios."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "El home no presenta bloques de 4 o más párrafos continuos de texto editorial."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "El home no contiene listas de requisitos de trámite."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persiste el typo «documentaicón» en la segunda etiqueta meta keywords (con coma sobrante final), ya detectado en junio y aún sin corregir. Se detecta además un nuevo typo «idicadores» (debería ser «indicadores») presente en AMBAS etiquetas meta keywords duplicadas del <head>. En cambio, «Contraste de pagina»→«Contraste de página» y «LINK EXTERNO» (texto de desarrollo) ya fueron corregidos. Severidad bajada de alta a media (2 de 3 hallazgos resueltos, pero nuevo hallazgo abierto).",
+      "cita_textual": "meta keywords: «...,idicadores,...,documentaicón,gestión,»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "La puntuación en los bloques de texto corrido es correcta. Sin cambios."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio CSS/visual; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio CSS/visual; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Las enumeraciones usan listas HTML o tarjetas, no texto corrido con comas. Sin cambios."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persisten mayúsculas sostenidas fuera de la cabecera global (ACCESOS/BUSCADOR de la cabecera están excluidos por calibración CLAUDE.md §2, y de hecho ACCESOS ya fue corregido a «Accesos»): «MARCAS», «PATENTES», «BUSCADOR DE PATENTES», «BUSCADOR DE marcas» (inconsistente), «INFORMACIÓN TECNOLÓGICA DE PATENTES», «PROGRAMA DE DESARROLLO», «PRODUCTIVO SOSTENIBLE».",
+      "cita_textual": "«MARCAS» / «PATENTES» / «BUSCADOR DE PATENTES» / «BUSCADOR DE marcas» / «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se detectan adjetivos autopromocionales. El nuevo titular OMPI/PCT es factual. Sin cambios."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI identificable en footer, copyright y modal. Sin cambios."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en el cuerpo del home, fuera de las fechas de noticias individuales. Verificado por grep sin resultados. Sin cambios.",
+      "cita_textual": "(ausencia) — ningún nodo indica cuándo fue actualizada la página principal"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> «INAPI - Instituto Nacional de Propiedad Industrial» solo nombra la institución con guion simple; no describe la tarea principal del sitio. Sin cambios.",
+      "cita_textual": "<title>: «INAPI - Instituto Nacional de Propiedad Industrial»"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Observancia» dirige a /protege-tu-idea, cuyo destino no coincide con el texto del enlace. «Conoce más» es texto genérico reutilizado sin relación con destinos específicos. Sin cambios.",
+      "cita_textual": "Observancia → /protege-tu-idea"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Persisten «Conoce más» y «Acceder» como textos genéricos que no describen el destino. Sin cambios.",
+      "cita_textual": "«Conoce más» / «Acceder»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Acceder» y «Conoce más» no informan qué encontrará el usuario en el destino. No se pudo reverificar con certeza el modal de login/registro (posible cambio de copy no confirmado), pero el patrón de CTAs genéricos persiste en el resto del sitio.",
+      "cita_textual": "«Acceder»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Descargar guía de marcas»/«Descargar guía de patentes» siguen sin indicar formato ni peso. El enlace «Teletrabajo» del carrusel tampoco indica formato. Sin cambios.",
+      "cita_textual": "«Descargar guía de marcas» / «Descargar guía de patentes»"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los CTAs se ubican al final de sus secciones, no intercalados en texto corrido. Sin cambios."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "CORRECCIÓN DE CALIBRACIÓN respecto a junio: el RUT «65.999.669-3» del footer es institucional (INAPI, persona jurídica pública), no de persona natural. Conforme a CLAUDE.md §2/§5, esto es cumple. La auditoría de 2026-06-11 marcó incumplimiento aplicando incorrectamente el criterio (confundiéndolo con A5, relevancia del RUT para la tarea del usuario, que sí sigue incumpliendo). Se corrige en esta pasada.",
+      "cita_textual": "RUT: 65.999.669-3"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Enlace «Política de privacidad» presente en el footer. Sin cambios."
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Copyright vigente y enlace «Uso de los Contenidos de este Sitio» presentes. Sin cambios."
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se observan versiones anteriores publicadas de esta página ni rótulos de archivo/no vigente."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 18,
+  "porcentaje_cumplimiento": 54.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 15 incumplimientos sobre 33 criterios aplicables (54,5 %), una mejora real de 9,0 puntos respecto a junio (45,5 %): se corrigió la calibración errónea de G1 (RUT institucional, ahora cumple), y el contenido renovado de noticias eliminó los anglicismos «Login»/«Startup» (B4 ahora cumple) y el párrafo mal estructurado de junio (C1 ahora cumple). TIC también corrigió «ACCESOS»→«Accesos», «Contraste de pagina»→«Contraste de página» y eliminó el texto de desarrollo «LINK EXTERNO». Persisten 15 incumplimientos: voz pasiva en modal de contacto y meta description (B1); PCT sin definir (B3); typos «idicadores»/«documentaicón» en meta keywords duplicadas (D1); mayúsculas sostenidas fuera de cabecera (D7); sin fecha de actualización (E3); title genérico (E4); enlaces no descriptivos «Conoce más»/«Acceder»/«Observancia» (F1, F2, F3); documentos sin formato indicado (F4). El array sustituciones[] contiene 29 filas con cobertura 1:1.",
+  "observaciones_lc": "La portada institucional obtiene 54,5 % de cumplimiento sobre 33 criterios aplicables (RECHAZADO), una mejora real de 9 puntos respecto a junio. La mejora se explica por tres factores: (1) corrección de la calibración de G1 — la auditoría de junio marcó incorrectamente el RUT institucional como incumplimiento de privacidad, cuando CLAUDE.md §2 establece que el RUT de persona jurídica pública en footer institucional es cumple; (2) renovación del contenido de noticias, que eliminó anglicismos («Login», «Startup» — B4 ahora cumple) y un párrafo con sujeto pospuesto (C1 ahora cumple), aunque introdujo una oración nueva que supera el umbral de 30 palabras (C3 sigue incumple); (3) correcciones puntuales de TIC: «ACCESOS»→«Accesos», «Contraste de pagina»→«Contraste de página», eliminación de «LINK EXTERNO». Los incumplimientos de mayor impacto sin cambios: voz pasiva persistente en el modal de contacto y meta description (B1 alta), PCT sin definir en menú y noticias (B3 alta), ausencia de fecha de actualización (E3 alta), enlaces genéricos «Conoce más»/«Acceder» (F2 alta), y documentos sin formato indicado (F4 alta). Nuevo hallazgo D1: typo «idicadores» detectado en dos etiquetas meta keywords duplicadas en el <head> (posible bug técnico de plantilla, además del contenido editorial duplicado).",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reevaluada el 2026-07-22 (Fase 3, arquitectura de 5 sub-subagentes, CLAUDE.md §17). De los 33 criterios aplicables, 18 se cumplen, arrojando 54,5 % de cumplimiento y estado RECHAZADO (≤80 %), una mejora real de 9,0 puntos respecto a junio (45,5 %) explicada por la corrección de la calibración de G1, la renovación de contenido de noticias (sin anglicismos ni sujeto pospuesto) y correcciones puntuales de TIC (Accesos, Contraste de página, LINK EXTERNO removido). Persisten 15 incumplimientos; de severidad alta: voz pasiva en modal de contacto (B1), PCT sin definir (B3), ausencia de fecha de actualización (E3), enlaces genéricos «Conoce más»/«Acceder» (F2), y documentos sin formato indicado (F4). Serie Clarity — rank 16.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B1) Voz pasiva persistente: «Tu consulta será atendida por un especialista» (modal contacto) y meta description con nominalización pasiva.",
+      "(B3) PCT sin definir en menú (/pct) y en el nuevo titular de noticia OMPI/PCT.",
+      "(E3) Sin fecha de publicación ni de última actualización visible en el home.",
+      "(F2) «Conoce más» y «Acceder» son textos de enlace genéricos que no describen el destino.",
+      "(F4) «Descargar guía de marcas»/«de patentes» y «Teletrabajo» sin indicar formato ni peso."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Titulares de sección sin texto introductorio previo; banners de Plataforma de Datos con tecnicismo antes del propósito.",
+      "(A5) RUT institucional y fragmentos de banner sin contexto accionable para la tarea del usuario (no es hallazgo de privacidad, ver G1).",
+      "(B2) «Observancia» y «Sello de Origen» sin definición.",
+      "(B6) Modal de contacto con imperativo distante «Utiliza el canal de comunicación que prefieras».",
+      "(C3) Nueva oración de noticia OMPI/PCT de 36 palabras, supera el umbral de 30.",
+      "(D1) Typos «idicadores» (dos etiquetas) y «documentaicón» (persiste) en meta keywords duplicadas.",
+      "(D7) Mayúsculas sostenidas en MARCAS, PATENTES, BUSCADOR DE PATENTES/marcas, banners de Plataforma de Datos.",
+      "(E4) Title genérico, no describe la tarea principal del sitio.",
+      "(F1) «Observancia» → slug no coincide con el destino.",
+      "(F3) «Acceder»/«Conoce más» no anticipan qué encontrará el usuario."
+    ],
+    "hallazgos_prioridad_baja": []
+  },
+  "sustituciones": [
+    {
+      "linea": "T453",
+      "html_linea_aprox": "HTML-Lbanner-plataforma",
+      "original": "(ausencia)",
+      "propuesto": "Accede a información tecnológica de patentes para apoyar el desarrollo productivo sostenible de tu empresa.",
+      "criterio_id": "A2",
+      "motivo": "Insertar párrafo de propósito antes del titular técnico «INFORMACIÓN TECNOLÓGICA DE PATENTES»."
+    },
+    {
+      "linea": "T522",
+      "html_linea_aprox": "HTML-Lfooter-rut",
+      "original": "RUT: 65.999.669-3",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "El RUT institucional no aporta valor a la tarea del usuario en el home; mover a sección Quiénes somos o Transparencia si se requiere mantenerlo."
+    },
+    {
+      "linea": "T-B1-modal",
+      "html_linea_aprox": "HTML-Lmodal-contacto",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista atenderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Voz pasiva en modal de contacto; reescribir en voz activa."
+    },
+    {
+      "linea": "T-B1-metadesc",
+      "html_linea_aprox": "HTML-Lmeta-description",
+      "original": "Organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.",
+      "propuesto": "INAPI administra y atiende los servicios de propiedad industrial en Chile.",
+      "criterio_id": "B1",
+      "motivo": "Nominalización pasiva en meta description; reescribir con sujeto activo."
+    },
+    {
+      "linea": "T-B2-observancia",
+      "html_linea_aprox": "HTML-Lmenu-principal",
+      "original": "Observancia",
+      "propuesto": "Observancia (protección y defensa de derechos de propiedad industrial)",
+      "criterio_id": "B2",
+      "motivo": "Término de jerga institucional en menú sin definición contextual."
+    },
+    {
+      "linea": "T-B2-sello",
+      "html_linea_aprox": "HTML-Lmenu-principal",
+      "original": "Sello de Origen",
+      "propuesto": "Sello de Origen (indicación geográfica de productos chilenos)",
+      "criterio_id": "B2",
+      "motivo": "Término de jerga institucional en menú sin definición contextual."
+    },
+    {
+      "linea": "T-B3-pct-menu",
+      "html_linea_aprox": "HTML-Lmenu-pct",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla PCT en menú principal sin definir en su primera aparición."
+    },
+    {
+      "linea": "T-B3-titular-ompi",
+      "html_linea_aprox": "HTML-Ltitular-ompi",
+      "original": "Asamblea de la OMPI ratifica por unanimidad a INAPI como Autoridad Internacional PCT por 10 años más",
+      "propuesto": "Asamblea de la Organización Mundial de la Propiedad Intelectual (OMPI) ratifica por unanimidad a INAPI como Autoridad Internacional PCT (Tratado de Cooperación en materia de Patentes) por 10 años más",
+      "criterio_id": "B3",
+      "motivo": "El titular usa OMPI y PCT sin expandir en su primera aparición en portada; si el espacio no permite la expansión completa en el titular, expandir en el primer párrafo de la noticia."
+    },
+    {
+      "linea": "T-B6-modal",
+      "html_linea_aprox": "HTML-Lmodal-contacto",
+      "original": "Utiliza el canal de comunicación que prefieras:",
+      "propuesto": "Elige el canal de comunicación que más te acomode:",
+      "criterio_id": "B6",
+      "motivo": "Imperativo distante en modal de contacto; suavizar el tono manteniendo el tuteo."
+    },
+    {
+      "linea": "T-C3-oracion",
+      "html_linea_aprox": "HTML-Lparrafo-noticia-ompi",
+      "original": "La decisión de la Unión del PCT en Ginebra da continuidad al rol de la oficina chilena como prestadora de servicios de búsqueda y examen preliminar internacional para 14 países de América Latina y el Caribe.",
+      "propuesto": "La decisión de la Unión del PCT en Ginebra da continuidad al rol de la oficina chilena. INAPI seguirá prestando servicios de búsqueda y examen preliminar internacional a 14 países de América Latina y el Caribe.",
+      "criterio_id": "C3",
+      "motivo": "Oración única de 36 palabras (supera el umbral de 30); dividir en dos oraciones."
+    },
+    {
+      "linea": "T-D1-keywords-1",
+      "html_linea_aprox": "HTML-Lhead-meta-keywords-1",
+      "original": "idicadores",
+      "propuesto": "indicadores",
+      "criterio_id": "D1",
+      "motivo": "Corregir typo en la primera etiqueta meta keywords del <head>."
+    },
+    {
+      "linea": "T-D1-keywords-2",
+      "html_linea_aprox": "HTML-Lhead-meta-keywords-2",
+      "original": "idicadores,...,documentaicón,gestión,",
+      "propuesto": "indicadores,...,documentación,gestión",
+      "criterio_id": "D1",
+      "motivo": "Corregir ambos typos y eliminar coma sobrante en la segunda etiqueta meta keywords. Nota para TI: existen dos etiquetas <meta name=\"keywords\"> duplicadas en el <head>; se recomienda consolidar en una sola."
+    },
+    {
+      "linea": "T-D7-marcas",
+      "html_linea_aprox": "HTML-Lseccion-busqueda",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en encabezado de sección de búsqueda."
+    },
+    {
+      "linea": "T-D7-patentes",
+      "html_linea_aprox": "HTML-Lseccion-busqueda",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en encabezado de sección de búsqueda."
+    },
+    {
+      "linea": "T-D7-buscador-patentes",
+      "html_linea_aprox": "HTML-Lcta-buscador",
+      "original": "BUSCADOR DE PATENTES",
+      "propuesto": "Buscador de patentes",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas; corrige inconsistencia con el CTA equivalente de marcas."
+    },
+    {
+      "linea": "T-D7-buscador-marcas",
+      "html_linea_aprox": "HTML-Lcta-buscador",
+      "original": "BUSCADOR DE marcas",
+      "propuesto": "Buscador de marcas",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas y corregir la mezcla mayúscula/minúscula."
+    },
+    {
+      "linea": "T-D7-info-tecnologica",
+      "html_linea_aprox": "HTML-Lbanner-plataforma",
+      "original": "INFORMACIÓN TECNOLÓGICA DE PATENTES",
+      "propuesto": "Información tecnológica de patentes",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el título del banner."
+    },
+    {
+      "linea": "T-D7-programa-desarrollo",
+      "html_linea_aprox": "HTML-Lbanner-plataforma",
+      "original": "PROGRAMA DE DESARROLLO PRODUCTIVO SOSTENIBLE",
+      "propuesto": "Programa de desarrollo productivo sostenible",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el subtítulo del banner (frase partida en dos nodos)."
+    },
+    {
+      "linea": "T384-e3",
+      "html_linea_aprox": "HTML-Lhero",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible bajo el H1 o en el pie de página, antes del copyright."
+    },
+    {
+      "linea": "T007-title",
+      "html_linea_aprox": "HTML-Lhead-title",
+      "original": "INAPI - Instituto Nacional de Propiedad Industrial",
+      "propuesto": "INAPI — Registro de marcas, patentes y propiedad industrial en Chile",
+      "criterio_id": "E4",
+      "motivo": "Describe la tarea principal del sitio, no solo el nombre institucional; usar em dash en vez de guion simple."
+    },
+    {
+      "linea": "T-F1-observancia",
+      "html_linea_aprox": "HTML-Lnav-observancia",
+      "original": "Observancia",
+      "propuesto": "Observancia y protección de tu marca",
+      "criterio_id": "F1",
+      "motivo": "El texto del enlace no coincide con el título de la página de destino (/protege-tu-idea)."
+    },
+    {
+      "linea": "T-F2-conoce-mas",
+      "html_linea_aprox": "HTML-Lcta-conoce-mas",
+      "original": "Conoce más",
+      "propuesto": "Conoce cómo registrar tu marca en línea",
+      "criterio_id": "F2",
+      "motivo": "Patrón «Ver más»/«Conoce más» prohibido por F2; reemplazar por texto descriptivo específico según la sección."
+    },
+    {
+      "linea": "T-F2-acceder",
+      "html_linea_aprox": "HTML-Lcta-acceder",
+      "original": "Acceder",
+      "propuesto": "Acceder a la Plataforma de Datos de INAPI",
+      "criterio_id": "F2",
+      "motivo": "El CTA no indica a qué sistema o recurso dirige."
+    },
+    {
+      "linea": "T-F3-acceder",
+      "html_linea_aprox": "HTML-Lcta-acceder",
+      "original": "Acceder",
+      "propuesto": "Acceder a la Plataforma de Datos de INAPI",
+      "criterio_id": "F3",
+      "motivo": "El texto no anticipa qué encontrará el usuario en el destino."
+    },
+    {
+      "linea": "T-F3-conoce-mas",
+      "html_linea_aprox": "HTML-Lcta-conoce-mas",
+      "original": "Conoce más",
+      "propuesto": "Conoce cómo registrar tu marca en línea",
+      "criterio_id": "F3",
+      "motivo": "Texto no significativo ni descriptivo del contenido de destino."
+    },
+    {
+      "linea": "T-F4-guia-marcas",
+      "html_linea_aprox": "HTML-Ldescarga-marcas",
+      "original": "Descargar guía de marcas",
+      "propuesto": "Descargar guía de marcas (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Documento descargable sin indicación de formato; no se conoce el peso exacto en el CMS."
+    },
+    {
+      "linea": "T-F4-guia-patentes",
+      "html_linea_aprox": "HTML-Ldescarga-patentes",
+      "original": "Descargar guía de patentes",
+      "propuesto": "Descargar guía de patentes (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Documento descargable sin indicación de formato."
+    },
+    {
+      "linea": "T-F4-teletrabajo",
+      "html_linea_aprox": "HTML-Lcarrusel-teletrabajo",
+      "original": "Teletrabajo",
+      "propuesto": "Teletrabajo (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Documento del carrusel de logos sin indicar formato ni peso."
+    }
+  ],
+  "history": [
+    {
+      "id": "www-inapi-cl_2026-06-11"
+    }
+  ],
+  "nota_final_tic": "Comparación con la auditoría del 2026-06-11: (1) YA CORREGIDO — «ACCESOS»→«Accesos» en footer; (2) YA CORREGIDO — «Contraste de pagina»→«Contraste de página»; (3) YA CORREGIDO — «LINK EXTERNO» (texto de desarrollo) eliminado del modal de acceso; (4) PENDIENTE — «documentaicón» en meta keywords, persiste; NUEVO — se detectaron DOS etiquetas <meta name=\"keywords\"> duplicadas en el <head>, ambas con el typo «idicadores»; recomendar a TIC consolidar en una sola etiqueta; (5) CORRECCIÓN DE CALIBRACIÓN — G1 pasa de incumple (junio, aplicación incorrecta del criterio) a cumple, conforme a CLAUDE.md §2: el RUT institucional en footer de persona jurídica pública es cumple; la relevancia del RUT para la tarea del usuario es un asunto de A5, que sigue incumpliendo; (6) MEJORA POR ROTACIÓN DE CONTENIDO — el contenido de noticias cambió (nuevo titular OMPI/PCT reemplaza el titular de junio con WIPO/Startup); esto resolvió B4 y C1 pero introdujo un nuevo hallazgo C3 (oración de 36 palabras); TIC y el equipo editorial deben revisar la longitud de oración al publicar noticias nuevas; (7) PENDIENTE SIN CAMBIOS — voz pasiva en modal de contacto y meta description (B1), PCT sin definir (B3), mayúsculas sostenidas D7 (fuera de cabecera global), ausencia de fecha de actualización (E3), title genérico (E4), enlaces «Conoce más»/«Acceder»/«Observancia» (F1-F3), documentos sin formato (F4) — estos hallazgos están en el _Layout o en componentes compartidos del home, coordinar con TIC. Auditoría ejecutada con arquitectura de 5 sub-subagentes (CLAUDE.md §17), consolidada por el agente raíz. Fuente editorial: www-inapi-cl_2026-06-11.json (serie Clarity)."
+}
