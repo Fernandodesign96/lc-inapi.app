@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-23 | [Documentación: Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión](#devlog-2026-07-23-fase-3-3-auth-sesion) |
 | 2026-07-23 | [Infraestructura: Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs](#devlog-2026-07-23-fase-3-audit-full-flow) |
 | 2026-07-22 | [Infraestructura: Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro](#devlog-2026-07-22-fase-2-rag-mcp) |
 | 2026-07-22 | [Infraestructura: Fase 1 — Registro MCP Playwright en Claude Code Pro](#devlog-2026-07-22-fase-1-playwright-mcp) |
@@ -45,6 +46,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+---
+
+## [2026-07-23] - Documentación | Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión {#devlog-2026-07-23-fase-3-3-auth-sesion}
+
+**Rama:** `feat/audit-remaining-urls` | **Entorno:** PC empresa (documentación) + WSL (implementación pendiente)
+
+### Contexto y objetivos:
+
+Extender el flujo de Fase 3 para auditar pantallas de `tramites.inapi.cl` **tras login ClaveÚnica**, sin tratar los datos personales del solicitante autenticado como incumplimientos graves de G1. Documentar ranks **8, 11, 13, 15** como **Pendiente TI** (sin acceso operativo). Marcar Fases 2 y 3 del ROADMAP como completadas.
+
+### Implementación técnica:
+
+- **`docs/fase-3-3-captura-auth-claveunica.md`** — flujo `storageState`, rol de Chroma vs Playwright, inventario Clarity, WSL vs PC empresa.
+- **`.claude/CLAUDE.md` §11, §19** — captura post-login, calibración G1 en sesión, anonimización en JSON.
+- **Skills** — `auditoria-lc.md` (inventario y G1 sesión), `auditoria-calidad-web.md`, `pesquisa-criterios.md`, `audit-lote.md`.
+- **`src/scripts/capture-tramites-html.ts`** + `bun run capture:tramites-html` — captura HTML con `auditorias/.auth/tramites-session.json`.
+- **`auditorias/.auth/`** — README local; `*.json` en `.gitignore`.
+- **`data/ux/clarity-fichas-mock.json`** — ranks 8, 11, 13, 15 → `Pendiente TI`.
+- **`docs/ROADMAP.md`** — Fases 2–3 marcadas completadas; nueva Fase 3.3.
+
+### Próximos pasos:
+
+- En WSL: crear `tramites-session.json`, capturar ranks 5–7 (re-DOM Playwright) y auditar con §19.
+- Coordinación TI para ranks 8, 11, 13, 15.
+- Revisar HTML antes de commit para evitar PII en capturas versionadas.
 
 ---
 

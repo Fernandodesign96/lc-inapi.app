@@ -294,7 +294,9 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
             Disponible
           </span>
         ) : (
-          <span className="text-xs text-muted-foreground">Pendiente</span>
+          <span className="text-xs text-muted-foreground">
+            {row.estadoRef === "Pendiente TI" ? "Pendiente TI" : "Pendiente"}
+          </span>
         )}
       </TableCell>
     </TableRow>

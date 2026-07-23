@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-07-22
+**Última actualización:** 2026-07-23
 
 ---
 
@@ -69,10 +69,10 @@
 
 ### Extensión serie Clarity 22 URLs (junio 2026, rama `feature/clarity-22-urls-auditorias-claude-json`)
 
-- [x] **Cableado MVP:** tabla Historial 22 URLs → `/auditar/resultado` + PDF vía `clarity-audits-launch.ts` y `load-claude-audit-bundle.ts` (`urls-clarity/`).
-- [x] **Esquema `clarity_meta`** en JSON serie Clarity; `validate:claude-audits` ampliado a subcarpeta `urls-clarity/`.
-- [x] **5 JSON** en repo (ranks 1–4 y 21); rank 4 (Notificaciones) añadido en casa junto al cableado.
-- [ ] **JSON ranks 5–20 y 22** vía Proyecto Claude (§3.5 del flujo operativo).
+- [x] **Cableado MVP:** tabla Historial 22 URLs → `/auditar/resultado` + PDF vía `clarity-audits-launch.ts` y `load-claude-audit-bundle.ts`.
+- [x] **Esquema `clarity_meta`** en JSON serie Clarity; `validate:claude-audits` ampliado a `tramites/` y `sitioweb/` (Meta MEI + fecha).
+- [x] **13/17 JSON** Clarity en repo (ranks 1–7, 9–10, 12, 14, 16–17); restructura `data/claude-audits/{tramites|sitioweb}/{fecha}/` (jul-2026).
+- [ ] **Ranks 8, 11, 13, 15** — pendiente coordinación TI (sin acceso operativo; ver [Fase 3.3](fase-3-3-captura-auth-claveunica.md) §3).
 
 ### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
@@ -128,36 +128,66 @@
 
 ---
 
-## Fase 2 — RAG (colecciones A y B)
+## Fase 2 — RAG (colecciones A y B) — completada (jul-2026, WSL)
 
 **Condición:** Chroma instalado en WSL y PDFs normativos disponibles localmente.
 
-- [ ] Crear `rag/` con `package.json` y `tsconfig.json` (dependencias: `chromadb`, `@xenova/transformers`, `langchain`)
-- [ ] `bun install` en `rag/`
-- [ ] Levantar Chroma local: `chroma run --path ./rag/chroma_db --port 8000`
-- [ ] Poner PDFs en `documentos/` (solo local; nunca al repo)
-- [ ] `bun run ingest:b` — ingesta Colección B (datos ya en el repo)
-- [ ] `bun run ingest:a` — ingesta Colección A (requiere PDFs en `documentos/`)
-- [ ] Probar con `bun run query "criterio D7 encabezados mayúsculas"` — verificar resultados relevantes
-- [ ] `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts`
+- [x] Crear `rag/` con `package.json` y `tsconfig.json` (dependencias: `chromadb`, `@xenova/transformers`, `langchain`)
+- [x] `bun install` en `rag/`
+- [x] Levantar Chroma local: `chroma run --path ./rag/chroma_db --port 8000`
+- [x] Poner PDFs en `documentos/` (solo local; nunca al repo)
+- [x] `bun run ingest:b` — ingesta Colección B (datos ya en el repo)
+- [x] `bun run ingest:a` — ingesta Colección A (requiere PDFs en `documentos/`)
+- [x] Probar con `bun run query "criterio D7 encabezados mayúsculas"` — verificar resultados relevantes
+- [x] `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts`
 
 **Resultado:** Claude Code puede consultar criterios y precedentes semánticamente con dos colecciones aisladas.
 
 ---
 
-## Fase 3 — Flujo completo de auditoría
+## Fase 3 — Flujo completo de auditoría — completada (jul-2026, WSL)
 
 **Condición:** Fases 0, 1 y 2 completadas.
 
-- [ ] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
-- [ ] Verificar que el JSON generado pasa `validate-claude-audits.ts`
-- [ ] Implementar arquitectura de **sub-subagentes por grupo temático** (5 grupos: A+E, B+C, D, F, G+H) — ver [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17
-- [ ] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
-- [ ] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
-- [ ] Verificar que los Hooks validan JSONs automáticamente al guardarse
-- [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3)
+- [x] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
+- [x] Verificar que el JSON generado pasa `validate-claude-audits.ts`
+- [x] Implementar arquitectura de **sub-subagentes por grupo temático** (5 grupos: A+E, B+C, D, F, G+H) — ver [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17
+- [x] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
+- [x] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
+- [x] Verificar que los Hooks validan JSONs automáticamente al guardarse
+- [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3) — seguimiento editorial con Bernarda
 
-**Resultado:** auditoría completa automatizada de principio a fin, escalable a lotes.
+**Resultado:** auditoría completa automatizada de principio a fin, escalable a lotes. Detalle en devlog 2026-07-23.
+
+---
+
+## Fase 3.3 — Captura autenticada (ClaveÚnica) y calibración de datos de sesión
+
+**Condición:** Fase 3 completada. **Entorno:** PC casa — WSL + Chroma + Playwright. Documentación: [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
+
+**Rama:** `feat/audit-remaining-urls`
+
+### Hecho en repo (jul-2026 — documentación y tooling)
+
+- [x] Documentar flujo `storageState` + script `capture:tramites-html` y calibración G1–G3 en sesión (`.claude/CLAUDE.md` §19, skills, `SECURITY.md`)
+- [x] Marcar ranks **8, 11, 13, 15** como **Pendiente TI** en inventario mock
+- [x] Aclarar que **Chroma no navega URLs** — solo Playwright requiere sesión
+
+### Pendiente — implementación en WSL
+
+- [ ] Crear `auditorias/.auth/tramites-session.json` con login manual ClaveÚnica (`playwright codegen --save-storage`)
+- [ ] Capturar HTML de URLs post-login accesibles (ranks 5–7 u otras) con `bun run capture:tramites-html`
+- [ ] Auditar con flujo §17 + calibración §19; JSON en `data/claude-audits/tramites/{fecha}/`
+- [ ] Subir capturas `.html` versionadas y reingestar Colección B si aplica
+- [ ] Coordinación TI para ranks 8, 11, 13, 15 (cuenta prueba, flujos de confirmación/pago)
+
+### Implementable hoy en PC empresa (sin WSL / sin Chroma)
+
+- [x] Documentación, skills, ROADMAP y validación de JSON existentes
+- [x] Commits, PRs y `typecheck:all`
+- [ ] Playwright MCP solo en URLs **públicas** (captura parcial sin RAG)
+
+**Resultado:** auditorías LC sobre pantallas autenticadas sin falsos positivos G1 por datos del solicitante; ranks bloqueados documentados para TI.
 
 ---
 

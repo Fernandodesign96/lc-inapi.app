@@ -197,6 +197,13 @@ Para lotes, los pasos 1–6 corren en **paralelo con subagents** (un subagente p
 
 **Resultado:** auditoría completa automatizada de principio a fin.
 
+### Fase 3.3 — Captura autenticada (ClaveÚnica) y calibración de datos de sesión
+1. Documentar flujo `storageState` + script `capture:tramites-html` (ver `docs/fase-3-3-captura-auth-claveunica.md`).
+2. Calibrar G1–G3 y anonimización en `CLAUDE.md` §19 y skills.
+3. Auditar URLs post-login accesibles en WSL; mantener ranks 8, 11, 13, 15 en **Pendiente TI**.
+
+**Resultado:** auditorías LC en pantallas autenticadas sin falsos positivos por datos del solicitante.
+
 ### Fase 4 — Producción (servidor TI)
 1. Coordinar con Álvaro / Bernarda / Octavio la viabilidad del servidor interno.
 2. Copiar `rag/chroma_db/` al servidor (no hay que reingestar).

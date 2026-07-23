@@ -2,17 +2,26 @@
 
 **Propósito:** fuente de verdad **documental** para el equipo UX/editorial: qué páginas concentran visitas según el marco **Calidad Web INAPI** (extracto **Microsoft Clarity**), cómo se relacionan con el **seguimiento de lenguaje claro** en el aplicativo mock (Fase 1) y cómo se presentan en **`/auditar`** y en las **fichas por URL**.
 
-**Fase 1.5 (piloto junio 2026):** el entregable operativo a TIC son **10 URLs** auditadas con Claude (ver [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) y [`../ROADMAP.md`](../ROADMAP.md)); este inventario de **22** filas sigue siendo la **referencia Calidad Web** completa, no la cola única del piloto.
+**Fase 1.5 (piloto junio 2026):** el entregable operativo a TIC son **9 URLs** operativas del piloto (ver [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) y [`../ROADMAP.md`](../ROADMAP.md)); la **serie Clarity** en UI es el inventario editorial comprimido de **17 ranks** (no 22 filas históricas).
 
-**Alcance analítico:** el inventario mock agrupa **22 URLs** en **una sola tabla** (§2.1): la mayoría son **Calidad Web — Trámites** (`tramites.inapi.cl`, aplicación de trámites) y **tres** son **Calidad Web — Sitio Web** (`www.inapi.cl`: home institucional y página informativa de trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
+**Estado jul-2026 (Meta MEI + fecha):**
 
-**Serie Clarity junio 2026 (extensión Fase 1.5):** cuando existe JSON en [`data/claude-audits/urls-clarity/`](../../data/claude-audits/urls-clarity/), la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5. **Estado 2026-06-15:** 5/22 con informe (ranks 1–4 y 21).
+| Métrica | Valor |
+| --- | --- |
+| Fichas en mock | **17** ranks (`data/ux/clarity-fichas-mock.json`) |
+| Con informe MVP | **13/17** — cableados en [`clarity-audits-launch.ts`](../../frontend/src/lib/clarity-audits-launch.ts) |
+| Pendiente TI | Ranks **8, 11, 13, 15** — sin acceso operativo; ver [`../fase-3-3-captura-auth-claveunica.md`](../fase-3-3-captura-auth-claveunica.md) §3 |
+| Ruta JSON | `data/claude-audits/{tramites\|sitioweb}/{YYYY-MM-DD}/{id}.json` |
+
+**Alcance analítico:** el inventario mock agrupa **17 URLs** en **una sola tabla** (§2.1): **15** filas **Trámites** (`tramites.inapi.cl`) y **2** **Sitio Web** (`www.inapi.cl`: ranks **16** home y **17** trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
+
+**Serie Clarity (extensión Fase 1.5):** cuando existe JSON bajo `data/claude-audits/tramites/` o `sitioweb/`, la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5.
 
 **Paradoja Clarity (mayo 2026):** el proyecto Microsoft Clarity está asociado al **Sitio Web** INAPI, pero el extracto de páginas populares (365 días) muestra **mayormente URLs de `tramites.inapi.cl`**. La página con **más visitas** en ese extracto es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059 visitas) — contenido **informativo** con acordeones RNT, **no** el portal de login. La **home** `https://www.inapi.cl/` **no aparece** en el top Clarity revisado, aunque es la portada institucional; se incluye igual en inventario por criterio editorial. Detalle en §2.0.
 
 **Alcance LC:** Clarity/Calidad Web informa **comportamiento y volumen**; **no** sustituye una evaluación LC automática. Las columnas de **% cumplimiento LC** y **estado** reflejan **criterio editorial de referencia**, salvo donde exista fixture validado en repo.
 
-**Fuente máquina (mock Fase 1):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — **22 fichas** con URL absoluta, **`type_url`**, métricas, encargado, auditorías, última revisión e historial breve. La tabla en UI **deriva** de ese JSON (vía `frontend/src/lib/clarity-fichas-mock.ts`). Los identificadores internos (`clarity-*`, ruta `/inventario/clarity/[rank]`) son **legado de implementación**; semánticamente la lista es el historial unificado Calidad Web Sitio + Trámites.
+**Fuente máquina (mock Fase 1):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) — **17 fichas** con URL absoluta, **`type_url`**, métricas, encargado, auditorías, última revisión e historial breve. La tabla en UI **deriva** de ese JSON (vía `frontend/src/lib/clarity-fichas-mock.ts`). Los identificadores internos (`clarity-*`, ruta `/inventario/clarity/[rank]`) son **legado de implementación**; semánticamente la lista es el historial unificado Calidad Web Sitio + Trámites.
 
 ---
 
@@ -26,7 +35,7 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 | **Intermedia** (aceptado con observaciones en referencia numérica) | Presentación de Escritos — INAPI — Sitio de Trámites | `https://tramites.inapi.cl/Trademark/TrademarkUserDocument/SuccessConfirmation` |
 | **Mejor** (aprobado en referencia) | Homepage institucional | `https://www.inapi.cl/` |
 
-**Nota:** la **home institucional** (`https://www.inapi.cl/`) es atajo editorial §1 (perfil **mejor** LC) y **fila de inventario** con `type_url: sitioweb` (rank **21** objetivo, §2.1) — **no** coincide con el **rank 1** del inventario, que es la **landing del portal de trámites** `https://tramites.inapi.cl/` (`type_url: tramites`). Las filas `tramites` usan dominio `tramites.inapi.cl`; las `sitioweb`, `www.inapi.cl`.
+**Nota:** la **home institucional** (`https://www.inapi.cl/`) es atajo editorial §1 (perfil **mejor** LC) y **fila de inventario** `type_url: sitioweb` (rank **16**, §2.1) — **no** coincide con el **rank 1** del inventario, que es la **landing del portal de trámites** `https://tramites.inapi.cl/` (`type_url: tramites`). La página informativa **Trámites digitales** es rank **17** (`www.inapi.cl/tramites/tramites-digitales`).
 
 **Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Las franjas **81–90 %** y **≥91 %** se cubren con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
 
@@ -57,7 +66,7 @@ INAPI expone **dos experiencias web** que comparten la palabra «trámites» en 
 
 ### 2.1 Presentación en la pantalla `/auditar`
 
-**Un solo acordeón** con la tabla de **22 URLs** (20 actuales + **2 filas Sitio Web** documentadas). Es el **registro canónico** mock: visitas, auditorías, última revisión, % LC, estado y **`type_url`**. Ya **no** existen acordeones aparte por tipo; observaciones de seguimiento en **ficha por URL** (§2.2).
+**Un solo acordeón** con la tabla de **17 URLs** (15 Trámites + **2** filas Sitio Web: ranks **16–17**). Es el **registro canónico** mock: visitas, auditorías, última revisión, % LC, estado y **`type_url`**. Ya **no** existen acordeones aparte por tipo; observaciones de seguimiento en **ficha por URL** (§2.2).
 
 **Títulos en UI (2026-05-28):**
 
@@ -83,13 +92,13 @@ Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYST
 
 **Sin filtro** por encargado ni por observación (el encargado permanece como columna informativa; las observaciones viven en la ficha).
 
-**Orden por defecto:** rank 1–22 según priorización editorial (§2.1, tabla); ranks 1–20 alineados al extracto Trámites; ranks 21–22 = Sitio Web añadidas.
+**Orden por defecto:** rank 1–17 según priorización editorial; ranks **16–17** = Sitio Web (`www.inapi.cl`).
 
 **Columnas (orden objetivo):**
 
 | Columna | Descripción |
 | --- | --- |
-| `#` | Rank 1–22; enlace principal a `/auditar/resultado?claudeAudit=` cuando hay JSON en `urls-clarity/`; ficha `/auditar/inventario/clarity/[rank]` sigue disponible |
+| `#` | Rank 1–17; enlace a `/auditar/resultado?claudeAudit=` cuando hay JSON en `tramites/` o `sitioweb/`; ficha `/auditar/inventario/clarity/[rank]` disponible |
 | Ruta o etiqueta (Clarity) | Etiqueta documental; enlace a la misma ficha |
 | **Tipo** | `type_url`: **Trámites** \| **Sitio Web** (badge o columna; derivado del JSON) |
 | **Encargado** | Responsable mock de seguimiento (Fase 1: **Fernando Arriagada** en todas las filas) |
@@ -117,8 +126,8 @@ Valores: `"tramites"` | `"sitioweb"`. Obligatorio en cada objeto de `fichas[]` e
 | 2 | 4 | `Account/Login` |
 | 3 | 3 | `Trademark/TrademarkFile` |
 | 4 | 2 | Notificaciones Marcas |
-| 5–20 | 1 | Resto Trámites |
-| 21–22 | 1 | Filas Sitio Web (home + Trámites digitales) |
+| 5–15 | 1 | Resto Trámites (ranks **8, 11, 13, 15** = Pendiente TI en jul-2026) |
+| 16–17 | 1 | Filas Sitio Web (home + Trámites digitales) |
 
 Orden por volumen relativo en el extracto entregado al repositorio (sin pretender ser un dump crudo de Clarity). **Corrección documental (2026-05-28):** el rank **1** del inventario es **`https://tramites.inapi.cl/`**, no la home `www.inapi.cl` (error previo en doc y JSON).
 
@@ -218,9 +227,9 @@ flowchart TB
 | Pantalla | Tablas / bloques relevantes |
 | --- | --- |
 | `/auditar/resultado` | 39 criterios: Sección, Criterio, Estado, Severidad, Comentario |
-| `/auditar` | Tabla única — **22 URLs** Calidad Web (§2.1), filtro `type_url` + filtros LC/orden |
-| `/auditar/inventario/clarity/[rank]` | Resumen + contexto (observaciones) + historial mock (§2.2); ranks 1–22 |
+| `/auditar` | Tabla única — **17 URLs** Calidad Web (§2.1), filtro `type_url` + filtros LC/orden |
+| `/auditar/inventario/clarity/[rank]` | Resumen + contexto (observaciones) + historial mock (§2.2); ranks 1–17 |
 
 ---
 
-*Última revisión documental: 2026-05-29 — inventario 22 URLs con `type_url`; filtro Trámites/Sitio Web y columna Tipo en UI; rank 1 = landing `tramites.inapi.cl`; ver [`docs/development/DEVLOG.md`](../development/DEVLOG.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15, [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*
+*Última revisión documental: 2026-07-23 — inventario **17** URLs; rutas JSON Meta MEI (`tramites/` · `sitioweb/`); **13/17** con informe; ranks **8, 11, 13, 15** Pendiente TI; ver [`docs/fase-3-3-captura-auth-claveunica.md`](../fase-3-3-captura-auth-claveunica.md), [`docs/development/DEVLOG.md`](../development/DEVLOG.md) y [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*

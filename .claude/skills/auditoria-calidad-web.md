@@ -124,7 +124,8 @@ El **Meta MEI** es el instrumento de referencia para evaluar la calidad editoria
 | `buscador` | Buscador de marcas y patentes | `buscadormarcas.inapi.cl` |
 
 **Relevancia del tipo para criterios:**
-- `tramites`: aplicar Meta MEI con mayor peso en B, C, D; verificar G1 (datos en formularios).
+- `tramites` **públicas:** aplicar Meta MEI con mayor peso en B, C, D; G1 según HTML estático (RUN/nombre ajeno = incumple).
+- `tramites` **con sesión (`captura_con_sesion: true`):** G1 calibrado en `CLAUDE.md` §19 — datos del solicitante en formulario = esperados; evaluar claridad de etiquetas y ayudas (B, C, F).
 - `sitioweb`: aplicar Calidad Web 2.0 completo; verificar A1–A5 (estructura editorial).
 - `buscador`: aplicar criterios de herramienta interactiva; A4/A5 frecuentemente `no_aplica`.
 
