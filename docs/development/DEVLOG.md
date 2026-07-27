@@ -67,12 +67,14 @@ Con varias fechas de informe por URL Clarity (junio y julio 2026), el MVP solo m
 - **Rutas:** `/auditar/historial` (índice con filtro Trámites / Sitio Web) y `/auditar/historial/[rank]` (tabla de fechas, badge Vigente/Anterior, enlace a resultado).
 - **Ingreso de URL:** tercer botón «Historial de auditorías» en el `CardFooter` de `/auditar`.
 - **Inventario Clarity y ficha:** columna Historial; conteo de auditorías desde `versiones.length` cuando hay JSON real; ficha deja el historial mock y muestra versiones del launch con «Ver historial completo».
-- Commits atómicos en la rama: capa de datos → pantallas → botón → ficha/inventario → esta documentación.
+- **Consistencia piloto ↔ Clarity:** URLs solapadas (`www.inapi.cl/`, `tramites.inapi.cl/`) en el piloto 9 apuntan a la misma auditoría vigente que Clarity (jul-2026); ids piloto antiguos quedan en `history[]` de `claude-audits-launch.ts`.
+- **Workflow documentado:** tras JSON + `ingest:b`, hay que cablear el launch a mano (no automático) — `audit-lote.md` Paso 6, `CLAUDE.md` §12 Paso 4b, `fase-3-3` §4.5.
+- Commits atómicos en la rama: capa de datos → pantallas → botón → ficha/inventario → documentación.
 - `bun run typecheck:all` y `validate:claude-audits` en verde.
 
-### 💡 Repaso técnico: Allowlist y history:
+### 💡 Repaso técnico: Allowlist, history e ingest:
 
-Los ids en `history[]` vivían en disco pero no en `CLARITY_AUDIT_ID_SET`; `loadClaudeAuditBundle` devolvía `not_allowed` al abrir un informe de junio. El SET debe ser la unión de vigentes + históricos mientras el allowlist sea la fuente de verdad del MVP.
+Los ids en `history[]` vivían en disco pero no en `CLARITY_AUDIT_ID_SET`; `loadClaudeAuditBundle` devolvía `not_allowed` al abrir un informe de junio. El SET debe ser la unión de vigentes + históricos. **`ingest:b` solo alimenta el RAG** — la tabla `/auditar` y el historial leen el registry TypeScript; sin editar el launch, la UI sigue mostrando la auditoría anterior.
 
 ### Próximos pasos:
 

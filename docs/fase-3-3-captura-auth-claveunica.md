@@ -111,6 +111,14 @@ Si el MCP de Playwright no acepta `storageState`, usar **siempre** este script p
 bun run rag/ingest-b.ts    # reindexar precedentes si hay JSON nuevos
 ```
 
+**Frontend (obligatorio):** `ingest:b` no actualiza la UI. Hay que cablear a mano:
+
+1. `frontend/src/lib/clarity-audits-launch.ts` — nuevo `id` vigente, `history[]` con el id anterior, entrada en `CLARITY_AUDIT_META_BY_ID`.
+2. Si la URL está también en el piloto 9 URLs: `frontend/src/lib/claude-audits-launch.ts` (mismo criterio: vigente = última; anteriores en `history`).
+3. `bun run validate:claude-audits`.
+
+Detalle: `.claude/prompts/audit-lote.md` § «Paso 6 — Cablear el frontend».
+
 ---
 
 ## 5. Calibración — datos personales en pantallas autenticadas

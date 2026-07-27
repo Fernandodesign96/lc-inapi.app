@@ -54,15 +54,19 @@ export function AuditarClaudePilotSection() {
           Piloto auditoría LC — 9 URLs (entrega TIC)
         </CardTitle>
         <CardDescription>
-          Auditorías Claude exportadas al repositorio. Abra una fila disponible
-          para ver el informe con los siete bloques acordados.
+          Auditorías Claude en el repositorio. Cada fila muestra la{" "}
+          <strong className="font-medium text-foreground">
+            última auditoría
+          </strong>{" "}
+          disponible para esa URL. Abra una fila disponible para el informe (siete
+          bloques).
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="piloto-junio-2026">
             <AccordionTrigger className="text-start text-sm sm:text-base">
-              URLs auditadas — piloto junio 2026
+              URLs auditadas — piloto (última auditoría vigente)
             </AccordionTrigger>
             <AccordionContent>
               <div className="overflow-x-auto px-1 pb-2">
@@ -124,7 +128,9 @@ export function AuditarClaudePilotSection() {
                             {labelTipoPagina(row.tipoPagina)}
                           </TableCell>
                           <TableCell className="tabular-nums text-sm">
-                            {resumen ? `${resumen.porcentajeLc} %` : "—"}
+                            {resumen
+                              ? `${resumen.porcentajeLc.toFixed(1).replace(".", ",")} %`
+                              : "—"}
                           </TableCell>
                           <TableCell>
                             {resumen ? (

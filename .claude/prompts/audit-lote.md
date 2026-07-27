@@ -83,9 +83,26 @@ bun run rag/ingest-b.ts          # reindexar precedentes si hay JSON nuevos
 git log --oneline -5             # confirmar commits del lote
 ```
 
+**Paso 6 — Cablear el frontend (obligatorio; no es automático)**
+
+`ingest:b` solo actualiza Chroma (RAG). La UI **no** escanea `data/claude-audits/` en runtime.
+
+Para que el informe aparezca en `/auditar`, historial y resultado:
+
+1. **Serie Clarity:** editar `frontend/src/lib/clarity-audits-launch.ts`
+   - Mover el `id` anterior a `history: [{ id: "…_fecha-anterior" }]`
+   - Poner el nuevo id como vigente + `resumenMvp` (% , estado, fecha ISO)
+   - Añadir el nuevo id (y el anterior si falta) en `CLARITY_AUDIT_META_BY_ID`
+2. **Si la URL también está en el piloto (p. ej. home `www` o landing `tramites`):** editar `frontend/src/lib/claude-audits-launch.ts` igual — `claudeAuditId` = última auditoría; ids viejos en `history`
+3. `bun run validate:claude-audits` y `bun run typecheck:all`
+4. Commit del cableado frontend junto con el JSON (o commit atómico `feat(frontend): cablear …`)
+
+Sin este paso, el JSON existe en el repo y en Colección B, pero las tablas siguen mostrando la auditoría anterior.
+
 Reportar al finalizar:
 - URLs auditadas con su `porcentaje_cumplimiento` y `estado_aceptacion`
 - Si usaron `captura_con_sesion: true`
+- Si el launch frontend quedó actualizado
 - Cualquier criterio que requiera calibración con el Equipo UX (G1, D7, E3)
 
 ---
