@@ -1,6 +1,6 @@
 # Fase 3.3 — Captura autenticada (ClaveÚnica) y calibración de datos de sesión
 
-**Última actualización:** 2026-07-23  
+**Última actualización:** 2026-07-27  
 **Rama de trabajo:** `feat/audit-remaining-urls`  
 **Entorno objetivo:** PC casa — WSL2 + Chroma + Playwright + Claude Code Pro
 
@@ -45,8 +45,8 @@ JSON en data/claude-audits/tramites/{fecha}/ → validate → commit
 
 | Categoría | Ranks | Acción |
 | --- | --- | --- |
-| **Auditadas** (JSON en repo) | 1–7, 9–10, 12, 14, 16–17 | Mantener; opcional re-captura Playwright con sesión para DOM actualizado |
-| **Auditables con sesión** (Fase 3.3) | 5–7 (re-auditoría DOM), futuras pantallas post-login accesibles por URL directa | WSL + `storageState` + flujo §12–§19 de `CLAUDE.md` |
+| **Auditadas** (JSON en repo) | 1–10, 12, 14, 16–17 | Mantener; ranks 5–7 re-auditados con sesión y DOM actualizado el 2026-07-27 (ver `data/claude-audits/tramites/2026-07-27/`) |
+| **Auditables con sesión** (Fase 3.3) | Futuras pantallas post-login accesibles por URL directa | WSL + `storageState` + flujo §12–§19 de `CLAUDE.md` |
 | **Pendiente TI / sin acceso** | **8**, **11**, **13**, **15** | No forzar auditoría; estado `Pendiente TI` en fichas mock; discusión con Octavio / equipo técnico |
 
 ### Motivo de bloqueo (ranks pendientes TI)

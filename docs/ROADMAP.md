@@ -175,9 +175,9 @@
 
 ### Pendiente — implementación en WSL
 
-- [ ] Crear `auditorias/.auth/tramites-session.json` con login manual ClaveÚnica (`playwright codegen --save-storage`)
-- [ ] Capturar HTML de URLs post-login accesibles (ranks 5–7 u otras) con `bun run capture:tramites-html`
-- [ ] Auditar con flujo §17 + calibración §19; JSON en `data/claude-audits/tramites/{fecha}/`
+- [x] Crear `auditorias/.auth/tramites-session.json` con login manual ClaveÚnica (`playwright codegen --save-storage`)
+- [x] Capturar HTML de URLs post-login accesibles (ranks 5–7 u otras) con `bun run capture:tramites-html` — completado 2026-07-27 (rank 7 requirió recaptura vía Playwright MCP por HTML de error en la primera captura)
+- [x] Auditar con flujo §17 + calibración §19; JSON en `data/claude-audits/tramites/{fecha}/` — ranks 5–7 en `2026-07-27/`, `bun run validate:claude-audits` OK
 - [ ] Subir capturas `.html` versionadas y reingestar Colección B si aplica
 - [ ] Coordinación TI para ranks 8, 11, 13, 15 (cuenta prueba, flujos de confirmación/pago)
 

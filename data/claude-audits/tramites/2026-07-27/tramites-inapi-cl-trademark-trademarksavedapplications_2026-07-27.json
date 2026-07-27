@@ -1,0 +1,435 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarksavedapplications_2026-07-27",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkSavedApplications",
+  "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 5,
+    "nombre_ui": "Solicitudes guardadas",
+    "ruta_etiqueta": "Trademark Saved Applications",
+    "visitas_ref": "65.628",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Listado de solicitudes de marca guardadas para continuar más tarde."
+  },
+  "texto_capturado": "T002 [HTML-L29]: «Solicitudes Guardadas de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss» (title, em dash correcto pero con typo «máss») | T006-T009 [HTML-L126,147,180,200]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas, dropdown mobile) | T010 [HTML-L330]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011 [HTML-L367]: «Títulos y Certificados Patentes» (con tilde correcta — corregido) | T012 [HTML-L379]: «Documentación Mínima PCT» | T014 [HTML-L397]: «Perfil [nombre del usuario autenticado]» (dato de sesión, anonimizado) | T015 [HTML-L401]: «Cerrar Sesión» | T016 [HTML-L416]: «[nombre del usuario autenticado]» (dato de sesión, navbar-text solo visible autenticado) | T018 [HTML-L461,480,512,532]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (navbar desktop) | T019 [HTML-L694]: «Títulos y Certificados Patentes» (navbar desktop patentes, con tilde correcta) | T020 [HTML-L840]: «Solicitudes Guardadas de Marcas» (div.card-header, no H1/H2/H3 semántico) | T021 [HTML-L850]: «Mostrar filtros de búsqueda» (capitalización de sentencia — corregido) | T022 [HTML-L857]: «Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.» | T023 [HTML-L860]: «Filtros de búsqueda» (capitalización de sentencia — corregido) | T024 [HTML-L866]: «N° de Atención» (label) | T025 [HTML-L875]: «N° de Solicitud» (label) | T026 [HTML-L884]: «Titular/Solicitante» (label) | T027 [HTML-L893]: «Estado» (label select) | T028-T031 [HTML-L894-897]: «Todos» (opción por defecto — corregido), «Borrador», «Confirmada con Pago», «Confirmada sin Pago» | T032-T034 [HTML-L904,905,912]: «Buscar», «Limpiar», «Crear nueva Solicitud de Marca» | T035 [HTML-L924]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» | T036 [HTML-L928]: «Resultados» (leyenda) | T037 [HTML-L935-937]: encabezados de tabla «N° Atención», «N° Solicitud», «Titular/Solicitante», «Signo o Denominación», «Categoría», «Tipo», «Última Actualización», «Estado», «Acciones» | T038 [HTML-L941]: «[N° de atención del trámite]» (dato de sesión) | T039 [HTML-L947]: «[Nombre del solicitante autenticado]» (dato de sesión, es el propio usuario) | T040 [HTML-L950]: «[nombre de marca en trámite]» (dato de sesión) | T041-T043 [HTML-L953-964]: categoría/tipo/fecha/estado del propio trámite del usuario (dato de sesión) | T044 [HTML-L970,974]: tooltips «Editar» / «Eliminar» | T045 [HTML-L1076]: «OK» (botón modal alerta, _Layout) | T046-T047 [HTML-L1118-1119]: «Aceptar» / «Cancelar» (modal confirmación, _Layout) | T048 [HTML-L1144]: «Dónde estamos» (h4 footer) | T049 [HTML-L1145]: «RUT: 65.999.669-3» (footer, persona jurídica pública) | T050-T052 [HTML-L1149-1154]: dirección, teléfono, correo institucional | T053 [HTML-L1163-1167]: enlaces redes sociales footer | T054 [HTML-L1173-1181]: sección «Accesos»: Atajos del Teclado, Descarga de Visualizadores, Glosario, Mapa del Sitio, Uso de los Contenidos de este Sitio, Accesibilidad, «Política de privacidad» (→ PDF, sin formato) | T055 [HTML-L1196]: «©2026 INAPI. Todos los derechos reservados» | T056 [HTML-L1197]: «v 2.3.96.0» (versión técnica) | (ausencia): sin fecha de publicación/actualización de la página fuera de la columna «Última Actualización» de la tabla (que es del trámite del usuario, no de la URL)",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El orden de la pantalla ubica primero el título del formulario y el párrafo introductorio (T022) que explica el propósito de la página, antes de los filtros y la tabla de resultados. El mensaje más relevante para el usuario está arriba."
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "La secuencia banner/título → párrafo introductorio (T022) → filtros → resultados sigue el modelo de pirámide invertida adecuado para una pantalla funcional de listado.",
+      "cita_textual": "T022 [HTML-L857]: «Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El título principal de la sección (T020) se implementa como div.card-header, sin etiqueta semántica H1/H2/H3. Los fieldsets usan <legend> (T023, T036), pero la página carece de un encabezado real que jerarquice el contenido para lectores de pantalla.",
+      "cita_textual": "T020 [HTML-L840]: div.card-header «Solicitudes Guardadas de Marcas» (no H)"
+    },
+    {
+      "id": "A4",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un panel de tramitación (filtros + tabla de resultados) sin bloques de texto editorial extensos; solo existe un párrafo introductorio corto (T022, ≈35 palabras)."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Se expone en el footer un texto técnico de versión de sistema («v 2.3.96.0», T056) sin valor para la tarea del usuario.",
+      "cita_textual": "T056 [HTML-L1197]: «v 2.3.96.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El copy institucional usa voz pasiva («serán eliminadas automáticamente») en la advertencia de borradores y la construcción «puede» + «sus» (usted formal) en el párrafo introductorio. Persiste igual que en la auditoría 2026-06-11.",
+      "cita_textual": "T035 [HTML-L924]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las opciones del select Estado («Borrador», «Confirmada con Pago», «Confirmada sin Pago») son estados de sistema sin definición contextual visible.",
+      "cita_textual": "T028-T031 [HTML-L894-897]: opciones del select Estado sin glosa de significado"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece dos veces en el menú de Patentes de esta página sin expandir en ningún punto visible.",
+      "cita_textual": "T010 [HTML-L330]: «Pagar Tasas PCT Fase Internacional» / T012 [HTML-L379]: «Documentación Mínima PCT»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos ni abreviaturas no traducidas en el copy institucional."
+    },
+    {
+      "id": "B5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La advertencia de borradores está formulada exclusivamente en negativo (eliminación automática) sin ofrecer el marco positivo de qué acción tomar para conservar la solicitud.",
+      "cita_textual": "T035 [HTML-L924]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El párrafo introductorio usa «usted» formal implícito («puede», «sus») en lugar de tuteo cercano.",
+      "cita_textual": "T022 [HTML-L857]: «puede revisar todas sus solicitudes de Marcas»"
+    },
+    {
+      "id": "B7",
+      "estado": "no_aplica",
+      "comentario": "No se detecta lenguaje formal hueco (ej. «de oficio», «valor agregado») en el copy de esta pantalla."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las etiquetas de campo son nominales, lo esperado en formularios, y el párrafo introductorio sigue orden sujeto-verbo-predicado."
+    },
+    {
+      "id": "C2",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La advertencia de borradores usa futuro/pasivo en vez de presente simple.",
+      "cita_textual": "T035 [HTML-L924]: «serán eliminadas automáticamente»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El párrafo introductorio tiene aproximadamente 35 palabras y coordina 4 acciones (revisar, crear, ingresar, presentar y pagar) en una sola oración.",
+      "cita_textual": "T022 [HTML-L857]: oración de ≈35 palabras con cuatro verbos coordinados"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El único párrafo editorial de la página mezcla varias ideas distintas (consultar, crear, completar, presentar y pagar) en lugar de una idea por párrafo.",
+      "cita_textual": "T022 [HTML-L857]: «Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.»"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "El único párrafo editorial (T022) ocupa menos de 8 líneas en escritorio."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página tiene un solo párrafo editorial continuo (T022); no llega a los 4 párrafos requeridos para aplicar el criterio."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los campos «N° de Atención» y «N° de Solicitud» no indican el formato esperado del dato a ingresar. El select Estado ya no presenta ambigüedad de valor por defecto (ahora «Todos» está preseleccionado, corregido respecto a 2026-06-11).",
+      "cita_textual": "T024 [HTML-L866]: «N° de Atención» / T025 [HTML-L875]: «N° de Solicitud» (sin ejemplo de formato)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El <title> de la página contiene un error tipográfico: «máss» con doble s al final, en lugar de «más». Se confirma que los 3 errores de la auditoría anterior (2026-06-11) — «Titulos» sin tilde y capitalización tipo título en «Filtros de Búsqueda»/«Mostrar Filtros de Búsqueda» — ya fueron corregidos y no reaparecen en el inventario actual.",
+      "cita_textual": "T002 [HTML-L29]: «Solicitudes Guardadas de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "No se detectan dobles espacios ni mezcla de estilos de comillas en el copy institucional revisado."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "no_aplica",
+      "comentario": "La pantalla no presenta enumeraciones de pasos o requisitos que ameriten formato de lista o tabla adicional al ya existente."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera destacar palabras clave con negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los ítems del menú «MI INAPI», «TRAMITACIÓN», «PAGOS» y «SERVICIOS» se repiten en mayúsculas sostenidas en el dropdown mobile y en el navbar desktop de tramites.inapi.cl. La exclusión de D7 pactada para «ACCESOS»/«BUSCADOR» aplica solo a la cabecera global de www.inapi.cl, no a esta URL de tramites.inapi.cl.",
+      "cita_textual": "T006-T009 [HTML-L126,147,180,200] y T018 [HTML-L461,480,512,532]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El texto institucional visible es factual y no contiene opiniones ni adjetivos calificativos."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La autoría institucional INAPI es identificable en el banner, el footer y el pie de derechos.",
+      "cita_textual": "T055 [HTML-L1196]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación o última actualización de la página visible en ningún punto del layout institucional. La columna «Última Actualización» de la tabla de resultados corresponde al timestamp del trámite del usuario autenticado, no a la fecha de mantención del contenido de la pantalla. El ©2026 del footer tampoco equivale.",
+      "cita_textual": "(ausencia) — T042 es fecha de un registro de trámite del usuario, no de la URL"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple",
+      "comentario": "El <title> menciona explícitamente «Solicitudes Guardadas de Marcas» junto con el contexto del portal de trámites, por lo que describe fielmente el contenido. El error tipográfico «máss» no altera el significado del título y corresponde a un hallazgo de D1, no de representatividad.",
+      "cita_textual": "T002 [HTML-L29]: «Solicitudes Guardadas de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "El nombre de los enlaces coincide con el destino: «Crear nueva Solicitud de Marca» lleva a la página de creación de solicitud; los íconos de acción con tooltip «Editar»/«Eliminar» apuntan al trámite propio del usuario.",
+      "cita_textual": "T034 [HTML-L912]: «Crear nueva Solicitud de Marca» → /Trademark/TrademarkApplication/IndexTrademark"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "No se detectan enlaces con fórmulas genéricas tipo «Haz clic aquí», «Más» o «Ver más». Todos los textos de enlace son descriptivos.",
+      "cita_textual": "T032-T034 [HTML-L904,905,912]: «Buscar», «Limpiar», «Crear nueva Solicitud de Marca»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los botones de los modales genéricos del layout («OK» y «Aceptar») no son descriptivos: «OK» es un anglicismo y «Aceptar» no indica qué acción se está confirmando. Patrón transversal al portal (_Layout.cshtml).",
+      "cita_textual": "T045 [HTML-L1076]: «OK» / T046 [HTML-L1118]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» del footer apunta directamente a un PDF sin indicar en el texto del enlace que se trata de un documento en ese formato.",
+      "cita_textual": "T054 [HTML-L1181]: «Política de privacidad» → politica_de_privacidad.pdf sin indicación de formato"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los enlaces y botones evaluados se presentan como controles de interfaz independientes (botones, íconos, listas de footer), no incrustados en texto corrido.",
+      "cita_textual": "T032-T034 [HTML-L904,905,912]: botones «Buscar»/«Limpiar»/«Crear nueva Solicitud de Marca»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "La pantalla muestra datos del propio solicitante autenticado (nombre en navbar/menú y en la tabla de solicitudes guardadas) acotados al contexto transaccional de su propio trámite. No se detectan datos de terceros ni exposición fuera del flujo esperado. El nombre de usuario solo es visible tras autenticación, no embebido en HTML estático público. El RUT del footer es de INAPI (persona jurídica pública).",
+      "cita_textual": "Tabla «Solicitudes guardadas» con datos del propio trámite del usuario autenticado (dato de sesión, anonimizado) / T049 [HTML-L1145]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer incluye un enlace visible y accesible a «Política de privacidad» dentro de la sección Accesos.",
+      "cita_textual": "T054 [HTML-L1181]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer publica el aviso de derechos reservados de INAPI, visible en toda la pantalla.",
+      "cita_textual": "T055 [HTML-L1196]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un listado transaccional de solicitudes guardadas del usuario; no existen versiones anteriores publicadas ni rótulos de contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 8,
+  "criterios_aplicables": 31,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 48.4,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 16 incumplimientos sobre 31 criterios aplicables (48,4 %) para esta pantalla de 65.628 visitas. Respecto de la auditoría anterior (2026-06-11, 47,1 %) se corrigieron 4 hallazgos: (1) el select «Estado» ahora tiene «Todos» como opción por defecto (C7 parcial); (2) «Titulos» → «Títulos» con tilde en el menú de Patentes (D1); (3-4) «Mostrar Filtros de Búsqueda» y «Filtros de Búsqueda» ahora usan capitalización de sentencia (D1). Persisten sin corregir: ausencia de H1/H2/H3 semántico (A3), párrafo introductorio con 4 acciones coordinadas en tono formal (B1, B6, C3, C4), estados de sistema sin definición (B2), PCT sin expandir (B3), ausencia de fecha de actualización (E3), PDF de política de privacidad sin formato (F4), y botones «OK»/«Aceptar» en modales (F3). Se introdujo un nuevo error tipográfico «máss» en el <title> (D1). El array sustituciones[] contiene 17 filas con cobertura 1:1 para los 16 criterios incumplidos.",
+  "observaciones_lc": "La pantalla de Solicitudes Guardadas de Marcas obtiene un 48,4 % de cumplimiento sobre 31 criterios aplicables — RECHAZADO, rank 5 Clarity con 65.628 visitas. Mejora leve respecto de la auditoría 2026-06-11 (47,1 %) gracias a 4 correcciones ya aplicadas por TI: opción «Todos» por defecto en el filtro de Estado, tilde en «Títulos» del menú de Patentes, y capitalización de sentencia en los textos de filtros. G1 se mantiene cumple: los datos del solicitante (nombre, marca, número de atención) que ahora aparecen en la tabla de resultados son del propio trámite del usuario autenticado, no de terceros. Los 3 incumplimientos de severidad alta son: PCT sin expandir en menú (B3), oración de ≈35 palabras con 4 acciones en el párrafo introductorio (C3), ausencia de fecha de actualización (E3), y PDF de política de privacidad sin formato (F4). Se detectó un nuevo error tipográfico «máss» en el <title>.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkSavedApplications fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 5 Clarity con 65.628 visitas. De los 31 criterios aplicables, 15 se cumplen, lo que arroja un 48,4 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 16 incumplimientos y se generaron 17 filas en sustituciones[] con cobertura 1:1. Respecto de la auditoría anterior (2026-06-11, 47,1 %), TI ya corrigió 4 hallazgos: opción «Todos» por defecto en el select Estado, tilde en «Títulos» del menú de Patentes, y capitalización de sentencia en «Filtros de búsqueda»/«Mostrar filtros de búsqueda». Persisten: ausencia de H1 semántico (A3), párrafo introductorio denso y en tono formal (B1, B2, B3, B5, B6, C2, C3, C4, C7), ausencia de fecha de actualización (E3), botones «OK»/«Aceptar» en modales (F3) y PDF de política de privacidad sin formato (F4). Se detectó un nuevo error tipográfico «máss» en el <title> (D1). G1 se mantiene cumple: los datos visibles en la tabla de resultados son del propio trámite del usuario autenticado.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B3) PCT en dos instancias del menú de Patentes sin definición.",
+      "(C3) El párrafo introductorio (T022) tiene ≈35 palabras con cuatro verbos coordinados.",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la página.",
+      "(F4) «Política de privacidad» enlaza a PDF sin indicar formato ni peso."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A3) Sin H1/H2/H3; el contenido se organiza solo con <legend> y div.card-header.",
+      "(B1) Voz pasiva «serán eliminadas automáticamente» y «puede» + «sus» (usted formal) en el párrafo introductorio.",
+      "(B2) Estados «Borrador», «Confirmada con Pago» y «Confirmada sin Pago» sin definición contextual.",
+      "(B5) Advertencia de borradores formulada exclusivamente en negativo.",
+      "(B6) Tono formal distante en el párrafo introductorio.",
+      "(C4) El único párrafo editorial mezcla varias ideas distintas.",
+      "(C7) Campos «N° de Atención» y «N° de Solicitud» sin ejemplo de formato.",
+      "(D7) Grupos del menú en mayúsculas: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS.",
+      "(F3) «OK» anglicismo en modal de alerta; «Aceptar» sin contexto en modal de confirmación."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.96.0» es versión técnica del sistema visible al usuario sin valor para su tarea.",
+      "(C2) La advertencia de borradores usa futuro/pasivo en vez de presente simple.",
+      "(D1) Nuevo error tipográfico «máss» (doble s) en el <title> de la página."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A3-h1",
+      "html_linea_aprox": "HTML-L840",
+      "original": "<div class=\"card-header\">Solicitudes Guardadas de Marcas</div>",
+      "propuesto": "<h1>Solicitudes Guardadas de Marcas</h1>",
+      "criterio_id": "A3",
+      "motivo": "Reemplazar el div de presentación por un encabezado semántico real para que la estructura de la página sea navegable por lectores de pantalla."
+    },
+    {
+      "linea": "T056",
+      "html_linea_aprox": "HTML-L1197",
+      "original": "v 2.3.96.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Texto técnico de versión de sistema sin utilidad para el usuario final; remover de la interfaz pública."
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "HTML-L924",
+      "original": "Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.",
+      "propuesto": "Las solicitudes en estado Borrador se eliminan automáticamente a los 60 días desde tu última modificación.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la voz pasiva «serán eliminadas» por voz activa y tuteo."
+    },
+    {
+      "linea": "T028-T031",
+      "html_linea_aprox": "HTML-L894-897",
+      "original": "(ausencia de definición contextual de los estados)",
+      "propuesto": "Agregar bajo el selector de Estado un texto de ayuda: «Borrador: aún no enviada, puedes editarla o eliminarla. Confirmada con pago: enviada y pagada. Confirmada sin pago: enviada, con pago pendiente.»",
+      "criterio_id": "B2",
+      "motivo": "Los estados del select no tienen definición visible; se propone insertar glosa contextual."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L330",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Primera instancia de PCT en el menú de Patentes; expandir la sigla en su primera mención visible."
+    },
+    {
+      "linea": "T012",
+      "html_linea_aprox": "HTML-L379",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT en el menú de Patentes."
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "HTML-L924",
+      "original": "Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.",
+      "propuesto": "Recuerda confirmar tus solicitudes en estado Borrador antes de 60 días desde la última modificación para evitar que se eliminen automáticamente.",
+      "criterio_id": "B5",
+      "motivo": "Reformula el mensaje con tono orientado a la acción que evita la pérdida de la solicitud, en vez de una advertencia puramente negativa."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L857",
+      "original": "Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.",
+      "propuesto": "Aquí puedes revisar tus solicitudes de marcas guardadas, crear una nueva o continuar con una en borrador. Usa los filtros para buscar por número, titular o estado.",
+      "criterio_id": "B6",
+      "motivo": "Reemplaza «puede» + «sus» (usted formal) por tuteo directo."
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "HTML-L924",
+      "original": "serán eliminadas automáticamente",
+      "propuesto": "se eliminan automáticamente",
+      "criterio_id": "C2",
+      "motivo": "Reemplaza la construcción futura/pasiva por presente simple."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L857",
+      "original": "Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.",
+      "propuesto": "Aquí puedes revisar tus solicitudes de marcas guardadas, crear una nueva o continuar con una en borrador.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de ≈35 palabras con cuatro verbos coordinados en dos oraciones simples."
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L857",
+      "original": "Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.",
+      "propuesto": "Aquí puedes revisar tus solicitudes de marcas guardadas y crear una nueva. Usa los filtros para buscar por número, titular o estado.",
+      "criterio_id": "C4",
+      "motivo": "Separa el bloque en ideas distintas: consultar/crear vs. cómo usar los filtros."
+    },
+    {
+      "linea": "C7-formato",
+      "html_linea_aprox": "HTML-L866",
+      "original": "N° de Atención / N° de Solicitud (sin ejemplo de formato)",
+      "propuesto": "N° de Atención (ej. 2026000123) / N° de Solicitud (ej. 000123)",
+      "criterio_id": "C7",
+      "motivo": "Agregar ejemplo de formato a los labels para reducir errores de búsqueda."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Solicitudes Guardadas de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Solicitudes Guardadas de Marcas INAPI — Portal de Trámites: Marcas, Patentes y más",
+      "criterio_id": "D1",
+      "motivo": "Corrige error tipográfico «máss» (doble s) por «más» en el elemento <title> de la página."
+    },
+    {
+      "linea": "T006-T009",
+      "html_linea_aprox": "HTML-L126,147,180,200",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Elimina mayúsculas sostenidas en los rótulos del menú mobile; conservar solo «INAPI» en mayúsculas por ser sigla reconocida. Cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L461,480,512,532",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Mismo patrón sistémico replicado en el navbar desktop; cambio transversal en _Layout.cshtml."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L840",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización de esta página: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible bajo el H1 propuesto; actualmente no existe."
+    },
+    {
+      "linea": "T045-T046",
+      "html_linea_aprox": "HTML-L1076,L1118",
+      "original": "OK / Aceptar",
+      "propuesto": "Cerrar / Confirmar",
+      "criterio_id": "F3",
+      "motivo": "Cambio transversal al portal (_Layout.cshtml): los botones genéricos de modales de alerta y confirmación se repiten en todas las pantallas del sitio."
+    },
+    {
+      "linea": "T054",
+      "html_linea_aprox": "HTML-L1181",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace apunta a politica_de_privacidad.pdf sin indicar formato en el texto visible."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Trademark/TrademarkSavedApplications: (1) hacer backup antes de cualquier cambio; (2) esta captura (2026-07-27) confirma que TI ya aplicó 4 correcciones de la auditoría anterior (2026-06-11): opción «Todos» por defecto en el select Estado (HTML-L894), tilde en «Títulos y Certificados Patentes» en el menú de Patentes (desktop y mobile), y capitalización de sentencia en «Mostrar filtros de búsqueda»/«Filtros de búsqueda» — no repetir estos cambios; (3) el <title> (HTML-L29) introdujo un nuevo error tipográfico «máss» — corregir el string en el ViewBag.Title o vista Razor correspondiente; (4) A3/E3 requieren editar la vista Razor TrademarkSavedApplications.cshtml para insertar H1 y fecha antes del div.card-header (HTML-L840); (5) los textos B1/B2/B5/B6/C2/C3/C4 del párrafo introductorio (HTML-L857) y de la advertencia (HTML-L924) están en la vista Razor local, no en el _Layout; (6) los botones «OK» (HTML-L1076) y «Aceptar» (HTML-L1118) están en el _Layout.cshtml — cambio transversal a todo el portal, coordinar con TIC antes de modificar; (7) «MI INAPI»/«TRAMITACIÓN»/«PAGOS»/«SERVICIOS» (HTML-L126-200 y L461-532) están en el componente compartido del menú — cambio transversal; (8) el enlace «Política de privacidad» (HTML-L1181) está en el footer compartido del portal."
+}

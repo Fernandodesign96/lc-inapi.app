@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 5–7 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-5-7) |
 | 2026-07-23 | [Documentación: Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión](#devlog-2026-07-23-fase-3-3-auth-sesion) |
 | 2026-07-23 | [Infraestructura: Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs](#devlog-2026-07-23-fase-3-audit-full-flow) |
 | 2026-07-22 | [Infraestructura: Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro](#devlog-2026-07-22-fase-2-rag-mcp) |
@@ -49,9 +50,37 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-07-27-fase-3-3-lote-ranks-5-7"></a>
+## [2026-07-27] - Infraestructura | Fase 3.3: lote WSL ranks 5–7 con sesión ClaveÚnica
+
+**Rama:** `feat/audit-wsl-session-captures` | **Entorno:** WSL2 (PC casa) — Chroma, Playwright y sesión ClaveÚnica
+
+### Contexto y objetivos:
+
+Ejecutar en WSL el primer lote real de la Fase 3.3: reauditar con sesión autenticada las tres URLs post-login (ranks **5, 6 y 7**) usando la arquitectura de sub-subagentes (`.claude/CLAUDE.md` §17) y la calibración G1–G3 para pantallas autenticadas (§19). Completar el circuito documentado en `docs/fase-3-3-captura-auth-claveunica.md` tras el trabajo de documentación del 2026-07-23.
+
+### Implementación técnica:
+
+- Sesión local en `auditorias/.auth/tramites-session.json` (no versionada) y capturas HTML con `bun run capture:tramites-html` para ranks 5–7 (`captura_con_sesion: true`).
+- JSON canónicos en `data/claude-audits/tramites/2026-07-27/` con `clarity_meta`; `frontend/src/lib/clarity-audits-launch.ts` actualizado (nuevo `id` + `history[]` al id `2026-06-11`).
+- Resultados: rank 5 → **48,4 %** rechazado; rank 6 → **28,1 %** rechazado; rank 7 → **43,3 %** rechazado. `bun run validate:claude-audits` OK.
+- **Incidente rank 7:** el HTML inicial de `LoadTrademarkApplication` era una página de error ASP.NET («Error Cargando el formulario.»). Se recapturó con Playwright MCP tras login manual en el navegador del MCP y se sobrescribió `auditorias/htmls/...loadtrademarkapplication_2026-07-27.html`.
+- Hallazgos relevantes: rank 5 mejora leve vs junio (filtro «Todos» y tildes); rank 6 empeora por aviso de borradores con enlace «aquí»; rank 7 mantiene G1 alta por RUN del solicitante en HTML estático (mismo patrón que Notificaciones).
+
+### 💡 Repaso técnico: Sesión Playwright MCP vs storageState:
+
+El navegador del MCP de Playwright conserva la sesión ClaveÚnica solo mientras el proceso/contexto del MCP sigue vivo; un `browser_close` la destruye. Para capturas repetibles el flujo canónico sigue siendo `playwright codegen --save-storage=auditorias/.auth/tramites-session.json` + `bun run capture:tramites-html` (`docs/fase-3-3-captura-auth-claveunica.md`).
+
+### Próximos pasos:
+
+- Ejecutar `bun run rag/ingest-b.ts` para reindexar los tres JSON nuevos en la Colección B.
+- Commit del lote (JSON, HTML recapturado, `clarity-audits-launch.ts`, ROADMAP y esta entrada).
+- No forzar auditoría de ranks 8, 11, 13 y 15 (Pendiente TI).
+
 ---
 
-## [2026-07-23] - Documentación | Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión {#devlog-2026-07-23-fase-3-3-auth-sesion}
+<a id="devlog-2026-07-23-fase-3-3-auth-sesion"></a>
+## [2026-07-23] - Documentación | Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión
 
 **Rama:** `feat/audit-remaining-urls` | **Entorno:** PC empresa (documentación) + WSL (implementación pendiente)
 
@@ -77,7 +106,8 @@ Extender el flujo de Fase 3 para auditar pantallas de `tramites.inapi.cl` **tras
 
 ---
 
-## [2026-07-23] - Infraestructura | Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs {#devlog-2026-07-23-fase-3-audit-full-flow}
+<a id="devlog-2026-07-23-fase-3-audit-full-flow"></a>
+## [2026-07-23] - Infraestructura | Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs
 
 **Rama:** `feat/audit-full-flow` | **Entorno:** WSL2 Ubuntu (PC casa)
 
@@ -124,7 +154,8 @@ Cierre de la **Fase 3** del AI Stack v2. Se implementó y validó el flujo compl
 
 ---
 
-## [2026-07-22] - Infraestructura | Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro {#devlog-2026-07-22-fase-2-rag-mcp}
+<a id="devlog-2026-07-22-fase-2-rag-mcp"></a>
+## [2026-07-22] - Infraestructura | Fase 2 — Registro MCP RAG Auditoria en Claude Code Pro
 
 **Rama:** `feat/rag-workspace` | **Entorno:** WSL2 Ubuntu (PC casa)
 
@@ -134,11 +165,11 @@ Cierre de la **Fase 2** del AI Stack v2. Se registra el servidor MCP `rag-audito
 
 ```bash
 claude mcp add rag-auditoria bun /home/fernando/projects/lc-inapi-app/rag/mcp-server.ts
+```
 
 ---
 
 <a id="devlog-2026-07-22-fase-1-playwright-mcp"></a>
-
 ## [2026-07-22] - Infraestructura | Fase 1 — Registro MCP Playwright en Claude Code Pro
 
 ### Contexto y objetivos:
@@ -170,9 +201,7 @@ El MCP de Playwright permite que Claude Code Pro navegue URLs reales, ejecute Ja
 - Fase 2: configurar RAG local con Chroma (`feat/rag-workspace`): `bun install` en `rag/`, levantar Chroma en puerto 8000, ingestar colecciones B y A.
 
 <a id="devlog-2026-07-22-fase-0-claude-skills"></a>
-
 ## [2026-07-22] - Estrategia | Fase 0 — CLAUDE.md, 3 skills y arquitectura sub-subagentes (WSL)
-
 ### Contexto y objetivos:
 
 Cierre de la **Fase 0** del procedimiento de implementación del AI Stack v2 (definido en `docs/PROPUESTA_TECNICA_INTEGRAL.md`). El objetivo era dotar a Claude Code Pro de contexto permanente del proyecto y conocimiento especializado cargado bajo demanda, sin instalar ninguna dependencia nueva. Trabajo realizado en entorno WSL (Ubuntu), rama `feat/claude-md-skills`.
@@ -213,9 +242,7 @@ Se definió y documentó la arquitectura de **5 grupos temáticos** para el aná
 ---
 
 <a id="devlog-2026-07-21-ai-stack-v2"></a>
-
 ## [2026-07-21] - Documentación | AI Stack v2 — ADR-0008/0009/0010, ARCHITECTURE, PROPUESTA y ROADMAP (PC empresa)
-
 ### Contexto y objetivos:
 
 Sesión de documentación realizada en el PC de la empresa (sin acceso WSL) para alinear todo el repositorio con el **AI Stack v2** acordado: TypeScript + Bun, Claude Code Pro como orquestador, Playwright MCP, Chroma RAG local con `@xenova/transformers`. Los ADRs anteriores de NestJS (0005) y Python/AWS (0006) quedaban huérfanos sin documentación de reemplazo; la arquitectura real no reflejaba las decisiones tomadas desde junio 2026.
@@ -254,9 +281,7 @@ Sesión de documentación realizada en el PC de la empresa (sin acceso WSL) para
 ---
 
 <a id="devlog-2026-06-28-stack-orquestacion-mei"></a>
-
 ## [2026-06-28] - Documentación | Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun
-
 ### Contexto y objetivos:
 
 Tras conversación con equipo TI (implementación en Trámites) y alineación con Bernarda sobre entrega MEI (30-jun-2026), se documentó el problema **Ctrl+U vs DOM vs código fuente TI**, el rol complementario **DevTools IA vs Claude Proyecto**, y un flujo en 6 pasos con entregables duales: Excel B/C/D (humano) + JSON MVP (sistema).
@@ -286,9 +311,7 @@ Tras conversación con equipo TI (implementación en Trámites) y alineación co
 ---
 
 <a id="devlog-2026-06-11-clarity-cierre-oleada-auditable"></a>
-
 ## [2026-06-11] - Estrategia | Cierre oleada auditable Clarity — inventario 17 URLs y ranks 14 y 17
-
 ### Contexto y objetivos:
 
 Cerrar la primera oleada auditable de la serie Clarity tras comprimir el inventario editorial de 22 a 17 ranks (eliminación de duplicados y filas repetidas), incorporar los JSON de los ranks **14** (`TrademarkAnnotation`) y **17** (`www.inapi.cl/tramites/tramites-digitales`) y dejar cableado el launch en `/auditar`. Los ranks **8** (Login ClaveÚnica) y **11** (SuccessConfirmation escritos) quedan fuera por falta de acceso al HTML; el rank **13** (modal de confirmación de pago) no es auditable con Ctrl+U; el rank **15** (Renovación de marca) queda pendiente para otra sesión.
@@ -309,9 +332,7 @@ Cerrar la primera oleada auditable de la serie Clarity tras comprimir el inventa
 ---
 
 <a id="devlog-2026-06-15-clarity-cableado-mvp"></a>
-
 ## [2026-06-15] - Frontend | Serie Clarity: cableado MVP en `/auditar` y validación CI
-
 ### Contexto y objetivos:
 
 Tras generar los primeros JSON en `data/claude-audits/urls-clarity/` ([entrada 2026-06-11](#devlog-2026-06-11-serie-clarity-json)), el objetivo del día era **conectar** el inventario de 22 URLs en `/auditar` con el mismo flujo operativo del piloto de 9 URLs: tabla → resultado con siete bloques → PDF, sin duplicar lógica de render. Rama: `feature/clarity-22-urls-auditorias-claude-json`.
@@ -350,9 +371,7 @@ Tras generar los primeros JSON en `data/claude-audits/urls-clarity/` ([entrada 2
 ---
 
 <a id="devlog-2026-06-11-serie-clarity-json"></a>
-
 ## [2026-06-11] - Estrategia | Serie Clarity: auditorías JSON ranks 1–3 y 21 (día en PC empresa)
-
 ### Contexto y objetivos:
 
 Continuar la **Fase 1.5** ampliando el piloto de 9 URLs hacia el **inventario Clarity de 22 URLs** (`/auditar`, acordeón Historial). Objetivo del día (PC empresa, sin WSL): generar JSON canónicos vía Proyecto Claude con el **mismo contrato** del piloto (7 bloques en `/auditar/resultado`), en carpeta `data/claude-audits/urls-clarity/`, sin cableado de frontend (pendiente en casa). Rama: `feature/clarity-22-urls-auditorias-claude-json`.
@@ -385,9 +404,7 @@ Continuar la **Fase 1.5** ampliando el piloto de 9 URLs hacia el **inventario Cl
 ---
 
 <a id="devlog-2026-06-08-docs-fase-1-5"></a>
-
 ## [2026-06-08] - Documentación | Sincronización Fase 1.5 — 9 URLs en MVP, merge `main`, CI y Vercel
-
 ### Contexto y objetivos:
 
 Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto (tabla `/auditar` → `/auditar/resultado` → PDF) y el **merge a `main`**, los documentos en `docs/` seguían reflejando el estado de junio 2026-02 (Fase 1.5 «pendiente de implementar»). Objetivo: alinear ROADMAP, flujo operativo, PRD, arquitectura, propuesta y despliegue con el estado real del repo.
@@ -414,9 +431,7 @@ Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto 
 ---
 
 <a id="devlog-2026-06-07-piloto-cierre-9-urls"></a>
-
 ## [2026-06-07] - Estrategia | Fase 1.5: cierre piloto Claude — JSON URLs 4–9, SIAC y landing `tramites.inapi.cl`
-
 ### Contexto y objetivos:
 
 Continuación del [bloque matinal del 7-jun (URLs 1–3)](#devlog-2026-06-07-piloto-json-claude): completar el **piloto operativo de 9 URLs** acordado con UX/TIC — auditorías LC v1.1 vía Proyecto Claude (§3.1 → revisión aritmética y cobertura 1:1 → §3.2), JSON canónico en `data/claude-audits/` y registro en `frontend/src/lib/claude-audits-launch.ts` para tabla `/auditar`, API `GET /api/claude-audits/[id]` y [PDF](#devlog-2026-06-04-fase-c-pdf).
@@ -466,9 +481,7 @@ Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resul
 ---
 
 <a id="devlog-2026-06-07-piloto-json-claude"></a>
-
 ## [2026-06-07] - Frontend | Fase 1.5: piloto Claude — JSON URLs 1–3, prompt §3.2 y conexión en tabla `/auditar`
-
 ### Contexto y objetivos:
 
 Tras cerrar la [exportación PDF (Fase C)](#devlog-2026-06-04-fase-c-pdf), el siguiente hito del piloto TIC es **contenido editorial real** en `data/claude-audits/`, no solo la home de junio. El viernes 5 (PC empresa, sin terminal ni git) se avanzó el **piloto operativo de 9 URLs** (8 `sitioweb` + 1 `tramites`), distinto de la tabla §2 inicial del flujo (10 URLs propuesta reunión 2-jun).
@@ -523,9 +536,7 @@ Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 
 ---
 
 <a id="devlog-2026-06-04-fase-c-pdf"></a>
-
 ## [2026-06-04] - Frontend | Fase 1.5: exportación PDF del informe piloto (Fase C)
-
 ### Contexto y objetivos:
 
 Con la [orquestación §4 en pantalla](#devlog-2026-06-04-resultado-orquestacion-codigo) y la [tabla de 10 URLs](#devlog-2026-06-04-auditar-tabla-piloto) operativas, faltaba el entregable de demo y TIC del flujo [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §8: **descargar un informe PDF** con los mismos bloques 1–7 que en `/auditar/resultado`, generado en servidor sin depender del «Guardar como PDF» del navegador.
@@ -564,9 +575,7 @@ Objetivo: cerrar el ítem **2.6** (Fase C) — `@react-pdf/renderer`, ruta de ex
 ---
 
 <a id="devlog-2026-06-04-auditar-tabla-piloto"></a>
-
 ## [2026-06-04] - Frontend | Fase 1.5: tabla piloto de 10 URLs en `/auditar`
-
 ### Contexto y objetivos:
 
 Con la API (`GET /api/claude-audits/[id]`) y el informe en [`/auditar/resultado`](../flujo-piloto-10-urls-claude-mvp.md) ya orquestado según §4, faltaba el acceso operativo desde el ingreso de URL: la demo y la entrega TIC asumen expandir **«URLs auditadas — piloto junio 2026»** y abrir cada informe sin copiar ids ni queries a mano.
@@ -596,9 +605,7 @@ Objetivo: cerrar el ítem **2.3** del plan técnico (Fase B) — tabla/acordeón
 ---
 
 <a id="devlog-2026-06-04-resultado-orquestacion-codigo"></a>
-
 ## [2026-06-04] - Frontend | Fase 1.5: orquestación de `/auditar/resultado` — siete bloques en código
-
 ### Contexto y objetivos:
 
 Tras [documentar la orquestación §4](#devlog-2026-06-03-resultado-orquestacion-piloto) y el [enlace por `claudeAudit`](#devlog-2026-06-03-resultado-claude-audit), el B4 interino duplicaba contenido (paneles al final + secciones mock). El equipo acordó un solo flujo piloto: metadatos fusionados, acordeones cerrados por defecto y tabla de sustituciones como «Texto propuesto».
@@ -632,8 +639,8 @@ Objetivo: implementar el ítem **2.5** (Fase B) en código — [`docs/flujo-pilo
 
 <a id="devlog-2026-06-03-resultado-claude-audit"></a>
 
+<a id="devlog-2026-06-03-resultado-orquestacion-piloto"></a>
 ## [2026-06-03] - Frontend | Fase 1.5: resultado con query `claudeAudit` y API piloto
-
 ### Contexto y objetivos:
 
 Tras el commit de API y esquema (`parseClaudeAuditFile`, `GET /api/claude-audits/[id]`, JSON home en `data/claude-audits/`), faltaba enlazar la pantalla **`/auditar/resultado`** con ese flujo sin romper fixtures ni mock por URL. El piloto exige abrir informes por id estable (`www-inapi-cl_2026-06-02`) mientras se mantiene la tabla de 39 criterios y el resto de bloques del mock.
@@ -665,10 +672,8 @@ Confundir ambos formatos producía errores Zod («Required» en todos los campos
 
 ---
 
-<a id="devlog-2026-06-03-resultado-orquestacion-piloto"></a>
 
 ## [2026-06-03] - Documentación | Fase 1.5: orquestación UI de `/auditar/resultado` (piloto)
-
 ### Contexto y objetivos:
 
 Tras **B3** (carga por `claudeAudit`) y un **B4 interino** que mostraba bloques piloto al final de la página, la revisión con el equipo detectó **redundancia** entre secciones mock (Resumen, Observaciones narrativas, Texto propuesto párrafo) y campos Claude (`observaciones_lc_por_severidad`, `sustituciones`). Se acordó una **única narrativa** para entrega TIC y menor carga visual mediante **barras colapsables**.
@@ -700,9 +705,7 @@ Objetivo: fijar en `docs/` el orden definitivo de bloques, títulos de barra y q
 ---
 
 <a id="devlog-2026-06-02-fase-1-5-piloto-claude"></a>
-
 ## [2026-06-02] - Estrategia | Fase 1.5: piloto 10 URLs con Claude, reuniones UX y documentación operativa
-
 ### Contexto y objetivos:
 
 Tras cerrar en repo las Etapas **5b/5c** del inventario Calidad Web (22 URLs, `type_url`, filtros), el equipo UX (Bernarda, Camila) y liderazgo (Álvaro) priorizaron un **entregable concreto a TIC** antes de fin de año: auditar **10 páginas web** (no las 22 del inventario Clarity como cola única en esta oleada), con informe revisable, **PDF** descargable y **sustituciones de texto** en HTML para solicitudes accionables.
@@ -745,9 +748,7 @@ Fase **1.5** reutiliza el mock y `strictAuditRecordSchema` con datos **importado
 ---
 
 <a id="devlog-2026-05-29-cierre-5b-5c-inventario"></a>
-
 ## [2026-05-29] - Frontend | Cierre Etapas 5b y 5c: inventario Calidad Web con `type_url`
-
 ### Contexto y objetivos:
 
 Cierre del bloque de feedback UX sobre el **inventario único** Calidad Web en `/auditar` (Trámites + Sitio Web). Tras revisar el extracto Clarity (365 días, mayo 2026) y capturas del panel Mapas térmicos, se confirmó que el **rank 1** es la **landing** `https://tramites.inapi.cl/` (no la home `www.inapi.cl`) y que la distinción Sitio Web vs Trámites debe vivir en **una sola tabla** mediante el campo **`type_url`** (`tramites` | `sitioweb`) y un **filtro Tipo** en UI — sin un segundo acordeón (Etapa 4 cancelada).
@@ -776,9 +777,7 @@ La UI **no** lee `type_url` del espejo `clarity-inventory.json`; la columna Tipo
 ---
 
 <a id="devlog-2026-05-28-inventario-unico-docs"></a>
-
 ## [2026-05-28] - Documentación | Inventario único — Historial LC en `/auditar`
-
 ### Contexto y objetivos:
 
 Tras cerrar en código la **fusión de «URLs más auditadas»** en la tabla Clarity (commit `b2c6b0e`) y revisar la pantalla `/auditar` con el equipo, se acordó que la sección **«URLs con estados LC resueltos»** (antes planificada como «Estados URLs») **sobra**: las **20 URLs Clarity** concentran ya visitas, auditorías, última revisión, % LC y estado; lo único distintivo del segundo acordeón eran las **observaciones**, que deben vivir en **`/auditar/inventario/clarity/[rank]`** (breve en contexto editorial, con detalle desarrollable).
@@ -804,9 +803,7 @@ Objetivo de esta entrada: **actualizar `docs/`** para reflejar **un solo** inven
 ---
 
 <a id="devlog-2026-05-28-consistencia-inventarios-docs"></a>
-
 ## [2026-05-28] - Documentación | Consistencia de inventarios, tablas y pantallas mock en `/auditar`
-
 ### Contexto y objetivos:
 
 Tras el feedback UX (Bernarda/Álvaro, mayo 2026) y la implementación parcial de las **etapas 1–3** (tabla de criterios en resultado, **20 fichas** Clarity y ruta de detalle), el equipo detectó **inconsistencias** entre secciones del mismo mock: URLs distintas para el mismo concepto «home», conteos de auditorías desalineados entre tabla e historial de ficha, filas «No aplica» en Clarity que debían mostrarse como **rechazadas** con % LC, y leyendas de iconos distintas entre inventarios y el **estado de aceptación** del informe en `/auditar/resultado`.
@@ -834,9 +831,7 @@ Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo d
 ---
 
 <a id="devlog-2026-05-27-feedback-ux-criterios-fichas"></a>
-
 ## [2026-05-27] - Frontend | Sprint fase-1: Feedback UX — catálogo en resultado e inventario Clarity con fichas mock
-
 ### Contexto y objetivos:
 
 Avanzar las **dos primeras etapas** del plan de feedback UX post-demo (Bernarda/Álvaro, mayo 2026): (1) que la tabla de los 39 criterios en **`/auditar/resultado`** muestre la **sección** y el **enunciado oficial** del checklist editorial v1.1, no solo el código del criterio; (2) disponer de un **modelo mock de ~20 fichas** alineado al inventario ampliado Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) §2, como base para rutas de detalle por URL sin mezclar aún con `StrictAuditRecord`. Objetivo: mejorar legibilidad del informe mock y una **fuente única** de datos para la tabla de inventario en `/auditar` y las futuras páginas de ficha.
@@ -861,9 +856,7 @@ La **ficha de URL** resume contexto editorial (visitas Clarity, % LC de referenc
 ---
 
 <a id="devlog-2026-05-22-vercel-gha-etapa1"></a>
-
 ## [2026-05-22] - Infraestructura | Sprint fase-1: Vercel y workflow de CI en GitHub
-
 ### Contexto y objetivos:
 
 Cerrar en operación la **Etapa 1** del plan de despliegue híbrido documentado en [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md): URL estable para **demo UX** del mock (Next en **Vercel**) y **calidad reproducible** en **GitHub Actions**, sin desviar el deploy hacia Actions (opción A del plan). Objetivo de negocio: que Equipo UX y liderazgo puedan revisar el mismo binario que pasa `typecheck:all` y `lint` antes de abrir Fase 2 (Nest, Supabase, pipeline LC en AWS).
@@ -884,9 +877,7 @@ Cerrar en operación la **Etapa 1** del plan de despliegue híbrido documentado 
 ---
 
 <a id="devlog-2026-05-21-fixtures-implementacion"></a>
-
 ## [2026-05-21] - Frontend | Fixtures de auditoría: datos, scripts, validación, API y UI
-
 ### Contexto y objetivos:
 
 Cerrar en código el ítem **«Fixtures de auditoría»** de la Fase 1 en [`docs/ROADMAP.md`](../ROADMAP.md): datos canónicos en `data/audit-fixtures/`, comprobación automática con el mismo contrato que usará el dominio (`strictAuditRecordSchema`), y en el **frontend** la posibilidad de **cargar un fixture por identificador** o **importar** un JSON, coherente con las tres franjas de aceptación (≤80 %, 81–90 %, ≥91 % sobre criterios aplicables).
@@ -909,9 +900,7 @@ Cerrar en código el ítem **«Fixtures de auditoría»** de la Fase 1 en [`docs
 ---
 
 <a id="devlog-2026-05-21-fixtures-plan-ejemplo-notificaciones"></a>
-
 ## [2026-05-21] - Documentación | Ejemplo editorial fixtures (rechazado) + alineación inventario / roadmap
-
 ### Contexto y objetivos
 
 Dejar **versionado en el repo** un **ejemplo editorial completo** (texto capturado, reparto de 39 criterios, resumen 55,2 % rechazado, texto propuesto) para la URL prioritaria **Notificaciones Marcas** (`https://tramites.inapi.cl/Notificaciones`), alineado al inventario Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md), como **referencia humana** para el primer JSON bajo `data/audit-fixtures/`. El plan de trabajo puntual de Fase 1 se redactó en paralelo y **se retiró del repositorio** una vez cerrados datos, scripts, API y UI; la operación vive en [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md) y en la entrada [Frontend: Fixtures de auditoría — datos, scripts, validación, API y UI](#devlog-2026-05-21-fixtures-implementacion).
@@ -929,9 +918,7 @@ Dejar **versionado en el repo** un **ejemplo editorial completo** (texto captura
 ---
 
 <a id="devlog-2026-05-21-estado-intermedio-procesando"></a>
-
 ## [2026-05-21] - Frontend | Estado intermedio — pantalla `/auditar/procesando`
-
 ### Contexto y objetivos:
 
 Cerrar en documentación el ítem de Fase 1 del roadmap **«Estado intermedio entre ingreso y resultado»** en [`docs/ROADMAP.md`](../ROADMAP.md): pantalla dedicada con mensaje en **lenguaje claro**, **sin** afirmar persistencia ni comunicación real con base de datos; preparación visual y de accesibilidad alineada a lo que se esperará cuando la evaluación con **API** (p. ej. Claude) pueda tardar segundos o minutos.
@@ -951,9 +938,7 @@ Cerrar en documentación el ítem de Fase 1 del roadmap **«Estado intermedio en
 ---
 
 <a id="devlog-2026-05-20-resultado-mock-cierre"></a>
-
 ## [2026-05-20] - Frontend | Resultado mock: barra de cumplimiento, pasos a seguir y texto propuesto
-
 ### Contexto y objetivos:
 
 Cerrar en bitácora el ítem de Fase 1 del roadmap **«Resultado mock»** en [`docs/ROADMAP.md`](../ROADMAP.md) (marcado `[x]`): en **`/auditar/resultado`** el **porcentaje de cumplimiento** con barra visual alineada a tokens del tema y al mismo **`estado_aceptacion`** que el contrato; bloque **«Pasos a seguir»** con copy por estado de aceptación; **etiqueta legible** del estado en el resumen; **texto propuesto** cuando el mock lo aporta (atajos editoriales) y mensaje explícito cuando no hay borrador, sin parecer fallo de la aplicación. Decisión registrada: la bandera **`USAR_TEXTO_PROPUESTO_GENERICO`** en `resultado-mock-copy.ts` controla si el fallback `buildDemoStrictAudit` inyecta texto genérico; por defecto se prioriza honestidad del mock y ausencia de borrador explicada en UI.
@@ -973,9 +958,7 @@ Cerrar en bitácora el ítem de Fase 1 del roadmap **«Resultado mock»** en [`d
 ---
 
 <a id="devlog-2026-05-20-tabla-severidad-inventarios"></a>
-
 ## [2026-05-20] - Frontend | Tabla de criterios con severidad mock, jerarquía visual e inventarios alineados
-
 ### Contexto y objetivos:
 
 Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización de documentación con Equipo UX y tabla de criterios completa»** (marcado `[x]` en [`docs/ROADMAP.md`](../ROADMAP.md)): datos mock creíbles para **severidad** y **comentario** por criterio en atajos editoriales, misma **jerarquía visual** que el producto final en la tabla de **39** filas (`!` / `?` / `✓`, bandas y chips), coherencia en las **tablas de inventarios** bajo `/auditar` y corrección del borde izquierdo en la **última fila** de todas las tablas `Table`.
@@ -998,9 +981,7 @@ Cerrar en código y bitácora el ítem de Fase 1 del roadmap **«Actualización 
 ---
 
 <a id="devlog-2026-05-19-auditar-data-ux-devlog"></a>
-
 ## [2026-05-19] - Frontend | Cierre mock `/auditar` desde el último PR (atajos, inventarios, resultado y `data/ux`)
-
 ### Contexto y objetivos:
 
 Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre del ítem de Fase 1 **`/auditar`**: ingreso de URL, atajos editoriales, inventarios en acordeones, pantalla de resultado alineada a perfiles LC, contrato de copy agregado y, por último, **artefactos JSON** en `data/ux` para consumo máquina sin sustituir `docs/ux/`.
@@ -1021,9 +1002,7 @@ Consolidar en bitácora **todo lo avanzado desde el último PR** hasta el cierre
 ---
 
 <a id="devlog-2026-05-19-portal-home-mock"></a>
-
 ## [2026-05-19] - Frontend | Portal de acceso en `/` (mock v1.0)
-
 ### Contexto y objetivos:
 
 Cerrar en código el ítem de Fase 1 **«Home (`/`) — portal de acceso institucional»**: pantalla tipo acceso Gobierno sin autenticación real, CTA hacia `/auditar`, sin duplicar el ingreso de URL en la portada.
@@ -1042,9 +1021,7 @@ Cerrar en código el ítem de Fase 1 **«Home (`/`) — portal de acceso institu
 ---
 
 <a id="devlog-2026-05-19-doc-flujo-auditar"></a>
-
 ## [2026-05-19] - Documentación | Flujo home gateway, `/auditar` (atajos, inventario Clarity) y barras colapsables
-
 ### Contexto y objetivos:
 
 Alinear PRD, roadmap, arquitectura y datos de referencia a la **realidad del aplicativo**: evitar **dos pantallas** con la misma función (ingreso de URL). La **home `/`** queda como **portal de acceso institucional** (composición tipo auth Gobierno, **sin** login real en Fase 1) hacia **`/auditar`**. En **`/auditar`**: **ingreso de URL**, **tres atajos** (peor / intermedio / mejor LC) con navegación mock **directa a resultado**, inventario **~20 URLs Clarity** y otras **listas seccionadas** (**URLs más auditadas**, **URLs con estados resueltos**, etc.) documentadas para convivir en la misma pantalla como **barras / acordeones** con **título claro**, **flecha hacia abajo**, **contraste** institucional sin ruido y **`gap` vertical uniforme** entre secciones.
@@ -1065,9 +1042,7 @@ Alinear PRD, roadmap, arquitectura y datos de referencia a la **realidad del apl
 ---
 
 <a id="devlog-2026-05-18-marco-visual-shell"></a>
-
 ## [2026-05-18] - Frontend | Marco visual institucional: cabecera, tema y lienzo global
-
 ### Contexto y objetivos:
 
 Cerrar en el repo el ítem de Fase 1 del roadmap **«Marco visual institucional (prototipo de alta fidelidad)»**: cáscara común a portada, flujo `/auditar` y vistas mock, con jerarquía **cabecera → lienzo neutro → tarjetas**, tema claro/oscuro alineado a tokens §7 y modales de demostración sin simular autenticación real.
@@ -1088,9 +1063,7 @@ Cerrar en el repo el ítem de Fase 1 del roadmap **«Marco visual institucional 
 ---
 
 <a id="devlog-2026-05-18-design-system-ui"></a>
-
 ## [2026-05-18] - Frontend | Design system en la interfaz y contenedor ancho del flujo /auditar
-
 ### Contexto y objetivos:
 
 Cerrar en código el ítem de Fase 1 del roadmap sobre **design system Gobierno de Chile** en el frontend: tipografías institucionales, tokens de color y espaciado en tema global, contraste y objetivos táctiles (WCAG) en componentes reutilizables, y una **misma disposición ancha** en ingreso, captura y resultado del mock, sin cubrir aún barra térmica ni atajos de URL (otros bullets del roadmap).
@@ -1126,9 +1099,7 @@ El layout del segmento `auditar` concentra ancho y márgenes; las páginas hijas
 ---
 
 <a id="devlog-2026-05-16-documentacion"></a>
-
 ## [2026-05-16] - Documentación | Alineación con propuesta técnica integral y AWS
-
 ### Contexto y objetivos:
 
 Registrar en el repo los acuerdos de la última reunión (oficina / transferencia desde entorno restringido): integración **NestJS ↔ Amazon API Gateway ↔ Lambda (Python) ↔ Claude API**, roles, Docker para desarrollo local del servicio de IA y monorepo objetivo frente al layout actual (`frontend/`, `src/schemas/`).
@@ -1151,9 +1122,7 @@ Registrar en el repo los acuerdos de la última reunión (oficina / transferenci
 ---
 
 <a id="devlog-2026-05-14-pantallas-mock"></a>
-
 ## [2026-05-14] - Frontend | Fase 1: Pantallas mock del flujo auditar (captura y resultado con 39 criterios)
-
 ### Contexto y objetivos:
 
 Cerrar el segundo ítem de la Fase 1 del roadmap: flujo **URL → texto capturado (mock) → resultado** sin backend, pasando el estado por **query string** para poder demo y pruebas rápidas.
@@ -1181,9 +1150,7 @@ Cerrar el segundo ítem de la Fase 1 del roadmap: flujo **URL → texto capturad
 ---
 
 <a id="devlog-2026-05-14-inicializacion-frontend"></a>
-
 ## [2026-05-14] - Frontend | Fase 1: Inicialización del frontend con Next, Tailwind, shadcn y formulario URL
-
 ### Contexto y objetivos:
 
 Cerrar el primer ítem de la Fase 1: stack de UI y **primer formulario** alineado al PRD (solo dominios `inapi.cl` / `tramites.inapi.cl`), con validación **Zod** y **React Hook Form**, sobre la carpeta `frontend/` del monorepo Bun.
@@ -1208,9 +1175,7 @@ Cerrar el primer ítem de la Fase 1: stack de UI y **primer formulario** alinead
 ---
 
 <a id="devlog-2026-05-13-fase-0"></a>
-
 ## [2026-05-13] - Estrategia | Fase 0: Documentación y contratos del repositorio
-
 ### Contexto y objetivos:
 
 Dejar cerrada la **Fase 0** del roadmap: base de producto y de arquitectura por escrito, **contratos de datos** alineados al checklist editorial v1.1 (39 criterios) y herramientas en repo para validar el catálogo antes de introducir Next.js y el mock de interfaz, sin backend productivo.
