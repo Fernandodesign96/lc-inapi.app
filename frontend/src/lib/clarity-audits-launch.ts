@@ -54,22 +54,32 @@ const CLARITY_AUDIT_BY_RANK: Record<
     ],
   },
   3: {
-    id: "tramites-inapi-cl-trademark-trademarkfile_2026-06-11",
+    id: "tramites-inapi-cl-trademark-trademarkfile_2026-07-27",
     resumenMvp: {
-      porcentajeLc: 40.0,
+      porcentajeLc: 39.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-trademark-trademarkfile_2026-06-11",
+      },
+    ],
   },
   4: {
-    id: "tramites-inapi-cl-notificaciones_2026-06-11",
+    id: "tramites-inapi-cl-notificaciones_2026-07-27",
     resumenMvp: {
-      porcentajeLc: 41.2,
+      porcentajeLc: 36.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-notificaciones_2026-06-11",
+      },
+    ],
   },
   5: {
     id: "tramites-inapi-cl-trademark-trademarksavedapplications_2026-07-27",
@@ -128,31 +138,46 @@ const CLARITY_AUDIT_BY_RANK: Record<
     ],
   },
   10: {
-    id: "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-06-11",
+    id: "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-07-27",
     resumenMvp: {
-      porcentajeLc: 44.1,
+      porcentajeLc: 41.2,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-trademark-trademarknizaclassifier_2026-06-11",
+      },
+    ],
   },
   12: {
-    id: "tramites-inapi-cl-trademark-trademarkuserdocument_2026-06-11",
+    id: "tramites-inapi-cl-trademark-trademarkuserdocument_2026-07-27",
     resumenMvp: {
-      porcentajeLc: 55.9,
+      porcentajeLc: 48.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-trademark-trademarkuserdocument_2026-06-11",
+      },
+    ],
   },
   14: {
-    id: "tramites-inapi-cl-trademark-trademarkannotation_2026-06-11",
+    id: "tramites-inapi-cl-trademark-trademarkannotation_2026-07-27",
     resumenMvp: {
-      porcentajeLc: 50.0,
+      porcentajeLc: 52.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-11T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      {
+        id: "tramites-inapi-cl-trademark-trademarkannotation_2026-06-11",
+      },
+    ],
   },
   16: {
     id: "www-inapi-cl_2026-07-22",
