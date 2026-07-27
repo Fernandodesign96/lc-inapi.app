@@ -16,6 +16,7 @@ import { formatFechaEvaluacion } from "@/components/resultado-claude-pilot-secti
 import {
   clarityLaunchByRank,
   clarityRowDisponibleEnMvp,
+  historialRankHref,
   resultadoClarityHref,
 } from "@/lib/clarity-audits-launch"
 import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
@@ -159,7 +160,8 @@ export function ClarityInventoryHistorialTable() {
         <TableCaption className="sr-only">
           Historial de auditorías URLs INAPI — Calidad Web Sitio Web y Trámites:
           posición, ruta, tipo de URL, encargado, visitas, auditorías, última
-          revisión, porcentaje LC y estado de referencia.
+          revisión, porcentaje LC, estado, disponibilidad de informe e historial
+          por URL.
         </TableCaption>
         <TableHeader>
           <TableRow>
@@ -181,13 +183,14 @@ export function ClarityInventoryHistorialTable() {
             </TableHead>
             <TableHead className="whitespace-nowrap">Estado</TableHead>
             <TableHead className="whitespace-nowrap">Informe</TableHead>
+            <TableHead className="whitespace-nowrap">Historial</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {filas.length === 0 ? (
             <TableRow>
               <TableCell
-                colSpan={10}
+                colSpan={11}
                 className="py-8 text-center text-muted-foreground text-sm"
               >
                 Ninguna URL coincide con los filtros seleccionados.
@@ -210,7 +213,7 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
   const resumen = launch?.resumenMvp
 
   const porcentajeLc = resumen
-    ? `${resumen.porcentajeLc} %`
+    ? `${resumen.porcentajeLc.toFixed(1).replace(".", ",")} %`
     : row.porcentajeLcRef
   const pct = resumen ? resumen.porcentajeLc : parsePorcentajeLcRef(row.porcentajeLcRef)
 
@@ -275,7 +278,9 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
       <TableCell className="whitespace-nowrap text-sm">{row.encargadoRef}</TableCell>
       <TableCell className="text-right tabular-nums">{row.visitasRef}</TableCell>
       <TableCell className="text-right tabular-nums font-medium">
-        {row.auditoriasRef}
+        {launch && launch.versiones.length > 0
+          ? launch.versiones.length
+          : row.auditoriasRef}
       </TableCell>
       <TableCell className="text-right tabular-nums font-medium whitespace-nowrap">
         {ultimaRevision}
@@ -297,6 +302,19 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
           <span className="text-xs text-muted-foreground">
             {row.estadoRef === "Pendiente TI" ? "Pendiente TI" : "Pendiente"}
           </span>
+        )}
+      </TableCell>
+      <TableCell>
+        {launch && launch.versiones.length > 0 ? (
+          <Link
+            href={historialRankHref(row.rank)}
+            className="text-xs font-medium text-primary underline-offset-4 hover:underline"
+            aria-label={`Ver historial de auditorías, posición ${row.rank}`}
+          >
+            Ver historial
+          </Link>
+        ) : (
+          <span className="text-xs text-muted-foreground">—</span>
         )}
       </TableCell>
     </TableRow>

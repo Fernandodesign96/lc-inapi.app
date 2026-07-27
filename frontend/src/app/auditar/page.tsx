@@ -31,13 +31,15 @@ import {
   type AuditUrlFormValues,
 } from "@/lib/schemas/url-audit"
 
+import { historialHref } from "@/lib/clarity-audits-launch"
+
 const URL_EJEMPLO_IMPORT_RESULTADO = "https://tramites.inapi.cl/Notificaciones"
 
 export default function AuditarPage() {
   const router = useRouter()
   const form = useForm<AuditUrlFormValues>({
-  resolver: zodResolver(auditUrlFormSchema),
-  defaultValues: { url: "" },
+    resolver: zodResolver(auditUrlFormSchema),
+    defaultValues: { url: "" },
   })
 
   function onSubmit(data: AuditUrlFormValues) {
@@ -51,7 +53,8 @@ export default function AuditarPage() {
           <CardTitle>Ingreso de URL</CardTitle>
           <CardDescription>
             Solo dominios permitidos por el PRD: inapi.cl y tramites.inapi.cl
-            (incl. www).
+            (incl. www). Consulta informes previos con «Historial de
+            auditorías».
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -86,12 +89,20 @@ export default function AuditarPage() {
             </FieldGroup>
           </form>
         </CardContent>
-        <CardFooter className="gap-2">
+        <CardFooter className="flex flex-wrap gap-2">
           <Button type="submit" form="form-auditar-url">
             Continuar
           </Button>
           <Button type="button" variant="outline" onClick={() => form.reset()}>
             Limpiar
+          </Button>
+          <Button asChild type="button" variant="outline">
+            <Link
+              href={historialHref()}
+              aria-label="Ir al historial de auditorías por URL"
+            >
+              Historial de auditorías
+            </Link>
           </Button>
         </CardFooter>
       </Card>

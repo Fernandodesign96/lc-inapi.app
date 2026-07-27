@@ -214,11 +214,11 @@ Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite
 - [ ] Proyecto **Supabase** (PostgreSQL 16, Auth, RLS) según [`docs/DATABASE.md`](DATABASE.md)
 - [ ] API de dominio en **Railway** (tier gratuito) — decisión de tecnología pendiente de ADR específico cuando se inicie
 - [ ] Autenticación institucional con TI INAPI (magic link, Google Workspace u otro)
-- [ ] Histórico por URL en UI con persistencia real
+- [ ] Histórico por URL en UI con persistencia real (BD; distinto del historial versionado MVP ya en frontend)
 - [ ] Auditorías programadas (cron)
 - [ ] Roles (revisor vs editor)
 - [ ] Panel de métricas agregadas
-- [ ] **Historial versionado por URL en UI** (`feat/frontend-audit-history`): listar auditorías por fecha bajo `data/claude-audits/{tramites|sitioweb}/{fecha}/`; filtros Meta MEI Trámites/Sitio Web. Los acordeones piloto/Clarity pueden mantenerse como vistas de launch hasta esa rama.
+- [x] **Historial versionado por URL en UI** (`feat/frontend-audit-history`, jul-2026): `/auditar/historial` (índice + filtro Trámites/Sitio Web) y `/auditar/historial/[rank]` (fechas vigente + `history[]`); botón en ingreso de URL; ficha Clarity e inventario Clarity enlazan al historial; `CLARITY_AUDIT_ID_SET` incluye ids históricos para abrir informes en `/auditar/resultado`.
 
 ---
 

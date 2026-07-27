@@ -56,11 +56,15 @@ function listAuditJsonFiles(dir: string): string[] {
   return out.sort()
 }
 
-/** Ids registrados en CLAUDE_PILOT_URL_ROWS. */
+/** Ids registrados en CLAUDE_PILOT_URL_ROWS (claudeAuditId + history.id). */
 function registeredLaunchIds(): Set<string> {
   const source = readFileSync(launchPath, "utf8")
   const ids = new Set<string>()
   for (const match of source.matchAll(/claudeAuditId:\s*"([^"]+)"/g)) {
+    ids.add(match[1])
+  }
+  // history: [{ id: "…" }] o bloques multilínea con `id:`
+  for (const match of source.matchAll(/\bid:\s*"([^"]+)"/g)) {
     ids.add(match[1])
   }
   return ids

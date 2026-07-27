@@ -34,8 +34,12 @@ export function AuditarInventorySections() {
               <div className="px-4 pb-1 pt-0">
                 <p className="mb-3 text-muted-foreground text-xs leading-relaxed">
                   Historial URLs INAPI: Calidad Web del Sitio Web + Trámites (Clarity).
-                  Puede usar los filtros para encontrar URLs por tipo de URL y estado LC,
-                  orden por visitas/auditorías/fecha/%
+                  % LC, estado y última revisión muestran la{" "}
+                  <span className="font-medium text-foreground">
+                    última auditoría
+                  </span>{" "}
+                  cableada en el launch. Use filtros por tipo/estado e «Historial»
+                  para ver fechas anteriores.
                 </p>
                 <ClarityInventoryHistorialTable />
               </div>

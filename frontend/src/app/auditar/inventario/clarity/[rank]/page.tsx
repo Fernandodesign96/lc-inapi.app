@@ -33,6 +33,12 @@ import {
   resolveLcAceptacionBucket,
 } from "@/lib/lc-aceptacion-visual"
 import { cn } from "@/lib/utils"
+import {
+  clarityLaunchByRank,
+  historialRankHref,
+  resultadoClarityHrefForId,
+} from "@/lib/clarity-audits-launch"
+import { formatFechaEvaluacion } from "@/lib/informe-piloto-format"
 
 type PageProps = {
   params: Promise<{ rank: string }>
@@ -73,6 +79,9 @@ export default async function ClarityFichaPage({ params }: PageProps) {
   if (!ficha) {
     notFound()
   }
+
+  const launch = clarityLaunchByRank(ficha.rank)
+  const versiones = launch?.versiones ?? []
 
   const bucket = resolveLcAceptacionBucket({
     porcentajeLcRef: ficha.porcentajeLcRef,
@@ -148,9 +157,15 @@ export default async function ClarityFichaPage({ params }: PageProps) {
                   <dd className="mt-0.5 tabular-nums">{ficha.visitasRef}</dd>
                 </div>
                 <div>
-                  <dt className="text-muted-foreground">Auditorías (ref.)</dt>
+                  <dt className="text-muted-foreground">
+                    {versiones.length > 0
+                      ? "Auditorías (repo)"
+                      : "Auditorías (ref.)"}
+                  </dt>
                   <dd className="mt-0.5 tabular-nums font-medium">
-                    {ficha.auditoriasRef}
+                    {versiones.length > 0
+                      ? versiones.length
+                      : ficha.auditoriasRef}
                   </dd>
                 </div>
                 <div>
@@ -213,61 +228,98 @@ export default async function ClarityFichaPage({ params }: PageProps) {
           </section>
 
           <section aria-labelledby="clarity-ficha-historial-titulo">
-            <h2
-              id="clarity-ficha-historial-titulo"
-              className="mb-2 text-sm font-semibold"
-            >
-              Historial de auditorías (mock)
-            </h2>
-            <Table>
-              <TableCaption className="sr-only">
-                Revisiones ficticias asociadas a esta URL en el mock.
-              </TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Fecha</TableHead>
-                  <TableHead className="text-right">% LC (ref.)</TableHead>
-                  <TableHead>Estado (ref.)</TableHead>
-                  <TableHead>Nota</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {ficha.historialAuditorias.map((item) => {
-                  const itemBucket = resolveLcAceptacionBucket({
-                    porcentajeLcRef: item.porcentajeLcRef,
-                    estadoLcRef: item.estadoLcRef,
-                  })
-                  const itemPct = parsePorcentajeLcRef(item.porcentajeLcRef)
-                  return (
-                    <TableRow
-                      key={`${item.fecha}-${item.nota}`}
-                      className={inventoryRowClassFromLcAceptacionBucket(itemBucket)}
-                    >
-                      <TableCell className="whitespace-nowrap tabular-nums">
-                        {item.fecha}
-                      </TableCell>
-                      <TableCell
-                        className={cn(
-                          "text-right tabular-nums",
-                            porcentajeLcAceptacionTextClass(itemPct),
+            <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+              <h2
+                id="clarity-ficha-historial-titulo"
+                className="text-sm font-semibold"
+              >
+                Historial de auditorías
+              </h2>
+              {versiones.length > 0 ? (
+                <Link
+                  href={historialRankHref(ficha.rank)}
+                  className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  Ver historial completo
+                </Link>
+              ) : null}
+            </div>
+            {versiones.length > 0 ? (
+              <Table>
+                <TableCaption className="sr-only">
+                  Informes LC reales en el repositorio para esta URL.
+                </TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Fecha</TableHead>
+                    <TableHead className="text-right">% LC</TableHead>
+                    <TableHead>Estado</TableHead>
+                    <TableHead>Versión</TableHead>
+                    <TableHead>Informe</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {versiones.map((v) => {
+                    const pctStr = `${v.resumenMvp.porcentajeLc.toFixed(1).replace(".", ",")} %`
+                    const itemBucket = resolveLcAceptacionBucket({
+                      porcentajeLcRef: pctStr,
+                      estadoLcRef: v.resumenMvp.estadoAceptacion,
+                    })
+                    const itemPct = v.resumenMvp.porcentajeLc
+                    return (
+                      <TableRow
+                        key={v.id}
+                        className={inventoryRowClassFromLcAceptacionBucket(
+                          itemBucket,
                         )}
                       >
-                        {item.porcentajeLcRef}
-                      </TableCell>
-                      <TableCell>
-                        <CeldaEstadoLcAceptacion
-                          bucket={itemBucket}
-                          etiqueta={item.estadoLcRef}
-                        />
-                      </TableCell>
-                      <TableCell className="max-w-[min(100vw,20rem)] text-muted-foreground">
-                        {item.nota}
-                      </TableCell>
-                    </TableRow>
-                  )
-                })}
-              </TableBody>
-            </Table>
+                        <TableCell className="whitespace-nowrap tabular-nums">
+                          {formatFechaEvaluacion(
+                            v.resumenMvp.fechaEvaluacionIso,
+                          )}
+                        </TableCell>
+                        <TableCell
+                          className={cn(
+                            "text-right tabular-nums",
+                            porcentajeLcAceptacionTextClass(itemPct),
+                          )}
+                        >
+                          {pctStr}
+                        </TableCell>
+                        <TableCell>
+                          <CeldaEstadoLcAceptacion bucket={itemBucket} />
+                        </TableCell>
+                        <TableCell>
+                          {v.esVigente ? (
+                            <span className="text-xs font-medium text-primary">
+                              Vigente
+                            </span>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">
+                              Anterior
+                            </span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <Link
+                            href={resultadoClarityHrefForId(ficha.url, v.id)}
+                            className="font-medium text-primary underline-offset-4 hover:underline"
+                          >
+                            Ver informe
+                          </Link>
+                        </TableCell>
+                      </TableRow>
+                    )
+                  })}
+                </TableBody>
+              </Table>
+            ) : (
+              <p className="rounded-lg border border-border bg-card p-4 text-sm text-muted-foreground">
+                {ficha.estadoLcRef === "Pendiente TI"
+                  ? "Sin informe en el repositorio (Pendiente TI)."
+                  : "Aún no hay informes LC versionados para esta URL."}
+              </p>
+            )}
           </section>
         </CardContent>
 
@@ -275,6 +327,13 @@ export default async function ClarityFichaPage({ params }: PageProps) {
           <Button type="button" asChild>
             <Link href={auditarHref}>Auditar esta URL (mock)</Link>
           </Button>
+          {versiones.length > 0 ? (
+            <Button type="button" variant="outline" asChild>
+              <Link href={historialRankHref(ficha.rank)}>
+                Historial de auditorías
+              </Link>
+            </Button>
+          ) : null}
           <Button type="button" variant="secondary" asChild>
             <Link href="/auditar">Volver a /auditar</Link>
           </Button>

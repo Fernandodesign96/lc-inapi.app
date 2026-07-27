@@ -293,9 +293,18 @@ Cada fila en `sustituciones[]` debe corresponder a **uno** de estos cinco tipos:
 bun run validate:claude-audits   # debe pasar sin errores
 ```
 
+### Paso 4b — Cablear frontend (no automático)
+
+El JSON en disco y `bun run ingest:b` **no** bastan para la UI. Actualizar:
+
+- `frontend/src/lib/clarity-audits-launch.ts` (serie Clarity / historial `/auditar/historial`)
+- `frontend/src/lib/claude-audits-launch.ts` si la URL está en el piloto 9
+
+Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver `.claude/prompts/audit-lote.md` Paso 6.
+
 ### Paso 5 — Commit y DEVLOG
 ```bash
-git add data/claude-audits/...
+git add data/claude-audits/... frontend/src/lib/clarity-audits-launch.ts
 git commit -m "feat(audits): agregar auditoría {slug-url} — {estado_aceptacion} {porcentaje}%"
 # Añadir entrada en docs/development/DEVLOG.md (formato .agents/workflows/devlog-standard.md)
 ```

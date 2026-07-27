@@ -13,6 +13,11 @@ export type ClaudePilotUrlRow = {
     fechaEvaluacionIso: string
     evaluadorUid: string
   }
+  /**
+   * Auditorías anteriores de la misma URL (ids en repo).
+   * El `claudeAuditId` debe ser siempre la más reciente.
+   */
+  history?: { id: string }[]
 }
 
 export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
@@ -21,13 +26,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/",
     label: "Home INAPI",
     tipoPagina: "sitioweb",
-    claudeAuditId: "www-inapi-cl_2026-06-02",
+    // Misma URL que Clarity rank 16 — vigente jul-2026
+    claudeAuditId: "www-inapi-cl_2026-07-22",
     resumenMvp: {
-      porcentajeLc: 45.5,
+      porcentajeLc: 54.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-03T14:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [
+      { id: "www-inapi-cl_2026-06-11" },
+      { id: "www-inapi-cl_2026-06-02" },
+    ],
   },
   {
     pilotoNum: 2,
@@ -77,7 +87,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     resumenMvp: {
       porcentajeLc: 34.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-07T12:00:00.000Z", // usar la del JSON
+      fechaEvaluacionIso: "2026-06-07T12:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
   },
@@ -125,17 +135,22 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://tramites.inapi.cl/",
     label: "Trámites y Servicios",
     tipoPagina: "tramites",
-    claudeAuditId: "tramites-inapi-cl_2026-06-07",
+    // Misma URL que Clarity rank 1 — vigente jul-2026
+    claudeAuditId: "tramites-inapi-cl_2026-07-22",
     resumenMvp: {
-      porcentajeLc: 57.6,
+      porcentajeLc: 60.6,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-07T22:00:00.000Z",
+      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
-  }
+    history: [
+      { id: "tramites-inapi-cl_2026-06-11" },
+      { id: "tramites-inapi-cl_2026-06-07" },
+    ],
+  },
 ]
 
-/** Solo ids con JSON en repo (GET /api/claude-audits/[id]). */
+/** Solo ids con JSON en repo (GET /api/claude-audits/[id]). Incluye history. */
 export const CLAUDE_AUDIT_LAUNCHES = CLAUDE_PILOT_URL_ROWS.filter(
   (r): r is ClaudePilotUrlRow & { claudeAuditId: string } =>
     r.claudeAuditId !== null,
@@ -148,9 +163,10 @@ export const CLAUDE_AUDIT_LAUNCHES = CLAUDE_PILOT_URL_ROWS.filter(
 
 export type ClaudeAuditLaunchRow = (typeof CLAUDE_AUDIT_LAUNCHES)[number]
 
-export const CLAUDE_AUDIT_ID_SET = new Set<string>(
-  CLAUDE_AUDIT_LAUNCHES.map((row) => row.id),
-)
+export const CLAUDE_AUDIT_ID_SET = new Set<string>([
+  ...CLAUDE_AUDIT_LAUNCHES.map((row) => row.id),
+  ...CLAUDE_PILOT_URL_ROWS.flatMap((r) => r.history?.map((h) => h.id) ?? []),
+])
 
 export function claudeAuditIdForUrl(url: string): string | null {
   const normalized = url.replace(/\/$/, "")
