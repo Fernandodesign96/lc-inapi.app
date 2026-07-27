@@ -35,9 +35,9 @@ No usar solo el RAG para criterios — el JSON es la fuente de verdad.
 ```
 
 El campo `source` indica los documentos normativos donde se puede ampliar la definición en el RAG:
-- `RLC` = Recomendaciones de Lenguaje Claro (Chile)
-- `CW` = Calidad Web 2.0 (Gobierno de Chile)
-- `META-MEI` = instrumento de evaluación MEI
+- `RLC` = Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`)
+- `CW` = marco de calidad web (etiqueta del checklist; PDF principal: `meta-mei.pdf`, complementado por IEW/IESD)
+- `META-MEI` = Meta MEI (`meta-mei.pdf`) — documento principal de Colección A
 
 ---
 
@@ -46,12 +46,11 @@ El campo `source` indica los documentos normativos donde se puede ampliar la def
 **Propósito:** buscar en los documentos normativos que definen los criterios.
 
 **Documentos ingresados en Colección A** (fuente: `docs/adr/0010`):
-- `calidad-web-2.0.pdf` — estándar del Gobierno de Chile para sitios web
-- `meta-mei.pdf` — instrumento de evaluación de servicios digitales transaccionales MEI
-- `lenguaje-claro-recomendaciones.pdf` — guía de lenguaje claro Chile
-- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno
-- `instrumento-evaluacion-sitios-web.pdf`
-- `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`
+- `meta-mei.pdf` — **documento principal**; fundamenta el marco de calidad web / servicios digitales (las citas `CW` del checklist apuntan aquí, no a un PDF aparte)
+- `lenguaje-claro-recomendaciones.pdf` — guía de lenguaje claro Chile (`RLC`)
+- `instrumento-evaluacion-sitios-web.pdf` (`IEW`)
+- `instrumento-evaluacion-servicios-digitales-transaccionales.pdf` (`IESD`)
+- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno (`UI-KIT`, opcional recomendado)
 
 **Cuándo usar Colección A:**
 - Para citar la fuente normativa exacta en el `comentario` del criterio.

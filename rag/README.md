@@ -9,8 +9,10 @@ Referencia arquitectónica: [`docs/adr/0010-rag-local-chroma-xenova-transformers
 
 | Colección | Fuente | Propósito |
 |---|---|---|
-| `coleccion_a` | `../documentos/*.pdf` (local, no en repo) | Fundamentos normativos (CW 2.0, Meta MEI, RLC, UI Kit) |
+| `coleccion_a` | `../documentos/*.pdf` (local, no en repo) | Fundamentos normativos: **Meta MEI** (principal), RLC, instrumentos IEW/IESD, UI Kit |
 | `coleccion_b` | Archivos del repo (`data/`, `docs/adr/`) | Checklist, precedentes de auditorías, ADRs |
+
+> **Calidad web:** no hay un PDF separado `calidad-web-2.0.pdf`. El marco de calidad web institucional se fundamenta en **Meta MEI** y se complementa con RLC e instrumentos de evaluación. Las citas `CW` del checklist son referencias conceptuales a ese marco.
 
 ---
 
@@ -51,16 +53,15 @@ bun run ingest:b
 
 ### 5. Ingestar Colección A (requiere PDFs en `../documentos/`)
 
-Coloca los PDFs normativos en la carpeta `documentos/` en la raíz del repo (nunca al repo, está en `.gitignore`):
+Coloca los PDFs normativos en la carpeta `documentos/` en la raíz del repo (nunca al repo, está en `.gitignore`). **Nombres exactos** (una sola extensión `.pdf`):
 
 ```
 documentos/
-├── calidad-web-2.0.pdf
-├── meta-mei.pdf
+├── meta-mei.pdf                                                         ← principal
 ├── lenguaje-claro-recomendaciones.pdf
-├── ui-kit-gobierno-3.0.1.pdf
 ├── instrumento-evaluacion-sitios-web.pdf
-└── instrumento-evaluacion-servicios-digitales-transaccionales.pdf
+├── instrumento-evaluacion-servicios-digitales-transaccionales.pdf
+└── ui-kit-gobierno-3.0.1.pdf                                            ← opcional recomendado
 ```
 
 Ejecutar **desde `rag/`**:

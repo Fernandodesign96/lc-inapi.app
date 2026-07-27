@@ -10,20 +10,21 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 - Cuando se necesite fundamentar por qué un criterio incumple desde el marco normativo.
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
 - Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
-- Cuando se requiera contexto sobre qué es la Calidad Web 2.0, el Meta MEI o el UI Kit Gobierno.
+- Cuando se requiera contexto sobre el marco de calidad web (citas `CW` del checklist), el Meta MEI o el UI Kit Gobierno.
 
 ---
 
 ## 1. Mapa normativo — qué cubre cada documento
 
-| Documento | Abreviatura en `source` | Qué regula | Relevante para |
+| Documento (PDF en `documentos/`) | Abreviatura en `source` | Qué regula | Relevante para |
 |---|---|---|---|
-| Calidad Web 2.0 (Gobierno de Chile) | `CW` | Estándar de calidad para sitios web institucionales del Estado: lenguaje, estructura, accesibilidad, enlaces, datos personales, archivo | A1–H1 completo; es la fuente principal del checklist v1.1 |
-| Recomendaciones de Lenguaje Claro (Chile) | `RLC` | Guía de escritura en lenguaje claro para comunicaciones del Estado | B1–B7, C1–C7, F1–F5 (especialmente F2, F3) |
-| Meta MEI — Instrumento de Evaluación de Servicios Digitales Transaccionales | `META-MEI` | Evaluación de la calidad de servicios digitales del gobierno (tramitación online) | Criterios B, C, D en portal de trámites; peso especial en flujo de usuario |
-| Instrumento de Evaluación de Sitios Web | `IEW` | Revisión de sitios web informativos del Estado | A1–A5, E1–E4, G1–G3 |
-| Instrumento de Evaluación de Servicios Digitales Transaccionales | `IESD` | Revisión de servicios digitales con transacciones (formularios, pagos) | F1–F5, G1–G3, accesibilidad en flujos de tramitación |
-| UI Kit Gobierno 3.0.1 | `UI-KIT` | Componentes de diseño, accesibilidad visual, patrones de interacción | D3, D4, D6, D7 (criterios visuales) |
+| **Meta MEI** (`meta-mei.pdf`) — documento principal | `META-MEI` / `CW`* | Instrumento de evaluación de servicios digitales y marco de calidad web institucional que fundamenta el checklist | A1–H1; peso especial en `tramites.inapi.cl` (B, C, D) |
+| Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`) | `RLC` | Guía de escritura en lenguaje claro para comunicaciones del Estado | B1–B7, C1–C7, F1–F5 (especialmente F2, F3) |
+| Instrumento de Evaluación de Sitios Web (`instrumento-evaluacion-sitios-web.pdf`) | `IEW` | Revisión de sitios web informativos del Estado | A1–A5, E1–E4, G1–G3 |
+| Instrumento de Evaluación de Servicios Digitales Transaccionales (`instrumento-evaluacion-servicios-digitales-transaccionales.pdf`) | `IESD` | Revisión de servicios digitales con transacciones (formularios, pagos) | F1–F5, G1–G3, flujos de tramitación |
+| UI Kit Gobierno 3.0.1 (`ui-kit-gobierno-3.0.1.pdf`) | `UI-KIT` | Componentes de diseño, accesibilidad visual, patrones de interacción | D3, D4, D6, D7 (criterios visuales) |
+
+\* Las citas `CW` / `CW 5.x.x` en `checklist-criteria.json` **no** apuntan a un PDF separado «Calidad Web 2.0». Son referencias al marco de calidad web que vive principalmente en **Meta MEI** y se complementa con RLC, IEW e IESD.
 
 ---
 
@@ -75,23 +76,25 @@ Derivado del campo `source` en `data/checklist-criteria.json`:
 
 ---
 
-## 3. Calidad Web 2.0 — estructura del estándar (CW)
+## 3. Marco de calidad web (referencias `CW` en el checklist)
 
-El estándar Calidad Web 2.0 del Gobierno de Chile organiza los criterios en **5 dimensiones** que se mapean directamente al checklist v1.1:
+El checklist v1.1 cita secciones tipo `CW 5.1.x` / `CW 5.2.x`. Esas etiquetas organizan el marco de **calidad web institucional** en dimensiones que se mapean al checklist:
 
-| Dimensión CW | Secciones del checklist | Contenido |
+| Dimensión (etiqueta CW) | Secciones del checklist | Contenido |
 |---|---|---|
 | **5.1 Contenido** | E2 (5.1.1), E4 (5.1.2), B2–B4 (5.1.3), E3 (5.1.4), D1–D2 (5.1.5), G3 (5.1.6), G1–G2 (5.1.7) | Autoría, representatividad del título, lenguaje, fecha, ortografía, datos personales |
 | **5.2 Estructura y presentación** | B1, B6, C1–C2 (5.2.1), C3–C6 (5.2.2), D3–D5 (5.2.3), D6–D7, A1–A3, F2–F4 (5.2.4) | Voz activa, oraciones, párrafos, formato, negritas, mayúsculas, enlaces |
 | **5.3 Veracidad y objetividad** | E1 (5.3.1), H1 (5.3.2) | Sin opiniones, archivo de versiones |
-| **Pirámide invertida y estructura** | A1–A5 | RLC §1–§9 complementa el estándar en estructura y redacción |
-| **Servicios transaccionales** | F1–F5, G1–G3 (con META-MEI) | Especialmente relevante para `tramites.inapi.cl` |
+| **Pirámide invertida y estructura** | A1–A5 | RLC §1–§9 complementa estructura y redacción |
+| **Servicios transaccionales** | F1–F5, G1–G3 (META-MEI / IESD) | Especialmente relevante para `tramites.inapi.cl` |
+
+**Documento PDF principal para fundamentar esas citas:** `meta-mei.pdf`. Complementos: `lenguaje-claro-recomendaciones.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`.
 
 ---
 
-## 4. Meta MEI — evaluación de servicios digitales transaccionales
+## 4. Meta MEI — documento principal de calidad web / servicios digitales
 
-El **Meta MEI** es el instrumento de referencia para evaluar la calidad editorial de servicios digitales con tramitación del Estado. Aplica especialmente a páginas de `tramites.inapi.cl`.
+El **Meta MEI** (`meta-mei.pdf`) es el **documento normativo principal** del marco de calidad web en este proyecto: fundamenta la evaluación editorial de servicios digitales del Estado y es la fuente PDF a consultar primero cuando el checklist cite `CW` o criterios de tramitación.
 
 **Foco del Meta MEI en el checklist INAPI:**
 - **Sección B** (lenguaje claro): voz activa, tuteo, siglas, tono positivo — peso aumentado en tramitación.
@@ -156,7 +159,7 @@ Para obtener la cita normativa exacta antes de redactar el comentario:
 
 ```
 RAG colección A — query: "CW 5.2.4 mayúsculas tipografía encabezados"
-→ Resultado esperado: párrafo del PDF calidad-web-2.0.pdf con la regla de mayúsculas
+→ Resultado esperado: fragmento de `meta-mei.pdf` (y/o RLC) que sustente la regla de mayúsculas; la etiqueta `CW 5.2.4` del checklist es la referencia conceptual, no un PDF aparte.
 
 RAG colección A — query: "RLC §7 siglas acrónimos primera vez"
 → Resultado esperado: párrafo del PDF lenguaje-claro-recomendaciones.pdf

@@ -69,7 +69,7 @@ const TOOLS = [
   {
     name: "rag_search_normativa",
     description:
-      "Busca en la Colección A del RAG: documentos normativos (Calidad Web 2.0, Meta MEI, Lenguaje Claro, UI Kit Gobierno). Usa para encontrar fundamentos normativos de un criterio del checklist INAPI.",
+      "Busca en la Colección A del RAG: documentos normativos (Meta MEI como principal, Lenguaje Claro, instrumentos IEW/IESD, UI Kit Gobierno). Usa para encontrar fundamentos normativos de un criterio del checklist INAPI. Las citas CW del checklist se resuelven principalmente vía Meta MEI.",
     inputSchema: {
       type: "object",
       properties: {

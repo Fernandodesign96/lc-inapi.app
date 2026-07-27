@@ -37,9 +37,9 @@ Chroma corre como proceso local en desarrollo (`chroma run --path ./rag/chroma_d
 ### Capa 3 — Data (dos colecciones Chroma, completamente aisladas)
 
 **Colección A — documentos normativos** (fuente: `documentos/`, en `.gitignore`):
-- `calidad-web-2.0.pdf`, `meta-mei.pdf`, `ui-kit-gobierno-3.0.1.pdf`
-- `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`
-- `lenguaje-claro-recomendaciones.pdf`
+- `meta-mei.pdf` (**principal** — marco de calidad web / servicios digitales; las citas `CW` del checklist no son un PDF aparte)
+- `lenguaje-claro-recomendaciones.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`
+- `ui-kit-gobierno-3.0.1.pdf` (opcional recomendado)
 
 **Colección B — material de trabajo del repo**:
 - `data/checklist-criteria.json` (fuente de verdad de los 39 criterios)

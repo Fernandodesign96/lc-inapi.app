@@ -2,13 +2,17 @@
  * ingest-a.ts — Ingesta Colección A: documentos normativos (PDFs)
  *
  * Fuente: carpeta ../documentos/ (en .gitignore; solo local y servidor TI)
- * PDFs esperados:
- *   - calidad-web-2.0.pdf
- *   - meta-mei.pdf
+ *
+ * PDFs esperados (nombres exactos, con extensión .pdf una sola vez):
+ *   - meta-mei.pdf  ← documento principal (fundamenta calidad web / servicios digitales)
  *   - lenguaje-claro-recomendaciones.pdf
- *   - ui-kit-gobierno-3.0.1.pdf
  *   - instrumento-evaluacion-sitios-web.pdf
  *   - instrumento-evaluacion-servicios-digitales-transaccionales.pdf
+ *   - ui-kit-gobierno-3.0.1.pdf  (opcional pero recomendado)
+ *
+ * Nota: no existe un PDF separado «calidad-web-2.0.pdf». Las referencias «CW»
+ * del checklist apuntan a criterios de calidad web que viven principalmente
+ * en Meta MEI y se complementan con RLC e instrumentos de evaluación.
  *
  * Uso: bun run ingest:a
  * Requiere: Chroma corriendo en http://localhost:8000
@@ -28,14 +32,13 @@ const CHUNK_SIZE = 800;  // caracteres por chunk
 const CHUNK_OVERLAP = 100;
 const MODEL = "Xenova/paraphrase-multilingual-MiniLM-L12-v2";
 
-// PDFs normativos esperados
+/** PDFs normativos esperados (Meta MEI es el documento principal). */
 const EXPECTED_PDFS = [
-  "calidad-web-2.0.pdf",
   "meta-mei.pdf",
   "lenguaje-claro-recomendaciones.pdf",
-  "ui-kit-gobierno-3.0.1.pdf",
   "instrumento-evaluacion-sitios-web.pdf",
   "instrumento-evaluacion-servicios-digitales-transaccionales.pdf",
+  "ui-kit-gobierno-3.0.1.pdf",
 ];
 
 function chunkText(text: string, size: number, overlap: number): string[] {

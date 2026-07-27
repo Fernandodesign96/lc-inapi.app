@@ -7,7 +7,7 @@ Aceptado — 2026-07-21
 ## Contexto
 
 El pipeline de auditoría necesita que Claude Code Pro pueda consultar:
-1. Las fuentes normativas que definen los criterios (Calidad Web 2.0, Meta MEI, Lenguaje Claro Chile, UI Kit Gobierno, instrumentos de evaluación).
+1. Las fuentes normativas que definen los criterios (**Meta MEI** como documento principal del marco de calidad web, más Lenguaje Claro Chile, instrumentos de evaluación IEW/IESD y UI Kit Gobierno). Las etiquetas `CW` del checklist son referencias conceptuales a ese marco — **no** existe un PDF separado `calidad-web-2.0.pdf`.
 2. El historial de auditorías previas para detectar patrones recurrentes y mantener consistencia editorial.
 
 Opciones evaluadas para proveer este contexto de forma semántica:
@@ -43,7 +43,7 @@ El aislamiento es **arquitectónico** (scripts de ingesta separados, colecciones
 
 **Colección A — documentos normativos** (`coleccion_a`):
 - Fuente: carpeta `documentos/` (en `.gitignore`; solo existe localmente y en servidor TI).
-- Contenido: `calidad-web-2.0.pdf`, `meta-mei.pdf`, `ui-kit-gobierno-3.0.1.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`, `lenguaje-claro-recomendaciones.pdf`.
+- Contenido: `meta-mei.pdf` (principal), `lenguaje-claro-recomendaciones.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`, `ui-kit-gobierno-3.0.1.pdf` (opcional recomendado).
 - Script de ingesta: `rag/ingest-a.ts`.
 - Propósito: permitir que Claude Code busque fundamentos normativos para justificar evaluaciones de criterios.
 
