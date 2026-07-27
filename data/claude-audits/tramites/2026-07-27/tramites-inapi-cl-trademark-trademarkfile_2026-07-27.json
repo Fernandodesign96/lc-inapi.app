@@ -1,0 +1,484 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkfile_2026-07-27",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkFile",
+  "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 3,
+    "nombre_ui": "Expediente de marca",
+    "ruta_etiqueta": "Trademark / TrademarkFile",
+    "visitas_ref": "198.337",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Consulta del expediente y estado del trámite de marca del solicitante."
+  },
+  "texto_capturado": "T002 [HTML-L29]: «Expediente Digital INAPI — Portal de Trámites: Marcas, Patentes y máss» (title; em dash correcto, typo transversal «máss») | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde correcta — corregido) | T012 [HTML-L379,706]: «Documentación Mínima PCT» | T013-T017: datos de sesión del usuario autenticado (perfil, navbar) | T020 [HTML-L1101-1102]: «Filtro de Búsqueda» (H6, card-header, no H1/H2/H3 semántico) | T021 [HTML-L1108]: «Ingrese el número de solicitud de marca.» (único texto orientador, sin contexto de propósito) | T022 [HTML-L1113]: «Número de Solicitud» (label) | T023 [HTML-L1116]: campo sin ejemplo de formato | T024 [HTML-L1134-1135]: «Buscar» / «Limpiar» | T025 [HTML-L1146]: «Nota» (leyenda fieldset) | T026 [HTML-L1148]: nota legal ≈100 palabras, oración única con voz pasiva y referencias Ley 19.628/19.039 (idéntica a 2026-06-11, sin corregir) | T027 [HTML-L1162-1164]: «Solicitudes encontradas» (H6) | T028 [HTML-L1174-1176]: «Índice de Documentos» (H6, jerga sin glosa) | T029 [HTML-L1182-1183]: «Solicitud no encontrada» | T030 [HTML-L1193-1195]: «Visualizador» (H6) | T031 [HTML-L1205-1207]: «Archivos Multimedia» (H6) | T032 [HTML-L1220]: «Si desea recibir el documento por correo electrónico, ingresa tu dirección de correo aquí:» (parcialmente corregido respecto a 2026-06-11; mezcla registro formal «Si desea» con tuteo «ingresa») | T033 [HTML-L1226]: «Correo electrónico» (label) | T034 [HTML-L1243]: «Los archivos de más de 20 MB no pueden ser enviados por correo electrónico.» | T035 [HTML-L856]: mensaje JS «Favor descargue el documento desde el visualizador.» (idéntico a 2026-06-11) | T036 [HTML-L1235]: «Enviar documento» | T037 [HTML-L1266]: «OK» (modal alerta, _Layout) | T038 [HTML-L1308]: «Aceptar» (modal confirmación, _Layout) | T039 [HTML-L1335]: «RUT: 65.999.669-3» (footer, persona jurídica pública; sin RUN de persona natural detectado en el HTML de esta pantalla) | T040-T042: dirección, teléfono, correo institucional | T043 [HTML-L1371]: «Política de privacidad» (→ PDF, sin formato) | T044: «©2026 INAPI. Todos los derechos reservados» | T045 [HTML-L1387]: «v 2.3.96.0» (versión técnica, bump respecto a 2.3.90.0) | (ausencia): sin fecha de publicación/actualización de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe un mensaje principal jerarquizado mediante H1/H2/H3 real. Las 5 secciones de la pantalla (Filtro de Búsqueda, Solicitudes encontradas, Índice de Documentos, Visualizador, Archivos Multimedia) usan H6 como único nivel de encabezado. Idéntico a la auditoría 2026-06-11.",
+      "cita_textual": "T020 [HTML-L1101-1102]: «Filtro de Búsqueda» (H6, no H)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No hay párrafo introductorio que explique el propósito del «Expediente Digital» antes de solicitar el número de solicitud. El único texto orientador es una instrucción de campo, no una introducción de contexto.",
+      "cita_textual": "T021 [HTML-L1108]: «Ingrese el número de solicitud de marca.»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las secciones lógicas de la pantalla están tituladas únicamente con H6, sin niveles de encabezado informativos reales que reflejen la estructura jerárquica.",
+      "cita_textual": "T027 [HTML-L1162-1164]: «Solicitudes encontradas» (H6) / T028 [HTML-L1174-1176]: «Índice de Documentos» (H6)"
+    },
+    {
+      "id": "A4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La nota legal del fieldset «Nota» excede el umbral recomendado en una sola oración de ≈100 palabras con múltiples cláusulas subordinadas.",
+      "cita_textual": "T026 [HTML-L1148]: oración de ≈100 palabras con múltiples subordinadas"
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Se expone en el footer una versión técnica del sistema sin utilidad para el usuario final.",
+      "cita_textual": "T045 [HTML-L1387]: «v 2.3.96.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La nota legal usa voz pasiva refleja e impersonal en tercera persona en vez de voz activa dirigida al usuario. Idéntico a 2026-06-11.",
+      "cita_textual": "T026 [HTML-L1148]: «...se obliga a no utilizar ni hacer tratamiento, en los términos dispuestos por la Ley N° 19.628...»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Índice de Documentos» es jerga archivística sin glosa contextual en la página. Idéntico a 2026-06-11.",
+      "cita_textual": "T028 [HTML-L1176]: «Índice de Documentos»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece repetidamente en el menú de Patentes sin expandir en su primera aparición. Idéntico a 2026-06-11.",
+      "cita_textual": "T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos evitables en el copy institucional revisado."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El tono general del copy institucional no es negativo ni desalentador."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T032 mezcla registros dentro de una misma oración: la cláusula condicional inicial «Si desea» quedó en tercera persona formal, mientras el verbo principal se corrigió a tuteo. Hallazgo nuevo respecto a 2026-06-11 (la frase completa antes era enteramente formal).",
+      "cita_textual": "T032 [HTML-L1220]: «Si desea recibir el documento por correo electrónico, ingresa tu dirección de correo aquí:»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La nota legal usa lenguaje formal hueco sin valor accionable. El mensaje JS de archivos grandes también usa imperativo formal impersonal. Ambos idénticos a 2026-06-11.",
+      "cita_textual": "T026 [HTML-L1148]: «...funciones que le han sido encomendadas por la Ley N° 19.039...» / T035 [HTML-L856]: «Favor descargue el documento desde el visualizador.»"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Los fragmentos evaluables de esta sección (etiquetas, instrucciones cortas) siguen orden sujeto-verbo-predicado cuando corresponde."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Predomina el presente simple en las instrucciones de la pantalla."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La nota legal es una sola oración de ≈100 palabras, muy por encima del límite recomendado. Idéntico a 2026-06-11.",
+      "cita_textual": "T026 [HTML-L1148]: oración de ≈100 palabras"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El bloque de la nota legal mezcla al menos tres ideas distintas (uso adecuado, prohibición de tratamiento de datos, finalidad legal) sin separar en párrafos propios.",
+      "cita_textual": "T026 [HTML-L1148]: «...se obliga a no utilizar... De esta manera el conocimiento de los datos personales queda circunscrito...»"
+    },
+    {
+      "id": "C5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El párrafo de la nota legal excede las 8 líneas recomendadas al concentrar toda la cláusula en un bloque continuo. Idéntico a 2026-06-11.",
+      "cita_textual": "T026 [HTML-L1148]: bloque continuo que supera 8 líneas en pantalla"
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario/panel de tramitación; el único bloque de texto corrido es la nota legal, insuficiente para 4 o más párrafos continuos."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El campo «Número de Solicitud» no indica el formato numérico esperado. Idéntico a 2026-06-11.",
+      "cita_textual": "T021 [HTML-L1108]: «Ingrese el número de solicitud de marca.» (sin ejemplo de formato)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El <title> contiene el error tipográfico transversal «máss». Además persiste una redundancia léxica en el texto de envío por correo (repite «correo» dos veces). Se confirma que «Titulos» sin tilde de la auditoría anterior ya fue corregido.",
+      "cita_textual": "T002 [HTML-L29]: «...Marcas, Patentes y máss» / T032 [HTML-L1220]: «por correo electrónico... dirección de correo aquí»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "No se detectan dobles espacios, repeticiones de puntuación ni uso inconsistente de comillas en el copy institucional inventariado."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "no_aplica",
+      "comentario": "El inventario no evidencia enumeraciones que debieran presentarse como lista o tabla adicional."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso con palabras clave que requiera destacarse con negritas más allá de la nota legal, ya cubierta en C3/C4/C5."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El menú global usa mayúsculas sostenidas en «MI INAPI», «TRAMITACIÓN», «PAGOS» y «SERVICIOS» (desktop y mobile). La exclusión de D7 aplica solo a la cabecera global de www.inapi.cl, no a tramites.inapi.cl.",
+      "cita_textual": "T006-T009,T018: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El copy institucional visible no contiene opiniones ni adjetivos valorativos; es descriptivo y normativo."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La autoría institucional es identificable: la nota legal referencia explícitamente a INAPI y su marco normativo."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de actualización de la página visible en ningún punto.",
+      "cita_textual": "(ausencia)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> describe de forma genérica todo el «Portal de Trámites: Marcas, Patentes» en lugar de identificar la función específica de esta pantalla (búsqueda y visualización de un expediente digital por número de solicitud).",
+      "cita_textual": "T002 [HTML-L29]: «Expediente Digital INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los botones «Buscar», «Limpiar» y «Enviar documento» describen con precisión la acción que ejecutan.",
+      "cita_textual": "T024 [HTML-L1134-1135]: «Buscar» / «Limpiar»"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "No se detectan enlaces o botones con fórmulas genéricas tipo «Haz clic aquí».",
+      "cita_textual": "T024, T036: «Buscar», «Limpiar», «Enviar documento»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los botones de modal «OK» y «Aceptar» no indican qué acción confirma el usuario. Patrón transversal al _Layout.cshtml, idéntico a 2026-06-11.",
+      "cita_textual": "T037 [HTML-L1266]: «OK» / T038 [HTML-L1308]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El enlace a «Política de privacidad» del footer no indica el formato ni el peso del documento descargable.",
+      "cita_textual": "T043 [HTML-L1371]: «Política de privacidad» → politica_de_privacidad.pdf"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los enlaces y botones evaluados están fuera de bloques de texto corrido, presentados como controles independientes.",
+      "cita_textual": "T024, T036: botones «Buscar»/«Limpiar»/«Enviar documento»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El formulario de búsqueda está vacío al cargar; los resultados solo aparecen tras una búsqueda del usuario vía AJAX. No se detectó ningún RUN de persona natural embebido en el HTML estático de esta pantalla. El único RUT visible es el de INAPI (persona jurídica pública).",
+      "cita_textual": "T039 [HTML-L1335]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "Existe un enlace visible y accesible a la política de privacidad institucional en el footer.",
+      "cita_textual": "T043 [HTML-L1371]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer incluye la declaración de derechos reservados institucionales.",
+      "cita_textual": "T044: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se observan rótulos de versión, historial de cambios ni indicación de contenido archivado en esta pantalla de búsqueda de expediente."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 33,
+  "criterios_aprobados": 13,
+  "porcentaje_cumplimiento": 39.4,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 20 incumplimientos sobre 33 criterios aplicables (39,4 %) para esta pantalla de alto tráfico (198.337 visitas). Respecto de la auditoría anterior (2026-06-11, 40,0 %) se corrigió la tilde de «Titulos»→«Títulos» y se aplicó tuteo parcial al texto de envío por correo (T032), pero esto introdujo una mezcla de registros («Si desea» + «ingresa») que es un hallazgo nuevo (B6). Persisten sin corregir: ausencia de H1/H2/H3 (A1, A3), nota legal de ≈100 palabras en una sola oración pasiva (A4, B1, B7, C3, C4, C5), «Expediente Digital» e «Índice de Documentos» sin definición (B2), PCT sin expandir (B3), ausencia de fecha de actualización (E3), botones «OK»/«Aceptar» (F3) y PDF sin formato (F4). El array sustituciones[] contiene 23 filas con cobertura 1:1 para los 20 criterios incumplidos.",
+  "observaciones_lc": "La pantalla del Expediente Digital de Marca obtiene un 39,4 % de cumplimiento sobre 33 criterios aplicables — RECHAZADO, rank 3 Clarity con 198.337 visitas, estable respecto de la auditoría anterior (2026-06-11, 40,0 %). El hallazgo estructural más crítico sigue siendo la nota legal (T026): ≈100 palabras en una sola oración pasiva con referencias legales encadenadas, que viola simultáneamente A4, B1, B7, C3, C4 y C5 — sin cambios desde junio. Se detectó una corrección parcial en el texto de envío por correo (T032): el verbo principal pasó a tuteo, pero la cláusula condicional inicial quedó en registro formal, generando una inconsistencia de tono nueva (B6). Persisten los patrones sistémicos ya documentados: ausencia de H1/H2/H3 (todos los cards usan H6), PCT sin definir, ausencia de fecha de actualización, y los botones «OK»/«Aceptar» y PDF sin formato del _Layout compartido. G1 se mantiene cumple: no hay datos de terceros ni RUN de persona natural embebidos en esta pantalla, y el formulario está vacío hasta que el usuario realiza una búsqueda.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkFile fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 3 Clarity con 198.337 visitas. De los 33 criterios aplicables, 13 se cumplen, lo que arroja un 39,4 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %), estable respecto de la auditoría anterior (2026-06-11, 40,0 %). Se detectaron 20 incumplimientos y se generaron 23 filas en sustituciones[] con cobertura 1:1. TI ya corrigió la tilde de «Titulos»→«Títulos» en el menú de Patentes y aplicó tuteo parcial al texto de envío de documento por correo, aunque esto generó una nueva inconsistencia de registro (B6). El hallazgo más crítico y sin cambios es la nota legal de ≈100 palabras en una sola oración pasiva (A4, B1, B7, C3, C4, C5), que sigue siendo la construcción gramatical más compleja de esta pantalla de alto tráfico. G1 se mantiene cumple: no se detectó ningún dato personal de terceros expuesto en el HTML estático de esta pantalla.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1/H2/H3; todos los cards usan H6.",
+      "(B3) PCT en el menú de Patentes sin definición.",
+      "(B7) Nota legal con lenguaje formal hueco; mensaje JS «Favor descargue» impersonal.",
+      "(C3) La nota legal es una sola oración de ≈100 palabras.",
+      "(D1) Typo transversal «máss» en el <title>; redundancia de «correo» en T032.",
+      "(E3) Sin fecha de publicación ni de última actualización visible."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique el propósito del Expediente Digital.",
+      "(A3) Sin jerarquía H1/H2/H3; todos los cards usan H6.",
+      "(A4) La nota legal de ≈100 palabras supera el límite recomendado.",
+      "(B1) Voz pasiva impersonal en la nota legal.",
+      "(B2) «Índice de Documentos» es jerga archivística sin glosa.",
+      "(B6) NUEVO: mezcla de registros en T032 («Si desea» formal + «ingresa» tuteo).",
+      "(C4) La nota legal mezcla al menos tres ideas en un solo bloque.",
+      "(C5) La nota legal supera las 8 líneas recomendadas.",
+      "(C7) Campo «Número de Solicitud» sin ejemplo de formato.",
+      "(D7) Mayúsculas sostenidas en el menú lateral.",
+      "(E4) El <title> es genérico y no identifica la función específica de la pantalla.",
+      "(F3) «OK»/«Aceptar» en modales sin contexto."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.96.0» es versión técnica visible sin valor para el usuario.",
+      "(F4) PDF de política de privacidad sin indicar formato ni peso."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h",
+      "html_linea_aprox": "HTML-L1101-1102",
+      "original": "Filtro de Búsqueda (H6, card-header, único nivel de encabezado)",
+      "propuesto": "<h1>Búsqueda de expediente digital</h1> y <h2>Filtro de búsqueda</h2>, <h2>Resultados de la búsqueda</h2>, <h2>Documentos del expediente</h2>, <h2>Visor de documentos</h2>, <h2>Archivos multimedia del expediente</h2>",
+      "criterio_id": "A1",
+      "motivo": "Ausencia total de jerarquía H1/H2/H3; las 5 secciones usan H6 como único nivel."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L1108",
+      "original": "(ausencia de párrafo introductorio)",
+      "propuesto": "En esta sección puedes consultar el expediente digital de tu solicitud de marca, ingresando el número de solicitud para ver su estado, documentos e imágenes asociadas.",
+      "criterio_id": "A2",
+      "motivo": "No hay párrafo de propósito que explique para qué sirve la pantalla antes de la instrucción de campo."
+    },
+    {
+      "linea": "A3-h",
+      "html_linea_aprox": "HTML-L1162-1207",
+      "original": "Solicitudes encontradas / Índice de Documentos / Visualizador / Archivos Multimedia (todos H6)",
+      "propuesto": "Promover a H2: «Resultados de la búsqueda», «Documentos del expediente», «Visor de documentos», «Archivos multimedia del expediente»",
+      "criterio_id": "A3",
+      "motivo": "Las secciones lógicas carecen de jerarquía semántica real; H6 usado como único nivel disponible."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "Utilizar adecuadamente los servicios proporcionados por esta página web. En este contexto, se obliga a no utilizar ni hacer tratamiento, en los términos dispuestos por la Ley N° 19.628, sobre Protección de la Vida Privada, de dato alguno disponible en la página www.inapi.cl y/o en los expedientes digitales, y/o libros electrónicos, especialmente para comunicar a terceros datos personales que consten en los accesos descritos, de manera agregada o desagregada. De esta manera el conocimiento de los datos personales queda circunscrito exclusivamente a la finalidad para la cual INAPI ha recabado dichos datos, en cumplimiento de las funciones que le han sido encomendadas por la Ley N° 19.039 y su Reglamento.",
+      "propuesto": "Debes utilizar adecuadamente los servicios de esta página. No puedes usar ni tratar ningún dato disponible en www.inapi.cl, en los expedientes digitales o en los libros electrónicos, según la Ley N° 19.628. Tampoco puedes comunicar a terceros los datos personales de estos accesos, de forma agregada ni desagregada.\n\nINAPI solo usa tus datos personales para la finalidad con la que fueron recabados, en cumplimiento de las funciones que le encomienda la Ley N° 19.039 y su Reglamento.",
+      "criterio_id": "A4",
+      "motivo": "La nota legal supera ampliamente el límite recomendado en una sola oración con múltiples cláusulas subordinadas; se propone fragmentar en oraciones breves manteniendo el contenido normativo."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L1387",
+      "original": "v 2.3.96.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Versión técnica del sistema sin utilidad para el usuario final."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "se obliga a no utilizar ni hacer tratamiento",
+      "propuesto": "No puedes usar ni tratar ningún dato",
+      "criterio_id": "B1",
+      "motivo": "Convierte la cláusula pasiva-impersonal en oraciones activas dirigidas al usuario."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L1176",
+      "original": "Índice de Documentos",
+      "propuesto": "Índice de Documentos (lista de todos los archivos de este expediente)",
+      "criterio_id": "B2",
+      "motivo": "Agrega glosa breve para que el usuario no experto entienda qué contiene la sección."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L330,658",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) — Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Expande la sigla PCT en su primera aparición del menú de Patentes."
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "HTML-L1220",
+      "original": "Si desea recibir el documento por correo electrónico, ingresa tu dirección de correo aquí:",
+      "propuesto": "Si deseas recibir el documento por correo electrónico, ingresa tu dirección de correo aquí:",
+      "criterio_id": "B6",
+      "motivo": "Unifica el registro de toda la oración en tuteo; corrige la cláusula condicional inicial que quedó en tercera persona formal tras la corrección parcial del verbo principal."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "de manera agregada o desagregada... en cumplimiento de las funciones que le han sido encomendadas por la Ley N° 19.039 y su Reglamento.",
+      "propuesto": "de forma agregada o desagregada. INAPI usa tus datos solo para cumplir las funciones que le da la Ley N° 19.039 y su Reglamento.",
+      "criterio_id": "B7",
+      "motivo": "Elimina fórmulas burocráticas sin valor accionable."
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "HTML-L856",
+      "original": "El archivo es demasiado grande para enviarse por correo electrónico. Favor descargue el documento desde el visualizador.",
+      "propuesto": "El archivo es demasiado grande para enviarlo por correo electrónico. Descárgalo desde el visualizador.",
+      "criterio_id": "B7",
+      "motivo": "Reemplaza el imperativo formal impersonal «Favor descargue» por tuteo directo."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "Utilizar adecuadamente los servicios proporcionados por esta página web. En este contexto, se obliga a no utilizar ni hacer tratamiento, en los términos dispuestos por la Ley N° 19.628...",
+      "propuesto": "Debes utilizar adecuadamente los servicios de esta página web. No puedes usar ni tratar ningún dato disponible en www.inapi.cl, en los expedientes digitales o en los libros electrónicos, según la Ley N° 19.628. Tampoco puedes comunicar a terceros los datos personales de estos accesos, de forma agregada ni desagregada.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración única de ~100 palabras en varias oraciones cortas bajo el límite de 30 palabras."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "(bloque único de la nota legal)",
+      "propuesto": "Separar en dos párrafos: (1) uso adecuado y prohibición de tratamiento de datos; (2) finalidad del uso de datos por INAPI («INAPI solo usa tus datos personales para la finalidad con la que fueron recabados, en cumplimiento de las funciones que le encomienda la Ley N° 19.039 y su Reglamento.»).",
+      "criterio_id": "C4",
+      "motivo": "Separa en dos párrafos las dos ideas distintas que hoy están fusionadas en un solo bloque."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "(bloque único de la nota legal)",
+      "propuesto": "Aplicar la división en dos párrafos cortos propuesta en C4, cada uno de menos de 8 líneas.",
+      "criterio_id": "C5",
+      "motivo": "Reduce la extensión visual del párrafo único actual, que supera las 8 líneas recomendadas."
+    },
+    {
+      "linea": "C7-formato",
+      "html_linea_aprox": "HTML-L1116",
+      "original": "(ausencia de ejemplo de formato)",
+      "propuesto": "Ej.: 123456-2024",
+      "criterio_id": "C7",
+      "motivo": "Inserta un ejemplo de formato bajo el campo «Número de Solicitud» para reducir errores de ingreso."
+    },
+    {
+      "linea": "D1-title",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Expediente Digital INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Expediente Digital INAPI — Portal de Trámites: Marcas, Patentes y más",
+      "criterio_id": "D1",
+      "motivo": "Corrige el typo tipográfico transversal «máss» por «más»."
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "HTML-L1220",
+      "original": "Si desea recibir el documento por correo electrónico, ingresa tu dirección de correo aquí:",
+      "propuesto": "Si deseas recibir el documento por correo electrónico, ingresa tu dirección aquí:",
+      "criterio_id": "D1",
+      "motivo": "Elimina la redundancia de la palabra «correo», repetida dos veces en la misma oración."
+    },
+    {
+      "linea": "T006-T009,T018",
+      "html_linea_aprox": "HTML-L126,147,180,201,461,481,513,533",
+      "original": "MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS",
+      "propuesto": "Mi INAPI, Tramitación, Pagos, Servicios",
+      "criterio_id": "D7",
+      "motivo": "Reemplaza mayúsculas sostenidas por capitalización estándar en el menú global; cambio transversal en el componente compartido."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L1101",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización de esta página: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible junto al encabezado de la pantalla."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Expediente Digital INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Expediente Digital INAPI — Búsqueda de solicitud de marca",
+      "criterio_id": "E4",
+      "motivo": "El título actual es genérico y no refleja la función específica de esta pantalla (búsqueda y visualización de expediente por número de solicitud)."
+    },
+    {
+      "linea": "T037",
+      "html_linea_aprox": "HTML-L1266",
+      "original": "OK",
+      "propuesto": "Entendido",
+      "criterio_id": "F3",
+      "motivo": "Botón de modal de alerta genérico del _Layout.cshtml; anglicismo sin valor descriptivo. Patrón transversal al portal."
+    },
+    {
+      "linea": "T038",
+      "html_linea_aprox": "HTML-L1308",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "El botón de confirmación genérico no indica qué se acepta; cambio transversal en _Layout.cshtml, coordinar con TIC."
+    },
+    {
+      "linea": "T043",
+      "html_linea_aprox": "HTML-L1371",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace lleva directamente a un PDF sin indicar el formato ni el peso."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Trademark/TrademarkFile: (1) hacer backup antes de cualquier cambio; (2) esta captura (2026-07-27) confirma que TI ya corrigió «Titulos»→«Títulos» en el menú de Patentes (desktop y mobile) — no repetir; (3) T032 (HTML-L1220) recibió una corrección parcial (tuteo en el verbo principal) que introdujo una inconsistencia de registro con la cláusula condicional inicial — aplicar la corrección completa propuesta en B6/D1; (4) la nota legal (T026, HTML-L1148) sigue sin corregir desde junio — está en un <p> dentro de un <fieldset class='border p-3'> en la vista Razor Trademark/TrademarkFile.cshtml; aplicar la reescritura en dos párrafos propuesta en A4/B1/B7/C3/C4/C5; (5) A1/A3 (H1/H2 semánticos) y E3 (fecha) requieren editar la vista Razor — insertar antes del primer <div class='card' id='divSearchCard'> (HTML-L1100); (6) el <title> (HTML-L29) tiene el mismo error tipográfico «máss» detectado en otras URLs de julio — patrón transversal de plantilla compartida, corregir una sola vez; (7) los botones «OK» (HTML-L1266) y «Aceptar» (HTML-L1308) están en _Layout.cshtml — cambio transversal, coordinar con TIC; (8) el mensaje JS de archivo grande (HTML-L856) está en la función SendAttachedFileCallback — localizar «demasiado grande para enviarse»; (9) «MI INAPI»/«TRAMITACIÓN»/«PAGOS»/«SERVICIOS» están en el componente compartido del menú — cambio transversal; (10) el enlace «Política de privacidad» (HTML-L1371) está en el footer compartido del portal."
+}

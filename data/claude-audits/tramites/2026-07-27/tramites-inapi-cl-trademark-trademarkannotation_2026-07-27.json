@@ -1,0 +1,455 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkannotation_2026-07-27",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkAnnotation",
+  "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 14,
+    "nombre_ui": "Anotaciones de marca",
+    "ruta_etiqueta": "Trademark / TrademarkAnnotation",
+    "visitas_ref": "13.600",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Trámite de anotaciones marginales sobre registros de marca comercial."
+  },
+  "texto_capturado": "T002 [HTML-L29]: «Anotaciones Guardadas INAPI — Portal de Trámites: Marcas, Patentes y máss» (título; em dash correcto, typo transversal «máss»; sigue sin decir «de Marcas», inconsistente con el card-header) | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde — corregido) | T012 [HTML-L379,706]: «Documentación Mínima PCT» | T013-T015 [HTML-L397,416,433]: «[nombre del usuario autenticado]» (dato de sesión — HALLAZGO CRÍTICO G1: nombre completo en HTML ESTÁTICO del body, sin corregir, mismo patrón que ranks 4 y 7) | T020 [HTML-L828-829]: «Anotaciones Guardadas de Marcas» (div.card-header, no H) | T021 [HTML-L833]: «Filtros de búsqueda» (corregido a capitalización de sentencia) | T022-T024 [HTML-L839,848,857]: «N° de Atención», «N° de Registro de Marca», «N° de Anotación» (labels) | T025-T029 [HTML-L866-870]: «Estado», «Seleccione...», «Borrador», «Confirmada con Pago», «Confirmada sin Pago» | T030-T031 [HTML-L877-878]: «Buscar» / «Limpiar» | T032 [HTML-L886]: «Crear nueva anotación» | T033 [HTML-L894]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» (voz pasiva) | T034 [HTML-L897]: «Resultados» | T035 [HTML-L901]: «No hay Anotaciones agregadas aún.» (mayúscula errónea, sin corregir) | T036 [HTML-L812]: «Error al buscar Annotatciones» (typo JS, sin corregir) | T037 [HTML-L985]: «OK» (modal alerta local) | T038 [HTML-L1027]: «Aceptar» (modal confirm _Layout) | T039 [HTML-L1053]: «Instituto Nacional de Propiedad Industrial (INAPI)» (footer, corregido: ya no fragmentado por salto de línea) | T040 [HTML-L~1055]: «RUT: 65.999.669-3» (persona jurídica pública) | T041 [HTML-L1090]: «Política de privacidad» (→ PDF, sin formato) | T042: «©2026 INAPI. Todos los derechos reservados» | T043 [HTML-L1106]: «v 2.3.96.0» (bump de versión) | T044-T045 [HTML-L773,777,935]: JS confirm «¿Está seguro de que desea eliminar la solicitud?» (usted implícito, tres instancias, sin corregir) | (ausencia): sin fecha de publicación/actualización de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página carece de encabezados semánticos H1/H2/H3. El único rótulo visible está implementado como div.card-header, no como elemento de encabezado real.",
+      "cita_textual": "T020 [HTML-L828-829]: «Anotaciones Guardadas de Marcas» (div.card-header, no H)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No existe un párrafo introductorio que explique qué es una «anotación de marca» antes de presentar el formulario de filtros. La pantalla pasa directamente del rótulo a los campos de búsqueda sin dar contexto.",
+      "cita_textual": "(ausencia) — sin párrafo introductorio entre el card-header y el formulario de filtros"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La estructura de la pantalla se apoya solo en fieldsets/leyendas sin jerarquía real de encabezados que agrupe y titule las secciones de forma informativa.",
+      "cita_textual": "T021 [HTML-L833]: «Filtros de búsqueda» / T034 [HTML-L897]: «Resultados» (leyendas, sin jerarquía)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "No hay bloques de texto extensos; el contenido se limita a formulario de filtros y advertencia breve."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Se expone en el pie de página una versión técnica del sistema sin valor editorial para el usuario final.",
+      "cita_textual": "T043 [HTML-L1106]: «v 2.3.96.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El texto institucional recurre a voz pasiva y formas impersonales. T033 usa «serán eliminadas»; los diálogos de confirmación mantienen la misma construcción impersonal/formal en las tres instancias.",
+      "cita_textual": "T033 [HTML-L894]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» / T044-T045: «¿Está seguro de que desea eliminar la solicitud?»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "«Anotación de Marcas» es un término de propiedad industrial de alta especialidad que aparece repetidamente sin ninguna definición ni glosa contextual.",
+      "cita_textual": "T020 [HTML-L828-829]: «Anotaciones Guardadas de Marcas» / T024 [HTML-L857]: «N° de Anotación»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece sin expansión en su primera aparición en el menú.",
+      "cita_textual": "T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se identifican extranjerismos evitables en el copy institucional inventariado."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El mensaje de advertencia informa una regla del sistema de forma directa y factual; no se detecta lenguaje culpabilizador."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El copy mantiene tono formal de usted en vez de tuteo/cercanía: el posesivo «su última modificación» y los diálogos de confirmación no usan segunda persona informal.",
+      "cita_textual": "T033 [HTML-L894]: «su última modificación» / T044-T045: «¿Está seguro de que desea eliminar la solicitud?»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detecta relleno burocrático o fórmulas de cortesía vacías en el copy institucional inventariado."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las oraciones del copy institucional siguen orden sujeto-verbo-predicado sin inversiones que dificulten la lectura."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "El copy usa tiempos verbales consistentes."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones inventariadas no superan las 30 palabras."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada bloque de texto inventariado transmite una sola idea sin mezclar conceptos distintos."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "No se identifican párrafos de más de 8 líneas en el inventario."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un panel transaccional sin bloques de texto corrido que alcancen 4 párrafos continuos."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El select «Estado» usa puntos suspensivos genéricos sin opción «Todos», y el mensaje de error de búsqueda contiene un typo que afecta la percepción de calidad del formulario.",
+      "cita_textual": "T026 [HTML-L867]: «Seleccione...» / T036 [HTML-L812]: «Error al buscar Annotatciones»"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Persisten tres errores: el typo transversal «máss» en el <title>, el typo «Annotatciones» en el mensaje de error, y la mayúscula incorrecta en «No hay Anotaciones agregadas aún». Se corrigieron «Titulos»→«Títulos» y «Filtros de Búsqueda»→«Filtros de búsqueda».",
+      "cita_textual": "T002 [HTML-L29]: «...máss» / T036 [HTML-L812]: «Error al buscar Annotatciones» / T035 [HTML-L901]: «No hay Anotaciones agregadas aún.»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "El nombre institucional ya no aparece fragmentado por un salto de línea intermedio; corregido respecto a la auditoría anterior.",
+      "cita_textual": "T039 [HTML-L1053]: «Instituto Nacional de Propiedad Industrial (INAPI)»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El bloque de filtros y el listado presentan estructura coherente con etiquetas de columna y agrupación clara."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un panel transaccional sin texto corrido extenso que requiera destacar palabras clave con negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persisten mayúsculas sostenidas en los ítems del menú lateral/superior. Sin cambios respecto a la auditoría anterior.",
+      "cita_textual": "T006-T009,T018: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El copy institucional visible es neutro y no contiene opiniones ni valoraciones subjetivas."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "El contenido se presenta bajo autoría institucional de INAPI."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en ningún punto de la pantalla.",
+      "cita_textual": "(ausencia)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El title usa ahora em dash correcto, pero mantiene el problema de fondo: no incluye «de Marcas», siendo inconsistente con el card-header de la pantalla.",
+      "cita_textual": "T002 [HTML-L29]: «Anotaciones Guardadas INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los enlaces y botones del formulario tienen nombres coherentes con su destino.",
+      "cita_textual": "T032 [HTML-L886]: «Crear nueva anotación» → /Trademark/TrademarkAnnotation/FindAnnotation"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "No se detectan enlaces con fórmulas genéricas tipo «haz clic aquí» en el inventario.",
+      "cita_textual": "T030-T032: «Buscar», «Limpiar», «Crear nueva anotación»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persiste el patrón transversal: los botones de modal «OK» y «Aceptar» no indican qué acción específica confirman.",
+      "cita_textual": "T037 [HTML-L985]: «OK» / T038 [HTML-L1027]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» dirige a un PDF sin indicar el formato del archivo.",
+      "cita_textual": "T041 [HTML-L1090]: «Política de privacidad»"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los botones y enlaces evaluados se presentan como elementos de interfaz independientes, fuera de texto corrido."
+    },
+    {
+      "id": "G1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El nombre completo del usuario autenticado se renderiza en el HTML estático del body en tres ubicaciones (menú perfil mobile, navbar-text, tooltip). No corresponde a datos esperables de un formulario transaccional, sino a una exposición estructural del dato en el documento HTML mismo. Persiste sin corregir desde la auditoría anterior — mismo patrón sistémico que ranks 4 y 7.",
+      "cita_textual": "T013-T015 [HTML-L397,416,433]: «[nombre del usuario autenticado]» presente en el HTML estático del body"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer incluye enlace a Política de privacidad, visible en la pantalla transaccional.",
+      "cita_textual": "T041 [HTML-L1090]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer presenta aviso de copyright institucional actualizado.",
+      "cita_textual": "T042: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No existen rótulos de contenido archivado ni referencias a versiones anteriores en esta pantalla."
+    }
+  ],
+  "criterios_no_aplica": 5,
+  "criterios_aplicables": 34,
+  "criterios_aprobados": 18,
+  "porcentaje_cumplimiento": 52.9,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 16 incumplimientos sobre 34 criterios aplicables (52,9 %) para esta pantalla con 13.600 visitas. Respecto de la auditoría anterior (2026-06-11, 50,0 %) TI corrigió tres hallazgos: tilde en «Títulos», capitalización de «Filtros de búsqueda» y el nombre institucional fragmentado del footer. PRIORIDAD TIC #1 persiste sin cambios: el nombre del usuario autenticado sigue expuesto en el HTML estático del body (G1, alta) — mismo patrón que ranks 4 y 7. También persisten: sin H semántico (A1, A3), «Anotación de Marcas» sin definir (B2), PCT sin expandir (B3), tono formal en confirmaciones (B1, B6), typo «Annotatciones» y mayúscula errónea en «No hay Anotaciones» (D1, C7), title sin «de Marcas» (E4), ausencia de fecha (E3), botones «OK»/«Aceptar» (F3) y PDF sin formato (F4). El array sustituciones[] contiene 23 filas con cobertura 1:1 para los 16 criterios incumplidos.",
+  "observaciones_lc": "La pantalla de Anotaciones Guardadas de Marcas obtiene un 52,9 % de cumplimiento sobre 34 criterios aplicables — RECHAZADO, rank 14 Clarity con 13.600 visitas, con leve mejora respecto de la auditoría anterior (2026-06-11, 50,0 %). El hallazgo más crítico y sin corregir sigue siendo G1: el nombre completo del usuario autenticado aparece en el HTML estático del body en tres ubicaciones (menú de perfil mobile, navbar-text de escritorio, tooltip), exactamente igual que en junio y consistente con el mismo patrón detectado en ranks 4 y 7. TI corrigió tres hallazgos tipográficos (tilde en «Títulos», capitalización de «Filtros de búsqueda», nombre institucional del footer sin fragmentar), pero no abordó los dos typos restantes («Annotatciones» en el mensaje de error JS, mayúscula errónea en «No hay Anotaciones») ni ningún hallazgo de fondo (estructura semántica, definición de «anotación de marca», tono de las confirmaciones, botones genéricos en modales, PDF sin formato).",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkAnnotation fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 14 Clarity con 13.600 visitas. De los 34 criterios aplicables, 18 se cumplen, lo que arroja un 52,9 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %), con leve mejora respecto de la auditoría anterior (2026-06-11, 50,0 %). Se detectaron 16 incumplimientos y se generaron 23 filas en sustituciones[] con cobertura 1:1. PRIORIDAD TIC #1 persiste sin cambios: el nombre del usuario autenticado sigue expuesto en el HTML estático del body en tres ubicaciones — mismo patrón sistémico que ranks 4 y 7, sin corregir desde junio. TI aplicó 3 correcciones tipográficas (tilde en «Títulos», capitalización de «Filtros de búsqueda», nombre institucional del footer), pero los hallazgos de fondo permanecen: ausencia de H1/H2/H3 (A1, A3), «Anotación de Marcas» sin definir (B2), PCT sin expandir (B3), tono formal en confirmaciones (B1, B6), dos typos sin corregir (D1, C7), title sin «de Marcas» (E4), ausencia de fecha de actualización (E3), botones «OK»/«Aceptar» en modales (F3) y PDF sin formato (F4).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1/H2/H3; el card-header es un div sin semántica de encabezado.",
+      "(B2) «Anotación de Marcas» es término PI de alta especialidad sin ninguna definición en la pantalla.",
+      "(B3) PCT en el menú de Patentes sin definición.",
+      "(D1) Typo transversal «máss» en el <title>; «Annotatciones» en el mensaje de error; mayúscula errónea en «No hay Anotaciones».",
+      "(E3) Sin fecha de publicación ni de última actualización visible.",
+      "(F4) «Política de privacidad» sin indicar formato PDF.",
+      "(G1) PRIORIDAD TIC: el nombre del usuario autenticado sigue expuesto en el HTML estático del body, sin corregir desde junio — mismo patrón que ranks 4 y 7."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique qué es una anotación de marca.",
+      "(A3) Sin jerarquía H1/H2/H3 real en ninguna sección.",
+      "(B1) Voz pasiva «serán eliminadas» y confirmaciones formales en tercera persona.",
+      "(B6) Tono formal de usted en la advertencia y en los diálogos de confirmación.",
+      "(D7) Mayúsculas sostenidas en el menú lateral.",
+      "(E4) El title sigue sin decir «de Marcas», inconsistente con el card-header.",
+      "(F3) «OK»/«Aceptar» en modales sin describir la acción."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.96.0» es versión técnica visible sin valor para el usuario.",
+      "(C7) Select «Estado» con puntos suspensivos genéricos; typo en mensaje de error."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h",
+      "html_linea_aprox": "HTML-L828-829",
+      "original": "<div class=\"card-header\">Anotaciones Guardadas de Marcas</div>",
+      "propuesto": "<h1>Anotaciones Guardadas de Marcas</h1>",
+      "criterio_id": "A1",
+      "motivo": "Convertir el rótulo principal a un encabezado H1 real para dar estructura semántica y accesible."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L829-833",
+      "original": "(ausencia)",
+      "propuesto": "Aquí puedes revisar y filtrar las anotaciones marginales registradas para tus marcas: cambios de titularidad, licencias u otras modificaciones asociadas a un registro.",
+      "criterio_id": "A2",
+      "motivo": "Explicar el concepto de anotación de marca antes del formulario de filtros, aplicando pirámide invertida."
+    },
+    {
+      "linea": "A3-h",
+      "html_linea_aprox": "HTML-L833,897",
+      "original": "Filtros de búsqueda / Resultados (leyendas de fieldset)",
+      "propuesto": "Reestructurar como encabezados H2 dentro de la jerarquía definida por el H1 propuesto en A1.",
+      "criterio_id": "A3",
+      "motivo": "Dar jerarquía informativa real a las secciones de la pantalla, más allá de las leyendas visuales de los fieldsets."
+    },
+    {
+      "linea": "T043",
+      "html_linea_aprox": "HTML-L1106",
+      "original": "v 2.3.96.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Retirar del footer la versión técnica del sistema, sin utilidad editorial para el usuario."
+    },
+    {
+      "linea": "T033-B1",
+      "html_linea_aprox": "HTML-L894",
+      "original": "Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.",
+      "propuesto": "Advertencia: eliminaremos automáticamente tus solicitudes en estado Borrador a los 60 días de tu última modificación.",
+      "criterio_id": "B1",
+      "motivo": "Convertir la construcción pasiva e impersonal a voz activa con tuteo."
+    },
+    {
+      "linea": "T044-T045",
+      "html_linea_aprox": "HTML-L773,777,935",
+      "original": "¿Está seguro de que desea eliminar la solicitud?",
+      "propuesto": "¿Seguro que quieres eliminar esta anotación?",
+      "criterio_id": "B1",
+      "motivo": "Las tres instancias del diálogo usan formalidad de usted y voz impersonal; además el objeto correcto es «anotación», no «solicitud»."
+    },
+    {
+      "linea": "T020-B2",
+      "html_linea_aprox": "HTML-L828-829",
+      "original": "Anotaciones Guardadas de Marcas",
+      "propuesto": "Anotaciones guardadas de marcas. Una anotación es un cambio que registras sobre tu marca (por ejemplo, cambio de titular, renuncia o gravamen).",
+      "criterio_id": "B2",
+      "motivo": "Insertar una glosa breve de «anotación» en su primera aparición, dado que es un concepto de propiedad industrial de alta especialidad."
+    },
+    {
+      "linea": "T010-B3",
+      "html_linea_aprox": "HTML-L330,658",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar tasas PCT (Tratado de Cooperación en materia de Patentes) fase internacional",
+      "criterio_id": "B3",
+      "motivo": "Expandir la sigla PCT en su primera aparición en el menú."
+    },
+    {
+      "linea": "T033-B6",
+      "html_linea_aprox": "HTML-L894",
+      "original": "su última modificación",
+      "propuesto": "tu última modificación",
+      "criterio_id": "B6",
+      "motivo": "Reemplazar el posesivo de usted por tuteo directo, consistente con la corrección de B1."
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L867",
+      "original": "Seleccione...",
+      "propuesto": "Selecciona un tipo de anotación",
+      "criterio_id": "C7",
+      "motivo": "Reemplazar la opción genérica con puntos suspensivos por una instrucción específica."
+    },
+    {
+      "linea": "T036-C7",
+      "html_linea_aprox": "HTML-L812",
+      "original": "Error al buscar Annotatciones",
+      "propuesto": "Error al buscar anotaciones",
+      "criterio_id": "C7",
+      "motivo": "Corregir el error tipográfico en el mensaje de error de JavaScript."
+    },
+    {
+      "linea": "T002-D1",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Anotaciones Guardadas INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Anotaciones Guardadas INAPI — Portal de Trámites: Marcas, Patentes y más",
+      "criterio_id": "D1",
+      "motivo": "Corregir el typo tipográfico transversal «máss» por «más»."
+    },
+    {
+      "linea": "T036-D1",
+      "html_linea_aprox": "HTML-L812",
+      "original": "Error al buscar Annotatciones",
+      "propuesto": "Error al buscar anotaciones",
+      "criterio_id": "D1",
+      "motivo": "Corregir el typo en el mensaje de error JS."
+    },
+    {
+      "linea": "T035-D1",
+      "html_linea_aprox": "HTML-L901",
+      "original": "No hay Anotaciones agregadas aún.",
+      "propuesto": "No hay anotaciones agregadas aún.",
+      "criterio_id": "D1",
+      "motivo": "Corregir la mayúscula incorrecta a mitad de oración."
+    },
+    {
+      "linea": "T006-T009,T018",
+      "html_linea_aprox": "HTML-L126,147,180,201,461,481,513,533",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas transversales al menú de _Layout.cshtml."
+    },
+    {
+      "linea": "(ausencia)",
+      "html_linea_aprox": "HTML-L828",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible fuera del footer de copyright."
+    },
+    {
+      "linea": "T002-E4",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Anotaciones Guardadas INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Anotaciones Guardadas de Marcas — Portal de Trámites INAPI",
+      "criterio_id": "E4",
+      "motivo": "Alinear el title con el contenido real de la página (card-header «Anotaciones Guardadas de Marcas»)."
+    },
+    {
+      "linea": "T037",
+      "html_linea_aprox": "HTML-L985",
+      "original": "OK",
+      "propuesto": "Aceptar",
+      "criterio_id": "F3",
+      "motivo": "Anglicismo en botón de modal de alerta local; reemplazar por equivalente en español."
+    },
+    {
+      "linea": "T038",
+      "html_linea_aprox": "HTML-L1027",
+      "original": "Aceptar",
+      "propuesto": "Aceptar selección",
+      "criterio_id": "F3",
+      "motivo": "El botón de confirmación del modal genérico no indica qué acción específica confirma; patrón transversal al portal."
+    },
+    {
+      "linea": "T041",
+      "html_linea_aprox": "HTML-L1090",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El enlace dirige a un PDF sin indicar formato antes de la descarga."
+    },
+    {
+      "linea": "G1-nombre",
+      "html_linea_aprox": "HTML-L397,416,433",
+      "original": "(no incluir valores reales — nombre del usuario embebido en el HTML estático del body)",
+      "propuesto": "Cargar el nombre del usuario autenticado mediante llamada Ajax autenticada tras el render inicial de la página, en las tres ubicaciones (menú de perfil mobile, navbar-text de escritorio, tooltip del ícono de perfil).",
+      "criterio_id": "G1",
+      "motivo": "PII de persona natural expuesta en el marcado HTML estático, accesible vía Ctrl+U sin interacción con el formulario. Patrón sistémico ya reportado en ranks 4 y 7, sin corrección desde junio."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en TrademarkAnnotation/Index.cshtml: (1) hacer backup antes de cualquier cambio; (2) PRIORIDAD MÁXIMA — G1: el nombre del usuario logueado (HTML-L397,416,433) sigue en el _Layout.cshtml compartido — revisar si el layout renderiza el nombre desde el modelo en el servidor; migrar a carga vía Ajax autenticado; este cambio afecta a todas las páginas del portal (ranks 4, 7 y 14 comparten el mismo patrón); (3) esta captura confirma que TI ya corrigió «Titulos»→«Títulos», «Filtros de Búsqueda»→«Filtros de búsqueda» y el nombre institucional del footer sin fragmentar — no repetir; (4) A1/A3 (H1/H2), A2 (párrafo introductorio) y E3 (fecha) requieren editar la vista Razor — insertar antes del div.row (HTML-L825); (5) el typo «Annotatciones» (HTML-L812) está en el callback SearchAnnotationCallback; (6) «No hay Anotaciones» (HTML-L901) es el <p> de la tabla vacía; (7) el select «Estado» (HTML-L867) es el <select> ddlStatusId; (8) los tres strings JS de confirmación (HTML-L773,777,935) son llamadas a BSconfirm en la misma vista; (9) «OK» (HTML-L985) está en el modal de alerta local; «Aceptar» (HTML-L1027) está en _Layout.cshtml, cambio transversal; (10) el <title> (HTML-L29) tiene el mismo typo transversal «máss» de otras URLs de julio — corregir en la plantilla compartida y agregar «de Marcas» para consistencia con el card-header."
+}

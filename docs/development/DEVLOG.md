@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 5–7 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-5-7) |
 | 2026-07-23 | [Documentación: Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión](#devlog-2026-07-23-fase-3-3-auth-sesion) |
 | 2026-07-23 | [Infraestructura: Fase 3 — Flujo completo auditoría con sub-subagentes y lote 5 URLs](#devlog-2026-07-23-fase-3-audit-full-flow) |
@@ -47,6 +48,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14"></a>
+## [2026-07-27] - Infraestructura | Fase 3.3: lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica
+
+**Rama:** `feat/audit-wsl-session-lote-3-4-10-12-14` | **Entorno:** WSL2 (PC casa) — Chroma, Playwright y sesión ClaveÚnica
+
+### Contexto y objetivos:
+
+Segunda oleada de la Fase 3.3: re-auditar con sesión autenticada las 5 URLs siguientes en el inventario Clarity (ranks **3, 4, 10, 12 y 14** — `TrademarkFile`, `Notificaciones`, `TrademarkNizaClassifier`, `TrademarkUserDocument`, `TrademarkAnnotation`) usando la arquitectura de sub-subagentes (`.claude/CLAUDE.md` §17) y la calibración G1–G3 para pantallas autenticadas (§19). Continúa el trabajo cerrado el mismo día para ranks 5–7.
+
+### Implementación técnica:
+
+- **Sesión ClaveÚnica renovada:** `auditorias/.auth/tramites-session.json` había expirado (la primera captura de rank 3 devolvió el formulario de `/Account/Login`). Se renovó navegando con Playwright MCP a `/Account/Login`, pidiendo al usuario que iniciara sesión manualmente en ese navegador, y extrayendo el `storageState` del contexto vía `browser_run_code_unsafe` (`page.context().storageState()`) para persistirlo en disco — evita depender de `playwright codegen` interactivo quedando fuera de la sesión de Claude Code.
+- Captura de las 5 URLs con `bun run capture:tramites-html` reutilizando la sesión renovada; control de calidad por captura (verificar título/contenido real antes de auditar, lección de rank 7 del lote anterior) — las 5 pasaron sin necesidad de recaptura.
+- JSON canónicos en `data/claude-audits/tramites/2026-07-27/` con `clarity_meta`; `frontend/src/lib/clarity-audits-launch.ts` actualizado (nuevo `id` + `history[]` al id `2026-06-11`) para los 5 ranks.
+- Resultados: rank 3 → **39,4 %** rechazado (estable); rank 4 → **36,4 %** rechazado (bajó); rank 10 → **41,2 %** rechazado (bajó); rank 12 → **48,4 %** rechazado (no comparable, ver hallazgo); rank 14 → **52,9 %** rechazado (subió levemente). `bun run validate:claude-audits` y `bun run typecheck:all` en verde.
+- **Hallazgo de flujo en rank 12:** la URL `/Trademark/TrademarkUserDocument` mostró una pantalla distinta a la de junio — antes «Escritos Guardados de Marcas» (listado), ahora «Presentar Escritos de Marcas» (formulario de búsqueda para iniciar un escrito nuevo). Se documentó explícitamente en el JSON (`observaciones_lc`, `nota_final_tic`) que el % no es comparable 1:1 con la auditoría de junio, y se recomienda a TI confirmar si la ruta cambió de vista por defecto.
+- **G1 crítico persistente:** ranks 4 y 14 mantienen el nombre completo del usuario autenticado embebido en el HTML estático del body (navbar/menú de perfil), sin corregir desde junio — mismo patrón ya documentado para rank 7. Rank 3, 10 y 12 no exponen datos de personas naturales en esta captura.
+- Correcciones de TI detectadas en el DOM respecto a junio: tilde en «Títulos y Certificados Patentes» (las 5 URLs), varias capitalizaciones de sentencia, opción «Todos» ya presente en algunos selects, nombre institucional del footer sin fragmentar (rank 14). Persisten sin corregir: PCT sin expandir, ausencia de fecha de página, botones «OK»/«Aceptar» en modales, PDFs sin indicar formato — patrones transversales documentados desde el piloto.
+
+### Próximos pasos:
+
+- `bun run rag/ingest-b.ts` para reindexar los 5 JSON nuevos en Colección B (pendiente, a ejecutar por el usuario).
+- Commit del lote (JSONs, HTMLs, `clarity-audits-launch.ts`, esta entrada) — pendiente, lo hace el usuario.
+- Seguir sin forzar auditoría de ranks 8, 11, 13, 15 (Pendiente TI).
+- Evaluar con TI si `/Trademark/TrademarkUserDocument` cambió su vista por defecto (hallazgo rank 12).
 
 ---
 

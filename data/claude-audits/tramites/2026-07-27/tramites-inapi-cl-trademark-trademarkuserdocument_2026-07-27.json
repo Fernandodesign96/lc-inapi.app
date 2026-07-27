@@ -1,0 +1,433 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkuserdocument_2026-07-27",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument",
+  "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 12,
+    "nombre_ui": "Presentación de escritos",
+    "ruta_etiqueta": "Trademark User Document (Escritos)",
+    "visitas_ref": "23.141",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca."
+  },
+  "texto_capturado": "NOTA: esta captura (2026-07-27) muestra una pantalla distinta a la auditada el 2026-06-11 en la misma URL. La auditoría anterior evaluó «Escritos Guardados de Marcas» (listado/filtro de escritos ya guardados). La captura actual muestra «Presentar Escritos de Marcas» (formulario de búsqueda para iniciar la presentación de un escrito nuevo). Se audita el DOM tal como fue capturado hoy. | T002 [HTML-L29]: «Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss» (título; em dash correcto, typo transversal «máss») | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde — corregido) | T012 [HTML-L379,706]: «Documentación Mínima PCT» | T020 [HTML-L893-894]: «Presentar Escritos de Marcas» (div.card-header, no H) | T021 [HTML-L899]: «Ingrese el número de documento de la Marca a la que requiere presentar un escrito.» (imperativo formal, sujeto impersonal) | T022-T028 [HTML-L905-912]: label «Presentar escrito a» con opciones «Solicitud de Marcas», «Proceso de Anotación y Renovación», «Juicio de Nulidad de Marca», «Juicio de Caducidad», «Juicio de Cancelación de IG/DO» (sigla sin definir), «Juicio de Limitación Territorial» | T029-T031 [HTML-L921,930,940]: labels «Número de solicitud» / «Número de anotación» / «Número de expediente» (campos condicionales) | T032 [HTML-L963-964]: «Buscar» / «Limpiar» | T033 [HTML-L967-969]: «Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.» (MARCAS en mayúsculas, «en este link» genérico, anglicismo «link») | T034-T035 [HTML-L991-995]: modal «Solicitudes encontradas» / «Cargando...» | T036 [HTML-L1027]: «OK» (modal alerta local) | T037-T038 [HTML-L1069-1070]: «Aceptar» / «Cancelar» (modal confirm _Layout) | T039 [HTML-L1096]: «RUT: 65.999.669-3» (footer, persona jurídica pública; sin datos de persona natural en esta captura, formulario vacío) | T040-T042: dirección, teléfono, correo institucional | T043 [HTML-L1132]: «Política de privacidad» (→ PDF, sin formato) | T044: «©2026 INAPI. Todos los derechos reservados» | T045 [HTML-L1148]: «v 2.3.96.0» (bump de versión) | (ausencia): sin fecha de publicación/actualización de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El único encabezado visible de la pantalla está implementado como div.card-header, no como elemento semántico H1/H2/H3.",
+      "cita_textual": "T020 [HTML-L893-894]: «Presentar Escritos de Marcas» (div.card-header, no H)"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "La pantalla presenta primero el título de la tarea, luego la instrucción orientadora y después el formulario de búsqueda; el orden respeta la lógica de mostrar primero el propósito antes del detalle operativo.",
+      "cita_textual": "T021 [HTML-L899]: «Ingrese el número de documento de la Marca a la que requiere presentar un escrito.»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El contenido se organiza únicamente mediante el div.card-header y las etiquetas del formulario, sin ningún H1/H2/H3 que dé jerarquía semántica accesible a la pantalla.",
+      "cita_textual": "T020 [HTML-L893-894]: «Presentar Escritos de Marcas» (sin jerarquía de encabezados)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los bloques de texto orientador son breves, muy por debajo del límite de 110 palabras por sección.",
+      "cita_textual": "T033 [HTML-L967-969]: «Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.»"
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El pie de la pantalla expone un número de versión técnica del sistema sin valor para el usuario final.",
+      "cita_textual": "T045 [HTML-L1148]: «v 2.3.96.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "cumple",
+      "comentario": "Las instrucciones del formulario usan verbos en modo imperativo/voz activa. No se detectan construcciones pasivas en el copy institucional inventariado.",
+      "cita_textual": "T021 [HTML-L899]: «Ingrese el número de documento de la Marca a la que requiere presentar un escrito.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El selector «Presentar escrito a» lista términos jurídicos de procedimiento marcario sin glosa ni ayuda contextual que explique su significado a un usuario no especializado.",
+      "cita_textual": "T024-T028: «Juicio de Nulidad de Marca», «Juicio de Caducidad», «Juicio de Cancelación de IG/DO», «Juicio de Limitación Territorial»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Dos siglas aparecen sin expandir en ningún punto de la pantalla: PCT y IG/DO (Indicación Geográfica/Denominación de Origen).",
+      "cita_textual": "T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» / T028 [HTML-L912]: «Juicio de Cancelación de IG/DO»"
+    },
+    {
+      "id": "B4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Uso del anglicismo «link» en la nota de ayuda, existiendo el equivalente en español «enlace».",
+      "cita_textual": "T033 [HTML-L967-969]: «...en este link.»"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "No se detecta tono negativo, alarmista ni punitivo en el copy institucional inventariado."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El copy usa formas impersonales y de tratamiento formal en lugar de un tuteo cercano y directo.",
+      "cita_textual": "T021 [HTML-L899]: «Ingrese el número de documento de la Marca a la que requiere presentar un escrito.»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La construcción «Si lo requiere, puede descargar...» introduce una condición innecesaria antes de una acción simple, alargando la instrucción sin aportar claridad.",
+      "cita_textual": "T033 [HTML-L967-969]: «Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.»"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las oraciones del formulario siguen orden sujeto/verbo/predicado o imperativo-objeto sin inversiones que dificulten la lectura."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "El copy usa modo imperativo para instrucciones y presente simple para condiciones, sin tiempos verbales complejos."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones inventariadas no superan las 30 palabras."
+    },
+    {
+      "id": "C4",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario de tramitación con etiquetas y una nota corta; no contiene párrafos editoriales extensos sobre los cuales evaluar una idea por párrafo."
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "No hay bloques de texto corrido de más de una línea en el inventario."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla no presenta 4 o más párrafos continuos de texto editorial."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "El selector «Presentar escrito a» es una lista de opciones de un campo de formulario, no una lista de requisitos o pasos de un trámite."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El <title> contiene el typo transversal «máss». Se corrigió «Titulos»→«Títulos» respecto a la auditoría de junio de esta misma URL.",
+      "cita_textual": "T002 [HTML-L29]: «Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "No se detectan errores de puntuación en los fragmentos inventariados."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "El inventario no evidencia problemas de formato en listas o tablas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario transaccional sin bloques de texto corrido extenso que requieran destacar palabras clave con negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los ítems del menú lateral usan mayúsculas sostenidas, patrón sistémico transversal. Adicionalmente, la palabra «MARCAS» aparece en mayúsculas sostenidas dentro de una oración corrida en la nota.",
+      "cita_textual": "T006-T009,T018: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» / T033: «...ejemplos tipo de escritos para MARCAS, en este link.»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El copy institucional de la pantalla es puramente informativo/procedimental, sin juicios de valor ni opiniones."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La pantalla se presenta dentro del portal autenticado tramites.inapi.cl, con contexto institucional dado por el layout general del sitio."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de actualización visible en ningún punto de la pantalla.",
+      "cita_textual": "(ausencia)"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple",
+      "comentario": "El <title> «Presentar Escritos de Marcas» describe fielmente la tarea que se realiza en esta pantalla. El typo «máss» corresponde a D1, no a este criterio.",
+      "cita_textual": "T002 [HTML-L29]: «Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace usa el texto genérico «en este link» en lugar de nombrar el destino real (ejemplos de escritos tipo para marcas).",
+      "cita_textual": "T033 [HTML-L967-969]: «...puede descargar ejemplos tipo de escritos para MARCAS, en este link.»"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace usa la fórmula «en este link», equivalente a «haz clic aquí»: no aporta contexto fuera de la oración.",
+      "cita_textual": "T033 [HTML-L967-969]: «...en este link.»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los botones de modal «OK» y «Aceptar» no son significativos por sí mismos: no indican qué acción se confirma.",
+      "cita_textual": "T036 [HTML-L1027]: «OK» / T037 [HTML-L1069]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El enlace «Política de privacidad» dirige a un documento PDF sin indicar formato ni tamaño junto al texto del enlace.",
+      "cita_textual": "T043 [HTML-L1132]: «Política de privacidad»"
+    },
+    {
+      "id": "F5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El enlace está embebido dentro de una oración de texto corrido en lugar de presentarse como elemento de enlace independiente.",
+      "cita_textual": "T033 [HTML-L967-969]: «Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "Formulario vacío sin resultados ni datos de solicitante precargados. El único dato personal presente es el RUT institucional de INAPI en el footer.",
+      "cita_textual": "T039 [HTML-L1096]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer expone un enlace a la Política de privacidad institucional, visible en la pantalla transaccional.",
+      "cita_textual": "T043 [HTML-L1132]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer institucional incluye aviso de copyright y datos de contacto de INAPI.",
+      "cita_textual": "T044: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No existen rótulos de versiones anteriores, contenido archivado ni indicadores de vigencia en esta pantalla de búsqueda."
+    }
+  ],
+  "criterios_no_aplica": 8,
+  "criterios_aplicables": 31,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 48.4,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "IMPORTANTE: esta captura (2026-07-27) corresponde a una pantalla distinta a la auditada el 2026-06-11 en la misma URL — antes se mostraba «Escritos Guardados de Marcas» (listado), ahora «Presentar Escritos de Marcas» (formulario de búsqueda para iniciar un escrito nuevo). El % no es directamente comparable con la auditoría anterior. Se identificaron 16 incumplimientos sobre 31 criterios aplicables (48,4 %). Las correcciones de mayor impacto son: (1) insertar H1 semántico (A1, A3); (2) definir los tipos de juicio del select y expandir la sigla IG/DO (B2, B3); (3) expandir PCT en el menú de Patentes (B3); (4) reemplazar «en este link» por texto descriptivo y anglicismo «link» por «enlace» (B4, F1, F2, F5); (5) reformular T021/T033 en tuteo directo (B6, B7); (6) agregar fecha de actualización (E3); (7) corregir el typo transversal «máss» y normalizar mayúsculas (D1, D7); (8) cambiar «OK»/«Aceptar» en modales (F3); (9) indicar formato PDF en «Política de privacidad» (F4). El array sustituciones[] contiene 18 filas con cobertura 1:1 para los 16 criterios incumplidos.",
+  "observaciones_lc": "Esta captura (2026-07-27) de /Trademark/TrademarkUserDocument muestra una pantalla distinta a la auditada el 2026-06-11: antes era un listado/filtro de «Escritos Guardados de Marcas», ahora es el formulario «Presentar Escritos de Marcas» para iniciar la presentación de un escrito nuevo. Es posible que la vista por defecto de esta ruta haya cambiado o dependa del estado de la sesión. El resultado de esta auditoría (48,4 %, RECHAZADO) evalúa el contenido realmente capturado hoy y no debe interpretarse como una comparación directa con el 55,9 % de junio. Los hallazgos más relevantes son: ausencia de H1/H2/H3 (A1, A3), términos jurídicos de procedimiento sin glosa en el selector de tipo de escrito (B2), dos siglas sin expandir (PCT, IG/DO) (B3), el enlace «en este link» que viola simultáneamente F1, F2 y F5, y la ausencia de fecha de actualización (E3). G1 cumple: no se detectan datos personales de personas naturales en esta captura, ya que el formulario está vacío.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkUserDocument fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 12 Clarity con 23.141 visitas. IMPORTANTE: esta captura (2026-07-27) muestra el formulario «Presentar Escritos de Marcas» (búsqueda para iniciar un escrito nuevo), una pantalla distinta a la auditada el 2026-06-11 en la misma URL («Escritos Guardados de Marcas», un listado). El % de esta auditoría no es directamente comparable con el 55,9 % de junio. De los 31 criterios aplicables, 15 se cumplen, lo que arroja un 48,4 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 16 incumplimientos y se generaron 18 filas en sustituciones[] con cobertura 1:1. Los hallazgos de severidad alta son: A1 (sin H semántico), B3 (dos siglas sin expandir: PCT e IG/DO) y E3 (sin fecha de actualización). G1 cumple: no hay datos personales de terceros ni del solicitante expuestos, ya que el formulario está vacío al momento de la captura.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) Sin H1/H2/H3; el card-header es un div sin semántica de encabezado.",
+      "(B3) Dos siglas sin expandir: PCT en el menú de Patentes e IG/DO en el select de tipo de escrito.",
+      "(E3) Sin fecha de publicación ni de última actualización visible."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A3) Sin jerarquía H1/H2/H3 en ningún punto de la pantalla.",
+      "(B2) Términos jurídicos de procedimiento (Nulidad, Caducidad, Cancelación, Limitación Territorial) sin glosa.",
+      "(D1) Nuevo typo transversal «máss» en el <title>.",
+      "(D7) Mayúsculas sostenidas en el menú y en «MARCAS» dentro de una oración.",
+      "(F1) El enlace «en este link» no describe su destino real.",
+      "(F2) «En este link» es fórmula genérica equivalente a «haz clic aquí».",
+      "(F3) «OK»/«Aceptar» en modales sin describir la acción."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.96.0» es versión técnica visible sin valor para el usuario.",
+      "(B4) Anglicismo «link» en vez de «enlace».",
+      "(B6) Tono formal e impersonal en la instrucción principal del formulario.",
+      "(B7) Condición innecesaria «Si lo requiere, puede» antes de una acción simple.",
+      "(F4) «Política de privacidad» sin indicar formato PDF.",
+      "(F5) El enlace de ejemplos de escritos está embebido en texto corrido."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h",
+      "html_linea_aprox": "HTML-L893-894",
+      "original": "<div class=\"card-header\">Presentar Escritos de Marcas</div>",
+      "propuesto": "<h1>Presentar Escritos de Marcas</h1>",
+      "criterio_id": "A1",
+      "motivo": "Marcar el título de la pantalla con un encabezado semántico permite estructura accesible y navegación por lectores de pantalla."
+    },
+    {
+      "linea": "A3-h",
+      "html_linea_aprox": "HTML-L893-894",
+      "original": "(sin jerarquía de encabezados adicional)",
+      "propuesto": "<h2>Buscar documento para presentar escrito</h2> antes del formulario de búsqueda",
+      "criterio_id": "A3",
+      "motivo": "Insertar un encabezado informativo real que describa la sección del formulario, en reemplazo de la ausencia total de jerarquía semántica."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L1148",
+      "original": "v 2.3.96.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Número de versión técnica del sistema visible al usuario final sin valor editorial."
+    },
+    {
+      "linea": "T024-T028",
+      "html_linea_aprox": "HTML-L905-912",
+      "original": "Juicio de Nulidad de Marca / Juicio de Caducidad / Juicio de Cancelación de IG/DO / Juicio de Limitación Territorial",
+      "propuesto": "Agregar un ícono de ayuda junto al selector con una breve glosa por tipo de escrito (ej. «Nulidad: solicita anular un registro ya otorgado»).",
+      "criterio_id": "B2",
+      "motivo": "Las opciones usan terminología jurídica sin ninguna explicación disponible para un usuario no especializado."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L330,658",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "La sigla PCT no se expande en ningún punto de la pantalla."
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L912",
+      "original": "Juicio de Cancelación de IG/DO",
+      "propuesto": "Juicio de Cancelación de Indicación Geográfica/Denominación de Origen (IG/DO)",
+      "criterio_id": "B3",
+      "motivo": "La sigla IG/DO no se expande en ningún punto de la pantalla."
+    },
+    {
+      "linea": "T033-B4",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "en este link",
+      "propuesto": "en este enlace",
+      "criterio_id": "B4",
+      "motivo": "Anglicismo evitable con equivalente directo en español."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L899",
+      "original": "Ingrese el número de documento de la Marca a la que requiere presentar un escrito.",
+      "propuesto": "Ingresa el número de documento de la marca a la que quieres presentar un escrito.",
+      "criterio_id": "B6",
+      "motivo": "Ajustar a tuteo cercano y directo."
+    },
+    {
+      "linea": "T033-B7",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.",
+      "propuesto": "Nota: descarga aquí los ejemplos de escritos para marcas.",
+      "criterio_id": "B7",
+      "motivo": "Simplifica la construcción condicional formal e innecesaria por una instrucción directa."
+    },
+    {
+      "linea": "T002",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y más",
+      "criterio_id": "D1",
+      "motivo": "Corregir el typo tipográfico transversal «máss» por «más»."
+    },
+    {
+      "linea": "T006-T009,T018",
+      "html_linea_aprox": "HTML-L126,147,180,201,461,481,513,533",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en ítems de menú lateral; cambio transversal en el componente compartido."
+    },
+    {
+      "linea": "T033-D7",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.",
+      "propuesto": "Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para marcas, en este link.",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas de «MARCAS» dentro de oración corrida; no corresponde a sigla reconocida."
+    },
+    {
+      "linea": "(ausencia)",
+      "html_linea_aprox": "HTML-L893",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar una línea visible con la fecha de última actualización de la pantalla."
+    },
+    {
+      "linea": "T033-F1",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.",
+      "propuesto": "Nota: si lo requiere, puede descargar los ejemplos de escritos tipo para marcas.",
+      "criterio_id": "F1",
+      "motivo": "El texto del enlace debe describir el destino real en vez de la fórmula genérica «en este link»."
+    },
+    {
+      "linea": "T033-F2",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "en este link",
+      "propuesto": "ejemplos de escritos tipo para marcas",
+      "criterio_id": "F2",
+      "motivo": "Evitar fórmulas genéricas tipo «haz clic aquí»/«en este link»."
+    },
+    {
+      "linea": "T036-T037",
+      "html_linea_aprox": "HTML-L1027,1069",
+      "original": "OK / Aceptar",
+      "propuesto": "Entendido / Aceptar cambios",
+      "criterio_id": "F3",
+      "motivo": "Los botones de confirmación de modales deben indicar la acción específica que se confirma."
+    },
+    {
+      "linea": "T043",
+      "html_linea_aprox": "HTML-L1132",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Los enlaces a documentos descargables deben indicar el formato del archivo."
+    },
+    {
+      "linea": "T033-F5",
+      "html_linea_aprox": "HTML-L967-969",
+      "original": "Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.",
+      "propuesto": "Nota: si lo requiere, puede descargar los ejemplos de escritos tipo para marcas. (enlace independiente fuera del párrafo)",
+      "criterio_id": "F5",
+      "motivo": "El enlace debe presentarse como elemento independiente fuera del texto corrido."
+    }
+  ],
+  "nota_final_tic": "IMPORTANTE: esta captura (2026-07-27) de /Trademark/TrademarkUserDocument muestra el formulario «Presentar Escritos de Marcas», distinto del listado «Escritos Guardados de Marcas» auditado el 2026-06-11 en la misma URL. Verificar con el equipo de desarrollo si la ruta ahora sirve un flujo distinto por defecto o si depende de un parámetro/estado de sesión no capturado. Para aplicar las sustituciones: (1) hacer backup antes de cualquier cambio; (2) A1/A3 (H1/H2) y E3 (fecha) requieren editar la vista Razor — insertar antes del div.card#SearchCard (HTML-L892); (3) el select «Presentar escrito a» (HTML-L905-912) y sus opciones están en la misma vista — agregar glosas o tooltips; (4) el enlace «en este link» (HTML-L969) está en el mismo bloque de nota — reestructurar como CTA independiente con texto descriptivo; (5) los botones «OK» (HTML-L1027) y «Aceptar»/«Cancelar» (HTML-L1069-1070) están en modales del _Layout.cshtml — cambio transversal, coordinar con TIC; (6) el <title> (HTML-L29) tiene el mismo typo transversal «máss» de otras URLs de julio — corregir en la plantilla compartida; (7) las mayúsculas del menú (HTML-L126-533) y de «MARCAS» en el texto (HTML-L968) están en distintos archivos — el menú es transversal, el texto es local a esta vista."
+}
