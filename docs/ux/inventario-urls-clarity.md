@@ -15,7 +15,7 @@
 
 **Alcance analítico:** el inventario mock agrupa **17 URLs** en **una sola tabla** (§2.1): **15** filas **Trámites** (`tramites.inapi.cl`) y **2** **Sitio Web** (`www.inapi.cl`: ranks **16** home y **17** trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
 
-**Serie Clarity (extensión Fase 1.5):** cuando existe JSON bajo `data/claude-audits/tramites/` o `sitioweb/`, la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5.
+**Serie Clarity (extensión Fase 1.5):** cuando existe JSON bajo `data/claude-audits/tramites/` o `sitioweb/`, la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). **Historial versionado (jul-2026):** desde `/auditar` (botón «Historial de auditorías»), `/auditar/historial` lista URLs con informe; `/auditar/historial/[rank]` lista fechas (vigente + anteriores) y abre cada informe. La ficha `/auditar/inventario/clarity/[rank]` y la columna Historial del inventario Clarity usan los mismos datos (`clarity-audits-launch.ts`). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5.
 
 **Paradoja Clarity (mayo 2026):** el proyecto Microsoft Clarity está asociado al **Sitio Web** INAPI, pero el extracto de páginas populares (365 días) muestra **mayormente URLs de `tramites.inapi.cl`**. La página con **más visitas** en ese extracto es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059 visitas) — contenido **informativo** con acordeones RNT, **no** el portal de login. La **home** `https://www.inapi.cl/` **no aparece** en el top Clarity revisado, aunque es la portada institucional; se incluye igual en inventario por criterio editorial. Detalle en §2.0.
 
@@ -232,4 +232,4 @@ flowchart TB
 
 ---
 
-*Última revisión documental: 2026-07-23 — inventario **17** URLs; rutas JSON Meta MEI (`tramites/` · `sitioweb/`); **13/17** con informe; ranks **8, 11, 13, 15** Pendiente TI; ver [`docs/fase-3-3-captura-auth-claveunica.md`](../fase-3-3-captura-auth-claveunica.md), [`docs/development/DEVLOG.md`](../development/DEVLOG.md) y [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*
+*Última revisión documental: 2026-07-27 — inventario **17** URLs; historial versionado `/auditar/historial`; rutas JSON Meta MEI (`tramites/` · `sitioweb/`); **13/17** con informe; ranks **8, 11, 13, 15** Pendiente TI; ver [`docs/fase-3-3-captura-auth-claveunica.md`](../fase-3-3-captura-auth-claveunica.md), [`docs/development/DEVLOG.md`](../development/DEVLOG.md) y [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json).*

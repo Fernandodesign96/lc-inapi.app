@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-27 | [Frontend: Historial versionado de auditorías por URL](#devlog-2026-07-27-frontend-historial-auditorias) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 5–7 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-5-7) |
 | 2026-07-23 | [Documentación: Fase 3.3 — captura autenticada ClaveÚnica y calibración datos de sesión](#devlog-2026-07-23-fase-3-3-auth-sesion) |
@@ -48,6 +49,36 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-07-27-frontend-historial-auditorias"></a>
+## [2026-07-27] - Frontend | Historial versionado de auditorías por URL
+
+**Rama:** `feat/frontend-audit-history` | **Entorno:** WSL2 (PC casa)
+
+### Contexto y objetivos:
+
+Con varias fechas de informe por URL Clarity (junio y julio 2026), el MVP solo mostraba el id **vigente** en `/auditar`. Hacía falta una UI de historial versionado: listar URLs auditadas, ver fechas por URL y abrir informes históricos en `/auditar/resultado`, sin persistencia en base de datos.
+
+### Implementación técnica:
+
+- **`clarity-audits-launch.ts`:** tipos `ClarityAuditVersion` / `historyIds` / `versiones`; mapa `CLARITY_AUDIT_META_BY_ID` (vigente + history); `CLARITY_AUDIT_ID_SET` ampliado a 26 ids Clarity para que la API cargue informes anteriores; helpers `historialHref`, `historialRankHref`, `resultadoClarityHrefForId`, `clarityRowsConHistorial`.
+- **Rutas:** `/auditar/historial` (índice con filtro Trámites / Sitio Web) y `/auditar/historial/[rank]` (tabla de fechas, badge Vigente/Anterior, enlace a resultado).
+- **Ingreso de URL:** tercer botón «Historial de auditorías» en el `CardFooter` de `/auditar`.
+- **Inventario Clarity y ficha:** columna Historial; conteo de auditorías desde `versiones.length` cuando hay JSON real; ficha deja el historial mock y muestra versiones del launch con «Ver historial completo».
+- Commits atómicos en la rama: capa de datos → pantallas → botón → ficha/inventario → esta documentación.
+- `bun run typecheck:all` y `validate:claude-audits` en verde.
+
+### 💡 Repaso técnico: Allowlist y history:
+
+Los ids en `history[]` vivían en disco pero no en `CLARITY_AUDIT_ID_SET`; `loadClaudeAuditBundle` devolvía `not_allowed` al abrir un informe de junio. El SET debe ser la unión de vigentes + históricos mientras el allowlist sea la fuente de verdad del MVP.
+
+### Próximos pasos:
+
+- Push / PR de `feat/frontend-audit-history` y merge a `main`.
+- Opcional: alinear `%` mock de `clarity-fichas-mock.json` con los JSON vigentes (la UI de historial ya prioriza el launch).
+- Historial con persistencia real (Supabase) sigue en backlog del ROADMAP, separado de este MVP.
 
 ---
 
