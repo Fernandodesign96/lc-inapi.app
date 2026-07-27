@@ -1,0 +1,579 @@
+{
+  "id": "tramites-inapi-cl-trademark-trademarkapplication-indextrademark_2026-07-27",
+  "url": "https://tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark",
+  "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "1.1",
+  "tipo_pagina": "tramites",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 6,
+    "nombre_ui": "Solicitar Marca",
+    "ruta_etiqueta": "Trademark / TrademarkApplication / IndexTrademark",
+    "visitas_ref": "52.693",
+    "encargado_ref": "Fernando Arriagada",
+    "descripcion": "Punto de partida del flujo de presentación de solicitud de marca."
+  },
+  "texto_capturado": "T002 [HTML-L29]: «Solicitar Marca INAPI — Portal de Trámites: Marcas, Patentes y máss» (título; em dash correcto, mismo typo transversal «máss» que rank 5) | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde correcta — corregido) | T012 [HTML-L379]: «Documentación Mínima PCT» | T013-T017: datos de sesión del usuario autenticado (perfil, navbar) | T020 [HTML-L941]: «Nueva Solicitud» (div.card-header, no H1/H2/H3 semántico) | T021 [HTML-L947]: «ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.» (NUEVO bloque alert-info; mayúsculas sostenidas, usted formal, enlace «aquí» no descriptivo → /Trademark/TrademarkSavedApplications) | T022 [HTML-L955]: «Indique la categoría, tipo y denominación de la solicitud de marca» (leyenda fieldset) | T023-T029 [HTML-L959-985]: labels «Categoría», opciones «Seleccione...», «Marca», «Frase de Propaganda», «Marca Colectiva», «Marca de Certificación», «Tipo de marca» | T030 [HTML-L985]: «Denominación/Signo» (label, término técnico sin glosa) | T031 [HTML-L987]: placeholder «Signo/Denominación/Frase de Propaganda.» | T032-T033 [HTML-L995,999]: «Registro base de la solicitud», «Número de registro base» (sin ejemplo de formato) | T034 [HTML-L1002]: «Buscar» (botón registro base) | T035 [HTML-L1014]: «Información del registro base» (capitalización de sentencia — corregido) | T036 [HTML-L1017]: «Acá van los datos de la marca base» (H1 real de HTML pero placeholder de desarrollo en div oculto — idéntico a 2026-06-11) | T037-T038 [HTML-L1035-1036]: «Cancelar», «Guardar» | T039-T041 [HTML-L1047-1093]: modal «Ayuda - Tipos de solicitud de marca», intro sin dos puntos (corregido), definiciones de tipos (Sonora correcta: «sentido de la audición»; «Táctil:» singular — corregido) | T042 [HTML-L1096]: «OK» (modal ayuda tipos) | T043-T045 [HTML-L1107-1125]: modal «Ayuda - Tipos de categoría de marca», intro «Información sobre tipos de categoría de marca: » (TODAVÍA con dos puntos), definiciones con doble espacio interno en «Frase de Propaganda» y NUEVO doble espacio en «Marca de Certificación» | T046 [HTML-L1129]: «OK» (modal ayuda categorías) | T047-T050 [HTML-L1140-1158]: modal tridimensional, comillas curvadas inconsistentes, doble espacio «de  la(s)», «de oficio» | T051 [HTML-L1158]: «OK» | T052-T055 [HTML-L1169-1183]: modal denominativa, «Asegurarse que», «NO» mayúsculas en negrita, «Recuerde que podrá desistirse» | T056-T059 [HTML-L1194-1209]: modal mixta, falta punto final antes de «En el caso», «se cambiará de oficio» | T060-T061 [HTML-L1270-1271]: «Aceptar» / «Cancelar» (modal confirm _Layout) | T062 [HTML-L1293]: «Dónde estamos» | T063 [HTML-L1297]: «RUT: 65.999.669-3» (persona jurídica pública) | T064-T066: dirección, teléfono, correo institucional | T067 [HTML-L1315-1319]: enlaces redes sociales | T068 [HTML-L1327-1333]: sección «Accesos», incluye «Política de privacidad» (→ PDF, sin formato) | T069 [HTML-L1348]: «©2026 INAPI. Todos los derechos reservados» | T070 [HTML-L1349]: «v 2.3.96.0» | (ausencia): sin fecha de publicación/actualización de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe un H1/H2/H3 semántico y visible que describa la pantalla principal. El único texto de cabecera (T020) es un div.card-header sin jerarquía semántica. El único H1 real del HTML (T036) es un placeholder de desarrollo oculto dentro del flujo condicional de Frase de Propaganda. Idéntico a la auditoría 2026-06-11: persiste sin corregir.",
+      "cita_textual": "T020 [HTML-L941]: div.card-header «Nueva Solicitud» (no H) / T036 [HTML-L1017]: «Acá van los datos de la marca base» (H1 placeholder en div oculto)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No hay párrafo introductorio que sitúe al usuario respecto al propósito y alcance del trámite antes de los campos del formulario. El único texto orientador es la leyenda del fieldset (T022). El elemento nuevo T021 es una notificación condicional de estado, no un párrafo introductorio del flujo.",
+      "cita_textual": "T022 [HTML-L955]: «Indique la categoría, tipo y denominación de la solicitud de marca» (única orientación, sin contexto previo)"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El único agrupador visible es el card-header genérico «Nueva Solicitud» (T020), que no diferencia ni anticipa las secciones del formulario (categoría, tipo, denominación, registro base).",
+      "cita_textual": "T020 [HTML-L941]: «Nueva Solicitud» (encabezado genérico, no describe subsecciones)"
+    },
+    {
+      "id": "A4",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario transaccional de solicitud de marca sin bloques de texto editorial extenso sujetos al límite de 110 palabras por sección."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El footer expone una versión técnica de sistema sin utilidad para el usuario final del trámite.",
+      "cita_textual": "T070 [HTML-L1349]: «v 2.3.96.0»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Predomina voz pasiva e impersonal en instrucciones críticas del flujo: «Asegurarse que...», «se cambiará de oficio», y trato formal «Usted»/«Recuerde» en vez de segunda persona directa. Persiste igual que en 2026-06-11.",
+      "cita_textual": "T053 [HTML-L1176]: «Asegurarse que en el campo...» / T058 [HTML-L1205]: «se cambiará de oficio a una marca de tipo figurativa» / T021 [HTML-L947]: «Usted ya tiene solicitudes en borrador»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Términos técnicos de propiedad industrial («Denominación/Signo», «Frase de Propaganda») se usan sin una glosa breve visible en el flujo principal del formulario.",
+      "cita_textual": "T030 [HTML-L985]: «Denominación/Signo» / T045 [HTML-L1119]: «Frase de Propaganda»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "PCT aparece en el menú de Patentes sin expandir en su primera aparición. Mismo hallazgo que en 2026-06-11.",
+      "cita_textual": "T010 [HTML-L330]: «Pagar Tasas PCT Fase Internacional» / T012 [HTML-L379]: «Documentación Mínima PCT»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se identifican extranjerismos en el copy institucional inventariado."
+    },
+    {
+      "id": "B5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La alerta de solicitudes en borrador (elemento nuevo respecto a 2026-06-11) es puramente informativa/de advertencia, sin orientar hacia una acción positiva clara.",
+      "cita_textual": "T021 [HTML-L947]: «ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.»"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El tono usa tratamiento formal («Usted», «Recuerde») en vez de tuteo cercano, de forma consistente en todo el flujo, incluyendo el elemento nuevo T021.",
+      "cita_textual": "T021 [HTML-L947]: «Usted ya tiene solicitudes en borrador» / T054 [HTML-L1179]: «Recuerde que podrá desistirse de la solicitud...»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persisten fórmulas de lenguaje formal hueco/jurídico («de oficio», «desistirse») sin equivalente en lenguaje claro. Igual que en la auditoría anterior.",
+      "cita_textual": "T050 [HTML-L1153]: «la oficina eliminará de oficio el campo denominación» / T054 [HTML-L1179]: «podrá desistirse de la solicitud» / T058 [HTML-L1205]: «se cambiará de oficio»"
+    },
+    {
+      "id": "C1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El orden sujeto-verbo-predicado se rompe por cláusulas causales antepuestas al verbo principal.",
+      "cita_textual": "T053 [HTML-L1176]: «...ya que al ingresar su solicitud pagando la tasa de presentación, NO será posible cambiar con posterioridad la denominación solicitada.»"
+    },
+    {
+      "id": "C2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Predominan formas de futuro y modales de posibilidad («será posible», «podrá», «se cambiará») en lugar de presente simple en las instrucciones de los modales informativos.",
+      "cita_textual": "T053 [HTML-L1176]: «NO será posible cambiar» / T054 [HTML-L1179]: «podrá desistirse... podrá solicitar» / T058 [HTML-L1205]: «se cambiará de oficio»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La definición de «Frase de Propaganda» es una oración de ≈35 palabras con múltiples cláusulas relativas coordinadas. Mismo patrón que en 2026-06-11.",
+      "cita_textual": "T045 [HTML-L1119]: «Corresponden a expresiones que, acompañando a una marca registrada, están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.»"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La advertencia sobre desistimiento combina dos ideas distintas (posibilidad de desistir y la imposibilidad de recuperar la tasa pagada) en una sola oración unida por «pero».",
+      "cita_textual": "T054 [HTML-L1179]: «Recuerde que podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca, pero NO podrá solicitar la devolución de la tasa pagada en la primera solicitud.»"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos y leyendas inventariados no superan las 8 líneas de extensión visual en el formulario."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario transaccional sin bloques de 4 o más párrafos continuos de texto editorial."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El campo «Número de registro base» no indica el formato esperado del dato a ingresar, lo que puede generar errores de captura.",
+      "cita_textual": "T033 [HTML-L999]: «Número de registro base» (sin ejemplo de formato)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El <title> contiene el error tipográfico «máss» (doble s), mismo patrón transversal detectado en rank 5. Las correcciones respecto a 2026-06-11 («Titulos»→«Títulos», «Información del Registro Base»→«Información del registro base», «Táctiles»→«Táctil») ya se aplicaron y no generan incumplimiento.",
+      "cita_textual": "T002 [HTML-L29]: «Solicitar Marca INAPI — Portal de Trámites: Marcas, Patentes y máss»"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Persisten y aparecen nuevos problemas de puntuación: doble espacio interno en «Frase de Propaganda» (persiste desde 2026-06-11) y NUEVO en «Marca de Certificación»; doble espacio en el modal 3D; dos oraciones fusionadas sin punto final en el modal mixta; dos puntos innecesarios en el título del modal de categoría; comillas curvadas inconsistentes con el Title Case del label.",
+      "cita_textual": "T045 [HTML-L1119]: «...como conjunto,  se solicita...» / T045b [HTML-L1125]: «...mercado  productos...» / T049 [HTML-L1150]: «de  la(s)» / T057 [HTML-L1201]: «...\"Denominación/Signo\" En el caso...» / T044 [HTML-L1113]: «Información sobre tipos de categoría de marca: »"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "no_aplica",
+      "comentario": "El inventario no evidencia enumeraciones de requisitos o pasos que debieran presentarse como lista/tabla adicional."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que amerite destacar palabras clave con negritas; el uso de «NO» en negritas dentro de textos de ayuda se evalúa en B5, no en D6."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Se mantiene el patrón transversal: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» en mayúsculas sostenidas. Se suma un hallazgo nuevo: «ADVERTENCIA» en mayúsculas sostenidas al inicio del nuevo aviso de solicitudes en borrador.",
+      "cita_textual": "T006-T009,T018: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» / T021 [HTML-L947]: «ADVERTENCIA:...»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se detectan opiniones ni adjetivos calificativos en el copy institucional. La alerta T021 usa lenguaje de estado, no de opinión."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La autoría institucional es identificable a través del footer con RUT institucional de INAPI y datos de la entidad."
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe fecha de publicación ni de actualización de la pantalla visible. No debe sustituirse por el año de copyright del footer.",
+      "cita_textual": "(ausencia) — no hay fecha de publicación/actualización visible en la página"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple",
+      "comentario": "El <title> refleja razonablemente el propósito de la pantalla (solicitud de marca). El error tipográfico «máss» corresponde a D1 y no afecta la fidelidad representada."
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los enlaces y botones evaluables (Buscar, Cancelar, Guardar) tienen nombres coherentes con su destino/acción.",
+      "cita_textual": "T037 [HTML-L1035]: «Cancelar» → /Trademark/TrademarkSavedApplications / T038 [HTML-L1036]: «Guardar»"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Hallazgo nuevo respecto a 2026-06-11: el bloque de advertencia de borradores usa el patrón «Haz clic aquí» prohibido — el enlace es la palabra «aquí» incrustada en la oración, sin describir el destino. Severidad alta por su alta visibilidad (parte superior de la pantalla).",
+      "cita_textual": "T021 [HTML-L947]: «ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los botones «OK» se repiten en 5 modales de ayuda distintos (anglicismo) y «Aceptar» del modal de confirmación no especifica qué se acepta. Patrón transversal al portal.",
+      "cita_textual": "T042 [HTML-L1096]: «OK» (5 modales) / T060 [HTML-L1270]: «Aceptar»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «Política de privacidad» del footer dirige a un PDF sin indicar formato ni tamaño. Patrón transversal al portal.",
+      "cita_textual": "T068 [HTML-L1327-1333]: «Política de privacidad» → politica_de_privacidad.pdf"
+    },
+    {
+      "id": "F5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «aquí» de T021 está incrustado dentro del texto corrido de la advertencia en lugar de presentarse como un enlace o botón independiente fuera de la oración. El resto de enlaces/botones evaluados sí están correctamente fuera del texto corrido.",
+      "cita_textual": "T021 [HTML-L947]: «...revise aquí.»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "Pantalla de creación de solicitud (formulario en blanco): no hay valores de terceros ni datos del solicitante embebidos en los campos, ya que el usuario aún no ha ingresado su marca ni antecedentes. El único dato de sesión visible es el nombre del usuario autenticado en el menú de perfil, consistente con el resto del portal — dato esperado, no incumplimiento (§19). El RUT del footer es de INAPI (persona jurídica pública).",
+      "cita_textual": "Menú de perfil: «[nombre del usuario autenticado]» (dato de sesión propio) / T063 [HTML-L1297]: «RUT: 65.999.669-3» (persona jurídica pública)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer incluye un enlace visible a «Política de privacidad» dentro de la sección Accesos.",
+      "cita_textual": "T068 [HTML-L1327-1333]: «Política de privacidad»"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer publica la nota de copyright institucional vigente.",
+      "cita_textual": "T069 [HTML-L1348]: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "La pantalla de creación de solicitud no presenta rótulos de versión, historial ni contenido archivado."
+    }
+  ],
+  "criterios_no_aplica": 7,
+  "criterios_aplicables": 32,
+  "criterios_aprobados": 9,
+  "porcentaje_cumplimiento": 28.1,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 23 incumplimientos sobre 32 criterios aplicables (28,1 %) para esta pantalla de 52.693 visitas. Respecto de la auditoría anterior (2026-06-11, 40,0 %) se corrigieron 4 hallazgos (tilde en «Títulos», capitalización en «Información del registro base», sin dos puntos en el modal de tipos de solicitud, «Táctil» singular), pero se introdujo un elemento NUEVO de alto impacto: el bloque de advertencia de solicitudes en borrador (T021) con enlace «aquí» no descriptivo (F2, F5 — antes cumplían), tono formal «Usted» (B1, B6) y mayúsculas sostenidas «ADVERTENCIA» (D7). PRIORIDAD TIC #1 persiste: el H1 real de la página es un placeholder de desarrollo («Acá van los datos de la marca base») oculto en el flujo de Frase de Propaganda — no describe la pantalla principal. El array sustituciones[] contiene 22 filas con cobertura 1:1 para los 23 criterios incumplidos.",
+  "observaciones_lc": "La pantalla de inicio del flujo de solicitud de marca obtiene un 28,1 % de cumplimiento sobre 32 criterios aplicables — RECHAZADO, rank 6 Clarity con 52.693 visitas, en descenso respecto de la auditoría 2026-06-11 (40,0 %). El descenso se explica por: (1) un elemento nuevo, el aviso de solicitudes en borrador (T021), que introduce un enlace no descriptivo «aquí» (F2, F5) y tono formal «Usted» (B1, B6) y mayúsculas sostenidas (D7); (2) una recalibración más estricta de C2/C4/D5/D6 respecto de la auditoría previa. Se mantienen sin corregir: ausencia de H1 real (A1 — el único H1 del HTML es un placeholder de desarrollo), ausencia de párrafo introductorio (A2, A3), PCT sin expandir (B3), tono formal e imperativos impersonales en los modales de ayuda (B1, B2, B6, B7, C1, C3), ausencia de fecha de actualización (E3), botones «OK»/«Aceptar» (F3) y PDF sin formato (F4). Se corrigieron 4 hallazgos de la auditoría anterior: tilde en «Títulos», capitalización en «Información del registro base», el modal de tipos de solicitud sin dos puntos finales, y «Táctil» en singular. G1 se mantiene cumple: el formulario está vacío al momento de la captura, sin datos de terceros ni del propio usuario embebidos en los campos.",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). Es el rank 6 Clarity con 52.693 visitas. De los 32 criterios aplicables, 9 se cumplen, lo que arroja un 28,1 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %), en descenso respecto de la auditoría anterior (2026-06-11, 40,0 %). Se detectaron 23 incumplimientos y se generaron 22 filas en sustituciones[] con cobertura 1:1. PRIORIDAD TIC #1 persiste: el único H1 real del HTML («Acá van los datos de la marca base», T036) es un placeholder de desarrollo oculto en el flujo de Frase de Propaganda, no la cabecera de la pantalla principal. El descenso respecto a la auditoría anterior se explica principalmente por un elemento nuevo: el aviso de solicitudes en borrador (T021), que introduce un enlace no descriptivo «aquí» (F2 y F5, antes cumplían), tono formal «Usted» y mayúsculas sostenidas «ADVERTENCIA» (D7). TI ya corrigió 4 hallazgos de la auditoría 2026-06-11: tilde en «Títulos», capitalización en «Información del registro base», el modal de tipos de solicitud sin dos puntos finales, y «Táctil» en singular. G1 se mantiene cumple: el formulario está vacío al momento de la captura.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) El único H1 real es el placeholder de desarrollo «Acá van los datos de la marca base» (T036) en un div oculto; el card-header «Nueva Solicitud» (T020) es un div sin semántica.",
+      "(B1) «Asegurarse que», «se cambiará de oficio» y «Usted»/«Recuerde» en instrucciones críticas del flujo.",
+      "(B3) PCT en el menú de Patentes sin definición.",
+      "(C3) La definición de «Frase de Propaganda» tiene ≈35 palabras con múltiples relativas encadenadas.",
+      "(D1) Error tipográfico «máss» (doble s) en el <title>, mismo patrón transversal que rank 5.",
+      "(E3) Sin fecha de publicación ni de última actualización visible de la página.",
+      "(F2) NUEVO: el aviso de solicitudes en borrador usa el patrón «Haz clic aquí» prohibido."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Sin párrafo introductorio que explique el propósito del trámite antes del formulario.",
+      "(A3) El card-header genérico no anticipa las secciones del formulario.",
+      "(B2) «Denominación/Signo» y «Frase de Propaganda» sin glosa en el flujo principal.",
+      "(B5) NUEVO: el aviso de borradores es puramente negativo sin orientar a una acción positiva.",
+      "(B6) Tono formal «Usted»/«Recuerde» en vez de tuteo, incluido el nuevo aviso.",
+      "(B7) «de oficio» y «desistirse» son tecnicismos jurídicos sin equivalente claro.",
+      "(C2) Predominan futuro y modales de posibilidad en vez de presente simple en los modales.",
+      "(C7) «Número de registro base» sin ejemplo de formato.",
+      "(D2) Dobles espacios y falta de punto final en varios modales de ayuda; dos puntos innecesarios en el modal de categoría.",
+      "(D7) Mayúsculas en menú y NUEVO «ADVERTENCIA» en mayúsculas sostenidas.",
+      "(F3) «OK» en 5 modales de ayuda; «Aceptar» sin contexto en modal de confirmación.",
+      "(F4) PDF de política de privacidad sin indicar formato.",
+      "(F5) NUEVO: el enlace «aquí» está incrustado en el texto corrido del aviso de borradores."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «v 2.3.96.0» es versión técnica del sistema visible sin valor para el usuario.",
+      "(C1) Cláusula causal antepuesta al verbo principal en el modal denominativa.",
+      "(C4) La advertencia de desistimiento combina dos ideas en una sola oración."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A1-h1",
+      "html_linea_aprox": "HTML-L941",
+      "original": "«Nueva Solicitud» (div.card-header, no semántico)",
+      "propuesto": "<h1>Nueva solicitud de marca</h1>",
+      "criterio_id": "A1",
+      "motivo": "La pantalla carece de un H1 semántico y descriptivo; el único H1 existente (T036) es un placeholder de desarrollo oculto y no cumple la función de cabecera principal."
+    },
+    {
+      "linea": "T036",
+      "html_linea_aprox": "HTML-L1017",
+      "original": "Acá van los datos de la marca base",
+      "propuesto": "Datos del registro base",
+      "criterio_id": "A1",
+      "motivo": "El H1 placeholder de desarrollo debe reemplazarse por texto descriptivo y funcional del contenedor dinámico."
+    },
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "HTML-L955",
+      "original": "(ausencia de párrafo introductorio)",
+      "propuesto": "En este trámite puedes solicitar el registro de una marca ante INAPI. Completa los datos de categoría, tipo y denominación para continuar.",
+      "criterio_id": "A2",
+      "motivo": "Falta contexto de propósito antes de los campos del formulario."
+    },
+    {
+      "linea": "A3-card",
+      "html_linea_aprox": "HTML-L941",
+      "original": "Nueva Solicitud",
+      "propuesto": "Nueva solicitud de marca: categoría, tipo y denominación",
+      "criterio_id": "A3",
+      "motivo": "El encabezado actual no anticipa el contenido de las secciones del formulario que siguen."
+    },
+    {
+      "linea": "T070",
+      "html_linea_aprox": "HTML-L1349",
+      "original": "v 2.3.96.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Información técnica de versión de sistema sin utilidad editorial para el usuario."
+    },
+    {
+      "linea": "T053",
+      "html_linea_aprox": "HTML-L1176",
+      "original": "Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación, NO será posible cambiar con posterioridad la denominación solicitada.",
+      "propuesto": "Verifica que el campo «Denominación/Signo» tenga la marca solicitada escrita correctamente. Una vez que pagues la tasa de presentación, no podrás cambiar la denominación.",
+      "criterio_id": "B1",
+      "motivo": "Reformular de infinitivo impersonal y orden causal antepuesto a segunda persona directa y orden sujeto-verbo-predicado."
+    },
+    {
+      "linea": "T053",
+      "html_linea_aprox": "HTML-L1176",
+      "original": "Asegurarse que en el campo \"Denominación/Signo\" se digite correctamente la marca solicitada ya que al ingresar su solicitud pagando la tasa de presentación, NO será posible cambiar con posterioridad la denominación solicitada.",
+      "propuesto": "Verifica que el campo «Denominación/Signo» tenga la marca solicitada escrita correctamente. Una vez que pagues la tasa de presentación, no podrás cambiar la denominación.",
+      "criterio_id": "C1",
+      "motivo": "Coloca el verbo principal al inicio y elimina la cláusula causal antepuesta."
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L985",
+      "original": "Denominación/Signo",
+      "propuesto": "Denominación/Signo (el nombre o palabra que compone tu marca)",
+      "criterio_id": "B2",
+      "motivo": "Agregar glosa breve visible en el flujo principal del formulario."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L1119",
+      "original": "Corresponden a expresiones que, acompañando a una marca registrada, están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.",
+      "propuesto": "Es una frase que acompaña a una marca registrada y sirve para publicitarla. Se protege en conjunto con la marca para distinguir productos o servicios.",
+      "criterio_id": "B2",
+      "motivo": "Simplificar definición técnica en dos oraciones cortas y directas."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L1119",
+      "original": "Corresponden a expresiones que, acompañando a una marca registrada, están destinadas a publicitarla, y cuya protección inscrita, como conjunto, se solicita para distinguir productos o servicios en el mercado.",
+      "propuesto": "Es una frase que acompaña a una marca registrada y sirve para publicitarla. Se protege en conjunto con la marca para distinguir productos o servicios.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de ≈35 palabras con múltiples relativas encadenadas en dos oraciones simples."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L330",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar Tasas PCT (Tratado de Cooperación en materia de Patentes) Fase Internacional",
+      "criterio_id": "B3",
+      "motivo": "Expandir la sigla PCT en su primera aparición del menú."
+    },
+    {
+      "linea": "T012",
+      "html_linea_aprox": "HTML-L379",
+      "original": "Documentación Mínima PCT",
+      "propuesto": "Documentación Mínima PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Segunda instancia de PCT en el menú de Patentes."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L947",
+      "original": "ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.",
+      "propuesto": "Tienes solicitudes en borrador pendientes. Revisa tus solicitudes en borrador antes de crear una nueva.",
+      "criterio_id": "B5",
+      "motivo": "Reformular la alerta en tono orientado a la acción positiva del usuario, en tuteo."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L947",
+      "original": "ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.",
+      "propuesto": "Tienes solicitudes en borrador pendientes. Revisa tus solicitudes en borrador antes de crear una nueva.",
+      "criterio_id": "B6",
+      "motivo": "Cambia el tratamiento formal «Usted» por tuteo directo."
+    },
+    {
+      "linea": "T054",
+      "html_linea_aprox": "HTML-L1179",
+      "original": "Recuerde que podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca, pero NO podrá solicitar la devolución de la tasa pagada en la primera solicitud.",
+      "propuesto": "Puedes retirar la solicitud y presentar una nueva. La tasa pagada en la primera solicitud no se devuelve.",
+      "criterio_id": "B6",
+      "motivo": "Cambiar a tuteo y separar en dos oraciones independientes."
+    },
+    {
+      "linea": "T054",
+      "html_linea_aprox": "HTML-L1179",
+      "original": "Recuerde que podrá desistirse de la solicitud e ingresar nuevamente otra solicitud de registro de marca, pero NO podrá solicitar la devolución de la tasa pagada en la primera solicitud.",
+      "propuesto": "Puedes retirar la solicitud y presentar una nueva. La tasa pagada en la primera solicitud no se devuelve.",
+      "criterio_id": "C4",
+      "motivo": "Separa las dos ideas distintas (retiro de la solicitud vs. no devolución de la tasa) en dos oraciones."
+    },
+    {
+      "linea": "T050",
+      "html_linea_aprox": "HTML-L1153",
+      "original": "la oficina eliminará de oficio el campo denominación por no formar parte del signo pedido.",
+      "propuesto": "la oficina eliminará automáticamente el campo denominación porque no forma parte del signo solicitado.",
+      "criterio_id": "B7",
+      "motivo": "Reemplazar «de oficio» por lenguaje claro («automáticamente»)."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L1205",
+      "original": "Si en el logo o etiqueta NO existe texto, se cambiará de oficio a una marca de tipo figurativa y se eliminará el texto ingresado en la denominación.",
+      "propuesto": "Si el logo o etiqueta no tiene texto, el sistema lo cambia automáticamente a una marca de tipo figurativa y elimina el texto ingresado en la denominación.",
+      "criterio_id": "B7",
+      "motivo": "Reemplazar la pasiva institucional «se cambiará de oficio» por voz activa con sujeto explícito."
+    },
+    {
+      "linea": "T058",
+      "html_linea_aprox": "HTML-L1205",
+      "original": "Si en el logo o etiqueta NO existe texto, se cambiará de oficio a una marca de tipo figurativa y se eliminará el texto ingresado en la denominación.",
+      "propuesto": "Si el logo o etiqueta no tiene texto, el sistema lo cambia automáticamente a una marca de tipo figurativa y elimina el texto ingresado en la denominación.",
+      "criterio_id": "C2",
+      "motivo": "Reemplaza el futuro/pasivo «se cambiará» por presente simple activo."
+    },
+    {
+      "linea": "C7-formato",
+      "html_linea_aprox": "HTML-L999",
+      "original": "Número de registro base",
+      "propuesto": "Número de registro base (ej. 1234567)",
+      "criterio_id": "C7",
+      "motivo": "Agregar ejemplo de formato numérico al label del campo."
+    },
+    {
+      "linea": "E4-title",
+      "html_linea_aprox": "HTML-L29",
+      "original": "Solicitar Marca INAPI — Portal de Trámites: Marcas, Patentes y máss",
+      "propuesto": "Solicitar Marca INAPI — Portal de Trámites: Marcas, Patentes y más",
+      "criterio_id": "D1",
+      "motivo": "Corregir el error tipográfico «máss» por «más». Mismo patrón transversal detectado en rank 5; recomendar corrección centralizada en la plantilla compartida."
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L1119",
+      "original": "como conjunto,  se solicita",
+      "propuesto": "como conjunto, se solicita",
+      "criterio_id": "D2",
+      "motivo": "Eliminar doble espacio; persiste desde 2026-06-11."
+    },
+    {
+      "linea": "T045b",
+      "html_linea_aprox": "HTML-L1125",
+      "original": "para distinguir en el mercado  productos o servicios de terceros",
+      "propuesto": "para distinguir en el mercado productos o servicios de terceros",
+      "criterio_id": "D2",
+      "motivo": "Eliminar doble espacio en la definición de «Marca de Certificación» (hallazgo nuevo)."
+    },
+    {
+      "linea": "T049",
+      "html_linea_aprox": "HTML-L1150",
+      "original": "en alguna de  la(s) vista(s)",
+      "propuesto": "en alguna de la(s) vista(s)",
+      "criterio_id": "D2",
+      "motivo": "Eliminar doble espacio entre «de» y «la(s)»."
+    },
+    {
+      "linea": "T057",
+      "html_linea_aprox": "HTML-L1201",
+      "original": "se indica en el campo \"Denominación/Signo\" En el caso que existan diferencias",
+      "propuesto": "se indica en el campo «Denominación/Signo». En el caso que existan diferencias",
+      "criterio_id": "D2",
+      "motivo": "Insertar punto final para separar las dos oraciones fusionadas."
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "HTML-L1113",
+      "original": "Información sobre tipos de categoría de marca: ",
+      "propuesto": "Información sobre tipos de categoría de marca",
+      "criterio_id": "D2",
+      "motivo": "Eliminar los dos puntos innecesarios al final, siguiendo el mismo criterio ya aplicado en el modal de tipos de solicitud."
+    },
+    {
+      "linea": "T006-T009,T018",
+      "html_linea_aprox": "HTML-L126,147,180,201,461,481,513,533",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Patrón transversal ya documentado en CLAUDE.md §6; requiere corrección centralizada en el componente de navegación compartido."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L947",
+      "original": "ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.",
+      "propuesto": "Advertencia: tienes solicitudes en borrador, revisa tus solicitudes en borrador.",
+      "criterio_id": "D7",
+      "motivo": "Elemento nuevo en esta captura; evitar mayúscula sostenida en «ADVERTENCIA», usar capitalización de sentencia."
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "HTML-L941",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización de esta página: julio de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar fecha de actualización visible junto al encabezado de la pantalla."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L947",
+      "original": "ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.",
+      "propuesto": "Tienes solicitudes en borrador pendientes. Revisar mis solicitudes en borrador",
+      "criterio_id": "F2",
+      "motivo": "El enlace «aquí» no describe el destino; reformular con un texto de enlace descriptivo."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "HTML-L947",
+      "original": "ADVERTENCIA: Usted ya tiene solicitudes en borrador, revise aquí.",
+      "propuesto": "Tienes solicitudes en borrador pendientes. (enlace independiente fuera del texto corrido): Revisar solicitudes en borrador",
+      "criterio_id": "F5",
+      "motivo": "Separar el enlace del texto corrido: presentar el aviso como texto informativo y el acceso como un enlace o botón independiente."
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "HTML-L1096,1129,1158,1183,1209",
+      "original": "OK",
+      "propuesto": "Cerrar",
+      "criterio_id": "F3",
+      "motivo": "Reemplazar el anglicismo «OK» en los 5 modales de ayuda por un texto que indique el cierre de la ayuda contextual. Cambio transversal en la vista local."
+    },
+    {
+      "linea": "T060",
+      "html_linea_aprox": "HTML-L1270",
+      "original": "Aceptar",
+      "propuesto": "Confirmar",
+      "criterio_id": "F3",
+      "motivo": "El botón de confirmación genérico no indica qué se acepta. Cambio transversal en _Layout.cshtml; coordinar con TIC."
+    },
+    {
+      "linea": "T068",
+      "html_linea_aprox": "HTML-L1327-1333",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad (PDF)",
+      "criterio_id": "F4",
+      "motivo": "Indicar el formato del documento enlazado en el footer institucional."
+    }
+  ],
+  "nota_final_tic": "Para aplicar las sustituciones en el HTML fuente de tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark: (1) hacer backup antes de cualquier cambio; (2) PRIORIDAD #1 persiste: el H1 «Acá van los datos de la marca base» (HTML-L1017) sigue siendo un placeholder de desarrollo en el <div id=\"DivRegistryNumberInfo\">; reemplazar por «Datos del registro base» e insertar el H1/H2 real de la pantalla antes del div.card (HTML-L939); (3) NUEVO — el bloque de advertencia de borradores (HTML-L947) es un <p class=\"alert alert-info\"> que se muestra condicionalmente cuando el usuario tiene solicitudes en estado Borrador; localizar en el controller/vista IndexTrademark.cshtml la condición que lo renderiza y reformular el texto y el enlace «aquí»; (4) esta captura confirma que TI ya aplicó 4 correcciones de la auditoría 2026-06-11: tilde en «Títulos» (menú Patentes), capitalización en «Información del registro base» (HTML-L1014), el modal de tipos de solicitud sin dos puntos finales (HTML-L1053), y «Táctil» en singular (HTML-L1088) — no repetir estos cambios; (5) el <title> (HTML-L29) tiene el mismo error tipográfico «máss» detectado en rank 5 — es un patrón transversal de la plantilla compartida, corregir una sola vez y verificar todas las páginas que usan el mismo ViewBag.Title; (6) los textos B1/B2/B6/B7/C1/C2/C3/C4 de los modales de ayuda (HTML-L1147-1213) están en la vista local IndexTrademark.cshtml; (7) el doble espacio nuevo en «Marca de Certificación» (HTML-L1125) y la falta de punto final en el modal mixta (HTML-L1201) están en el mismo archivo de vista; (8) los botones «OK» (HTML-L1096,1129,1158,1183,1209) están en los modales de ayuda locales — se pueden corregir sin afectar el resto del portal; el «Aceptar» (HTML-L1270) está en _Layout.cshtml — cambio transversal, coordinar con TIC."
+}
