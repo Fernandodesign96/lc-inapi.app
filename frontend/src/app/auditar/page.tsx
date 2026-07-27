@@ -38,8 +38,8 @@ const URL_EJEMPLO_IMPORT_RESULTADO = "https://tramites.inapi.cl/Notificaciones"
 export default function AuditarPage() {
   const router = useRouter()
   const form = useForm<AuditUrlFormValues>({
-  resolver: zodResolver(auditUrlFormSchema),
-  defaultValues: { url: "" },
+    resolver: zodResolver(auditUrlFormSchema),
+    defaultValues: { url: "" },
   })
 
   function onSubmit(data: AuditUrlFormValues) {

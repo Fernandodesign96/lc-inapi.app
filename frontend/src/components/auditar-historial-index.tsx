@@ -20,8 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { formatFechaEvaluacion } from "@/lib/informe-piloto-format"
-import { labelTipoPagina } from "@/lib/informe-piloto-format"
+import { formatFechaEvaluacion, labelTipoPagina } from "@/lib/informe-piloto-format"
 import {
   clarityRowsConHistorial,
   historialRankHref,
