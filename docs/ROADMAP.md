@@ -165,7 +165,7 @@
 
 **Condición:** Fase 3 completada. **Entorno:** PC casa — WSL + Chroma + Playwright. Documentación: [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
 
-**Rama:** `feat/audit-remaining-urls`
+**Rama del lote WSL:** `feat/audit-wsl-session-captures` (mergeado a `main`).
 
 ### Hecho en repo (jul-2026 — documentación y tooling)
 
@@ -173,13 +173,15 @@
 - [x] Marcar ranks **8, 11, 13, 15** como **Pendiente TI** en inventario mock
 - [x] Aclarar que **Chroma no navega URLs** — solo Playwright requiere sesión
 
-### Pendiente — implementación en WSL
+### Implementación en WSL
 
 - [x] Crear `auditorias/.auth/tramites-session.json` con login manual ClaveÚnica (`playwright codegen --save-storage`)
 - [x] Capturar HTML de URLs post-login accesibles (ranks 5–7 u otras) con `bun run capture:tramites-html` — completado 2026-07-27 (rank 7 requirió recaptura vía Playwright MCP por HTML de error en la primera captura)
 - [x] Auditar con flujo §17 + calibración §19; JSON en `data/claude-audits/tramites/{fecha}/` — ranks 5–7 en `2026-07-27/`, `bun run validate:claude-audits` OK
-- [ ] Subir capturas `.html` versionadas y reingestar Colección B si aplica
+- [x] Subir capturas `.html` versionadas (`auditorias/htmls/*_2026-07-27.html`) y reingestar Colección B (`bun run ingest:b`)
 - [ ] Coordinación TI para ranks 8, 11, 13, 15 (cuenta prueba, flujos de confirmación/pago)
+
+**Siguiente oleada (opcional):** re-auditar con sesión ranks **3, 4, 10, 12, 14** (JSON aún en `2026-06-11`).
 
 ### Implementable hoy en PC empresa (sin WSL / sin Chroma)
 

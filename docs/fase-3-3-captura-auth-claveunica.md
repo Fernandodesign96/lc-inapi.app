@@ -1,7 +1,8 @@
 # Fase 3.3 — Captura autenticada (ClaveÚnica) y calibración de datos de sesión
 
 **Última actualización:** 2026-07-27  
-**Rama de trabajo:** `feat/audit-remaining-urls`  
+**Estado:** lote ranks **5–7** completado (captura con sesión + JSON + HTML versionado). Pendiente TI: ranks **8, 11, 13, 15**.  
+**Rama del lote WSL:** `feat/audit-wsl-session-captures` (mergeado a `main`)  
 **Entorno objetivo:** PC casa — WSL2 + Chroma + Playwright + Claude Code Pro
 
 ---
@@ -159,6 +160,6 @@ Hasta entonces: mantener ranks en **Pendiente TI** sin JSON forzado en el MVP.
 | --- | --- |
 | [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §11, §19 | Workflow captura auth y calibración sesión |
 | [`.claude/prompts/audit-lote.md`](../.claude/prompts/audit-lote.md) | Plantilla de lote actualizada |
-| [`docs/ROADMAP.md`](ROADMAP.md) | Fases 2–3 completadas; Fase 3.3 pendiente implementación |
+| [`docs/ROADMAP.md`](ROADMAP.md) | Fases 2–3 completadas; Fase 3.3 — lote ranks 5–7 hecho; pendiente TI 8/11/13/15 |
 | [`docs/SECURITY.md`](SECURITY.md) §3 | `storageState`, anonimización, RAG |
 | [`src/scripts/capture-tramites-html.ts`](../src/scripts/capture-tramites-html.ts) | Script de captura con sesión |
