@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-28 | [Frontend: MEI calidad web — catálogo PTD, export XLSX y UI por hito](#devlog-2026-07-28-mei-calidad-web-export-ui) |
 | 2026-07-27 | [Frontend: Historial versionado de auditorías por URL](#devlog-2026-07-27-frontend-historial-auditorias) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 5–7 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-5-7) |
@@ -49,6 +50,35 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-07-28-mei-calidad-web-export-ui"></a>
+## [2026-07-28] - Frontend | MEI calidad web: catálogo PTD, export XLSX y UI por hito
+
+**Rama:** `feat/mei-calidad-web-export-ui` | **Entorno:** PC empresa (Windows + Bun)
+
+### Contexto y objetivos:
+
+El Plan de Trabajo Detallado (PTD) de calidad web INAPI exige demostrar avance por actividades e hitos MEI (dimensiones sitio y servicio), con entrega Excel para TI y revisión editorial. Hasta jul-2026 solo existía plantilla manual B/C/D ([`docs/plantilla-excel-mei-bcd.md`](../plantilla-excel-mei-bcd.md)) sin generación desde las 13 auditorías Clarity vigentes. El objetivo fue cerrar en un solo entregable de código: catálogo estructurado, motor XLSX por hito H01–H13 y módulo UI en `/auditar` con descarga condicionada al estado del hito.
+
+### Implementación técnica:
+
+- **Catálogo PTD:** `data/mei-calidad-web/catalog.json` (117 ítems: tareas + hitos, trimestres, estados, `excelHitoId`); schema Zod `src/schemas/mei-calidad-web-catalog.ts`; scripts `validate:mei-catalog` y `generate:mei-catalog`.
+- **Motor export (raíz):** `src/lib/mei-export/` — carga 13 JSON desde `clarity-audits-launch.ts` (excluye ranks 8/11/13/15); `mei-hitos.ts` mapea criterios checklist por hito; `mei-row-builder.ts` genera filas desde `sustituciones[]` e incumplimientos CMS; `mei-xlsx-writer.ts` (ExcelJS) produce hojas `00_Indice`, `99_Resumen_URLs` y H01–H13; CLI `bun run export:mei-xlsx`.
+- **API Next:** `GET /api/mei-calidad-web/export/[hitoId]/xlsx` y `GET /api/mei-calidad-web/export/completo.xlsx` (`runtime: nodejs`); guard **403** si el hito en catálogo no está `completado`; reutiliza `buildMeiWorkbook` vía alias `@repo/*`.
+- **UI:** teaser en `/auditar`; rutas `/auditar/mei-calidad-web` → `[dimensionId]` → `[subdimensionId]` con tablero trimestral (cards tarea+hito, modal detalle, badge de estado); botón Excel solo en hitos `completado` (hoy H01 y H02 en `cl_sitio`).
+- **Refactor menor:** `/auditar/page.tsx` pasa a Server Component; formulario URL en `auditar-url-form-card.tsx`; `mei-audit-loader.ts` sin `import.meta.url` para build Turbopack.
+
+### 💡 Repaso técnico: Catálogo vs motor vs guard de exportación:
+
+El catálogo PTD gobierna **qué se puede descargar** (estado editorial); el motor XLSX gobierna **qué filas salen** (auditorías Clarity). Un hito `en_progreso` puede tener hoja técnica en el workbook CLI, pero la API/UI lo bloquean hasta marcarlo `completado` en `catalog.json` — separación intencional entre avance de gestión y evidencia lista para entrega.
+
+### Próximos pasos:
+
+- PR único `feat/mei-calidad-web-export-ui` → `main` (3 commits de código + docs).
+- Revisión editorial con Bernarda sobre filas H01–H02 antes de ampliar hitos completados.
+- Opcional: sincronizar estados del catálogo cuando cierren hitos H03+ en el trimestre correspondiente.
 
 ---
 

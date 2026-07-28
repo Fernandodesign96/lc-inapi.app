@@ -28,6 +28,9 @@
       ],
       "@contracts/*": [
         "../src/schemas/*"
+      ],
+      "@repo/*": [
+        "../src/*"
       ]
     }
   },

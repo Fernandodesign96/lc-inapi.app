@@ -2,9 +2,9 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-06-27) |
-| **Uso** | Copiar a Excel/Google Sheets para entrega con Bernarda (hitos MEI 30-jun-2026) |
-| **Alcance** | Ortografía (D1), redacción (C), lenguaje claro (B), mayúsculas (D7) |
+| **Fecha** | 2026-06-28 (actualizado 2026-07-28) |
+| **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
+| **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
 
 ---
@@ -83,4 +83,28 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ## 5. Nombre de archivo sugerido
 
-`entrega-mei-bcd-inapi_DD-MM-YYYY.xlsx` — una hoja por URL o una hoja maestra con columna `url`.
+`entrega-mei-calidad-web_YYYY-MM-DD.xlsx` (o `…_H02.xlsx` por hito) — generado por `bun run export:mei-xlsx` en `data/exports/` (gitignored).
+
+---
+
+## 6. Exportación automatizada en el repo (jul-2026)
+
+| Componente | Ruta / comando |
+| --- | --- |
+| Catálogo PTD | `data/mei-calidad-web/catalog.json` + `src/schemas/mei-calidad-web-catalog.ts` |
+| Motor filas + Excel | `src/lib/mei-export/` (`mei-hitos.ts`, `mei-row-builder.ts`, `mei-xlsx-writer.ts`) |
+| CLI | `bun run export:mei-xlsx` · `bun run export:mei-xlsx -- --hito=H02` |
+| API (Next) | `GET /api/mei-calidad-web/export/[hitoId]/xlsx` · `GET /api/mei-calidad-web/export/completo.xlsx` |
+| UI | `/auditar/mei-calidad-web` → dimensiones → subdimensiones → tablero trimestral |
+
+**Columnas ampliadas** respecto a §1 (manual B/C/D): incluyen `actividad_mei`, `hito_id`, fechas de actividad/hito, `rank_clarity`, `estado_auditoria`, `tipo_entrega`, `audit_id`, etc. (ver `MEI_EXCEL_COLUMNS` en `src/lib/mei-export/mei-row-builder.ts`).
+
+**Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo (hoy H01 y H02 en `cl_sitio`).
+
+**Fuente de filas:** 13 JSON Clarity vigentes (`clarity-audits-launch.ts`; excluye ranks 8, 11, 13, 15 Pendiente TI). `sustituciones[]` → filas `correccion_texto`; incumplimientos sin sustitución → `config_cms` / `nuevo_contenido`.
+
+---
+
+## 7. Nombre de archivo manual (histórico)
+
+`entrega-mei-bcd-inapi_DD-MM-YYYY.xlsx` — una hoja por URL o una hoja maestra con columna `url` (flujo DevTools §2).
