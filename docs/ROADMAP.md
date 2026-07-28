@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-07-23
+**Última actualización:** 2026-07-28
 
 ---
 
@@ -76,7 +76,8 @@
 
 ### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
-- [ ] **Entrega MEI:** Excel correcciones B/C/D (ortografía, redacción, LC) con Bernarda — plantilla [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md); flujo DevTools DOM en [`docs/stack-orquestación.md`](stack-orquestación.md) y prompt §3.6.1 en [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md).
+- [x] **Entrega MEI (motor en repo, jul-2026):** catálogo PTD [`data/mei-calidad-web/catalog.json`](../data/mei-calidad-web/catalog.json) (117 ítems, estados, `excelHitoId`); script `bun run export:mei-xlsx` → `data/exports/entrega-mei-calidad-web_YYYY-MM-DD.xlsx` (ExcelJS, hojas H01–H13 desde 13 JSON Clarity vigentes); API `GET /api/mei-calidad-web/export/[hitoId]/xlsx` y `GET /api/mei-calidad-web/export/completo.xlsx` (403 si hito no `completado`); UI `/auditar/mei-calidad-web` (dimensiones → subdimensiones → tablero trimestral + descarga Excel condicional). Plantilla ampliada: [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Rama: `feat/mei-calidad-web-export-ui`.
+- [ ] **Revisión editorial con Bernarda:** validar filas Excel H01–H02 (completados) y calibrar propuestas CMS antes de ampliar hitos en progreso.
 - [ ] **Consolidar** hallazgos DevTools del inventario extendido (~20 URLs) en un único Excel para TI (`fragmento_busqueda` como ancla principal).
 - [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Bernarda/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
 - [ ] **Revisión UX (Bernarda):** sustituciones aprobadas, falsos positivos (G1 RUT institucional, D7 mayúsculas en `tramites.inapi.cl`).
@@ -219,6 +220,7 @@ Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite
 - [ ] Roles (revisor vs editor)
 - [ ] Panel de métricas agregadas
 - [x] **Historial versionado por URL en UI** (`feat/frontend-audit-history`, jul-2026): `/auditar/historial` (índice + filtro Trámites/Sitio Web) y `/auditar/historial/[rank]` (fechas vigente + `history[]`); botón en ingreso de URL; ficha Clarity e inventario Clarity enlazan al historial; `CLARITY_AUDIT_ID_SET` incluye ids históricos para abrir informes en `/auditar/resultado`.
+- [x] **MEI Calidad Web PTD en UI** (`feat/mei-calidad-web-export-ui`, jul-2026): módulo `/auditar/mei-calidad-web` con tablero trimestral por subdimensión; export XLSX por hito y entrega completa vía API (guard 403); motor CLI `export:mei-xlsx` en raíz del monorepo.
 
 ---
 

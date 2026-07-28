@@ -104,7 +104,7 @@ Componentes:
 | `/auditar` en Next.js | Operativo en Vercel |
 | JSONs canónicos | 9 URLs operativas en `data/claude-audits/` (piloto junio 2026) |
 | Informes PDF | `GET /api/claude-audits/[id]/export/pdf` operativo |
-| Excel consolidado MEI INAPI | Procedimiento y plantilla en [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md); flujo DevTools en [`stack-orquestación.md`](stack-orquestación.md) |
+| Excel consolidado MEI INAPI | Operativo: `bun run export:mei-xlsx`, API `/api/mei-calidad-web/export/*`, UI `/auditar/mei-calidad-web`; plantilla y columnas en [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md); flujo DevTools complementario en [`stack-orquestación.md`](stack-orquestación.md) |
 
 ---
 
