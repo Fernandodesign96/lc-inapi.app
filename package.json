@@ -9,6 +9,8 @@
     "validate:checklist": "bun run src/scripts/validate-checklist-data.ts",
     "validate:audit-fixtures": "bun run src/scripts/validate-audit-fixtures.ts",
     "validate:claude-audits": "bun run src/scripts/validate-claude-audits.ts",
+    "validate:mei-catalog": "bun run src/scripts/validate-mei-catalog.ts",
+    "generate:mei-catalog": "bun run src/scripts/generate-mei-catalog-json.ts",
     "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",

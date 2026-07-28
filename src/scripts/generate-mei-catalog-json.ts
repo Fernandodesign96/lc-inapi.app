@@ -1,0 +1,331 @@
+/**
+ * Genera data/mei-calidad-web/catalog.json desde el modelo PTD (kanban-inapi).
+ * Ejecutar: bun run src/scripts/generate-mei-catalog-json.ts
+ */
+import { mkdirSync, writeFileSync } from "node:fs"
+import { dirname, join } from "node:path"
+import { fileURLToPath } from "node:url"
+
+import {
+  meiCatalogSchema,
+  type MeiItem,
+  type MeiItemEstado,
+} from "../schemas/mei-calidad-web-catalog"
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const outPath = join(__dirname, "../../data/mei-calidad-web/catalog.json")
+
+type RawTask = {
+  id: string
+  type: "tarea" | "hito"
+  title: string
+  desc: string
+  inicio: string
+  termino: string
+  trimestre: string
+  numeroActividad?: number
+  estado?: MeiItemEstado
+  excelHitoId?: string | null
+}
+
+const dimensions = [
+  {
+    id: "sitio",
+    code: "D2.1",
+    name: "Calidad web del sitio web",
+    description:
+      "Evaluación de la calidad del sitio institucional principal (www.inapi.cl) en base a estándares de Gobierno Digital, organizados en dimensiones e indicadores.",
+    clase: "sitio" as const,
+    resultado: "74% – 85%",
+    subdimensionIds: ["cl_sitio", "us_sitio", "se_sitio"],
+  },
+  {
+    id: "servicio",
+    code: "D2.2",
+    name: "Calidad web del servicio digital",
+    description:
+      'Evaluación del servicio digital más demandado "Registro de Marcas Comerciales" mediante la Pauta de evaluación de servicios digitales, promovida por Gobierno Digital.',
+    clase: "servicio" as const,
+    resultado: "78% – 95%",
+    subdimensionIds: ["cl_serv", "us_serv", "se_serv"],
+  },
+]
+
+const subdimensions = {
+  cl_sitio: {
+    id: "cl_sitio",
+    code: "PTD-D2.1-CL1",
+    name: "Contenido y Lenguaje Claro",
+    dimensionId: "sitio",
+    clase: "cl" as const,
+    brecha:
+      "Puntaje por debajo del nivel esperado en la subdimensión Contenido y Lenguaje Claro del sitio web, con debilidades en claridad del lenguaje, relevancia, actualización, precisión, fiabilidad y legibilidad.",
+    objetivo:
+      "Asegurar que los contenidos del sitio web se expresen en un lenguaje claro y comprensible, cumpliendo criterios de relevancia, actualización, precisión, fiabilidad y legibilidad.",
+    indicadorProceso:
+      "Porcentaje de hitos de la iniciativa Contenido y Lenguaje Claro de sitios web completados.",
+    indicadorResultado:
+      'Porcentaje de cumplimiento en la subdimensión "Contenido y Lenguaje Claro" en la siguiente aplicación del instrumento de calidad web de sitios web.',
+    area: "Áreas asociadas al mandato institucional",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "t1", type: "tarea", title: "Implementar checklist editorial obligatorio para cada publicación (autoría, completitud, fecha, lenguaje claro, corrección ortográfica/gramatical, objetividad, lenguaje respetuoso).", inicio: "01-01-2026", termino: "30-06-2026", trimestre: "Trim 1 – 2", desc: "Para cada publicación se debe verificar: autoría, completitud del contenido, fecha de publicación o actualización, uso de lenguaje claro, corrección ortográfica y gramatical, objetividad en la redacción y uso de lenguaje respetuoso. Se recomienda la Guía de Recomendaciones de Lenguaje Claro para la Web (lenguajeclarochile.cl).", numeroActividad: 1, estado: "completado" },
+      { id: "h1", type: "hito", title: "La institución cuenta con un checklist editorial obligatorio implementado en su flujo de publicación.", inicio: "30-06-2026", termino: "30-06-2026", trimestre: "Trim 2", desc: "Hito verificable: checklist editorial vigente e integrado al flujo editorial de publicación del sitio web institucional.", estado: "completado", excelHitoId: "H01" },
+      { id: "t2", type: "tarea", title: "Corregir y prevenir errores de redacción y ortografía; implementar controles editoriales para nuevas publicaciones aplicando criterios de lenguaje claro.", inicio: "02-03-2026", termino: "30-06-2026", trimestre: "Trim 1 – 2", desc: "Revisión y corrección de todos los contenidos existentes del sitio aplicando criterios de lenguaje claro, e implementación de controles para asegurar que las nuevas publicaciones cumplan estos criterios.", numeroActividad: 2, estado: "completado" },
+      { id: "h2", type: "hito", title: "El sitio publica contenidos redactados en lenguaje claro, sin errores ortográficos ni gramaticales, cumpliendo estándares de calidad en la redacción.", inicio: "30-06-2026", termino: "30-06-2026", trimestre: "Trim 2", desc: "Hito verificable: todos los contenidos del sitio cumplen estándares de redacción en lenguaje claro, sin errores ortográficos ni gramaticales.", estado: "completado", excelHitoId: "H02" },
+      { id: "t3", type: "tarea", title: "Redactar y mantener los contenidos del sitio en lenguaje claro, positivo y cercano, evitando tecnicismos, abreviaturas o expresiones confusas, y definiendo siglas y acrónimos.", inicio: "01-04-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Revisión continua de los contenidos del sitio para asegurar redacción en lenguaje positivo, cercano y libre de tecnicismos. Todas las siglas y acrónimos deben definirse en su primera aparición.", numeroActividad: 3, estado: "en_progreso" },
+      { id: "h3", type: "hito", title: "Los contenidos del sitio están redactados en lenguaje claro, positivo y cercano, libres de tecnicismos innecesarios y con siglas o acrónimos definidos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: lenguaje claro, positivo y accesible en todos los contenidos del sitio.", estado: "en_progreso", excelHitoId: "H03" },
+      { id: "t4", type: "tarea", title: "Ajustar los contenidos del sitio para que transmitan la información de manera clara y concisa, eliminando redundancias o ambigüedades.", inicio: "01-05-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Revisión de contenidos orientada a eliminar redundancias, ambigüedades y exceso de información que dificulte la comprensión ciudadana.", numeroActividad: 4, estado: "en_progreso" },
+      { id: "h4", type: "hito", title: "El sitio publica contenidos presentados de manera clara y concisa, evitando redundancias y ambigüedades en la información.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: información presentada sin redundancias ni ambigüedades.", estado: "en_progreso", excelHitoId: "H04" },
+      { id: "t5", type: "tarea", title: "Configurar en el CMS campos obligatorios de autoría y fecha de actualización, y mostrar estos datos en el sitio.", inicio: "01-06-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Configuración técnica del CMS para que cada pieza de contenido muestre visible el autor y la fecha de última actualización.", numeroActividad: 5, estado: "en_progreso" },
+      { id: "h5", type: "hito", title: "Cada página del sitio muestra la fuente de autoría y la fecha de actualización de los contenidos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: autor y fecha de actualización visibles en todas las páginas del sitio.", estado: "en_progreso", excelHitoId: "H05" },
+      { id: "t6", type: "tarea", title: "Establecer y publicar las condiciones de uso de los contenidos del sitio (permisos y restricciones).", inicio: "01-06-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Publicación de una sección o página de condiciones de uso de los contenidos del sitio, indicando permisos y restricciones de forma clara y accesible.", numeroActividad: 6, estado: "en_progreso" },
+      { id: "h6", type: "hito", title: "El sitio muestra de manera visible las condiciones de uso de sus contenidos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: condiciones de uso disponibles y visibles en el sitio.", estado: "en_progreso", excelHitoId: "H06" },
+      { id: "t7", type: "tarea", title: "Eliminar y prevenir la publicación de RUN, direcciones y teléfonos personales mediante pauta editorial y control previo de contenidos.", inicio: "01-07-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Revisión de todos los contenidos del sitio para eliminar datos personales (RUN, direcciones, teléfonos) e implementación de controles preventivos en el flujo editorial.", numeroActividad: 7, estado: "en_progreso" },
+      { id: "t8", type: "tarea", title: "Incorporar sección que informe cómo ejercer derechos sobre datos personales (acceso, rectificación, eliminación, oposición y bloqueo) conforme a la Ley sobre Protección de la Vida Privada.", inicio: "01-07-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Creación de sección o página dedicada a informar a los ciudadanos sobre sus derechos de acceso, rectificación, eliminación, oposición y bloqueo de datos personales, conforme a la ley vigente.", numeroActividad: 8, estado: "en_progreso" },
+      { id: "h7", type: "hito", title: "El sitio evita la publicación de RUN, direcciones y teléfonos personales, e informa cómo las personas pueden ejercer sus derechos sobre sus datos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: datos personales eliminados y sección de derechos publicada.", estado: "en_progreso", excelHitoId: "H07" },
+      { id: "t9", type: "tarea", title: "Asegurar que los textos se publiquen alineados a la izquierda y con espaciado entre párrafos.", inicio: "03-08-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Revisión y ajuste de estilos CSS/CMS para garantizar alineación a la izquierda y espaciado apropiado entre párrafos en todo el sitio.", numeroActividad: 9, estado: "en_progreso" },
+      { id: "h8", type: "hito", title: "El sitio web presenta textos alineados a la izquierda y párrafos con espaciado.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: formato visual correcto en todos los textos del sitio.", estado: "en_progreso", excelHitoId: "H08" },
+      { id: "t10", type: "tarea", title: "Configurar en el CMS campos obligatorios para título, formato, peso y descripción de cada documento, y corregir enlaces existentes que no incluyan esta información.", inicio: "03-08-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Actualización de la configuración del CMS para exigir metadatos de cada documento enlazado (título, formato, peso en KB/MB, descripción breve).", numeroActividad: 10, estado: "en_progreso" },
+      { id: "h9", type: "hito", title: "Todos los documentos enlazados en el sitio web muestran título, formato, peso y una breve descripción.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: metadatos completos en todos los documentos enlazados desde el sitio.", estado: "en_progreso", excelHitoId: "H09" },
+      { id: "t11", type: "tarea", title: "Revisar y editar contenidos para resguardar identidad de menores de edad en textos e imágenes, e incorporar controles preventivos.", inicio: "01-09-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Revisión de todos los contenidos que incluyan información o imágenes de menores de edad, asegurando que no se exponga su identidad y que existan controles preventivos en el flujo editorial.", numeroActividad: 11, estado: "en_progreso" },
+      { id: "t12", type: "tarea", title: "Revisar y ajustar los contenidos del sitio para eliminar expresiones inadecuadas o no aptas para menores de edad.", inicio: "01-09-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Auditoría de contenidos para detectar y eliminar expresiones inapropiadas, discriminatorias o no aptas para menores de edad.", numeroActividad: 12, estado: "en_progreso" },
+      { id: "t13", type: "tarea", title: "Revisar y eliminar contenidos que exhiban información que pueda menoscabar a las personas (salud, creencias religiosas, ideología política, vida sexual o características físicas).", inicio: "01-10-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Revisión exhaustiva de todos los contenidos del sitio para eliminar información que pueda vulnerar la dignidad o la vida privada de las personas.", numeroActividad: 13, estado: "en_progreso" },
+      { id: "h10", type: "hito", title: "El sitio no publica contenidos que expongan identidad de menores de edad, incluyan expresiones inadecuadas para ellos ni exhiban información que vulnere la dignidad o vida privada de las personas.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: cumplimiento total de protección de datos sensibles y dignidad en los contenidos del sitio.", estado: "en_progreso", excelHitoId: "H10" },
+      { id: "t14", type: "tarea", title: "Incorporar apoyos visuales (íconos, imágenes, gráficos o infografías) para presentar los datos publicados en el sitio web.", inicio: "01-10-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Diseño e incorporación de apoyos visuales para acompañar datos estadísticos, resultados o información compleja publicada en el sitio.", numeroActividad: 14, estado: "en_progreso" },
+      { id: "h11", type: "hito", title: "El sitio web presenta sus datos acompañados de apoyos visuales.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: datos del sitio acompañados de elementos visuales comprensibles.", estado: "en_progreso", excelHitoId: "H11" },
+      { id: "t15", type: "tarea", title: "Reescribir contenidos para asegurar redacción objetiva y neutra, privilegiando datos y hechos por sobre opiniones o adjetivos calificativos.", inicio: "02-11-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Revisión editorial de todos los contenidos para garantizar objetividad y neutralidad en la redacción, eliminando adjetivos calificativos innecesarios y opiniones sin respaldo.", numeroActividad: 15, estado: "en_progreso" },
+      { id: "h12", type: "hito", title: "Los contenidos publicados del sitio web están redactados de forma objetiva y neutra.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: redacción objetiva y neutral en todos los contenidos publicados.", estado: "en_progreso", excelHitoId: "H12" },
+      { id: "t16", type: "tarea", title: "Rotular las versiones anteriores de contenidos como documentos de archivo no vigentes, indicando claramente el año o período al que corresponden.", inicio: "01-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: 'Etiquetado de versiones antiguas de documentos y contenidos como "archivo no vigente", incluyendo el año o período de referencia.', numeroActividad: 16, estado: "en_progreso" },
+      { id: "h13", type: "hito", title: "El sitio web presenta las versiones anteriores de contenidos rotuladas como documentos de archivo no vigentes.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: archivos históricos correctamente etiquetados como no vigentes.", estado: "en_progreso", excelHitoId: "H13" },
+    ] as RawTask[],
+  },
+  us_sitio: {
+    id: "us_sitio",
+    code: "PTD-D2.1-US2",
+    name: "Usabilidad",
+    dimensionId: "sitio",
+    clase: "us" as const,
+    brecha: "Puntaje por debajo del nivel esperado en la subdimensión Usabilidad de sitio web, con carencias para lograr objetivos con eficacia, eficiencia y satisfacción.",
+    objetivo: "Asegurar que el sitio web permita lograr objetivos con eficacia, eficiencia y satisfacción.",
+    indicadorProceso: "Porcentaje de hitos de la iniciativa Usabilidad de sitios web completados.",
+    indicadorResultado: 'Porcentaje de cumplimiento en la subdimensión "Usabilidad" en la siguiente aplicación del instrumento de calidad web de sitios web.',
+    area: "Áreas asociadas al mandato institucional",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "u1", type: "tarea", title: "Ajustar el sitio para mantener una organización y estructura consistentes en todas sus páginas.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Revisión y estandarización de la estructura, menús y navegación en todas las páginas del sitio para asegurar consistencia visual y funcional." },
+      { id: "u2", type: "tarea", title: 'Sustituir íconos poco claros por íconos reconocibles internacionalmente (ej. lupa para búsqueda, "x" para cerrar), asegurando su comprensión sin texto adicional.', inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Actualización del set de íconos del sitio hacia estándares internacionales reconocibles, sin necesidad de texto complementario para su comprensión." },
+      { id: "uh1", type: "hito", title: "El sitio mantiene consistencia en todas sus páginas y utiliza convenciones gráficas comprensibles.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: estructura y navegación consistente en todo el sitio, con íconos estándar reconocibles." },
+      { id: "u3", type: "tarea", title: "Implementar en el sitio (gobierno central) los componentes del UI Kit de Gobierno Digital para mantener consistencia visual y de interacción.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Adopción del UI Kit oficial de Gobierno Digital (Figma) para asegurar coherencia visual con los estándares institucionales del Estado." },
+      { id: "uh2", type: "hito", title: "El sitio, en el caso de gobierno central, aplica componentes del UI Kit de Gobierno Digital.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: UI Kit de Gobierno Digital implementado en el sitio." },
+      { id: "u4", type: "tarea", title: "Diseñar los llamados a la acción y botones del sitio para que estén claramente destacados y se identifiquen fácilmente por su forma o color.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Rediseño de CTAs y botones del sitio para que sean visualmente prominentes, coherentes y fácilmente identificables por su forma y/o color." },
+      { id: "uh3", type: "hito", title: "Los llamados a la acción y botones del sitio se destacan visualmente y se identifican con facilidad.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: CTAs y botones visualmente claros y diferenciados en todo el sitio." },
+      { id: "u5", type: "tarea", title: "Redactar mensajes de error en lenguaje claro que identifiquen el problema, ofrezcan soluciones específicas y entreguen información comprensible en errores técnicos.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Revisión y reescritura de todos los mensajes de error del sitio en lenguaje claro, con soluciones concretas y comprensibles para el usuario." },
+      { id: "u6", type: "tarea", title: "Diseñar mensajes de error que permitan al usuario continuar, retroceder o abandonar procesos sin bloqueos en la navegación.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Diseño de mensajes de error con opciones de navegación claras para que el usuario no quede bloqueado en el sitio." },
+      { id: "uh4", type: "hito", title: "El sitio presenta mensajes de error claros, con soluciones efectivas, información comprensible en errores técnicos y opciones de navegación sin bloqueos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: mensajes de error mejorados en todo el sitio." },
+      { id: "u7", type: "tarea", title: "Configurar ventanas modales y emergentes para que no interrumpan la navegación, se cierren fácilmente y no reaparezcan durante la sesión.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Configuración de popups y modales para que sean no intrusivos, descartables y no vuelvan a aparecer durante la sesión del usuario." },
+      { id: "uh5", type: "hito", title: "El sitio permite navegar sin interrupciones por ventanas modales o emergentes, las que se cierran fácilmente y no vuelven a aparecer durante la navegación.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: modales y popups no intrusivos en todo el sitio." },
+      { id: "u8", type: "tarea", title: "Organizar el servicio digital para que la información se presente en un orden lógico y con zonas claramente delimitadas.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Reorganización de la arquitectura de información del servicio digital para mejorar la lógica de presentación y delimitación de zonas." },
+      { id: "uh6", type: "hito", title: "El servicio digital presenta la información en un orden lógico y con zonas claramente delimitadas.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: estructura de información lógica y clara en el servicio digital." },
+      { id: "u9", type: "tarea", title: "Configurar las páginas del sitio para que permitan avanzar o retroceder sin bloqueos, con opciones claras para continuar o finalizar.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Ajuste del flujo de navegación del sitio para eliminar bloqueos y asegurar que el usuario siempre tenga opciones claras de avanzar, retroceder o finalizar." },
+      { id: "u10", type: "tarea", title: "Configurar los videos del sitio para que cuenten con todos sus botones de reproducción disponibles y operativos.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Revisión y corrección de todos los reproductores de video del sitio para asegurar que todos los controles estén disponibles y funcionen correctamente." },
+      { id: "uh7", type: "hito", title: "El sitio permite avanzar o retroceder sin bloqueos y los videos cuentan con todos sus botones de reproducción operativos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: navegación sin bloqueos y reproductores de video funcionales." },
+      { id: "u11", type: "tarea", title: "Configurar el sitio para que muestre un ícono personalizado (favicon) en la pestaña del navegador.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Implementación de favicon institucional visible en todas las pestañas del navegador al acceder al sitio." },
+      { id: "uh8", type: "hito", title: "El sitio muestra un ícono personalizado en la pestaña del navegador.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: favicon institucional visible en el navegador." },
+      { id: "u12", type: "tarea", title: "Incorporar ayudas en contexto (definiciones, íconos o indicaciones breves) junto a los contenidos para facilitar la comprensión sin memorizar instrucciones extensas.", inicio: "01-07-2027", termino: "31-12-2027", trimestre: "2027 – Trim 3–4", desc: "Diseño e implementación de tooltips, definiciones en contexto e indicaciones breves en los contenidos del sitio para mejorar la comprensión sin requerir documentación adicional." },
+      { id: "uh9", type: "hito", title: "El sitio cuenta con ayudas en contexto claras y visibles, como definiciones, íconos de apoyo o indicaciones breves junto a los contenidos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: ayudas contextuales implementadas en el sitio." },
+      { id: "u13", type: "tarea", title: "Implementar buscadores, filtros y opciones de ordenamiento en resultados y tablas de datos, asegurando su correcto funcionamiento.", inicio: "01-07-2027", termino: "31-12-2027", trimestre: "2027 – Trim 3–4", desc: "Implementación y validación de buscadores internos, filtros por categoría y opciones de ordenamiento en las tablas y resultados del sitio." },
+      { id: "uh10", type: "hito", title: "El sitio cuenta con buscadores, filtros y opciones de ordenamiento que funcionan correctamente en resultados y tablas de datos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: buscadores y filtros operativos en el sitio." },
+    ] as RawTask[],
+  },
+  se_sitio: {
+    id: "se_sitio",
+    code: "PTD-D2.1-SE8",
+    name: "Seguridad",
+    dimensionId: "sitio",
+    clase: "se" as const,
+    brecha: "Puntaje por debajo del nivel esperado en la subdimensión Seguridad de sitio web, con carencias para proteger la disponibilidad, integridad y confidencialidad de la información del sitio.",
+    objetivo: "Garantizar la seguridad del sitio web para proteger la disponibilidad, integridad y confidencialidad de la información.",
+    indicadorProceso: "Porcentaje de hitos de la iniciativa Seguridad de sitios web completados.",
+    indicadorResultado: 'Porcentaje de cumplimiento en la subdimensión "Seguridad" en la siguiente aplicación del instrumento de calidad web de sitios web.',
+    area: "Tecnología",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "s1", type: "tarea", title: "Configurar el sitio para que utilice protocolo HTTPS en todas sus páginas, asegurando que el certificado SSL/TLS esté vigente y válido.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de HTTPS en todo el sitio con certificado SSL/TLS vigente, gestionado y renovado periódicamente." },
+      { id: "s2", type: "tarea", title: "Configurar el servidor para redirigir automáticamente todo acceso con protocolo HTTP hacia la versión HTTPS correspondiente.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de redirección permanente (301) de HTTP a HTTPS en el servidor web institucional." },
+      { id: "sh1", type: "hito", title: "El sitio utiliza HTTPS con un certificado SSL/TLS válido y vigente, y redirige automáticamente todo acceso desde HTTP hacia la versión segura HTTPS.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: sitio completamente sobre HTTPS con redirección automática desde HTTP." },
+      { id: "s3", type: "tarea", title: 'Configurar la cabecera X-Frame-Options con valores "deny" o "sameorigin" para bloquear el enmascarado del sitio dentro de páginas externas.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de cabeceras HTTP de seguridad para prevenir ataques de clickjacking mediante X-Frame-Options." },
+      { id: "s4", type: "tarea", title: "Ajustar la configuración del servidor para inhabilitar la visualización de contenidos en directorios internos.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Desactivación del listado de directorios (directory listing) en el servidor web para evitar la exposición no intencionada de archivos." },
+      { id: "s5", type: "tarea", title: 'Configurar la cabecera X-Content-Type-Options con el valor "nosniff" para prevenir ataques MIME.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de cabecera de seguridad X-Content-Type-Options para prevenir interpretación errónea de tipos MIME por parte del navegador." },
+      { id: "s6", type: "tarea", title: 'Implementar la cabecera Referrer-Policy con el valor "strict-origin" para limitar la información de referencia enviada por el sitio.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de política de referencia para controlar qué información de origen se comparte al navegar desde el sitio hacia otros dominios." },
+      { id: "sh2", type: "hito", title: "El sitio protege los directorios internos y cuenta con cabeceras de seguridad configuradas para bloquear enmascarado, prevenir ataques MIME y limitar la información de referencia.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: cabeceras de seguridad HTTP completamente configuradas en el sitio." },
+      { id: "s7", type: "tarea", title: "Publicar en el sitio una política de privacidad en lenguaje claro que describa cómo se recopila, utiliza, protege y comparte la información de las personas usuarias, accesible desde el pie de todas las páginas.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Redacción y publicación de política de privacidad en lenguaje ciudadano, con enlace visible en el pie de página de todo el sitio." },
+      { id: "sh3", type: "hito", title: "El sitio cuenta con una política de privacidad clara, actualizada y accesible desde todas sus páginas.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: política de privacidad publicada y accesible." },
+      { id: "s8", type: "tarea", title: "Publicar en el sitio web información clara y comprensible sobre el tipo de cookies utilizadas, sus finalidades y las opciones de control disponibles.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de aviso de cookies con información clara sobre tipos, finalidades y opciones de aceptación/rechazo disponibles para el usuario." },
+      { id: "sh4", type: "hito", title: "El sitio web informa de manera clara el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: aviso de cookies completo e informativo publicado en el sitio." },
+    ] as RawTask[],
+  },
+  cl_serv: {
+    id: "cl_serv",
+    code: "PTD-D2.2-CL5",
+    name: "Contenido y Lenguaje Claro",
+    dimensionId: "servicio",
+    clase: "cl" as const,
+    brecha: "Puntaje por debajo del nivel esperado en la subdimensión Contenido y Lenguaje Claro del servicio digital, con debilidades en relevancia, actualización, precisión, fiabilidad y legibilidad, y en el uso de lenguaje comprensible para la ciudadanía.",
+    objetivo: "Asegurar que los contenidos de los servicios digitales se expresen en un lenguaje claro y comprensible, cumpliendo criterios de relevancia, actualización, precisión, fiabilidad y legibilidad.",
+    indicadorProceso: "Porcentaje de hitos de la iniciativa Contenido y Lenguaje Claro de servicios transaccionales completados.",
+    indicadorResultado: "Porcentaje de cumplimiento en la subdimensión Contenido y Lenguaje Claro en la siguiente aplicación del instrumento de calidad web de servicios digitales transaccionales.",
+    area: "Áreas asociadas al mandato institucional",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "cs1", type: "tarea", title: "Implementar checklist editorial obligatorio para cada publicación del servicio digital (autoría, completitud, fecha, lenguaje claro, corrección ortográfica/gramatical, objetividad, lenguaje respetuoso).", inicio: "01-01-2026", termino: "30-06-2026", trimestre: "Trim 1 – 2", desc: "Para cada publicación del servicio digital se debe verificar: autoría, completitud del contenido, fecha de publicación o actualización, uso de lenguaje claro, corrección ortográfica y gramatical, objetividad en la redacción y uso de lenguaje respetuoso.", numeroActividad: 1, estado: "completado" },
+      { id: "csh1", type: "hito", title: "La institución cuenta con un checklist editorial obligatorio implementado en su flujo de publicación del servicio digital.", inicio: "30-06-2026", termino: "30-06-2026", trimestre: "Trim 2", desc: "Hito verificable: checklist editorial vigente e integrado al flujo editorial del servicio digital.", estado: "completado", excelHitoId: "H01" },
+      { id: "cs2", type: "tarea", title: "Corregir y prevenir errores de redacción y ortografía en los contenidos del servicio digital, aplicando criterios de lenguaje claro e implementando controles editoriales.", inicio: "02-03-2026", termino: "30-06-2026", trimestre: "Trim 1 – 2", desc: "Revisión y corrección de todos los contenidos del servicio digital aplicando criterios de lenguaje claro, con implementación de controles para nuevas publicaciones.", numeroActividad: 2, estado: "completado" },
+      { id: "csh2", type: "hito", title: "El sitio publica contenidos del servicio digital redactados en lenguaje claro, sin errores ortográficos ni gramaticales.", inicio: "30-06-2026", termino: "30-06-2026", trimestre: "Trim 2", desc: "Hito verificable: contenidos del servicio digital sin errores y en lenguaje claro.", estado: "completado", excelHitoId: "H02" },
+      { id: "cs3", type: "tarea", title: "Ajustar los contenidos del servicio digital para que transmitan la información de manera clara y concisa, eliminando redundancias o ambigüedades.", inicio: "01-04-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Revisión orientada a simplificar y clarificar los contenidos del servicio digital, eliminando redundancias y ambigüedades.", numeroActividad: 3, estado: "en_progreso" },
+      { id: "csh3", type: "hito", title: "El sitio publica contenidos del servicio digital presentados de manera clara y concisa, evitando redundancias y ambigüedades.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: información del servicio digital sin redundancias ni ambigüedades.", estado: "en_progreso", excelHitoId: "H04" },
+      { id: "cs4", type: "tarea", title: "Redactar y mantener los contenidos del servicio digital en lenguaje claro, positivo y cercano, evitando tecnicismos, abreviaturas o expresiones confusas, y definiendo siglas y acrónimos.", inicio: "01-06-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Revisión continua del lenguaje del servicio digital para asegurar accesibilidad ciudadana y evitar jerga técnica innecesaria.", numeroActividad: 4, estado: "en_progreso" },
+      { id: "csh4", type: "hito", title: "Los contenidos del servicio digital están redactados en lenguaje claro, positivo y cercano, libres de tecnicismos innecesarios y con siglas o acrónimos definidos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: lenguaje del servicio digital accesible y libre de tecnicismos.", estado: "en_progreso", excelHitoId: "H03" },
+      { id: "cs5", type: "tarea", title: "Establecer y publicar en el servicio digital las condiciones de uso de los contenidos (permisos y restricciones).", inicio: "01-06-2026", termino: "31-12-2026", trimestre: "Trim 2 – 4", desc: "Publicación de condiciones de uso claras y accesibles dentro del servicio digital.", numeroActividad: 5, estado: "en_progreso" },
+      { id: "csh5", type: "hito", title: "El sitio del servicio digital muestra de manera visible las condiciones de uso de sus contenidos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: condiciones de uso visibles en el servicio digital.", estado: "en_progreso", excelHitoId: "H06" },
+      { id: "cs6", type: "tarea", title: "Incorporar sección en el servicio digital que informe cómo ejercer derechos sobre datos personales conforme a la Ley sobre Protección de la Vida Privada.", inicio: "01-07-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Creación de sección de derechos de datos personales en el servicio digital.", numeroActividad: 6, estado: "en_progreso" },
+      { id: "csh6", type: "hito", title: "El servicio digital evita la publicación de RUN, direcciones y teléfonos personales, e informa cómo ejercer derechos sobre datos.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: protección de datos personales implementada en el servicio digital.", estado: "en_progreso", excelHitoId: "H07" },
+      { id: "cs7", type: "tarea", title: "Asegurar que los textos del servicio digital se publiquen alineados a la izquierda y con espaciado entre párrafos.", inicio: "03-08-2026", termino: "31-12-2026", trimestre: "Trim 3 – 4", desc: "Ajuste de estilos del servicio digital para garantizar legibilidad y formato correcto en todos los textos.", numeroActividad: 7, estado: "en_progreso" },
+      { id: "csh7", type: "hito", title: "El servicio digital presenta textos alineados a la izquierda y párrafos con espaciado.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: formato visual correcto en todos los textos del servicio digital.", estado: "en_progreso", excelHitoId: "H08" },
+      { id: "cs8", type: "tarea", title: "Reescribir contenidos del servicio digital para asegurar redacción objetiva y neutra, privilegiando datos y hechos por sobre opiniones o adjetivos calificativos.", inicio: "02-11-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Revisión editorial para garantizar objetividad y neutralidad en los contenidos del servicio digital.", numeroActividad: 8, estado: "en_progreso" },
+      { id: "csh8", type: "hito", title: "Los contenidos publicados del servicio digital están redactados de forma objetiva y neutra.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: redacción objetiva y neutral en el servicio digital.", estado: "en_progreso", excelHitoId: "H12" },
+      { id: "cs9", type: "tarea", title: "Rotular las versiones anteriores de contenidos del servicio digital como documentos de archivo no vigentes.", inicio: "01-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: 'Etiquetado de versiones antiguas de documentos del servicio digital como "archivo no vigente".', numeroActividad: 9, estado: "en_progreso" },
+      { id: "csh9", type: "hito", title: "El servicio digital presenta las versiones anteriores de contenidos rotuladas como documentos de archivo no vigentes.", inicio: "31-12-2026", termino: "31-12-2026", trimestre: "Trim 4", desc: "Hito verificable: archivos históricos del servicio digital correctamente etiquetados.", estado: "en_progreso", excelHitoId: "H13" },
+    ] as RawTask[],
+  },
+  us_serv: {
+    id: "us_serv",
+    code: "PTD-D2.2-US1",
+    name: "Usabilidad",
+    dimensionId: "servicio",
+    clase: "us" as const,
+    brecha: "Puntaje por debajo del nivel esperado en la subdimensión Usabilidad de servicio digital, con carencias para lograr objetivos con eficacia, eficiencia y satisfacción en el contexto de uso.",
+    objetivo: "Asegurar que los servicios digitales permitan lograr objetivos con eficacia, eficiencia y satisfacción.",
+    indicadorProceso: "Porcentaje de hitos de la iniciativa Usabilidad de servicios digitales transaccionales completados.",
+    indicadorResultado: "Porcentaje de cumplimiento en la subdimensión Usabilidad en la siguiente aplicación del instrumento de calidad web de servicios digitales transaccionales.",
+    area: "Áreas asociadas al mandato institucional",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "us1", type: "tarea", title: "Ajustar el servicio digital para mantener organización y estructura consistentes en todas sus páginas (posición de menús y pasos de trámites).", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Revisión y estandarización de la estructura y navegación del servicio digital para garantizar consistencia en todos los pasos del trámite." },
+      { id: "us2", type: "tarea", title: "Sustituir íconos poco claros del servicio digital por íconos reconocibles internacionalmente.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Actualización del set de íconos del servicio digital hacia estándares internacionales." },
+      { id: "ush1", type: "hito", title: "El servicio digital mantiene consistencia en menús, pasos e íconos en todas sus páginas y utiliza convenciones gráficas comprensibles.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: estructura y navegación consistente en todo el servicio digital." },
+      { id: "us3", type: "tarea", title: "Implementar en el servicio digital (gobierno central) los componentes del UI Kit de Gobierno Digital.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Adopción del UI Kit oficial de Gobierno Digital en el servicio digital transaccional." },
+      { id: "ush2", type: "hito", title: "El servicio digital, en el caso de gobierno central, aplica componentes del UI Kit de Gobierno Digital.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: UI Kit implementado en el servicio digital." },
+      { id: "us4", type: "tarea", title: "Diseñar los llamados a la acción y botones del servicio digital para que estén claramente destacados y se identifiquen fácilmente.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Rediseño de CTAs y botones del servicio digital para facilitar la interacción ciudadana." },
+      { id: "ush3", type: "hito", title: "Los llamados a la acción y botones del servicio digital se destacan visualmente y se identifican con facilidad.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: CTAs y botones del servicio digital claros y diferenciados." },
+      { id: "us5", type: "tarea", title: "Redactar mensajes de error del servicio digital en lenguaje claro con identificación del problema y soluciones específicas.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Revisión y reescritura de los mensajes de error del servicio digital en lenguaje ciudadano comprensible." },
+      { id: "us6", type: "tarea", title: "Diseñar mensajes de error del servicio digital que permitan al usuario continuar, retroceder o abandonar sin bloqueos.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Diseño de flujo de errores con opciones de navegación para evitar que el usuario quede bloqueado en el trámite." },
+      { id: "ush4", type: "hito", title: "El servicio digital presenta mensajes de error claros, con soluciones efectivas e información comprensible, y opciones de navegación sin bloqueos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: mensajes de error mejorados en el servicio digital." },
+      { id: "us7", type: "tarea", title: "Configurar ventanas modales y emergentes del servicio digital para que no interrumpan la navegación, se cierren fácilmente y no reaparezcan.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Configuración de popups y modales en el servicio digital para experiencia no intrusiva." },
+      { id: "ush5", type: "hito", title: "El servicio digital permite navegar sin interrupciones por modales o emergentes, los cuales se cierran fácilmente y no reaparecen durante la sesión.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: modales y popups del servicio digital no intrusivos." },
+      { id: "us8", type: "tarea", title: "Organizar el servicio digital para que la información se presente en un orden lógico y con zonas claramente delimitadas.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Reorganización de la arquitectura de información del servicio digital para mejorar la usabilidad del trámite." },
+      { id: "ush6", type: "hito", title: "El servicio digital presenta la información en un orden lógico y con zonas claramente delimitadas.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: estructura lógica y delimitada en el servicio digital." },
+      { id: "us9", type: "tarea", title: "Configurar las páginas del servicio digital para que permitan avanzar o retroceder sin bloqueos.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Ajuste del flujo de pasos del trámite para eliminar bloqueos de navegación." },
+      { id: "ush7", type: "hito", title: "Las páginas del servicio digital permiten avanzar o retroceder sin bloqueos y con opciones claras para continuar o finalizar.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: navegación sin bloqueos en el servicio digital." },
+      { id: "us10", type: "tarea", title: "Configurar el servicio digital para que muestre un ícono personalizado (favicon) en la pestaña del navegador.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Implementación de favicon institucional en el servicio digital." },
+      { id: "ush8", type: "hito", title: "El servicio digital muestra un ícono personalizado en la pestaña del navegador.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: favicon visible en el servicio digital." },
+      { id: "us11", type: "tarea", title: "Incorporar ayudas en contexto en el servicio digital (definiciones, íconos o indicaciones breves) para facilitar la comprensión sin memorizar instrucciones extensas.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Diseño e implementación de ayudas contextuales en el flujo del trámite digital." },
+      { id: "ush9", type: "hito", title: "El servicio digital cuenta con ayudas en contexto claras y visibles junto a los contenidos.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: ayudas contextuales implementadas en el servicio digital." },
+      { id: "us12", type: "tarea", title: "Implementar buscadores, filtros y opciones de ordenamiento en resultados y tablas de datos del servicio digital.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Implementación de herramientas de búsqueda y filtrado en el servicio digital para mejorar la navegación del trámite." },
+      { id: "ush10", type: "hito", title: "El servicio digital ofrece filtros y ordenamiento en resultados/tablas y, cuando existe autenticación, permite destacar o anclar interacciones frecuentes.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: filtros, buscadores y personalización operativos en el servicio digital." },
+      { id: "us13", type: "tarea", title: "Configurar los servicios autenticados del sitio para que ofrezcan al usuario la opción de destacar o anclar sus interacciones más frecuentes.", inicio: "01-01-2027", termino: "31-12-2027", trimestre: "2027 – Trim 1–4", desc: "Implementación de funcionalidad de personalización para usuarios autenticados en el servicio digital." },
+      { id: "ush11", type: "hito", title: "En el caso de ser un servicio autenticado, permite a la persona usuaria destacar o anclar sus interacciones más frecuentes.", inicio: "31-12-2027", termino: "31-12-2027", trimestre: "2027 – Trim 4", desc: "Hito verificable: personalización de interacciones frecuentes disponible para usuarios autenticados." },
+    ] as RawTask[],
+  },
+  se_serv: {
+    id: "se_serv",
+    code: "PTD-D2.2-SE7",
+    name: "Seguridad",
+    dimensionId: "servicio",
+    clase: "se" as const,
+    brecha: "Puntaje por debajo del nivel esperado en la subdimensión Seguridad de servicio digital, con carencias en el cumplimiento de estándares y directrices que protegen la disponibilidad, integridad y confidencialidad de la información.",
+    objetivo: "Asegurar el cumplimiento de estándares y directrices de seguridad en el desarrollo y operación, protegiendo la disponibilidad, integridad y confidencialidad de la información institucional y personal.",
+    indicadorProceso: "Porcentaje de hitos de la iniciativa Seguridad de servicios digitales transaccionales completados.",
+    indicadorResultado: "Porcentaje de cumplimiento en la subdimensión Seguridad en la siguiente aplicación del instrumento de calidad web de servicios digitales transaccionales.",
+    area: "Tecnología",
+    costo: "Costo Base (Hasta 1.000 UTM)",
+    tasks: [
+      { id: "ss1", type: "tarea", title: "Configurar el servicio digital para que utilice protocolo HTTPS con certificado SSL/TLS vigente y válido.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de HTTPS en el servicio digital con gestión activa del certificado SSL/TLS." },
+      { id: "ss2", type: "tarea", title: "Configurar el servidor del servicio digital para redirigir automáticamente HTTP a HTTPS.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de redirección permanente de HTTP a HTTPS en el servicio digital." },
+      { id: "ssh1", type: "hito", title: "El servicio digital utiliza HTTPS con un certificado SSL/TLS válido y vigente, y redirige automáticamente todo acceso desde HTTP.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: servicio digital completamente sobre HTTPS." },
+      { id: "ss3", type: "tarea", title: 'Configurar la cabecera X-Frame-Options del servicio digital con valores "deny" o "sameorigin" para bloquear enmascarado.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de cabecera anti-clickjacking en el servicio digital." },
+      { id: "ss4", type: "tarea", title: 'Configurar la cabecera X-Content-Type-Options del servicio digital con el valor "nosniff" para prevenir ataques MIME.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de cabecera de seguridad en el servicio digital para prevenir ataques MIME." },
+      { id: "ss5", type: "tarea", title: 'Implementar la cabecera Referrer-Policy del servicio digital con el valor "strict-origin" para limitar información de referencia.', inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Configuración de política de referencia en el servicio digital." },
+      { id: "ssh2", type: "hito", title: "El servicio digital cuenta con cabeceras de seguridad configuradas para bloquear enmascarado, prevenir ataques MIME y limitar información de referencia.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: cabeceras de seguridad configuradas en el servicio digital." },
+      { id: "ss6", type: "tarea", title: "Publicar en el servicio digital una política de privacidad en lenguaje claro, accesible desde el pie de todas sus páginas.", inicio: "01-01-2028", termino: "31-01-2028", trimestre: "2028", desc: "Redacción y publicación de política de privacidad del servicio digital." },
+      { id: "ssh3", type: "hito", title: "El servicio digital cuenta con una política de privacidad clara, actualizada y accesible desde todas sus páginas.", inicio: "31-01-2028", termino: "31-01-2028", trimestre: "2028", desc: "Hito verificable: política de privacidad del servicio digital publicada." },
+      { id: "ss7", type: "tarea", title: "Publicar en el servicio digital información clara sobre el tipo de cookies utilizadas, sus finalidades y las opciones de control.", inicio: "01-01-2028", termino: "31-12-2028", trimestre: "2028", desc: "Implementación de aviso de cookies en el servicio digital." },
+      { id: "ssh4", type: "hito", title: "El servicio digital informa de manera clara el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles.", inicio: "31-12-2028", termino: "31-12-2028", trimestre: "2028", desc: "Hito verificable: aviso de cookies del servicio digital completo e informativo." },
+    ] as RawTask[],
+  },
+}
+
+function defaultEstado(subdimensionId: string): MeiItemEstado {
+  if (subdimensionId === "cl_sitio" || subdimensionId === "cl_serv") {
+    return "en_progreso"
+  }
+  return "pendiente"
+}
+
+function toMeiItem(subdimensionId: string, raw: RawTask): MeiItem {
+  return {
+    id: raw.id,
+    type: raw.type,
+    subdimensionId,
+    numeroActividad: raw.type === "tarea" ? (raw.numeroActividad ?? null) : null,
+    title: raw.title,
+    description: raw.desc,
+    inicio: raw.inicio,
+    termino: raw.termino,
+    trimestre: raw.trimestre,
+    estado: raw.estado ?? defaultEstado(subdimensionId),
+    excelHitoId:
+      raw.type === "hito" ? (raw.excelHitoId ?? null) : null,
+  }
+}
+
+const items: MeiItem[] = []
+for (const [subId, sub] of Object.entries(subdimensions)) {
+  for (const task of sub.tasks) {
+    items.push(toMeiItem(subId, task))
+  }
+}
+
+const catalog = meiCatalogSchema.parse({
+  version: "1.0",
+  updatedAt: "2026-07-28",
+  dimensions,
+  subdimensions: Object.fromEntries(
+    Object.entries(subdimensions).map(([key, sub]) => [
+      key,
+      {
+        id: sub.id,
+        code: sub.code,
+        name: sub.name,
+        dimensionId: sub.dimensionId,
+        clase: sub.clase,
+        brecha: sub.brecha,
+        objetivo: sub.objetivo,
+        indicadorProceso: sub.indicadorProceso,
+        indicadorResultado: sub.indicadorResultado,
+        area: sub.area,
+        costo: sub.costo,
+      },
+    ]),
+  ),
+  items,
+})
+
+mkdirSync(dirname(outPath), { recursive: true })
+writeFileSync(outPath, JSON.stringify(catalog, null, 2) + "\n", "utf8")
+
+console.log(`OK: ${outPath}`)
+console.log(`  dimensions: ${catalog.dimensions.length}`)
+console.log(`  subdimensions: ${Object.keys(catalog.subdimensions).length}`)
+console.log(`  items: ${catalog.items.length}`)
+console.log(`  hitos CL con excel: ${catalog.items.filter((i) => i.excelHitoId).length}`)
