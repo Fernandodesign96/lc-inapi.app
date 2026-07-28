@@ -75,3 +75,5 @@ auditorias/htmls/**/*.gif
 # ~/.claude.json
 # Snapshots de estado de Playwright MCP (solo local)
 .playwright-mcp/
+
+data/exports/*.xlsx

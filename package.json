@@ -11,6 +11,7 @@
     "validate:claude-audits": "bun run src/scripts/validate-claude-audits.ts",
     "validate:mei-catalog": "bun run src/scripts/validate-mei-catalog.ts",
     "generate:mei-catalog": "bun run src/scripts/generate-mei-catalog-json.ts",
+    "export:mei-xlsx": "bun run src/scripts/export-mei-xlsx.ts",
     "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
+    "exceljs": "^4.4.0",
     "playwright": "^1.61.1",
     "typescript": "^5.8.0"
   }
