@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from "node:fs"
 import { join } from "node:path"
-import { fileURLToPath } from "node:url"
 
 import { parseClaudeAuditFile, type ClaudeAuditBundle } from "../../schemas/claude-audit-pilot"
 
@@ -30,8 +29,9 @@ type FichasMockFile = {
 }
 
 function repoRootFromModule(): string {
-  const __dirname = fileURLToPath(new URL(".", import.meta.url))
-  return join(__dirname, "../../..")
+  const cwd = process.cwd()
+  if (existsSync(join(cwd, "data/claude-audits"))) return cwd
+  return join(cwd, "..")
 }
 
 function auditDateFromId(id: string): string | null {
