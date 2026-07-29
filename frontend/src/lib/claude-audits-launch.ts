@@ -150,22 +150,85 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
   },
 ]
 
+/**
+ * Auditorías META MEI (compromiso jefatura) fuera del piloto 9.
+ * Registradas aquí para `validate:claude-audits` y API de informe.
+ */
+export const META_MEI_EXTRA_AUDITS: Array<{
+  id: string
+  url: string
+  label: string
+  tipoPagina: "sitioweb" | "tramites"
+  resumenMvp: {
+    porcentajeLc: number
+    estadoAceptacion: "rechazado" | "aceptado_con_observaciones" | "aprobado"
+    fechaEvaluacionIso: string
+    evaluadorUid: string
+  }
+}> = [
+  {
+    id: "www-inapi-cl-patentes_2026-07-29",
+    url: "https://www.inapi.cl/patentes",
+    label: "Patentes",
+    tipoPagina: "sitioweb",
+    resumenMvp: {
+      porcentajeLc: 48.5,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  {
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",
+    url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    label: "Noticia — Cuenta Pública Participativa 2026",
+    tipoPagina: "sitioweb",
+    resumenMvp: {
+      porcentajeLc: 54.5,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+  {
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29",
+    url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    label: "Noticia — Cifra histórica de patentes nacionales",
+    tipoPagina: "sitioweb",
+    resumenMvp: {
+      porcentajeLc: 54.5,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      evaluadorUid: "Fernando Arriagada Castillo",
+    },
+  },
+]
+
 /** Solo ids con JSON en repo (GET /api/claude-audits/[id]). Incluye history. */
-export const CLAUDE_AUDIT_LAUNCHES = CLAUDE_PILOT_URL_ROWS.filter(
-  (r): r is ClaudePilotUrlRow & { claudeAuditId: string } =>
-    r.claudeAuditId !== null,
-).map((r) => ({
-  id: r.claudeAuditId,
-  url: r.url,
-  label: r.label,
-  tipoPagina: r.tipoPagina,
-}))
+export const CLAUDE_AUDIT_LAUNCHES = [
+  ...CLAUDE_PILOT_URL_ROWS.filter(
+    (r): r is ClaudePilotUrlRow & { claudeAuditId: string } =>
+      r.claudeAuditId !== null,
+  ).map((r) => ({
+    id: r.claudeAuditId,
+    url: r.url,
+    label: r.label,
+    tipoPagina: r.tipoPagina,
+  })),
+  ...META_MEI_EXTRA_AUDITS.map((r) => ({
+    id: r.id,
+    url: r.url,
+    label: r.label,
+    tipoPagina: r.tipoPagina,
+  })),
+]
 
 export type ClaudeAuditLaunchRow = (typeof CLAUDE_AUDIT_LAUNCHES)[number]
 
 export const CLAUDE_AUDIT_ID_SET = new Set<string>([
   ...CLAUDE_AUDIT_LAUNCHES.map((row) => row.id),
   ...CLAUDE_PILOT_URL_ROWS.flatMap((r) => r.history?.map((h) => h.id) ?? []),
+  ...META_MEI_EXTRA_AUDITS.map((r) => r.id),
 ])
 
 export function claudeAuditIdForUrl(url: string): string | null {
