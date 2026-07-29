@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-29 | [Infraestructura: Reauditoría §17 de 3 URLs META MEI + Excel regenerado](#devlog-2026-07-29-meta-mei-reauditoria-17) |
 | 2026-07-29 | [Frontend/MEI: 10 URLs META MEI + pestaña Fuentes en Excel](#devlog-2026-07-29-meta-mei-10-urls-fuentes) |
 | 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo Bernarda](#devlog-2026-07-29-mei-ui-excel-bernarda) |
 | 2026-07-28 | [Frontend: MEI calidad web — catálogo PTD, export XLSX y UI por hito](#devlog-2026-07-28-mei-calidad-web-export-ui) |
@@ -55,6 +56,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-07-29-meta-mei-reauditoria-17"></a>
+
+## [2026-07-29] - Infraestructura | Reauditoría §17 de 3 URLs META MEI + Excel regenerado
+
+### Contexto y objetivos:
+
+Las tres URLs nuevas de la muestra META MEI (`/patentes` y dos noticias detalle) se habían generado primero con un JSON provisorio en Cursor. Antes de la reunión de jefatura (2026-07-30) se reauditaron con el flujo oficial Claude Code Pro: Playwright MCP + RAG (Chroma) + 5 sub-subagentes (§17) + `validate:claude-audits` + `ingest:b`.
+
+### Implementación técnica:
+
+- JSON sobrescritos en `data/claude-audits/sitioweb/2026-07-29/` y HTML en `auditorias/htmls/`.
+- Resultados: `/patentes` 42,9 %; noticia Cuenta Pública 60,0 %; noticia cifra patentes 65,7 % (las tres rechazado).
+- Calibraciones: G1 RUT institucional → `cumple`; D7 excluye ACCESOS/BUSCADOR; E3 cumple en noticias con fecha visible.
+- `META_MEI_EXTRA_AUDITS` actualizado; Excel H02 y completo regenerados (10 URLs, 173 filas H02, pestañas Índice/CheckList/Fuentes/web INAPI/sitio TRAMITES). Archivos en `data/exports/` (gitignored).
+
+### 💡 Repaso técnico: Provisorio Cursor vs §17:
+
+Un JSON válido por schema no equivale a auditoría §17. Para entregas META MEI / jefatura, el orquestador debe ser Claude Code con captura real y grupos A+E, B+C, D, F, G+H.
+
+### Próximos pasos:
+
+- Revisar Excel con Bernarda en reunión 2026-07-30.
+- Opcional: reauditar §17 las 7 URLs META MEI que aún apuntan a JSON de junio.
+
+---
+
 <a id="devlog-2026-07-29-meta-mei-10-urls-fuentes"></a>
 
 ## [2026-07-29] - Frontend | MEI: 10 URLs META MEI + pestaña Fuentes en Excel
@@ -67,7 +94,7 @@ Tras corrección con Bernarda (prep. reunión jefatura 2026-07-30), los Excel de
 
 - Registro `mei-meta-mei-urls.ts` (orden Bernarda); loader `loadMetaMeiAudits()` por defecto en el writer.
 - Pestaña **Fuentes**: Hito × Dimensión × Criterio × cita × documento(s); H02 ampliado a B+C+D1–D7.
-- 3 auditorías nuevas 2026-07-29: `/patentes`, noticia Cuenta Pública, noticia cifra patentes; registradas en `META_MEI_EXTRA_AUDITS` (`claude-audits-launch.ts`).
+- 3 auditorías nuevas 2026-07-29: `/patentes`, noticia Cuenta Pública, noticia cifra patentes; registradas en `META_MEI_EXTRA_AUDITS` (`claude-audits-launch.ts`). **Actualización misma tarde:** reauditoría §17 oficial — ver [entrada reauditoría](#devlog-2026-07-29-meta-mei-reauditoria-17).
 - CLI: `--urls=clarity` conserva la muestra Clarity 13.
 
 ### 💡 Repaso técnico: CW ≠ PDF calidad-web-2.0:
@@ -76,6 +103,7 @@ Las citas `CW` del checklist son marco conceptual; el PDF principal es `meta-mei
 
 ### Próximos pasos:
 
+- ~~Reauditar §17 las 3 URLs nuevas~~ (hecho — ver entrada reauditoría).
 - Revisar con Bernarda el Excel H02/completo antes de la reunión.
 - Opcional: reauditar con §17 las 7 URLs que aún usan JSON de junio en la muestra META MEI.
 

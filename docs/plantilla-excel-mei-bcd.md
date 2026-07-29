@@ -2,7 +2,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-07-29 — META MEI 10 URLs + Fuentes) |
+| **Fecha** | 2026-06-28 (actualizado 2026-07-29 — META MEI 10 URLs + Fuentes + reauditoría §17) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
@@ -113,9 +113,29 @@ Cada export genera **5 pestañas**:
 
 Por defecto el export usa las **10 URLs compromiso jefatura** (`src/lib/mei-export/mei-meta-mei-urls.ts`), no la serie Clarity 13. Flag CLI: `--urls=clarity` para la muestra Clarity.
 
-**H02:** criterios B1–B7 + C1–C7 + D1–D7 (Lenguaje claro, Redacción, Ortografía/formato) sobre esas 10 URLs.
+| # | URL (rol) | Auditoría vigente | % LC (ref.) |
+| --- | --- | --- | --- |
+| 1 | `www.inapi.cl/` (portada) | `www-inapi-cl_2026-07-22` | 54,5 % |
+| 2 | `/marcas` (menú) | `www-inapi-cl-marcas_2026-06-05` | 48,5 % |
+| 3 | `/patentes` (menú) | `www-inapi-cl-patentes_2026-07-29` (§17) | 42,9 % |
+| 4 | `/acerca-de/inapi` | `www-inapi-cl-acerca-de-inapi_2026-06-07` | 34,3 % |
+| 5 | buscador noticias | `www-inapi-cl-buscador-noticias_2026-06-07` | 34,5 % |
+| 6 | `/marcas/tramites/solicitud-nueva` | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | 44,8 % |
+| 7 | `/sala-de-prensa/noticias` | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | 45,5 % |
+| 8 | noticia Cuenta Pública | `www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29` (§17) | 60,0 % |
+| 9 | noticia cifra patentes | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29` (§17) | 65,7 % |
+| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-06-07` | 51,5 % |
+
+**H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre esas 10 URLs. Export regenerado 2026-07-29 tras §17: ~173 filas de incumplimiento en alcance H02.
 
 **Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña Fuentes con los **39 criterios** y documentos de origen.
+
+**Regenerar localmente (gitignored):**
+
+```bash
+bun run export:mei-xlsx -- --hito=H02
+# completo H01+H02 vía API UI o buildMeiWorkbookWithStats({ hitoIds: ["H01","H02"] })
+```
 
 Columnas de detalle (web / trámites): Página \| Dirección \| ID/Línea \| Criterio \| CheckList \| Texto original \| Sustitución propuesta \| Justificación.
 
