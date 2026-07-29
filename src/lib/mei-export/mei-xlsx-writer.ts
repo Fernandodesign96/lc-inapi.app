@@ -3,16 +3,24 @@ import ExcelJS from "exceljs"
 import type { CriterionId } from "../../schemas/checklist"
 
 import type { LoadedClarityAudit } from "./mei-audit-loader"
-import { loadVigenteClarityAudits } from "./mei-audit-loader"
+import {
+  loadMetaMeiAudits,
+  loadVigenteClarityAudits,
+} from "./mei-audit-loader"
 import {
   loadChecklistCriteriaList,
   type ChecklistCriterionEntry,
 } from "./mei-checklist-catalog"
-import { MEI_EXPORT_HITOS, hitoById, type MeiExportHito } from "./mei-hitos"
+import { MEI_EXPORT_HITOS, hitoById, hitoIdForCriterio, type MeiExportHito } from "./mei-hitos"
+import { MEI_META_MEI_URLS } from "./mei-meta-mei-urls"
 import {
   buildRowsForHito,
   type MeiExcelRow,
 } from "./mei-row-builder"
+import {
+  documentosLabelFromSource,
+  sourceNotaMetaMei,
+} from "./mei-source-labels"
 
 const HEADER_BLUE: ExcelJS.Fill = {
   type: "pattern",
@@ -81,9 +89,7 @@ function resolveHitos(hitoIds?: string[]): MeiExportHito[] {
 }
 
 function isDocumentaryOnly(hitos: MeiExportHito[]): boolean {
-  return (
-    hitos.length > 0 && hitos.every((h) => !h.incluyeAuditoriasUrl)
-  )
+  return hitos.length > 0 && hitos.every((h) => !h.incluyeAuditoriasUrl)
 }
 
 function includesFullChecklist(hitos: MeiExportHito[]): boolean {
@@ -124,25 +130,37 @@ function addIndiceSheet(
   rows: MeiExcelRow[],
   hitos: MeiExportHito[],
   documentary: boolean,
+  urlSet: "meta-mei" | "clarity",
 ) {
   const sheet = workbook.addWorksheet("Índice")
-  sheet.mergeCells(1, 1, 1, 5)
+  const colCount = 7
+  sheet.mergeCells(1, 1, 1, colCount)
   sheet.getCell(1, 1).value = "Auditoría Lenguaje Claro — INAPI"
   sheet.getCell(1, 1).font = { bold: true, size: 14 }
 
   const hitoLabel = hitos.map((h) => h.id).join(", ")
-  sheet.mergeCells(2, 1, 2, 5)
+  const pending = MEI_META_MEI_URLS.filter((u) => !u.auditId).length
+  sheet.mergeCells(2, 1, 2, colCount)
   sheet.getCell(2, 1).value = documentary
     ? `Evidencia documental (${hitoLabel}) — sin filas por URL`
-    : `Consolidado ${audits.length} URLs (Sitio Web + Trámites) — hito(s) ${hitoLabel}`
+    : urlSet === "meta-mei"
+      ? `META MEI — ${audits.length}/10 URLs compromiso jefatura (Sitio Web + Trámites) — hito(s) ${hitoLabel}` +
+        (pending > 0 ? ` — ${pending} URL(s) aún sin JSON` : "")
+      : `Clarity vigente — ${audits.length} URLs — hito(s) ${hitoLabel}`
 
   const headerRow = sheet.getRow(4)
-  ;["URL #", "Sección", "Página", "Dirección", "N° incumplimientos"].forEach(
-    (label, i) => {
-      headerRow.getCell(i + 1).value = label
-    },
-  )
-  styleHeaderRow(headerRow, 5)
+  ;[
+    "URL #",
+    "Sección",
+    "Página",
+    "Dirección",
+    "Rol META MEI",
+    "Fecha auditoría",
+    "N° incumplimientos",
+  ].forEach((label, i) => {
+    headerRow.getCell(i + 1).value = label
+  })
+  styleHeaderRow(headerRow, colCount)
 
   if (documentary) {
     const note = sheet.getRow(5)
@@ -150,17 +168,17 @@ function addIndiceSheet(
     note.getCell(2).value = "Evidencia"
     note.getCell(3).value = "Checklist Editorial INAPI v1.1"
     note.getCell(4).value =
-      "N/A — evidencia documental (actividad 1 / H01); ver pestaña CheckList"
-    note.getCell(5).value = 0
+      "N/A — evidencia documental (actividad 1 / H01); ver pestañas CheckList y Fuentes"
+    note.getCell(7).value = 0
 
     const total = sheet.getRow(6)
     total.getCell(1).value = "TOTAL"
-    total.getCell(5).value = 0
-    for (let c = 1; c <= 5; c++) {
+    total.getCell(7).value = 0
+    for (let c = 1; c <= colCount; c++) {
       total.getCell(c).fill = TOTAL_CYAN
       total.getCell(c).font = { bold: true }
     }
-    autoWidth(sheet, 5)
+    autoWidth(sheet, colCount)
     return
   }
 
@@ -175,23 +193,41 @@ function addIndiceSheet(
     const r = sheet.getRow(5 + idx)
     const n = countByUrl.get(audit.url) ?? 0
     totalInc += n
-    r.getCell(1).value = idx + 1
+    r.getCell(1).value = audit.rank
     r.getCell(2).value = seccionLabel(audit.tipoPagina)
     r.getCell(3).value = audit.nombreUi
     r.getCell(4).value = audit.url
-    r.getCell(5).value = n
+    r.getCell(5).value = audit.rolMetaMei ?? ""
+    r.getCell(6).value = audit.fechaEvaluacionIso.slice(0, 10)
+    r.getCell(7).value = n
   })
 
-  const totalRow = sheet.getRow(5 + audits.length)
+  // Filas pendientes META MEI (sin JSON aún)
+  let extra = 0
+  if (urlSet === "meta-mei") {
+    for (const pendingUrl of MEI_META_MEI_URLS.filter((u) => !u.auditId)) {
+      const r = sheet.getRow(5 + audits.length + extra)
+      r.getCell(1).value = pendingUrl.orden
+      r.getCell(2).value = seccionLabel(pendingUrl.tipoPagina)
+      r.getCell(3).value = pendingUrl.nombreUi
+      r.getCell(4).value = pendingUrl.url
+      r.getCell(5).value = pendingUrl.rolMetaMei
+      r.getCell(6).value = "(pendiente auditoría)"
+      r.getCell(7).value = "—"
+      extra++
+    }
+  }
+
+  const totalRow = sheet.getRow(5 + audits.length + extra)
   totalRow.getCell(1).value = "TOTAL"
-  totalRow.getCell(5).value = totalInc
-  for (let c = 1; c <= 5; c++) {
+  totalRow.getCell(7).value = totalInc
+  for (let c = 1; c <= colCount; c++) {
     totalRow.getCell(c).fill = TOTAL_CYAN
     totalRow.getCell(c).font = { bold: true }
   }
 
   sheet.views = [{ state: "frozen", ySplit: 4 }]
-  autoWidth(sheet, 5)
+  autoWidth(sheet, colCount)
 }
 
 function addCheckListSheet(
@@ -208,7 +244,8 @@ function addCheckListSheet(
   const header = sheet.getRow(1)
   header.getCell(1).value = "Criterio"
   header.getCell(2).value = "CheckList"
-  styleHeaderRow(header, 2)
+  header.getCell(3).value = "Cita fuente"
+  styleHeaderRow(header, 3)
 
   let rowIdx = 2
   let lastSection = ""
@@ -220,6 +257,7 @@ function addCheckListSheet(
       sep.getCell(2).value = entry.sectionTitle
       sep.getCell(1).fill = SECTION_FILL
       sep.getCell(2).fill = SECTION_FILL
+      sep.getCell(3).fill = SECTION_FILL
       sep.getCell(1).font = { bold: true }
       sep.getCell(2).font = { bold: true }
       rowIdx++
@@ -227,13 +265,97 @@ function addCheckListSheet(
     const r = sheet.getRow(rowIdx)
     r.getCell(1).value = entry.id
     r.getCell(2).value = entry.criterion
+    r.getCell(3).value = entry.source
     r.getCell(2).alignment = { wrapText: true }
     rowIdx++
   }
 
   sheet.getColumn(1).width = 12
-  sheet.getColumn(2).width = 72
+  sheet.getColumn(2).width = 64
+  sheet.getColumn(3).width = 28
   sheet.views = [{ state: "frozen", ySplit: 1 }]
+}
+
+/**
+ * Pestaña Fuentes: Hito × Dimensión × Criterio × documentos PDF (Colección A).
+ */
+function addFuentesSheet(
+  workbook: ExcelJS.Workbook,
+  root: string,
+  hitos: MeiExportHito[],
+) {
+  const sheet = workbook.addWorksheet("Fuentes")
+  sheet.mergeCells(1, 1, 1, 6)
+  sheet.getCell(1, 1).value =
+    "Fuentes normativas del Checklist Editorial INAPI v1.1 (39 criterios)"
+  sheet.getCell(1, 1).font = { bold: true, size: 12 }
+
+  sheet.mergeCells(2, 1, 2, 6)
+  sheet.getCell(2, 1).value = sourceNotaMetaMei()
+  sheet.getCell(2, 1).alignment = { wrapText: true }
+  sheet.getRow(2).height = 36
+
+  const header = sheet.getRow(4)
+  ;[
+    "Hito",
+    "Dimensión",
+    "Criterio",
+    "Enunciado",
+    "Cita (checklist)",
+    "Documento(s) Colección A",
+  ].forEach((label, i) => {
+    header.getCell(i + 1).value = label
+  })
+  styleHeaderRow(header, 6)
+
+  const all = loadChecklistCriteriaList(root)
+  const filter = criterioIdsForExport(hitos)
+  const entries =
+    filter === "all" ? all : all.filter((c) => filter.has(c.id))
+
+  const hitoIdsInExport = new Set(hitos.map((h) => h.id))
+
+  let rowIdx = 5
+  let lastSection = ""
+  for (const entry of entries) {
+    if (entry.sectionId !== lastSection) {
+      lastSection = entry.sectionId
+      const sep = sheet.getRow(rowIdx)
+      sep.getCell(1).value = ""
+      sep.getCell(2).value = `${entry.sectionId} — ${entry.sectionTitle}`
+      for (let c = 1; c <= 6; c++) {
+        sep.getCell(c).fill = SECTION_FILL
+        sep.getCell(c).font = { bold: true }
+      }
+      rowIdx++
+    }
+
+    const mappedHito = hitoIdForCriterio(entry.id) ?? "—"
+    // Si el export es solo H02, anclar hito a H02 para criterios del alcance
+    const hitoLabel =
+      hitoIdsInExport.size === 1 && hitoIdsInExport.has("H02")
+        ? "H02"
+        : mappedHito
+
+    const r = sheet.getRow(rowIdx)
+    r.getCell(1).value = hitoLabel
+    r.getCell(2).value = entry.sectionTitle
+    r.getCell(3).value = entry.id
+    r.getCell(4).value = entry.criterion
+    r.getCell(5).value = entry.source
+    r.getCell(6).value = documentosLabelFromSource(entry.source)
+    r.getCell(4).alignment = { wrapText: true }
+    r.getCell(6).alignment = { wrapText: true }
+    rowIdx++
+  }
+
+  sheet.getColumn(1).width = 10
+  sheet.getColumn(2).width = 36
+  sheet.getColumn(3).width = 10
+  sheet.getColumn(4).width = 48
+  sheet.getColumn(5).width = 22
+  sheet.getColumn(6).width = 56
+  sheet.views = [{ state: "frozen", ySplit: 4 }]
 }
 
 function lineaId(row: MeiExcelRow): string {
@@ -255,7 +377,7 @@ function addDetallePorTipoSheet(
   if (documentary) {
     sheet.mergeCells(1, 1, 1, DETAIL_HEADERS.length)
     sheet.getCell(1, 1).value =
-      "N/A — evidencia documental (sin filas por URL). Ver Índice y CheckList."
+      "N/A — evidencia documental (sin filas por URL). Ver Índice, CheckList y Fuentes."
     sheet.getCell(1, 1).font = { italic: true }
     autoWidth(sheet, 2)
     return
@@ -271,7 +393,8 @@ function addDetallePorTipoSheet(
     urlOrdinal++
     const title = sheet.getRow(rowIdx)
     sheet.mergeCells(rowIdx, 1, rowIdx, DETAIL_HEADERS.length)
-    title.getCell(1).value = `URL ${urlOrdinal} — ${audit.nombreUi}`
+    const rol = audit.rolMetaMei ? ` · ${audit.rolMetaMei}` : ""
+    title.getCell(1).value = `URL ${audit.rank} — ${audit.nombreUi}${rol}`
     title.getCell(1).font = WHITE_BOLD
     title.getCell(1).fill = URL_TITLE_FILL
     rowIdx++
@@ -308,11 +431,12 @@ function addDetallePorTipoSheet(
       }
     }
 
-    rowIdx++ // blank spacer between URL blocks
+    rowIdx++
   }
 
   if (auditsOfType.length === 0) {
-    sheet.getCell(1, 1).value = "Sin URLs de este tipo en el inventario Clarity vigente."
+    sheet.getCell(1, 1).value =
+      "Sin URLs de este tipo en la muestra del export."
   }
 
   autoWidth(sheet, DETAIL_HEADERS.length)
@@ -321,13 +445,25 @@ function addDetallePorTipoSheet(
 export type BuildMeiWorkbookOptions = {
   hitoIds?: string[]
   root?: string
+  /** Por defecto META MEI (10 URLs jefatura). Use `clarity` para la serie Clarity 13. */
+  urlSet?: "meta-mei" | "clarity"
+}
+
+function loadAuditsForExport(
+  urlSet: "meta-mei" | "clarity",
+  root: string,
+): LoadedClarityAudit[] {
+  return urlSet === "clarity"
+    ? loadVigenteClarityAudits(root)
+    : loadMetaMeiAudits(root)
 }
 
 export async function buildMeiWorkbook(
   options: BuildMeiWorkbookOptions = {},
 ): Promise<ExcelJS.Workbook> {
   const root = options.root ?? process.cwd()
-  const audits = loadVigenteClarityAudits(root)
+  const urlSet = options.urlSet ?? "meta-mei"
+  const audits = loadAuditsForExport(urlSet, root)
   const hitos = resolveHitos(options.hitoIds)
   const documentary = isDocumentaryOnly(hitos)
   const rows = collectRows(hitos, audits, root)
@@ -336,8 +472,9 @@ export async function buildMeiWorkbook(
   workbook.creator = "lc-inapi.app"
   workbook.created = new Date()
 
-  addIndiceSheet(workbook, audits, rows, hitos, documentary)
+  addIndiceSheet(workbook, audits, rows, hitos, documentary, urlSet)
   addCheckListSheet(workbook, root, hitos)
+  addFuentesSheet(workbook, root, hitos)
   addDetallePorTipoSheet(
     workbook,
     "web INAPI",
@@ -363,13 +500,15 @@ export type MeiExportStats = {
   hitoSheets: number
   totalRows: number
   sheetNames: string[]
+  urlSet: "meta-mei" | "clarity"
 }
 
 export async function buildMeiWorkbookWithStats(
   options: BuildMeiWorkbookOptions = {},
 ): Promise<{ workbook: ExcelJS.Workbook; stats: MeiExportStats }> {
   const root = options.root ?? process.cwd()
-  const audits = loadVigenteClarityAudits(root)
+  const urlSet = options.urlSet ?? "meta-mei"
+  const audits = loadAuditsForExport(urlSet, root)
   const hitoIds = options.hitoIds ?? MEI_EXPORT_HITOS.map((h) => h.id)
   let totalRows = 0
   for (const id of hitoIds) {
@@ -377,7 +516,7 @@ export async function buildMeiWorkbookWithStats(
     if (hito && !hito.incluyeAuditoriasUrl) continue
     totalRows += buildRowsForHito(id, audits, root).length
   }
-  const workbook = await buildMeiWorkbook({ ...options, hitoIds })
+  const workbook = await buildMeiWorkbook({ ...options, hitoIds, urlSet })
   return {
     workbook,
     stats: {
@@ -385,6 +524,7 @@ export async function buildMeiWorkbookWithStats(
       hitoSheets: hitoIds.length,
       totalRows,
       sheetNames: workbook.worksheets.map((s) => s.name),
+      urlSet,
     },
   }
 }
