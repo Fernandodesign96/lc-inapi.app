@@ -5,509 +5,115 @@
   "evaluador_uid": "Fernando Arriagada Castillo",
   "version_checklist": "1.1",
   "tipo_pagina": "sitioweb",
-  "texto_capturado": "T001 [HTML-L629]: «Conoce más» (menú → /propiedad-intelectual-e-industrial) | T004 [HTML-L632]: «PCT» (menú, sin definir) | T018 [HTML-L646]: «Observancia» (→ /protege-tu-idea) | T021 [HTML-L704]: «ACCESOS» | T022 [HTML-L705]: «BUSCADOR» | T027 [HTML-L754]: «Registro» | T028 [HTML-L754]: «LINK EXTERNO» | T029 [HTML-L754]: «BUSCAR Y TRAMITAR» | T030 [HTML-L754]: «MARCAS» | T037 [HTML-L754]: «PATENTES» | T038 [HTML-L1]: «Patentes» (<title>) | T039 [HTML-L762]: «Patentes» (H1) | T040 [HTML-L782]: «Para Informarse» (H3) | T041 [HTML-L800]: «Qué es una Patente» (H4) | T042 [HTML-L802]: «Las patentes, también conocidas con el nombre de patentes de invención, son el medio más generalizado que existe para proteger los derechos de los inventores.» | T043 [HTML-L814]: «Ventajas de Registrar una Patente» (H4) | T044 [HTML-L816]: «Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).» | T045 [HTML-L828]: «Requisitos para obtener una patente» (H4) | T046 [HTML-L830]: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.» | T047 [HTML-L842]: «Tasas nacionales» (H4) | T048 [HTML-L844]: «Acceda al cuadro actualizado de valores, según el tipo de derecho.» | T049 [HTML-L853]: «BUSCADORES» (H2) | T050 [HTML-L858]: «BUSCADOR EN BASE DE DATOS» | T051 [HTML-L860]: «NOTIFICACIONES DIARIAS» | T052 [HTML-L862]: «Otros Buscadores» | T053 [HTML-L868]: «TIPOS DE PATENTES» (H2) | T054 [HTML-L875]: «Invención» | T055 [HTML-L883–884]: «Modelos» / «de Utilidad» (H4 partido en dos nodos) | T056 [HTML-L892]: «Diseños» | T057 [HTML-L900–902]: «Esquemas de Trazados o Topografías de Circuitos Integrados» | T061 [HTML-L925]: «Tramitación Patente» (H4 Trámites) | T062 [HTML-L936]: «Títulos y Certificados» | T063 [HTML-L947]: «Recursos para Usuarios» | T064 [HTML-L957]: «Guías PPH» (tab) | T065 [HTML-L959]: «Guías PAPV» (tab) | T066 [HTML-L967]: «Guías PPH EPO-INAPI» (enlace PDF) | T067 [HTML-L1045]: «¿Quieres contactarnos?» | T068 [HTML-L1046]: «Utiliza el canal de comunicación que prefieras:» (H2 modal) | T070 [HTML-L1046]: «Tu consulta será atendida por un especialista.» | T073 [HTML-L1052]: «Dónde estamos» (H4 footer) | T076 [HTML-L1052]: «RUT: 65.999.669-3» | T085 [HTML-L1088]: «Uso de los Contenidos de este Sitio» | T087 [HTML-L1090]: «Política de privacidad» | T088 [HTML-L1102]: «©2026 INAPI. Todos los derechos reservados»",
+  "texto_capturado": "T001 [HTML-L1]: «Patentes» (<title>, una sola palabra sin guiones) | T002 [HTML-head]: meta description «La patente da a su titular el derecho exclusivo a vender o ceder sus derechos a otra persona para que la comercialice bajo licencia» | T003 [HTML-L762]: «Patentes» (H1 banner) | T004 [HTML-L777]: Breadcrumb «Home > Patentes» | T005 [HTML-L782]: «Para Informarse» (H3) | T006 [HTML-L796-802]: «Qué es una Patente» (H4) + «Las patentes, también conocidas con el nombre de patentes de invención, son el medio más generalizado que existe para proteger los derechos de los inventores.» | T007 [HTML-L810-816]: «Ventajas de Registrar una Patente» (H4) + «Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).» | T008 [HTML-L824-830]: «Requisitos para obtener una patente» (H4) + «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.» | T009 [HTML-L838-844]: «Tasas nacionales» (H4) + «Acceda al cuadro actualizado de valores, según el tipo de derecho.» | T010 [HTML-L853]: «BUSCADORES» (H2) | T011 [HTML-L858]: «BUSCADOR EN BASE DE DATOS» | T012 [HTML-L860]: «NOTIFICACIONES DIARIAS» | T013 [HTML-L862]: «Otros Buscadores» | T014 [HTML-L868-906]: «TIPOS DE PATENTES» (H2) — Invención, Modelos de Utilidad, Diseños, Esquemas de Trazados o Topografías de Circuitos Integrados (íconos alt=\"mas\") | T015 [HTML-L910-953]: «TRÁMITES» (H2) — Tramitación Patente, Títulos y Certificados, Recursos para Usuarios (íconos alt=\"tramites\" repetido) | T016-T019 [HTML-L954-991]: tabs «Guías PPH» / «Guías Global PPH» / «Guías PAPV» con enlaces PDF sin formato/peso | T020 [HTML-L992-1036]: carrusel de 14 logos institucionales, un ítem con alt=\"\" title=\"\" vacíos (banner-recursos.jpg) | T021 [HTML-L1044]: «¿Quieres contactarnos?» (botón flotante) | T022 [HTML-L1046]: modal contacto — «Utiliza el canal de comunicación que prefieras:» / «Tu consulta será atendida por un especialista.» | T023 [HTML-L1052]: footer «Instituto Nacional de Propiedad industrial (INAPI)» / «RUT: 65.999.669-3» | T024 [HTML-L1055-1072]: footer «Conversemos» + enlace Contacto | T025 [HTML-L1075-1099]: footer «Accesos» — Atajos del Teclado, Descarga de Visualizadores, Glosario, Mapa del Sitio, Uso de los Contenidos de este Sitio, Accesibilidad, Política de privacidad | T026 [HTML-L1102]: «©2026 INAPI. Todos los derechos reservados» (footer inferior, única referencia temporal) | T027 [HTML-shell, L729-746]: menú global — Nosotros, Conoce más, Marcas, Patentes (activo), PCT (sin expandir), Sistema de Madrid, Sello de Origen, Aprende, Conecta, Trámites | T028 [HTML-shell, L704-728]: «ACCESOS» / «BUSCADOR» (excluidos de D7 por calibración de plantilla) | T029 [HTML-shell, L703-726]: modal login — «Usuario Frecuente», «Registro», botón «LINK EXTERNO» | T030 [HTML-shell, L750-754]: modal buscar — «BUSCAR Y TRAMITAR», placeholder «BUSCADOR», listas MARCAS/PATENTES | T031 [HTML-shell]: menú mobile (contenido análogo a T027 con ítems adicionales)",
   "criterios_evaluados": [
-    {
-      "id": "A1",
-      "estado": "cumple",
-      "comentario": "El H1 «Patentes» está en la parte superior y comunica directamente el tema. Los bloques de «Para Informarse» aparecen primero, antes de buscadores y trámites.",
-      "cita_textual": "T039 [HTML-L762]: «Patentes» (H1)"
-    },
-    {
-      "id": "A2",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T046 describe los tres criterios de patentabilidad con lenguaje normativo antes de orientar al usuario sobre el beneficio de registrar. T044 enumera ámbitos tecnológicos internacionales en lugar de explicar primero por qué conviene patentar en Chile.",
-      "cita_textual": "T046 [HTML-L830]: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad…»"
-    },
-    {
-      "id": "A3",
-      "estado": "cumple",
-      "comentario": "La página está bien fragmentada: H1 «Patentes», H3 «Para Informarse», H2 «BUSCADORES», H2 «TIPOS DE PATENTES», H2 «TRÁMITES», H4 por cada subtema.",
-      "cita_textual": "T040 [HTML-L782]: «Para Informarse» / T049 [HTML-L853]: «BUSCADORES» / T053 [HTML-L868]: «TIPOS DE PATENTES»"
-    },
-    {
-      "id": "A4",
-      "estado": "cumple",
-      "comentario": "Ninguna sección supera 110 palabras. Los párrafos de «Para Informarse» tienen menos de 50 palabras cada uno."
-    },
-    {
-      "id": "A5",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T044 incluye información sobre acuerdos internacionales y ámbitos tecnológicos que no orienta la acción inmediata del inventor. El texto «LINK EXTERNO» (T028) sigue presente sin valor para el usuario.",
-      "cita_textual": "T044 [HTML-L816]: «Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención…» / T028 [HTML-L754]: «LINK EXTERNO»"
-    },
-    {
-      "id": "B1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista». El H2 del modal usa imperativo impersonal: «Utiliza el canal de comunicación que prefieras».",
-      "cita_textual": "T070 [HTML-L1046]: «Tu consulta será atendida por un especialista.» / T068 [HTML-L1046]: «Utiliza el canal de comunicación que prefieras:»"
-    },
-    {
-      "id": "B2",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "PCT (T004), «Observancia» (T018), «Guías PPH» (T064) y «Guías PAPV» (T065) son términos técnicos PI sin definición accesible para el ciudadano general en esta página.",
-      "cita_textual": "T004 [HTML-L632]: «PCT» / T018 [HTML-L646]: «Observancia» / T064 [HTML-L957]: «Guías PPH» / T065 [HTML-L959]: «Guías PAPV»"
-    },
-    {
-      "id": "B3",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "PCT (T004) aparece en el menú de navegación sin definición en ningún punto de esta página. Primera y única aparición en el menú.",
-      "cita_textual": "T004 [HTML-L632]: «PCT» (menú, sin expandir)"
-    },
-    {
-      "id": "B4",
-      "estado": "cumple",
-      "comentario": "No se detectan extranjerismos significativos en el contenido editorial. «p.ej.» es abreviatura estándar en español."
-    },
-    {
-      "id": "B5",
-      "estado": "cumple",
-      "comentario": "Los CTA están formulados en positivo: «Otros Buscadores», «Tramitación Patente», «Títulos y Certificados». No hay formulaciones negativas.",
-      "cita_textual": "T052 [HTML-L862], T061 [HTML-L925], T062 [HTML-L936]"
-    },
-    {
-      "id": "B6",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras:». El placeholder del buscador usa mayúsculas completas: «BUSCADOR».",
-      "cita_textual": "T068 [HTML-L1046]: «Utiliza el canal de comunicación que prefieras:» / T022 [HTML-L705]: «BUSCADOR»"
-    },
-    {
-      "id": "B7",
-      "estado": "cumple",
-      "comentario": "No se detectan frases de relleno burocrático. El texto es conciso."
-    },
-    {
-      "id": "C1",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T046 usa punto y coma para encadenar tres criterios con estructura repetitiva («Estos son que…», «el segundo criterio establece que…», «el tercero dice que…»), lo que dificulta la lectura y rompe el orden sujeto-verbo-predicado.",
-      "cita_textual": "T046 [HTML-L830]: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.»"
-    },
-    {
-      "id": "C2",
-      "estado": "cumple",
-      "comentario": "El texto usa tiempo presente simple en los bloques informativos: «son», «se pueden obtener», «Existen», «Acceda».",
-      "cita_textual": "T042, T044, T046, T048"
-    },
-    {
-      "id": "C3",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T046 condensa tres criterios de patentabilidad en una sola oración larga con tres cláusulas coordinadas por punto y coma. Se beneficiaría de una lista numerada.",
-      "cita_textual": "T046 [HTML-L830]: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.»"
-    },
-    {
-      "id": "C4",
-      "estado": "cumple",
-      "comentario": "Cada párrafo de los cuatro bloques de «Para Informarse» desarrolla una sola idea."
-    },
-    {
-      "id": "C5",
-      "estado": "cumple",
-      "comentario": "Todos los párrafos visibles tienen menos de 4 líneas en escritorio."
-    },
-    {
-      "id": "C6",
-      "estado": "no_aplica",
-      "comentario": "La página no tiene 4 o más párrafos continuos en una misma sección; el contenido está fragmentado en tarjetas temáticas."
-    },
-    {
-      "id": "C7",
-      "estado": "no_aplica",
-      "comentario": "No hay listas de requisitos enumerados; los trámites se presentan como tarjetas de enlace."
-    },
-    {
-      "id": "D1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "Tres problemas ortotipográficos: (1) texto de desarrollo «LINK EXTERNO» (T028) no eliminado; (2) H4 «Modelos de Utilidad» (T055) partido en dos nodos HTML («Modelos» en H4 y «de Utilidad» en P); (3) enlace del carrusel HTML-L1011 con alt y title vacíos.",
-      "cita_textual": "T028 [HTML-L754]: «LINK EXTERNO» / T055 [HTML-L883–884]: «Modelos» + «de Utilidad» partidos / HTML-L1011: alt='' title=''"
-    },
-    {
-      "id": "D2",
-      "estado": "cumple",
-      "comentario": "Con la excepción de T046 (tratado en C1/D1), la puntuación general en los textos visibles es correcta."
-    },
-    {
-      "id": "D3",
-      "estado": "no_aplica",
-      "comentario": "Criterio visual/CSS; fuera del alcance editorial de texto."
-    },
-    {
-      "id": "D4",
-      "estado": "no_aplica",
-      "comentario": "Criterio visual/CSS; fuera del alcance editorial de este checklist."
-    },
-    {
-      "id": "D5",
-      "estado": "cumple",
-      "comentario": "La sección «TIPOS DE PATENTES» usa una cuadrícula de enlaces correctamente estructurada. No hay enumeraciones en texto corrido con comas."
-    },
-    {
-      "id": "D6",
-      "estado": "no_aplica",
-      "comentario": "No hay texto corrido extenso que requiera negritas para destacar palabras clave."
-    },
-    {
-      "id": "D7",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Textos en mayúsculas totales: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037), BUSCADORES (T049), TIPOS DE PATENTES (T053), TRÁMITES (HTML-L911), BUSCADOR EN BASE DE DATOS (T050), NOTIFICACIONES DIARIAS (T051).",
-      "cita_textual": "T021: «ACCESOS» / T022: «BUSCADOR» / T049: «BUSCADORES» / T050: «BUSCADOR EN BASE DE DATOS» / T051: «NOTIFICACIONES DIARIAS»"
-    },
-    {
-      "id": "E1",
-      "estado": "cumple",
-      "comentario": "No se usan adjetivos autopromocionales. El contenido es descriptivo y objetivo."
-    },
-    {
-      "id": "E2",
-      "estado": "cumple",
-      "comentario": "INAPI aparece en el logo, el footer y el copyright. La institución es claramente identificable.",
-      "cita_textual": "T088 [HTML-L1102]: «©2026 INAPI. Todos los derechos reservados»"
-    },
-    {
-      "id": "E3",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "No existe fecha de publicación ni de última actualización visible en el contenido de la página. El copyright ©2026 en el pie no equivale a fecha de actualización del contenido editorial.",
-      "cita_textual": "(ausencia) — ningún fragmento Tnnn indica fecha de actualización del contenido"
-    },
-    {
-      "id": "E4",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "El <title> es solo «Patentes» (HTML-L1), demasiado genérico: no incluye el nombre de la institución ni describe la tarea.",
-      "cita_textual": "HTML-L1 (title): «Patentes»"
-    },
-    {
-      "id": "F1",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "«Observancia» (T018) lleva a /protege-tu-idea — el slug no coincide con el texto visible. «Conoce más» (T001) lleva a /propiedad-intelectual-e-industrial. El enlace de tipo «Invención» apunta a /patentes/tipos-de-patentes/invercion (error ortográfico en slug).",
-      "cita_textual": "T018 [HTML-L646]: «Observancia» → /protege-tu-idea / T001 [HTML-L629]: «Conoce más» → /propiedad-intelectual-e-industrial / HTML-L873: /invercion (debería ser invención)"
-    },
-    {
-      "id": "F2",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "«Conoce más» (T001) es enlace genérico que no describe el destino.",
-      "cita_textual": "T001 [HTML-L629]: «Conoce más» — no describe el destino /propiedad-intelectual-e-industrial"
-    },
-    {
-      "id": "F3",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "«Registro» (T027) es ambiguo entre registro de patente y creación de cuenta de usuario. «Observancia» (T018) no describe el destino real.",
-      "cita_textual": "T027 [HTML-L754]: «Registro» / T018 [HTML-L646]: «Observancia»"
-    },
-    {
-      "id": "F4",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "Enlaces a PDF sin indicar formato ni peso: Guías PPH EPO-INAPI (HTML-L967), Guía Global PPH (HTML-L979), Guías PAPV (HTML-L984) y Teletrabajo en carrusel (HTML-L1001, alt «Teletrabajo» sin indicar PDF).",
-      "cita_textual": "HTML-L967: guia_pph_epo…pdf sin indicación de formato / HTML-L1001: inapi_informes_teletrabajo.pdf, alt «Teletrabajo»"
-    },
-    {
-      "id": "F5",
-      "estado": "cumple",
-      "comentario": "Los CTAs de acción («BUSCADOR EN BASE DE DATOS», «Otros Buscadores», «Tramitación Patente») están al final de sus secciones.",
-      "cita_textual": "T050, T052, T061"
-    },
-    {
-      "id": "G1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "El RUT institucional 65.999.669-3 (T076) aparece en el footer sin aportar valor a la tarea del usuario en esta página de contenidos sobre patentes.",
-      "cita_textual": "T076 [HTML-L1052]: «RUT: 65.999.669-3»"
-    },
-    {
-      "id": "G2",
-      "estado": "cumple",
-      "comentario": "Existe enlace a «Política de privacidad» en el footer (T087).",
-      "cita_textual": "T087 [HTML-L1090]: «Política de privacidad»"
-    },
-    {
-      "id": "G3",
-      "estado": "cumple",
-      "comentario": "El copyright ©2026 (T088) está actualizado. Existe enlace «Uso de los Contenidos de este Sitio» (T085) en el footer.",
-      "cita_textual": "T088 [HTML-L1102]: «©2026 INAPI. Todos los derechos reservados» / T085 [HTML-L1088]: «Uso de los Contenidos de este Sitio»"
-    },
-    {
-      "id": "H1",
-      "estado": "no_aplica",
-      "comentario": "No se detectan versiones anteriores publicadas en esta página ni rótulos de contenido archivado."
-    }
+    { "id": "A1", "estado": "cumple", "comentario": "El H1 «Patentes» (T003) está en la parte superior junto al breadcrumb (T004) y comunica el propósito de la página sin necesidad de leer el resto; «Para Informarse» aparece antes de buscadores y trámites.", "cita_textual": "T003: H1 «Patentes» / T004: Breadcrumb «Home > Patentes»" },
+    { "id": "A2", "estado": "incumple", "severidad": "media", "comentario": "La tarjeta «Ventajas de Registrar una Patente» (T007) no desarrolla una ventaja para el titular: describe el alcance técnico de patentabilidad (ámbitos tecnológicos) en vez del beneficio de registrar, invirtiendo la pirámide.", "cita_textual": "T007: «Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).»" },
+    { "id": "A3", "estado": "cumple", "comentario": "Página fragmentada con encabezados informativos: «Para Informarse», «BUSCADORES», «TIPOS DE PATENTES», «TRÁMITES».", "cita_textual": "T005, T010, T014, T015" },
+    { "id": "A4", "estado": "cumple", "comentario": "Ninguna sección supera 110 palabras; los cuatro párrafos de «Para Informarse» son bloques cortos, y el resto de la página usa tarjetas/listas de enlaces." },
+    { "id": "A5", "estado": "incumple", "severidad": "media", "comentario": "El botón «LINK EXTERNO» (T029, modal login del shell) es texto de desarrollo sin valor informativo para la tarea del usuario. Patrón sistémico presente también en /marcas.", "cita_textual": "T029: botón «LINK EXTERNO» con ícono compartir" },
+    { "id": "B1", "estado": "incumple", "severidad": "alta", "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» — componente global _Layout.cshtml.", "cita_textual": "T022: «Tu consulta será atendida por un especialista.»" },
+    { "id": "B2", "estado": "incumple", "severidad": "media", "comentario": "Jerga técnico-legal sin glosa: «Esquemas de Trazados o Topografías de Circuitos Integrados» (T014); siglas de programas de examen «PPH», «Guías Global PPH», «PAPV» (T016-T019) sin explicación.", "cita_textual": "T014: «Esquemas de Trazados o Topografías de Circuitos Integrados» / T016: «Guías PPH» / T019: «Guías PAPV»" },
+    { "id": "B3", "estado": "incumple", "severidad": "alta", "comentario": "PCT (T027) aparece en el menú global sin definirse en su primera aparición — patrón sistémico transversal ya identificado en /marcas.", "cita_textual": "T027: «PCT» (menú, sin expandir)" },
+    { "id": "B4", "estado": "incumple", "severidad": "baja", "comentario": "Uso de la abreviatura «p.ej.» en vez de «por ejemplo».", "cita_textual": "T007: «(p.ej. mecánica, eléctrica, biotecnología, farmacia o química)»" },
+    { "id": "B5", "estado": "cumple", "comentario": "Los CTA están formulados en positivo: «Buscador en base de datos», «Notificaciones diarias», «Tramitación Patente», etc. No hay formulaciones negativas." },
+    { "id": "B6", "estado": "incumple", "severidad": "media", "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras:» — mismo patrón detectado en /marcas.", "cita_textual": "T022: «Utiliza el canal de comunicación que prefieras:»" },
+    { "id": "B7", "estado": "cumple", "comentario": "No se detectan frases de relleno burocrático en el contenido editorial." },
+    { "id": "C1", "estado": "incumple", "severidad": "media", "comentario": "T008 invierte el orden sujeto-verbo en la tercera cláusula: «el tercero dice que puede ser aplicado el invento industrialmente» en vez de «el invento pueda aplicarse industrialmente».", "cita_textual": "T008: «...el tercero dice que puede ser aplicado el invento industrialmente.»" },
+    { "id": "C2", "estado": "cumple", "comentario": "El texto usa predominantemente presente simple: «son», «existen», «se pueden obtener», «acceda».", "cita_textual": "T006, T007, T009" },
+    { "id": "C3", "estado": "incumple", "severidad": "media", "comentario": "T008 condensa los tres criterios de patentabilidad en una sola oración extensa con punto y coma y tres cláusulas coordinadas, superando ampliamente una idea por oración.", "cita_textual": "T008: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.»" },
+    { "id": "C4", "estado": "incumple", "severidad": "baja", "comentario": "T008 mezcla tres ideas distintas (novedad, nivel inventivo, aplicación industrial) en un único párrafo corrido en vez de separarlas.", "cita_textual": "T008: «Existen tres criterios fundamentales de patentabilidad...»" },
+    { "id": "C5", "estado": "cumple", "comentario": "Todos los párrafos visibles de las tarjetas (T006-T009) tienen menos de 4 líneas en escritorio." },
+    { "id": "C6", "estado": "no_aplica", "comentario": "El contenido de «Para Informarse» está fragmentado en 4 tarjetas cortas (T006-T009), no en un bloque de texto corrido con 4 o más párrafos continuos." },
+    { "id": "C7", "estado": "incumple", "severidad": "media", "comentario": "La tarjeta «Requisitos para obtener una patente» (T008) presenta los tres requisitos como prosa corrida en vez de una lista en modo infinitivo.", "cita_textual": "T008: «Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.»" },
+    { "id": "D1", "estado": "incumple", "severidad": "alta", "comentario": "Errores ortotipográficos: (1) footer «Dónde estamos» (T023) con minúscula indebida en «Instituto Nacional de Propiedad industrial (INAPI)» — debe ser «Industrial»; (2) metaetiquetas keywords del <head> con «idicadores» (falta letra) y «documentaicón» (typo) — no visibles al usuario pero publicados en el código fuente.", "cita_textual": "T023: «Instituto Nacional de Propiedad industrial (INAPI)» / meta keywords: «idicadores», «documentaicón»" },
+    { "id": "D2", "estado": "incumple", "severidad": "baja", "comentario": "T008 encadena tres criterios mediante punto y coma y comas en una sola oración larga, en vez de puntos seguidos o enumeración.", "cita_textual": "T008: «...la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice...»" },
+    { "id": "D3", "estado": "no_aplica", "comentario": "Criterio visual/CSS (espacio entre párrafos); fuera del alcance editorial, según calibración del proyecto." },
+    { "id": "D4", "estado": "no_aplica", "comentario": "Criterio visual/CSS (alineación del texto); fuera del alcance editorial, según calibración del proyecto." },
+    { "id": "D5", "estado": "incumple", "severidad": "baja", "comentario": "Los tres criterios de patentabilidad se presentan como enumeración en texto corrido con punto y coma/comas, en vez de lista numerada o de viñetas.", "cita_textual": "T008: «Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.»" },
+    { "id": "D6", "estado": "no_aplica", "comentario": "No hay texto corrido extenso; el contenido editorial está fragmentado en tarjetas cortas (T006-T009)." },
+    { "id": "D7", "estado": "incumple", "severidad": "media", "comentario": "Mayúsculas sostenidas fuera de la excepción de plantilla (ACCESOS/BUSCADOR de T028, excluidos): «BUSCADORES» (T010), «TIPOS DE PATENTES» (T014), «TRÁMITES» (T015), «BUSCADOR EN BASE DE DATOS» (T011), «NOTIFICACIONES DIARIAS» (T012), «BUSCAR Y TRAMITAR» (T030), «LINK EXTERNO» (T029).", "cita_textual": "T010: «BUSCADORES» / T014: «TIPOS DE PATENTES» / T015: «TRÁMITES»" },
+    { "id": "E1", "estado": "cumple", "comentario": "No se detectan adjetivos calificativos ni opiniones autopromocionales; el contenido describe hechos legales y técnicos objetivos." },
+    { "id": "E2", "estado": "cumple", "comentario": "INAPI es identificable como fuente en el footer y el copyright.", "cita_textual": "T023: «Instituto Nacional de Propiedad industrial (INAPI)» / T026: «©2026 INAPI»" },
+    { "id": "E3", "estado": "incumple", "severidad": "alta", "comentario": "No existe fecha de publicación ni de última actualización visible en el contenido editorial. El copyright ©2026 (T026) es solo derecho de autor del sitio, no fecha de actualización del contenido.", "cita_textual": "(ausencia) — ningún fragmento Tnnn indica fecha de actualización del contenido" },
+    { "id": "E4", "estado": "incumple", "severidad": "media", "comentario": "El <title> es solo «Patentes» (T001), una sola palabra sin guiones pero igualmente genérico: no incluye el nombre de la institución ni describe la tarea de la página.", "cita_textual": "T001: «<title>Patentes</title>»" },
+    { "id": "F1", "estado": "incumple", "severidad": "media", "comentario": "El botón «LINK EXTERNO» del modal de login (T029) no indica el nombre real del destino (Registro vía ClaveÚnica); el texto genérico no permite anticipar a qué página lleva el enlace.", "cita_textual": "T029: botón «LINK EXTERNO» bajo «Registro» → claveunica.gob.cl" },
+    { "id": "F2", "estado": "cumple", "comentario": "No se detectan textos genéricos tipo «Haz clic aquí» o «Más» en los enlaces y botones inventariados de esta página." },
+    { "id": "F3", "estado": "cumple", "comentario": "Los enlaces y botones capturados (BUSCADOR EN BASE DE DATOS, NOTIFICACIONES DIARIAS, Otros Buscadores, ítems del modal buscador) son descriptivos del destino en su contexto." },
+    { "id": "F4", "estado": "incumple", "severidad": "alta", "comentario": "Los PDFs de las pestañas «Guías PPH», «Guías Global PPH» y «Guías PAPV» (T016-T019) no indican formato ni peso, a diferencia del ítem del carrusel «Plan de Acción de Cumplimiento 2025 (PDF)» (T020) que sí lo hace.", "cita_textual": "T016-T019: «Guías PPH EPO-INAPI», «Guías INAPI - SIPO», «Guías PPH INAPI - IMPI», «Guías PPH INAPI - INDECOPI», «Guías PPH INAPI - SIC» (.pdf, sin formato/peso)" },
+    { "id": "F5", "estado": "cumple", "comentario": "Los enlaces se presentan como botones/CTAs independientes o ítems de lista, no incrustados en párrafos de texto corrido." },
+    { "id": "G1", "estado": "cumple", "comentario": "No se exponen RUT, RUN, teléfonos ni direcciones de personas naturales. El único RUT visible (T023, footer) corresponde a INAPI como persona jurídica pública, calibrado como cumple según CLAUDE.md. captura_con_sesion: false — no hay datos de sesión de solicitantes.", "cita_textual": "T023: «Instituto Nacional de Propiedad industrial (INAPI)» / «RUT: 65.999.669-3»" },
+    { "id": "G2", "estado": "cumple", "comentario": "Existe enlace visible «Política de privacidad» en el footer (T025), consistente con el precedente de /marcas.", "cita_textual": "T025: «Política de privacidad»" },
+    { "id": "G3", "estado": "cumple", "comentario": "El footer indica copyright vigente y existe enlace «Uso de los Contenidos de este Sitio».", "cita_textual": "T026: «©2026 INAPI. Todos los derechos reservados» / T025: «Uso de los Contenidos de este Sitio»" },
+    { "id": "H1", "estado": "incumple", "severidad": "media", "comentario": "No hay versiones anteriores publicadas ni rótulos de contenido archivado, pero se detecta el patrón sistémico «imágenes sin alt descriptivo» (CLAUDE.md §6): iconos «+» con alt=\"mas\" repetido (T014), icono «tramites» genérico repetido (T015), e ítem del carrusel con alt=\"\" title=\"\" vacíos (T020).", "cita_textual": "T014: img alt=\"mas\" / T015: img alt=\"tramites\" repetido / T020: ítem con alt=\"\" title=\"\" (banner-recursos.jpg)" }
   ],
-  "criterios_no_aplica": 6,
-  "criterios_aplicables": 33,
-  "criterios_aprobados": 16,
-  "porcentaje_cumplimiento": 48.5,
+  "criterios_no_aplica": 4,
+  "criterios_aplicables": 35,
+  "criterios_aprobados": 15,
+  "porcentaje_cumplimiento": 42.9,
   "estado_aceptacion": "rechazado",
-  "texto_propuesto": "Se identificaron 17 incumplimientos sobre 33 criterios aplicables (48,5 %). Las correcciones de mayor impacto son: (1) reemplazar la voz pasiva del modal «Tu consulta será atendida» (B1); (2) expandir PCT en el menú (B3); (3) reescribir T046 como lista numerada de criterios de patentabilidad (C1/C3/A2); (4) eliminar «LINK EXTERNO» y unificar «Modelos de Utilidad» en un solo nodo (D1); (5) agregar fecha de actualización visible (E3); (6) ampliar el <title> a «INAPI — Patentes: qué son, cómo registrarlas y tipos» (E4); (7) indicar formato PDF en enlaces de guías PPH/PAPV y Teletrabajo (F4); (8) normalizar mayúsculas en encabezados y botones (D7); (9) corregir slug /invercion → /invencion (F1).",
-  "observaciones_lc": "La página /patentes de INAPI obtiene un 48,5 % de cumplimiento sobre 33 criterios aplicables — estado RECHAZADO. La estructura hub es análoga a /marcas (Para Informarse, Buscadores, Tipos, Trámites) y comparte los mismos incumplimientos sistémicos del shell: PCT sin definir, LINK EXTERNO, mayúsculas en ACCESOS/BUSCADOR, modal en voz pasiva, RUT en footer y ausencia de fecha de actualización. Los incumplimientos específicos de patentes incluyen la redacción normativa de los requisitos de patentabilidad (T046), el H4 «Modelos de Utilidad» partido en dos nodos HTML, múltiples enlaces PDF de guías PPH/PAPV sin indicar formato, y el slug erróneo /invercion para el tipo Invención.",
-  "resumen_ejecutivo": "La página https://www.inapi.cl/patentes fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios). De los 33 criterios aplicables, 16 se cumplen, lo que arroja un 48,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 17 incumplimientos. Los de severidad alta son: voz pasiva en modal de contacto (B1), sigla PCT sin definir (B3), errores ortotipográficos incluyendo LINK EXTERNO y H4 partido (D1), ausencia de fecha de actualización (E3), enlace «Conoce más» genérico (F2), PDFs de guías y carrusel sin indicar formato (F4), y RUT institucional en footer (G1).",
+  "texto_propuesto": "Se identificaron 20 incumplimientos sobre 35 criterios aplicables (42,9 %). Correcciones prioritarias: (1) reemplazar la voz pasiva del modal «Tu consulta será atendida» (B1); (2) expandir PCT en el menú global (B3); (3) reescribir T008 como lista de tres requisitos de patentabilidad (A2/C1/C3/C4/C7/D2/D5); (4) corregir «Propiedad industrial» → «Propiedad Industrial» en footer y errores de meta keywords (D1); (5) agregar fecha de actualización visible (E3); (6) ampliar el <title> a «INAPI — Patentes: qué son, requisitos y cómo tramitarlas» (E4); (7) indicar formato «(PDF)» en enlaces de guías PPH/Global PPH/PAPV (F4); (8) normalizar mayúsculas sostenidas en encabezados y botones (D7); (9) describir destino real del botón «LINK EXTERNO» (F1) o eliminarlo (A5); (10) agregar alt descriptivo a iconos de Tipos de Patentes, Trámites y logo del carrusel (H1).",
+  "observaciones_lc": "La página /patentes de INAPI obtiene un 42,9 % de cumplimiento sobre 35 criterios aplicables — estado RECHAZADO. La estructura hub es análoga a /marcas y comparte incumplimientos sistémicos del shell: PCT sin definir, LINK EXTERNO, mayúsculas en encabezados/botones, modal en voz pasiva, y ausencia de fecha de actualización. G1 se calibra como cumple (RUT institucional de persona jurídica pública), corrigiendo el criterio marcado incumple en la versión provisoria previa. Los incumplimientos específicos de /patentes incluyen la redacción normativa densa de los requisitos de patentabilidad (T008, afecta A2/C1/C3/C4/C7/D2/D5), errores de capitalización en el nombre institucional del footer y en metaetiquetas, múltiples PDFs de guías sin indicar formato, e iconos sin alt descriptivo.",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/patentes fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios, 5 grupos temáticos vía sub-subagentes). De los 35 criterios aplicables, 15 se cumplen, lo que arroja un 42,9 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 20 incumplimientos; los de severidad alta son: voz pasiva en modal de contacto (B1), sigla PCT sin definir (B3), errores ortotipográficos en nombre institucional y metaetiquetas (D1), ausencia de fecha de actualización (E3), y PDFs de guías sin indicar formato (F4).",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
-      "(B1) Modal de contacto con voz pasiva: «Tu consulta será atendida por un especialista» (T070).",
-      "(B3) Sigla PCT (T004) en menú sin definición en la página.",
-      "(D1) LINK EXTERNO (T028) no eliminado; H4 «Modelos de Utilidad» partido en dos nodos; carrusel HTML-L1011 con alt vacío.",
+      "(B1) Modal de contacto con voz pasiva: «Tu consulta será atendida por un especialista» (T022).",
+      "(B3) Sigla PCT (T027) en menú global sin definición en la página.",
+      "(D1) Footer «Propiedad industrial» con minúscula indebida; metaetiquetas keywords con «idicadores» y «documentaicón».",
       "(E3) Ausencia de fecha de publicación o última actualización visible.",
-      "(F2) Enlace «Conoce más» (T001) genérico sin describir destino.",
-      "(F4) PDFs de guías PPH/PAPV (HTML-L967, L979, L984) y Teletrabajo (HTML-L1001) sin indicar formato ni peso.",
-      "(G1) RUT institucional 65.999.669-3 (T076) en footer sin aporte a la tarea."
+      "(F4) PDFs de guías PPH/Global PPH/PAPV (T016-T019) sin indicar formato ni peso."
     ],
     "hallazgos_prioridad_media": [
-      "(A2) Bloques informativos sin pirámide invertida: T046 describe criterios normativos antes del beneficio para el usuario.",
-      "(A5) T044 enumera ámbitos tecnológicos internacionales sin orientar la acción del inventor. LINK EXTERNO presente.",
-      "(B2) Términos sin glosa: PCT, Observancia, Guías PPH, Guías PAPV.",
-      "(B6) Modal con imperativo distante y placeholder BUSCADOR en mayúsculas.",
-      "(C1/C3) T046 con tres criterios en oración densa con punto y coma.",
-      "(D7) Mayúsculas totales en ACCESOS, BUSCADOR, BUSCADORES, botones y encabezados de sección.",
-      "(E4) <title> «Patentes» genérico sin contexto institucional.",
-      "(F1/F3) Observancia con slug no coincidente; slug /invercion con error ortográfico; Registro ambiguo."
+      "(A2) T007 describe alcance técnico antes del beneficio de registrar, invirtiendo la pirámide.",
+      "(A5) Botón «LINK EXTERNO» (T029) sin valor informativo para la tarea del usuario.",
+      "(B2) Términos sin glosa: Esquemas de Trazados, Guías PPH, Guías Global PPH, Guías PAPV.",
+      "(B6) Modal con imperativo distante: «Utiliza el canal de comunicación que prefieras».",
+      "(C1/C3/C7) T008 con tres criterios de patentabilidad en oración densa con punto y coma, sin formato de lista.",
+      "(D7) Mayúsculas sostenidas en BUSCADORES, TIPOS DE PATENTES, TRÁMITES, botones y modal buscador.",
+      "(E4) <title> «Patentes» genérico sin contexto institucional ni descripción de tarea.",
+      "(F1) Botón «LINK EXTERNO» no describe el destino real (ClaveÚnica).",
+      "(H1) Iconos con alt=\"mas\"/alt=\"tramites\" genéricos repetidos y un ítem de carrusel con alt vacío."
     ],
-    "hallazgos_prioridad_baja": []
+    "hallazgos_prioridad_baja": [
+      "(B4) Uso de «p.ej.» en vez de «por ejemplo» (T007).",
+      "(C4) T008 mezcla tres ideas distintas en un único párrafo corrido.",
+      "(D2) T008 encadena criterios con punto y coma en vez de puntos seguidos.",
+      "(D5) Enumeración de criterios de patentabilidad en texto corrido en vez de lista."
+    ]
   },
   "sustituciones": [
-    {
-      "linea": "T070",
-      "html_linea_aprox": "HTML-L1046",
-      "original": "Tu consulta ser&aacute; atendida por un especialista.",
-      "propuesto": "Un especialista de INAPI responderá tu consulta.",
-      "criterio_id": "B1",
-      "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo."
-    },
-    {
-      "linea": "T068",
-      "html_linea_aprox": "HTML-L1046",
-      "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:",
-      "propuesto": "Elige cómo contactarnos:",
-      "criterio_id": "B6",
-      "motivo": "Simplifica frase y reduce distancia formal del imperativo."
-    },
-    {
-      "linea": "T046",
-      "html_linea_aprox": "HTML-L830",
-      "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
-      "propuesto": "Para obtener una patente, tu invención debe cumplir tres requisitos: (1) novedad; (2) actividad inventiva; (3) aplicación industrial. Conoce cada requisito en detalle.",
-      "criterio_id": "A2",
-      "motivo": "Aplica pirámide invertida: indica primero el número de requisitos y el beneficio, luego los desglosa."
-    },
-    {
-      "linea": "T044",
-      "html_linea_aprox": "HTML-L816",
-      "original": "Seg&uacute;n acuerdos internacionales, las patentes se pueden obtener sobre cualquier invenci&oacute;n sea un proceso o un producto en todos los &aacute;mbitos de la tecnolog&iacute;a (p.ej. mec&aacute;nica, el&eacute;ctrica, biotecnolog&iacute;a, farmacia o qu&iacute;mica).",
-      "propuesto": "Registrar tu patente te da el derecho exclusivo de explotar comercialmente tu invención por hasta 20 años, en cualquier ámbito tecnológico.",
-      "criterio_id": "A5",
-      "motivo": "Reorienta el párrafo hacia el beneficio para el inventor en lugar de enumerar ámbitos tecnológicos internacionales."
-    },
-    {
-      "linea": "T046",
-      "html_linea_aprox": "HTML-L830",
-      "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
-      "propuesto": "Para obtener una patente, tu invención debe cumplir tres requisitos: (1) novedad; (2) actividad inventiva; (3) aplicación industrial.",
-      "criterio_id": "C1",
-      "motivo": "Elimina la estructura repetitiva con punto y coma y aplica orden sujeto-verbo-predicado directo."
-    },
-    {
-      "linea": "T046",
-      "html_linea_aprox": "HTML-L830",
-      "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
-      "propuesto": "Para obtener una patente, tu invención debe cumplir tres requisitos: (1) novedad; (2) actividad inventiva; (3) aplicación industrial.",
-      "criterio_id": "C3",
-      "motivo": "Descompone la oración densa en lista numerada de tres ítems."
-    },
-    {
-      "linea": "T004",
-      "html_linea_aprox": "HTML-L632",
-      "original": "PCT",
-      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
-      "criterio_id": "B3",
-      "motivo": "Sigla sin definición en el menú; primera aparición en la página."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L646",
-      "original": "Observancia",
-      "propuesto": "Observancia (protección contra falsificaciones)",
-      "criterio_id": "B2",
-      "motivo": "Término técnico-legal sin glosa para el ciudadano general."
-    },
-    {
-      "linea": "T064",
-      "html_linea_aprox": "HTML-L957",
-      "original": "Gu&iacute;as PPH",
-      "propuesto": "Guías PPH (Programa de Trabajo Acelerado de Patentes)",
-      "criterio_id": "B2",
-      "motivo": "Sigla PPH sin definición accesible en la página."
-    },
-    {
-      "linea": "T065",
-      "html_linea_aprox": "HTML-L959",
-      "original": "Gu&iacute;as PAPV",
-      "propuesto": "Guías PAPV (Procedimiento Acelerado de Patentes Verdes)",
-      "criterio_id": "B2",
-      "motivo": "Sigla PAPV sin definición accesible en la página."
-    },
-    {
-      "linea": "T028",
-      "html_linea_aprox": "HTML-L754",
-      "original": "LINK EXTERNO",
-      "propuesto": "(eliminar nodo)",
-      "criterio_id": "D1",
-      "motivo": "Texto de desarrollo no eliminado en el modal de acceso."
-    },
-    {
-      "linea": "T055",
-      "html_linea_aprox": "HTML-L883–884",
-      "original": "Modelos</h4><p> de Utilidad",
-      "propuesto": "Modelos de Utilidad",
-      "criterio_id": "D1",
-      "motivo": "El encabezado H4 está partido en dos nodos HTML; unificar en un solo H4."
-    },
-    {
-      "linea": "HTML-L1011",
-      "html_linea_aprox": "HTML-L1011",
-      "original": "alt='' title=''",
-      "propuesto": "alt='Depósito de recursos IDA — Centro de Documentación'",
-      "criterio_id": "D1",
-      "motivo": "Enlace del carrusel con atributos alt y title vacíos."
-    },
-    {
-      "linea": "T021",
-      "html_linea_aprox": "HTML-L704",
-      "original": "ACCESOS",
-      "propuesto": "Accesos",
-      "criterio_id": "D7",
-      "motivo": "Texto en mayúsculas completas; capitalización inicial es suficiente."
-    },
-    {
-      "linea": "T022",
-      "html_linea_aprox": "HTML-L705",
-      "original": "BUSCADOR",
-      "propuesto": "Buscador",
-      "criterio_id": "D7",
-      "motivo": "Placeholder en mayúsculas totales; normalizar."
-    },
-    {
-      "linea": "T049",
-      "html_linea_aprox": "HTML-L853",
-      "original": "BUSCADORES",
-      "propuesto": "Buscadores",
-      "criterio_id": "D7",
-      "motivo": "H2 de sección en mayúsculas totales; normalizar."
-    },
-    {
-      "linea": "T050",
-      "html_linea_aprox": "HTML-L858",
-      "original": "BUSCADOR EN BASE DE DATOS",
-      "propuesto": "Buscar en base de datos",
-      "criterio_id": "D7",
-      "motivo": "Botón en mayúsculas totales; normalizar capitalización."
-    },
-    {
-      "linea": "T051",
-      "html_linea_aprox": "HTML-L860",
-      "original": "NOTIFICACIONES DIARIAS",
-      "propuesto": "Notificaciones diarias",
-      "criterio_id": "D7",
-      "motivo": "Botón en mayúsculas totales; normalizar capitalización."
-    },
-    {
-      "linea": "E3-ausencia",
-      "html_linea_aprox": "HTML-L782",
-      "original": "(ausencia)",
-      "propuesto": "Última actualización: julio de 2026",
-      "criterio_id": "E3",
-      "motivo": "Insertar fecha de actualización visible bajo el H3 «Para Informarse»."
-    },
-    {
-      "linea": "E4-title",
-      "html_linea_aprox": "HTML-L1",
-      "original": "Patentes",
-      "propuesto": "INAPI — Patentes: qué son, cómo registrarlas y tipos",
-      "criterio_id": "E4",
-      "motivo": "El title genérico no comunica contexto institucional ni la tarea."
-    },
-    {
-      "linea": "T001",
-      "html_linea_aprox": "HTML-L629",
-      "original": "Conoce m&aacute;s",
-      "propuesto": "Conoce la propiedad industrial",
-      "criterio_id": "F1",
-      "motivo": "El enlace lleva a /propiedad-intelectual-e-industrial; el texto debe describir el destino."
-    },
-    {
-      "linea": "T001",
-      "html_linea_aprox": "HTML-L629",
-      "original": "Conoce m&aacute;s",
-      "propuesto": "Conoce la propiedad industrial",
-      "criterio_id": "F2",
-      "motivo": "«Conoce más» es texto genérico que no describe el destino."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L646",
-      "original": "Observancia",
-      "propuesto": "Protege tu invención contra falsificaciones",
-      "criterio_id": "F1",
-      "motivo": "El enlace lleva a /protege-tu-idea; el texto visible no coincide con el destino."
-    },
-    {
-      "linea": "HTML-L873",
-      "html_linea_aprox": "HTML-L873",
-      "original": "/patentes/tipos-de-patentes/invercion",
-      "propuesto": "/patentes/tipos-de-patentes/invencion",
-      "criterio_id": "F1",
-      "motivo": "El slug «invercion» tiene error ortográfico; debe ser «invencion» para coincidir con el H4 «Invención»."
-    },
-    {
-      "linea": "T027",
-      "html_linea_aprox": "HTML-L754",
-      "original": "Registro",
-      "propuesto": "Crear cuenta",
-      "criterio_id": "F3",
-      "motivo": "«Registro» es ambiguo entre registro de patente y creación de cuenta de usuario."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L646",
-      "original": "Observancia",
-      "propuesto": "Protege tu invención contra falsificaciones",
-      "criterio_id": "F3",
-      "motivo": "«Observancia» no describe el destino real /protege-tu-idea."
-    },
-    {
-      "linea": "HTML-L967",
-      "html_linea_aprox": "HTML-L967",
-      "original": "Gu&iacute;as PPH EPO-INAPI",
-      "propuesto": "Guías PPH EPO-INAPI (PDF)",
-      "criterio_id": "F4",
-      "motivo": "Enlace a PDF sin indicación de formato ni peso."
-    },
-    {
-      "linea": "HTML-L1001",
-      "html_linea_aprox": "HTML-L1001",
-      "original": "Teletrabajo",
-      "propuesto": "Informe de Teletrabajo INAPI (PDF)",
-      "criterio_id": "F4",
-      "motivo": "El alt «Teletrabajo» no indica que el destino es un PDF."
-    },
-    {
-      "linea": "T076",
-      "html_linea_aprox": "HTML-L1052",
-      "original": "RUT: 65.999.669-3",
-      "propuesto": "(eliminar nodo)",
-      "criterio_id": "G1",
-      "motivo": "RUT de persona jurídica pública; no aporta valor a la tarea del usuario en esta página."
-    }
+    { "linea": "T022", "html_linea_aprox": "HTML-shell", "original": "Tu consulta ser&aacute; atendida por un especialista.", "propuesto": "Un especialista de INAPI responderá tu consulta.", "criterio_id": "B1", "motivo": "Elimina voz pasiva; coloca al especialista como sujeto activo. Cambio en el modal de contacto global (_Layout.cshtml)." },
+    { "linea": "T027", "html_linea_aprox": "HTML-shell", "original": "PCT", "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)", "criterio_id": "B3", "motivo": "Sigla sin definición en el menú global de navegación; patrón sistémico transversal a todas las páginas del sitio." },
+    { "linea": "T014", "html_linea_aprox": "HTML-L900-902", "original": "Esquemas de Trazados o Topograf&iacute;as de Circuitos Integrados", "propuesto": "Esquemas de Trazados o Topografías de Circuitos Integrados (protección del diseño de chips electrónicos)", "criterio_id": "B2", "motivo": "Término altamente especializado sin glosa; agregar breve explicación entre paréntesis." },
+    { "linea": "T016", "html_linea_aprox": "HTML-L957", "original": "Gu&iacute;as PPH", "propuesto": "Guías PPH (Patent Prosecution Highway — examen acelerado de patentes)", "criterio_id": "B2", "motivo": "Sigla de programa internacional sin glosa en la etiqueta del tab." },
+    { "linea": "T007", "html_linea_aprox": "HTML-L816", "original": "p.ej. mec&aacute;nica, el&eacute;ctrica, biotecnolog&iacute;a, farmacia o qu&iacute;mica", "propuesto": "por ejemplo, mecánica, eléctrica, biotecnología, farmacia o química", "criterio_id": "B4", "motivo": "Reemplaza abreviatura «p.ej.» por «por ejemplo»." },
+    { "linea": "T022", "html_linea_aprox": "HTML-shell", "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:", "propuesto": "Elige cómo contactarnos:", "criterio_id": "B6", "motivo": "Simplifica la frase y reduce la distancia formal del imperativo. Cambio en el modal de contacto global." },
+    { "linea": "T007", "html_linea_aprox": "HTML-L816", "original": "Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).", "propuesto": "Registrar tu patente te da el derecho exclusivo a explotar tu invención en Chile, sea un proceso o un producto, en cualquier ámbito tecnológico.", "criterio_id": "A2", "motivo": "Reorienta el párrafo hacia el beneficio concreto del titular antes de detallar el alcance técnico." },
+    { "linea": "T029", "html_linea_aprox": "HTML-shell", "original": "LINK EXTERNO", "propuesto": "(eliminar nodo)", "criterio_id": "A5", "motivo": "Texto de desarrollo sin valor informativo en el modal de login; patrón sistémico transversal a todo el sitio." },
+    { "linea": "T029", "html_linea_aprox": "HTML-shell", "original": "LINK EXTERNO", "propuesto": "Ir a Registro con ClaveÚnica", "criterio_id": "F1", "motivo": "El texto del enlace no coincide con el nombre ni la función del destino (claveunica.gob.cl)." },
+    { "linea": "T016", "html_linea_aprox": "HTML-L957-976", "original": "Guías PPH EPO-INAPI / Guías INAPI - SIPO / Guías PPH INAPI - IMPI / Guías PPH INAPI - INDECOPI / Guías PPH INAPI - SIC", "propuesto": "Guías PPH EPO-INAPI (PDF) / Guías INAPI - SIPO (PDF) / Guías PPH INAPI - IMPI (PDF) / Guías PPH INAPI - INDECOPI (PDF) / Guías PPH INAPI - SIC (PDF)", "criterio_id": "F4", "motivo": "Agregar indicación de formato «(PDF)» a cada enlace de documento descargable de la pestaña Guías PPH." },
+    { "linea": "T018", "html_linea_aprox": "HTML-L979-980", "original": "Guía Global PPH en español / Guía Global PPH en inglés", "propuesto": "Guía Global PPH en español (PDF) / Guía Global PPH en inglés (PDF)", "criterio_id": "F4", "motivo": "Agregar indicación de formato «(PDF)» a los enlaces de la pestaña Guías Global PPH." },
+    { "linea": "T019", "html_linea_aprox": "HTML-L984", "original": "Guías PAPV", "propuesto": "Guías PAPV (PDF)", "criterio_id": "F4", "motivo": "Agregar indicación de formato «(PDF)» al enlace de la pestaña Guías PAPV." },
+    { "linea": "E3-ausencia", "html_linea_aprox": "HTML-L782", "original": "(ausencia)", "propuesto": "Última actualización: julio de 2026", "criterio_id": "E3", "motivo": "Insertar fecha de actualización visible bajo el H1 «Patentes» o antes de la sección «Para Informarse»." },
+    { "linea": "T001", "html_linea_aprox": "HTML-L1", "original": "Patentes", "propuesto": "INAPI — Patentes: qué son, requisitos y cómo tramitarlas", "criterio_id": "E4", "motivo": "El title genérico no incluye el nombre institucional ni describe la tarea de la página." },
+    { "linea": "T023", "html_linea_aprox": "HTML-L1052", "original": "Instituto Nacional de Propiedad&lt;br&gt;industrial (INAPI)", "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)", "criterio_id": "D1", "motivo": "Corrige la capitalización del nombre propio de la institución en el footer; bloque de shell común a todas las páginas del sitio." },
+    { "linea": "D1-meta-keywords", "html_linea_aprox": "HTML-head", "original": "idicadores,organigrama,...,documentaicón,gestión", "propuesto": "indicadores,organigrama,...,documentación,gestión", "criterio_id": "D1", "motivo": "Corrige dos errores de tipeo en la metaetiqueta keywords del <head>." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Para obtener una patente, el invento debe cumplir tres requisitos:\n- Ser novedoso.\n- Tener nivel inventivo.\n- Poder aplicarse industrialmente.", "criterio_id": "C1", "motivo": "Corrige el orden sujeto-verbo-predicado invertido y presenta los requisitos como lista clara." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Para obtener una patente, el invento debe cumplir tres requisitos:\n- Ser novedoso.\n- Tener nivel inventivo.\n- Poder aplicarse industrialmente.", "criterio_id": "C3", "motivo": "Descompone la oración densa de tres cláusulas coordinadas en una estructura enumerada." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Para obtener una patente, el invento debe cumplir tres requisitos:\n- Ser novedoso.\n- Tener nivel inventivo.\n- Poder aplicarse industrialmente.", "criterio_id": "C4", "motivo": "Separa las tres ideas que hoy están mezcladas en un único párrafo corrido." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Para obtener una patente, el invento debe:\n- Ser novedoso.\n- Tener nivel inventivo.\n- Poder aplicarse industrialmente.", "criterio_id": "C7", "motivo": "Los tres requisitos de patentabilidad deben presentarse como lista en modo infinitivo, no como prosa corrida." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Existen tres criterios fundamentales de patentabilidad: novedad, nivel inventivo y aplicación industrial.", "criterio_id": "D2", "motivo": "Reemplaza el encadenamiento con punto y coma y comas por una oración breve." },
+    { "linea": "T008", "html_linea_aprox": "HTML-L824-830", "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.", "propuesto": "Existen tres criterios fundamentales de patentabilidad:\n- Novedad\n- Nivel inventivo\n- Aplicación industrial", "criterio_id": "D5", "motivo": "Convierte la enumeración en texto corrido en una lista de viñetas." },
+    { "linea": "T010", "html_linea_aprox": "HTML-L853", "original": "BUSCADORES", "propuesto": "Buscadores", "criterio_id": "D7", "motivo": "H2 de sección en mayúsculas sostenidas; normalizar a capitalización estándar." },
+    { "linea": "T011", "html_linea_aprox": "HTML-L858", "original": "BUSCADOR EN BASE DE DATOS", "propuesto": "Buscador en base de datos", "criterio_id": "D7", "motivo": "Botón en mayúsculas sostenidas; normalizar capitalización." },
+    { "linea": "T012", "html_linea_aprox": "HTML-L860", "original": "NOTIFICACIONES DIARIAS", "propuesto": "Notificaciones diarias", "criterio_id": "D7", "motivo": "Botón en mayúsculas sostenidas; normalizar capitalización." },
+    { "linea": "T014", "html_linea_aprox": "HTML-L868", "original": "TIPOS DE PATENTES", "propuesto": "Tipos de patentes", "criterio_id": "D7", "motivo": "H2 de sección en mayúsculas sostenidas; normalizar." },
+    { "linea": "T015", "html_linea_aprox": "HTML-L911", "original": "TRÁMITES", "propuesto": "Trámites", "criterio_id": "D7", "motivo": "H2 de sección en mayúsculas sostenidas; normalizar." },
+    { "linea": "T030", "html_linea_aprox": "HTML-shell", "original": "BUSCAR Y TRAMITAR", "propuesto": "Buscar y tramitar", "criterio_id": "D7", "motivo": "Encabezado del modal de búsqueda global en mayúsculas sostenidas; nodo de shell común a todas las páginas." },
+    { "linea": "T029", "html_linea_aprox": "HTML-shell", "original": "LINK EXTERNO", "propuesto": "Ir al enlace externo", "criterio_id": "D7", "motivo": "Botón del modal de acceso en mayúsculas sostenidas; nodo de shell común a todas las páginas del sitio." },
+    { "linea": "T014", "html_linea_aprox": "HTML-shell", "original": "&lt;img alt=\"mas\" title=\"mas\"&gt;", "propuesto": "alt=\"Ver más sobre [nombre del tipo de patente]\"", "criterio_id": "H1", "motivo": "El icono decorativo «+» usa alt=\"mas\" idéntico en las 4 tarjetas de Tipos de Patentes, sin diferenciar a qué tipo corresponde cada uno." },
+    { "linea": "T015", "html_linea_aprox": "HTML-shell", "original": "&lt;img alt=\"tramites\"&gt;", "propuesto": "alt=\"[nombre de la tarjeta: Tramitación Patente | Títulos y Certificados | Recursos para Usuarios]\"", "criterio_id": "H1", "motivo": "El icono se repite idéntico en las 3 tarjetas de la sección Trámites, sin describir el contenido específico de cada una." },
+    { "linea": "T020", "html_linea_aprox": "HTML-L1010-1011", "original": "(ausencia) — &lt;img src=\"banner-recursos.jpg\" alt=\"\" title=\"\"&gt;", "propuesto": "alt=\"[Descripción del logo o campaña institucional representado]\"", "criterio_id": "H1", "motivo": "Ítem del carrusel de logos institucionales sin ningún valor de alt/title, a diferencia del resto de los 13 ítems del mismo carrusel." }
   ],
-  "nota_final_tic": "Para aplicar las sustituciones: (1) backup del HTML antes de cualquier cambio; (2) buscar entidades HTML codificadas (&#243;, &aacute;, etc.) si el editor trabaja sobre HTML crudo; (3) el H4 «Modelos de Utilidad» (HTML-L883–884) está partido entre <h4> y <p> — unificar en un solo <h4>; (4) los PDFs de guías PPH están en la sección tabs (HTML-L957–986) — agregar «(PDF)» al texto visible del enlace; (5) el slug /invercion (HTML-L873) requiere corrección en la ruta del CMS, no solo en el texto visible; (6) el <title> está en HTML-L1–2 en líneas separadas."
+  "nota_final_tic": "Para aplicar las sustituciones: (1) backup del HTML antes de cualquier cambio; (2) el botón «LINK EXTERNO» (T029) y el modal de contacto (T022) son componentes de shell (_Layout.cshtml), afectan a todas las páginas del sitio — coordinar el cambio a nivel de plantilla, no por página; (3) T008 concentra 6 criterios distintos (A2, C1, C3, C4, C7, D2, D5) sobre el mismo párrafo — aplicar una única reescritura que satisfaga todos; se retuvo la propuesta de mayor severidad/alcance (lista de requisitos) como versión canónica y se anotaron variantes menores por criterio; (4) las metaetiquetas keywords del <head> no son visibles al usuario pero se recomienda corregir por higiene de datos institucionales y SEO; (5) G1 se calibra como cumple para el RUT institucional de persona jurídica pública (65.999.669-3), corrigiendo la calibración de la versión provisoria previa de este mismo JSON generada fuera de este flujo."
 }
