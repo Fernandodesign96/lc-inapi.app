@@ -38,8 +38,9 @@ async function main() {
 
   console.log(`OK: data/exports/${filename}`)
   console.log(`  URLs Clarity vigentes: ${stats.auditCount}`)
-  console.log(`  Hojas hito: ${stats.hitoSheets}`)
-  console.log(`  Filas detalle: ${stats.totalRows}`)
+  console.log(`  Hitos en alcance: ${stats.hitoSheets}`)
+  console.log(`  Filas detalle (URL): ${stats.totalRows}`)
+  console.log(`  Pestañas: ${stats.sheetNames.join(", ")}`)
 }
 
 main().catch((e) => {

@@ -1,48 +1,66 @@
 import ExcelJS from "exceljs"
 
+import type { CriterionId } from "../../schemas/checklist"
+
 import type { LoadedClarityAudit } from "./mei-audit-loader"
 import { loadVigenteClarityAudits } from "./mei-audit-loader"
-import { MEI_EXPORT_HITOS, type MeiExportHito } from "./mei-hitos"
+import {
+  loadChecklistCriteriaList,
+  type ChecklistCriterionEntry,
+} from "./mei-checklist-catalog"
+import { MEI_EXPORT_HITOS, hitoById, type MeiExportHito } from "./mei-hitos"
 import {
   buildRowsForHito,
-  buildUrlSummariesForHito,
-  MEI_EXCEL_COLUMNS,
-  MEI_EXCEL_HEADER_LABELS,
   type MeiExcelRow,
-  type MeiUrlResumen,
 } from "./mei-row-builder"
 
-const HEADER_FILL: ExcelJS.Fill = {
+const HEADER_BLUE: ExcelJS.Fill = {
   type: "pattern",
   pattern: "solid",
-  fgColor: { argb: "FFE6F1FB" },
+  fgColor: { argb: "FF1F4E79" },
 }
 
-function cellValue(row: MeiExcelRow, key: keyof MeiExcelRow): string | number | null {
-  const v = row[key]
-  if (v === null || v === undefined) return ""
-  return v
+const TOTAL_CYAN: ExcelJS.Fill = {
+  type: "pattern",
+  pattern: "solid",
+  fgColor: { argb: "FFBDD7EE" },
 }
 
-function writeHeaderRow(sheet: ExcelJS.Worksheet, rowIndex: number) {
-  const row = sheet.getRow(rowIndex)
-  MEI_EXCEL_COLUMNS.forEach((key, idx) => {
-    const cell = row.getCell(idx + 1)
-    cell.value = MEI_EXCEL_HEADER_LABELS[key]
-    cell.font = { bold: true }
-    cell.fill = HEADER_FILL
-  })
-  row.commit()
+const SECTION_FILL: ExcelJS.Fill = {
+  type: "pattern",
+  pattern: "solid",
+  fgColor: { argb: "FFD6DCE4" },
 }
 
-function writeDataRows(sheet: ExcelJS.Worksheet, startRow: number, rows: MeiExcelRow[]) {
-  rows.forEach((data, offset) => {
-    const row = sheet.getRow(startRow + offset)
-    MEI_EXCEL_COLUMNS.forEach((key, idx) => {
-      row.getCell(idx + 1).value = cellValue(data, key)
-    })
-    row.commit()
-  })
+const URL_TITLE_FILL: ExcelJS.Fill = {
+  type: "pattern",
+  pattern: "solid",
+  fgColor: { argb: "FF1F4E79" },
+}
+
+const WHITE_BOLD: Partial<ExcelJS.Font> = {
+  bold: true,
+  color: { argb: "FFFFFFFF" },
+}
+
+const DETAIL_HEADERS = [
+  "Página",
+  "Dirección",
+  "ID/Línea",
+  "Criterio",
+  "CheckList",
+  "Texto original (Incumplimiento)",
+  "Sustitución propuesta",
+  "Justificación",
+] as const
+
+function styleHeaderRow(row: ExcelJS.Row, colCount: number) {
+  for (let c = 1; c <= colCount; c++) {
+    const cell = row.getCell(c)
+    cell.font = WHITE_BOLD
+    cell.fill = HEADER_BLUE
+    cell.alignment = { vertical: "middle", wrapText: true }
+  }
 }
 
 function autoWidth(sheet: ExcelJS.Worksheet, maxCols: number) {
@@ -51,137 +69,253 @@ function autoWidth(sheet: ExcelJS.Worksheet, maxCols: number) {
     sheet.eachRow((row) => {
       const val = row.getCell(c).value
       const len = val ? String(val).length : 0
-      max = Math.min(Math.max(max, len + 2), 60)
+      max = Math.min(Math.max(max, len + 2), 56)
     })
     sheet.getColumn(c).width = max
   }
 }
 
-function addHitoSheet(
+function resolveHitos(hitoIds?: string[]): MeiExportHito[] {
+  if (!hitoIds || hitoIds.length === 0) return [...MEI_EXPORT_HITOS]
+  return MEI_EXPORT_HITOS.filter((h) => hitoIds.includes(h.id))
+}
+
+function isDocumentaryOnly(hitos: MeiExportHito[]): boolean {
+  return (
+    hitos.length > 0 && hitos.every((h) => !h.incluyeAuditoriasUrl)
+  )
+}
+
+function includesFullChecklist(hitos: MeiExportHito[]): boolean {
+  return hitos.some((h) => h.id === "H01" || h.criterios.length === 0)
+}
+
+function criterioIdsForExport(hitos: MeiExportHito[]): Set<CriterionId> | "all" {
+  if (includesFullChecklist(hitos)) return "all"
+  const set = new Set<CriterionId>()
+  for (const h of hitos) {
+    for (const c of h.criterios) set.add(c)
+  }
+  return set
+}
+
+function collectRows(
+  hitos: MeiExportHito[],
+  audits: LoadedClarityAudit[],
+  root: string,
+): MeiExcelRow[] {
+  const rows: MeiExcelRow[] = []
+  for (const hito of hitos) {
+    if (!hito.incluyeAuditoriasUrl) continue
+    rows.push(...buildRowsForHito(hito.id, audits, root))
+  }
+  return rows
+}
+
+function seccionLabel(tipoPagina: string): string {
+  if (tipoPagina === "tramites") return "Trámites"
+  if (tipoPagina === "sitioweb") return "Sitio Web"
+  return tipoPagina
+}
+
+function addIndiceSheet(
   workbook: ExcelJS.Workbook,
-  hito: MeiExportHito,
+  audits: LoadedClarityAudit[],
   rows: MeiExcelRow[],
-  summaries: MeiUrlResumen[],
+  hitos: MeiExportHito[],
+  documentary: boolean,
 ) {
-  const sheet = workbook.addWorksheet(hito.sheetName)
-  sheet.mergeCells(1, 1, 1, MEI_EXCEL_COLUMNS.length)
-  sheet.getCell(1, 1).value = `HITO ${hito.id}: ${hito.tituloHito}`
-  sheet.getCell(1, 1).font = { bold: true, size: 12 }
+  const sheet = workbook.addWorksheet("Índice")
+  sheet.mergeCells(1, 1, 1, 5)
+  sheet.getCell(1, 1).value = "Auditoría Lenguaje Claro — INAPI"
+  sheet.getCell(1, 1).font = { bold: true, size: 14 }
 
-  sheet.mergeCells(2, 1, 2, MEI_EXCEL_COLUMNS.length)
-  sheet.getCell(2, 1).value =
-    `Actividades MEI: ${hito.actividades.join(", ")} | Inicio: ${hito.fechaInicioActividad} | Término actividad: ${hito.fechaTerminoActividad} | Fecha hito: ${hito.fechaHito}`
+  const hitoLabel = hitos.map((h) => h.id).join(", ")
+  sheet.mergeCells(2, 1, 2, 5)
+  sheet.getCell(2, 1).value = documentary
+    ? `Evidencia documental (${hitoLabel}) — sin filas por URL`
+    : `Consolidado ${audits.length} URLs (Sitio Web + Trámites) — hito(s) ${hitoLabel}`
 
-  sheet.mergeCells(3, 1, 3, MEI_EXCEL_COLUMNS.length)
-  const criteriosLabel =
-    hito.criterios.length > 0 ? hito.criterios.join(", ") : "N/A (evidencia documental)"
-  sheet.getCell(3, 1).value = `Criterios checklist: ${criteriosLabel}`
+  const headerRow = sheet.getRow(4)
+  ;["URL #", "Sección", "Página", "Dirección", "N° incumplimientos"].forEach(
+    (label, i) => {
+      headerRow.getCell(i + 1).value = label
+    },
+  )
+  styleHeaderRow(headerRow, 5)
 
-  if (summaries.length > 0) {
-    const resumenStart = 5
-    sheet.getCell(resumenStart, 1).value = "Resumen por URL auditada (Clarity vigente)"
-    sheet.getCell(resumenStart, 1).font = { bold: true }
-    const resumenHeaders = [
-      "rank",
-      "url",
-      "nombre_ui",
-      "% LC",
-      "fecha_auditoria",
-      "incumple_hito",
-      "cumple_hito",
-      "no_aplica_hito",
-      "audit_id",
-    ]
-    const headerRow = sheet.getRow(resumenStart + 1)
-    resumenHeaders.forEach((h, i) => {
-      headerRow.getCell(i + 1).value = h
-      headerRow.getCell(i + 1).font = { bold: true }
-    })
-    summaries.forEach((s, i) => {
-      const r = sheet.getRow(resumenStart + 2 + i)
-      r.getCell(1).value = s.rankClarity
-      r.getCell(2).value = s.url
-      r.getCell(3).value = s.nombreUi
-      r.getCell(4).value = s.porcentajeLc
-      r.getCell(5).value = s.fechaAuditoria
-      r.getCell(6).value = s.criteriosHitoIncumple
-      r.getCell(7).value = s.criteriosHitoCumple
-      r.getCell(8).value = s.criteriosHitoNoAplica
-      r.getCell(9).value = s.auditId
-    })
-    const detailHeaderRow = resumenStart + 2 + summaries.length + 1
-    writeHeaderRow(sheet, detailHeaderRow)
-    writeDataRows(sheet, detailHeaderRow + 1, rows)
-    sheet.views = [{ state: "frozen", ySplit: detailHeaderRow }]
-  } else {
-    writeHeaderRow(sheet, 5)
-    writeDataRows(sheet, 6, rows)
-    sheet.views = [{ state: "frozen", ySplit: 5 }]
+  if (documentary) {
+    const note = sheet.getRow(5)
+    note.getCell(1).value = "—"
+    note.getCell(2).value = "Evidencia"
+    note.getCell(3).value = "Checklist Editorial INAPI v1.1"
+    note.getCell(4).value =
+      "N/A — evidencia documental (actividad 1 / H01); ver pestaña CheckList"
+    note.getCell(5).value = 0
+
+    const total = sheet.getRow(6)
+    total.getCell(1).value = "TOTAL"
+    total.getCell(5).value = 0
+    for (let c = 1; c <= 5; c++) {
+      total.getCell(c).fill = TOTAL_CYAN
+      total.getCell(c).font = { bold: true }
+    }
+    autoWidth(sheet, 5)
+    return
   }
 
-  autoWidth(sheet, MEI_EXCEL_COLUMNS.length)
-}
+  const countByUrl = new Map<string, number>()
+  for (const row of rows) {
+    if (row.estadoAuditoria !== "incumple") continue
+    countByUrl.set(row.url, (countByUrl.get(row.url) ?? 0) + 1)
+  }
 
-function addIndiceSheet(workbook: ExcelJS.Workbook) {
-  const sheet = workbook.addWorksheet("00_Indice")
-  const headers = [
-    "hito_id",
-    "sheet",
-    "actividades",
-    "fecha_inicio",
-    "fecha_termino",
-    "fecha_hito",
-    "criterios",
-  ]
-  const headerRow = sheet.getRow(1)
-  headers.forEach((h, i) => {
-    headerRow.getCell(i + 1).value = h
-    headerRow.getCell(i + 1).font = { bold: true }
-  })
-  MEI_EXPORT_HITOS.forEach((hito, idx) => {
-    const row = sheet.getRow(idx + 2)
-    row.getCell(1).value = hito.id
-    row.getCell(2).value = hito.sheetName
-    row.getCell(3).value = hito.actividades.join(", ")
-    row.getCell(4).value = hito.fechaInicioActividad
-    row.getCell(5).value = hito.fechaTerminoActividad
-    row.getCell(6).value = hito.fechaHito
-    row.getCell(7).value = hito.criterios.join(", ") || "N/A"
-  })
-  autoWidth(sheet, headers.length)
-}
-
-function addResumenUrlsSheet(workbook: ExcelJS.Workbook, audits: LoadedClarityAudit[]) {
-  const sheet = workbook.addWorksheet("99_Resumen_URLs")
-  const headers = [
-    "rank_clarity",
-    "url",
-    "nombre_ui",
-    "tipo_pagina",
-    "porcentaje_lc",
-    "fecha_auditoria",
-    "estado_aceptacion",
-    "audit_id",
-    "evaluador",
-  ]
-  const headerRow = sheet.getRow(1)
-  headers.forEach((h, i) => {
-    headerRow.getCell(i + 1).value = h
-    headerRow.getCell(i + 1).font = { bold: true }
-  })
+  let totalInc = 0
   audits.forEach((audit, idx) => {
-    const row = sheet.getRow(idx + 2)
-    row.getCell(1).value = audit.rank
-    row.getCell(2).value = audit.url
-    row.getCell(3).value = audit.nombreUi
-    row.getCell(4).value = audit.tipoPagina
-    row.getCell(5).value = audit.porcentajeLc
-    row.getCell(6).value = audit.fechaEvaluacionIso.slice(0, 10)
-    row.getCell(7).value = audit.bundle.audit.estado_aceptacion
-    row.getCell(8).value = audit.auditId
-    row.getCell(9).value = audit.bundle.audit.evaluador_uid
+    const r = sheet.getRow(5 + idx)
+    const n = countByUrl.get(audit.url) ?? 0
+    totalInc += n
+    r.getCell(1).value = idx + 1
+    r.getCell(2).value = seccionLabel(audit.tipoPagina)
+    r.getCell(3).value = audit.nombreUi
+    r.getCell(4).value = audit.url
+    r.getCell(5).value = n
   })
-  autoWidth(sheet, headers.length)
+
+  const totalRow = sheet.getRow(5 + audits.length)
+  totalRow.getCell(1).value = "TOTAL"
+  totalRow.getCell(5).value = totalInc
+  for (let c = 1; c <= 5; c++) {
+    totalRow.getCell(c).fill = TOTAL_CYAN
+    totalRow.getCell(c).font = { bold: true }
+  }
+
+  sheet.views = [{ state: "frozen", ySplit: 4 }]
+  autoWidth(sheet, 5)
+}
+
+function addCheckListSheet(
+  workbook: ExcelJS.Workbook,
+  root: string,
+  hitos: MeiExportHito[],
+) {
+  const sheet = workbook.addWorksheet("CheckList")
+  const all = loadChecklistCriteriaList(root)
+  const filter = criterioIdsForExport(hitos)
+  const entries: ChecklistCriterionEntry[] =
+    filter === "all" ? all : all.filter((c) => filter.has(c.id))
+
+  const header = sheet.getRow(1)
+  header.getCell(1).value = "Criterio"
+  header.getCell(2).value = "CheckList"
+  styleHeaderRow(header, 2)
+
+  let rowIdx = 2
+  let lastSection = ""
+  for (const entry of entries) {
+    if (entry.sectionId !== lastSection) {
+      lastSection = entry.sectionId
+      const sep = sheet.getRow(rowIdx)
+      sep.getCell(1).value = entry.sectionId
+      sep.getCell(2).value = entry.sectionTitle
+      sep.getCell(1).fill = SECTION_FILL
+      sep.getCell(2).fill = SECTION_FILL
+      sep.getCell(1).font = { bold: true }
+      sep.getCell(2).font = { bold: true }
+      rowIdx++
+    }
+    const r = sheet.getRow(rowIdx)
+    r.getCell(1).value = entry.id
+    r.getCell(2).value = entry.criterion
+    r.getCell(2).alignment = { wrapText: true }
+    rowIdx++
+  }
+
+  sheet.getColumn(1).width = 12
+  sheet.getColumn(2).width = 72
+  sheet.views = [{ state: "frozen", ySplit: 1 }]
+}
+
+function lineaId(row: MeiExcelRow): string {
+  if (row.lineaRef) return String(row.lineaRef)
+  if (row.htmlLineaAprox) return String(row.htmlLineaAprox)
+  return ""
+}
+
+function addDetallePorTipoSheet(
+  workbook: ExcelJS.Workbook,
+  sheetName: string,
+  tipoPagina: "sitioweb" | "tramites",
+  audits: LoadedClarityAudit[],
+  rows: MeiExcelRow[],
+  documentary: boolean,
+) {
+  const sheet = workbook.addWorksheet(sheetName)
+
+  if (documentary) {
+    sheet.mergeCells(1, 1, 1, DETAIL_HEADERS.length)
+    sheet.getCell(1, 1).value =
+      "N/A — evidencia documental (sin filas por URL). Ver Índice y CheckList."
+    sheet.getCell(1, 1).font = { italic: true }
+    autoWidth(sheet, 2)
+    return
+  }
+
+  const auditsOfType = audits.filter((a) => a.tipoPagina === tipoPagina)
+  const rowsOfType = rows.filter((r) => r.tipoPagina === tipoPagina)
+
+  let rowIdx = 1
+  let urlOrdinal = 0
+
+  for (const audit of auditsOfType) {
+    urlOrdinal++
+    const title = sheet.getRow(rowIdx)
+    sheet.mergeCells(rowIdx, 1, rowIdx, DETAIL_HEADERS.length)
+    title.getCell(1).value = `URL ${urlOrdinal} — ${audit.nombreUi}`
+    title.getCell(1).font = WHITE_BOLD
+    title.getCell(1).fill = URL_TITLE_FILL
+    rowIdx++
+
+    const header = sheet.getRow(rowIdx)
+    DETAIL_HEADERS.forEach((label, i) => {
+      header.getCell(i + 1).value = label
+    })
+    styleHeaderRow(header, DETAIL_HEADERS.length)
+    rowIdx++
+
+    const auditRows = rowsOfType.filter((r) => r.url === audit.url)
+    if (auditRows.length === 0) {
+      const empty = sheet.getRow(rowIdx)
+      empty.getCell(1).value = audit.nombreUi
+      empty.getCell(2).value = audit.url
+      empty.getCell(6).value = "(sin incumplimientos en el alcance de este export)"
+      rowIdx++
+    } else {
+      for (const data of auditRows) {
+        const r = sheet.getRow(rowIdx)
+        r.getCell(1).value = data.nombreUi
+        r.getCell(2).value = data.url
+        r.getCell(3).value = lineaId(data)
+        r.getCell(4).value = data.criterioId
+        r.getCell(5).value = data.criterioEnunciado
+        r.getCell(6).value = data.textoOriginal
+        r.getCell(7).value = data.textoPropuesto
+        r.getCell(8).value = data.motivo
+        for (let c = 5; c <= 8; c++) {
+          r.getCell(c).alignment = { wrapText: true, vertical: "top" }
+        }
+        rowIdx++
+      }
+    }
+
+    rowIdx++ // blank spacer between URL blocks
+  }
+
+  if (auditsOfType.length === 0) {
+    sheet.getCell(1, 1).value = "Sin URLs de este tipo en el inventario Clarity vigente."
+  }
+
+  autoWidth(sheet, DETAIL_HEADERS.length)
 }
 
 export type BuildMeiWorkbookOptions = {
@@ -194,24 +328,32 @@ export async function buildMeiWorkbook(
 ): Promise<ExcelJS.Workbook> {
   const root = options.root ?? process.cwd()
   const audits = loadVigenteClarityAudits(root)
-  const hitos = options.hitoIds
-    ? MEI_EXPORT_HITOS.filter((h) => options.hitoIds!.includes(h.id))
-    : MEI_EXPORT_HITOS
+  const hitos = resolveHitos(options.hitoIds)
+  const documentary = isDocumentaryOnly(hitos)
+  const rows = collectRows(hitos, audits, root)
 
   const workbook = new ExcelJS.Workbook()
   workbook.creator = "lc-inapi.app"
   workbook.created = new Date()
 
-  addIndiceSheet(workbook)
-  addResumenUrlsSheet(workbook, audits)
-
-  for (const hito of hitos) {
-    const rows = buildRowsForHito(hito.id, audits, root)
-    const summaries = hito.incluyeAuditoriasUrl
-      ? buildUrlSummariesForHito(hito.id, audits)
-      : []
-    addHitoSheet(workbook, hito, rows, summaries)
-  }
+  addIndiceSheet(workbook, audits, rows, hitos, documentary)
+  addCheckListSheet(workbook, root, hitos)
+  addDetallePorTipoSheet(
+    workbook,
+    "web INAPI",
+    "sitioweb",
+    audits,
+    rows,
+    documentary,
+  )
+  addDetallePorTipoSheet(
+    workbook,
+    "sitio TRAMITES",
+    "tramites",
+    audits,
+    rows,
+    documentary,
+  )
 
   return workbook
 }
@@ -220,6 +362,7 @@ export type MeiExportStats = {
   auditCount: number
   hitoSheets: number
   totalRows: number
+  sheetNames: string[]
 }
 
 export async function buildMeiWorkbookWithStats(
@@ -227,10 +370,11 @@ export async function buildMeiWorkbookWithStats(
 ): Promise<{ workbook: ExcelJS.Workbook; stats: MeiExportStats }> {
   const root = options.root ?? process.cwd()
   const audits = loadVigenteClarityAudits(root)
-  const hitoIds =
-    options.hitoIds ?? MEI_EXPORT_HITOS.map((h) => h.id)
+  const hitoIds = options.hitoIds ?? MEI_EXPORT_HITOS.map((h) => h.id)
   let totalRows = 0
   for (const id of hitoIds) {
+    const hito = hitoById(id)
+    if (hito && !hito.incluyeAuditoriasUrl) continue
     totalRows += buildRowsForHito(id, audits, root).length
   }
   const workbook = await buildMeiWorkbook({ ...options, hitoIds })
@@ -240,6 +384,7 @@ export async function buildMeiWorkbookWithStats(
       auditCount: audits.length,
       hitoSheets: hitoIds.length,
       totalRows,
+      sheetNames: workbook.worksheets.map((s) => s.name),
     },
   }
 }
