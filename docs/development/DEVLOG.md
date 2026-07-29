@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-29 | [Frontend/MEI: 10 URLs META MEI + pestaña Fuentes en Excel](#devlog-2026-07-29-meta-mei-10-urls-fuentes) |
 | 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo Bernarda](#devlog-2026-07-29-mei-ui-excel-bernarda) |
 | 2026-07-28 | [Frontend: MEI calidad web — catálogo PTD, export XLSX y UI por hito](#devlog-2026-07-28-mei-calidad-web-export-ui) |
 | 2026-07-27 | [Frontend: Historial versionado de auditorías por URL](#devlog-2026-07-27-frontend-historial-auditorias) |
@@ -51,6 +52,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-07-29-meta-mei-10-urls-fuentes"></a>
+
+## [2026-07-29] - Frontend | MEI: 10 URLs META MEI + pestaña Fuentes en Excel
+
+### Contexto y objetivos:
+
+Tras corrección con Bernarda (prep. reunión jefatura 2026-07-30), los Excel descargables de H02 y entrega completa deben (1) usar las **10 URLs compromiso META MEI** y (2) comunicar en qué documentos de Colección A se fundamentan los 39 criterios del checklist (cita `RLC`/`CW` → PDF).
+
+### Implementación técnica:
+
+- Registro `mei-meta-mei-urls.ts` (orden Bernarda); loader `loadMetaMeiAudits()` por defecto en el writer.
+- Pestaña **Fuentes**: Hito × Dimensión × Criterio × cita × documento(s); H02 ampliado a B+C+D1–D7.
+- 3 auditorías nuevas 2026-07-29: `/patentes`, noticia Cuenta Pública, noticia cifra patentes; registradas en `META_MEI_EXTRA_AUDITS` (`claude-audits-launch.ts`).
+- CLI: `--urls=clarity` conserva la muestra Clarity 13.
+
+### 💡 Repaso técnico: CW ≠ PDF calidad-web-2.0:
+
+Las citas `CW` del checklist son marco conceptual; el PDF principal es `meta-mei.pdf`. `RLC` apunta a `lenguaje-claro-recomendaciones.pdf`.
+
+### Próximos pasos:
+
+- Revisar con Bernarda el Excel H02/completo antes de la reunión.
+- Opcional: reauditar con §17 las 7 URLs que aún usan JSON de junio en la muestra META MEI.
 
 ---
 

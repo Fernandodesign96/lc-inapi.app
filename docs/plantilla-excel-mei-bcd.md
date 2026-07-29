@@ -2,7 +2,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-07-29) |
+| **Fecha** | 2026-06-28 (actualizado 2026-07-29 — META MEI 10 URLs + Fuentes) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
@@ -99,24 +99,29 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ### Pestañas del libro (por hito y entrega completa)
 
-Cada export genera **4 pestañas** (no una hoja técnica por hito):
+Cada export genera **5 pestañas**:
 
 | Pestaña | Contenido |
 | --- | --- |
-| **Índice** | Título «Auditoría Lenguaje Claro — INAPI»; columnas URL #, Sección, Página, Dirección, N° incumplimientos; fila TOTAL |
-| **CheckList** | Criterio \| enunciado (`data/checklist-criteria.json`); filtrado por hito; H01 o alcance con H01 → A1–H1 completo; separadores por sección |
+| **Índice** | Título «Auditoría Lenguaje Claro — INAPI»; columnas URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos; fila TOTAL |
+| **CheckList** | Criterio \| enunciado \| cita fuente; filtrado por hito; H01 o alcance con H01 → A1–H1 completo |
+| **Fuentes** | Hito \| Dimensión \| Criterio \| Enunciado \| Cita checklist \| Documento(s) Colección A (`RLC`→lenguaje-claro-recomendaciones.pdf, `CW`→meta-mei.pdf) |
 | **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
 | **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
 
+### Muestra de URLs (META MEI — jul-2026)
+
+Por defecto el export usa las **10 URLs compromiso jefatura** (`src/lib/mei-export/mei-meta-mei-urls.ts`), no la serie Clarity 13. Flag CLI: `--urls=clarity` para la muestra Clarity.
+
+**H02:** criterios B1–B7 + C1–C7 + D1–D7 (Lenguaje claro, Redacción, Ortografía/formato) sobre esas 10 URLs.
+
+**Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña Fuentes con los **39 criterios** y documentos de origen.
+
 Columnas de detalle (web / trámites): Página \| Dirección \| ID/Línea \| Criterio \| CheckList \| Texto original \| Sustitución propuesta \| Justificación.
 
-**H01:** evidencia documental — Índice con nota N/A; CheckList completo; hojas URL con mensaje N/A.
-
-**Entrega completa:** unión de hitos `completado` del catálogo (hoy H01+H02) en el **mismo** formato de 4 pestañas.
+**H01:** evidencia documental — Índice con nota N/A; CheckList + Fuentes completos; hojas URL con mensaje N/A.
 
 **Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo.
-
-**Fuente de filas:** 13 JSON Clarity vigentes (`clarity-audits-launch.ts`; excluye ranks 8, 11, 13, 15). Filtrado por criterios de `mei-hitos.ts`.
 
 **Despliegue (Vercel):** el catálogo vive en la raíz del monorepo (`data/mei-calidad-web/`). Definir `LC_REPO_ROOT` o incluir `data/` en el build; si falta, la UI muestra `error.tsx` legible.
 
