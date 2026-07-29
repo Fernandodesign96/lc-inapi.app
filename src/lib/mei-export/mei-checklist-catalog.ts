@@ -8,6 +8,7 @@ export type ChecklistCriterionEntry = {
   sectionId: string
   sectionTitle: string
   criterion: string
+  source: string
 }
 
 type ChecklistFile = {
@@ -16,6 +17,7 @@ type ChecklistFile = {
     section_id: string
     section_title: string
     criterion: string
+    source: string
   }>
 }
 
@@ -46,6 +48,7 @@ export function loadChecklistCriteriaList(
     sectionId: c.section_id,
     sectionTitle: c.section_title,
     criterion: c.criterion,
+    source: c.source,
   }))
   return cachedList
 }

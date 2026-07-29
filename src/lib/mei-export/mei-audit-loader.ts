@@ -3,6 +3,8 @@ import { join } from "node:path"
 
 import { parseClaudeAuditFile, type ClaudeAuditBundle } from "../../schemas/claude-audit-pilot"
 
+import { MEI_META_MEI_URLS } from "./mei-meta-mei-urls"
+
 const MEI_ROOTS = ["tramites", "sitioweb"] as const
 const PENDING_RANKS = new Set([8, 11, 13, 15])
 
@@ -15,6 +17,8 @@ export type LoadedClarityAudit = {
   fechaEvaluacionIso: string
   porcentajeLc: number
   bundle: ClaudeAuditBundle
+  /** Rol Meta MEI (solo muestra compromiso jefatura). */
+  rolMetaMei?: string
 }
 
 type FichaMock = {
@@ -32,6 +36,10 @@ function repoRootFromModule(): string {
   const cwd = process.cwd()
   if (existsSync(join(cwd, "data/claude-audits"))) return cwd
   return join(cwd, "..")
+}
+
+function resolveRepoRoot(root: string): string {
+  return existsSync(join(root, "data/claude-audits")) ? root : repoRootFromModule()
 }
 
 function auditDateFromId(id: string): string | null {
@@ -67,33 +75,59 @@ function loadFichasMock(root: string): FichaMock[] {
   return data.fichas
 }
 
-export function loadVigenteClarityAudits(root = process.cwd()): LoadedClarityAudit[] {
-  const repoRoot = existsSync(join(root, "data/claude-audits"))
-    ? root
-    : repoRootFromModule()
+function loadBundle(auditsDir: string, auditId: string): ClaudeAuditBundle {
+  const jsonPath = resolveAuditJsonPath(auditsDir, auditId)
+  if (!jsonPath) {
+    throw new Error(`No se encontró JSON de auditoría: ${auditId}`)
+  }
+  const raw = JSON.parse(readFileSync(jsonPath, "utf8")) as unknown
+  return parseClaudeAuditFile(raw)
+}
 
+/**
+ * Muestra META MEI (10 URLs compromiso jefatura).
+ * Omite entradas sin `auditId` (aún no auditadas).
+ */
+export function loadMetaMeiAudits(root = process.cwd()): LoadedClarityAudit[] {
+  const repoRoot = resolveRepoRoot(root)
+  const auditsDir = join(repoRoot, "data/claude-audits")
+  const out: LoadedClarityAudit[] = []
+
+  for (const entry of MEI_META_MEI_URLS) {
+    if (!entry.auditId) continue
+    const bundle = loadBundle(auditsDir, entry.auditId)
+    const audit = bundle.audit
+    out.push({
+      rank: entry.orden,
+      url: audit.url,
+      nombreUi: bundle.clarity?.nombre_ui ?? entry.nombreUi,
+      tipoPagina: bundle.pilot.tipo_pagina ?? entry.tipoPagina,
+      auditId: audit.id,
+      fechaEvaluacionIso: audit.fecha_evaluacion,
+      porcentajeLc: audit.porcentaje_cumplimiento,
+      bundle,
+      rolMetaMei: entry.rolMetaMei,
+    })
+  }
+
+  return out.sort((a, b) => a.rank - b.rank)
+}
+
+export function loadVigenteClarityAudits(root = process.cwd()): LoadedClarityAudit[] {
+  const repoRoot = resolveRepoRoot(root)
   const auditsDir = join(repoRoot, "data/claude-audits")
   const launchPath = join(repoRoot, "frontend/src/lib/clarity-audits-launch.ts")
   const launchSource = readFileSync(launchPath, "utf8")
   const idsByRank = parseVigenteAuditIdsByRank(launchSource)
   const fichas = loadFichasMock(repoRoot)
-
   const out: LoadedClarityAudit[] = []
 
   for (const ficha of fichas) {
     if (PENDING_RANKS.has(ficha.rank)) continue
     const auditId = idsByRank.get(ficha.rank)
     if (!auditId) continue
-
-    const jsonPath = resolveAuditJsonPath(auditsDir, auditId)
-    if (!jsonPath) {
-      throw new Error(`No se encontró JSON para rank ${ficha.rank}: ${auditId}`)
-    }
-
-    const raw = JSON.parse(readFileSync(jsonPath, "utf8")) as unknown
-    const bundle = parseClaudeAuditFile(raw)
+    const bundle = loadBundle(auditsDir, auditId)
     const audit = bundle.audit
-
     out.push({
       rank: ficha.rank,
       url: audit.url,

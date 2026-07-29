@@ -32,6 +32,7 @@ export const MEI_EXPORT_HITOS: MeiExportHito[] = [
     tituloHito:
       "El sitio publica contenidos redactados en lenguaje claro, sin errores ortográficos ni gramaticales.",
     actividades: [2],
+    // B + C + D completas (Lenguaje claro, Redacción, Ortografía/formato) — Meta MEI Hito 2
     criterios: [
       "B1",
       "B2",
@@ -49,6 +50,10 @@ export const MEI_EXPORT_HITOS: MeiExportHito[] = [
       "C7",
       "D1",
       "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
       "D7",
     ],
     fechaInicioActividad: "02-03-2026",
@@ -120,6 +125,7 @@ export const MEI_EXPORT_HITOS: MeiExportHito[] = [
     sheetName: "H08_Formato_texto",
     tituloHito: "El sitio presenta textos alineados a la izquierda y párrafos con espaciado.",
     actividades: [9],
+    // D3/D4 quedan cubiertos en H02 (Meta MEI); H08 retiene el hito de formato sin duplicar filtro primario
     criterios: ["D3", "D4"],
     fechaInicioActividad: "03-08-2026",
     fechaTerminoActividad: "31-12-2026",
