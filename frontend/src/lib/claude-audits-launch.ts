@@ -172,7 +172,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     label: "Patentes",
     tipoPagina: "sitioweb",
     resumenMvp: {
-      porcentajeLc: 48.5,
+      porcentajeLc: 42.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
@@ -184,7 +184,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
     resumenMvp: {
-      porcentajeLc: 54.5,
+      porcentajeLc: 60.0,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
@@ -196,7 +196,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
     resumenMvp: {
-      porcentajeLc: 54.5,
+      porcentajeLc: 65.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
