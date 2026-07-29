@@ -3,6 +3,77 @@ import type {
   MeiItem,
   MeiItemEstado,
 } from "@contracts/mei-calidad-web-catalog"
+import { MEI_EXPORT_HITOS } from "@repo/lib/mei-export/mei-hitos"
+
+export type MeiHitoGroup = {
+  hito: MeiItem
+  actividades: MeiItem[]
+}
+
+export type MeiTrimestreColumn = {
+  trimestre: string
+  groups: MeiHitoGroup[]
+  orphans: MeiItem[]
+}
+
+function actividadNumsForExcelHito(excelHitoId: string | null): number[] {
+  if (!excelHitoId) return []
+  return MEI_EXPORT_HITOS.find((h) => h.id === excelHitoId)?.actividades ?? []
+}
+
+/**
+ * Agrupa por trimestre del *hito*; cuelga actividades vía
+ * `numeroActividad` ↔ `mei-hitos.actividades` / `excelHitoId`.
+ */
+export function groupItemsByTrimestreAndHito(
+  items: MeiItem[],
+): MeiTrimestreColumn[] {
+  const hitos = items.filter((i) => i.type === "hito")
+  const tareas = items.filter((i) => i.type === "tarea")
+  const assigned = new Set<string>()
+
+  const groupsByTrim = new Map<string, MeiHitoGroup[]>()
+
+  for (const hito of hitos) {
+    const nums = new Set(actividadNumsForExcelHito(hito.excelHitoId))
+    const actividades = tareas.filter((t) => {
+      if (t.numeroActividad === null || !nums.has(t.numeroActividad)) {
+        return false
+      }
+      assigned.add(t.id)
+      return true
+    })
+    const list = groupsByTrim.get(hito.trimestre) ?? []
+    list.push({ hito, actividades })
+    groupsByTrim.set(hito.trimestre, list)
+  }
+
+  const orphansByTrim = new Map<string, MeiItem[]>()
+  for (const tarea of tareas) {
+    if (assigned.has(tarea.id)) continue
+    const list = orphansByTrim.get(tarea.trimestre) ?? []
+    list.push(tarea)
+    orphansByTrim.set(tarea.trimestre, list)
+  }
+
+  const trimestres = [
+    ...new Set([...groupsByTrim.keys(), ...orphansByTrim.keys()]),
+  ].sort((a, b) => trimestreSortKey(a) - trimestreSortKey(b))
+
+  return trimestres.map((trimestre) => {
+    const groups = (groupsByTrim.get(trimestre) ?? []).sort((a, b) => {
+      const aId = a.hito.excelHitoId ?? a.hito.id
+      const bId = b.hito.excelHitoId ?? b.hito.id
+      return aId.localeCompare(bId)
+    })
+    const orphans = (orphansByTrim.get(trimestre) ?? []).sort((a, b) => {
+      const na = a.numeroActividad ?? 999
+      const nb = b.numeroActividad ?? 999
+      return na - nb
+    })
+    return { trimestre, groups, orphans }
+  })
+}
 
 export function getDimension(catalog: MeiCatalog, dimensionId: string) {
   return catalog.dimensions.find((d) => d.id === dimensionId)
@@ -20,7 +91,10 @@ export function getSubdimensionsForDimension(
   if (!dimension) return []
   return dimension.subdimensionIds
     .map((id) => catalog.subdimensions[id])
-    .filter(Boolean)
+    .filter(
+      (sub): sub is NonNullable<typeof sub> =>
+        sub !== undefined && sub !== null,
+    )
 }
 
 export function getItemsForSubdimension(

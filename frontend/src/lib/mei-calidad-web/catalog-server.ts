@@ -1,8 +1,22 @@
-import { loadMeiCatalog } from "@repo/lib/mei-export/load-mei-catalog"
+import {
+  loadMeiCatalog,
+  MeiCatalogLoadError,
+} from "@repo/lib/mei-export/load-mei-catalog"
 import type { MeiCatalog } from "@contracts/mei-calidad-web-catalog"
 
-import { repoRoot } from "@/lib/repo-root"
+import { meiCatalogAbsolutePath, repoRoot } from "@/lib/repo-root"
+
+export { MeiCatalogLoadError }
 
 export function loadMeiCatalogFromRepo(): MeiCatalog {
-  return loadMeiCatalog(repoRoot())
+  try {
+    return loadMeiCatalog(repoRoot())
+  } catch (error) {
+    if (error instanceof MeiCatalogLoadError) throw error
+    throw new MeiCatalogLoadError(
+      `Error al cargar el catálogo MEI (raíz: ${repoRoot()}).`,
+      meiCatalogAbsolutePath(),
+      error,
+    )
+  }
 }

@@ -34,18 +34,26 @@ function itemTypeLabel(item: MeiItem): string {
     : "Tarea"
 }
 
-export function MeiItemCard({ item }: { item: MeiItem }) {
+export function MeiItemCard({
+  item,
+  variant = item.type === "hito" ? "hito" : "actividad",
+}: {
+  item: MeiItem
+  variant?: "hito" | "actividad"
+}) {
   const exportable = isHitoExportable(item)
   const hasExcel = item.type === "hito" && item.excelHitoId !== null
+  const isHito = variant === "hito"
 
   return (
     <Card
       className={cn(
-        "h-full border-border",
-        item.type === "hito" && "border-primary/30 bg-primary/5",
+        "flex min-h-[7.5rem] flex-col border-border",
+        isHito && "min-h-[9rem] border-primary/40 bg-primary/5 shadow-sm",
+        !isHito && "bg-card",
       )}
     >
-      <CardHeader className="gap-2 pb-2">
+      <CardHeader className={cn("gap-2", isHito ? "pb-2" : "py-3 pb-1")}>
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-md bg-muted px-2 py-0.5 text-xs font-medium">
             {itemTypeLabel(item)}
@@ -57,13 +65,22 @@ export function MeiItemCard({ item }: { item: MeiItem }) {
             </span>
           ) : null}
         </div>
-        <CardTitle className="text-sm leading-snug">{item.title}</CardTitle>
+        <CardTitle
+          className={cn(
+            "leading-snug",
+            isHito ? "line-clamp-2 text-sm" : "line-clamp-2 text-xs",
+          )}
+        >
+          {item.title}
+        </CardTitle>
       </CardHeader>
-      <CardContent className="pb-2">
-        <CardDescription className="line-clamp-3 text-xs leading-relaxed">
-          {item.description}
-        </CardDescription>
-        <p className="mt-2 text-muted-foreground text-xs">
+      <CardContent className={cn("flex-1 pb-2", !isHito && "pt-0")}>
+        {isHito ? (
+          <CardDescription className="line-clamp-2 text-xs leading-relaxed">
+            {item.description}
+          </CardDescription>
+        ) : null}
+        <p className="mt-1 text-muted-foreground text-xs">
           {item.inicio} → {item.termino}
         </p>
       </CardContent>
@@ -134,7 +151,12 @@ export function MeiItemCard({ item }: { item: MeiItem }) {
               </a>
             </Button>
           ) : (
-            <Button type="button" size="sm" disabled title="Disponible al completar el hito">
+            <Button
+              type="button"
+              size="sm"
+              disabled
+              title="Disponible al completar el hito"
+            >
               <Download />
               Excel
             </Button>

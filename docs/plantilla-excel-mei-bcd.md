@@ -2,7 +2,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-07-28) |
+| **Fecha** | 2026-06-28 (actualizado 2026-07-29 — META MEI 10 URLs + Fuentes + reauditoría §17) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
@@ -87,7 +87,7 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ---
 
-## 6. Exportación automatizada en el repo (jul-2026)
+## 6. Exportación automatizada — formato plantilla Bernarda (jul-2026)
 
 | Componente | Ruta / comando |
 | --- | --- |
@@ -97,14 +97,62 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 | API (Next) | `GET /api/mei-calidad-web/export/[hitoId]/xlsx` · `GET /api/mei-calidad-web/export/completo.xlsx` |
 | UI | `/auditar/mei-calidad-web` → dimensiones → subdimensiones → tablero trimestral |
 
-**Columnas ampliadas** respecto a §1 (manual B/C/D): incluyen `actividad_mei`, `hito_id`, fechas de actividad/hito, `rank_clarity`, `estado_auditoria`, `tipo_entrega`, `audit_id`, etc. (ver `MEI_EXCEL_COLUMNS` en `src/lib/mei-export/mei-row-builder.ts`).
+### Pestañas del libro (por hito y entrega completa)
 
-**Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo (hoy H01 y H02 en `cl_sitio`).
+Cada export genera **5 pestañas**:
 
-**Fuente de filas:** 13 JSON Clarity vigentes (`clarity-audits-launch.ts`; excluye ranks 8, 11, 13, 15 Pendiente TI). `sustituciones[]` → filas `correccion_texto`; incumplimientos sin sustitución → `config_cms` / `nuevo_contenido`.
+| Pestaña | Contenido |
+| --- | --- |
+| **Índice** | Título «Auditoría Lenguaje Claro — INAPI»; columnas URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos; fila TOTAL |
+| **CheckList** | Criterio \| enunciado \| cita fuente; filtrado por hito; H01 o alcance con H01 → A1–H1 completo |
+| **Fuentes** | Hito \| Dimensión \| Criterio \| Enunciado \| Cita checklist \| Documento(s) Colección A (`RLC`→lenguaje-claro-recomendaciones.pdf, `CW`→meta-mei.pdf) |
+| **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
+| **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
+
+### Muestra de URLs (META MEI — jul-2026)
+
+Por defecto el export usa las **10 URLs compromiso jefatura** (`src/lib/mei-export/mei-meta-mei-urls.ts`), no la serie Clarity 13. Flag CLI: `--urls=clarity` para la muestra Clarity.
+
+| # | URL (rol) | Auditoría vigente | % LC (ref.) |
+| --- | --- | --- | --- |
+| 1 | `www.inapi.cl/` (portada) | `www-inapi-cl_2026-07-22` | 54,5 % |
+| 2 | `/marcas` (menú) | `www-inapi-cl-marcas_2026-06-05` | 48,5 % |
+| 3 | `/patentes` (menú) | `www-inapi-cl-patentes_2026-07-29` (§17) | 42,9 % |
+| 4 | `/acerca-de/inapi` | `www-inapi-cl-acerca-de-inapi_2026-06-07` | 34,3 % |
+| 5 | buscador noticias | `www-inapi-cl-buscador-noticias_2026-06-07` | 34,5 % |
+| 6 | `/marcas/tramites/solicitud-nueva` | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | 44,8 % |
+| 7 | `/sala-de-prensa/noticias` | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | 45,5 % |
+| 8 | noticia Cuenta Pública | `www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29` (§17) | 60,0 % |
+| 9 | noticia cifra patentes | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29` (§17) | 65,7 % |
+| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-06-07` | 51,5 % |
+
+**H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre esas 10 URLs. Export regenerado 2026-07-29 tras §17: ~173 filas de incumplimiento en alcance H02.
+
+**Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña Fuentes con los **39 criterios** y documentos de origen.
+
+**Regenerar localmente (gitignored):**
+
+```bash
+bun run export:mei-xlsx -- --hito=H02
+# completo H01+H02 vía API UI o buildMeiWorkbookWithStats({ hitoIds: ["H01","H02"] })
+```
+
+Columnas de detalle (web / trámites): Página \| Dirección \| ID/Línea \| Criterio \| CheckList \| Texto original \| Sustitución propuesta \| Justificación.
+
+**H01:** evidencia documental — Índice con nota N/A; CheckList + Fuentes completos; hojas URL con mensaje N/A.
+
+**Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo.
+
+**Despliegue (Vercel):** el catálogo vive en la raíz del monorepo (`data/mei-calidad-web/`). Definir `LC_REPO_ROOT` o incluir `data/` en el build; si falta, la UI muestra `error.tsx` legible.
 
 ---
 
 ## 7. Nombre de archivo manual (histórico)
 
 `entrega-mei-bcd-inapi_DD-MM-YYYY.xlsx` — una hoja por URL o una hoja maestra con columna `url` (flujo DevTools §2).
+
+---
+
+## 8. Columnas técnicas internas (motor)
+
+El motor sigue generando `MeiExcelRow` ampliado (`MEI_EXCEL_COLUMNS` en `mei-row-builder.ts`) y el writer Bernarda proyecta ese modelo a las 4 pestañas anteriores.
