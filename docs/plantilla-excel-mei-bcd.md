@@ -2,7 +2,7 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-07-28) |
+| **Fecha** | 2026-06-28 (actualizado 2026-07-29) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
@@ -87,7 +87,7 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ---
 
-## 6. Exportación automatizada en el repo (jul-2026)
+## 6. Exportación automatizada — formato plantilla Bernarda (jul-2026)
 
 | Componente | Ruta / comando |
 | --- | --- |
@@ -97,14 +97,37 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 | API (Next) | `GET /api/mei-calidad-web/export/[hitoId]/xlsx` · `GET /api/mei-calidad-web/export/completo.xlsx` |
 | UI | `/auditar/mei-calidad-web` → dimensiones → subdimensiones → tablero trimestral |
 
-**Columnas ampliadas** respecto a §1 (manual B/C/D): incluyen `actividad_mei`, `hito_id`, fechas de actividad/hito, `rank_clarity`, `estado_auditoria`, `tipo_entrega`, `audit_id`, etc. (ver `MEI_EXCEL_COLUMNS` en `src/lib/mei-export/mei-row-builder.ts`).
+### Pestañas del libro (por hito y entrega completa)
 
-**Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo (hoy H01 y H02 en `cl_sitio`).
+Cada export genera **4 pestañas** (no una hoja técnica por hito):
 
-**Fuente de filas:** 13 JSON Clarity vigentes (`clarity-audits-launch.ts`; excluye ranks 8, 11, 13, 15 Pendiente TI). `sustituciones[]` → filas `correccion_texto`; incumplimientos sin sustitución → `config_cms` / `nuevo_contenido`.
+| Pestaña | Contenido |
+| --- | --- |
+| **Índice** | Título «Auditoría Lenguaje Claro — INAPI»; columnas URL #, Sección, Página, Dirección, N° incumplimientos; fila TOTAL |
+| **CheckList** | Criterio \| enunciado (`data/checklist-criteria.json`); filtrado por hito; H01 o alcance con H01 → A1–H1 completo; separadores por sección |
+| **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
+| **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
+
+Columnas de detalle (web / trámites): Página \| Dirección \| ID/Línea \| Criterio \| CheckList \| Texto original \| Sustitución propuesta \| Justificación.
+
+**H01:** evidencia documental — Índice con nota N/A; CheckList completo; hojas URL con mensaje N/A.
+
+**Entrega completa:** unión de hitos `completado` del catálogo (hoy H01+H02) en el **mismo** formato de 4 pestañas.
+
+**Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo.
+
+**Fuente de filas:** 13 JSON Clarity vigentes (`clarity-audits-launch.ts`; excluye ranks 8, 11, 13, 15). Filtrado por criterios de `mei-hitos.ts`.
+
+**Despliegue (Vercel):** el catálogo vive en la raíz del monorepo (`data/mei-calidad-web/`). Definir `LC_REPO_ROOT` o incluir `data/` en el build; si falta, la UI muestra `error.tsx` legible.
 
 ---
 
 ## 7. Nombre de archivo manual (histórico)
 
 `entrega-mei-bcd-inapi_DD-MM-YYYY.xlsx` — una hoja por URL o una hoja maestra con columna `url` (flujo DevTools §2).
+
+---
+
+## 8. Columnas técnicas internas (motor)
+
+El motor sigue generando `MeiExcelRow` ampliado (`MEI_EXCEL_COLUMNS` en `mei-row-builder.ts`) y el writer Bernarda proyecta ese modelo a las 4 pestañas anteriores.

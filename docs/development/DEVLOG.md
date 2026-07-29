@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo Bernarda](#devlog-2026-07-29-mei-ui-excel-bernarda) |
 | 2026-07-28 | [Frontend: MEI calidad web — catálogo PTD, export XLSX y UI por hito](#devlog-2026-07-28-mei-calidad-web-export-ui) |
 | 2026-07-27 | [Frontend: Historial versionado de auditorías por URL](#devlog-2026-07-27-frontend-historial-auditorias) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14) |
@@ -50,6 +51,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-07-29-mei-ui-excel-bernarda"></a>
+
+## [2026-07-29] - Frontend | MEI — UI jerárquica y Excel estilo Bernarda
+
+### Contexto y objetivos:
+
+Incorporar el feedback de oficina (2026-07-28): error opaco al abrir dimensiones D2.1/D2.2 (típico si falta el catálogo en preview), tablero plano actividad/hito con alturas irregulares, y Excel técnico por hoja H0N en lugar de la plantilla Bernarda de 4 pestañas.
+
+### Implementación técnica:
+
+- **Carga catálogo:** `repoRoot()` busca `data/mei-calidad-web/catalog.json` vía `LC_REPO_ROOT`, `cwd`, padre y ancestros; `MeiCatalogLoadError` con mensaje accionable; `error.tsx` en `/auditar/mei-calidad-web` y `[dimensionId]`.
+- **UI:** `groupItemsByTrimestreAndHito` ancla el trimestre al hito y cuelga actividades por `mei-hitos.actividades` / `excelHitoId`; componentes `MeiTrimestreColumnView` + `MeiHitoGroupCard`; cards con `min-h` y variantes hito/actividad.
+- **Excel:** `mei-xlsx-writer.ts` reescrito a pestañas Índice, CheckList, web INAPI, sitio TRAMITES (H01 documental; completo = unión de hitos completados en el mismo formato). Docs: `docs/plantilla-excel-mei-bcd.md`.
+
+### 💡 Repaso técnico: Trimestre del hito vs de la actividad:
+
+Una actividad puede figurar en «Trim 1–2» y su hito en «Trim 2». El tablero usa el trimestre del hito para la columna y vincula la actividad por número MEI, de modo que el Excel del hito y la UI cuentan la misma agrupación.
+
+### Próximos pasos:
+
+- Confirmar en Vercel `LC_REPO_ROOT` o inclusión de `data/` en el build.
+- Revisión Bernarda del XLSX H02 / completo frente a capturas de plantilla.
+- No cambiar estados H03+ ni auditar ranks Pendiente TI en esta línea.
 
 ---
 
