@@ -5,477 +5,96 @@
   "evaluador_uid": "Fernando Arriagada Castillo",
   "version_checklist": "1.1",
   "tipo_pagina": "sitioweb",
-  "texto_capturado": "T001 [HTML-L588]: «Conoce más» (menú → /propiedad-intelectual-e-industrial) | T004 [HTML-L591]: «PCT» (sin definir) | T018 [HTML-L605]: «Observancia» (→ /protege-tu-idea) | T021 [HTML-L655]: «ACCESOS» | T022 [HTML-L656]: «BUSCADOR» | T027 [HTML-L696]: «Registro» | T028 [HTML-L696]: «LINK EXTERNO» | T029 [HTML-L696]: «BUSCAR Y TRAMITAR» | T030 [HTML-L696]: «MARCAS» | T037 [HTML-L696]: «PATENTES» | T038 [HTML-L1–2]: «INAPI realizó su Cuenta Pública Participativa 2026…» (<title>) | T039 [HTML-L742]: «jun. 21, 2026» (fecha noticia) | T040 [HTML-L743]: «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial» (H3) | T041 [HTML-L778]: «La jornada permitió dar a conocer los principales avances de INAPI…» (H5 bajada) | T042 [HTML-L750]: alt incorrecto «Portada de las Directrices de Marcas 2026 publicadas por INAPI» | T043 [HTML-L753–762]: fotos 2–5 con alt vacío y title «foto-2»…«foto-5» | T044 [HTML-L780]: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026…» (párrafo 1, inicia en minúscula) | T045 [HTML-L780]: «La actividad reunió a autoridades regionales y nacionales… consolidándose como un espacio de diálogo…» | T046 [HTML-L780]: «Durante su presentación, el Director Nacional destacó que la propiedad industrial dejó de ser solo un trámite administrativo…» | T047 [HTML-L780]: «Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038…» | T048 [HTML-L780]: «…la implementación del Patent Law Treaty (PLT)…» | T049 [HTML-L781]: «La jornada finalizó con la presentación de María José García…» / «La jornada concluyó con una invitación…» (cierre duplicado) | T050 [HTML-L781]: «formulario disponible» (enlace Google Forms) | T051 [HTML-L786]: «Volver» (CTA) | T057 [HTML-L883]: «Tu consulta será atendida por un especialista.» | T063 [HTML-L889]: «RUT: 65.999.669-3» | META [HTML-L580]: «Detalle de la noticia INAPI» (meta description) | T075 [HTML-L939]: «©2026 INAPI. Todos los derechos reservados»",
+  "texto_capturado": "T001 [HTML-L1]: «<title>INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial</title>» (oración descriptiva completa, sin guiones) | T002 [HTML-head]: meta description «Detalle de la noticia INAPI» (genérica) | T003 [HTML-L619-621]: H1 «Detalle» / H2 «Noticia» (banner de plantilla común a todas las noticias) | T004 [HTML-L627]: Breadcrumb «Home > Sala de Prensa > Detalle Noticia» | T005 [HTML-L780]: fecha visible «jun. 21, 2026» | T006 [HTML-L781]: H3 titular real «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial» | T007 [HTML-L785-800]: carrusel de 5 imágenes — img1 con alt/title INCORRECTO «Portada de las Directrices de Marcas 2026 publicadas por INAPI» (no corresponde al tema); img2-5 con alt=\"\" y title=\"foto-2\"…\"foto-5\" | T008 [HTML-L806]: H5 bajada «La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional...» | T009 [HTML-L780]: párrafo 1, INICIA EN MINÚSCULA sin conector: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel...» | T010 [HTML-L780]: «La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación...» | T011 [HTML-L780]: cita «\"la propiedad industrial dejó de ser solo un trámite administrativo para transformarse en una herramienta clave...\"» | T012 [HTML-L780]: cifras «el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.» | T013 [HTML-L780]: «renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038» (PCT sin expandir en el cuerpo) | T014 [HTML-L780]: «...estrategia orientada a acercar la propiedad industrial a las regiones...» | T015 [HTML-L780]: cita «\"El desafío es que la innovación y la propiedad industrial no estén concentradas en unos pocos territorios...\"» | T016 [HTML-L780]: «iniciativa INAPI+Cerca, campaña piloto...Coquimbo, Maule y Los Lagos» | T017 [HTML-L780]: «...la implementación del Patent Law Treaty (PLT)...» (sigla SÍ expandida correctamente) | T018 [HTML-L780]: «presentación de María José García, Subdirectora de Patentes de INAPI...» | T019 [HTML-L780]: cierre con enlace «formulario disponible» → Google Forms externo, target=\"_blank\" | T020 [HTML-L785]: enlace «Volver» con <img src=\"volver.png\"> SIN atributo alt | T021 [HTML-L790]: iconos compartir redes sociales sin texto ni aria-label | T022 [HTML-L800-830]: sidebar «Otras Noticias» — 5 ítems con imágenes alt=\"\" title=\"Noticia-xxx\" | T023 [HTML-L830]: «Ver todas las noticias» → /sala-de-prensa/noticias/todas-las-noticias | T024 [HTML-shell]: modal contacto «Tu consulta será atendida por un especialista.» / «Utiliza el canal de comunicación que prefieras:» | T025 [HTML-shell]: footer «RUT: 65.999.669-3» (institucional) | T026 [HTML-shell]: footer «Accesos» incl. «Política de privacidad», «Uso de los Contenidos de este Sitio» | T027 [HTML-shell]: «©2026 INAPI. Todos los derechos reservados» | T028 [HTML-shell]: menú global — PCT sin expandir (segunda ocurrencia del sitio) | T029 [HTML-shell]: «ACCESOS»/«BUSCADOR» (excluidos D7) | T030 [HTML-shell]: modal login «LINK EXTERNO» | T031 [HTML-shell]: modal buscar «BUSCAR Y TRAMITAR»",
   "criterios_evaluados": [
-    {
-      "id": "A1",
-      "estado": "cumple",
-      "comentario": "La fecha, el H3 con el titular y la bajada H5 comunican de inmediato el propósito de la noticia. El contenido periodístico aparece en primer plano.",
-      "cita_textual": "T039 [HTML-L742]: «jun. 21, 2026» / T040 [HTML-L743] (H3) / T041 [HTML-L778] (H5 bajada)"
-    },
-    {
-      "id": "A2",
-      "estado": "cumple",
-      "comentario": "La bajada H5 (T041) resume los avances institucionales antes del desarrollo del cuerpo, aplicando pirámide invertida en la noticia.",
-      "cita_textual": "T041 [HTML-L778]: «La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional…»"
-    },
-    {
-      "id": "A3",
-      "estado": "cumple",
-      "comentario": "La noticia usa H3 para el titular, H5 para la bajada y párrafos <p> para el cuerpo. La estructura jerárquica es clara.",
-      "cita_textual": "T040 [HTML-L743] (H3) / T041 [HTML-L778] (H5) / T044–T049 (cuerpo)"
-    },
-    {
-      "id": "A4",
-      "estado": "cumple",
-      "comentario": "Cada párrafo del cuerpo tiene menos de 110 palabras. La bajada H5 tiene menos de 60 palabras."
-    },
-    {
-      "id": "A5",
-      "estado": "incumple",
-      "severidad": "baja",
-      "comentario": "T028 «LINK EXTERNO» no ha sido eliminado. La meta description «Detalle de la noticia INAPI» es vaga y no orienta al usuario sobre el contenido de la noticia.",
-      "cita_textual": "T028 [HTML-L696]: «LINK EXTERNO» / META [HTML-L580]: «Detalle de la noticia INAPI»"
-    },
-    {
-      "id": "B1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T057). En el cuerpo, T045 usa voz pasiva refleja: «consolidándose como un espacio de diálogo».",
-      "cita_textual": "T057 [HTML-L883]: «Tu consulta será atendida por un especialista.» / T045 [HTML-L780]: «…consolidándose como un espacio de diálogo y transparencia…»"
-    },
-    {
-      "id": "B2",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "PCT (T004) en menú sin definir. «Observancia» (T018) sin glosa. «Patent Law Treaty (PLT)» (T048) aparece en el cuerpo sin explicación accesible para el ciudadano general.",
-      "cita_textual": "T004 [HTML-L591]: «PCT» / T018 [HTML-L605]: «Observancia» / T048 [HTML-L780]: «Patent Law Treaty (PLT)»"
-    },
-    {
-      "id": "B3",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "PCT (T004) aparece en el menú sin definición en ningún punto de esta página. PLT (T048) se menciona en el cuerpo sin expandir en español.",
-      "cita_textual": "T004 [HTML-L591]: «PCT» (menú, sin expandir) / T048 [HTML-L780]: «Patent Law Treaty (PLT)» (sin definir)"
-    },
-    {
-      "id": "B4",
-      "estado": "cumple",
-      "comentario": "No se detectan extranjerismos significativos en el cuerpo periodístico. Los términos técnicos PI son propios del dominio."
-    },
-    {
-      "id": "B5",
-      "estado": "cumple",
-      "comentario": "El titular y el CTA «Volver» están en formulación positiva. No hay formulaciones negativas o restrictivas.",
-      "cita_textual": "T051 [HTML-L786]: «Volver»"
-    },
-    {
-      "id": "B6",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "El modal de contacto usa imperativo distante: «Utiliza el canal de comunicación que prefieras» (T053). La meta description usa tono impersonal.",
-      "cita_textual": "T053 [HTML-L883]: «Utiliza el canal de comunicación que prefieras:» / META [HTML-L580]: «Detalle de la noticia INAPI»"
-    },
-    {
-      "id": "B7",
-      "estado": "cumple",
-      "comentario": "No se detectan frases de relleno burocrático en el cuerpo de la noticia. El lenguaje es concreto."
-    },
-    {
-      "id": "C1",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T044 abre con fragmento de oración sin sujeto principal al inicio («la Casa Central…» en minúscula, continuación de oración anterior omitida). T045 usa gerundio «consolidándose» al final de la oración.",
-      "cita_textual": "T044 [HTML-L780]: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional…»"
-    },
-    {
-      "id": "C2",
-      "estado": "cumple",
-      "comentario": "El cuerpo usa tiempos verbales apropiados para noticia: pretérito perfecto simple («realizó», «reunió», «destacó») y presente en citas directas.",
-      "cita_textual": "T044: «realizó» / T046: «destacó que»"
-    },
-    {
-      "id": "C3",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "T045 es una oración de ~45 palabras con cláusula participial final («consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país»). T047 también es extensa con múltiples complementos.",
-      "cita_textual": "T045 [HTML-L780]: «La actividad reunió a autoridades regionales y nacionales… consolidándose como un espacio de diálogo…»"
-    },
-    {
-      "id": "C4",
-      "estado": "cumple",
-      "comentario": "Cada párrafo del cuerpo desarrolla un solo tema: contexto, participantes, cita del director, hitos, descentralización, compromisos 2026, cierre."
-    },
-    {
-      "id": "C5",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Los párrafos T045, T046 y T047 superan las 4 líneas en escritorio por la densidad de información institucional y citas extensas.",
-      "cita_textual": "T045–T047 [HTML-L780]: párrafos de 4–6 líneas en escritorio"
-    },
-    {
-      "id": "C6",
-      "estado": "cumple",
-      "comentario": "La bajada H5 (T041) funciona como resumen al inicio del artículo, antes del desarrollo en párrafos.",
-      "cita_textual": "T041 [HTML-L778]: bajada periodística antes del cuerpo"
-    },
-    {
-      "id": "C7",
-      "estado": "no_aplica",
-      "comentario": "No hay listas de requisitos. No aplica."
-    },
-    {
-      "id": "D1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "Cuatro problemas ortotipográficos: (1) primer párrafo T044 inicia en minúscula («la Casa Central…»); (2) alt de portada T042 incorrecto (texto de otra noticia sobre Directrices de Marcas); (3) fotos 2–5 del carrusel con alt vacío (HTML-L753–762); (4) cierre duplicado «La jornada finalizó» / «La jornada concluyó» (T049).",
-      "cita_textual": "T044 [HTML-L780]: «la Casa Central…» (minúscula inicial) / T042 [HTML-L750]: alt incorrecto / HTML-L753: alt=''"
-    },
-    {
-      "id": "D2",
-      "estado": "cumple",
-      "comentario": "La puntuación en citas directas y párrafos del cuerpo es correcta, salvo el fragmento inicial de T044 (tratado en D1/C1)."
-    },
-    {
-      "id": "D3",
-      "estado": "no_aplica",
-      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
-    },
-    {
-      "id": "D4",
-      "estado": "no_aplica",
-      "comentario": "Criterio visual/CSS; fuera del alcance editorial."
-    },
-    {
-      "id": "D5",
-      "estado": "cumple",
-      "comentario": "El cuerpo de la noticia no usa enumeraciones en texto corrido con comas. Las citas directas están correctamente marcadas con comillas."
-    },
-    {
-      "id": "D6",
-      "estado": "no_aplica",
-      "comentario": "No hay texto corrido que requiera negritas para destacar palabras clave; las citas usan <em>."
-    },
-    {
-      "id": "D7",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Textos en mayúsculas totales en el shell: ACCESOS (T021), BUSCADOR (T022), BUSCAR Y TRAMITAR (T029), MARCAS (T030), PATENTES (T037).",
-      "cita_textual": "T021: «ACCESOS» / T022: «BUSCADOR» / T029: «BUSCAR Y TRAMITAR»"
-    },
-    {
-      "id": "E1",
-      "estado": "cumple",
-      "comentario": "El titular y el cuerpo son descriptivos y factuales. No se usan adjetivos autopromocionales.",
-      "cita_textual": "T040 [HTML-L743]: titular de hecho concreto"
-    },
-    {
-      "id": "E2",
-      "estado": "cumple",
-      "comentario": "INAPI aparece en el titular, en el cuerpo, en el footer y en el copyright.",
-      "cita_textual": "T075 [HTML-L939]: «©2026 INAPI. Todos los derechos reservados»"
-    },
-    {
-      "id": "E3",
-      "estado": "cumple",
-      "comentario": "La fecha de publicación de la noticia «jun. 21, 2026» (T039) es visible junto al titular, cumpliendo el criterio de fecha para contenido periodístico.",
-      "cita_textual": "T039 [HTML-L742]: «jun. 21, 2026»"
-    },
-    {
-      "id": "E4",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "La meta description «Detalle de la noticia INAPI» (HTML-L580) es genérica y no describe el contenido. El <title> sí es descriptivo pero excesivamente largo para pestañas del navegador.",
-      "cita_textual": "META [HTML-L580]: «Detalle de la noticia INAPI»"
-    },
-    {
-      "id": "F1",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "«Observancia» (T018) lleva a /protege-tu-idea — slug no coincide. «Conoce más» (T001) lleva a /propiedad-intelectual-e-industrial — texto no describe destino.",
-      "cita_textual": "T018 [HTML-L605]: «Observancia» → /protege-tu-idea / T001 [HTML-L588]: «Conoce más»"
-    },
-    {
-      "id": "F2",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "«Conoce más» (T001) es enlace genérico sin descripción del destino. «Registro» (T027) en el modal de login es ambiguo.",
-      "cita_textual": "T001 [HTML-L588]: «Conoce más» / T027 [HTML-L696]: «Registro»"
-    },
-    {
-      "id": "F3",
-      "estado": "incumple",
-      "severidad": "media",
-      "comentario": "«Registro» (T027) ambiguo. «Observancia» (T018) no describe el destino real.",
-      "cita_textual": "T027 [HTML-L696]: «Registro» / T018 [HTML-L605]: «Observancia»"
-    },
-    {
-      "id": "F4",
-      "estado": "no_aplica",
-      "comentario": "Esta plantilla de detalle de noticia no incluye carrusel de logos del footer ni enlaces a PDF en el cuerpo. No aplica el criterio de indicación de formato en descargas."
-    },
-    {
-      "id": "F5",
-      "estado": "cumple",
-      "comentario": "El CTA «Volver» (T051) y el enlace al formulario (T050) están al final del cuerpo, no intercalados en el texto corrido.",
-      "cita_textual": "T051 [HTML-L786]: «Volver» / T050 [HTML-L781]: «formulario disponible»"
-    },
-    {
-      "id": "G1",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "El RUT institucional 65.999.669-3 (T063) aparece en el footer. No aporta valor a la tarea del usuario en esta noticia.",
-      "cita_textual": "T063 [HTML-L889]: «RUT: 65.999.669-3»"
-    },
-    {
-      "id": "G2",
-      "estado": "cumple",
-      "comentario": "Existe enlace a «Política de privacidad» en el footer.",
-      "cita_textual": "T074 [HTML-L927]: «Política de privacidad»"
-    },
-    {
-      "id": "G3",
-      "estado": "cumple",
-      "comentario": "El copyright ©2026 está actualizado (T075). Existe enlace «Uso de los Contenidos de este Sitio».",
-      "cita_textual": "T075 [HTML-L939]: «©2026 INAPI. Todos los derechos reservados»"
-    },
-    {
-      "id": "H1",
-      "estado": "no_aplica",
-      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado."
-    }
+    { "id": "A1", "estado": "cumple", "comentario": "Aunque el H1/H2 de plantilla (T003) es genérico («Detalle»/«Noticia», patrón sistémico de todas las noticias), el H3 titular real (T006) y la bajada H5 (T008) comunican el propósito de inmediato.", "cita_textual": "T006: H3 «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso...» / T008: H5 bajada" },
+    { "id": "A2", "estado": "cumple", "comentario": "Sigue pirámide invertida: titular + bajada con lo esencial, luego contexto, citas, cifras y cierre con convocatoria. El defecto gramatical de T009 (inicia en minúscula) es puntual y se documenta en D1, no afecta el orden estructural del artículo." },
+    { "id": "A3", "estado": "cumple", "comentario": "Jerarquía de encabezados (H1/H2 plantilla, H3 titular, H5 bajada) organiza el contenido; no hay bloques continuos sin encabezado." },
+    { "id": "A4", "estado": "cumple", "comentario": "Ningún párrafo del cuerpo (T009-T019) supera individualmente las 110 palabras." },
+    { "id": "A5", "estado": "incumple", "severidad": "media", "comentario": "La primera imagen del carrusel (T007) tiene alt/title de «Portada de las Directrices de Marcas 2026», contenido visual que no corresponde al tema de esta noticia — información no pertinente, aparente error de copy-paste.", "cita_textual": "T007: alt/title «Portada de las Directrices de Marcas 2026 publicadas por INAPI» (primera imagen del carrusel)" },
+    { "id": "B1", "estado": "incumple", "severidad": "media", "comentario": "El modal de contacto (patrón shell transversal) usa voz pasiva: «Tu consulta será atendida por un especialista».", "cita_textual": "T024: «Tu consulta será atendida por un especialista.»" },
+    { "id": "B2", "estado": "cumple", "comentario": "El cuerpo de la noticia usa vocabulario accesible («avances», «desafíos», «compromiso»), sin jerga legal sin definir." },
+    { "id": "B3", "estado": "incumple", "severidad": "alta", "comentario": "PCT aparece sin expandir en el cuerpo de la propia noticia (T013), además de su aparición sistémica en el menú global (T028). Inconsistencia notoria: el párrafo siguiente (T017) sí expande correctamente «Patent Law Treaty (PLT)».", "cita_textual": "T013: «renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038»" },
+    { "id": "B4", "estado": "cumple", "comentario": "El contenido está íntegramente en español, sin extranjerismos ni abreviaturas no estándar." },
+    { "id": "B5", "estado": "cumple", "comentario": "El tono es propositivo y orientado a logros y desafíos, sin construcciones negativas." },
+    { "id": "B6", "estado": "incumple", "severidad": "media", "comentario": "El modal de contacto combina invitación informal («Utiliza el canal que prefieras») con cierre impersonal y distante («será atendida por un especialista»).", "cita_textual": "T024: «Utiliza el canal de comunicación que prefieras:» / «Tu consulta será atendida por un especialista.»" },
+    { "id": "B7", "estado": "cumple", "comentario": "No se detectan frases de relleno burocrático en el cuerpo de la noticia." },
+    { "id": "C1", "estado": "incumple", "severidad": "media", "comentario": "El primer párrafo (T009) antepone un complemento circunstancial extenso antes del sujeto y verbo principal, y falta el conector inicial («En»), dificultando identificar de inmediato quién hizo qué.", "cita_textual": "T009: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...»" },
+    { "id": "C2", "estado": "cumple", "comentario": "El uso de pretérito (realizó, presentó, destacó, señaló) es la convención periodística correcta para reportar un hecho ya ocurrido." },
+    { "id": "C3", "estado": "incumple", "severidad": "media", "comentario": "T009 es una sola oración de más de 50 palabras con múltiples cláusulas subordinadas, excediendo ampliamente una idea por oración.", "cita_textual": "T009: «...instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.»" },
+    { "id": "C4", "estado": "incumple", "severidad": "media", "comentario": "El párrafo de cifras (T012) agrupa tres ideas distintas: tiempo de tramitación de patentes, porcentaje de resolución de marcas y reducción del rezago en juicios de oposición.", "cita_textual": "T012: «el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.»" },
+    { "id": "C5", "estado": "incumple", "severidad": "baja", "comentario": "El primer párrafo (T009), al ser una única oración extensa con varias cláusulas, se aproxima al límite de líneas recomendado en escritorio.", "cita_textual": "T009" },
+    { "id": "C6", "estado": "cumple", "comentario": "El cuerpo tiene más de 4 párrafos continuos (T009-T019), pero la bajada H5 (T008) cumple la función de resumen inicial anticipando los temas del cuerpo." },
+    { "id": "C7", "estado": "no_aplica", "comentario": "La noticia no contiene listas de requisitos; es un relato periodístico sin enumeraciones de pasos." },
+    { "id": "D1", "estado": "incumple", "severidad": "alta", "comentario": "El primer párrafo (T009) comienza en minúscula «la Casa Central de la Pontificia Universidad Católica de Valparaíso...» sin sujeto ni conector previo — corte de texto/falta de frase introductoria, verificado en el HTML crudo. Rompe la estructura gramatical de la oración.", "cita_textual": "T009: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...»" },
+    { "id": "D2", "estado": "cumple", "comentario": "La puntuación del cuerpo privilegia puntos seguidos y comas moderadas; no se observan cadenas de comas que dificulten la lectura fuera del caso ya cubierto en D1/C1/C3." },
+    { "id": "D3", "estado": "no_aplica", "comentario": "Espaciado entre párrafos es criterio CSS/visual, fuera del alcance editorial." },
+    { "id": "D4", "estado": "no_aplica", "comentario": "Alineación de texto es criterio CSS/visual, fuera del alcance editorial." },
+    { "id": "D5", "estado": "cumple", "comentario": "Las enumeraciones del cuerpo son breves y naturales al estilo periodístico; no hay listas extensas que ameriten viñetas." },
+    { "id": "D6", "estado": "incumple", "severidad": "baja", "comentario": "El cuerpo periodístico extenso (T009-T019) con cifras clave (2,3 años, 97%, 56%→3%, PCT hasta 2038) no destaca ninguna palabra o cifra en negrita, a diferencia de páginas tipo hub donde D6 es no_aplica por ausencia de texto corrido.", "cita_textual": "T012: «el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses»" },
+    { "id": "D7", "estado": "incumple", "severidad": "media", "comentario": "«LINK EXTERNO» (T030, modal login) y «BUSCAR Y TRAMITAR» (T031, modal buscar) en mayúsculas sostenidas — «ACCESOS»/«BUSCADOR» (T029) quedan excluidos por calibración de plantilla.", "cita_textual": "T030: «LINK EXTERNO» / T031: «BUSCAR Y TRAMITAR»" },
+    { "id": "E1", "estado": "cumple", "comentario": "No hay adjetivos calificativos ni opiniones del redactor; las valoraciones aparecen siempre como citas atribuidas al Director Nacional.", "cita_textual": "T011: «la propiedad industrial dejó de ser solo un trámite administrativo para transformarse en una herramienta clave...» (cita atribuida)" },
+    { "id": "E2", "estado": "cumple", "comentario": "La fuente institucional (INAPI) y los voceros están identificados con nombre y cargo (Esteban Figueroa Nagel, Director Nacional; María José García, Subdirectora de Patentes).", "cita_textual": "T009, T018" },
+    { "id": "E3", "estado": "cumple", "comentario": "A diferencia de otras URLs del sitio, esta noticia sí muestra fecha de publicación visible junto al titular.", "cita_textual": "T005: «jun. 21, 2026»" },
+    { "id": "E4", "estado": "cumple", "comentario": "El <title> es una oración completa y específica que describe fielmente el contenido, sin patrón de guiones ni genericidad.", "cita_textual": "T001" },
+    { "id": "F1", "estado": "incumple", "severidad": "media", "comentario": "El botón «LINK EXTERNO» del modal de login (patrón shell transversal) no indica el nombre ni propósito real del destino de autenticación.", "cita_textual": "T030: modal login, botón «LINK EXTERNO»" },
+    { "id": "F2", "estado": "cumple", "comentario": "No se detectan enlaces con fórmulas genéricas tipo «haz clic aquí»; «Ver todas las noticias» (T023) y los títulos del sidebar (T022) son descriptivos." },
+    { "id": "F3", "estado": "incumple", "severidad": "baja", "comentario": "Los íconos de compartir en redes sociales (T021) son enlaces sin texto visible ni aria-label que indique su función.", "cita_textual": "T021: íconos de compartir sin texto visible ni aria-label" },
+    { "id": "F4", "estado": "no_aplica", "comentario": "No se detectan documentos descargables (PDF) enlazados en el cuerpo de esta noticia." },
+    { "id": "F5", "estado": "cumple", "comentario": "El único enlace incorporado en el texto corrido («formulario disponible», T019) aparece en el párrafo de cierre como CTA de participación, no interrumpe el cuerpo informativo." },
+    { "id": "G1", "estado": "cumple", "comentario": "El único RUT visible es el institucional de INAPI (persona jurídica pública). Los nombres de autoridades citadas (Figueroa Nagel, García) corresponden a su rol institucional en una nota de prensa oficial — uso esperable en periodismo institucional, no incumplimiento G1.", "cita_textual": "T025: «RUT: 65.999.669-3»" },
+    { "id": "G2", "estado": "cumple", "comentario": "El footer institucional incluye enlace visible a «Política de privacidad», accesible desde esta URL.", "cita_textual": "T026: «Política de privacidad»" },
+    { "id": "G3", "estado": "cumple", "comentario": "Las condiciones de uso del contenido están publicadas: enlace «Uso de los Contenidos de este Sitio» y copyright institucional vigente.", "cita_textual": "T027: «©2026 INAPI. Todos los derechos reservados» / T026: «Uso de los Contenidos de este Sitio»" },
+    { "id": "H1", "estado": "incumple", "severidad": "media", "comentario": "Patrón sistémico de imágenes sin alt descriptivo, reforzado en esta página: primera imagen del carrusel con alt/title incorrecto (T007), 4 imágenes del carrusel con alt vacío, ícono «Volver» sin atributo alt (T020), 5 imágenes del sidebar «Otras Noticias» con alt vacío (T022).", "cita_textual": "T007: alt/title «Portada de las Directrices de Marcas 2026...» (no corresponde) / T020: img «Volver» sin alt / T022: imágenes sidebar con alt=\"\"" }
   ],
-  "criterios_no_aplica": 6,
-  "criterios_aplicables": 33,
-  "criterios_aprobados": 18,
-  "porcentaje_cumplimiento": 54.5,
+  "criterios_no_aplica": 4,
+  "criterios_aplicables": 35,
+  "criterios_aprobados": 21,
+  "porcentaje_cumplimiento": 60.0,
   "estado_aceptacion": "rechazado",
-  "texto_propuesto": "Se identificaron 15 incumplimientos sobre 33 criterios aplicables (54,5 %). Correcciones prioritarias: (1) corregir párrafo T044 que inicia en minúscula y completar el sujeto («En la Casa Central…») (D1/C1); (2) reemplazar alt incorrecto de portada y agregar alt a fotos 2–5 (D1); (3) eliminar cierre duplicado T049 (D1); (4) reemplazar voz pasiva del modal (B1); (5) expandir PCT en menú y PLT en cuerpo (B3); (6) mejorar meta description (E4/A5); (7) simplificar párrafos largos T045–T047 (C3/C5); (8) normalizar mayúsculas del shell (D7).",
-  "observaciones_lc": "La noticia de Cuenta Pública Participativa 2026 obtiene 54,5 % de cumplimiento — estado RECHAZADO. Fortalezas: fecha visible (E3 cumple), bajada H5 con pirámide invertida (A2, C6), titular descriptivo y tono factual (E1). Debilidades editoriales en el cuerpo: párrafo inicial fragmentado en minúscula (D1/C1 alta), alt de imagen de portada copiado de otra noticia, cuatro fotos de galería sin alt, y cierre duplicado. Incumplimientos sistémicos del shell: PCT, LINK EXTERNO, modal en voz pasiva, RUT en footer, meta description genérica.",
-  "resumen_ejecutivo": "La noticia https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial fue evaluada con el Checklist Editorial INAPI v1.1. De 33 criterios aplicables, 18 se cumplen (54,5 %), estado RECHAZADO. Se detectaron 15 incumplimientos. Alta severidad: voz pasiva en modal (B1), PCT/PLT sin definir (B3), errores ortotipográficos en párrafo inicial, alt de imágenes y cierre duplicado (D1), «Conoce más» genérico (F2), RUT en footer (G1). E3 cumple por fecha visible «jun. 21, 2026».",
+  "texto_propuesto": "Se identificaron 14 incumplimientos sobre 35 criterios aplicables (60,0 %). Correcciones prioritarias: (1) corregir el párrafo T009 agregando el conector inicial «En» y dividiendo la oración extensa en frases más cortas (D1/C1/C3/C5); (2) expandir PCT en el cuerpo de la noticia, igual que ya se hace con PLT (B3); (3) reemplazar la imagen inicial del carrusel, que corresponde a otra noticia (A5/H1); (4) agregar alt descriptivo al ícono «Volver» y a las imágenes del carrusel/sidebar (H1); (5) reemplazar la voz pasiva del modal de contacto (B1); (6) normalizar mayúsculas en LINK EXTERNO y BUSCAR Y TRAMITAR (D7); (7) agregar aria-label a los íconos de compartir en redes (F3); (8) describir el destino real del botón LINK EXTERNO del modal de login (F1).",
+  "observaciones_lc": "La noticia sobre la Cuenta Pública Participativa 2026 de INAPI obtiene un 60,0 % de cumplimiento sobre 35 criterios aplicables — estado RECHAZADO. A diferencia de páginas tipo hub (ej. /patentes), esta página SÍ cumple E3 (fecha visible) y E4 (title descriptivo), y sigue correctamente la estructura de pirámide invertida periodística (A2). Los hallazgos específicos más relevantes son un error de redacción en el primer párrafo del cuerpo (falta el conector «En», D1/C1/C3/C5) y un error de contenido: la primera imagen del carrusel corresponde a otra noticia distinta (Directrices de Marcas 2026), aparente error de copy-paste (A5/H1). También se detecta la inconsistencia de la sigla PCT sin expandir en el cuerpo, mientras que PLT sí se expande correctamente en el mismo artículo (B3). Los patrones sistémicos del shell (modal en voz pasiva, LINK EXTERNO, mayúsculas sostenidas) se repiten igual que en otras páginas del sitio.",
+  "resumen_ejecutivo": "La noticia https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso... fue evaluada con el Checklist Editorial INAPI v1.1 (39 criterios, 5 grupos temáticos vía sub-subagentes). De los 35 criterios aplicables, 21 se cumplen, lo que arroja un 60,0 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 14 incumplimientos; los de severidad alta son: sigla PCT sin expandir en el cuerpo (B3) y error gramatical/de corte de texto en el primer párrafo (D1). El resto son de severidad media (voz pasiva del modal, imagen del carrusel de otra noticia, mayúsculas sostenidas, iconos sin alt, botón LINK EXTERNO sin describir destino) y baja (falta de negritas en cifras clave, iconos de compartir sin aria-label, párrafo extenso).",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
-      "(B1) Modal con voz pasiva «Tu consulta será atendida por un especialista» (T057). Cuerpo con gerundio «consolidándose» (T045).",
-      "(B3) PCT (T004) en menú sin definición. PLT (T048) en cuerpo sin expandir.",
-      "(D1) Párrafo T044 inicia en minúscula; alt de portada incorrecto (T042); fotos 2–5 con alt vacío; cierre duplicado T049.",
-      "(F2) «Conoce más» (T001) genérico. «Registro» (T027) ambiguo.",
-      "(G1) RUT 65.999.669-3 (T063) en footer."
+      "(B3) Sigla PCT (T013) sin expandir en el cuerpo de la noticia, inconsistente con PLT (T017) que sí se expande.",
+      "(D1) Primer párrafo (T009) inicia en minúscula sin conector — corte de texto/error gramatical que rompe la estructura de la oración."
     ],
     "hallazgos_prioridad_media": [
-      "(B2) Términos sin glosa: PCT, Observancia, PLT.",
-      "(B6) Modal con imperativo distante; meta description impersonal.",
-      "(C1) T044 con fragmento de oración sin sujeto al inicio.",
-      "(C3) T045 y T047 con oraciones densas y cláusulas participiales.",
-      "(C5) Párrafos T045–T047 superan 4 líneas en escritorio.",
-      "(D7) Mayúsculas totales: ACCESOS, BUSCADOR, BUSCAR Y TRAMITAR, MARCAS, PATENTES.",
-      "(E4) Meta description «Detalle de la noticia INAPI» genérica.",
-      "(F1/F3) Observancia y Conoce más con destinos no coincidentes."
+      "(A5) Primera imagen del carrusel (T007) corresponde a otra noticia distinta (Directrices de Marcas 2026).",
+      "(B1) Modal de contacto con voz pasiva: «Tu consulta será atendida por un especialista» (T024).",
+      "(B6) Modal con imperativo informal seguido de cierre impersonal.",
+      "(C1/C3) Primer párrafo (T009) con complemento antepuesto y más de 50 palabras en una sola oración.",
+      "(C4) Párrafo de cifras (T012) mezcla tres datos distintos en un solo bloque.",
+      "(D7) Mayúsculas sostenidas en LINK EXTERNO y BUSCAR Y TRAMITAR.",
+      "(F1) Botón «LINK EXTERNO» del modal de login no describe el destino real.",
+      "(H1) Ícono «Volver» sin atributo alt; imágenes del carrusel y sidebar con alt vacío o incorrecto."
     ],
     "hallazgos_prioridad_baja": [
-      "(A5) LINK EXTERNO (T028) no eliminado. Meta description vaga."
+      "(C5) Primer párrafo (T009) se aproxima al límite de líneas recomendado por su extensión.",
+      "(D6) Ausencia de negritas en cifras clave del cuerpo periodístico (2,3 años, 97%, 56%→3%).",
+      "(F3) Íconos de compartir en redes sociales sin texto visible ni aria-label."
     ]
   },
   "sustituciones": [
-    {
-      "linea": "T057",
-      "html_linea_aprox": "HTML-L883",
-      "original": "Tu consulta ser&aacute; atendida por un especialista.",
-      "propuesto": "Un especialista de INAPI responderá tu consulta.",
-      "criterio_id": "B1",
-      "motivo": "Elimina voz pasiva del modal de contacto."
-    },
-    {
-      "linea": "T045",
-      "html_linea_aprox": "HTML-L780",
-      "original": "La actividad reuni&oacute; a autoridades regionales y nacionales, representantes del ecosistema de innovaci&oacute;n, academia, emprendimiento y sector productivo, consolid&aacute;ndose como un espacio de di&aacute;logo y transparencia sobre el rol de la propiedad industrial en el desarrollo econ&oacute;mico y tecnol&oacute;gico del pa&iacute;s.",
-      "propuesto": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo. Fue un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
-      "criterio_id": "B1",
-      "motivo": "Elimina gerundio «consolidándose» y divide en dos oraciones con sujeto activo."
-    },
-    {
-      "linea": "T004",
-      "html_linea_aprox": "HTML-L591",
-      "original": "PCT",
-      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
-      "criterio_id": "B3",
-      "motivo": "Sigla sin definición en el menú."
-    },
-    {
-      "linea": "T048",
-      "html_linea_aprox": "HTML-L780",
-      "original": "Patent Law Treaty (PLT)",
-      "propuesto": "Tratado de Derecho de Patentes (PLT)",
-      "criterio_id": "B3",
-      "motivo": "PLT aparece en inglés sin equivalente en español en su primera mención."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L605",
-      "original": "Observancia",
-      "propuesto": "Observancia (protección contra falsificaciones)",
-      "criterio_id": "B2",
-      "motivo": "Término técnico-legal sin glosa en el menú."
-    },
-    {
-      "linea": "T053",
-      "html_linea_aprox": "HTML-L883",
-      "original": "Utiliza el canal de comunicaci&oacute;n que prefieras:",
-      "propuesto": "Elige cómo contactarnos:",
-      "criterio_id": "B6",
-      "motivo": "Simplifica imperativo distante del modal."
-    },
-    {
-      "linea": "META-DESC",
-      "html_linea_aprox": "HTML-L580",
-      "original": "Detalle de la noticia INAPI",
-      "propuesto": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso, reforzando la descentralización de la propiedad industrial.",
-      "criterio_id": "B6",
-      "motivo": "Meta description impersonal y genérica; reemplazar por descripción orientada al contenido."
-    },
-    {
-      "linea": "T044",
-      "html_linea_aprox": "HTML-L780",
-      "original": "la Casa Central de la Pontificia Universidad Cat&oacute;lica de Valpara&iacute;so, el Instituto Nacional de Propiedad Industrial (INAPI) realiz&oacute; su Cuenta P&uacute;blica Participativa 2026",
-      "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026",
-      "criterio_id": "C1",
-      "motivo": "Corrige minúscula inicial y agrega preposición «En» para completar la oración con sujeto al inicio."
-    },
-    {
-      "linea": "T045",
-      "html_linea_aprox": "HTML-L780",
-      "original": "La actividad reuni&oacute; a autoridades regionales y nacionales, representantes del ecosistema de innovaci&oacute;n, academia, emprendimiento y sector productivo, consolid&aacute;ndose como un espacio de di&aacute;logo y transparencia sobre el rol de la propiedad industrial en el desarrollo econ&oacute;mico y tecnol&oacute;gico del pa&iacute;s.",
-      "propuesto": "La actividad reunió a autoridades regionales y nacionales, y a representantes del ecosistema de innovación, la academia, el emprendimiento y el sector productivo. Fue un espacio de diálogo sobre el rol de la propiedad industrial en el desarrollo del país.",
-      "criterio_id": "C3",
-      "motivo": "Divide oración de ~45 palabras en dos oraciones más cortas."
-    },
-    {
-      "linea": "T045",
-      "html_linea_aprox": "HTML-L780",
-      "original": "La actividad reuni&oacute; a autoridades regionales y nacionales, representantes del ecosistema de innovaci&oacute;n, academia, emprendimiento y sector productivo, consolid&aacute;ndose como un espacio de di&aacute;logo y transparencia sobre el rol de la propiedad industrial en el desarrollo econ&oacute;mico y tecnol&oacute;gico del pa&iacute;s.",
-      "propuesto": "La actividad reunió a autoridades regionales y nacionales, y a representantes del ecosistema de innovación, la academia, el emprendimiento y el sector productivo. Fue un espacio de diálogo sobre el rol de la propiedad industrial en el desarrollo del país.",
-      "criterio_id": "C5",
-      "motivo": "Reduce párrafo a menos de 4 líneas en escritorio al dividir en dos oraciones."
-    },
-    {
-      "linea": "T044",
-      "html_linea_aprox": "HTML-L780",
-      "original": "la Casa Central de la Pontificia Universidad Cat&oacute;lica de Valpara&iacute;so, el Instituto Nacional de Propiedad Industrial (INAPI) realiz&oacute; su Cuenta P&uacute;blica Participativa 2026",
-      "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026",
-      "criterio_id": "D1",
-      "motivo": "Corrige error ortotipográfico de minúscula inicial en el primer párrafo del cuerpo."
-    },
-    {
-      "linea": "T042",
-      "html_linea_aprox": "HTML-L750",
-      "original": "alt=\"Portada de las Directrices de Marcas 2026 publicadas por INAPI\"",
-      "propuesto": "alt=\"Cuenta Pública Participativa 2026 de INAPI en Valparaíso\"",
-      "criterio_id": "D1",
-      "motivo": "El alt de la imagen de portada corresponde a otra noticia (Directrices de Marcas 2026)."
-    },
-    {
-      "linea": "HTML-L753",
-      "html_linea_aprox": "HTML-L753",
-      "original": "alt=''",
-      "propuesto": "alt='Autoridades y participantes en la Cuenta Pública INAPI 2026 en Valparaíso'",
-      "criterio_id": "D1",
-      "motivo": "Foto 2 del carrusel con alt vacío."
-    },
-    {
-      "linea": "T049",
-      "html_linea_aprox": "HTML-L781",
-      "original": "La jornada finaliz&oacute; con la presentaci&oacute;n de Mar&iacute;a Jos&eacute; Garc&iacute;a… La jornada concluy&oacute; con una invitaci&oacute;n",
-      "propuesto": "La jornada concluyó con la presentación de María José García, Subdirectora de Patentes de INAPI, y con una invitación",
-      "criterio_id": "D1",
-      "motivo": "Elimina cierre duplicado («finalizó» / «concluyó») en dos párrafos consecutivos."
-    },
-    {
-      "linea": "T028",
-      "html_linea_aprox": "HTML-L696",
-      "original": "LINK EXTERNO",
-      "propuesto": "(eliminar nodo)",
-      "criterio_id": "A5",
-      "motivo": "Texto de desarrollo sin valor para el usuario."
-    },
-    {
-      "linea": "META-DESC",
-      "html_linea_aprox": "HTML-L580",
-      "original": "Detalle de la noticia INAPI",
-      "propuesto": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso, reforzando la descentralización de la propiedad industrial.",
-      "criterio_id": "A5",
-      "motivo": "Meta description vaga; reemplazar por descripción del contenido de la noticia."
-    },
-    {
-      "linea": "T021",
-      "html_linea_aprox": "HTML-L655",
-      "original": "ACCESOS",
-      "propuesto": "Accesos",
-      "criterio_id": "D7",
-      "motivo": "Mayúsculas totales; normalizar."
-    },
-    {
-      "linea": "T022",
-      "html_linea_aprox": "HTML-L656",
-      "original": "BUSCADOR",
-      "propuesto": "Buscador",
-      "criterio_id": "D7",
-      "motivo": "Placeholder en mayúsculas totales."
-    },
-    {
-      "linea": "META-DESC",
-      "html_linea_aprox": "HTML-L580",
-      "original": "Detalle de la noticia INAPI",
-      "propuesto": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso, reforzando la descentralización de la propiedad industrial.",
-      "criterio_id": "E4",
-      "motivo": "Meta description genérica no describe el contenido ni mejora posicionamiento."
-    },
-    {
-      "linea": "T001",
-      "html_linea_aprox": "HTML-L588",
-      "original": "Conoce m&aacute;s",
-      "propuesto": "Conoce la propiedad industrial",
-      "criterio_id": "F1",
-      "motivo": "Enlace sin texto que describa el destino."
-    },
-    {
-      "linea": "T001",
-      "html_linea_aprox": "HTML-L588",
-      "original": "Conoce m&aacute;s",
-      "propuesto": "Conoce la propiedad industrial",
-      "criterio_id": "F2",
-      "motivo": "Texto genérico que no describe el destino."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L605",
-      "original": "Observancia",
-      "propuesto": "Protege tu invención contra falsificaciones",
-      "criterio_id": "F1",
-      "motivo": "Slug /protege-tu-idea no coincide con texto visible."
-    },
-    {
-      "linea": "T027",
-      "html_linea_aprox": "HTML-L696",
-      "original": "Registro",
-      "propuesto": "Crear cuenta",
-      "criterio_id": "F3",
-      "motivo": "«Registro» ambiguo entre registro de PI y cuenta de usuario."
-    },
-    {
-      "linea": "T018",
-      "html_linea_aprox": "HTML-L605",
-      "original": "Observancia",
-      "propuesto": "Protege tu invención contra falsificaciones",
-      "criterio_id": "F3",
-      "motivo": "No describe el destino real."
-    },
-    {
-      "linea": "T063",
-      "html_linea_aprox": "HTML-L889",
-      "original": "RUT: 65.999.669-3",
-      "propuesto": "(eliminar nodo)",
-      "criterio_id": "G1",
-      "motivo": "RUT sin aporte a la tarea del usuario en noticia."
-    }
+    { "linea": "T007", "html_linea_aprox": "HTML-carrusel-img1", "original": "alt/title=\"Portada de las Directrices de Marcas 2026 publicadas por INAPI\"", "propuesto": "alt=\"Ceremonia de la Cuenta Pública Participativa 2026 de INAPI en la Casa Central de la Pontificia Universidad Católica de Valparaíso\"", "criterio_id": "A5", "motivo": "El alt/title actual corresponde a una noticia distinta; error de copy-paste que induce a confusión sobre el contenido real de la imagen." },
+    { "linea": "T007", "html_linea_aprox": "HTML-carrusel-img1", "original": "alt/title=\"Portada de las Directrices de Marcas 2026 publicadas por INAPI\"", "propuesto": "alt=\"Ceremonia de la Cuenta Pública Participativa 2026 de INAPI en la Casa Central de la Pontificia Universidad Católica de Valparaíso\"", "criterio_id": "H1", "motivo": "Mismo hallazgo que A5, cubierto también como patrón de imagen sin alt correcto/descriptivo." },
+    { "linea": "T007", "html_linea_aprox": "HTML-carrusel-img2-5", "original": "alt=\"\" title=\"foto-2\" / \"foto-3\" / \"foto-4\" / \"foto-5\"", "propuesto": "alt descriptivo específico por imagen, ej. \"Autoridades y asistentes durante la Cuenta Pública Participativa 2026 de INAPI en Valparaíso\"", "criterio_id": "H1", "motivo": "Imágenes del carrusel sin alt descriptivo; el title genérico «foto-N» no es sustituto válido de alt." },
+    { "linea": "T020", "html_linea_aprox": "HTML-volver", "original": "(no existe en HTML)", "propuesto": "alt=\"Volver\"", "criterio_id": "H1", "motivo": "El ícono de navegación «Volver» no tiene ningún atributo alt; sin él, el enlace es inaccesible para tecnología asistiva." },
+    { "linea": "T022", "html_linea_aprox": "HTML-sidebar-otras-noticias", "original": "alt=\"\" title=\"Noticia-xxx\"", "propuesto": "alt con el titular de cada noticia relacionada", "criterio_id": "H1", "motivo": "Las 5 imágenes del sidebar «Otras Noticias» carecen de alt descriptivo; el title genérico no cumple función accesible." },
+    { "linea": "T024", "html_linea_aprox": "HTML-shell", "original": "Tu consulta será atendida por un especialista.", "propuesto": "Un especialista atenderá tu consulta.", "criterio_id": "B1", "motivo": "Voz pasiva en el cierre del modal de contacto; el cambio nombra al agente de la acción. Patrón transversal en _Layout.cshtml." },
+    { "linea": "T013", "html_linea_aprox": "HTML-cuerpo-noticia", "original": "renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038", "propuesto": "renovación de INAPI como Autoridad Internacional de Búsqueda y Examen del Tratado de Cooperación en Materia de Patentes (PCT) hasta 2038", "criterio_id": "B3", "motivo": "La sigla PCT no está expandida en su primera aparición dentro del cuerpo de esta noticia, a diferencia de PLT (T017) que sí se expande correctamente." },
+    { "linea": "T024", "html_linea_aprox": "HTML-shell", "original": "Utiliza el canal de comunicación que prefieras: ... Tu consulta será atendida por un especialista.", "propuesto": "Escríbenos por el canal que prefieras y te responderemos a la brevedad.", "criterio_id": "B6", "motivo": "El cierre impersonal («un especialista») rompe el tono cercano iniciado con «Utiliza». Patrón transversal en _Layout.cshtml." },
+    { "linea": "T009", "html_linea_aprox": "HTML-L780", "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.", "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026. La actividad fue encabezada por el Director Nacional, Esteban Figueroa Nagel, quien presentó los principales avances institucionales de 2025 y los desafíos estratégicos para los próximos años.", "criterio_id": "D1", "motivo": "Falta la preposición/conector inicial de la oración («En»); el párrafo publicado carece de estructura gramatical completa al abrir con un nombre de lugar en minúscula sin conector previo." },
+    { "linea": "T009", "html_linea_aprox": "HTML-L780", "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.", "propuesto": "El Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026 en la Casa Central de la Pontificia Universidad Católica de Valparaíso. La actividad fue encabezada por el Director Nacional, Esteban Figueroa Nagel, quien presentó los principales avances institucionales de 2025 y los desafíos estratégicos para los próximos años.", "criterio_id": "C1", "motivo": "El párrafo antepone el complemento de lugar antes del sujeto y verbo principal; reordenar para iniciar con sujeto-verbo mejora la comprensión inmediata." },
+    { "linea": "T009", "html_linea_aprox": "HTML-L780", "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.", "propuesto": "El Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026 en la Casa Central de la Pontificia Universidad Católica de Valparaíso. La instancia fue encabezada por el Director Nacional, Esteban Figueroa Nagel. Él presentó los principales avances institucionales de 2025 y los desafíos estratégicos para los próximos años.", "criterio_id": "C3", "motivo": "Oración única de más de 50 palabras con varias cláusulas subordinadas; se propone dividir en tres oraciones simples de una sola idea cada una." },
+    { "linea": "T009", "html_linea_aprox": "HTML-L780", "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...", "propuesto": "El Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026 en la Casa Central de la Pontificia Universidad Católica de Valparaíso. La actividad fue encabezada por el Director Nacional, Esteban Figueroa Nagel.", "criterio_id": "C5", "motivo": "Dividir la oración única y extensa en frases más cortas reduce la longitud visual del párrafo y mejora la escaneabilidad en escritorio." },
+    { "linea": "T012", "html_linea_aprox": "HTML-cuerpo-noticia-parrafo-4", "original": "el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.", "propuesto": "El tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025.\n\nEl 97% de las solicitudes de marcas se resolvieron en menos de siete meses.\n\nEl rezago en juicios de oposición bajó de un 56% a un 3%, la mayor reducción histórica registrada.", "criterio_id": "C4", "motivo": "El párrafo mezcla tres datos independientes (patentes, marcas, juicios de oposición); separar en tres párrafos de una sola idea cada uno." },
+    { "linea": "T012", "html_linea_aprox": "HTML-cuerpo-noticia-parrafo-4", "original": "el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.", "propuesto": "el tiempo promedio de tramitación de patentes alcanzó los <strong>2,3 años</strong> durante 2025 y que el <strong>97%</strong> de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un <strong>56% a un 3%</strong>.", "criterio_id": "D6", "motivo": "Destacar en negrita las cifras clave del párrafo para facilitar el escaneo visual de los datos más relevantes." },
+    { "linea": "T030", "html_linea_aprox": "HTML-shell", "original": "LINK EXTERNO", "propuesto": "Link externo", "criterio_id": "D7", "motivo": "Frase en mayúsculas sostenidas en botón del modal login (shell transversal); reemplazar por capitalización estándar de oración." },
+    { "linea": "T031", "html_linea_aprox": "HTML-shell", "original": "BUSCAR Y TRAMITAR", "propuesto": "Buscar y tramitar", "criterio_id": "D7", "motivo": "Encabezado del modal de búsqueda en mayúsculas sostenidas (shell transversal)." },
+    { "linea": "T030", "html_linea_aprox": "HTML-shell", "original": "LINK EXTERNO", "propuesto": "Iniciar sesión con ClaveÚnica (sitio externo)", "criterio_id": "F1", "motivo": "Elemento del modal de login compartido en _Layout.cshtml; sustituir la etiqueta genérica por el nombre real del destino/servicio de autenticación." },
+    { "linea": "T021", "html_linea_aprox": "HTML-shell", "original": "(no existe en HTML) — íconos <i class=\"fa ...\"></i> sin texto ni aria-label", "propuesto": "Agregar aria-label descriptivo a cada ícono de compartir, ej. aria-label=\"Compartir en Facebook\", aria-label=\"Compartir en LinkedIn\", aria-label=\"Compartir en Twitter/X\", aria-label=\"Compartir en WhatsApp\"", "criterio_id": "F3", "motivo": "Inserción de atributo de accesibilidad en los íconos de compartir en redes sociales." }
   ],
-  "nota_final_tic": "Correcciones en plantilla detalle-noticia: (1) el primer <p> del cuerpo (HTML-L780) inicia con minúscula — probable fragmento de oración truncado al publicar; buscar «la Casa Central» para localizar; (2) las imágenes del carrusel #galeria-noticia (HTML-L750–762) requieren editar atributo alt de cada <img>; la portada tiene alt de otra noticia; (3) el cierre duplicado está en dos <p> consecutivos al final del bloque .texto-noticia; (4) meta description en HTML-L580 dentro del <head> comprimido; (5) el modal de contacto está en HTML-L883 en una sola línea."
+  "nota_final_tic": "Para aplicar las sustituciones: (1) backup del HTML antes de cualquier cambio; (2) el hallazgo del párrafo T009 (HTML-L780) afecta simultáneamente a D1, C1, C3 y C5 — aplicar UNA sola reescritura que resuelva los cuatro criterios (se recomienda la versión de D1 como base, que agrega el conector «En» sin reestructurar demasiado el párrafo, o la versión C1/C3 más extensa si se prioriza mayor claridad); (3) el modal de contacto y el modal de login («LINK EXTERNO») son componentes de shell (_Layout.cshtml) — coordinar el cambio a nivel de plantilla; (4) verificar en el CMS cuál es la imagen correcta del carrusel para el evento de Valparaíso, ya que la imagen 1 actual pertenece a otra noticia (Directrices de Marcas 2026) — este es un error de contenido, no solo de alt; (5) PCT (T013) y ACCESOS/BUSCADOR (T029, excluidos de D7) siguen la misma calibración usada en /patentes."
 }
