@@ -1,7 +1,61 @@
 import { z } from "zod"
 
-/** IDs oficiales del Checklist Editorial INAPI v1.1 (39 criterios). */
+/**
+ * IDs oficiales del Checklist Editorial INAPI v2.1 (47 criterios).
+ * Fuente: `data/checklist-criteria.json` (Word v2.1 / ago-2026).
+ */
 export const CRITERION_IDS = [
+  "A1",
+  "A2",
+  "A3",
+  "A4",
+  "A5",
+  "A6",
+  "A7",
+  "A8",
+  "A9",
+  "B1",
+  "B2",
+  "B3",
+  "B4",
+  "B5",
+  "B6",
+  "B7",
+  "B8",
+  "C1",
+  "C2",
+  "C3",
+  "C4",
+  "C5",
+  "C6",
+  "C7",
+  "C8",
+  "C9",
+  "D1",
+  "D2",
+  "D3",
+  "D4",
+  "D5",
+  "D6",
+  "D7",
+  "E1",
+  "E2",
+  "E3",
+  "E4",
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "G1",
+  "G2",
+  "G3",
+  "H1",
+] as const
+
+/** IDs históricos v1.1 (39) — auditorías y fixtures previos a v2.1. */
+export const CRITERION_IDS_V11 = [
   "A1",
   "A2",
   "A3",
@@ -43,9 +97,20 @@ export const CRITERION_IDS = [
   "H1",
 ] as const
 
+export const CRITERION_COUNT = CRITERION_IDS.length
+export const CRITERION_COUNT_V11 = CRITERION_IDS_V11.length
+
 export type CriterionId = (typeof CRITERION_IDS)[number]
 
 export const criterionIdSchema = z.enum(CRITERION_IDS)
+
+export const checklistApplicabilitySchema = z.enum([
+  "ambos",
+  "sitioweb",
+  "tramites",
+])
+
+export type ChecklistApplicability = z.infer<typeof checklistApplicabilitySchema>
 
 export const checklistCriterionSchema = z.object({
   id: criterionIdSchema,
@@ -54,12 +119,13 @@ export const checklistCriterionSchema = z.object({
   criterion: z.string().min(1),
   verification: z.string().min(1),
   source: z.string().min(1),
+  applicability: checklistApplicabilitySchema,
 })
 
 export const checklistCriteriaFileSchema = z.object({
   checklist_version: z.string().min(1),
   title: z.string().min(1),
-  criteria: z.array(checklistCriterionSchema).length(39),
+  criteria: z.array(checklistCriterionSchema).length(CRITERION_COUNT),
 })
 
 export type ChecklistCriterion = z.infer<typeof checklistCriterionSchema>
@@ -102,17 +168,10 @@ export function enrichCriterionEvaluationsForMock(
   evaluations: CriterionEvaluation[],
   bias: MockSeveridadBias = "intermedio",
 ): CriterionEvaluation[] {
-  const byId = new Map<CriterionId, CriterionEvaluation>(
-    evaluations.map((e) => [e.id, e]),
-  )
   let incumpleIndex = 0
   const baseBias = MOCK_BIAS_INDEX[bias]
 
-  return CRITERION_IDS.map((id) => {
-    const row = byId.get(id)
-    if (!row) {
-      throw new Error(`Falta evaluación para criterio ${id}`)
-    }
+  return evaluations.map((row) => {
     if (row.estado !== "incumple") {
       return row
     }
@@ -135,6 +194,19 @@ export function enrichCriterionEvaluationsForMock(
       comentario: comentarioPorSeveridad[sev],
     }
   })
+}
+
+/** Conjunto de IDs esperado según cantidad de filas (v1.1 = 39, v2.1 = 47). */
+export function expectedCriterionIds(
+  evaluationCount: number,
+): readonly CriterionId[] {
+  if (evaluationCount === CRITERION_COUNT) return CRITERION_IDS
+  if (evaluationCount === CRITERION_COUNT_V11) {
+    return CRITERION_IDS_V11 as readonly CriterionId[]
+  }
+  throw new Error(
+    `Se esperaban ${CRITERION_COUNT_V11} (v1.1) o ${CRITERION_COUNT} (v2.1) evaluaciones, hay ${evaluationCount}`,
+  )
 }
 
 export const criterionEvaluationSchema = z.object({
@@ -173,6 +245,7 @@ export function summarizeEvaluations(
   porcentaje_cumplimiento: number
   estado_aceptacion: AcceptanceStatus
 } {
+  const expectedIds = expectedCriterionIds(evaluations.length)
   const byId = new Map<CriterionId, CriterionEvaluation>()
   for (const e of evaluations) {
     byId.set(e.id, e)
@@ -180,7 +253,7 @@ export function summarizeEvaluations(
   let noAplica = 0
   let cumple = 0
   let incumple = 0
-  for (const id of CRITERION_IDS) {
+  for (const id of expectedIds) {
     const ev = byId.get(id)
     if (!ev) {
       throw new Error(`Falta evaluación para criterio ${id}`)
@@ -189,7 +262,7 @@ export function summarizeEvaluations(
     else if (ev.estado === "cumple") cumple++
     else incumple++
   }
-  const aplicables = 39 - noAplica
+  const aplicables = expectedIds.length - noAplica
   const porcentaje_cumplimiento =
     aplicables === 0 ? 0 : Math.round((cumple / aplicables) * 1000) / 10
   return {
@@ -202,6 +275,17 @@ export function summarizeEvaluations(
   }
 }
 
+const criteriosEvaluadosSchema = z
+  .array(criterionEvaluationSchema)
+  .superRefine((arr, ctx) => {
+    if (arr.length !== CRITERION_COUNT && arr.length !== CRITERION_COUNT_V11) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `criterios_evaluados debe tener ${CRITERION_COUNT_V11} (v1.1) o ${CRITERION_COUNT} (v2.1) filas; hay ${arr.length}`,
+      })
+    }
+  })
+
 /** Resultado de auditoría (mock o persistido) — alineado al MVP conceptual. */
 export const auditRecordSchema = z.object({
   id: z.string().min(1),
@@ -210,10 +294,10 @@ export const auditRecordSchema = z.object({
   evaluador_uid: z.string().email().or(z.string().min(1)),
   version_checklist: z.string().min(1),
   texto_capturado: z.string(),
-  criterios_evaluados: z.array(criterionEvaluationSchema).length(39),
-  criterios_aprobados: z.number().int().min(0).max(39),
-  criterios_aplicables: z.number().int().min(0).max(39),
-  criterios_no_aplica: z.number().int().min(0).max(39),
+  criterios_evaluados: criteriosEvaluadosSchema,
+  criterios_aprobados: z.number().int().min(0).max(CRITERION_COUNT),
+  criterios_aplicables: z.number().int().min(0).max(CRITERION_COUNT),
+  criterios_no_aplica: z.number().int().min(0).max(CRITERION_COUNT),
   porcentaje_cumplimiento: z.number().min(0).max(100),
   estado_aceptacion: acceptanceStatusSchema,
   texto_propuesto: z.string().optional(),
@@ -268,7 +352,7 @@ export function parseStrictAuditRecord(data: unknown): StrictAuditRecord {
   return strictAuditRecordSchema.parse(data)
 }
 
-/** Construye las 39 evaluaciones (por defecto `cumple`) para mocks y tests. */
+/** Construye las 47 evaluaciones v2.1 (por defecto `cumple`) para mocks y tests. */
 export function buildDemoEvaluations(
   overrides: Partial<Record<CriterionId, Partial<Omit<CriterionEvaluation, "id">>>> = {},
 ): CriterionEvaluation[] {
@@ -288,7 +372,7 @@ export function buildDemoStrictAudit(overrides?: Partial<AuditRecord>): StrictAu
     url: "https://tramites.inapi.cl/",
     fecha_evaluacion: new Date().toISOString(),
     evaluador_uid: "demo@inapi.cl",
-    version_checklist: "1.1",
+    version_checklist: "2.1",
     texto_capturado: "(texto de demostración)",
     criterios_evaluados,
     ...sum,
@@ -309,8 +393,9 @@ export function buildDemoStrictAuditWithCumpleCount(
   mockSeveridadBias: MockSeveridadBias = "intermedio",
   noAplicaCount = 0,
 ): StrictAuditRecord {
-  const na = Math.max(0, Math.min(39, Math.floor(noAplicaCount)))
-  const aplicables = 39 - na
+  const total = CRITERION_COUNT
+  const na = Math.max(0, Math.min(total, Math.floor(noAplicaCount)))
+  const aplicables = total - na
   const nCumple = Math.max(0, Math.min(aplicables, Math.floor(cumpleCount)))
   const criterios_evaluadosRaw: CriterionEvaluation[] = CRITERION_IDS.map(
     (id, idx) => {
@@ -334,7 +419,7 @@ export function buildDemoStrictAuditWithCumpleCount(
     url: "https://tramites.inapi.cl/",
     fecha_evaluacion: new Date().toISOString(),
     evaluador_uid: "demo@inapi.cl",
-    version_checklist: "1.1",
+    version_checklist: "2.1",
     texto_capturado: "(texto de demostración)",
     criterios_evaluados,
     ...sum,

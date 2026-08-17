@@ -10,7 +10,7 @@ const raw = JSON.parse(readFileSync(jsonPath, "utf8"))
 const parsed = parseChecklistCriteriaFile(raw)
 
 const ids = new Set(parsed.criteria.map((c) => c.id))
-if (ids.size !== 39) {
+if (ids.size !== parsed.criteria.length) {
   console.error("IDs duplicados o incompletos")
   process.exit(1)
 }
