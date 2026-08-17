@@ -1,7 +1,11 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-07-29
+**Última actualización:** 2026-08-17
+
+### Checklist editorial (ago-2026)
+
+- [x] **Checklist v2.1 — 47 criterios** en `data/checklist-criteria.json` (+ Zod, skills Claude §17, citas IEW/IESD/RLC/MEI). Auditorías JSON históricas v1.1 (39 filas) siguen válidas. **No** reauditar URLs hasta cerrar checklist y acordar lote META MEI.
 
 ---
 

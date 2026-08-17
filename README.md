@@ -1,6 +1,6 @@
 # MVP — Aplicativo de auditoría de lenguaje claro INAPI
 
-Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial INAPI** v1.1 sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
+Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial INAPI** v2.1 (47 criterios) sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
 
 ---
 
@@ -48,7 +48,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 
 | Recurso | Descripción |
 | --- | --- |
-| [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **39 criterios** (fuente para mocks, prompts y futura base de datos) |
+| [data/checklist-criteria.json](data/checklist-criteria.json) | Catálogo versionado de los **47 criterios** v2.1 (fuente para mocks, prompts y futura base de datos) |
 | [data/audit-fixtures/](data/audit-fixtures/) | **Fixtures** de auditorías completas (JSON) validadas con `strictAuditRecordSchema`; convención y scripts en [data/audit-fixtures/README.md](data/audit-fixtures/README.md) |
 | [data/ux/clarity-fichas-mock.json](data/ux/clarity-fichas-mock.json) | **22 fichas** mock Calidad Web (objetivo): ranks 1–20 `tramites.inapi.cl`, 21–22 `sitioweb`; campo **`type_url`**; fuente de la tabla en `/auditar` — ver [docs/ux/inventario-urls-clarity.md](docs/ux/inventario-urls-clarity.md) |
 | [src/schemas/checklist.ts](src/schemas/checklist.ts) | Esquemas **Zod**, tipos inferidos y helpers para mocks y validación (equivalente actual a `packages/contracts` del monorepo objetivo; ver [propuesta técnica integral](docs/PROPUESTA_TECNICA_INTEGRAL.md)) |
