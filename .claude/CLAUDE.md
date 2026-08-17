@@ -8,26 +8,26 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 
 ## 1. Dominio del proyecto
 
-- **Qué hace:** automatiza la auditoría del Checklist Editorial INAPI v1.1 (39 criterios A1–H1) sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
+- **Qué hace:** automatiza la auditoría del Checklist Editorial INAPI v2.1 (47 criterios A1–H1) sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
 - **Resultado de cada auditoría:** un JSON canónico con 7 secciones (ver §4) que alimenta el frontend en `/auditar/resultado` y genera un informe PDF institucional.
 - **Estado actual (jul 2026):** Fases 0–3 completadas en WSL (Playwright + RAG + flujo sub-subagentes). Fase 3.3 en curso: captura autenticada ClaveÚnica y calibración de datos de sesión (`docs/fase-3-3-captura-auth-claveunica.md`). MVP: 9 URLs piloto + 13/17 serie Clarity con JSON.
 
 ---
 
-## 2. Checklist v1.1 — 39 criterios
+## 2. Checklist v2.1 — 47 criterios
 
 | Sección | IDs | Título |
 | --- | --- | --- |
-| A | A1–A5 | Estructura y organización del contenido |
-| B | B1–B7 | Lenguaje claro |
-| C | C1–C7 | Redacción y concisión |
+| A | A1–A9 | Estructura y organización del contenido |
+| B | B1–B8 | Lenguaje claro |
+| C | C1–C9 | Redacción y concisión |
 | D | D1–D7 | Ortografía, gramática y formato |
-| E | E1–E4 | Objetividad y fiabilidad |
-| F | F1–F5 | Enlaces y referencias |
+| E | E1–E4 | Objetividad, autoría y fiabilidad |
+| F | F1–F6 | Enlaces y referencias |
 | G | G1–G3 | Datos personales y propiedad intelectual |
 | H | H1 | Archivo y versionado |
 
-**Fuente de verdad:** `data/checklist-criteria.json` (incluye `criterion`, `verification` y `source` por criterio).
+**Fuente de verdad:** `data/checklist-criteria.json` (incluye `criterion`, `verification`, `source` y `applicability` por criterio). Nuevas auditorías: **47** filas y `version_checklist: "2.1"`. Las JSON históricas v1.1 (39) siguen válidas.
 
 ### Umbrales de aceptación
 
@@ -43,7 +43,12 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 - **G1 — pantallas con sesión autenticada (`captura_con_sesion: true`):** los datos del **solicitante logueado** (RUT, nombre, correo, marca en trámite, etc.) en campos de formulario o resúmenes **no son incumplimiento G1** — son esperables. Evaluar si la **estructura del formulario** (etiquetas, ayudas, orden, claridad de instrucciones) permite completar el trámite sin ambigüedad. Ver §19.
 - **D7 — mayúsculas en cabecera global:** los ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** de D7 (restricción de estilo de plantilla). Aplicar D7 con normalidad en el resto de la página y en todas las URLs de `tramites.inapi.cl`.
 - **E3 — fecha de publicación:** si no hay fecha visible en la página, registrar `(ausencia)` en `cita_textual` y proponer insertar una línea visible. Cobertura mínima 1:1. **Nunca** sustituir por `©año` del footer — el año de copyright no es fecha de actualización del contenido.
-- **D1 vs E4:** D1 cubre errores tipográficos, falta de tildes, capitalización incorrecta y texto de desarrollo sin eliminar. E4 es exclusivamente el elemento `<title>` con guiones que no describe el contenido de la página. Son criterios distintos; no confundir.
+- **D1 vs E4:** D1 cubre errores tipográficos, falta de tildes, capitalización incorrecta y texto de desarrollo sin eliminar. E4 es el H1/`<title>` que no describe el contenido específico. Son criterios distintos; no confundir.
+- **A5 vs A8:** A5 penaliza **exceso** (relleno institucional). A8 exige **suficiencia** para autonomía en trámites (`applicability: tramites`). No son opuestos del mismo hallazgo.
+- **C5 vs C9:** C5 mide **longitud** por párrafo; C9 mide **cantidad** de párrafos del cuerpo (2–8).
+- **F5 vs F6:** F5 es **posición** del enlace; F6 es presencia de **enlaces relacionados** internos (no solo menú).
+- **B8:** documentar en `comentario` el resultado de Legible (u equivalente); sin medición sobre texto principal → incumplir o justificar `no_aplica`.
+- **Citas normativas v2.1:** usar `IEW` / `IESD` / `RLC` / `MEI` del campo `source`. No inventar `CW` en auditorías nuevas.
 
 ---
 
@@ -51,7 +56,7 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 
 | Ruta | Descripción |
 | --- | --- |
-| `data/checklist-criteria.json` | Fuente de verdad — 39 criterios con enunciado, verificación y fuente normativa |
+| `data/checklist-criteria.json` | Fuente de verdad — 47 criterios v2.1 (enunciado, verificación, fuente, applicability) |
 | `data/claude-audits/tramites/{YYYY-MM-DD}/` | JSONs Meta MEI Trámites (piloto + Clarity) |
 | `data/claude-audits/sitioweb/{YYYY-MM-DD}/` | JSONs Meta MEI Sitio Web (piloto + Clarity) |
 | `auditorias/htmls/` | HTMLs capturados por Playwright (`.html`/`.txt` versionados; auxiliares binarios ignorados) |
@@ -86,7 +91,8 @@ Cada auditoría produce un archivo `{slug-url}_{YYYY-MM-DD}.json`. La fuente de 
   "criterios": [
     { "id": "A1", "estado": "cumple|incumple|no_aplica", "severidad": "baja|media|alta", "comentario": "...", "cita_textual": "..." }
   ],
-  "resumen": { "total": 39, "cumple": 0, "incumple": 0, "no_aplica": 0, "porcentaje": 0.0 },
+  "resumen": { "total": 47, "cumple": 0, "incumple": 0, "no_aplica": 0, "porcentaje": 0.0 },
+  "version_checklist": "2.1",
   "resumen_ejecutivo": "...",
   "observaciones_lc_por_severidad": {
     "alta": [],
@@ -110,7 +116,7 @@ Los JSONs del piloto en `data/claude-audits/` usan los nombres `criterios_evalua
 
 ## 5. Reglas permanentes
 
-- **NUNCA inventar criterios** — solo los 39 de `data/checklist-criteria.json`.
+- **NUNCA inventar criterios** — solo los 47 de `data/checklist-criteria.json` (o 39 si se reabre una auditoría histórica v1.1).
 - **Estado de criterio:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores.
 - **Contar cada criterio UNA SOLA VEZ** por URL, independientemente de cuántas ocurrencias haya.
 - **Cobertura 1:1 obligatoria:** cada `incumple` → al menos una entrada en `sustituciones[]`.
@@ -147,7 +153,7 @@ El resultado de cada auditoría alimenta `/auditar/resultado`, que muestra **7 s
 | 1 | Datos de Auditoría | `id`, `url`, `fecha`, `evaluador_uid`, `tipo_pagina` |
 | 2 | Resumen | `resumen` (`total`, `cumple`, `incumple`, `no_aplica`, `porcentaje`) |
 | 3 | Pasos a seguir | `estado_aceptacion` / `resumen.porcentaje` → umbral → copy UI |
-| 4 | 39 criterios evaluados | `criterios` (tabla completa con estado y severidad) |
+| 4 | 47 criterios evaluados (v2.1) | `criterios` (tabla completa con estado y severidad) |
 | 5 | Observaciones por severidad | `observaciones_lc_por_severidad` (`alta`, `media`, `baja`) |
 | 6 | Texto propuesto | `sustituciones[]` |
 | 7 | Nota para TI | `nota_final_tic` |
@@ -249,12 +255,12 @@ Si el MCP no acepta `storageState`, el script local es la vía obligatoria para 
 ### Paso 2 — Primera pasada (inventario + evaluación en prosa)
 Prompt §3.1 del flujo. Entregar:
 - Inventario `T001: «texto» (contexto)` de todos los nodos relevantes.
-- Tabla de 39 criterios (id, estado, severidad si incumple, comentario, `cita_textual`).
+- Tabla de 47 criterios v2.1 (id, estado, severidad si incumple, comentario, `cita_textual`).
 - Resumen numérico preliminar + lista de sustituciones.
 
 ### Paso 3 — Segunda pasada (JSON canónico)
 Prompt §3.2 del flujo. Reglas de contrato:
-- Exactamente **39 objetos** en `criterios_evaluados[]`, orden A1…H1.
+- Exactamente **47 objetos** en `criterios_evaluados[]` (v2.1), orden A1…H1 (incluye A6–A9, B8, C8, C9, F6). Auditorías históricas v1.1: 39 objetos.
 - Estado: SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
 - `severidad` SOLO si `estado = "incumple"` — omitir la clave en `cumple`/`no_aplica`.
 - `cita_textual`: omitir la clave si no hay cita (nunca `null`).
@@ -334,7 +340,7 @@ GET /api/claude-audits/{id}/export/pdf
 | 1 | Datos de Auditoría (`url`, checklist, cumplimiento, fecha, evaluador) |
 | 2 | Resumen (`resumen_ejecutivo`) |
 | 3 | Pasos a seguir (según `estado_aceptacion`) |
-| 4 | 39 criterios evaluados (tabla completa) |
+| 4 | 47 criterios evaluados v2.1 (tabla completa) |
 | 5 | Observaciones por severidad (`observaciones_lc_por_severidad`) |
 | 6 | Texto propuesto (tabla `sustituciones[]`) |
 | 7 | Nota para TI (`nota_final_tic`) |
@@ -418,8 +424,11 @@ git push origin main                      # subir a remoto
 | --- | --- | --- |
 | A4 | La página es un formulario, pantalla de estado o panel de tramitación sin bloques de texto editorial | `tramites.inapi.cl/Trademark/TrademarkApplication` |
 | A5 | No hay texto institucional o de relleno visible — solo contenido funcional | Páginas de sólo formulario |
+| A8 | La página es `sitioweb` informativa (A8 solo aplica a trámites) | Noticia o página institucional de `www.inapi.cl` |
+| B8 | No hay texto principal medible (página vacía / solo UI sin cuerpo) | Pantalla de error mínima |
 | C6 | El texto tiene menos de 4 párrafos continuos en la página | Home con secciones tipo tarjeta corta |
 | C7 | No hay listas de requisitos en la página | Páginas de portal/home sin listados de pasos |
+| C9 | No hay cuerpo editorial con párrafos (solo formulario/estado) | Wizard de trámite sin texto introductorio |
 | D3 | El espaciado entre párrafos es criterio CSS/visual — declarar fuera del alcance editorial en esta auditoría | Aplica a casi todas las páginas |
 | D4 | La alineación del texto es criterio CSS/visual — fuera del alcance editorial | Aplica a casi todas las páginas |
 | D6 | No hay texto corrido extenso que requiera destacar palabras clave con negritas | Páginas tipo portal con titulares cortos |
@@ -438,16 +447,16 @@ git push origin main                      # subir a remoto
 
 ### Motivación
 
-Evaluar los 39 criterios en una sola pasada puede sacrificar profundidad en secciones complejas (B/C lingüística, F/G compliance). Esta arquitectura delega cada grupo de secciones a un sub-subagente especializado, garantizando análisis robusto y consistente.
+Evaluar los 47 criterios en una sola pasada puede sacrificar profundidad en secciones complejas (B/C lingüística, F/G compliance). Esta arquitectura delega cada grupo de secciones a un sub-subagente especializado, garantizando análisis robusto y consistente.
 
 ### 5 grupos temáticos
 
 | Grupo | Secciones | Criterios | Foco |
 | --- | --- | --- | --- |
-| **1 — Estructura y Objetividad** | A + E | A1–A5, E1–E4 | Organización de contenido, pirámide invertida, fechas, títulos representativos |
-| **2 — Lenguaje y Redacción** | B + C | B1–B7, C1–C7 | Voz activa, tuteo, siglas, oraciones simples, párrafos de una idea |
+| **1 — Estructura y Objetividad** | A + E | A1–A9, E1–E4 | Organización, completitud (A6–A8), escaneabilidad (A9), fechas, títulos |
+| **2 — Lenguaje y Redacción** | B + C | B1–B8, C1–C9 | Voz activa, tuteo, siglas, legibilidad B8, FAQ (C8), conteo párrafos (C9) |
 | **3 — Mecánica** | D | D1–D7 | Ortografía, puntuación, formato visual, mayúsculas sostenidas |
-| **4 — Enlaces** | F | F1–F5 | Descriptividad de CTAs, coherencia nombre/destino, PDFs con formato |
+| **4 — Enlaces** | F | F1–F6 | CTAs, PDFs con descripción (F4), enlaces relacionados (F6) |
 | **5 — Datos y Archivo** | G + H | G1–G3, H1 | Datos personales, derechos ARCO, versiones archivadas |
 
 ### Flujo completo (por URL)
@@ -466,7 +475,7 @@ Agente raíz
         ↓ (cada uno entrega: array de criterios de su sección + sustituciones parciales)
         │
 ├── [7] Agente raíz consolida los 5 outputs:
-│       - Une los 5 arrays → exactamente 39 criterios, orden A1…H1
+│       - Une los 5 arrays → exactamente 47 criterios (v2.1), orden A1…H1
 │       - Une todos los sustituciones[] de los 5 grupos
 │       - Calcula resumen numérico (criterios_aprobados, porcentaje, estado_aceptacion)
 │       - Escribe el JSON canónico completo
@@ -479,7 +488,7 @@ Agente raíz
 - **El `texto_capturado` se captura UNA SOLA VEZ** y se pasa como contexto a los 5 sub-subagentes. No capturar el HTML 5 veces.
 - **Sin superposición de criterios:** cada criterio es evaluado por exactamente un grupo. Si hay duda (ej. E4 vs D1 para el `<title>`): E4 es de Grupo 1, D1 de Grupo 3.
 - **Consolidación de `sustituciones[]`:** unir los arrays de los 5 grupos. Si dos grupos proponen cambio para el mismo `linea`, el agente raíz retiene la propuesta del grupo con `severidad` más alta y anota el conflicto en `nota_final_tic`.
-- **Verificación de completitud antes de cerrar:** contar filas en `criterios_evaluados[]` = 39; verificar cobertura 1:1 entre `incumple` y `sustituciones[]`.
+- **Verificación de completitud antes de cerrar:** contar filas en `criterios_evaluados[]` = 47 (v2.1); verificar cobertura 1:1 entre `incumple` y `sustituciones[]`.
 - **No lanzar el paso 7 hasta que los 5 sub-subagentes hayan entregado su output.**
 
 ### Instrucción de contexto para cada sub-subagente
@@ -488,7 +497,7 @@ Al lanzar cada sub-subagente, incluir siempre:
 1. El `texto_capturado` completo (HTML inventariado T001…).
 2. La URL, `tipo_pagina` y `fecha` de la auditoría.
 3. Flag `captura_con_sesion: true|false` — si `true`, aplicar §19 (Grupo 5 es crítico para G1–G3).
-4. Las secciones del checklist que debe evaluar (ej. "Evalúa SOLO los criterios A1–A5 y E1–E4").
+4. Las secciones del checklist que debe evaluar (ej. "Evalúa SOLO los criterios A1–A9 y E1–E4").
 5. La instrucción: "Entrega SOLO el array de criterios de tu sección + el array de sustituciones[] correspondiente. No calcules el resumen total."
 6. La calibración aplicable a su sección (ver §2 y §19 de este CLAUDE.md).
 
@@ -509,7 +518,7 @@ Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP
 
 | Aspecto | Pasada única | Sub-subagentes (5 grupos) |
 | --- | --- | --- |
-| Profundidad en B/C (lingüística) | Media — comparte contexto con 39 criterios | Alta — el agente se concentra solo en 14 criterios |
+| Profundidad en B/C (lingüística) | Media — comparte contexto con 47 criterios | Alta — el agente se concentra solo en su grupo |
 | Consistencia en D (typos masivos) | Puede perder ocurrencias | Grupo dedicado — revisa el HTML íntegro solo para D |
 | Trazabilidad de errores | Difícil aislar qué sección falló | Error acotado al grupo que lo produjo |
 | Tiempo total | Más rápido | Más lento (paralelo), pero más preciso |
@@ -594,9 +603,9 @@ Referencia completa: `docs/SECURITY.md`.
 | **G1** | ¿Se exponen datos de **terceros** sin justificación? ¿Hay datos personales fuera del contexto del formulario (p. ej. en pie de página estático)? Los datos del solicitante en su trámite → `cumple` o evaluar solo si la **exposición es indebida** |
 | **G2** | `no_aplica` en pantallas transaccionales post-login (ya calibrado en §16) |
 | **G3** | Copyright / condiciones institucionales del layout — igual que URLs públicas |
-| **B1–B7, C1–C7** | Claridad de etiquetas de campo, ayudas contextuales, instrucciones de pasos — citar la **etiqueta**, no el valor del input |
-| **F1–F5** | CTAs y enlaces del flujo de trámite; descriptividad de botones de envío/confirmación |
-| **A1–A5, D, E** | Estructura de la pantalla, títulos, fechas visibles, ortografía de copy **institucional** (no de valores ingresados por el usuario) |
+| **B1–B8, C1–C9** | Claridad de etiquetas de campo, ayudas contextuales, instrucciones de pasos — citar la **etiqueta**, no el valor del input |
+| **F1–F6** | CTAs, PDFs descriptivos y enlaces relacionados del flujo de trámite |
+| **A1–A9, D, E** | Estructura, completitud/autonomía (A6–A8), escaneabilidad, títulos, fechas, ortografía de copy **institucional** |
 
 ### Anonimización obligatoria en salidas
 
