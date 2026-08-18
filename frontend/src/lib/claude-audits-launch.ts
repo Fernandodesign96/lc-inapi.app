@@ -26,15 +26,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/",
     label: "Home INAPI",
     tipoPagina: "sitioweb",
-    // Misma URL que Clarity rank 16 — vigente jul-2026
-    claudeAuditId: "www-inapi-cl_2026-07-22",
+    // Misma URL que Clarity rank 16 — vigente ago-2026 (reauditoría v2.1, meta-mei orden 1)
+    claudeAuditId: "www-inapi-cl_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 54.5,
+      porcentajeLc: 56.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
     history: [
+      { id: "www-inapi-cl_2026-07-22" },
       { id: "www-inapi-cl_2026-06-11" },
       { id: "www-inapi-cl_2026-06-02" },
     ],
@@ -57,13 +58,15 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas",
     label: "Marcas",
     tipoPagina: "sitioweb",
-    claudeAuditId: "www-inapi-cl-marcas_2026-06-05",
+    // Reauditoría v2.1 (meta-mei orden 2)
+    claudeAuditId: "www-inapi-cl-marcas_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 48.5,
+      porcentajeLc: 63.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-05T17:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-marcas_2026-06-05" }],
   },
   {
     pilotoNum: 4,
@@ -165,18 +168,25 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     fechaEvaluacionIso: string
     evaluadorUid: string
   }
+  /**
+   * Auditorías anteriores de la misma URL (ids en repo).
+   * El `id` debe ser siempre la más reciente.
+   */
+  history?: { id: string }[]
 }> = [
   {
-    id: "www-inapi-cl-patentes_2026-07-29",
+    id: "www-inapi-cl-patentes_2026-08-18",
     url: "https://www.inapi.cl/patentes",
     label: "Patentes",
     tipoPagina: "sitioweb",
+    // Reauditoría v2.1 (meta-mei orden 3)
     resumenMvp: {
       porcentajeLc: 42.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-patentes_2026-07-29" }],
   },
   {
     id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",

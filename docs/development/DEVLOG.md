@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Frontend: entrega solo visible + Excel por URL](#devlog-2026-08-18-entrega-visible-excel-url) |
 | 2026-08-18 | [Frontend: tabla META MEI 10 URLs e historial unificado](#devlog-2026-08-18-meta-mei-ui-historial) |
 | 2026-08-18 | [Infraestructura: typecheck:all paso 4 audit-jobs](#devlog-2026-08-18-audit-jobs-typecheck) |
 | 2026-08-18 | [Documentación: spike túnel Vercel↔worker PC](#devlog-2026-08-18-tunel-spike) |
@@ -69,6 +70,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-entrega-visible-excel-url"></a>
+
+## [2026-08-18] - Frontend | entrega solo visible + Excel por URL
+
+### Contexto y objetivos:
+
+Alinear entrega (UI resultado, PDF, Excel) y reglas Claude §17 con el uso real: jefatura no TI revisa lo **visible en pantalla**. Evitar que hallazgos de `<title>`/`<meta>` contaminen % y descargas. Separar Excel de una URL vs workbook META MEI de las 10.
+
+### Implementación técnica:
+
+- Filtro `src/lib/audit-visible-content.ts` (`bundleForVisibleDelivery`) aplicado en resultado, PDF y carga MEI.
+- Skills/`CLAUDE.md`/`audit-lote.md`: alcance solo visible; E4 = H1; campo opcional `ubicacion_pantalla` + `capa`.
+- Excel por URL: `GET /api/mei-calidad-web/export/url/[auditId]/xlsx`; resultado descarga «esta URL». Completo 10 URLs solo cuando META MEI v2.1 está lista.
+- Columnas Excel/PDF orientadas a: texto en pantalla → corrección → ubicación → justificación → ref. técnica.
+- `bun run lint`, `typecheck:all` y `build` OK.
+
+### Próximos pasos:
+
+- Corregir JSON de home/marcas/patentes (quitar metadata; añadir `ubicacion_pantalla`).
+- Completar lote 1 URLs 4–5 (acerca-de, buscador noticias) con las mismas reglas.
 
 ---
 

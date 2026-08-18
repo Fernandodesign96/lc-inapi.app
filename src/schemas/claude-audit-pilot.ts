@@ -10,6 +10,13 @@ import {
 export const claudeSustitucionSchema = z.object({
   linea: z.string().min(1),
   html_linea_aprox: z.string().optional(),
+  /**
+   * Dónde lo ve el ciudadano en la pantalla (obligatorio en práctica para
+   * sitioweb: «En el título…», «En el subtítulo de…», «En la sección…»).
+   */
+  ubicacion_pantalla: z.string().optional(),
+  /** METADATA no se incluye en entrega UI/PDF/Excel. */
+  capa: z.enum(["VISIBLE", "METADATA", "SISTEMA"]).optional(),
   original: z.string().min(1),
   propuesto: z.string().min(1),
   criterio_id: criterionIdSchema,

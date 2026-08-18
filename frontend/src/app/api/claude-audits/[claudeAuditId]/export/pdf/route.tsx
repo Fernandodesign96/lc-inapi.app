@@ -10,6 +10,7 @@ import {
   loadClaudeAuditBundle,
 } from "@/lib/load-claude-audit-bundle"
 import { InformePilotoPdfDocument } from "@/lib/pdf/informe-piloto-pdf-document"
+import { bundleForVisibleDelivery } from "@repo/lib/audit-visible-content"
 
 /** Lectura de disco + @react-pdf/renderer requieren Node (no Edge). */
 export const runtime = "nodejs"
@@ -27,7 +28,8 @@ export async function GET(
   const { claudeAuditId: param } = await context.params
 
   try {
-    const bundle = loadClaudeAuditBundle(param)
+    const raw = loadClaudeAuditBundle(param)
+    const bundle = bundleForVisibleDelivery(raw)
     const filename = informePilotoPdfFilenameFromBundle(bundle)
 
     const buffer = await renderToBuffer(

@@ -36,6 +36,7 @@ Para CADA URL, ejecuta el siguiente flujo de forma secuencial (termina una URL a
 - **URLs públicas:** Playwright MCP → `playwright_navigate` → `playwright_get_content` → guardar en `auditorias/htmls/{slug}_{fecha}.html`
 - **URLs post-login (`captura_con_sesion: true`):** `bun run capture:tramites-html -- --url "..." --slug "..." --date "YYYY-MM-DD"` (requiere `auditorias/.auth/tramites-session.json`)
 - Compartir el HTML como `texto_capturado` anonimizado (inventario T001…) con los 5 sub-subagentes
+- **Solo contenido visible:** no inventariar ni evaluar `<title>`, `<meta>` ni Open Graph. E4 = H1 visible. En sitioweb, cada sustitución debe traer `ubicacion_pantalla` legible para jefatura no TI.
 - Si `captura_con_sesion: true`, aplicar **CLAUDE.md §19** en todos los grupos (especialmente Grupo 5)
 
 **Paso 2 — 5 Sub-subagentes en paralelo**

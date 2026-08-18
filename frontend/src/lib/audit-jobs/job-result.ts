@@ -1,14 +1,18 @@
 import type { AuditJob } from "@contracts/audit-job"
 
 import {
-  excelPathForAuditUrl,
+  excelPathForClaudeAudit,
   normalizeAuditUrl,
 } from "@/lib/audit-jobs/excel-path"
 import { CLAUDE_PILOT_URL_ROWS } from "@/lib/claude-audits-launch"
 import { CLARITY_AUDIT_LAUNCH_ROWS } from "@/lib/clarity-audits-launch"
 import { listJobsByStatus } from "@repo/lib/audit-jobs/store"
 
-export { excelPathForAuditUrl, normalizeAuditUrl } from "@/lib/audit-jobs/excel-path"
+export {
+  excelPathForClaudeAudit,
+  excelPathForAuditUrl,
+  normalizeAuditUrl,
+} from "@/lib/audit-jobs/excel-path"
 
 export type HistorialEstadoAceptacion =
   | "rechazado"
@@ -155,9 +159,9 @@ export function buildHistorialForJob(
   return { url: job.url, entradas }
 }
 
-export function buildDescargas(auditId: string, url?: string) {
+export function buildDescargas(auditId: string) {
   const q = encodeURIComponent(auditId)
-  const excelPath = url ? excelPathForAuditUrl(url) : undefined
+  const excelPath = excelPathForClaudeAudit(auditId)
   return {
     resultadoPath: `/auditar/resultado?claudeAudit=${q}`,
     pdfPath: `/api/claude-audits/${q}/export/pdf`,

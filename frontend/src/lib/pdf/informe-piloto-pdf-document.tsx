@@ -29,6 +29,7 @@ import {
     ETIQUETA_ESTADO_ACEPTACION,
     PASOS_SEGUN_ESTADO,
   } from "@/lib/resultado-mock-copy"
+  import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
   
   function trunc(text: string, max: number): string {
     if (text.length <= max) return text
@@ -155,7 +156,7 @@ import {
   }
   
   function BloqueCriterios({ bundle }: { bundle: ClaudeAuditBundle }) {
-    const rows = bundle.audit.criterios_evaluados
+    const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
     return (
       <View style={styles.sectionWrap}>
         <PdfSectionBar title="39 Criterios Evaluados" />
@@ -210,35 +211,43 @@ import {
   }) {
     return (
       <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Texto propuesto" />
+        <PdfSectionBar title="Texto propuesto (contenido visible)" />
         <View style={styles.tableHeaderRow}>
-          <Text style={[styles.tableHeaderCell, { width: "10%" }]}>Línea</Text>
+          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
+            En pantalla
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
+            Corrección
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
+            Ubicación
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "22%" }]}>Motivo</Text>
           <Text style={[styles.tableHeaderCell, { width: "8%" }]}>Crit.</Text>
-          <Text style={[styles.tableHeaderCell, { width: "22%" }]}>
-            Original
+          <Text style={[styles.tableHeaderCell, { width: "16%" }]}>
+            Ref. técnica
           </Text>
-          <Text style={[styles.tableHeaderCell, { width: "22%" }]}>
-            Propuesto
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "38%" }]}>Motivo</Text>
         </View>
         {sustituciones.map((s, i) => (
           <View key={`s-${s.linea}-${i}`} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "10%" }]}>
-              {s.linea}
-              {s.html_linea_aprox ? `\n${s.html_linea_aprox}` : ""}
+            <Text style={[styles.tableCell, { width: "18%" }]}>
+              {trunc(s.original, 100)}
+            </Text>
+            <Text style={[styles.tableCell, { width: "18%" }]}>
+              {trunc(s.propuesto, 100)}
+            </Text>
+            <Text style={[styles.tableCell, { width: "18%" }]}>
+              {trunc(s.ubicacion_pantalla?.trim() || "—", 100)}
+            </Text>
+            <Text style={[styles.tableCell, { width: "22%" }]}>
+              {trunc(s.motivo, 120)}
             </Text>
             <Text style={[styles.tableCell, { width: "8%" }]}>
               {s.criterio_id}
             </Text>
-            <Text style={[styles.tableCell, { width: "22%" }]}>
-              {trunc(s.original, 120)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "22%" }]}>
-              {trunc(s.propuesto, 120)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "38%" }]}>
-              {trunc(s.motivo, 160)}
+            <Text style={[styles.tableCell, { width: "16%" }]}>
+              {s.linea}
+              {s.html_linea_aprox ? `\n${s.html_linea_aprox}` : ""}
             </Text>
           </View>
         ))}

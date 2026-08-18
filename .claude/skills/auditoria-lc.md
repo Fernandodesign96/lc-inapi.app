@@ -23,11 +23,15 @@ T002 [HTML-L{n}]: «texto literal» (contexto: ...)
 ```
 
 **Reglas del inventario:**
-- Numerar todas las ocurrencias de texto relevante en orden de aparición en el HTML.
-- Incluir siempre: `<title>`, `<h1>`–`<h3>`, primer párrafo del cuerpo principal, botones de acción, items del menú, footer con copyright, fecha si existe.
-- Para series Clarity: incluir el bloque del encabezado del servicio.
-- Si no existe un elemento esperado (fecha, H1, alt en imagen): registrarlo como `(ausencia de H1)`, `(ausencia de fecha)`, etc.
-- Los `html_linea_aprox` del inventario son los que se usan en `sustituciones[]`; deben corresponder al HTML real capturado.
+- **Alcance = solo contenido visible en pantalla** para el ciudadano. **No** inventariar ni evaluar `<title>`, `<meta description>`, `<meta keywords>`, Open Graph ni otros nodos de capa METADATA del `<head>`.
+- Numerar ocurrencias de texto **visible** en orden de aparición (H1–H3, menús, párrafos, botones, footer, fechas visibles, etc.).
+- Incluir siempre: `<h1>`–`<h3>`, primer párrafo del cuerpo principal, botones de acción, items del menú, footer con copyright, fecha **si es visible**.
+- **No** usar el `<title>` de la pestaña del navegador como evidencia de E4: E4 se evalúa sobre el **H1 visible** (y encabezados visibles relacionados).
+- Para series Clarity: incluir el bloque del encabezado del servicio **visible**.
+- Si no existe un elemento esperado visible (fecha, H1, alt en imagen): registrarlo como `(ausencia de H1)`, `(ausencia de fecha)`, etc.
+- Los `html_linea_aprox` del inventario son los que se usan en `sustituciones[]`; deben corresponder al HTML real capturado **del nodo visible**.
+- En cada sustitución de **sitioweb**, completar `ubicacion_pantalla` en lenguaje no técnico: p. ej. «En el título principal (H1)», «En el subtítulo de la sección Noticias», «En el menú superior › Marcas». La ref. técnica (`linea` / `html_linea_aprox`) es secundaria para TI.
+- Marcar `capa: "VISIBLE"` en evaluaciones/sustituciones cuando sea claro. Nunca emitir hallazgos con evidencia solo de METADATA.
 
 ### Pantallas con sesión autenticada (`captura_con_sesion: true`)
 
@@ -143,7 +147,7 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 - D4: casi siempre `no_aplica` (criterio visual/CSS).
 - D6: `no_aplica` si no hay texto corrido extenso con palabras clave.
 
-**Distinción D1 vs E4:** D1 = errores tipográficos y faltas de ortografía en cualquier nodo; E4 = el `<title>` de la página no es representativo del contenido (ej. guiones en `<title>`, título genérico, variable dinámica vacía).
+**Distinción D1 vs E4:** D1 = errores tipográficos y faltas de ortografía en texto **visible**; E4 = el **H1 visible** no es representativo del contenido (no evaluar el `<title>` del head).
 
 ---
 
@@ -154,7 +158,7 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 | E1 | Sin opiniones ni adjetivos calificativos | Sin «excelente servicio», «moderna plataforma» | Generalmente cumple |
 | E2 | Fuente o autoría identificable | Nombre de la institución en encabezado o pie | Cumple: INAPI siempre visible |
 | E3 | Fecha de publicación o última modificación visible | Verificar en la página | **Alta transversal:** ausencia total de fecha en casi todas las páginas del inventario; ©año en footer NO equivale a fecha de actualización |
-| E4 ↑ | El H1 y `<title>` representan fielmente el contenido específico | No genérico de área ni promesa distinta | Media: guiones por variable dinámica vacía; título de área genérico |
+| E4 ↑ | El **H1 visible** representa fielmente el contenido específico | No genérico de área ni promesa distinta; **no** evaluar `<title>`/`<meta>` | Media: H1 genérico o desalineado del contenido |
 
 **`no_aplica` en sección E:** ningún criterio E es `no_aplica` salvo páginas sin texto institucional alguno.
 
@@ -248,7 +252,7 @@ Estos 8 patrones aparecen en la mayoría de URLs del inventario INAPI y proviene
 | F3 | Botones «OK» / «Aceptar» en modales | `_Layout.cshtml` — modales globales |
 | F4 | PDFs sin indicación de formato/peso | Toda la sección de documentos del sitio |
 | E3 | Ausencia de fecha de actualización visible | No hay componente de fecha en el layout |
-| E4 | Guiones en `<title>`: «- INAPI - …» | Variable dinámica vacía en `_Layout.cshtml` |
+| E4 | H1 visible genérico o desalineado | No usar `<title>` del head |
 | B3 | PCT en menú de Patentes sin expansión contextual | `_Layout.cshtml` — menú de Patentes |
 | H1 | Imágenes sin atributo `alt` descriptivo | Múltiples componentes del layout |
 

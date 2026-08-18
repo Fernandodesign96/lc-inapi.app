@@ -215,6 +215,11 @@ export const criterionEvaluationSchema = z.object({
   cita_textual: z.string().optional(),
   severidad: severitySchema.optional(),
   comentario: z.string().optional(),
+  /**
+   * Capa DOM (opcional). METADATA no entra en entrega UI/PDF/Excel
+   * (solo contenido visible en pantalla).
+   */
+  capa: z.enum(["VISIBLE", "METADATA", "SISTEMA"]).optional(),
 })
 
 export type CriterionEvaluation = z.infer<typeof criterionEvaluationSchema>

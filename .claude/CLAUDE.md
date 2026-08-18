@@ -43,7 +43,7 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 - **G1 — pantallas con sesión autenticada (`captura_con_sesion: true`):** los datos del **solicitante logueado** (RUT, nombre, correo, marca en trámite, etc.) en campos de formulario o resúmenes **no son incumplimiento G1** — son esperables. Evaluar si la **estructura del formulario** (etiquetas, ayudas, orden, claridad de instrucciones) permite completar el trámite sin ambigüedad. Ver §19.
 - **D7 — mayúsculas en cabecera global:** los ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** de D7 (restricción de estilo de plantilla). Aplicar D7 con normalidad en el resto de la página y en todas las URLs de `tramites.inapi.cl`.
 - **E3 — fecha de publicación:** si no hay fecha visible en la página, registrar `(ausencia)` en `cita_textual` y proponer insertar una línea visible. Cobertura mínima 1:1. **Nunca** sustituir por `©año` del footer — el año de copyright no es fecha de actualización del contenido.
-- **D1 vs E4:** D1 cubre errores tipográficos, falta de tildes, capitalización incorrecta y texto de desarrollo sin eliminar. E4 es el H1/`<title>` que no describe el contenido específico. Son criterios distintos; no confundir.
+- **D1 vs E4:** D1 cubre errores tipográficos, falta de tildes, capitalización incorrecta y texto de desarrollo sin eliminar **en contenido visible**. E4 es el **H1 visible** que no describe el contenido específico. **No** evaluar ni inventariar `<title>` / `<meta>` (fuera de alcance de entrega).
 - **A5 vs A8:** A5 penaliza **exceso** (relleno institucional). A8 exige **suficiencia** para autonomía en trámites (`applicability: tramites`). No son opuestos del mismo hallazgo.
 - **C5 vs C9:** C5 mide **longitud** por párrafo; C9 mide **cantidad** de párrafos del cuerpo (2–8).
 - **F5 vs F6:** F5 es **posición** del enlace; F6 es presencia de **enlaces relacionados** internos (no solo menú).
@@ -123,7 +123,7 @@ Los JSONs del piloto en `data/claude-audits/` usan los nombres `criterios_evalua
 - **Umbrales:** ≤ 80 % → `rechazado` · 81–90,9 % → `aceptado_con_observaciones` · ≥ 91 % → `aprobado`.
 - **G1 — RUT institucional:** persona jurídica pública = `cumple`. RUN/nombre en HTML **público** estático = `incumple alta`. En **sesión autenticada** (§19): datos del solicitante en formulario = esperados; evaluar claridad de etiquetas/ayudas, no la presencia del dato.
 - **E3:** ausencia de fecha de actualización = `incumple`. Nunca sustituir por `©año` del footer.
-- **D1 vs E4:** D1 = errores tipográficos, tildes, capitalización, texto de dev sin eliminar. E4 = elemento `<title>` con guiones que no describe el contenido. Criterios distintos.
+- **D1 vs E4:** D1 = errores tipográficos, tildes, capitalización, texto de dev sin eliminar (visible). E4 = **H1 visible** que no describe el contenido. **Prohibido** usar `<title>`/`<meta>` como evidencia.
 
 ---
 
@@ -138,7 +138,7 @@ Verificar siempre antes de dar por terminada la auditoría:
 | Botones `OK` / `Aceptar` en modales | F3 🟡 | Transversal a `_Layout.cshtml`; proponer «Aceptar selección» |
 | PDF sin formato/peso | F4 🔴 | Documentos descargables sin indicar `(PDF, X KB)` |
 | Ausencia de fecha de actualización | E3 🔴 | Sin fecha visible fuera de noticias individuales |
-| `<title>` con guiones | E4 🟡 | Solo nombre institución, no describe la tarea de la página |
+| H1 genérico o desalineado | E4 🟡 | Evaluar solo H1 visible; no usar `<title>` del head |
 | PCT en menú Patentes sin expansión | B3 🔴 | Sigla sin expandir en primera aparición |
 | Imágenes sin `alt` descriptivo | H1 🟡 | Imágenes que no tienen atributo `alt` o lo tienen vacío |
 
@@ -486,7 +486,7 @@ Agente raíz
 ### Reglas de consolidación (agente raíz — paso 7)
 
 - **El `texto_capturado` se captura UNA SOLA VEZ** y se pasa como contexto a los 5 sub-subagentes. No capturar el HTML 5 veces.
-- **Sin superposición de criterios:** cada criterio es evaluado por exactamente un grupo. Si hay duda (ej. E4 vs D1 para el `<title>`): E4 es de Grupo 1, D1 de Grupo 3.
+- **Sin superposición de criterios:** cada criterio es evaluado por exactamente un grupo. Si hay duda (ej. E4 vs D1 en un H1 visible): E4 es de Grupo 1, D1 de Grupo 3. Metadata HTML está fuera de alcance.
 - **Consolidación de `sustituciones[]`:** unir los arrays de los 5 grupos. Si dos grupos proponen cambio para el mismo `linea`, el agente raíz retiene la propuesta del grupo con `severidad` más alta y anota el conflicto en `nota_final_tic`.
 - **Verificación de completitud antes de cerrar:** contar filas en `criterios_evaluados[]` = 47 (v2.1); verificar cobertura 1:1 entre `incumple` y `sustituciones[]`.
 - **No lanzar el paso 7 hasta que los 5 sub-subagentes hayan entregado su output.**
