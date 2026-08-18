@@ -17,7 +17,7 @@ import {
   type StrictAuditRecord,
 } from "@contracts/checklist"
 import { Button } from "@/components/ui/button"
-import { excelPathForAuditUrl } from "@/lib/audit-jobs/job-result"
+import { excelPathForAuditUrl } from "@/lib/audit-jobs/excel-path"
 import {
   Card,
   CardContent,

@@ -1,10 +1,14 @@
 import type { AuditJob } from "@contracts/audit-job"
 
+import {
+  excelPathForAuditUrl,
+  normalizeAuditUrl,
+} from "@/lib/audit-jobs/excel-path"
 import { CLAUDE_PILOT_URL_ROWS } from "@/lib/claude-audits-launch"
 import { CLARITY_AUDIT_LAUNCH_ROWS } from "@/lib/clarity-audits-launch"
-import { MEI_COMPLETO_EXPORT_HREF } from "@/lib/mei-calidad-web/export-href"
 import { listJobsByStatus } from "@repo/lib/audit-jobs/store"
-import { MEI_META_MEI_URLS } from "@repo/lib/mei-export/mei-meta-mei-urls"
+
+export { excelPathForAuditUrl, normalizeAuditUrl } from "@/lib/audit-jobs/excel-path"
 
 export type HistorialEstadoAceptacion =
   | "rechazado"
@@ -17,16 +21,6 @@ export type HistorialEntrada = {
   auditId: string
   porcentajeCumplimiento?: number
   estadoAceptacion?: HistorialEstadoAceptacion
-}
-
-export function normalizeAuditUrl(url: string): string {
-  try {
-    const u = new URL(url)
-    const path = u.pathname.replace(/\/$/u, "")
-    return `${u.protocol}//${u.hostname.toLowerCase()}${path}`
-  } catch {
-    return url.trim().replace(/\/$/u, "")
-  }
 }
 
 function fechaSantiagoFromIso(iso: string): string {
@@ -159,15 +153,6 @@ export function buildHistorialForJob(
   )
 
   return { url: job.url, entradas }
-}
-
-/** Excel MEI completo si la URL está en la muestra META MEI. */
-export function excelPathForAuditUrl(url: string): string | undefined {
-  const target = normalizeAuditUrl(url)
-  const hit = MEI_META_MEI_URLS.some(
-    (row) => normalizeAuditUrl(row.url) === target,
-  )
-  return hit ? MEI_COMPLETO_EXPORT_HREF : undefined
 }
 
 export function buildDescargas(auditId: string, url?: string) {
