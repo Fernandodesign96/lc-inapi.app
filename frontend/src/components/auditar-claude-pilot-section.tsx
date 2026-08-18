@@ -24,7 +24,12 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { formatFechaEvaluacion } from "@/components/resultado-claude-pilot-sections"
+import { Button } from "@/components/ui/button"
 import { CeldaEstadoLcAceptacion } from "@/lib/lc-aceptacion-visual"
+import {
+  MEI_COMPLETO_EXPORT_HREF,
+  metaMeiCompletoExcelReady,
+} from "@/lib/mei-calidad-web/export-href"
 import {
   META_MEI_TABLE_ROWS,
   metaMeiResultadoHref,
@@ -37,6 +42,8 @@ function labelTipoPagina(tipo: "sitioweb" | "tramites"): string {
 }
 
 export function AuditarClaudePilotSection() {
+  const excelCompletoListo = metaMeiCompletoExcelReady()
+
   return (
     <Card className="border-border bg-card">
       <CardHeader>
@@ -44,10 +51,19 @@ export function AuditarClaudePilotSection() {
           Auditoría 10 URLs INAPI - META MEI
         </CardTitle>
         <CardDescription>
-          Cada fila muestra la última auditoría realizada para esa URL. Abra
-          una fila disponible para ver el informe en detalle (PDF y Excel MEI
-          en resultado).
+          Cada fila muestra la última auditoría §17 v2.1 (contenido visible en
+          pantalla). El Excel de las 10 URLs aparece aquí cuando las diez estén
+          listas; entretanto, cada resultado descarga el Excel de esa URL.
         </CardDescription>
+        {excelCompletoListo ? (
+          <div className="pt-1">
+            <Button type="button" variant="secondary" size="sm" asChild>
+              <a href={MEI_COMPLETO_EXPORT_HREF} download>
+                Descargar Excel MEI (10 URLs)
+              </a>
+            </Button>
+          </div>
+        ) : null}
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion type="single" collapsible className="w-full">

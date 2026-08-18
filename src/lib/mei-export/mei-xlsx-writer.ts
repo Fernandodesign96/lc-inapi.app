@@ -54,12 +54,13 @@ const WHITE_BOLD: Partial<ExcelJS.Font> = {
 const DETAIL_HEADERS = [
   "Página",
   "Dirección",
-  "ID/Línea",
+  "Texto en pantalla",
+  "Corrección propuesta",
+  "Ubicación en pantalla",
+  "Justificación",
   "Criterio",
   "CheckList",
-  "Texto original (Incumplimiento)",
-  "Sustitución propuesta",
-  "Justificación",
+  "Línea / ref. técnica",
 ] as const
 
 function styleHeaderRow(row: ExcelJS.Row, colCount: number) {
@@ -364,6 +365,12 @@ function lineaId(row: MeiExcelRow): string {
   return ""
 }
 
+function ubicacionEntrega(row: MeiExcelRow): string {
+  if (row.ubicacionPantalla.trim()) return row.ubicacionPantalla
+  // Fallback: no inventar; dejar vacío si falta (Claude debe completar)
+  return ""
+}
+
 function addDetallePorTipoSheet(
   workbook: ExcelJS.Workbook,
   sheetName: string,
@@ -387,10 +394,8 @@ function addDetallePorTipoSheet(
   const rowsOfType = rows.filter((r) => r.tipoPagina === tipoPagina)
 
   let rowIdx = 1
-  let urlOrdinal = 0
 
   for (const audit of auditsOfType) {
-    urlOrdinal++
     const title = sheet.getRow(rowIdx)
     sheet.mergeCells(rowIdx, 1, rowIdx, DETAIL_HEADERS.length)
     const rol = audit.rolMetaMei ? ` · ${audit.rolMetaMei}` : ""
@@ -411,20 +416,21 @@ function addDetallePorTipoSheet(
       const empty = sheet.getRow(rowIdx)
       empty.getCell(1).value = audit.nombreUi
       empty.getCell(2).value = audit.url
-      empty.getCell(6).value = "(sin incumplimientos en el alcance de este export)"
+      empty.getCell(3).value = "(sin incumplimientos visibles en el alcance de este export)"
       rowIdx++
     } else {
       for (const data of auditRows) {
         const r = sheet.getRow(rowIdx)
         r.getCell(1).value = data.nombreUi
         r.getCell(2).value = data.url
-        r.getCell(3).value = lineaId(data)
-        r.getCell(4).value = data.criterioId
-        r.getCell(5).value = data.criterioEnunciado
-        r.getCell(6).value = data.textoOriginal
-        r.getCell(7).value = data.textoPropuesto
-        r.getCell(8).value = data.motivo
-        for (let c = 5; c <= 8; c++) {
+        r.getCell(3).value = data.textoOriginal
+        r.getCell(4).value = data.textoPropuesto
+        r.getCell(5).value = ubicacionEntrega(data)
+        r.getCell(6).value = data.motivo
+        r.getCell(7).value = data.criterioId
+        r.getCell(8).value = data.criterioEnunciado
+        r.getCell(9).value = lineaId(data)
+        for (const c of [3, 4, 5, 6, 8, 9] as const) {
           r.getCell(c).alignment = { wrapText: true, vertical: "top" }
         }
         rowIdx++
@@ -447,6 +453,8 @@ export type BuildMeiWorkbookOptions = {
   root?: string
   /** Por defecto META MEI (10 URLs jefatura). Use `clarity` para la serie Clarity 13. */
   urlSet?: "meta-mei" | "clarity"
+  /** Si se pasa, no carga la muestra completa (Excel de una sola URL). */
+  audits?: LoadedClarityAudit[]
 }
 
 function loadAuditsForExport(
@@ -463,7 +471,7 @@ export async function buildMeiWorkbook(
 ): Promise<ExcelJS.Workbook> {
   const root = options.root ?? process.cwd()
   const urlSet = options.urlSet ?? "meta-mei"
-  const audits = loadAuditsForExport(urlSet, root)
+  const audits = options.audits ?? loadAuditsForExport(urlSet, root)
   const hitos = resolveHitos(options.hitoIds)
   const documentary = isDocumentaryOnly(hitos)
   const rows = collectRows(hitos, audits, root)

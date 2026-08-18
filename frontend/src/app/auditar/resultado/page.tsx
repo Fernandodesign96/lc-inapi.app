@@ -17,7 +17,11 @@ import {
   type StrictAuditRecord,
 } from "@contracts/checklist"
 import { Button } from "@/components/ui/button"
-import { excelPathForAuditUrl } from "@/lib/audit-jobs/excel-path"
+import { excelPathForClaudeAudit } from "@/lib/audit-jobs/excel-path"
+import {
+  bundleForVisibleDelivery,
+  criteriosVisiblesParaEntrega,
+} from "@repo/lib/audit-visible-content"
 import {
   Card,
   CardContent,
@@ -249,11 +253,16 @@ function ResultadoInner() {
 
   const claudeFetchErrorForDisplay = claudeAuditId ? claudeFetchError : null
 
+  const deliveryBundle = useMemo(
+    () => (claudeBundle ? bundleForVisibleDelivery(claudeBundle) : null),
+    [claudeBundle],
+  )
+
   const claudeAuditForDisplay =
     claudeAuditId &&
-    claudeBundle !== null &&
-    claudeBundle.audit.id === claudeAuditId
-      ? claudeBundle.audit
+    deliveryBundle !== null &&
+    deliveryBundle.audit.id === claudeAuditId
+      ? deliveryBundle.audit
       : null
 
   const showClaudeLoading =
@@ -268,9 +277,9 @@ function ResultadoInner() {
     urlDerivedAudit ??
     null
 
-  const pilotMeta: ClaudeAuditPilotMeta | null = claudeBundle?.pilot ?? null
+  const pilotMeta: ClaudeAuditPilotMeta | null = deliveryBundle?.pilot ?? null
 
-  const clarityMeta = claudeBundle?.clarity ?? null
+  const clarityMeta = deliveryBundle?.clarity ?? null
 
   const origenDatos:
     | "claude_audit_api"
@@ -286,7 +295,7 @@ function ResultadoInner() {
 
   const criteriosFiltrados = useMemo(() => {
     if (!auditoria) return []
-    return auditoria.criterios_evaluados.filter(
+    return criteriosVisiblesParaEntrega(auditoria.criterios_evaluados).filter(
       (row) =>
         matchesLetraTipo(row, filtroLetra) &&
         matchesEstadoCriterioVisual(row, filtroEstado) &&
@@ -294,9 +303,17 @@ function ResultadoInner() {
     )
   }, [auditoria, filtroLetra, filtroEstado, filtroSeveridad])
 
+  const criteriosEntregaCount = auditoria
+    ? criteriosVisiblesParaEntrega(auditoria.criterios_evaluados).length
+    : 0
+
   const letrasDisponibles = useMemo(
     () =>
-      auditoria ? letrasTipoDisponibles(auditoria.criterios_evaluados) : [],
+      auditoria
+        ? letrasTipoDisponibles(
+            criteriosVisiblesParaEntrega(auditoria.criterios_evaluados),
+          )
+        : [],
     [auditoria],
   )
 
@@ -949,7 +966,7 @@ function ResultadoInner() {
                 <div className="flex flex-col justify-end gap-2 sm:col-span-2 lg:col-span-1">
                   <span className="text-xs text-muted-foreground tabular-nums">
                     Mostrando {criteriosFiltrados.length} de{" "}
-                    {auditoria.criterios_evaluados.length}
+                    {criteriosEntregaCount}
                   </span>
                   <Button
                     type="button"
@@ -1113,14 +1130,14 @@ function ResultadoInner() {
               </a>
             </Button>
           ) : null}
-          {claudeAuditForDisplay
+          {claudeAuditId && claudeAuditForDisplay
             ? (() => {
-                const excelHref = excelPathForAuditUrl(claudeAuditForDisplay.url)
+                const excelHref = excelPathForClaudeAudit(claudeAuditId)
                 if (!excelHref) return null
                 return (
                   <Button type="button" variant="secondary" asChild>
                     <a href={excelHref} download>
-                      Descargar Excel MEI
+                      Descargar Excel MEI (esta URL)
                     </a>
                   </Button>
                 )

@@ -1,5 +1,9 @@
 import type { CriterionId } from "../../schemas/checklist"
 
+import {
+  isMetadataCriterionEvaluation,
+  isMetadataSustitucion,
+} from "../audit-visible-content"
 import { loadChecklistEnunciados } from "./mei-checklist-catalog"
 import {
   formatFechaDdMmYyyy,
@@ -39,6 +43,8 @@ export type MeiExcelRow = {
   textoOriginal: string
   textoPropuesto: string
   motivo: string
+  /** Ubicación legible en pantalla (jefe no TI). */
+  ubicacionPantalla: string
   lineaRef: string
   htmlLineaAprox: string
   fragmentoBusqueda: string
@@ -145,6 +151,7 @@ export function buildRowsForHito(
       textoPropuesto:
         "Checklist v2.1 operativo en repo + flujo auditoría Claude §17 + validate:claude-audits.",
       motivo: "Evidencia actividad 1 / hito H01 (ago-2026).",
+      ubicacionPantalla: "",
       lineaRef: "",
       htmlLineaAprox: "",
       fragmentoBusqueda: "",
@@ -181,6 +188,7 @@ export function buildRowsForHito(
         textoPropuesto:
           "Incorporar íconos, gráficos o infografías para datos publicados en la URL.",
         motivo: "Actividad MEI 14 — ticket diseño/TI.",
+        ubicacionPantalla: "En la página (revisión visual pendiente)",
         lineaRef: "",
         htmlLineaAprox: "",
         fragmentoBusqueda: "",
@@ -196,7 +204,9 @@ export function buildRowsForHito(
   }
 
   for (const audit of audits) {
-    const sustituciones = audit.bundle.pilot.sustituciones ?? []
+    const sustituciones = (audit.bundle.pilot.sustituciones ?? []).filter(
+      (s) => !isMetadataSustitucion(s),
+    )
     const covered = new Set<CriterionId>()
 
     for (const sust of sustituciones) {
@@ -222,6 +232,7 @@ export function buildRowsForHito(
         textoOriginal: sust.original,
         textoPropuesto: sust.propuesto,
         motivo: sust.motivo,
+        ubicacionPantalla: sust.ubicacion_pantalla ?? "",
         lineaRef: sust.linea,
         htmlLineaAprox: sust.html_linea_aprox ?? "",
         fragmentoBusqueda: "",
@@ -237,6 +248,9 @@ export function buildRowsForHito(
     for (const ev of audit.bundle.audit.criterios_evaluados) {
       if (!criteriosSet.has(ev.id) || ev.estado !== "incumple") continue
       if (covered.has(ev.id)) continue
+      if (isMetadataCriterionEvaluation(ev, audit.bundle.pilot.sustituciones ?? [])) {
+        continue
+      }
 
       const propuesto = CMS_PROPUESTOS[ev.id] ?? `Corregir incumplimiento de ${ev.id}.`
       num++
@@ -259,6 +273,7 @@ export function buildRowsForHito(
         textoOriginal: ev.cita_textual ?? "(ausencia)",
         textoPropuesto: propuesto,
         motivo: ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
+        ubicacionPantalla: "",
         lineaRef: "",
         htmlLineaAprox: "",
         fragmentoBusqueda: "",
@@ -294,6 +309,7 @@ export const MEI_EXCEL_COLUMNS: Array<keyof MeiExcelRow> = [
   "textoOriginal",
   "textoPropuesto",
   "motivo",
+  "ubicacionPantalla",
   "lineaRef",
   "htmlLineaAprox",
   "fragmentoBusqueda",
@@ -324,6 +340,7 @@ export const MEI_EXCEL_HEADER_LABELS: Record<keyof MeiExcelRow, string> = {
   textoOriginal: "texto_original",
   textoPropuesto: "texto_propuesto",
   motivo: "motivo",
+  ubicacionPantalla: "ubicacion_pantalla",
   lineaRef: "linea_ref",
   htmlLineaAprox: "html_linea_aprox",
   fragmentoBusqueda: "fragmento_busqueda",

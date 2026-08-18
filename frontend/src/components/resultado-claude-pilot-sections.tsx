@@ -66,14 +66,15 @@ export function SustitucionesTextoContent({
 }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[48rem] border-collapse text-sm">
+      <table className="w-full min-w-[56rem] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border bg-muted/50 text-left">
-            <th className="p-2 font-medium">Línea</th>
-            <th className="p-2 font-medium">Criterio</th>
-            <th className="p-2 font-medium">Original</th>
-            <th className="p-2 font-medium">Propuesto</th>
+            <th className="p-2 font-medium">Texto en pantalla</th>
+            <th className="p-2 font-medium">Corrección</th>
+            <th className="p-2 font-medium">Ubicación en pantalla</th>
             <th className="p-2 font-medium">Motivo</th>
+            <th className="p-2 font-medium">Criterio</th>
+            <th className="p-2 font-medium">Ref. técnica</th>
           </tr>
         </thead>
         <tbody>
@@ -82,22 +83,25 @@ export function SustitucionesTextoContent({
               key={`${s.linea}-${s.criterio_id}-${i}`}
               className="border-b border-border align-top"
             >
-              <td className="p-2 font-mono text-xs whitespace-nowrap">
-                {s.linea}
-                {s.html_linea_aprox ? (
-                  <span className="mt-0.5 block text-muted-foreground">
-                    {s.html_linea_aprox}
-                  </span>
-                ) : null}
-              </td>
-              <td className="p-2 font-mono text-xs">{s.criterio_id}</td>
               <td className="max-w-[14rem] p-2 text-muted-foreground">
                 {s.original}
               </td>
               <td className="max-w-[14rem] p-2 text-foreground">
                 {s.propuesto}
               </td>
+              <td className="max-w-[14rem] p-2 text-foreground">
+                {s.ubicacion_pantalla?.trim()
+                  ? s.ubicacion_pantalla
+                  : "—"}
+              </td>
               <td className="max-w-[16rem] p-2 text-foreground">{s.motivo}</td>
+              <td className="p-2 font-mono text-xs">{s.criterio_id}</td>
+              <td className="p-2 font-mono text-xs whitespace-nowrap text-muted-foreground">
+                {s.linea}
+                {s.html_linea_aprox ? (
+                  <span className="mt-0.5 block">{s.html_linea_aprox}</span>
+                ) : null}
+              </td>
             </tr>
           ))}
         </tbody>

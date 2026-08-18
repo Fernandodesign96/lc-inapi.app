@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs"
 import { join } from "node:path"
 
 import { parseClaudeAuditFile, type ClaudeAuditBundle } from "../../schemas/claude-audit-pilot"
+import { bundleForVisibleDelivery } from "../audit-visible-content"
 
 import { MEI_META_MEI_URLS } from "./mei-meta-mei-urls"
 
@@ -81,7 +82,7 @@ function loadBundle(auditsDir: string, auditId: string): ClaudeAuditBundle {
     throw new Error(`No se encontró JSON de auditoría: ${auditId}`)
   }
   const raw = JSON.parse(readFileSync(jsonPath, "utf8")) as unknown
-  return parseClaudeAuditFile(raw)
+  return bundleForVisibleDelivery(parseClaudeAuditFile(raw))
 }
 
 /**
@@ -111,6 +112,34 @@ export function loadMetaMeiAudits(root = process.cwd()): LoadedClarityAudit[] {
   }
 
   return out.sort((a, b) => a.rank - b.rank)
+}
+
+/**
+ * Carga una sola auditoría por id (Excel por URL desde resultado).
+ * Si el id está en META MEI, conserva orden/rol; si no, rank=0.
+ */
+export function loadAuditByIdForMeiExport(
+  auditId: string,
+  root = process.cwd(),
+): LoadedClarityAudit {
+  const repoRoot = resolveRepoRoot(root)
+  const auditsDir = join(repoRoot, "data/claude-audits")
+  const bundle = loadBundle(auditsDir, auditId)
+  const audit = bundle.audit
+  const meta = MEI_META_MEI_URLS.find((e) => e.auditId === auditId)
+
+  return {
+    rank: meta?.orden ?? 0,
+    url: audit.url,
+    nombreUi:
+      bundle.clarity?.nombre_ui ?? meta?.nombreUi ?? audit.url,
+    tipoPagina: bundle.pilot.tipo_pagina ?? meta?.tipoPagina ?? "sitioweb",
+    auditId: audit.id,
+    fechaEvaluacionIso: audit.fecha_evaluacion,
+    porcentajeLc: audit.porcentaje_cumplimiento,
+    bundle,
+    rolMetaMei: meta?.rolMetaMei,
+  }
 }
 
 export function loadVigenteClarityAudits(root = process.cwd()): LoadedClarityAudit[] {
