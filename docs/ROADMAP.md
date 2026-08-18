@@ -222,10 +222,12 @@
 
 Rama existente: `feat/checklist-v2.1-47-criterios` (47 criterios, Zod, skills, MEI Fuentes).
 
-- [ ] Revisar diff vs `main`; `bun run typecheck:all` en verde.
-- [ ] Abrir **PR** → `main` (título/cuerpo alineados a convención de commits).
-- [ ] Merge tras revisión; actualizar local: `git checkout main && git pull`.
-- [ ] **No** auditar URLs en este paso.
+- [x] Revisar diff vs `main`; `bun run typecheck:all` en verde.
+- [x] Abrir **PR** → `main` (título/cuerpo alineados a convención de commits).
+- [x] Merge tras revisión; actualizar local: `git checkout main && git pull`.
+- [x] **No** auditar URLs en este paso.
+
+**Hecho 2026-08-17:** merge en `main` — commit `fad7d70` (`feat(checklist): v2.1 — 47 criterios + Claude Team INAPI`).
 
 ### Paso 2 — Documentación worker on-demand (commits atómicos de docs)
 
