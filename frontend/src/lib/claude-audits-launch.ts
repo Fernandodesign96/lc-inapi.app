@@ -77,15 +77,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/acerca-de/inapi",
     label: "Acerca de INAPI",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 4)
-    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-18",
+    // Reauditoría §20 (meta-mei orden 4)
+    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-19",
     resumenMvp: {
-      porcentajeLc: 46.3,
+      porcentajeLc: 50.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
-    history: [{ id: "www-inapi-cl-acerca-de-inapi_2026-06-07" }],
+    history: [
+      { id: "www-inapi-cl-acerca-de-inapi_2026-08-18" },
+      { id: "www-inapi-cl-acerca-de-inapi_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 5,
