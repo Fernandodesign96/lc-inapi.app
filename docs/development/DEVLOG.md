@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-19 | [Infraestructura: META MEI §20 — reauditoría Tanda A (órdenes 1–5)](#devlog-2026-08-19-meta-mei-reaudit-s20-lote-a) |
 | 2026-08-18 | [Frontend/docs: calibración META MEI §20 + UI resultado legible](#devlog-2026-08-18-calibracion-ui-resultado) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — cierre lote 7–10 (Sala de Prensa, 2 noticias, SIAC)](#devlog-2026-08-18-meta-mei-lote-7-10) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 6 Solicitud Nueva (orden 6)](#devlog-2026-08-18-meta-mei-url-6) |
@@ -74,6 +75,41 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-19-meta-mei-reaudit-s20-lote-a"></a>
+## [2026-08-19] - Infraestructura | META MEI §20: reauditoría Tanda A (órdenes 1–5)
+
+**Rama:** `feat/meta-mei-reaudit-s20-lote-a` (desde `main`) | **Entorno:** Claude Team/Enterprise INAPI, Playwright MCP verificado (navigate + evaluate con guardado directo a disco), Chroma local activo
+
+### Contexto y objetivos:
+
+La calibración CLAUDE.md §20 (alcance solo visible, patrones de Layout, criterios cruzados) quedó documentada en la rama `feat/meta-mei-calibracion-ui-resultado` (2026-08-18) pero las 10 URLs META MEI seguían con JSONs que aplicaban esas reglas solo como notas en prosa («NOTA DE CONSOLIDACIÓN»), sin usar los campos reales del schema (`agrupado_en`, `criterios_relacionados`, `patron_sistema`). Esta sesión reaudita la primera mitad de la muestra (órdenes 1–5 de `mei-meta-mei-urls.ts`) aplicando la calibración de forma estructural.
+
+Nota operativa: el reloj del sistema marcaba 2026-08-18, la misma fecha que los JSON vigentes a archivar. Se preguntó al usuario y se usó `{FECHA}=2026-08-19` para los 5 JSON nuevos, evitando la colisión de id/archivo con los `…_2026-08-18` que pasan a `history[]`.
+
+### Implementación técnica:
+
+- Flujo por URL: captura Playwright (HTML + snapshot de accesibilidad) → 5 sub-subagentes en paralelo (Grupo 1 A+E, Grupo 2 B+C, Grupo 3 D, Grupo 4 F, Grupo 5 G+H) → consolidación por el agente raíz aplicando `agrupado_en`/`criterios_relacionados`/`patron_sistema` → `validate:claude-audits` → cableado → commit atómico.
+- **Orden 1 — Portada (`www-inapi-cl_2026-08-19`):** 70,0 % LC (rechazado). El H1 «Te queremos ayudar a utilizar la propiedad industrial» dispara A5+E4 sobre el mismo texto (agrupados bajo E4); el modal de contacto compartido (B1+B6) y el CTA duplicado «Acceder» (F2+F3) también se agrupan. 4 hallazgos agrupados no descuentan dos veces.
+- **Orden 2 — Marcas (`www-inapi-cl-marcas_2026-08-19`):** 66,7 % LC (rechazado). El botón «LINK EXTERNO» del panel de login concentra 3 ángulos (B4 anglicismo, D1 texto de desarrollo, F3 destino no funcional); se agrupó B4→F3 y se dejaron D1/F3 como discounts independientes por tener remedios de naturaleza distinta (tipografía vs. funcionalidad).
+- **Orden 3 — Patentes (`www-inapi-cl-patentes_2026-08-19`):** 61,0 % LC (rechazado). Caso más denso del lote: el párrafo «Requisitos para obtener una patente» disparaba 7 criterios (A7, C1, C3, C4, C7, D2, D5) por ser una sola oración con punto y coma; se retuvo C7 como primario y se agruparon A7/C1/C4/D2/D5 (C3 se mantuvo independiente por tener evidencia propia adicional en otro párrafo). Los íconos con `alt="mas"`/`alt="tramites"` repetidos (F1, F2, H1) se agruparon bajo H1.
+- **Orden 4 — Acerca de INAPI (`www-inapi-cl-acerca-de-inapi_2026-08-19`):** 50,0 % LC (rechazado). Los párrafos de Visión/Misión agrupan B7/B8/C2 bajo C3 (oraciones de 44–56 palabras, relleno formal, tiempo verbal). E4 pasa a `incumple` (H1 «Acerca de» genérico, sin el H2 no tiene sentido).
+- **Orden 5 — Buscador de noticias (`www-inapi-cl-buscador-noticias_2026-08-19`):** 43,8 % LC (rechazado). Página de resultados generada por Sitefinity: 15 de 47 criterios son `no_aplica` (no hay redacción editorial propia), el máximo del lote. Único agrupamiento limpio: B4→F3 (mismo botón «LINK EXTERNO»); el resto de hallazgos (snippets rotos, URL no canónica, keyword «documentaicón» expuesta) se mantuvieron independientes por tener evidencia distribuida en varios resultados, no un único nodo compartido.
+- En las 5 URLs el % sube respecto al JSON `…_2026-08-18` de referencia porque los hallazgos agrupados dejan de descontarse dos o más veces por el mismo problema editorial — el JSON anterior ya tenía casi todos los mismos hallazgos, solo que sin el mecanismo de agrupamiento real.
+- Cableado por URL: `frontend/src/lib/claude-audits-launch.ts` (`claudeAuditId`/`id` = `…_2026-08-19`; `…_2026-08-18` pasa a `history[]`) y `src/lib/mei-export/mei-meta-mei-urls.ts` (`auditId` actualizado). `bun run validate:claude-audits` y `bun run typecheck:all` en verde tras cada URL; commit atómico por URL.
+- `bun run rag/ingest-b.ts` para reindexar Colección B con los 5 JSON nuevos.
+
+### 💡 Repaso técnico: cuándo agrupar y cuándo no
+
+La regla operativa que emergió al consolidar: un criterio secundario solo recibe `agrupado_en` cuando **toda** su evidencia en esa URL es el mismo texto/nodo que el primario ya corrige (ej. B4 sobre «LINK EXTERNO» cuando esa es su única cita). Si el criterio tiene evidencia adicional en otro lugar de la página (ej. B1 también incumple por el modal de contacto compartido, además del párrafo agrupado), se mantiene como discount independiente y solo se referencia en `criterios_relacionados` del otro hallazgo para documentación — sin afectar el cálculo del %. Esto evitó sobre-agrupar en URLs con overlaps difusos (como el buscador, donde el mismo defecto de indexación toca varios resultados sin ser literalmente el mismo nodo).
+
+### Próximos pasos:
+
+- Merge de `feat/meta-mei-reaudit-s20-lote-a` a `main` (lint / typecheck / build en verde).
+- Tanda B (órdenes 6–10) con el mismo flujo y calibración.
+- Tras cerrar las 10 URLs: generar el Excel Bernarda completo.
 
 ---
 

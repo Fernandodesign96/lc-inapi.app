@@ -289,7 +289,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] Calibración META MEI documentada (CLAUDE.md §20): VISIBLE vs no visible, patrones Layout, criterios cruzados (`agrupado_en` / `criterios_relacionados`), justificación en `no_aplica` — rama `feat/meta-mei-calibracion-ui-resultado`
 - [x] UI `/auditar/resultado`: resumen y nota TI en lenguaje claro (párrafos); barra de criterios plegable; Excel MEI mismo estilo primary que PDF; botón fijo «volver arriba»
 - [x] PDF/Excel: comentario en `no_aplica`; criterios relacionados y `patron_sistema` en sustituciones
-- [ ] Reauditoría §17 de las 10 URLs con calibración §20 (actualizar % y textos)
+- [x] Reauditoría §17 con calibración §20 (actualizar % y textos) — **Tanda A (órdenes 1–5)** cerrada 2026-08-19 en `feat/meta-mei-reaudit-s20-lote-a`: orden 1 `www-inapi-cl_2026-08-19` (70,0 % rechazado); orden 2 `www-inapi-cl-marcas_2026-08-19` (66,7 % rechazado); orden 3 `www-inapi-cl-patentes_2026-08-19` (61,0 % rechazado); orden 4 `www-inapi-cl-acerca-de-inapi_2026-08-19` (50,0 % rechazado); orden 5 `www-inapi-cl-buscador-noticias_2026-08-19` (43,8 % rechazado). JSON vigentes `…_2026-08-18` de estas 5 URLs pasan a `history[]`. Aplican `agrupado_en`/`criterios_relacionados`/`patron_sistema` reales (no solo notas en prosa) — % sube en las 5 URLs respecto al 2026-08-18 al no descontar dos veces el mismo hallazgo. **Órdenes 6–10 pendientes (Tanda B)**.
 - [ ] Excel META MEI completo Bernarda de las 10 URLs tras reauditoría
 - [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
 
@@ -298,7 +298,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026, las 10 URLs META MEI completas) + plan de pulido PDF/Excel; queda pendiente generar el Excel Bernarda de las 10 URLs y el merge de `feat/meta-mei-v21-lote-3` a `main`.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026) + calibración §20 y UI resultado en `main` + reauditoría §20 **Tanda A (órdenes 1–5)** en `feat/meta-mei-reaudit-s20-lote-a` (pendiente merge); queda pendiente **Tanda B (órdenes 6–10)**, Excel Bernarda de las 10 URLs tras reauditoría completa, y merge de la rama de reauditoría a `main`.
 
 ---
 

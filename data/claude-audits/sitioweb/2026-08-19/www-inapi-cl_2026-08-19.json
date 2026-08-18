@@ -1,0 +1,522 @@
+{
+  "id": "www-inapi-cl_2026-08-19",
+  "url": "https://www.inapi.cl/",
+  "fecha_evaluacion": "2026-08-19T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 16,
+    "nombre_ui": "Portada / inicio INAPI",
+    "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+    "visitas_ref": "—",
+    "encargado_ref": "Fernando Arriagada",
+    "fuente_piloto_id": "www-inapi-cl_2026-08-18",
+    "descripcion": "Reauditoría con calibración CLAUDE.md §20 (alcance visible, patrones de layout, criterios cruzados agrupados) del lote META MEI orden 1 (Portada o página de inicio). Mismo contenido de portada que la auditoría del 2026-08-18; se reestructuran los hallazgos usando los campos agrupado_en / criterios_relacionados / patron_sistema en vez de notas de consolidación en prosa."
+  },
+  "texto_capturado": "T001 [nav global]: Nosotros | Conoce más | Marcas | Patentes | PCT | Sistema de Madrid | Sello de Origen | Aprende | Conecta | Trámites | Estadísticas | Dominio Público | Mercado de Origen | Gasto Presupuestario | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Observancia | Datos Abiertos (PCT y Observancia sin definir en su primera aparición) | T002 [cabecera global, EXCLUIDOS de D7 por calibración CLAUDE.md §2]: «ACCESOS», «BUSCADOR» | T003 [footer nav, heading]: «Accesos» | T004 [panel login/registro, abrible con un clic desde ícono de usuario en cabecera]: <img alt=\"Login\"> junto a «Usuario Frecuente» (enlace a ion.inapi.cl) y <img alt=\"Login\"> junto a «Registro» (enlace a claveunica.gob.cl) | T005 [modal de contacto, abrible con un clic desde botón «¿Quieres contactarnos?»]: «Utiliza el canal de comunicación que prefieras:» | T006 [modal de contacto, mismo modal que T005]: «Tu consulta será atendida por un especialista.» (voz pasiva) | T007 [H1]: «Te queremos ayudar a utilizar la propiedad industrial» | T008 [sección Patentes]: «Patentes» (h3) | «BUSCADOR DE PATENTES» (enlace) | «Cómo registrar una patente» | «Ingresa tu solicitud» | T009 [sección Marcas]: «Marcas» (h3) | «BUSCADOR DE marcas» (enlace, mezcla mayúscula/minúscula) | «Cómo registrar una marca» | «Ingresa tu solicitud» | T010 [accesos rápidos]: «Estadísticas» | «Notificaciones diarias» | «Preguntas frecuentes» | «Datos abiertos» | T011 [Novedades #1, 12-ago-2026]: «INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible» + párrafo ~26 palabras | T012 [Novedades #2, 11-ago-2026]: «INAPI amplía plazos administrativos para usuarios con residencia en Japón debido a la emergencia provocada por los recientes sismos» + «La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.» (~40 palabras, una oración) | T013 [Novedades #3, 30-jul-2026]: «INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI» + «El Director Nacional de la institución, Esteban Figueroa, sostuvo un encuentro con la representación en Chile de la entidad continental para abordar el alcance de dos concursos de innovación y diseño que se premiarán en Santiago.» (ASIPI sin definir, ~38 palabras) | T014: «Ver todas las noticias» (nodo duplicado) | T015 [banner Plataforma de Datos]: «Plataforma» / «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE» + CTA «Acceder» → dps.inapi.cl | T016 [Guías para usuarios]: «Descargar guía de marcas» / «Descargar guía de patentes» (PDF sin formato/peso/descripción) | T017 [Cuenta Pública 2026]: CTA «Acceder» → /cuenta-publica-2026 | T018 [Observancia]: «Observancia» (h3) + «Conoce y utiliza» / «las herramientas de protección de la Propiedad Intelectual en Chile» + «Conoce más» → /protege-tu-idea/pirateria-y-falsificacion | T019 [footer institucional]: «Instituto Nacional de Propiedad Industrial (INAPI)» / «RUT: 65.999.669-3» (institucional) / dirección / teléfono / correo | T020 [footer nav]: «Conversemos» | «Contacto» | «Accesos» | «Atajos del Teclado» | «Descarga de Visualizadores» | «Glosario» | «Mapa del Sitio» | «Uso de los Contenidos de este Sitio» | «Accesibilidad» | «Política de privacidad» | T021 [footer copyright]: «©2026 INAPI. Todos los derechos reservados» | T022: enlace nav «Observancia» → href /protege-tu-idea (alcance de destino más amplio que la etiqueta) | T023: sin fecha de publicación/actualización visible del home en general (solo fechas de noticias individuales) | T024: sin placeholders «en construcción» ni «próximamente» visibles",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El H1 ocupa la posición superior de la portada, inmediatamente bajo la cabecera, y antecede a las secciones de Patentes y Marcas.",
+      "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "La portada sigue una estructura tipo pirámide invertida: primero los accesos funcionales más usados (Patentes, Marcas), luego accesos secundarios (Estadísticas, Notificaciones), después novedades y finalmente contenido institucional (footer)."
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "Las secciones tienen encabezados informativos que anticipan su contenido (Patentes, Marcas, Observancia, Plataforma de Datos)."
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los bloques de texto continuo (noticias de Novedades) tienen entre 26 y 40 palabras cada uno, muy por debajo del límite de 110 palabras."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "E4",
+      "comentario": "El H1 usa un tono de bienvenida institucional sin aportar información funcional sobre qué puede hacer el usuario en el sitio. Se agrupa con E4 porque comparte el mismo nodo y la misma propuesta de cambio.",
+      "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial"
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se observan placeholders ni contenido manifiestamente incompleto en la portada."
+    },
+    {
+      "id": "A7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "No existe un recuadro o resumen que sintetice de forma conjunta qué ofrece el sitio, para quién y cuándo está disponible; la información queda dispersa entre tarjetas de Patentes, Marcas y accesos rápidos.",
+      "cita_textual": "Patentes / Marcas / Estadísticas / Notificaciones diarias / Preguntas frecuentes / Datos abiertos"
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "A8 (suficiencia para autonomía en trámites) solo aplica a páginas de tipo trámites según CLAUDE.md §16; esta URL es la portada institucional de www.inapi.cl (sitioweb)."
+    },
+    {
+      "id": "A9",
+      "estado": "cumple",
+      "comentario": "La portada organiza el contenido en tarjetas y secciones con encabezados que facilitan la lectura por escaneo, en lugar de un bloque de texto corrido único."
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de contacto (componente compartido del sitio) usa voz pasiva perifrástica en vez de voz activa.",
+      "cita_textual": "Tu consulta será atendida por un especialista."
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La sección «Observancia» usa un término institucional sin definirlo en lenguaje simple; el usuario no puede inferir qué acciones cubre.",
+      "cita_textual": "Observancia"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Dos siglas aparecen sin expandirse en su primera mención: PCT en el menú de navegación y ASIPI (referida como «entidad continental») en una noticia de portada.",
+      "cita_textual": "«PCT» (menú de navegación); «entidad continental» sin expandir ASIPI (noticia)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se observan abreviaturas, extranjerismos ni modismos relevantes fuera de las siglas ya evaluadas en B3; el resto del copy usa vocabulario estándar en español."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El tono general de la portada es positivo y orientado a ayudar al usuario.",
+      "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "B1",
+      "comentario": "El mismo modal de contacto mezcla registro cercano (tuteo «Tu consulta») con una construcción pasiva formal («será atendida»), generando inconsistencia de registro en una misma pantalla.",
+      "cita_textual": "Tu consulta será atendida por un especialista."
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detecta lenguaje formal vacío de contenido en los textos visibles evaluados."
+    },
+    {
+      "id": "B8",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "C3",
+      "comentario": "Estimación cualitativa equivalente a Legible: aprox. 2 de 5 indicadores «Normal» (longitud de oración y complejidad sintáctica), por las mismas oraciones extensas identificadas en C3.",
+      "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "El orden sujeto-verbo-predicado se mantiene en los textos evaluados (titulares y bajadas de noticias, H1)."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Predomina el presente simple en titulares y descripciones («reúne», «beneficia», «promueve»)."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Dos bajadas de noticia contienen una única oración de más de 30 palabras cada una, dificultando la lectura.",
+      "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada párrafo evaluado desarrolla una sola idea central, aunque su redacción sea extensa en dos casos."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos visibles son de una sola oración/línea de bloque, muy por debajo del límite de 8 líneas en escritorio."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La portada no tiene un cuerpo de texto corrido continuo de 4 o más párrafos; el contenido editorial se limita a 3 bajadas de noticia breves e independientes, más una descripción corta de Observancia."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "La portada no presenta listas de requisitos de trámites; es una página de bienvenida con accesos rápidos y noticias, no un formulario ni una guía de pasos."
+    },
+    {
+      "id": "C8",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La sección «Observancia» se redacta como descripción institucional genérica en vez de responder una pregunta concreta del usuario (formato FAQ).",
+      "cita_textual": "Observancia / Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile / Conoce más"
+    },
+    {
+      "id": "C9",
+      "estado": "cumple",
+      "comentario": "El cuerpo editorial principal de la portada (3 bajadas de noticias + descripción de Observancia) suma entre 2 y 8 párrafos, dentro del rango esperado."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En la sección Marcas el enlace «BUSCADOR DE marcas» combina mayúsculas sostenidas con minúscula de forma inconsistente, a diferencia de su equivalente en Patentes.",
+      "cita_textual": "«BUSCADOR DE marcas»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "No se detectan errores de puntuación ni de concordancia en el contenido visible revisado."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "El espaciado entre párrafos es un aspecto CSS/visual; fuera del alcance editorial de esta auditoría."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "La alineación del texto es un aspecto CSS/visual; fuera del alcance editorial de esta auditoría."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Las enumeraciones visibles de la portada están estructuradas como listado de enlaces (navegación, accesos rápidos, guías descargables), no como texto corrido con comas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "La portada se compone de bloques cortos (H1, tarjetas de servicio, noticias de 26 a 40 palabras), sin texto corrido extenso que amerite destacar palabras clave con negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Se detectan mayúsculas sostenidas en contenido propio de la portada (fuera de la cabecera global excluida): el enlace «BUSCADOR DE PATENTES» y los titulares del banner de Plataforma de Datos.",
+      "cita_textual": "«BUSCADOR DE PATENTES» / «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El texto visible de novedades y secciones institucionales es descriptivo y no recurre a adjetivos calificativos exagerados."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "El footer identifica claramente la institución autora del sitio, con nombre completo, RUT institucional, dirección, teléfono y correo de contacto.",
+      "cita_textual": "Instituto Nacional de Propiedad Industrial (INAPI)"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La portada no exhibe una fecha de publicación o última actualización general y visible; solo las noticias individuales tienen fecha propia. El ©2026 del footer es copyright, no fecha de actualización de contenido.",
+      "cita_textual": "(ausencia)"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 visible es una frase de bienvenida genérica que no representa fielmente el contenido específico del sitio (portal de trámites y servicios de propiedad industrial).",
+      "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial"
+    },
+    {
+      "id": "F1",
+      "estado": "cumple",
+      "comentario": "Los enlaces de la portada usan textos que corresponden a su destino: buscadores, guías de registro y enlaces de sección coinciden con el tema de la página a la que llevan."
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La portada repite el CTA genérico «Acceder» en dos bloques distintos (Plataforma de Datos y Cuenta Pública 2026) sin que el texto anticipe el destino, y «Conoce más» en Observancia tampoco describe el contenido.",
+      "cita_textual": "«Acceder» (Plataforma de Datos) / «Acceder» (Cuenta Pública 2026) / «Conoce más» (Observancia)"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "F2",
+      "comentario": "Los botones «Acceder» de Plataforma de Datos y de Cuenta Pública 2026 son mensajes de acción genéricos que no describen la acción específica; comparte el mismo texto que F2.",
+      "cita_textual": "«Acceder»"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los enlaces «Descargar guía de marcas» y «Descargar guía de patentes» no indican formato de archivo, peso ni una breve descripción del contenido del documento.",
+      "cita_textual": "«Descargar guía de marcas» / «Descargar guía de patentes»"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los CTA de la portada se presentan como botones o enlaces destacados al cierre de su sección respectiva, no intercalados dentro de oraciones de un párrafo."
+    },
+    {
+      "id": "F6",
+      "estado": "cumple",
+      "comentario": "Además del menú global y del pie de página, la portada enlaza contenidos internos relevantes y específicos: Plataforma de Datos, Cuenta Pública 2026, Observancia/protege-tu-idea, y los buscadores y flujos de registro de marcas y patentes."
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El HTML estático de la portada no expone RUN, nombre completo, correo ni teléfono de persona natural. El único RUT visible es el institucional de INAPI (persona jurídica pública) en el footer.",
+      "cita_textual": "RUT: 65.999.669-3 (institucional, footer)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer institucional incluye enlace directo a «Política de privacidad», donde se aloja la información sobre derechos ARCO.",
+      "cita_textual": "«Política de privacidad» (footer)"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer publica aviso de copyright con año vigente (2026).",
+      "cita_textual": "©2026 INAPI. Todos los derechos reservados"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "La portada no presenta secciones de versión anterior, archivo ni contenido histórico rotulado; muestra únicamente el contenido vigente actual."
+    }
+  ],
+  "criterios_no_aplica": 7,
+  "criterios_aplicables": 40,
+  "criterios_aprobados": 28,
+  "porcentaje_cumplimiento": 70.0,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 12 incumplimientos que descuentan sobre 40 criterios aplicables v2.1 (70,0 %), más 4 hallazgos adicionales (A5, B6, B8, F3) agrupados bajo un criterio primario (E4, B1, C3 y F2 respectivamente) por compartir el mismo texto y la misma propuesta de corrección, por lo que no restan puntaje adicional. Los hallazgos de severidad alta son: ausencia de fecha de actualización visible (E3), siglas PCT y ASIPI sin definir (B3), y guías descargables sin formato ni peso (F4). El modal de contacto (B1/B6) y el patrón de mayúsculas sostenidas fuera del menú global (D7) son componentes compartidos del sitio.",
+  "observaciones_lc": "La portada institucional obtiene 70,0 % de cumplimiento sobre 40 criterios aplicables v2.1 (RECHAZADO), aplicando la calibración CLAUDE.md §20: alcance solo visible, patrones de layout marcados con patron_sistema, y criterios cruzados agrupados bajo un primario. Los 4 hallazgos agrupados (A5→E4, B6→B1, B8→C3, F3→F2) documentan el mismo problema editorial visto desde dos criterios, pero no descuentan dos veces. Persisten sin cambios de fondo los hallazgos ya conocidos: voz pasiva en el modal de contacto compartido (B1), PCT sin definir (B3), mayúsculas sostenidas fuera de la cabecera excluida (D7), ausencia de fecha de actualización (E3), CTAs genéricos «Acceder»/«Conoce más» (F2/F3) y guías descargables sin formato (F4). Nuevo criterio evaluado con calibración distinta respecto al 2026-08-18: C8 pasa de no_aplica a incumple, ya que la sección Observancia sí es evaluable como contenido institucional que podría responder una pregunta concreta del usuario.",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 2026-08-19 aplicando el Checklist Editorial v2.1 (47 criterios) con la calibración de alcance visible acordada con el Equipo UX: solo se evalúa lo que la ciudadanía ve en pantalla o en una ventana emergente accesible con un clic; el título de la pestaña del navegador y las etiquetas internas del sitio no se consideran evidencia.\n\nDe los 47 criterios, 7 no aplican a esta página (por ejemplo, el criterio de autonomía en trámites, que solo rige para páginas de trámites) y 40 sí aplican. De esos 40, 28 se cumplen adecuadamente, lo que da un 70,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación exige más de 80 %).\n\nLos hallazgos más importantes son: la portada no muestra una fecha de actualización visible; las siglas PCT y ASIPI aparecen sin explicación la primera vez que se usan; y las guías descargables de marcas y patentes no indican el formato ni el peso del archivo. También se detectaron problemas de tono y redacción (un mensaje del formulario de contacto en voz pasiva, con mezcla de trato formal e informal en la misma ventana) y de formato (textos en mayúsculas sostenidas fuera del menú principal).\n\nCuando dos o más criterios señalaban exactamente el mismo texto y la misma corrección, se agruparon bajo un solo criterio principal para no restar puntaje dos veces por el mismo problema; esto explica por qué el porcentaje sube respecto a evaluaciones anteriores de esta misma página, aunque los hallazgos de fondo se mantienen. Serie META MEI — orden 1 (Portada o página de inicio); misma URL de la serie Clarity rank 16.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(E3) Sin fecha de publicación ni de última actualización visible en el home; el ©2026 del footer es solo copyright y no la reemplaza.",
+      "(B3) Siglas PCT (menú) y ASIPI (noticia) sin definir en su primera aparición.",
+      "(F4) Guías de marcas y patentes descargables sin indicar formato ni peso del documento."
+    ],
+    "hallazgos_prioridad_media": [
+      "(E4, agrupado con A5) El H1 es una frase de bienvenida genérica que no identifica el contenido específico del sitio ni evita el tono de relleno institucional.",
+      "(B1, agrupado con B6) Modal de contacto en voz pasiva y con mezcla de registro (tuteo + construcción impersonal en la misma ventana). Patrón de sitio compartido.",
+      "(B2) «Observancia» sin definición en lenguaje simple.",
+      "(C3, agrupado con B8) Dos bajadas de noticia superan las 30 palabras en una sola oración, afectando la legibilidad general.",
+      "(C8) La sección Observancia se redacta como descripción institucional en vez de responder una pregunta del usuario.",
+      "(D1) Inconsistencia de capitalización en «BUSCADOR DE marcas».",
+      "(D7) Mayúsculas sostenidas en «BUSCADOR DE PATENTES» y en los titulares del banner Plataforma de Datos.",
+      "(F2, agrupado con F3) CTA «Acceder» repetido sin describir el destino, y «Conoce más» genérico en Observancia."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A7) Falta un resumen o recuadro que integre qué, cómo, dónde, cuándo y para quién de los trámites principales."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T007",
+      "html_linea_aprox": "HTML-L-hero",
+      "ubicacion_pantalla": "En el título principal (H1) de la portada, justo bajo la cabecera",
+      "capa": "VISIBLE",
+      "original": "Te queremos ayudar a utilizar la propiedad industrial",
+      "propuesto": "Portal de trámites y servicios de propiedad industrial de Chile",
+      "criterio_id": "E4",
+      "criterios_relacionados": ["A5"],
+      "motivo": "El H1 actual es una frase de bienvenida genérica que no identifica el contenido específico del sitio (E4) ni evita el tono de relleno institucional (A5); ambos criterios comparten el mismo nodo y la misma propuesta de cambio."
+    },
+    {
+      "linea": "T007",
+      "html_linea_aprox": "HTML-L-hero",
+      "ubicacion_pantalla": "Justo debajo del título principal, antes de las tarjetas de Patentes y Marcas",
+      "capa": "VISIBLE",
+      "original": "(ausencia)",
+      "propuesto": "Registra o consulta trámites de patentes, marcas y otros derechos de propiedad industrial. Disponible para personas naturales, empresas y representantes legales, todos los días del año.",
+      "criterio_id": "A7",
+      "motivo": "No existe un resumen que sintetice qué ofrece el sitio, para quién y cuándo está disponible; la información queda dispersa en tarjetas separadas (Patentes, Marcas, accesos rápidos)."
+    },
+    {
+      "linea": "T023",
+      "html_linea_aprox": "HTML-L-hero / HTML-L-footer",
+      "ubicacion_pantalla": "Cerca del encabezado o del pie de página de la portada",
+      "capa": "VISIBLE",
+      "original": "(ausencia)",
+      "propuesto": "Línea visible «Página actualizada el DD de mes de AAAA», gestionada por el CMS al publicar cambios.",
+      "criterio_id": "E3",
+      "motivo": "La portada no exhibe una fecha de publicación o actualización general y visible; solo las noticias individuales tienen fecha. El ©2026 del footer no debe usarse como sustituto de esta fecha."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "HTML-L-modal-contacto",
+      "ubicacion_pantalla": "En la ventana emergente (modal) de contacto, abierta con un clic desde «¿Quieres contactarnos?»",
+      "capa": "VISIBLE",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista atenderá tu consulta.",
+      "criterio_id": "B1",
+      "criterios_relacionados": ["B6"],
+      "patron_sistema": true,
+      "motivo": "Patrón de sitio: corregir en el origen (Layout / modal compartido); al publicar se corrige en todas las URLs. Cambia a voz activa y unifica el registro cercano (tuteo) usado en el resto del modal."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L-nav-global",
+      "ubicacion_pantalla": "En el menú superior de navegación › «PCT»",
+      "capa": "VISIBLE",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en Materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin expandir en su primera aparición dentro del menú global; patrón sistémico identificado en auditorías previas."
+    },
+    {
+      "linea": "T013",
+      "html_linea_aprox": "HTML-L-novedades-item3",
+      "ubicacion_pantalla": "En la tercera noticia de la sección «Novedades»",
+      "capa": "VISIBLE",
+      "original": "El Director Nacional de la institución, Esteban Figueroa, sostuvo un encuentro con la representación en Chile de la entidad continental para abordar el alcance de dos concursos de innovación y diseño que se premiarán en Santiago.",
+      "propuesto": "El Director Nacional, Esteban Figueroa, se reunió con la representación en Chile de ASIPI (Asociación Interamericana de la Propiedad Intelectual). Conversaron sobre el alcance de dos concursos de innovación y diseño que se premiarán en Santiago.",
+      "criterio_id": "B3",
+      "criterios_relacionados": ["C3", "B8"],
+      "motivo": "Sigla ASIPI referida como «entidad continental» sin expansión previa; además la oración original supera 30 palabras (afecta también C3 y la estimación de legibilidad B8), por lo que se divide en dos oraciones simples."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L-seccion-observancia",
+      "ubicacion_pantalla": "En la sección «Observancia» de la portada (título)",
+      "capa": "VISIBLE",
+      "original": "Observancia",
+      "propuesto": "Protege tus derechos",
+      "criterio_id": "B2",
+      "motivo": "Término institucional sin definición en lenguaje simple; se reemplaza el título por una frase que anticipa el beneficio para el usuario."
+    },
+    {
+      "linea": "T012",
+      "html_linea_aprox": "HTML-L-novedades-item2",
+      "ubicacion_pantalla": "En la segunda noticia de la sección «Novedades»",
+      "capa": "VISIBLE",
+      "original": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
+      "propuesto": "La medida beneficia a los titulares de solicitudes con residencia informada en Japón. Busca facilitar el cumplimiento de los plazos administrativos que estaban en curso al 10 de agosto de 2026.",
+      "criterio_id": "C3",
+      "criterios_relacionados": ["B8"],
+      "motivo": "Oración de aproximadamente 40 palabras; se divide en dos oraciones simples para mejorar la legibilidad (afecta también la estimación de B8)."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L-seccion-observancia",
+      "ubicacion_pantalla": "En la sección «Observancia» de la portada (texto y enlace)",
+      "capa": "VISIBLE",
+      "original": "Observancia / Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile / Conoce más",
+      "propuesto": "¿Cómo protejo mis derechos de propiedad intelectual? / Conoce las herramientas de protección y fiscalización disponibles en Chile / Conoce más",
+      "criterio_id": "C8",
+      "motivo": "La sección está redactada como descripción institucional genérica; se reformula con enfoque de pregunta frecuente (FAQ) para orientar directamente al usuario."
+    },
+    {
+      "linea": "T009",
+      "html_linea_aprox": "HTML-L-seccion-buscador-marcas",
+      "ubicacion_pantalla": "En la sección «Marcas» (enlace de buscador)",
+      "capa": "VISIBLE",
+      "original": "BUSCADOR DE marcas",
+      "propuesto": "Buscador de marcas",
+      "criterio_id": "D1",
+      "motivo": "Capitalización inconsistente dentro del mismo enlace; debe leerse en el mismo formato que su equivalente en la sección Patentes."
+    },
+    {
+      "linea": "T008",
+      "html_linea_aprox": "HTML-L-seccion-buscador-patentes",
+      "ubicacion_pantalla": "En la sección «Patentes» (enlace de buscador)",
+      "capa": "VISIBLE",
+      "original": "BUSCADOR DE PATENTES",
+      "propuesto": "Buscador de patentes",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en enlace de contenido propio de la portada (no forma parte de la cabecera global excluida)."
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L-banner-plataforma-datos",
+      "ubicacion_pantalla": "En el banner «Plataforma de Datos» (título)",
+      "capa": "VISIBLE",
+      "original": "INFORMACIÓN TECNOLÓGICA DE PATENTES",
+      "propuesto": "Información tecnológica de patentes",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en titular del banner, contenido propio de la portada."
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L-banner-plataforma-datos",
+      "ubicacion_pantalla": "En el banner «Plataforma de Datos» (subtítulo)",
+      "capa": "VISIBLE",
+      "original": "PROGRAMA DE DESARROLLO PRODUCTIVO SOSTENIBLE",
+      "propuesto": "Programa de desarrollo productivo sostenible",
+      "criterio_id": "D7",
+      "motivo": "Frase continua con mayúsculas sostenidas repartida en dos bloques visuales; se documenta como una sola propuesta por tratarse de una misma frase."
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L-banner-plataforma-datos",
+      "ubicacion_pantalla": "En el banner «Plataforma de Datos» (botón «Acceder»)",
+      "capa": "VISIBLE",
+      "original": "Acceder",
+      "propuesto": "Acceder a Plataforma de Datos",
+      "criterio_id": "F2",
+      "criterios_relacionados": ["F3"],
+      "motivo": "CTA genérico repetido en el sitio; el texto no anticipa el destino específico."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L-cuenta-publica",
+      "ubicacion_pantalla": "En la sección «Cuenta Pública 2026» (botón «Acceder»)",
+      "capa": "VISIBLE",
+      "original": "Acceder",
+      "propuesto": "Acceder a la Cuenta Pública 2026",
+      "criterio_id": "F2",
+      "criterios_relacionados": ["F3"],
+      "motivo": "CTA genérico repetido en el sitio con destino distinto al del banner de Plataforma de Datos; se documenta como hallazgo independiente."
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L-seccion-observancia",
+      "ubicacion_pantalla": "En la sección «Observancia» (enlace «Conoce más»)",
+      "capa": "VISIBLE",
+      "original": "Conoce más",
+      "propuesto": "Conoce más sobre piratería y falsificación",
+      "criterio_id": "F2",
+      "motivo": "Texto de enlace genérico que no anticipa el contenido específico del destino (/protege-tu-idea/pirateria-y-falsificacion)."
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "HTML-L-guias-descarga",
+      "ubicacion_pantalla": "En la sección «Guías para usuarios» (enlace de descarga de guía de marcas)",
+      "capa": "VISIBLE",
+      "original": "Descargar guía de marcas",
+      "propuesto": "Descargar guía de marcas (PDF) — orientación paso a paso para solicitar el registro de una marca",
+      "criterio_id": "F4",
+      "motivo": "Falta indicar formato y una breve descripción del documento; no se conoce el peso exacto en el CMS."
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "HTML-L-guias-descarga",
+      "ubicacion_pantalla": "En la sección «Guías para usuarios» (enlace de descarga de guía de patentes)",
+      "capa": "VISIBLE",
+      "original": "Descargar guía de patentes",
+      "propuesto": "Descargar guía de patentes (PDF) — orientación paso a paso para solicitar el registro de una patente",
+      "criterio_id": "F4",
+      "motivo": "Falta indicar formato y una breve descripción del documento; no se conoce el peso exacto en el CMS."
+    }
+  ],
+  "history": [
+    { "id": "www-inapi-cl_2026-08-18" },
+    { "id": "www-inapi-cl_2026-07-22" },
+    { "id": "www-inapi-cl_2026-06-11" },
+    { "id": "www-inapi-cl_2026-06-02" }
+  ],
+  "nota_final_tic": "Este informe aplica la calibración de alcance visible acordada con el Equipo UX (CLAUDE.md §20): solo se evalúan textos y controles que la persona usuaria ve en pantalla o puede abrir con un clic (por ejemplo, la ventana de contacto o el panel de acceso). El título de la pestaña del navegador y las etiquetas internas de posicionamiento no se usaron como evidencia en ningún criterio.\n\nEl mensaje del modal de contacto («Tu consulta será atendida por un especialista») es un componente compartido en todo el sitio www.inapi.cl, no exclusivo de esta página; al corregirlo en su origen, el cambio se replica automáticamente en todas las páginas que usan ese mismo modal.\n\nCuando el mismo texto y la misma propuesta de corrección respondían a más de un criterio del checklist (por ejemplo, el H1 evaluado tanto por título fiel como por exceso de contenido institucional, o el mismo párrafo de noticia evaluado por longitud de oración y por legibilidad), se dejó un solo criterio como principal para el cálculo del porcentaje, y los criterios relacionados quedan documentados junto a esa misma corrección para que el equipo de contenidos entienda el alcance completo del cambio.\n\nTodos los criterios marcados como «no aplica» incluyen una breve justificación de por qué no corresponden a esta página en particular.\n\nSe recomienda priorizar primero los tres hallazgos de severidad alta: fecha de actualización ausente, siglas sin definir (PCT, ASIPI) y guías descargables sin formato ni peso, por su impacto directo en la confianza y usabilidad del sitio."
+}

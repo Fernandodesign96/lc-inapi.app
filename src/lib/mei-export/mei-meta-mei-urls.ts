@@ -21,7 +21,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/",
     nombreUi: "Portada / inicio INAPI",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl_2026-08-18",
+    auditId: "www-inapi-cl_2026-08-19",
     rolMetaMei: "Portada o página de inicio",
   },
   {
@@ -29,7 +29,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas",
     nombreUi: "Marcas",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas_2026-08-18",
+    auditId: "www-inapi-cl-marcas_2026-08-19",
     rolMetaMei: "Menú principal (1/2)",
   },
   {
@@ -37,7 +37,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/patentes",
     nombreUi: "Patentes",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-patentes_2026-08-18",
+    auditId: "www-inapi-cl-patentes_2026-08-19",
     rolMetaMei: "Menú principal (2/2)",
   },
   {
@@ -45,7 +45,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/acerca-de/inapi",
     nombreUi: "Acerca de INAPI",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-18",
+    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-19",
     rolMetaMei: "Página de información interior (1/2)",
   },
   {
@@ -53,7 +53,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
     nombreUi: "Buscador de noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-buscador-noticias_2026-08-18",
+    auditId: "www-inapi-cl-buscador-noticias_2026-08-19",
     rolMetaMei: "Página de información interior (2/2)",
   },
   {
