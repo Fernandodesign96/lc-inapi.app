@@ -29,17 +29,20 @@ export function ResultadoInformeCollapsible({
   value,
   title,
   children,
+  contentClassName,
 }: {
   value: string
   title: string
   children: React.ReactNode
+  /** Clases del cuerpo (p. ej. `p-0` para tablas a ancho completo). */
+  contentClassName?: string
 }) {
   return (
     <AccordionItem value={value} className="overflow-hidden rounded-lg border-0">
       <AccordionTrigger className="text-start text-sm font-semibold sm:text-base">
         {title}
       </AccordionTrigger>
-      <AccordionContent>{children}</AccordionContent>
+      <AccordionContent className={contentClassName}>{children}</AccordionContent>
     </AccordionItem>
   )
 }

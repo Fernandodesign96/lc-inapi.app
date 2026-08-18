@@ -32,6 +32,7 @@ T002 [HTML-L{n}]: «texto literal» (contexto: ...)
 - Los `html_linea_aprox` del inventario son los que se usan en `sustituciones[]`; deben corresponder al HTML real capturado **del nodo visible**.
 - En cada sustitución de **sitioweb**, completar `ubicacion_pantalla` en lenguaje no técnico: p. ej. «En el título principal (H1)», «En el subtítulo de la sección Noticias», «En el menú superior › Marcas». La ref. técnica (`linea` / `html_linea_aprox`) es secundaria para TI.
 - Marcar `capa: "VISIBLE"` en evaluaciones/sustituciones cuando sea claro. Nunca emitir hallazgos con evidencia solo de METADATA.
+- **Calibración META MEI (CLAUDE.md §20):** patrones Layout → `patron_sistema: true` (siguen descontando); no visibles → sin `incumple`; mismo texto propuesto → un primario + `criterios_relacionados` / `agrupado_en`; cada `no_aplica` con `comentario` breve.
 
 ### Pantallas con sesión autenticada (`captura_con_sesion: true`)
 

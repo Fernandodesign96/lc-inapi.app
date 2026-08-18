@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Frontend/docs: calibración META MEI §20 + UI resultado legible](#devlog-2026-08-18-calibracion-ui-resultado) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — cierre lote 7–10 (Sala de Prensa, 2 noticias, SIAC)](#devlog-2026-08-18-meta-mei-lote-7-10) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 6 Solicitud Nueva (orden 6)](#devlog-2026-08-18-meta-mei-url-6) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 5 buscador de noticias (cierre lote 1–5)](#devlog-2026-08-18-meta-mei-url-5) |
@@ -73,6 +74,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-calibracion-ui-resultado"></a>
+## [2026-08-18] - Frontend | Calibración META MEI §20 + UI resultado legible
+
+**Rama:** `feat/meta-mei-calibracion-ui-resultado` (desde `feat/meta-mei-v21-lote-3`)
+
+### Contexto y objetivos:
+
+Tras cerrar las 10 URLs META MEI v2.1, jefatura observó: (1) criterios cruzados con el mismo texto propuesto bajaban el % varias veces; (2) hallazgos de Layout repetidos en todas las URLs sin etiqueta de patrón; (3) elementos en DOM/metadata no visibles descontaban %; (4) `no_aplica` sin justificación; (5) resumen y nota TI ilegibles; (6) UI de resultado pesada (criterios siempre abiertos, Excel secundario, sin volver arriba).
+
+### Implementación técnica:
+
+- Documentación: `.claude/CLAUDE.md` §20 + skill `auditoria-lc.md` (VISIBLE / patrones / cruces / `no_aplica`).
+- Schema: `agrupado_en` en criterios; `criterios_relacionados` y `patron_sistema` en sustituciones; `summarizeEvaluations` no descuenta agrupados.
+- UI `/auditar/resultado`: párrafos legibles en resumen y nota TI; criterios en acordeón; Excel MEI estilo primary; botón fijo volver arriba.
+- PDF y Excel MEI alineados (comentario en `no_aplica`, criterios relacionados, patrones).
+
+### Próximos pasos:
+
+- Reauditar las 10 URLs con calibración §20.
+- Generar Excel Bernarda completo y merge a `main`.
 
 ---
 

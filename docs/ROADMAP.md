@@ -286,8 +286,11 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 ### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
 
-- [ ] PDF/Excel más claros para funcionario (auditor, fecha, %, criterios; sin jerga interna)
-- [ ] Excel META MEI: mantener Bernarda + Fuentes; ajustar textos/columnas según feedback
+- [x] Calibración META MEI documentada (CLAUDE.md §20): VISIBLE vs no visible, patrones Layout, criterios cruzados (`agrupado_en` / `criterios_relacionados`), justificación en `no_aplica` — rama `feat/meta-mei-calibracion-ui-resultado`
+- [x] UI `/auditar/resultado`: resumen y nota TI en lenguaje claro (párrafos); barra de criterios plegable; Excel MEI mismo estilo primary que PDF; botón fijo «volver arriba»
+- [x] PDF/Excel: comentario en `no_aplica`; criterios relacionados y `patron_sistema` en sustituciones
+- [ ] Reauditoría §17 de las 10 URLs con calibración §20 (actualizar % y textos)
+- [ ] Excel META MEI completo Bernarda de las 10 URLs tras reauditoría
 - [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
 
 ### Spike opcional (si sobra tiempo)

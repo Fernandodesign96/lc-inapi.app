@@ -214,7 +214,16 @@ export const criterionEvaluationSchema = z.object({
   estado: criterionResultStateSchema,
   cita_textual: z.string().optional(),
   severidad: severitySchema.optional(),
+  /**
+   * Obligatorio en auditorías nuevas v2.1 para `no_aplica` e `incumple`.
+   * En `no_aplica`: justificación breve de por qué no aplica en esta URL.
+   */
   comentario: z.string().optional(),
+  /**
+   * Si este `incumple` está absorbido por otro criterio primario (mismo texto
+   * propuesto), indicar aquí el id primario. No descuenta en el %.
+   */
+  agrupado_en: criterionIdSchema.optional(),
   /**
    * Capa DOM (opcional). METADATA no entra en entrega UI/PDF/Excel
    * (solo contenido visible en pantalla).
@@ -258,6 +267,7 @@ export function summarizeEvaluations(
   let noAplica = 0
   let cumple = 0
   let incumple = 0
+  let agrupados = 0
   for (const id of expectedIds) {
     const ev = byId.get(id)
     if (!ev) {
@@ -265,13 +275,16 @@ export function summarizeEvaluations(
     }
     if (ev.estado === "no_aplica") noAplica++
     else if (ev.estado === "cumple") cumple++
+    else if (ev.agrupado_en) agrupados++
     else incumple++
   }
   const aplicables = expectedIds.length - noAplica
+  // Los agrupados no descuentan: mismo hallazgo ya contado en el criterio primario.
+  const numerador = cumple + agrupados
   const porcentaje_cumplimiento =
-    aplicables === 0 ? 0 : Math.round((cumple / aplicables) * 1000) / 10
+    aplicables === 0 ? 0 : Math.round((numerador / aplicables) * 1000) / 10
   return {
-    criterios_aprobados: cumple,
+    criterios_aprobados: numerador,
     criterios_incumplidos: incumple,
     criterios_no_aplica: noAplica,
     criterios_aplicables: aplicables,
