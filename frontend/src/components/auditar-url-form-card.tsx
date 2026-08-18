@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { Controller, useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,21 +24,52 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import {
-  auditUrlFormSchema,
-  type AuditUrlFormValues,
+  auditJobRequestFormSchema,
+  type AuditJobRequestFormValues,
 } from "@/lib/schemas/url-audit"
 import { historialHref } from "@/lib/clarity-audits-launch"
 
+type CreateJobResponse = {
+  id: string
+  status: string
+  createdAt: string
+  message: string
+  error?: string
+}
+
 export function AuditarUrlFormCard() {
   const router = useRouter()
-  const form = useForm<AuditUrlFormValues>({
-    resolver: zodResolver(auditUrlFormSchema),
-    defaultValues: { url: "" },
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const form = useForm<AuditJobRequestFormValues>({
+    resolver: zodResolver(auditJobRequestFormSchema),
+    defaultValues: { url: "", auditorNombre: "" },
   })
 
-  function onSubmit(data: AuditUrlFormValues) {
-    router.push(`/auditar/captura?url=${encodeURIComponent(data.url)}`)
+  async function onSubmit(data: AuditJobRequestFormValues) {
+    setSubmitError(null)
+    try {
+      const res = await fetch("/api/audit-jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: data.url,
+          auditorNombre: data.auditorNombre,
+        }),
+      })
+      const json = (await res.json()) as CreateJobResponse
+      if (!res.ok) {
+        setSubmitError(json.error ?? "No se pudo crear la solicitud")
+        return
+      }
+      router.push(
+        `/auditar/procesando?jobId=${encodeURIComponent(json.id)}`,
+      )
+    } catch {
+      setSubmitError("Error de red al crear la solicitud de auditoría")
+    }
   }
+
+  const busy = form.formState.isSubmitting
 
   return (
     <Card>
@@ -67,6 +99,7 @@ export function AuditarUrlFormCard() {
                     placeholder="https://www.inapi.cl/..."
                     autoComplete="url"
                     aria-invalid={fieldState.invalid}
+                    disabled={busy}
                   />
                   <FieldDescription>
                     Debe ser una URL http(s) de los sitios institucionales
@@ -78,14 +111,54 @@ export function AuditarUrlFormCard() {
                 </Field>
               )}
             />
+            <Controller
+              name="auditorNombre"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-auditar-nombre">
+                    Nombre de quien audita
+                  </FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-auditar-nombre"
+                    type="text"
+                    placeholder="Ej. Bernarda Pérez"
+                    autoComplete="name"
+                    maxLength={120}
+                    aria-invalid={fieldState.invalid}
+                    disabled={busy}
+                  />
+                  <FieldDescription>
+                    Texto libre para el historial (sin inicio de sesión).
+                  </FieldDescription>
+                  {fieldState.invalid ? (
+                    <FieldError errors={[fieldState.error]} />
+                  ) : null}
+                </Field>
+              )}
+            />
           </FieldGroup>
+          {submitError ? (
+            <p className="text-destructive mt-3 text-sm" role="alert">
+              {submitError}
+            </p>
+          ) : null}
         </form>
       </CardContent>
       <CardFooter className="flex flex-wrap gap-2">
-        <Button type="submit" form="form-auditar-url">
-          Continuar
+        <Button type="submit" form="form-auditar-url" disabled={busy}>
+          {busy ? "Enviando…" : "Continuar"}
         </Button>
-        <Button type="button" variant="outline" onClick={() => form.reset()}>
+        <Button
+          type="button"
+          variant="outline"
+          disabled={busy}
+          onClick={() => {
+            form.reset()
+            setSubmitError(null)
+          }}
+        >
           Limpiar
         </Button>
         <Button asChild type="button" variant="outline">

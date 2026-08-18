@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Frontend: Continuar → job → poll en procesando](#devlog-2026-08-18-audit-jobs-ui-poll) |
 | 2026-08-18 | [Backend: GET result e historial de audit-jobs](#devlog-2026-08-18-audit-jobs-result) |
 | 2026-08-18 | [Infraestructura: worker audit-jobs stub local](#devlog-2026-08-18-audit-jobs-worker-script) |
 | 2026-08-18 | [Backend: claim/complete audit-jobs + secreto worker](#devlog-2026-08-18-audit-jobs-claim) |
@@ -64,6 +65,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-ui-poll"></a>
+
+## [2026-08-18] - Frontend | Continuar → job → poll en procesando
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 7**: cablear el formulario Continuar a la cola on-demand y sustituir el timer mock cuando hay `jobId`.
+
+### Implementación técnica:
+
+- Formulario: URL + nombre auditor → `POST /api/audit-jobs` → `/auditar/procesando?jobId=`.
+- Procesando con `jobId`: poll cada 5 s; `done` → resultado real; stub → mensaje sin abrir informe; `failed` / errores visibles.
+- Flujo legacy `?url=` (captura/fixtures) conserva el timer mock.
+- ROADMAP paso 4 ítem 7 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 8: descargas PDF/Excel desde resultado del job.
 
 ---
 
