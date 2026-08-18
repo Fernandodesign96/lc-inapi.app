@@ -18,7 +18,9 @@ export function AuditarInventorySections() {
   return (
     <Card className="border-border bg-card">
       <CardHeader>
-        <CardTitle className="text-base">Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI</CardTitle>
+        <CardTitle className="text-base">
+          Historial completo de todas las URLs Auditadas INAPI
+        </CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion

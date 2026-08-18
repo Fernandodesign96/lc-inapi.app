@@ -7,17 +7,9 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
@@ -73,15 +65,7 @@ export function AuditarUrlFormCard() {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Ingreso de URL</CardTitle>
-        <CardDescription>
-          Solo dominios permitidos por el PRD: inapi.cl y tramites.inapi.cl
-          (incl. www). Consulta informes previos con «Historial de
-          auditorías».
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <form id="form-auditar-url" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             <Controller
@@ -89,7 +73,10 @@ export function AuditarUrlFormCard() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-auditar-url">
+                  <FieldLabel
+                    htmlFor="form-auditar-url"
+                    className="text-base font-semibold text-foreground"
+                  >
                     URL a auditar
                   </FieldLabel>
                   <Input
@@ -100,11 +87,8 @@ export function AuditarUrlFormCard() {
                     autoComplete="url"
                     aria-invalid={fieldState.invalid}
                     disabled={busy}
+                    className="h-10 w-full text-base"
                   />
-                  <FieldDescription>
-                    Debe ser una URL http(s) de los sitios institucionales
-                    indicados en el PRD.
-                  </FieldDescription>
                   {fieldState.invalid ? (
                     <FieldError errors={[fieldState.error]} />
                   ) : null}
@@ -116,22 +100,23 @@ export function AuditarUrlFormCard() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-auditar-nombre">
+                  <FieldLabel
+                    htmlFor="form-auditar-nombre"
+                    className="text-base font-semibold text-foreground"
+                  >
                     Nombre de quien audita
                   </FieldLabel>
                   <Input
                     {...field}
                     id="form-auditar-nombre"
                     type="text"
-                    placeholder="Ej. Bernarda Pérez"
+                    placeholder="Ingrese su nombre y apellido"
                     autoComplete="name"
                     maxLength={120}
                     aria-invalid={fieldState.invalid}
                     disabled={busy}
+                    className="h-10 w-full text-base"
                   />
-                  <FieldDescription>
-                    Texto libre para el historial (sin inicio de sesión).
-                  </FieldDescription>
                   {fieldState.invalid ? (
                     <FieldError errors={[fieldState.error]} />
                   ) : null}
