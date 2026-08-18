@@ -260,7 +260,7 @@ Rama: `docs/mvp-audit-jobs-contracts`.
 Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan). Rama: `feat/mvp-audit-jobs-worker`.
 
 1. [x] Persistencia jobs (`data/jobs/` + Zod) — `src/schemas/audit-job.ts`, `src/lib/audit-jobs/store.ts`
-2. [ ] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` (stub estados: `queued` | `running` | `done` | `failed` | `outside_hours`)
+2. [x] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` — routes Next; POST siempre `queued` (horario → ítem 3)
 3. [ ] Mensaje **fuera de horario 8–18** (America/Santiago) sin encolar o encolando según decisión del plan
 4. [ ] Endpoint o protocolo de **claim** para el worker local
 5. [ ] Worker script local: reclama job → lanza flujo Claude Code §17 existente → escribe resultado → marca `done`

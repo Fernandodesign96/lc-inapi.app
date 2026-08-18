@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Backend: POST/GET `/api/audit-jobs`](#devlog-2026-08-18-audit-jobs-api) |
 | 2026-08-18 | [Backend: persistencia audit-jobs (`data/jobs` + Zod)](#devlog-2026-08-18-audit-jobs-store) |
 | 2026-08-17 | [Documentación: contratos API audit-jobs y claim worker](#devlog-2026-08-17-contratos-audit-jobs) |
 | 2026-08-17 | [Documentación: ADR 0011 worker on-demand + cotización API](#devlog-2026-08-17-adr-0011-worker) |
@@ -59,6 +60,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-api"></a>
+
+## [2026-08-18] - Backend | POST/GET `/api/audit-jobs`
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 2**: exponer crear job y poll de estado sobre el store JSON, sin horario 8–18 ni claim del worker.
+
+### Implementación técnica:
+
+- `POST /api/audit-jobs` y `GET /api/audit-jobs/[id]` (runtime Node).
+- Validación URL con hosts de `auditUrlFormSchema`; nombre 1–120 sin HTML.
+- Persistencia vía `createJob` / `readJob` con `repoRoot()` (disco del monorepo en `bun run dev`).
+- POST deja siempre `queued` (ítem 3 añadirá `outside_hours`).
+- ROADMAP paso 4 ítem 2 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 3: ventana 08:00–18:00 America/Santiago al crear el job.
 
 ---
 
