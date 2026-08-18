@@ -276,10 +276,13 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 **Condición:** pasos 0–1 hechos; confirmar con el usuario **cuáles 5** de `mei-meta-mei-urls.ts`.
 
-- [ ] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch + `ingest:b`
-- [ ] JSON con `version_checklist: "2.1"` y **47** criterios
-- [ ] **No** JSON provisorio Cursor
-- [ ] Commits atómicos **por URL** (`feat(audits): …`) + commit de cableado frontend si aplica
+**Muestra acordada (órdenes 1–5 de `mei-meta-mei-urls.ts`):** Portada, Marcas, Patentes, Acerca de INAPI, Buscador de noticias. Alcance **solo visible**; `version_checklist: "2.1"` (47 criterios).
+
+- [x] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch (+ `ingest:b` en PC oficina)
+- [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado — rama `feat/meta-mei-v21-lote-2`)
+- [x] **No** JSON provisorio Cursor
+- [x] Commits atómicos **por URL** (`feat(audits): …`) + cableado `claude-audits-launch.ts` / `mei-meta-mei-urls.ts`
+- [ ] Órdenes **6–10** (Solicitud Nueva, Sala de Prensa, 2 noticias detalle, SIAC) — lote siguiente; Excel completo 10 URLs solo al cerrar las 10
 
 ### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
 
@@ -292,7 +295,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + (si aplica) 5 auditorías §17 v2.1 + plan de pulido PDF/Excel.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **5 auditorías §17 v2.1** (órdenes META MEI 1–5, ago-2026) + plan de pulido PDF/Excel; completar 6–10 y Excel Bernarda de 10 URLs en oleada siguiente.
 
 ---
 
