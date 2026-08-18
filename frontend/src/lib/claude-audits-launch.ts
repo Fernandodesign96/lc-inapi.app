@@ -197,16 +197,18 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     history: [{ id: "www-inapi-cl-patentes_2026-07-29" }],
   },
   {
-    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
+    // Reauditoría v2.1 (meta-mei orden 8)
     resumenMvp: {
-      porcentajeLc: 60.0,
+      porcentajeLc: 41.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" }],
   },
   {
     id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29",
