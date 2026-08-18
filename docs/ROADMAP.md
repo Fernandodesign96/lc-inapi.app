@@ -244,12 +244,14 @@ Rama: `docs/mvp-worker-on-demand` (desde `main` con checklist v2.1).
 
 ### Paso 3 — Contratos BE mínimo (especificación en repo, commit atómico)
 
-- [ ] Especificar en `docs/` (o ADR) los contratos:
+Rama: `docs/mvp-audit-jobs-contracts`.
+
+- [x] Especificar en `docs/` los contratos → [`docs/contratos-audit-jobs.md`](contratos-audit-jobs.md):
   - `POST /api/audit-jobs` `{ url, auditorNombre }`
   - `GET /api/audit-jobs/:id` (estado / cola / fuera de horario)
   - `GET /api/audit-jobs/:id/result` (+ historial por URL)
-  - Cómo el **worker reclama jobs** sin cambiar skills/MCP (§17 intacto)
-- [ ] Commit: `docs: contratos API audit-jobs y claim del worker local`
+  - Cómo el **worker reclama jobs** (`POST …/claim` + `…/complete`) sin cambiar skills/MCP (§17 intacto)
+- [x] Commit: `docs: contratos API audit-jobs y claim del worker local`
 
 ### Paso 4 — Implementar mini-backend + cablear Continuar (rama nueva + commits atómicos)
 

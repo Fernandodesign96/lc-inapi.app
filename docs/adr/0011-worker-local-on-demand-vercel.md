@@ -43,7 +43,7 @@ Worker PC → claim job → Claude Code §17 → JSON + PDF/Excel refs
 - **Positivo:** horario laboral acota costo operativo y expectativas de SLA.
 - **Negativo:** dependencia del PC encendido y del túnel; sin PC no hay auditorías nuevas en horario.
 - **Negativo:** sin auth, cualquiera con la URL de la demo puede encolar (aceptable solo en MVP interno; mitigar con secreto compartido o IP allowlist si hace falta).
-- **Neutral:** contratos HTTP detallados = paso 3 del ROADMAP Fase 4; código = paso 4 en rama `feat/mvp-audit-jobs-worker`.
+- **Neutral:** contratos HTTP detallados = [docs/contratos-audit-jobs.md](../contratos-audit-jobs.md) (Fase 4 paso 3); código = paso 4 en rama `feat/mvp-audit-jobs-worker`.
 
 ## Relación con otros ADR
 

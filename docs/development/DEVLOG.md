@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-17 | [Documentación: contratos API audit-jobs y claim worker](#devlog-2026-08-17-contratos-audit-jobs) |
 | 2026-08-17 | [Documentación: ADR 0011 worker on-demand + cotización API](#devlog-2026-08-17-adr-0011-worker) |
 | 2026-08-17 | [Checklist: merge v2.1 a main (Fase 4 paso 1)](#devlog-2026-08-17-checklist-merge-main) |
 | 2026-08-17 | [Infraestructura: Claude Team INAPI — migración cuenta + smoke test](#devlog-2026-08-17-claude-team-inapi) |
@@ -57,6 +58,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-17-contratos-audit-jobs"></a>
+
+## [2026-08-17] - Documentación | contratos API audit-jobs y claim worker
+
+### Contexto y objetivos:
+
+Cerrar el **paso 3** de la Fase 4: especificar el contrato HTTP del mini-backend (crear job, poll, resultado/historial, claim/complete del worker) sin implementar código ni tocar §17/skills.
+
+### Implementación técnica:
+
+- Rama `docs/mvp-audit-jobs-contracts`.
+- Nuevo [`docs/contratos-audit-jobs.md`](../contratos-audit-jobs.md): estados, horario 8–18, payloads, claim con `X-Worker-Secret`.
+- Enlace desde ADR 0011; ROADMAP paso 3 `[x]`.
+
+### Próximos pasos:
+
+- Paso 4: plan de archivos + rama `feat/mvp-audit-jobs-worker` (implementación atómica).
 
 ---
 
