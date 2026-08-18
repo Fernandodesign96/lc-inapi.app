@@ -107,8 +107,9 @@ La regla operativa que emergió al consolidar: un criterio secundario solo recib
 
 ### Próximos pasos:
 
+- Merge de `feat/meta-mei-reaudit-s20-lote-a` a `main` (lint / typecheck / build en verde).
 - Tanda B (órdenes 6–10) con el mismo flujo y calibración.
-- Tras cerrar las 10 URLs: generar el Excel Bernarda completo y evaluar merge a `main`.
+- Tras cerrar las 10 URLs: generar el Excel Bernarda completo.
 
 ---
 

@@ -298,7 +298,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026, las 10 URLs META MEI completas) + plan de pulido PDF/Excel; queda pendiente generar el Excel Bernarda de las 10 URLs y el merge de `feat/meta-mei-v21-lote-3` a `main`.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026) + calibración §20 y UI resultado en `main` + reauditoría §20 **Tanda A (órdenes 1–5)** en `feat/meta-mei-reaudit-s20-lote-a` (pendiente merge); queda pendiente **Tanda B (órdenes 6–10)**, Excel Bernarda de las 10 URLs tras reauditoría completa, y merge de la rama de reauditoría a `main`.
 
 ---
 
