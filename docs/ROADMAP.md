@@ -263,7 +263,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 2. [x] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` — routes Next; POST siempre `queued` (horario → ítem 3)
 3. [x] Fuera de horario 8–18 America/Santiago → persistir `outside_hours` (contrato: sí se encola diferido)
 4. [x] Claim/complete worker: `POST …/claim` + `POST …/:id/complete` + `X-Worker-Secret`
-5. [ ] Worker script local: reclama job → lanza flujo Claude Code §17 existente → escribe resultado → marca `done`
+5. [x] Worker script local stub: `bun run worker:audit-jobs` (claim → stub §17 → complete; sin Claude aún)
 6. [ ] `GET .../result` + enlace a historial (fecha + `auditorNombre`)
 7. [ ] UI: Continuar en `/auditar` → crea job → `/auditar/procesando` hace **poll** (deja de ser solo timer mock)
 8. [ ] Descargas PDF/Excel desde resultado del job (reutilizar APIs existentes donde baste)

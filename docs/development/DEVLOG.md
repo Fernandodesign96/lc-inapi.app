@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Infraestructura: worker audit-jobs stub local](#devlog-2026-08-18-audit-jobs-worker-script) |
 | 2026-08-18 | [Backend: claim/complete audit-jobs + secreto worker](#devlog-2026-08-18-audit-jobs-claim) |
 | 2026-08-18 | [Backend: horario 8–18 y estado `outside_hours`](#devlog-2026-08-18-audit-jobs-hours) |
 | 2026-08-18 | [Backend: POST/GET `/api/audit-jobs`](#devlog-2026-08-18-audit-jobs-api) |
@@ -62,6 +63,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-worker-script"></a>
+
+## [2026-08-18] - Infraestructura | worker audit-jobs stub local
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 5** con un bucle operativo claim → complete **sin** invocar Claude Code §17 aún (stub), para validar la cola en local.
+
+### Implementación técnica:
+
+- Script `src/scripts/audit-jobs-worker.ts` + `bun run worker:audit-jobs` (`--once` opcional).
+- Respeta horario 8–18; llama `POST …/claim` y `…/complete` con `X-Worker-Secret`.
+- Modo `AUDIT_JOBS_WORKER_MODE=stub`: `auditId` provisional `stub-{slug}_{fecha}` (sin JSON canónico).
+- `AUDIT_JOBS_WORKER_IGNORE_HOURS=1` para probar fuera de 8–18 en local.
+- Variables documentadas en `.env.example`.
+- ROADMAP paso 4 ítem 5 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 6: `GET …/result` + historial.
+- Más adelante: modo que lance §17 real en lugar del stub.
 
 ---
 

@@ -13,6 +13,7 @@
     "generate:mei-catalog": "bun run src/scripts/generate-mei-catalog-json.ts",
     "export:mei-xlsx": "bun run src/scripts/export-mei-xlsx.ts",
     "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
+    "worker:audit-jobs": "bun run src/scripts/audit-jobs-worker.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",
     "typecheck:all": "bun run validate:checklist && bun run validate:audit-fixtures && bun run validate:claude-audits && bun run typecheck && bun run typecheck:frontend",
