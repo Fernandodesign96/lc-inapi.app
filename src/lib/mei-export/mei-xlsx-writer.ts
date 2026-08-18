@@ -166,7 +166,7 @@ function addIndiceSheet(
     const note = sheet.getRow(5)
     note.getCell(1).value = "—"
     note.getCell(2).value = "Evidencia"
-    note.getCell(3).value = "Checklist Editorial INAPI v1.1"
+    note.getCell(3).value = "Checklist Editorial INAPI v2.1"
     note.getCell(4).value =
       "N/A — evidencia documental (actividad 1 / H01); ver pestañas CheckList y Fuentes"
     note.getCell(7).value = 0
@@ -287,7 +287,7 @@ function addFuentesSheet(
   const sheet = workbook.addWorksheet("Fuentes")
   sheet.mergeCells(1, 1, 1, 6)
   sheet.getCell(1, 1).value =
-    "Fuentes normativas del Checklist Editorial INAPI v1.1 (39 criterios)"
+    "Fuentes normativas del Checklist Editorial INAPI v2.1 (47 criterios)"
   sheet.getCell(1, 1).font = { bold: true, size: 12 }
 
   sheet.mergeCells(2, 1, 2, 6)

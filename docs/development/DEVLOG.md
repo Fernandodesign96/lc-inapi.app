@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-17 | [Infraestructura: Claude Team INAPI — migración cuenta + smoke test](#devlog-2026-08-17-claude-team-inapi) |
+| 2026-08-17 | [Checklist: v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude](#devlog-2026-08-17-checklist-v21-47) |
 | 2026-07-29 | [Infraestructura: Reauditoría §17 de 3 URLs META MEI + Excel regenerado](#devlog-2026-07-29-meta-mei-reauditoria-17) |
 | 2026-07-29 | [Frontend/MEI: 10 URLs META MEI + pestaña Fuentes en Excel](#devlog-2026-07-29-meta-mei-10-urls-fuentes) |
 | 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo Bernarda](#devlog-2026-07-29-mei-ui-excel-bernarda) |
@@ -53,6 +55,53 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-17-claude-team-inapi"></a>
+
+## [2026-08-17] - Infraestructura | Claude Team INAPI — migración cuenta + smoke test
+
+### Contexto y objetivos:
+
+Cerrar el **paso 0** de la [Fase 4 del ROADMAP](../ROADMAP.md#fase-4--mvp-on-demand-cuenta-claude-pro-institucional--worker-local--be-delgado): dejar de operar auditorías §17 con la cuenta Claude personal y usar solo el asiento **institucional INAPI** (Claude Team).
+
+### Implementación técnica:
+
+- `claude auth logout` (sesión personal expirada `fernandodesign96@gmail.com`).
+- `claude auth login --claudeai --email farriagada@inapi.cl` → **Login method: Claude Team account**, **Organization: Inapi**.
+- `claude mcp list`: playwright ✔, rag-auditoria ✔ (también Google Drive MCP, opcional).
+- Chroma local: `chroma run --path ./rag/chroma_db --port 8000`.
+- Smoke test en Claude Code (sin JSON de auditoría): Playwright en `https://www.inapi.cl/` (title + H1) + criterio B3 vía checklist/RAG.
+
+### Próximos pasos:
+
+- Paso 1 Fase 4: PR/merge de `feat/checklist-v2.1-47-criterios` → `main`.
+- Luego docs worker on-demand + contratos BE (pasos 2–3) en rama nueva.
+
+---
+
+<a id="devlog-2026-08-17-checklist-v21-47"></a>
+
+## [2026-08-17] - Checklist | v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude
+
+### Contexto y objetivos:
+
+Incorporar el Word **Checklist Editorial INAPI v2.1** (ago-2026): 8 criterios nuevos (A6–A9, B8, C8, C9, F6), ampliación de E4/F4, citas normativas precisas (sin `CW` genérico) y aplicabilidad `ambos`/`sitioweb`/`tramites`. Alinear contratos Zod, skills Claude Code §17 y export MEI/Fuentes **sin** reauditar URLs ni implementar el mini-backend de jobs.
+
+### Implementación técnica:
+
+- `data/checklist-criteria.json` → `checklist_version: "2.1"`, 47 filas + `applicability`.
+- `src/schemas/checklist.ts`: `CRITERION_IDS` (47), `CRITERION_IDS_V11` (39), mocks/demos en v2.1; `strictAuditRecordSchema` acepta 39 **o** 47 filas.
+- MEI: hitos H02/H03/H04/H09 y H02 Meta MEI amplían criterios; `mei-source-labels` con IEW/IESD/MEI.
+- `.claude/CLAUDE.md`, `audit-lote.md`, skills `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios`.
+
+### Próximos pasos:
+
+- ~~Migración Claude Pro personal → Team INAPI~~ (hecho — ver [entrada cuenta](#devlog-2026-08-17-claude-team-inapi)).
+- PR/merge checklist v2.1 a `main`; luego plan worker/BE.
+- Tras checklist en `main`: elegir 5 URLs META MEI para §17 con v2.1.
+- Cotización Anthropic API solo como evidencia de costo (no operativa).
 
 ---
 

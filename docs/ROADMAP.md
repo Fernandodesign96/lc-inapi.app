@@ -1,7 +1,11 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-07-29
+**Última actualización:** 2026-08-17
+
+### Checklist editorial (ago-2026)
+
+- [x] **Checklist v2.1 — 47 criterios** en rama `feat/checklist-v2.1-47-criterios` (`data/checklist-criteria.json` + Zod + skills Claude §17 + citas IEW/IESD/RLC/MEI). Auditorías JSON históricas v1.1 (39 filas) siguen válidas. **Merge/PR a `main`:** ver [Fase 4](#fase-4--mvp-on-demand-cuenta-claude-pro-institucional--worker-local--be-delgado) paso 1. **No** reauditar URLs hasta cuenta institucional + checklist en `main`.
 
 ---
 
@@ -194,9 +198,101 @@
 
 ---
 
-## Fase 4 — Producción (servidor TI)
+## Fase 4 — MVP on-demand (cuenta Claude Pro institucional + worker local + BE delgado)
 
-**Condición:** flujo completo validado en local (Fase 3) y coordinación con TI INAPI.
+**Contexto (oficina ago-2026, Álvaro / Bernarda):** MVP **sin login** (pegar URL → Continuar → auditoría → PDF + Excel → historial con fecha + nombre libre). TI **no** habilita servidor ni API Claude dedicada: operación con **asiento Enterprise/Pro institucional INAPI** + **worker en PC local 08:00–18:00**. Vercel = UI + API delgada; la auditoría real (10–40 min) corre en el PC con Claude Code §17 **sin reescribir** skills/MCP. Cotizar Anthropic API solo como evidencia de costo (no operar con ella). UX no técnica: sin JSON/HTML/ids en la UI.
+
+**Stack (ADR 0009):** no cambiar — Claude Code orquesta; Playwright MCP + Chroma RAG + skills + §17. **No** Nest/Supabase/Auth en el camino crítico de esta fase.
+
+**Orden obligatorio:** el paso 0 bloquea todo lo demás (auditorías §17 y validación del worker).
+
+### Paso 0 — Cambiar cuenta Claude Pro (personal → institucional INAPI) — BLOQUEANTE
+
+- [x] Confirmar con TI / administración el **asiento Pro o Enterprise institucional** (correo INAPI) y que puede usar **Claude Code** en WSL/PC de trabajo.
+- [x] Cerrar sesión de la cuenta **personal** en Claude Code / CLI (`claude` auth) en el entorno de auditoría.
+- [x] Iniciar sesión con la cuenta **institucional INAPI**; verificar `claude auth status` (o equivalente) y que el plan activo es el institucional.
+- [x] Re-registrar MCP necesarios bajo esa cuenta: Playwright + RAG (`claude mcp list`); Chroma local (`chroma run`) sigue en el mismo PC.
+- [x] Smoke test mínimo: una captura Playwright de URL pública + consulta RAG Colección A (sin auditoría completa aún).
+- [x] Documentar en DEVLOG: fecha del cambio, cuenta usada (sin secretos), y que a partir de aquí **toda** auditoría §17 y el worker on-demand usan solo la cuenta institucional.
+- [x] **Commit atómico (docs):** `docs: registrar migración Claude Pro personal → institucional INAPI` (solo si hay nota operativa en repo; no subir tokens).
+
+**Criterio de salida paso 0:** Claude Code en el PC de trabajo autentica solo con INAPI; MCP verdes; smoke test OK. **Cumplido 2026-08-17** (`farriagada@inapi.cl`, Claude Team · org Inapi; Playwright + rag-auditoria Connected; smoke `www.inapi.cl` + B3).
+
+### Paso 1 — Cerrar checklist v2.1 en `main` (rama ya creada)
+
+Rama existente: `feat/checklist-v2.1-47-criterios` (47 criterios, Zod, skills, MEI Fuentes).
+
+- [ ] Revisar diff vs `main`; `bun run typecheck:all` en verde.
+- [ ] Abrir **PR** → `main` (título/cuerpo alineados a convención de commits).
+- [ ] Merge tras revisión; actualizar local: `git checkout main && git pull`.
+- [ ] **No** auditar URLs en este paso.
+
+### Paso 2 — Documentación worker on-demand (commits atómicos de docs)
+
+Nueva rama desde `main` actualizado, p. ej. `docs/mvp-worker-on-demand` (o commits atómicos en la rama de implementación del paso 3 si se prefiere un solo PR de docs+código).
+
+- [ ] One-pager o borrador ADR: worker local + Claude Code, **sin** API Anthropic operativa; horario 8–18; Vercel orquesta/muestra.
+- [ ] ROADMAP/DEVLOG: historial (fecha + nombre libre), sin auth, persistencia inicial SQLite o `data/jobs/`.
+- [ ] Borrador cotización API Anthropic (método + placeholders; tokens 1–3 URLs si hay tiempo) — solo evidencia de costo.
+- [ ] Commits atómicos sugeridos:
+  1. `docs(adr): borrador worker local on-demand sin API operativa`
+  2. `docs: cotización Anthropic API como evidencia de costo (placeholders)`
+
+### Paso 3 — Contratos BE mínimo (especificación en repo, commit atómico)
+
+- [ ] Especificar en `docs/` (o ADR) los contratos:
+  - `POST /api/audit-jobs` `{ url, auditorNombre }`
+  - `GET /api/audit-jobs/:id` (estado / cola / fuera de horario)
+  - `GET /api/audit-jobs/:id/result` (+ historial por URL)
+  - Cómo el **worker reclama jobs** sin cambiar skills/MCP (§17 intacto)
+- [ ] Commit: `docs: contratos API audit-jobs y claim del worker local`
+
+### Paso 4 — Implementar mini-backend + cablear Continuar (rama nueva + commits atómicos)
+
+**Después** de planificar archivos en modo plan. Rama nueva desde `main`, p. ej. `feat/mvp-audit-jobs-worker`.
+
+Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan):
+
+1. [ ] Persistencia jobs (`data/jobs/` o SQLite) + tipos Zod del job
+2. [ ] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` (stub estados: `queued` | `running` | `done` | `failed` | `outside_hours`)
+3. [ ] Mensaje **fuera de horario 8–18** (America/Santiago) sin encolar o encolando según decisión del plan
+4. [ ] Endpoint o protocolo de **claim** para el worker local
+5. [ ] Worker script local: reclama job → lanza flujo Claude Code §17 existente → escribe resultado → marca `done`
+6. [ ] `GET .../result` + enlace a historial (fecha + `auditorNombre`)
+7. [ ] UI: Continuar en `/auditar` → crea job → `/auditar/procesando` hace **poll** (deja de ser solo timer mock)
+8. [ ] Descargas PDF/Excel desde resultado del job (reutilizar APIs existentes donde baste)
+9. [ ] Plan / spike de **túnel** Vercel↔PC (Cloudflare Tunnel o Tailscale) — documentar; implementar mínimo viable si el tiempo alcanza
+10. [ ] `bun run typecheck:all` + PR a `main`
+
+**No hacer en este paso:** Nest/Prisma/Supabase Auth; reescribir §17/skills; Anthropic API operativa; exponer JSON/HTML en UI MVP. **Vercel Pro no es requisito** para la API delgada (Hobby suele bastar); las auditorías largas no corren en Vercel.
+
+### Paso 5 — Cinco auditorías META MEI con checklist v2.1 (§17)
+
+**Condición:** pasos 0–1 hechos; confirmar con el usuario **cuáles 5** de `mei-meta-mei-urls.ts`.
+
+- [ ] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch + `ingest:b`
+- [ ] JSON con `version_checklist: "2.1"` y **47** criterios
+- [ ] **No** JSON provisorio Cursor
+- [ ] Commits atómicos **por URL** (`feat(audits): …`) + commit de cableado frontend si aplica
+
+### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
+
+- [ ] PDF/Excel más claros para funcionario (auditor, fecha, %, criterios; sin jerga interna)
+- [ ] Excel META MEI: mantener Bernarda + Fuentes; ajustar textos/columnas según feedback
+- [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
+
+### Spike opcional (si sobra tiempo)
+
+- [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
+- [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
+
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + (si aplica) 5 auditorías §17 v2.1 + plan de pulido PDF/Excel.
+
+---
+
+## Fase 5 — Producción (servidor TI)
+
+**Condición:** flujo completo validado en local (Fases 3 y 4) y coordinación con TI INAPI.
 
 - [ ] Coordinar con Álvaro / Bernarda / Octavio: viabilidad del servidor, puertos, OS, capacidad CPU
 - [ ] Copiar `rag/chroma_db/` al servidor TI (no hay que reingestar)
@@ -210,7 +306,7 @@
 
 ## Backlog — persistencia y backend (fase posterior)
 
-Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite persistencia multiusuario o autenticación institucional.
+Estos ítems no bloquean las Fases 0–5. Se inician cuando el producto necesite persistencia multiusuario o autenticación institucional.
 
 - [ ] Proyecto **Supabase** (PostgreSQL 16, Auth, RLS) según [`docs/DATABASE.md`](DATABASE.md)
 - [ ] API de dominio en **Railway** (tier gratuito) — decisión de tecnología pendiente de ADR específico cuando se inicie
@@ -226,8 +322,8 @@ Estos ítems no bloquean las Fases 0–4. Se inician cuando el producto necesite
 
 ## Dependencias externas
 
-- Alineación con TI INAPI (Octavio): viabilidad del servidor interno para producción IA (Fase 4).
-- Alineación con Álvaro / Bernarda: entrega TIC del piloto 1.5 (PDFs + HTML corregido).
+- Alineación con TI INAPI (Octavio): asiento **Claude Pro/Enterprise institucional** (Fase 4 paso 0) y, más adelante, viabilidad del servidor interno (Fase 5).
+- Alineación con Álvaro / Bernarda: MVP on-demand 8–18, entrega TIC del piloto 1.5 (PDFs + HTML corregido).
 - Prioridades CORFO / OpenProject (ajustar fechas con liderazgo).
 
 ---

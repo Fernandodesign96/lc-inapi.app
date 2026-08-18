@@ -10,7 +10,7 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 - Cuando se necesite fundamentar por qué un criterio incumple desde el marco normativo.
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
 - Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
-- Cuando se requiera contexto sobre el marco de calidad web (citas `CW` del checklist), el Meta MEI o el UI Kit Gobierno.
+- Cuando se requiera contexto normativo (citas `IEW`/`IESD`/`RLC`/`MEI` del checklist v2.1), o el UI Kit Gobierno.
 
 ---
 
@@ -18,83 +18,93 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 
 | Documento (PDF en `documentos/`) | Abreviatura en `source` | Qué regula | Relevante para |
 |---|---|---|---|
-| **Meta MEI** (`meta-mei.pdf`) — documento principal | `META-MEI` / `CW`* | Instrumento de evaluación de servicios digitales y marco de calidad web institucional que fundamenta el checklist | A1–H1; peso especial en `tramites.inapi.cl` (B, C, D) |
-| Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`) | `RLC` | Guía de escritura en lenguaje claro para comunicaciones del Estado | B1–B7, C1–C7, F1–F5 (especialmente F2, F3) |
-| Instrumento de Evaluación de Sitios Web (`instrumento-evaluacion-sitios-web.pdf`) | `IEW` | Revisión de sitios web informativos del Estado | A1–A5, E1–E4, G1–G3 |
-| Instrumento de Evaluación de Servicios Digitales Transaccionales (`instrumento-evaluacion-servicios-digitales-transaccionales.pdf`) | `IESD` | Revisión de servicios digitales con transacciones (formularios, pagos) | F1–F5, G1–G3, flujos de tramitación |
-| UI Kit Gobierno 3.0.1 (`ui-kit-gobierno-3.0.1.pdf`) | `UI-KIT` | Componentes de diseño, accesibilidad visual, patrones de interacción | D3, D4, D6, D7 (criterios visuales) |
+| Instrumento de Evaluación de Sitios Web (`instrumento-evaluacion-sitios-web.pdf`) | `IEW` | Calidad de sitios web informativos | A, B, C, D, E, F, G, H (citas IEW) |
+| Instrumento de Evaluación de Servicios Digitales Transaccionales (`instrumento-evaluacion-servicios-digitales-transaccionales.pdf`) | `IESD` | Servicios/trámites digitales | A6–A8 (trámites), B–H en `tramites.inapi.cl` |
+| Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`) | `RLC` | Lenguaje claro, estructura, enlaces | A1–A5, A9, B1–B3, B7, F1–F5 |
+| **Meta MEI** (`meta-mei.pdf`) | `MEI` | Compromiso institucional PMG-MEI (no sustituye IEW/IESD) | Contexto de hitos; no es la cita primaria de cada criterio v2.1 |
+| UI Kit Gobierno 3.0.1 (`ui-kit-gobierno-3.0.1.pdf`) | `UI` | Diseño visual / componentes | Complemento D3/D4/D6 (fuera de alcance editorial frecuente) |
 
-\* Las citas `CW` / `CW 5.x.x` en `checklist-criteria.json` **no** apuntan a un PDF separado «Calidad Web 2.0». Son referencias al marco de calidad web que vive principalmente en **Meta MEI** y se complementa con RLC, IEW e IESD.
-
----
-
-## 2. Relación fuente normativa ↔ criterio
-
-Derivado del campo `source` en `data/checklist-criteria.json`:
-
-| Criterio | Fuente principal | Referencia específica |
-|---|---|---|
-| A1 | CW | §5 — Estructura del contenido |
-| A2 | CW, RLC | §4, §5 / CW 5.2.4 |
-| A3 | CW, RLC | §4, §5 / CW 5.2.4 |
-| A4 | RLC | §1 |
-| A5 | RLC | §4 |
-| B1 | RLC, CW | §7 / CW 5.2.1 |
-| B2 | RLC, CW | §7, §8 / CW 5.1.3 |
-| B3 | RLC, CW | §7 / CW 5.1.3 |
-| B4 | CW | 5.1.3 |
-| B5 | CW | 5.1.3 |
-| B6 | CW | 5.2.1 |
-| B7 | RLC | §8 |
-| C1 | CW | 5.2.1 |
-| C2 | CW | 5.2.1 |
-| C3 | CW | 5.2.2 |
-| C4 | CW | 5.2.2 |
-| C5 | CW | 5.2.2 |
-| C6 | CW | 5.2.2 |
-| C7 | CW | 5.2.1 |
-| D1 | CW | 5.1.5 |
-| D2 | CW | 5.1.5 |
-| D3 | CW | 5.2.3 |
-| D4 | CW | 5.2.3 |
-| D5 | CW | 5.2.3 |
-| D6 | CW | 5.2.4 |
-| D7 | CW | 5.2.4 |
-| E1 | CW | 5.3.1 |
-| E2 | CW | 5.1.1 |
-| E3 | CW | 5.1.4 |
-| E4 | CW | 5.1.2 |
-| F1 | RLC | §9 |
-| F2 | RLC, CW | §9 / CW 5.2.4 |
-| F3 | RLC, CW | §9 / CW 5.2.4 |
-| F4 | CW | 5.2.4 |
-| F5 | RLC | §9 |
-| G1 | CW | 5.1.7 |
-| G2 | CW | 5.1.7 |
-| G3 | CW | 5.1.6 |
-| H1 | CW | 5.3.2 |
+**v2.1:** la sigla genérica `CW` queda **deprecada** en el catálogo. Auditorías históricas v1.1 pueden seguir citando `CW` (legado → consultar `meta-mei.pdf` + IEW/IESD).
 
 ---
 
-## 3. Marco de calidad web (referencias `CW` en el checklist)
+## 2. Relación fuente normativa ↔ criterio (v2.1)
 
-El checklist v1.1 cita secciones tipo `CW 5.1.x` / `CW 5.2.x`. Esas etiquetas organizan el marco de **calidad web institucional** en dimensiones que se mapean al checklist:
+Derivado del campo `source` en `data/checklist-criteria.json` (47 criterios):
 
-| Dimensión (etiqueta CW) | Secciones del checklist | Contenido |
+| Criterio | Fuente (`source`) |
+|---|---|
+| A1 | RLC §5 |
+| A2 | RLC §4, IEW 5.2.4, IESD 5.2.4 |
+| A3 | RLC §4,§5, IEW 5.2.4 |
+| A4 | RLC §1 |
+| A5 | RLC §4 |
+| A6 | IEW 1.1.2, IESD 5.1.2 |
+| A7 | IEW 1.1.2, IESD 5.1.2 |
+| A8 | IESD 5.1.2 |
+| A9 | IEW 1.2.4, IESD 5.2.4, RLC §1 |
+| B1 | RLC §7, IEW 5.2.1, IESD 5.2.1 |
+| B2 | RLC §7,§8, IEW 5.1.3, IESD 5.1.3 |
+| B3 | RLC §7, IEW 5.1.3, IESD 5.1.3 |
+| B4 | IEW 5.1.3, IESD 5.1.3 |
+| B5 | IEW 5.1.3, IESD 5.1.3 |
+| B6 | IEW 5.2.1, IESD 5.2.1 |
+| B7 | RLC §8 |
+| B8 | IEW 5.1.3, IESD 5.1.3 |
+| C1 | IEW 5.2.1, IESD 5.2.1 |
+| C2 | IEW 5.2.1, IESD 5.2.1 |
+| C3 | IEW 5.2.2, IESD 5.2.2 |
+| C4 | IEW 5.2.2, IESD 5.2.2 |
+| C5 | IEW 5.2.2, IESD 5.2.2 |
+| C6 | IEW 5.2.2, IESD 5.2.2 |
+| C7 | IEW 5.2.1, IESD 5.2.1 |
+| C8 | IEW 1.2.1, IESD 5.2.1 |
+| C9 | IEW 1.2.2, IESD 5.2.2 |
+| D1 | IEW 5.1.5, IESD 5.1.5 |
+| D2 | IEW 5.1.5, IESD 5.1.5 |
+| D3 | IEW 5.2.3, IESD 5.2.3 |
+| D4 | IEW 5.2.3, IESD 5.2.3 |
+| D5 | IEW 5.2.3, IESD 5.2.3 |
+| D6 | IEW 5.2.4, IESD 5.2.4 |
+| D7 | IEW 5.2.4, IESD 5.2.4 |
+| E1 | IEW 5.3.1, IESD 5.3.1 |
+| E2 | IEW 5.1.1, IESD 5.1.1 |
+| E3 | IEW 5.1.4, IESD 5.1.4 |
+| E4 | IEW 5.1.2, IESD 5.1.2 |
+| F1 | RLC §9 |
+| F2 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
+| F3 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
+| F4 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
+| F5 | RLC §9 |
+| F6 | IEW 1.2.4, IESD 5.2.4 |
+| G1 | IEW 5.1.7, IESD 5.1.7 |
+| G2 | IEW 5.1.7, IESD 5.1.7 |
+| G3 | IEW 5.1.6, IESD 5.1.6 |
+| H1 | IEW 5.3.2, IESD 5.3.2 |
+
+---
+
+## 3. Marco IEW / IESD (reemplazo de citas `CW`)
+
+El checklist v2.1 usa numeración del instrumento (p. ej. `IEW 5.1.3`, `IESD 5.1.2`). Orientación:
+
+| Dimensión | Secciones del checklist | Contenido |
 |---|---|---|
-| **5.1 Contenido** | E2 (5.1.1), E4 (5.1.2), B2–B4 (5.1.3), E3 (5.1.4), D1–D2 (5.1.5), G3 (5.1.6), G1–G2 (5.1.7) | Autoría, representatividad del título, lenguaje, fecha, ortografía, datos personales |
-| **5.2 Estructura y presentación** | B1, B6, C1–C2 (5.2.1), C3–C6 (5.2.2), D3–D5 (5.2.3), D6–D7, A1–A3, F2–F4 (5.2.4) | Voz activa, oraciones, párrafos, formato, negritas, mayúsculas, enlaces |
-| **5.3 Veracidad y objetividad** | E1 (5.3.1), H1 (5.3.2) | Sin opiniones, archivo de versiones |
-| **Pirámide invertida y estructura** | A1–A5 | RLC §1–§9 complementa estructura y redacción |
-| **Servicios transaccionales** | F1–F5, G1–G3 (META-MEI / IESD) | Especialmente relevante para `tramites.inapi.cl` |
+| **Completitud / contenido clave** | A6, A7, A8, E4 | Sin «en construcción»; datos qué/cómo/dónde/cuándo/quién; autonomía del trámite; título fiel |
+| **Lenguaje y legibilidad** | B1–B8 | Voz activa, jerga, siglas, tono, Legible ≥3/5 |
+| **Redacción y FAQ** | C1–C9 | Oraciones, párrafos, resumen, FAQ, 2–8 párrafos |
+| **Formato** | D1–D7 | Ortografía, puntuación, listas, negritas, mayúsculas |
+| **Autoría / fechas** | E1–E3 | Objetividad, autoría, fecha visible |
+| **Enlaces** | F1–F6 | CTAs, PDF con descripción, enlaces relacionados |
+| **Datos / archivo** | G1–G3, H1 | Privacidad, ARCO, condiciones de uso, versiones |
 
-**Documento PDF principal para fundamentar esas citas:** `meta-mei.pdf`. Complementos: `lenguaje-claro-recomendaciones.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`.
+**PDFs a consultar:** `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`, `lenguaje-claro-recomendaciones.pdf`. `meta-mei.pdf` = compromiso MEI, no cita primaria de cada fila.
 
 ---
 
 ## 4. Meta MEI — documento principal de calidad web / servicios digitales
 
-El **Meta MEI** (`meta-mei.pdf`) es el **documento normativo principal** del marco de calidad web en este proyecto: fundamenta la evaluación editorial de servicios digitales del Estado y es la fuente PDF a consultar primero cuando el checklist cite `CW` o criterios de tramitación.
+El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-MEI. En v2.1, la fuente primaria de cada criterio es `IEW`/`IESD`/`RLC` según el campo `source`; MEI no sustituye esos instrumentos.
 
 **Foco del Meta MEI en el checklist INAPI:**
 - **Sección B** (lenguaje claro): voz activa, tuteo, siglas, tono positivo — peso aumentado en tramitación.
@@ -129,7 +139,7 @@ El **Meta MEI** (`meta-mei.pdf`) es el **documento normativo principal** del mar
 **Relevancia del tipo para criterios:**
 - `tramites` **públicas:** aplicar Meta MEI con mayor peso en B, C, D; G1 según HTML estático (RUN/nombre ajeno = incumple).
 - `tramites` **con sesión (`captura_con_sesion: true`):** G1 calibrado en `CLAUDE.md` §19 — datos del solicitante en formulario = esperados; evaluar claridad de etiquetas y ayudas (B, C, F).
-- `sitioweb`: aplicar Calidad Web 2.0 completo; verificar A1–A5 (estructura editorial).
+- `sitioweb`: aplicar IEW; verificar A1–A9 (estructura editorial).
 - `buscador`: aplicar criterios de herramienta interactiva; A4/A5 frecuentemente `no_aplica`.
 
 ---
@@ -138,7 +148,7 @@ El **Meta MEI** (`meta-mei.pdf`) es el **documento normativo principal** del mar
 
 En el campo `comentario` del criterio:
 ```json
-"comentario": "Según CW 5.2.4, deben evitarse palabras escritas únicamente en mayúsculas excepto siglas reconocidas. Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en mayúsculas totales."
+"comentario": "Según IEW/IESD 5.2.4, deben evitarse palabras escritas únicamente en mayúsculas excepto siglas reconocidas. Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en mayúsculas totales."
 ```
 
 En el campo `nota_final_tic` (para TI INAPI):
@@ -148,7 +158,7 @@ En el campo `nota_final_tic` (para TI INAPI):
 
 En el `resumen_ejecutivo`:
 ```
-"La evaluación aplica el Checklist Editorial INAPI v1.1 basado en Calidad Web 2.0 (Gobierno de Chile), Recomendaciones de Lenguaje Claro y el instrumento Meta MEI para servicios transaccionales."
+"La evaluación aplica el Checklist Editorial INAPI v2.1 (47 criterios) con citas IEW, IESD, RLC y MEI."
 ```
 
 ---
@@ -158,8 +168,8 @@ En el `resumen_ejecutivo`:
 Para obtener la cita normativa exacta antes de redactar el comentario:
 
 ```
-RAG colección A — query: "CW 5.2.4 mayúsculas tipografía encabezados"
-→ Resultado esperado: fragmento de `meta-mei.pdf` (y/o RLC) que sustente la regla de mayúsculas; la etiqueta `CW 5.2.4` del checklist es la referencia conceptual, no un PDF aparte.
+RAG colección A — query: "IEW 5.2.4 mayúsculas tipografía encabezados"
+→ Resultado esperado: fragmento de IEW/IESD (y/o RLC) que sustente la regla de mayúsculas.
 
 RAG colección A — query: "RLC §7 siglas acrónimos primera vez"
 → Resultado esperado: párrafo del PDF lenguaje-claro-recomendaciones.pdf

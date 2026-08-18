@@ -47,10 +47,10 @@ Lanzar los 5 sub-subagentes simultáneamente, cada uno con:
 
   | Sub-subagente | Secciones | Skill |
   |---|---|---|
-  | Grupo 1 | A1–A5, E1–E4 | auditoria-lc.md §A,§E + auditoria-calidad-web.md |
-  | Grupo 2 | B1–B7, C1–C7 | auditoria-lc.md §B,§C + auditoria-calidad-web.md |
+  | Grupo 1 | A1–A9, E1–E4 | auditoria-lc.md §A,§E + auditoria-calidad-web.md |
+  | Grupo 2 | B1–B8, C1–C9 | auditoria-lc.md §B,§C + auditoria-calidad-web.md |
   | Grupo 3 | D1–D7        | auditoria-lc.md §D + auditoria-calidad-web.md |
-  | Grupo 4 | F1–F5        | auditoria-lc.md §F + auditoria-calidad-web.md |
+  | Grupo 4 | F1–F6        | auditoria-lc.md §F + auditoria-calidad-web.md |
   | Grupo 5 | G1–G3, H1    | auditoria-lc.md §G,§H + **CLAUDE.md §19** si sesión |
 
 Instrucción a cada sub-subagente:
@@ -59,10 +59,10 @@ Instrucción a cada sub-subagente:
 Para precedentes, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B antes de evaluar.
 
 **Paso 3 — Consolidación (agente raíz)**
-- Unir los 5 arrays de criterios → exactamente 39 entradas, orden A1…H1
+- Unir los 5 arrays de criterios → exactamente 47 entradas (v2.1), orden A1…H1
 - Unir todos los `sustituciones[]`; si hay conflicto en la misma `linea`, retener `severidad` más alta
 - Calcular: `criterios_aprobados`, `criterios_aplicables`, `porcentaje_cumplimiento`, `estado_aceptacion`
-- Verificar: 39 criterios exactos + cobertura 1:1 `incumple` ↔ `sustituciones[]`
+- Verificar: 47 criterios exactos (v2.1) + cobertura 1:1 `incumple` ↔ `sustituciones[]`
 - Verificar anonimización si `captura_con_sesion: true`
 
 **Paso 4 — Guardado y validación**

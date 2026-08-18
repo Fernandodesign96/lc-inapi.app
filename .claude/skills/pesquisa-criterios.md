@@ -18,7 +18,7 @@ ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
 
 **SIEMPRE consultar primero `./data/checklist-criteria.json`.**
 
-Este archivo es la **fuente de verdad** de los 39 criterios. Tiene la definición exacta de cada criterio, su sección, su instrucción de verificación y la fuente normativa que lo respalda (`source`).
+Este archivo es la **fuente de verdad** de los 47 criterios (v2.1). Tiene la definición exacta de cada criterio, su sección, su instrucción de verificación, la fuente normativa (`source`) y la aplicabilidad (`ambos` / `sitioweb` / `tramites`).
 
 No usar solo el RAG para criterios — el JSON es la fuente de verdad.
 
@@ -29,16 +29,18 @@ No usar solo el RAG para criterios — el JSON es la fuente de verdad.
   "section_id": "B",
   "section_title": "Lenguaje claro",
   "criterion": "Las siglas y acrónimos están definidos la primera vez que aparecen",
-  "verification": "\"Nomenclatura de Clasificación de Niza (NCL)\" en lugar de solo \"NCL\"",
-  "source": "RLC §7, CW 5.1.3"
+  "verification": "«Tratado de Cooperación en materia de Patentes (PCT)» en lugar de solo «PCT».",
+  "source": "RLC §7, IEW 5.1.3, IESD 5.1.3",
+  "applicability": "ambos"
 }
 ```
 
 El campo `source` indica los documentos normativos donde se puede ampliar la definición en el RAG:
 - `RLC` = Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`)
-- `CW` = marco de calidad web (etiqueta del checklist; PDF principal: `meta-mei.pdf`, complementado por IEW/IESD)
-- `META-MEI` = Meta MEI (`meta-mei.pdf`) — documento principal de Colección A
-
+- `IEW` = Instrumento de evaluación de sitios web
+- `IESD` = Instrumento de evaluación de servicios digitales transaccionales
+- `MEI` = Meta MEI (`meta-mei.pdf`) — compromiso institucional
+- `CW` = **legado v1.1** (si aparece en auditorías antiguas → meta-mei.pdf + IEW/IESD)
 ---
 
 ## RAG Colección A — contexto normativo
@@ -46,18 +48,17 @@ El campo `source` indica los documentos normativos donde se puede ampliar la def
 **Propósito:** buscar en los documentos normativos que definen los criterios.
 
 **Documentos ingresados en Colección A** (fuente: `docs/adr/0010`):
-- `meta-mei.pdf` — **documento principal**; fundamenta el marco de calidad web / servicios digitales (las citas `CW` del checklist apuntan aquí, no a un PDF aparte)
+- `meta-mei.pdf` — compromiso MEI; complementar con IEW/IESD (v2.1 ya no usa `CW` como cita primaria)
 - `lenguaje-claro-recomendaciones.pdf` — guía de lenguaje claro Chile (`RLC`)
 - `instrumento-evaluacion-sitios-web.pdf` (`IEW`)
 - `instrumento-evaluacion-servicios-digitales-transaccionales.pdf` (`IESD`)
-- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno (`UI-KIT`, opcional recomendado)
+- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno (`UI`, opcional recomendado)
 
 **Cuándo usar Colección A:**
 - Para citar la fuente normativa exacta en el `comentario` del criterio.
 - Para justificar por qué algo es incumplimiento severo vs leve.
-- Cuando el criterio tiene `source: "CW 5.x.x"` o `"RLC §x"` y necesitamos la cita completa.
+- Cuando el criterio tiene `source` con `IEW`/`IESD`/`RLC`/`MEI` y necesitamos la cita completa.
 - Para fundamentar una recomendación en `nota_final_tic`.
-
 **Query recomendada:** `"{código criterio} {concepto}"`
 
 Ejemplos de queries efectivas:
@@ -72,7 +73,7 @@ Ejemplos de queries efectivas:
 
 **Cómo citar el resultado en el JSON:**
 ```json
-"comentario": "Según CW 5.1.3, las siglas deben definirse la primera vez que aparecen..."
+"comentario": "Según IEW/IESD 5.1.3, las siglas deben definirse la primera vez que aparecen..."
 ```
 
 ---
@@ -82,8 +83,8 @@ Ejemplos de queries efectivas:
 **Propósito:** buscar cómo se evaluó un criterio en URLs ya auditadas y detectar patrones recurrentes.
 
 **Contenido de Colección B** (fuente: `docs/adr/0010`):
-- `data/checklist-criteria.json` — los 39 criterios del checklist
-- `data/claude-audits/**/*.json` — 9 JSONs canónicos del piloto (junio 2026)
+- `data/checklist-criteria.json` — los 47 criterios del checklist v2.1
+- `data/claude-audits/**/*.json` — auditorías canónicas (históricas v1.1 = 39 filas; nuevas v2.1 = 47)
 - `data/claude-audits/urls-clarity/*.json` — serie Clarity (5 URLs disponibles jun 2026)
 - `docs/adr/*.md` — decisiones arquitectónicas del proyecto
 
@@ -137,7 +138,7 @@ Para justificar una evaluación con máxima solidez:
 
 Ejemplo de comentario bien fundamentado:
 ```
-"D7: Según CW 5.2.4, evitar palabras solo en mayúsculas excepto siglas reconocidas. 
+"D7: Según IEW/IESD 5.2.4, evitar palabras solo en mayúsculas excepto siglas reconocidas. 
 Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en mayúsculas 
 totales (T006, T011, T019, T024). Patrón ya documentado en tramites-inapi-cl_2026-06-07 
 (D7 media, 4 ocurrencias). Origen: _Layout.cshtml transversal a todas las páginas del 
@@ -148,7 +149,7 @@ portal de tramites."
 
 ## Cuándo NO necesitas el RAG
 
-- Para los 39 criterios del checklist: basta con `checklist-criteria.json` + esta skill.
+- Para los 47 criterios del checklist v2.1: basta con `checklist-criteria.json` + esta skill.
 - Para los patrones sistémicos (D7, D1, F3, F4, E3, E4, B3, H1): están documentados en `auditoria-lc.md` con las calibraciones INAPI ya incorporadas.
 - Para decidir `no_aplica`: consultar primero la sección §16 de `CLAUDE.md` antes de abrir el RAG.
 - **Capturas con sesión autenticada:** el RAG no sustituye §19 de `CLAUDE.md`. No ingresar HTML con PII a Colección B; los precedentes deben ser JSON ya anonimizados del repo.

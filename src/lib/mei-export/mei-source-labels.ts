@@ -1,10 +1,10 @@
 /**
- * Expande citas del checklist (`RLC §7, CW 5.2.1`) a documentos Colección A.
- * CW = marco conceptual Meta MEI (no existe calidad-web-2.0.pdf).
+ * Expande citas del checklist (`RLC §7, IEW 5.2.1`) a documentos Colección A.
+ * v2.1 depreca la sigla genérica CW; preferir IEW / IESD / RLC / MEI.
  */
 
 export type SourceDocumentRef = {
-  code: "RLC" | "CW" | "IEW" | "IESD" | "UI"
+  code: "RLC" | "CW" | "IEW" | "IESD" | "UI" | "MEI"
   documento: string
   nombre: string
 }
@@ -15,10 +15,11 @@ const DOC_BY_CODE: Record<string, SourceDocumentRef> = {
     documento: "lenguaje-claro-recomendaciones.pdf",
     nombre: "Recomendaciones de Lenguaje Claro",
   },
+  /** Histórico v1.1 — mapear a Meta MEI si aparece en auditorías antiguas. */
   CW: {
     code: "CW",
     documento: "meta-mei.pdf",
-    nombre: "Meta MEI (marco Calidad Web / servicios digitales)",
+    nombre: "Meta MEI (marco legado citado como CW en v1.1)",
   },
   IEW: {
     code: "IEW",
@@ -30,6 +31,11 @@ const DOC_BY_CODE: Record<string, SourceDocumentRef> = {
     documento: "instrumento-evaluacion-servicios-digitales-transaccionales.pdf",
     nombre: "Instrumento de evaluación de servicios digitales",
   },
+  MEI: {
+    code: "MEI",
+    documento: "meta-mei.pdf",
+    nombre: "Meta MEI (PMG-MEI / compromiso institucional)",
+  },
   UI: {
     code: "UI",
     documento: "ui-kit-gobierno-3.0.1.pdf",
@@ -38,7 +44,7 @@ const DOC_BY_CODE: Record<string, SourceDocumentRef> = {
 }
 
 /** Tokens de código documental en el campo `source` del checklist. */
-const CODE_PATTERN = /\b(RLC|CW|IEW|IESD|UI)\b/g
+const CODE_PATTERN = /\b(RLC|CW|IEW|IESD|MEI|UI)\b/g
 
 export function parseSourceCodes(sourceCita: string): SourceDocumentRef[] {
   const seen = new Set<string>()
@@ -61,8 +67,9 @@ export function documentosLabelFromSource(sourceCita: string): string {
 
 export function sourceNotaMetaMei(): string {
   return (
-    "Las citas CW del checklist editorial INAPI v1.1 son referencias conceptuales al marco " +
-    "de calidad web; el PDF principal de Colección A es meta-mei.pdf (no existe calidad-web-2.0.pdf). " +
-    "RLC = lenguaje-claro-recomendaciones.pdf."
+    "Checklist Editorial INAPI v2.1 cita IEW, IESD, RLC y MEI (sin sigla genérica CW). " +
+    "IEW = instrumento-evaluacion-sitios-web.pdf; IESD = instrumento-evaluacion-servicios-digitales-transaccionales.pdf; " +
+    "RLC = lenguaje-claro-recomendaciones.pdf; MEI = meta-mei.pdf. " +
+    "Auditorías v1.1 pueden conservar citas CW (legado → meta-mei.pdf)."
   )
 }
