@@ -279,10 +279,10 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 **Muestra acordada (órdenes 1–5 de `mei-meta-mei-urls.ts`):** Portada, Marcas, Patentes, Acerca de INAPI, Buscador de noticias. Alcance **solo visible**; `version_checklist: "2.1"` (47 criterios).
 
 - [x] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch (+ `ingest:b` en PC oficina)
-- [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado — rama `feat/meta-mei-v21-lote-2`)
+- [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado; orden 6: `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18`, **47,1 %** rechazado — rama `feat/meta-mei-v21-lote-3`)
 - [x] **No** JSON provisorio Cursor
 - [x] Commits atómicos **por URL** (`feat(audits): …`) + cableado `claude-audits-launch.ts` / `mei-meta-mei-urls.ts`
-- [ ] Órdenes **6–10** (Solicitud Nueva, Sala de Prensa, 2 noticias detalle, SIAC) — lote siguiente; Excel completo 10 URLs solo al cerrar las 10
+- [ ] Órdenes **7–10** (Sala de Prensa, 2 noticias detalle, SIAC) — lote siguiente; Excel completo 10 URLs solo al cerrar las 10
 
 ### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
 
@@ -295,7 +295,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **5 auditorías §17 v2.1** (órdenes META MEI 1–5, ago-2026) + plan de pulido PDF/Excel; completar 6–10 y Excel Bernarda de 10 URLs en oleada siguiente.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **6 auditorías §17 v2.1** (órdenes META MEI 1–6, ago-2026) + plan de pulido PDF/Excel; completar 7–10 y Excel Bernarda de 10 URLs en oleada siguiente.
 
 ---
 

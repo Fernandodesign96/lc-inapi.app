@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 6 Solicitud Nueva (orden 6)](#devlog-2026-08-18-meta-mei-url-6) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 5 buscador de noticias (cierre lote 1–5)](#devlog-2026-08-18-meta-mei-url-5) |
 | 2026-08-18 | [Frontend: entrega solo visible + Excel por URL](#devlog-2026-08-18-entrega-visible-excel-url) |
 | 2026-08-18 | [Frontend: tabla META MEI 10 URLs e historial unificado](#devlog-2026-08-18-meta-mei-ui-historial) |
@@ -71,6 +72,33 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-meta-mei-url-6"></a>
+## [2026-08-18] - Infraestructura | META MEI v2.1: URL 6 Solicitud Nueva (orden 6)
+
+**Rama:** `feat/meta-mei-v21-lote-3` | **Entorno:** PC oficina (Windows) — Playwright MCP en timeout (Chrome no llega a cargar la página; HTML capturado manualmente vía Ctrl+U/renombrado), Chroma local (solo Colección B disponible en esta sesión)
+
+### Contexto y objetivos:
+
+Continuar el lote 6–10 de reauditoría META MEI v2.1 cerrado con la orden 5 (buscador de noticias). Esta entrada cierra la orden 6: `/marcas/tramites/solicitud-nueva`, el único trámite de la muestra clasificado como `sitioweb`.
+
+### Implementación técnica:
+
+- Playwright MCP quedó en timeout (180s) al navegar; se usó el HTML entregado manualmente por el usuario en `auditorias/htmls/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18.html` (formato view-source con numeración de línea real).
+- Script auxiliar en el scratchpad (`bun` + regex) para decodificar entidades y despojar el marcado de resaltado del view-source, permitiendo inventariar el HTML de forma legible sin exceder el contexto.
+- JSON canónico `data/claude-audits/sitioweb/2026-08-18/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18.json`: 47 criterios, `version_checklist: "2.1"`, sustituciones con `ubicacion_pantalla` + `capa: "VISIBLE"`; sin evidencia de `<title>`/`<meta>`.
+- Resultado: **47,1 %** LC sobre 34 aplicables (**rechazado**); 16 cumple, 18 incumple, 13 no_aplica.
+- Comparado con la auditoría v1.1 (2026-06-07, 44,8 %): el carrusel de recursos institucionales mejoró de forma verificable (alt/title vacíos o en minúscula corregidos); G1 se recalibra a `cumple` (RUT institucional, persona jurídica pública), alineado con el resto del lote.
+- RAG: Colección A (normativa) no disponible — Chroma no estaba levantado en `localhost:8000` para esa colección en esta sesión; Colección B (precedentes) sí respondió y confirmó la calibración de G1 y el patrón de shell compartido de D1 («Propiedad industrial»).
+- Cableado: `claude-audits-launch.ts` (vigente + `history` a `…_2026-06-07`) y `mei-meta-mei-urls.ts` orden 6.
+
+### Próximos pasos:
+
+- PR/merge de `feat/meta-mei-v21-lote-3` a `main`.
+- Lote siguiente: órdenes 7–10 (Sala de Prensa, dos noticias detalle, SIAC).
+- Levantar Chroma con Colección A cargada para las próximas reauditorías.
 
 ---
 

@@ -61,7 +61,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     nombreUi: "Solicitud Nueva (Marcas)",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07",
+    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18",
     rolMetaMei: "Información del servicio digital / trámite",
   },
   {
