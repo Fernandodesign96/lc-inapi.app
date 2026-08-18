@@ -26,15 +26,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/",
     label: "Home INAPI",
     tipoPagina: "sitioweb",
-    // Misma URL que Clarity rank 16 — vigente ago-2026 (reauditoría v2.1, meta-mei orden 1)
-    claudeAuditId: "www-inapi-cl_2026-08-18",
+    // Misma URL que Clarity rank 16 — reauditoría §20 (calibración visible/patrones/cruces, meta-mei orden 1)
+    claudeAuditId: "www-inapi-cl_2026-08-19",
     resumenMvp: {
-      porcentajeLc: 59.0,
+      porcentajeLc: 70.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
     history: [
+      { id: "www-inapi-cl_2026-08-18" },
       { id: "www-inapi-cl_2026-07-22" },
       { id: "www-inapi-cl_2026-06-11" },
       { id: "www-inapi-cl_2026-06-02" },
