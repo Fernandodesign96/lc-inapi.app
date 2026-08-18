@@ -1,0 +1,622 @@
+{
+  "id": "www-inapi-cl-buscador-noticias_2026-08-18",
+  "url": "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [fuera de alcance — metadata del <head>, no evaluar]: <title> del documento («Buscador»), no es contenido visible en pantalla | T002 [fuera de alcance — metadata del <head>, no evaluar]: <meta name=\"keywords\"> (HTML-L3), no es contenido visible ni evidencia válida para ningún criterio | T003 [HTML-L5]: «Conoce más» (menú mobile → /propiedad-intelectual-e-industrial) | T004 [HTML-L8]: «PCT» (menú mobile → /pct, sigla sin definir en esta página) | T005 [HTML-L22]: «Observancia» (menú mobile → /protege-tu-idea) | T006 [HTML-L45-47]: «ACCESOS» (barra superior mobile → tramites.inapi.cl) — nota: cabecera global de www.inapi.cl excluida de D7 por calibración CLAUDE.md §2 | T007 [HTML-L47]: «BUSCADOR» (placeholder barra superior mobile) — cabecera global excluida de D7 | T008 [HTML-L55]: «BUSCADOR» (placeholder barra superior escritorio, duplicado) — cabecera global excluida de D7 | T009 [HTML-L55-57]: «ACCESOS» (id=\"btn-acceso\", barra superior escritorio → tramites.inapi.cl) — cabecera global excluida de D7 | T010 [HTML-L58-69]: menú principal escritorio: «Nosotros», «Conoce más», «Marcas», «Patentes», «PCT», «Sistema de Madrid», «Sello de Origen», «Aprende», «Conecta», «Trámites» | T011 [HTML-L70]: h3 «INAPI» (encabezado del modal de acceso/login) | T012 [HTML-L70]: «Usuario Frecuente» (enlace de login → https://ion.inapi.cl/) | T013 [HTML-L70]: «Registro» (enlace → https://claveunica.gob.cl/, ambiguo entre registro de marca y creación de cuenta) | T014 [HTML-L70]: «LINK EXTERNO» (botón rojo del modal de login, href=\"#\", texto de desarrollo no eliminado) | T015 [HTML-L70]: h3 «BUSCAR Y TRAMITAR» (encabezado del modal de búsqueda, mayúsculas sostenidas) | T016 [HTML-L70]: placeholder «BUSCADOR» (input del modal de búsqueda, mayúsculas sostenidas, distinto de la cabecera global) | T017 [HTML-L70]: h4 «MARCAS» (columna del modal de búsqueda, mayúsculas sostenidas) | T018 [HTML-L70]: h4 «PATENTES» (columna del modal de búsqueda, mayúsculas sostenidas) | T019 [HTML-L73-75]: breadcrumbs «Home / Buscador» | T020 [HTML-L82]: H1 «Buscador» (banner) — sin indicación del término buscado ni del número de resultados | RESULTADO 1 — T021 [HTML-L90-94]: h3 «Noticias» (→ /sala-de-prensa/noticias) | T022 [HTML-L93]: snippet 1: «Noticias, Sala de Prensa Noticias Noticias Escuchar INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible Miércoles 12 agosto de 2026 La herramienta de acceso público, que se premiarán en Santiago. Ver todas las noticias, ,documentaicón,gestión, Sección donde podrás encontrar todas las noticias relacionadas con INAPI» (mezcla breadcrumb, texto del lector de pantalla «Escuchar», titular, fecha, keywords del CMS «documentaicón,gestión» y comas dobles) | RESULTADO 2 — T023 [HTML-L99-105]: h3 «Todas las Noticias» (→ /sala-de-prensa/noticias/todas-las-noticias) | T024 [HTML-L102-104]: snippet 2: «Todas las Noticias, Sala de Prensa Noticias Todas las noticias jun. 14, 2023 INAPI inicia nuevo ciclo formativo sobre propiedad industrial denominado “Martes de PI” La iniciativa que se desarrollará en formato en línea, tiene como objetivo ofrecer un espacio de difusión que permita a la institución aumentar su, ,documentos,centro,documentaicón,gestión, Repositorio de todas las noticias de INAPI» (fecha «jun. 14, 2023» desactualizada —más de 3 años—, keywords del CMS expuestos, coma doble) | RESULTADO 3 — T025 [HTML-L110-114]: h3 «INAPI - Instituto Nacional de Propiedad Industrial» (→ /home, URL no canónica; la canónica es /) | T026 [HTML-L113]: snippet 3: « innovación y diseño que se premiarán en Santiago. Ver todas las noticias Ver todas las noticias Plataforma de Datos Plataforma INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE» (fragmento cortado al inicio, CTA duplicado, mayúsculas sostenidas al final) | RESULTADO 4 — T027 [HTML-L119-123]: h3 «Detalle Noticia» (→ /sala-de-prensa/detalle-noticia, slug de plantilla CMS genérica) | T028 [HTML-L122]: snippet 4: « » Otras Noticias INAPI realizó su Cuenta Pública Participativa 2026, , 2026 Ver todas las noticias» (signo «»» huérfano al inicio, coma doble antes del año) | RESULTADO 5 — T029 [HTML-L128-132]: h3 «Columnas» (→ /sala-de-prensa/columnas) | T030 [HTML-L131]: snippet 5: « completa el desarrollo para que este sea reproducible. Ver todas las noticias Ver» (fragmento cortado al inicio y al final, termina abruptamente en «Ver») | T031 [HTML-L143]: botón «¿Quieres contactarnos?» (abre modal de contacto) | T032 [HTML-L144]: h2 del modal «Utiliza el canal de comunicación que prefieras:» | T033 [HTML-L144]: columna teléfono «(56 2) 2 887 0400» + «Lunes a jueves de 09:00 a 18:00 hrs y viernes de 09:00 a 17:00 hrs.» | T034 [HTML-L144]: columna correo «inapi@inapi.cl» + «Tu consulta será atendida por un especialista.» (voz pasiva) | T035 [HTML-L144]: columna dirección «Av. Libertador Bernardo O'Higgins 194, Santiago» + «Lunes a viernes de 09:00 a 14:00 hrs.» | T036 [HTML-L148]: footer «Dónde estamos» + «Instituto Nacional de Propiedad industrial (INAPI) / RUT: 65.999.669-3» (nota: «industrial» en minúscula indebida — error de capitalización del nombre institucional, patrón de shell compartido con /acerca-de, /marcas y /patentes; RUT de persona jurídica pública) | T037 [HTML-L148]: footer dirección/teléfono/correo repetidos | T038 [HTML-L150-155]: footer «Conversemos» + enlace «Contacto» | T039 [HTML-L157-168]: footer «Accesos» + lista de enlaces, incluye «Política de privacidad» (target=\"_blank\") | T040 [HTML-L170-171]: pie inferior «©2026 INAPI. Todos los derechos reservados» — sin fecha de actualización visible en ninguna parte de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 «Buscador» no comunica el término buscado ni el número de resultados obtenidos; el usuario no tiene contexto de lo que está viendo al llegar a la página.",
+      "cita_textual": "T020 [HTML-L82]: H1 «Buscador» — sin término buscado ni conteo de resultados"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los snippets de los 5 resultados están rotos: mezclan texto de múltiples secciones de la página destino (breadcrumb, lector de pantalla, fecha, titular, extracto) con keywords internas del CMS («documentaicón», «gestión», «documentos», «centro»), texto cortado a mitad de oración y comas dobles/aisladas. No aplica pirámide invertida porque el contenido no es editorial propio de esta página, sino un artefacto del indexador Sitefinity.",
+      "cita_textual": "T022 [HTML-L93]: «…Ver todas las noticias, ,documentaicón,gestión, Sección donde podrás…» / T024 [HTML-L102-104]: «…jun. 14, 2023 INAPI inicia nuevo ciclo formativo…su, ,documentos,centro,documentaicón,gestión,…»"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "Los 5 resultados están organizados como bloques individuales con h3 de título, snippet de descripción y URL mostrada del destino. La estructura básica de una página de resultados de búsqueda es correcta.",
+      "cita_textual": "T021, T023, T025, T027, T029 (h3 de cada resultado)"
+    },
+    {
+      "id": "A4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El snippet del resultado 2 (T024) acumula cerca de 80 palabras mezclando distintas fuentes (breadcrumb, fecha, titular de noticia, extracto incompleto y keywords del CMS) en un único bloque continuo.",
+      "cita_textual": "T024 [HTML-L102-104]: snippet 2 con ~80 palabras mezcladas de múltiples fuentes"
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El botón «LINK EXTERNO» (T014) sigue siendo texto de desarrollo no eliminado del modal de acceso. Los snippets exponen además keywords internas del CMS («documentaicón», «gestión», «documentos», «centro») que no aportan valor a la persona usuaria.",
+      "cita_textual": "T014 [HTML-L70]: «LINK EXTERNO» / T022, T024: keywords del CMS expuestos en los snippets"
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detectan páginas «en construcción» ni placeholders de contenido manifiestamente incompleto en el inventario visible de esta pantalla, más allá del botón «LINK EXTERNO» ya evaluado en A5.",
+      "cita_textual": "T020-T030 (contenido visible de la página de resultados)"
+    },
+    {
+      "id": "A7",
+      "estado": "no_aplica",
+      "comentario": "Esta es una vista de resultados de búsqueda generada automáticamente por el motor Sitefinity, sin contenido editorial propio que deba estructurarse en un resumen o recuadro con los datos qué/cómo/dónde/cuándo/para quién; no es una página de servicio o trámite informativo."
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "A8 aplica solo a páginas de trámites (applicability: tramites); esta es una página informativa/funcional de sitioweb (buscador)."
+    },
+    {
+      "id": "A9",
+      "estado": "cumple",
+      "comentario": "Cada resultado se presenta como una tarjeta independiente con h3 de título, snippet y URL, lo que favorece el escaneo por bloques aunque el contenido interno de cada snippet esté fragmentado (evaluado en A2/C3/C4).",
+      "cita_textual": "T021, T023, T025, T027, T029"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista».",
+      "cita_textual": "T034 [HTML-L144]: «Tu consulta será atendida por un especialista.»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Detalle Noticia» (T027) como título de resultado es jerga de plantilla CMS no descriptiva para el ciudadano. «Observancia» (T005) y «PCT» (T004) aparecen en el menú sin glosa ni definición.",
+      "cita_textual": "T027 [HTML-L119-123]: «Detalle Noticia» / T005 [HTML-L22]: «Observancia» / T004 [HTML-L8]: «PCT»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La sigla PCT aparece en el menú de esta página (mobile y escritorio) sin definición ni expansión en ningún punto visible. Es la primera y única aparición de la sigla para quien visita esta pantalla.",
+      "cita_textual": "T004 [HTML-L8]: «PCT» (menú, sin expandir)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos ni abreviaturas relevantes en el contenido propio de esta página de resultados."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "No hay formulaciones negativas en el contenido visible. Los CTAs de los resultados («Ver todas las noticias») están redactados en tono positivo.",
+      "cita_textual": "T022, T024, T026, T028, T030"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Hay mezcla de registros en la misma pantalla: el menú y los resultados de búsqueda son impersonales y no se dirigen directamente al usuario, mientras el modal de contacto usa tuteo directo e imperativo («Utiliza el canal de comunicación que prefieras»), sin una guía de tono consistente en toda la pantalla.",
+      "cita_textual": "T032 [HTML-L144]: «Utiliza el canal de comunicación que prefieras:»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detectan frases de relleno formal («valor agregado», «buenas prácticas», etc.) en el contenido propio y visible de esta página."
+    },
+    {
+      "id": "B8",
+      "estado": "no_aplica",
+      "comentario": "No existe texto principal propio de esta página que sea medible con una herramienta de legibilidad: los fragmentos visibles son snippets generados automáticamente por el indexador de búsqueda, no redacción editorial de esta pantalla."
+    },
+    {
+      "id": "C1",
+      "estado": "no_aplica",
+      "comentario": "El contenido de los resultados es generado automáticamente por el motor de búsqueda Sitefinity; no hay oraciones editoriales propias de esta página que evaluar con el criterio sujeto-verbo-predicado."
+    },
+    {
+      "id": "C2",
+      "estado": "no_aplica",
+      "comentario": "Los snippets son fragmentos automáticos del indexador, no texto editorial propio de esta pantalla. No aplica la evaluación de tiempo verbal."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los snippets de los resultados 3 y 5 abren o cierran con fragmentos de oración cortados sin contexto, dificultando la comprensión de lo que se está mostrando.",
+      "cita_textual": "T026 [HTML-L113]: « innovación y diseño que se premiarán en Santiago. Ver todas las noticias Ver todas las noticias…» (abre a mitad de oración) / T030 [HTML-L131]: « completa el desarrollo para que este sea reproducible. […] Ver» (cierra a mitad de palabra/idea)"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El snippet del resultado 3 mezcla en un mismo bloque el cierre de una noticia anterior, un CTA duplicado y un fragmento en mayúsculas de otra sección de la página de inicio (Plataforma de Datos), en vez de mostrar una sola idea representativa del destino.",
+      "cita_textual": "T026 [HTML-L113]: «…Ver todas las noticias Ver todas las noticias Plataforma de Datos Plataforma INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE»"
+    },
+    {
+      "id": "C5",
+      "estado": "no_aplica",
+      "comentario": "Los párrafos visibles son snippets generados automáticamente por el indexador; el criterio de extensión editorial por párrafo no aplica a resultados de búsqueda."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es una vista de resultados de búsqueda, no un artículo con párrafos editoriales continuos. No aplica el criterio de resumen al inicio."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No hay listas de requisitos de trámite en esta página. No aplica."
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "Esta es una vista de resultados de búsqueda automática, no un contenido de ayuda o trámite que pueda estructurarse como preguntas frecuentes del usuario."
+    },
+    {
+      "id": "C9",
+      "estado": "no_aplica",
+      "comentario": "El cuerpo de esta página no es texto editorial organizado en párrafos, sino una lista de resultados de búsqueda generados automáticamente; no aplica el conteo de párrafos editoriales."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El error tipográfico «documentaicón» (por «documentación») aparece expuesto en los snippets de dos resultados, proveniente de las keywords del CMS. En el pie de página, «Propiedad industrial» aparece con minúscula indebida en el nombre oficial de la institución (patrón de shell compartido con /acerca-de, /marcas y /patentes).",
+      "cita_textual": "T022 [HTML-L93] y T024 [HTML-L102-104]: «documentaicón» / T036 [HTML-L148]: «Instituto Nacional de Propiedad industrial (INAPI)»"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los snippets tienen problemas de puntuación generados por el motor de búsqueda: comas dobles y aisladas antes y después de las keywords del CMS, y coma doble antes del año en el resultado 4.",
+      "cita_textual": "T022 [HTML-L93]: «Ver todas las noticias, ,documentaicón,gestión,» / T028 [HTML-L122]: «…Participativa 2026, , 2026 Ver todas las noticias»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de esta evaluación (CLAUDE.md §16)."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio visual/CSS; fuera del alcance editorial de esta evaluación (CLAUDE.md §16)."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "Los resultados de búsqueda están estructurados en bloques individuales bien delimitados (h3 + snippet + URL). No hay enumeraciones en texto corrido con comas."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso que requiera negritas editoriales en esta página. El resaltado «sfHighlight» de los snippets es una función automática del motor de búsqueda, no una decisión editorial."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de la cabecera global excluida (ACCESOS/BUSCADOR de T006-T009), la página presenta varios textos en mayúsculas sostenidas: el botón «LINK EXTERNO» del modal de login, el encabezado «BUSCAR Y TRAMITAR» y el placeholder «BUSCADOR» del modal de búsqueda, los subtítulos «MARCAS»/«PATENTES» de ese mismo modal, y el fragmento «INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE» expuesto en el snippet del resultado 3.",
+      "cita_textual": "T014, T015, T016, T017, T018, T026"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "No se detectan adjetivos valorativos ni calificaciones subjetivas en el contenido propio y visible de esta página."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI está identificado en el footer y en el copyright de la página.",
+      "cita_textual": "T036, T040: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe en la página una fecha de publicación o de última actualización visible para los resultados de búsqueda. El símbolo de copyright del pie («©2026») no constituye una fecha de actualización de contenido. La fecha «jun. 14, 2023» del snippet 2 corresponde a una noticia indexada, no a la vigencia de esta pantalla de resultados.",
+      "cita_textual": "(ausencia) — ningún nodo visible indica fecha de actualización de la página de resultados"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El H1 visible «Buscador» no representa fielmente el contenido específico de esta pantalla: no indica el término buscado («noticias») ni el número de resultados obtenidos. Debería generarse dinámicamente desde el parámetro searchQuery de la URL.",
+      "cita_textual": "T020 [HTML-L82]: H1 «Buscador» — sin término buscado ni contexto de resultados"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El resultado 3 (T025) apunta a la URL no canónica /home (la canónica de la portada es /). El resultado 4 «Detalle Noticia» (T027) apunta al slug de plantilla genérica del CMS /sala-de-prensa/detalle-noticia, que no corresponde a una noticia real con nombre propio.",
+      "cita_textual": "T025 [HTML-L110-114]: → https://www.inapi.cl/home (no canónica) / T027 [HTML-L119-123]: «Detalle Noticia» → /sala-de-prensa/detalle-noticia (slug de plantilla)"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "«Conoce más» (T003) es un enlace genérico que no anticipa su destino. «Detalle Noticia» (T027), como título de un resultado de búsqueda, no describe el contenido real de la página a la que lleva.",
+      "cita_textual": "T003 [HTML-L5]: «Conoce más» / T027 [HTML-L119-123]: «Detalle Noticia»"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El botón «LINK EXTERNO» (T014) tiene href=\"#\" y no posee un destino funcional real, por lo que no es significativo ni describe ninguna acción. El enlace «Registro» (T013) es ambiguo, pues no queda claro si se refiere a crear una cuenta ClaveÚnica o a registrar una marca.",
+      "cita_textual": "T014 [HTML-L70]: «LINK EXTERNO» (href=\"#\") / T013 [HTML-L70]: «Registro» → https://claveunica.gob.cl/"
+    },
+    {
+      "id": "F4",
+      "estado": "no_aplica",
+      "comentario": "No hay enlaces a documentos descargables (PDF u otro formato) en esta página."
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "Los CTAs de los resultados («Ver todas las noticias») aparecen al final de cada snippet, fuera del cuerpo principal que se debe leer.",
+      "cita_textual": "T022, T024, T026, T028, T030"
+    },
+    {
+      "id": "F6",
+      "estado": "cumple",
+      "comentario": "Los 5 resultados de búsqueda son en sí mismos enlaces internos relacionados con el término buscado («noticias»), distintos del menú global, y relevantes al contexto de la consulta.",
+      "cita_textual": "T021, T023, T025, T027, T029"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El único RUT visible en la página es el institucional de INAPI (persona jurídica pública), presente en el pie de página. No se detectan RUN, nombres completos ni datos de contacto de personas naturales en ningún nodo visible del inventario.",
+      "cita_textual": "T036 [HTML-L148]: «Instituto Nacional de Propiedad industrial (INAPI) / RUT: 65.999.669-3» — RUT de persona jurídica pública"
+    },
+    {
+      "id": "G2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página solo ofrece un enlace a «Política de privacidad» en el pie, sin ninguna mención visible en esta pantalla sobre cómo ejercer derechos ARCO (acceso, rectificación, cancelación, oposición).",
+      "cita_textual": "T039 [HTML-L157-168]: enlace de pie de página «Política de privacidad» (target=\"_blank\"), sin texto adicional sobre derechos ARCO"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Las condiciones de uso del contenido del sitio están publicadas mediante enlace directo en el pie de página, y la nota de derechos reservados con año vigente está presente al final de la página.",
+      "cita_textual": "T039: «Uso de los Contenidos de este Sitio» / T040: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado en esta página de resultados."
+    }
+  ],
+  "criterios_no_aplica": 15,
+  "criterios_aplicables": 32,
+  "criterios_aprobados": 13,
+  "porcentaje_cumplimiento": 40.6,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 19 incumplimientos sobre 32 criterios aplicables (40.6%), evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia, CLAUDE.md §2 y §5). Las correcciones de mayor impacto se dividen en dos grupos: (1) configuración del motor de búsqueda Sitefinity — reparar la generación de snippets para que excluyan breadcrumbs, el texto del lector de pantalla, keywords del CMS y contenido de múltiples secciones; generar el H1 dinámicamente desde el parámetro searchQuery con el término buscado y el conteo de resultados; reemplazar la URL no canónica /home por / en el índice; excluir o reclasificar la plantilla «Detalle Noticia» del índice de búsqueda; (2) correcciones editoriales y de shell compartido — corregir el error tipográfico «documentaicón» en las keywords indexadas del CMS; reemplazar la voz pasiva del modal de contacto («Tu consulta será atendida» → «Un especialista de INAPI responderá tu consulta», B1); expandir PCT en el menú (B3); normalizar mayúsculas sostenidas fuera de la cabecera global (D7); corregir «Propiedad industrial» → «Propiedad Industrial» en el footer compartido (D1); agregar fecha de vigencia de los resultados (E3); mencionar explícitamente los derechos ARCO junto al enlace de Política de privacidad (G2). El array sustituciones[] contiene 29 filas con cobertura 1:1 para los 19 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) de la página de resultados del buscador institucional de INAPI (búsqueda «noticias») obtiene un 40.6% de cumplimiento sobre 32 criterios aplicables — estado RECHAZADO, evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia). Con 15 criterios no aplicables —la mayoría por tratarse de una vista de resultados generada automáticamente sin contenido editorial propio (C1, C2, C5-C9, B8, A7, A8, F4, H1)—, esta URL concentra el mayor número de no_aplica del lote META MEI. Los problemas más críticos siguen siendo estructurales y ya identificados en la auditoría v1.1 de junio 2026: los 5 snippets de resultado están rotos, mezclando texto de múltiples secciones con keywords internas del CMS, fragmentos de oración cortados y comas dobles (A2, C3, C4, D1, D2); el H1 es simplemente «Buscador» sin el término buscado ni el conteo de resultados (A1, E4); el resultado 3 apunta a la URL no canónica /home y el resultado 4 «Detalle Noticia» sigue siendo la plantilla genérica del CMS, no una noticia real (F1, F2). Persisten los incumplimientos sistémicos del shell: voz pasiva en el modal de contacto (B1), PCT sin definir (B3), mayúsculas totales fuera de la cabecera global excluida (D7), «LINK EXTERNO» sin destino funcional (A5/F3), «Propiedad industrial» con minúscula indebida en el footer (D1) y ausencia de mención a derechos ARCO (G2). El RUT institucional del footer se mantiene calibrado como cumple (G1, persona jurídica pública). Las correcciones de snippets, H1 dinámico y URL no canónica requieren intervención en la configuración del motor Sitefinity, no solo edición de texto en esta URL.",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0 fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios), como parte del lote de reauditoría META MEI (orden 5, rol «Página de información interior (2/2)»), evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia). De los 32 criterios aplicables (15 no aplican por tratarse de una vista de resultados automática sin contenido editorial propio), 13 se cumplen, lo que arroja un 40.6% de cumplimiento y un estado de aceptación RECHAZADO (≤80%). Se detectaron 19 incumplimientos; los de severidad alta son: snippets de resultados rotos con keywords del CMS expuestas (A2), voz pasiva en el modal de contacto (B1), sigla PCT sin definir (B3), fragmentos de oración cortados en los resultados 3 y 5 (C3), error tipográfico «documentaicón» y «Propiedad industrial» con minúscula indebida (D1), ausencia de fecha de vigencia de los resultados (E3), H1 genérico «Buscador» sin término buscado ni conteo de resultados (E4), y el botón «LINK EXTERNO» sin destino funcional (F3). Respecto a la auditoría histórica v1.1 (2026-06-07, 34.5%), el porcentaje mejora levemente (40.6%) por la ampliación a 47 criterios v2.1 con más no_aplica declarados explícitamente y por la corrección parcial de la capitalización del resultado 3 («Inapi» → «INAPI»), pero los problemas estructurales de fondo —snippets rotos, H1 genérico, URL no canónica, plantilla «Detalle Noticia»— persisten sin cambios."
+  ,
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A2) Los 5 snippets de resultado están rotos: mezclan texto de múltiples secciones de la página destino con keywords internas del CMS («documentaicón», «gestión», «documentos», «centro»), texto cortado a mitad de oración y comas dobles. Requiere reconfiguración del motor Sitefinity.",
+      "(B1) Modal de contacto con voz pasiva: «Tu consulta será atendida por un especialista» (T034). Reescribir: «Un especialista de INAPI responderá tu consulta».",
+      "(B3) PCT (T004) en el menú sin definición en ningún punto visible de la página.",
+      "(C3) Los snippets 3 y 5 abren o cierran con fragmentos de oración cortados sin contexto (T026, T030).",
+      "(D1) «documentaicón» (T022, T024) — error tipográfico en keywords del CMS expuestas en snippets. «Propiedad industrial» con minúscula indebida en el footer (T036).",
+      "(E3) Ausencia de fecha de actualización o vigencia visible en la página de resultados.",
+      "(E4) El H1 visible «Buscador» no indica el término buscado ni el número de resultados; debería generarse dinámicamente desde el parámetro searchQuery.",
+      "(F3) El botón «LINK EXTERNO» (T014) apunta a href=\"#\" sin destino funcional real. El enlace «Registro» (T013) es ambiguo entre crear cuenta y registrar una marca."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A1) El H1 «Buscador» no muestra el término buscado ni el conteo de resultados; el usuario no tiene contexto de lo que está viendo.",
+      "(A4) El snippet del resultado 2 (T024) acumula ~80 palabras mezclando distintas fuentes en un único bloque continuo.",
+      "(B2) «Detalle Noticia» (T027) es jerga de plantilla CMS no descriptiva. «Observancia» (T005) y «PCT» (T004) sin glosa.",
+      "(B6) Mezcla de registros: el menú y los resultados son impersonales, mientras el modal de contacto usa tuteo directo e imperativo («Utiliza el canal de comunicación que prefieras», T032).",
+      "(C4) El snippet del resultado 3 mezcla cierre de noticia anterior, CTA duplicado y fragmento en mayúsculas de otra sección (T026).",
+      "(D2) Comas dobles y aisladas en los snippets de los resultados 1, 2 y 4 (T022, T024, T028). Artefactos del indexador.",
+      "(D7) Mayúsculas sostenidas fuera de la cabecera global excluida: LINK EXTERNO, BUSCAR Y TRAMITAR, BUSCADOR (modal), MARCAS, PATENTES, e «INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE» en el snippet del resultado 3.",
+      "(F1) Resultado 3 apunta a /home (URL no canónica). Resultado 4 «Detalle Noticia» apunta al slug de plantilla genérica del CMS.",
+      "(F2) «Conoce más» (T003) es enlace genérico. «Detalle Noticia» (T027) no describe el contenido real de destino.",
+      "(G2) Solo se ofrece un enlace a «Política de privacidad» en el pie, sin mención visible sobre cómo ejercer derechos ARCO."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5) «LINK EXTERNO» (T014) no eliminado. Keywords del CMS expuestas en los snippets sin valor para la persona usuaria."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T020",
+      "html_linea_aprox": "HTML-L82",
+      "original": "Buscador",
+      "propuesto": "Resultados para «noticias» (5 resultados)",
+      "criterio_id": "A1",
+      "motivo": "El H1 no comunica el término buscado ni el número de resultados; generarlo dinámicamente desde el parámetro searchQuery para orientar a la persona usuaria sobre qué está viendo.",
+      "ubicacion_pantalla": "En el título principal (H1), bajo el banner superior de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L93",
+      "original": "Noticias,                   Sala de Prensa  Noticias            Noticias        Escuchar                    INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible  Miércoles 12 agosto de 2026  La herramienta de acceso público,  que se premiarán en Santiago.          Ver todas las noticias, ,documentaicón,gestión, Sección donde podrás encontrar todas las noticias relacionadas con INAPI",
+      "propuesto": "Sección donde podrás encontrar todas las noticias relacionadas con INAPI.",
+      "criterio_id": "A2",
+      "motivo": "El snippet mezcla el texto del lector de pantalla ReadSpeaker, un titular de noticia y keywords del CMS; configurar el motor Sitefinity para que el snippet se genere solo desde la metadescripción de la página destino.",
+      "ubicacion_pantalla": "En el resultado 1 del listado de búsqueda («Noticias»)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "HTML-L102-104",
+      "original": "Todas las Noticias,             Sala de Prensa  Noticias          Todas las noticias                            jun. 14, 2023  INAPI inicia nuevo ciclo formativo sobre propiedad industrial denominado “Martes de PI”  La iniciativa que se desarrollará en formato en línea, tiene como objetivo ofrecer un espacio de difusión que permita a la institución aumentar su, ,documentos,centro,documentaicón,gestión, Repositorio de todas las noticias de INAPI",
+      "propuesto": "Repositorio de todas las noticias de INAPI.",
+      "criterio_id": "A2",
+      "motivo": "El snippet mezcla breadcrumb, fecha desactualizada, titular de una noticia puntual y keywords internas del CMS; usar solo la metadescripción de la página destino.",
+      "ubicacion_pantalla": "En el resultado 2 del listado de búsqueda («Todas las Noticias»)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "HTML-L102-104",
+      "original": "Todas las Noticias,             Sala de Prensa  Noticias          Todas las noticias                            jun. 14, 2023  INAPI inicia nuevo ciclo formativo sobre propiedad industrial denominado “Martes de PI”  La iniciativa que se desarrollará en formato en línea, tiene como objetivo ofrecer un espacio de difusión que permita a la institución aumentar su, ,documentos,centro,documentaicón,gestión, Repositorio de todas las noticias de INAPI",
+      "propuesto": "Repositorio de todas las noticias de INAPI.",
+      "criterio_id": "A4",
+      "motivo": "El snippet acumula cerca de 80 palabras de múltiples fuentes; limitar el snippet a la metadescripción de la página (máx. ~160 caracteres).",
+      "ubicacion_pantalla": "En el resultado 2 del listado de búsqueda («Todas las Noticias»)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T014",
+      "html_linea_aprox": "HTML-L70",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "Texto de desarrollo no eliminado en el modal de acceso; sin valor para la persona usuaria.",
+      "ubicacion_pantalla": "En el modal de acceso/login, botón rojo junto a las opciones de usuario frecuente y registro",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T034",
+      "html_linea_aprox": "HTML-L144",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista de INAPI responderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Elimina la voz pasiva; coloca al especialista como sujeto activo.",
+      "ubicacion_pantalla": "En la ventana emergente de contacto, columna de correo electrónico",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L119-123",
+      "original": "Detalle Noticia",
+      "propuesto": "Últimas noticias de INAPI",
+      "criterio_id": "B2",
+      "motivo": "«Detalle Noticia» es jerga de plantilla CMS no descriptiva; actualizar el título de la plantilla en Sitefinity o excluirla del índice de búsqueda.",
+      "ubicacion_pantalla": "En el resultado 4 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "HTML-L8",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin definición en el menú; primera y única aparición en esta página.",
+      "ubicacion_pantalla": "En el menú principal de navegación",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "HTML-L144",
+      "original": "Utiliza el canal de comunicación que prefieras:",
+      "propuesto": "Elige el canal de comunicación que prefieras",
+      "criterio_id": "B6",
+      "motivo": "Simplifica la frase y reduce el contraste de registro entre el modal (tuteo directo) y el resto de la pantalla (impersonal).",
+      "ubicacion_pantalla": "En la ventana emergente de contacto",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L113",
+      "original": " innovación y diseño que se premiarán en Santiago.              Ver todas las noticias        Ver todas las noticias       Plataforma de Datos      Plataforma INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE",
+      "propuesto": "Inicio del sitio de INAPI con las últimas noticias institucionales.",
+      "criterio_id": "C3",
+      "motivo": "El snippet abre con un fragmento de oración cortado sin contexto y duplica el CTA; configurar el snippet desde la metadescripción de la portada.",
+      "ubicacion_pantalla": "En el resultado 3 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L131",
+      "original": " completa el desarrollo para que este sea reproducible.          Ver todas las noticias          Ver",
+      "propuesto": "Columnas de opinión y análisis de expertos en propiedad industrial.",
+      "criterio_id": "C3",
+      "motivo": "El snippet abre y cierra con fragmentos cortados sin contexto; configurar el snippet desde la metadescripción de la sección Columnas.",
+      "ubicacion_pantalla": "En el resultado 5 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L113",
+      "original": " innovación y diseño que se premiarán en Santiago.              Ver todas las noticias        Ver todas las noticias       Plataforma de Datos      Plataforma INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE",
+      "propuesto": "Página de inicio de INAPI, con acceso a Plataforma de Datos y a las últimas noticias.",
+      "criterio_id": "C4",
+      "motivo": "El snippet mezcla el cierre de una noticia anterior, un CTA duplicado y un fragmento en mayúsculas de otra sección de la portada; configurar el snippet desde la metadescripción de la página destino.",
+      "ubicacion_pantalla": "En el resultado 3 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T022, T024",
+      "html_linea_aprox": "HTML-L93, HTML-L102-104",
+      "original": "documentaicón",
+      "propuesto": "documentación",
+      "criterio_id": "D1",
+      "motivo": "«documentaicón» es un error tipográfico en las keywords del índice de búsqueda Sitefinity; corregir en el campo de keywords del CMS.",
+      "ubicacion_pantalla": "En los resultados 1 y 2 del listado de búsqueda (dentro del snippet)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T036",
+      "html_linea_aprox": "HTML-L148",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "D1",
+      "motivo": "Corrección de capitalización: «Industrial» es parte del nombre propio de la institución y debe ir con mayúscula inicial; error de shell compartido con /acerca-de, /marcas y /patentes.",
+      "ubicacion_pantalla": "En el pie de página, bajo «Dónde estamos»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "HTML-L93",
+      "original": "Ver todas las noticias, ,documentaicón,gestión, Sección donde podrás",
+      "propuesto": "(eliminar comas dobles y keywords de navegación al configurar el snippet desde la metadescripción de la página destino)",
+      "criterio_id": "D2",
+      "motivo": "La coma doble y las keywords «documentaicón,gestión» son artefactos del indexador; corregir la configuración de indexación en Sitefinity.",
+      "ubicacion_pantalla": "En el resultado 1 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L122",
+      "original": "INAPI realizó su Cuenta Pública Participativa 2026, , 2026        Ver todas las noticias",
+      "propuesto": "INAPI realizó su Cuenta Pública Participativa 2026. Ver todas las noticias.",
+      "criterio_id": "D2",
+      "motivo": "La coma doble antes del año es un artefacto del indexador; corregir la configuración de indexación en Sitefinity.",
+      "ubicacion_pantalla": "En el resultado 4 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T014",
+      "html_linea_aprox": "HTML-L70",
+      "original": "LINK EXTERNO",
+      "propuesto": "Link externo",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el texto del botón. NOTA DE CONFLICTO: este mismo nodo tiene una propuesta de mayor severidad en F3 (eliminar el nodo por no tener destino funcional) y en A5; ver nota_final_tic.",
+      "ubicacion_pantalla": "En el botón rojo del modal de inicio de sesión",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L70",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el encabezado del modal de búsqueda.",
+      "ubicacion_pantalla": "En el encabezado del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "HTML-L70",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el placeholder del campo de búsqueda dentro del modal, distinto del ítem de la cabecera global excluida.",
+      "ubicacion_pantalla": "En el campo de búsqueda dentro del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017, T018",
+      "html_linea_aprox": "HTML-L70",
+      "original": "MARCAS / PATENTES",
+      "propuesto": "Marcas / Patentes",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en los subtítulos de las categorías de búsqueda del modal.",
+      "ubicacion_pantalla": "En los subtítulos de categorías dentro del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "HTML-L113",
+      "original": "INFORMACIÓN TECNOLÓGICA DE PATENTES PROGRAMA DE",
+      "propuesto": "Información tecnológica de patentes, programa de desarrollo productivo sostenible",
+      "criterio_id": "D7",
+      "motivo": "Fragmento en mayúsculas sostenidas expuesto en el snippet, proveniente del banner «Plataforma de Datos» de la portada; corregir en la página de origen para que el snippet no lo herede.",
+      "ubicacion_pantalla": "En el resultado 3 del listado de búsqueda (dentro del snippet)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "HTML-L82",
+      "original": "(ausencia)",
+      "propuesto": "Resultados actualizados al: agosto de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar indicación de vigencia de los resultados bajo el H1; actualmente no hay fecha de referencia visible para la persona usuaria.",
+      "ubicacion_pantalla": "Justo debajo del título principal (H1) «Buscador»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "HTML-L82",
+      "original": "Buscador",
+      "propuesto": "Resultados para «noticias» (5 resultados)",
+      "criterio_id": "E4",
+      "motivo": "El H1 genérico no representa fielmente el contenido específico de la pantalla; debe generarse dinámicamente desde el parámetro searchQuery de la URL para incluir el término buscado y el número de resultados.",
+      "ubicacion_pantalla": "En el título principal (H1), bajo el banner superior de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "HTML-L110-114",
+      "original": "INAPI - Instituto Nacional de Propiedad Industrial",
+      "propuesto": "INAPI — Inicio",
+      "criterio_id": "F1",
+      "motivo": "El resultado apunta a /home (URL no canónica; la canónica es /); actualizar la URL indexada en Sitefinity y ajustar el título del resultado al nombre real de la página de inicio.",
+      "ubicacion_pantalla": "En el resultado 3 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T003",
+      "html_linea_aprox": "HTML-L5",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad industrial",
+      "criterio_id": "F2",
+      "motivo": "El enlace lleva a /propiedad-intelectual-e-industrial; el texto debe describir el destino en lugar de usar una fórmula genérica.",
+      "ubicacion_pantalla": "En el menú de navegación",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L119-123",
+      "original": "Detalle Noticia",
+      "propuesto": "Últimas noticias de INAPI",
+      "criterio_id": "F2",
+      "motivo": "«Detalle Noticia» es un título de plantilla genérica del CMS que no describe el contenido real de destino; actualizar el título de la plantilla en Sitefinity o excluirla del índice.",
+      "ubicacion_pantalla": "En el resultado 4 del listado de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T014",
+      "html_linea_aprox": "HTML-L70",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "F3",
+      "motivo": "El botón no tiene un destino funcional (href=\"#\"); debe eliminarse o repararse con un enlace real y un texto descriptivo de la acción que realiza. Esta propuesta (severidad alta) prevalece sobre la de D7 para el mismo nodo — ver nota_final_tic.",
+      "ubicacion_pantalla": "En el modal de acceso/login, botón rojo junto a las opciones de usuario frecuente y registro",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T013",
+      "html_linea_aprox": "HTML-L70",
+      "original": "Registro",
+      "propuesto": "Crear cuenta con ClaveÚnica",
+      "criterio_id": "F3",
+      "motivo": "El texto actual es ambiguo entre registrar una cuenta de acceso y registrar una marca; se debe especificar la acción real del enlace.",
+      "ubicacion_pantalla": "En el modal de acceso/login, opción para crear una cuenta nueva",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T039",
+      "html_linea_aprox": "HTML-L157-168",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad y derechos ARCO (acceso, rectificación, cancelación y oposición sobre tus datos personales)",
+      "criterio_id": "G2",
+      "motivo": "El enlace actual no menciona explícitamente los derechos ARCO en esta pantalla, por lo que el ciudadano no identifica de inmediato que existe un mecanismo para ejercerlos.",
+      "ubicacion_pantalla": "En el pie de página, columna de accesos junto al enlace de Política de privacidad",
+      "capa": "VISIBLE"
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-06-07, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla (CLAUDE.md §2 y §5): el <title>, <meta description> y <meta keywords> del <head> no se usan como evidencia en ningún criterio. CONFLICTO DE CONSOLIDACIÓN: el nodo T014 «LINK EXTERNO» (botón rojo del modal de login, href=\"#\") recibió tres propuestas de distintos criterios — A5 y F3 (severidad alta) proponen eliminar el nodo completo por no tener destino funcional; D7 (severidad media) propone solo normalizar la capitalización a «Link externo». Se retiene como propuesta canónica la de F3/A5 (severidad más alta): eliminar el nodo. Si TI decide en cambio conservar el botón y repararle un destino real, aplicar entonces la normalización de capitalización de D7 sobre el texto final. Para aplicar el resto de las sustituciones: (1) hacer backup del HTML fuente antes de cualquier cambio; (2) las correcciones de snippets (A2, A4, C3, C4, D2) NO se resuelven editando el HTML de esta URL — requieren intervención en la configuración del motor de búsqueda Sitefinity: configurar el snippet para usar únicamente la metadescripción de cada página indexada, excluyendo breadcrumbs, el texto del lector de pantalla ReadSpeaker, keywords de navegación y contenido de múltiples secciones; (3) el H1 «Buscador» (A1, E4) debe generarse dinámicamente en Sitefinity desde el parámetro searchQuery de la URL — cambio en la plantilla de la página de resultados, no en el HTML estático; (4) el error «documentaicón» está en el campo de keywords de las páginas /sala-de-prensa/noticias y /sala-de-prensa/noticias/todas-las-noticias en el CMS — corregir en el backend de Sitefinity; (5) la URL /home del resultado 3 debe actualizarse a / (canónica) en el índice de búsqueda Sitefinity; (6) la plantilla «Detalle Noticia» aparece en los resultados como slug genérico del CMS — evaluar con TIC si debe excluirse del índice o si su título puede actualizarse a un valor descriptivo; (7) el error de capitalización «Propiedad industrial» (T036) está en el footer compartido con /acerca-de, /marcas y /patentes — coordinar el cambio a nivel de plantilla (_Layout.cshtml o widget de footer), no por página, para no duplicar el esfuerzo; (8) G1 se mantiene calibrado como cumple para el RUT institucional de persona jurídica pública (65.999.669-3); (9) el HTML puede contener entidades como &oacute; (ó), &aacute; (á), &eacute; (é) que deben buscarse en forma codificada si el editor de TI trabaja sobre el HTML crudo servido por Sitefinity."
+}
