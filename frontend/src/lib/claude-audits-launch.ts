@@ -58,13 +58,15 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas",
     label: "Marcas",
     tipoPagina: "sitioweb",
-    claudeAuditId: "www-inapi-cl-marcas_2026-06-05",
+    // Reauditoría v2.1 (meta-mei orden 2)
+    claudeAuditId: "www-inapi-cl-marcas_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 48.5,
+      porcentajeLc: 63.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-05T17:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-marcas_2026-06-05" }],
   },
   {
     pilotoNum: 4,
