@@ -34,15 +34,6 @@ export function AuditarInventorySections() {
             </AccordionTrigger>
             <AccordionContent className="px-0 sm:px-0">
               <div className="px-4 pb-1 pt-0">
-                <p className="mb-3 text-muted-foreground text-xs leading-relaxed">
-                  Historial URLs INAPI: Calidad Web del Sitio Web + Trámites (Clarity).
-                  % LC, estado y última revisión muestran la{" "}
-                  <span className="font-medium text-foreground">
-                    última auditoría
-                  </span>{" "}
-                  cableada en el launch. Use filtros por tipo/estado e «Historial»
-                  para ver fechas anteriores.
-                </p>
                 <ClarityInventoryHistorialTable />
               </div>
             </AccordionContent>

@@ -24,26 +24,16 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { formatFechaEvaluacion } from "@/components/resultado-claude-pilot-sections"
-import {
-  CLAUDE_PILOT_URL_ROWS,
-  pilotRowDisponibleEnMvp,
-  type ClaudePilotUrlRow,
-} from "@/lib/claude-audits-launch"
 import { CeldaEstadoLcAceptacion } from "@/lib/lc-aceptacion-visual"
+import {
+  META_MEI_TABLE_ROWS,
+  metaMeiResultadoHref,
+} from "@/lib/mei-meta-mei-launch"
 import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
 import { cn } from "@/lib/utils"
 
 function labelTipoPagina(tipo: "sitioweb" | "tramites"): string {
   return tipo === "tramites" ? "Trámites" : "Sitio web"
-}
-
-function resultadoPilotoHref(row: ClaudePilotUrlRow): string | null {
-  if (!pilotRowDisponibleEnMvp(row)) return null
-  const params = new URLSearchParams({
-    claudeAudit: row.claudeAuditId!,
-    url: row.url,
-  })
-  return `/auditar/resultado?${params.toString()}`
 }
 
 export function AuditarClaudePilotSection() {
@@ -54,13 +44,14 @@ export function AuditarClaudePilotSection() {
           Auditoría 10 URLs INAPI - META MEI
         </CardTitle>
         <CardDescription>
-          Cada fila muestra la última auditoría realizada para cada URL, abra
-          una fila disponible para ver el informe en detalle.
+          Cada fila muestra la última auditoría realizada para esa URL. Abra
+          una fila disponible para ver el informe en detalle (PDF y Excel MEI
+          en resultado).
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="piloto-junio-2026">
+          <AccordionItem value="meta-mei-10">
             <AccordionTrigger className="text-start text-sm sm:text-base">
               10 URLs - META MEI
             </AccordionTrigger>
@@ -71,6 +62,7 @@ export function AuditarClaudePilotSection() {
                     <TableRow className="bg-muted/50 hover:bg-muted/50">
                       <TableHead className="w-10">#</TableHead>
                       <TableHead>Página</TableHead>
+                      <TableHead>Rol META MEI</TableHead>
                       <TableHead>Tipo</TableHead>
                       <TableHead>% LC</TableHead>
                       <TableHead>Estado</TableHead>
@@ -80,12 +72,12 @@ export function AuditarClaudePilotSection() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {CLAUDE_PILOT_URL_ROWS.map((row) => {
-                      const href = resultadoPilotoHref(row)
+                    {META_MEI_TABLE_ROWS.map((row) => {
+                      const href = metaMeiResultadoHref(row)
                       const resumen = row.resumenMvp
                       return (
                         <TableRow
-                          key={`piloto-${row.pilotoNum}`}
+                          key={`meta-mei-${row.orden}`}
                           className={cn(
                             href &&
                               "cursor-pointer hover:bg-muted/40 focus-within:bg-muted/40",
@@ -97,10 +89,10 @@ export function AuditarClaudePilotSection() {
                                 href={href}
                                 className="font-semibold text-primary underline-offset-4 hover:underline"
                               >
-                                {row.pilotoNum}
+                                {row.orden}
                               </Link>
                             ) : (
-                              row.pilotoNum
+                              row.orden
                             )}
                           </TableCell>
                           <TableCell className="max-w-[14rem]">
@@ -119,6 +111,9 @@ export function AuditarClaudePilotSection() {
                             <p className="mt-0.5 break-all text-xs text-muted-foreground">
                               {row.url}
                             </p>
+                          </TableCell>
+                          <TableCell className="max-w-[12rem] text-xs text-muted-foreground">
+                            {row.rolMetaMei}
                           </TableCell>
                           <TableCell className="text-sm">
                             {labelTipoPagina(row.tipoPagina)}

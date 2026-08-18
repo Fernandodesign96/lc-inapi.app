@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -19,19 +20,15 @@ import {
   historialRankHref,
   resultadoClarityHref,
 } from "@/lib/clarity-audits-launch"
-import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
-import {
-  CLARITY_INVENTORY_ROWS,
-  type ClarityInventoryRow,
-} from "@/lib/clarity-inventory-rows"
 import {
   clarityInventarioSortSummary,
   filterAndSortClarityInventoryRows,
   type ClarityInventarioSortKey,
   type FiltroEstadoLcInventario,
-  type SortDirection,
   type FiltroTypeUrlInventario,
+  type SortDirection,
 } from "@/lib/clarity-inventory-sort"
+import type { ClarityInventoryRow } from "@/lib/clarity-inventory-rows"
 import { parsePorcentajeLcRef } from "@/lib/inventory-table-visuals"
 import {
   CeldaEstadoLcAceptacion,
@@ -40,13 +37,29 @@ import {
   porcentajeLcAceptacionTextClass,
   resolveLcAceptacionBucket,
 } from "@/lib/lc-aceptacion-visual"
+import {
+  buildUnifiedHistorialInventory,
+  type LaunchHistorialExtraRow,
+} from "@/lib/mei-meta-mei-launch"
+import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
 
 const FILTER_SELECT_CLASS =
   "mt-1 min-h-9 w-full rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground dark:bg-input/30"
 
+function resultadoLaunchExtraHref(row: LaunchHistorialExtraRow): string {
+  const params = new URLSearchParams({
+    claudeAudit: row.claudeAuditId,
+    url: row.url,
+  })
+  return `/auditar/resultado?${params.toString()}`
+}
+
 export function ClarityInventoryHistorialTable() {
+  const { rows: allRows, launchExtraByRank } = useMemo(
+    () => buildUnifiedHistorialInventory(),
+    [],
+  )
   const [filtroEstado, setFiltroEstado] =
     useState<FiltroEstadoLcInventario>("todos")
   const [filtroTypeUrl, setFiltroTypeUrl] =
@@ -56,13 +69,13 @@ export function ClarityInventoryHistorialTable() {
 
   const filas = useMemo(
     () =>
-      filterAndSortClarityInventoryRows(CLARITY_INVENTORY_ROWS, {
+      filterAndSortClarityInventoryRows(allRows, {
         filtroEstado,
         filtroTypeUrl,
         sortKey,
         sortDir,
       }),
-    [filtroEstado, filtroTypeUrl, sortKey, sortDir],
+    [allRows, filtroEstado, filtroTypeUrl, sortKey, sortDir],
   )
 
   const sortSummary = clarityInventarioSortSummary(sortKey, sortDir)
@@ -142,8 +155,11 @@ export function ClarityInventoryHistorialTable() {
           </select>
         </label>
         <div className="flex flex-col justify-end gap-2 sm:col-span-2 lg:col-span-1">
-          <p className="text-xs text-muted-foreground tabular-nums" aria-live="polite">
-            Mostrando {filas.length} de {CLARITY_INVENTORY_ROWS.length} · {sortSummary}
+          <p
+            className="text-xs text-muted-foreground tabular-nums"
+            aria-live="polite"
+          >
+            Mostrando {filas.length} de {allRows.length} · {sortSummary}
           </p>
           <Button
             type="button"
@@ -158,15 +174,14 @@ export function ClarityInventoryHistorialTable() {
       </div>
       <Table>
         <TableCaption className="sr-only">
-          Historial de auditorías URLs INAPI — Calidad Web Sitio Web y Trámites:
-          posición, ruta, tipo de URL, encargado, visitas, auditorías, última
-          revisión, porcentaje LC, estado, disponibilidad de informe e historial
-          por URL.
+          Historial de auditorías URLs INAPI: posición, ruta, tipo de URL,
+          encargado, visitas, auditorías, última revisión, porcentaje LC,
+          estado, disponibilidad de informe e historial por URL.
         </TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-10 whitespace-nowrap">#</TableHead>
-            <TableHead>Ruta o etiqueta (Clarity)</TableHead>
+            <TableHead>Ruta o etiqueta</TableHead>
             <TableHead>Tipo</TableHead>
             <TableHead className="whitespace-nowrap">Encargado</TableHead>
             <TableHead className="whitespace-nowrap text-right">
@@ -178,9 +193,7 @@ export function ClarityInventoryHistorialTable() {
             <TableHead className="whitespace-nowrap">
               Última revisión
             </TableHead>
-            <TableHead className="whitespace-nowrap text-right">
-              % LC
-            </TableHead>
+            <TableHead className="whitespace-nowrap text-right">% LC</TableHead>
             <TableHead className="whitespace-nowrap">Estado</TableHead>
             <TableHead className="whitespace-nowrap">Informe</TableHead>
             <TableHead className="whitespace-nowrap">Historial</TableHead>
@@ -198,7 +211,11 @@ export function ClarityInventoryHistorialTable() {
             </TableRow>
           ) : (
             filas.map((row) => (
-              <ClarityInventoryHistorialRow key={row.rank} row={row} />
+              <ClarityInventoryHistorialRow
+                key={row.rank}
+                row={row}
+                launchExtra={launchExtraByRank.get(row.rank)}
+              />
             ))
           )}
         </TableBody>
@@ -207,15 +224,28 @@ export function ClarityInventoryHistorialTable() {
   )
 }
 
-function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
-  const launch = clarityLaunchByRank(row.rank)
-  const href = launch ? resultadoClarityHref(launch) : null
-  const resumen = launch?.resumenMvp
+function ClarityInventoryHistorialRow({
+  row,
+  launchExtra,
+}: {
+  row: ClarityInventoryRow
+  launchExtra?: LaunchHistorialExtraRow
+}) {
+  const clarityLaunch = launchExtra ? null : clarityLaunchByRank(row.rank)
+  const href = launchExtra
+    ? resultadoLaunchExtraHref(launchExtra)
+    : clarityLaunch
+      ? resultadoClarityHref(clarityLaunch)
+      : null
+  const resumen = launchExtra?.resumenMvp ?? clarityLaunch?.resumenMvp
+  const displayUrl = launchExtra?.url ?? clarityLaunch?.url
 
   const porcentajeLc = resumen
     ? `${resumen.porcentajeLc.toFixed(1).replace(".", ",")} %`
     : row.porcentajeLcRef
-  const pct = resumen ? resumen.porcentajeLc : parsePorcentajeLcRef(row.porcentajeLcRef)
+  const pct = resumen
+    ? resumen.porcentajeLc
+    : parsePorcentajeLcRef(row.porcentajeLcRef)
 
   const bucket = resumen
     ? resumen.estadoAceptacion
@@ -231,6 +261,16 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
   const ultimaRevision = resumen
     ? formatFechaEvaluacion(resumen.fechaEvaluacionIso)
     : row.ultimaRevisionRef
+
+  const informeDisponible = launchExtra
+    ? true
+    : Boolean(href && clarityLaunch && clarityRowDisponibleEnMvp(clarityLaunch))
+
+  const auditoriasCount = launchExtra
+    ? "1"
+    : clarityLaunch && clarityLaunch.versiones.length > 0
+      ? String(clarityLaunch.versiones.length)
+      : row.auditoriasRef
 
   return (
     <TableRow
@@ -266,9 +306,9 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
             {row.rutaEtiqueta}
           </span>
         )}
-        {launch ? (
+        {displayUrl ? (
           <p className="mt-0.5 break-all text-xs text-muted-foreground">
-            {launch.url}
+            {displayUrl}
           </p>
         ) : null}
       </TableCell>
@@ -278,15 +318,16 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
       <TableCell className="whitespace-nowrap text-sm">{row.encargadoRef}</TableCell>
       <TableCell className="text-right tabular-nums">{row.visitasRef}</TableCell>
       <TableCell className="text-right tabular-nums font-medium">
-        {launch && launch.versiones.length > 0
-          ? launch.versiones.length
-          : row.auditoriasRef}
+        {auditoriasCount}
       </TableCell>
       <TableCell className="text-right tabular-nums font-medium whitespace-nowrap">
         {ultimaRevision}
       </TableCell>
       <TableCell
-        className={cn("text-right tabular-nums", porcentajeLcAceptacionTextClass(pct))}
+        className={cn(
+          "text-right tabular-nums",
+          porcentajeLcAceptacionTextClass(pct),
+        )}
       >
         {porcentajeLc}
       </TableCell>
@@ -294,7 +335,7 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
         <CeldaEstadoLcAceptacion bucket={bucket} etiqueta={estadoEtiqueta} />
       </TableCell>
       <TableCell>
-        {href && launch && clarityRowDisponibleEnMvp(launch) ? (
+        {informeDisponible ? (
           <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
             Disponible
           </span>
@@ -305,7 +346,7 @@ function ClarityInventoryHistorialRow({ row }: { row: ClarityInventoryRow }) {
         )}
       </TableCell>
       <TableCell>
-        {launch && launch.versiones.length > 0 ? (
+        {!launchExtra && clarityLaunch && clarityLaunch.versiones.length > 0 ? (
           <Link
             href={historialRankHref(row.rank)}
             className="text-xs font-medium text-primary underline-offset-4 hover:underline"
