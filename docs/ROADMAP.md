@@ -261,7 +261,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 1. [x] Persistencia jobs (`data/jobs/` + Zod) — `src/schemas/audit-job.ts`, `src/lib/audit-jobs/store.ts`
 2. [x] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` — routes Next; POST siempre `queued` (horario → ítem 3)
-3. [ ] Mensaje **fuera de horario 8–18** (America/Santiago) sin encolar o encolando según decisión del plan
+3. [x] Fuera de horario 8–18 America/Santiago → persistir `outside_hours` (contrato: sí se encola diferido)
 4. [ ] Endpoint o protocolo de **claim** para el worker local
 5. [ ] Worker script local: reclama job → lanza flujo Claude Code §17 existente → escribe resultado → marca `done`
 6. [ ] `GET .../result` + enlace a historial (fecha + `auditorNombre`)

@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Backend: horario 8–18 y estado `outside_hours`](#devlog-2026-08-18-audit-jobs-hours) |
 | 2026-08-18 | [Backend: POST/GET `/api/audit-jobs`](#devlog-2026-08-18-audit-jobs-api) |
 | 2026-08-18 | [Backend: persistencia audit-jobs (`data/jobs` + Zod)](#devlog-2026-08-18-audit-jobs-store) |
 | 2026-08-17 | [Documentación: contratos API audit-jobs y claim worker](#devlog-2026-08-17-contratos-audit-jobs) |
@@ -60,6 +61,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-hours"></a>
+
+## [2026-08-18] - Backend | horario 8–18 y estado `outside_hours`
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 3**: al crear un job, decidir `queued` vs `outside_hours` según ventana laboral Chile, sin claim ni promoción automática aún.
+
+### Implementación técnica:
+
+- `src/lib/audit-jobs/business-hours.ts`: lun–vie `[08:00, 18:00)` en `America/Santiago`.
+- `POST /api/audit-jobs` usa `initialAuditJobStatus()`; fuera de ventana **persiste** `outside_hours` (mensaje del contrato).
+- ROADMAP paso 4 ítem 3 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 4: claim/complete del worker (`X-Worker-Secret`).
 
 ---
 

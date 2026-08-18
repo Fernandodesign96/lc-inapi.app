@@ -4,13 +4,14 @@ import { ZodError } from "zod"
 import { createAuditJobBodySchema } from "@/lib/audit-jobs/post-body"
 import { messageForCreatedJob } from "@/lib/audit-jobs/status-message"
 import { repoRoot } from "@/lib/repo-root"
+import { initialAuditJobStatus } from "@repo/lib/audit-jobs/business-hours"
 import { createJob } from "@repo/lib/audit-jobs/store"
 
 export const runtime = "nodejs"
 
 /**
- * POST /api/audit-jobs — crea un job (estado `queued` en este slice;
- * horario 8–18 → commit siguiente).
+ * POST /api/audit-jobs — crea job `queued` o `outside_hours`
+ * (lun–vie 08:00–18:00 America/Santiago).
  */
 export async function POST(request: Request) {
   let json: unknown
@@ -25,11 +26,12 @@ export async function POST(request: Request) {
 
   try {
     const body = createAuditJobBodySchema.parse(json)
+    const status = initialAuditJobStatus()
     const job = createJob(
       {
         url: body.url,
         auditorNombre: body.auditorNombre,
-        status: "queued",
+        status,
       },
       repoRoot(),
     )
