@@ -8,6 +8,16 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Infraestructura: typecheck:all paso 4 audit-jobs](#devlog-2026-08-18-audit-jobs-typecheck) |
+| 2026-08-18 | [Documentación: spike túnel Vercel↔worker PC](#devlog-2026-08-18-tunel-spike) |
+| 2026-08-18 | [Frontend: descargas PDF/Excel desde resultado del job](#devlog-2026-08-18-audit-jobs-downloads) |
+| 2026-08-18 | [Frontend: Continuar → job → poll en procesando](#devlog-2026-08-18-audit-jobs-ui-poll) |
+| 2026-08-18 | [Backend: GET result e historial de audit-jobs](#devlog-2026-08-18-audit-jobs-result) |
+| 2026-08-18 | [Infraestructura: worker audit-jobs stub local](#devlog-2026-08-18-audit-jobs-worker-script) |
+| 2026-08-18 | [Backend: claim/complete audit-jobs + secreto worker](#devlog-2026-08-18-audit-jobs-claim) |
+| 2026-08-18 | [Backend: horario 8–18 y estado `outside_hours`](#devlog-2026-08-18-audit-jobs-hours) |
+| 2026-08-18 | [Backend: POST/GET `/api/audit-jobs`](#devlog-2026-08-18-audit-jobs-api) |
+| 2026-08-18 | [Backend: persistencia audit-jobs (`data/jobs` + Zod)](#devlog-2026-08-18-audit-jobs-store) |
 | 2026-08-17 | [Documentación: contratos API audit-jobs y claim worker](#devlog-2026-08-17-contratos-audit-jobs) |
 | 2026-08-17 | [Documentación: ADR 0011 worker on-demand + cotización API](#devlog-2026-08-17-adr-0011-worker) |
 | 2026-08-17 | [Checklist: merge v2.1 a main (Fase 4 paso 1)](#devlog-2026-08-17-checklist-merge-main) |
@@ -58,6 +68,220 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-typecheck"></a>
+
+## [2026-08-18] - Infraestructura | typecheck:all paso 4 audit-jobs
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 10** de validación local antes del PR a `main`.
+
+### Implementación técnica:
+
+- `bun run typecheck:all` OK: checklist v2.1, fixtures, claude-audits, `tsc` raíz y frontend.
+- ROADMAP paso 4 ítem 10 marcado (typecheck); falta push + PR de la rama.
+
+### Próximos pasos:
+
+- Push `feat/mvp-audit-jobs-worker` y `gh pr create` a `main`.
+- Después: worker modo §17 real; pasos 5–6 ROADMAP si aplica.
+
+---
+
+<a id="devlog-2026-08-18-tunel-spike"></a>
+
+## [2026-08-18] - Documentación | spike túnel Vercel↔worker PC
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 9**: dejar escrito cómo exponer la demo sin implementar todavía store remoto ni rewrites Vercel.
+
+### Implementación técnica:
+
+- Nuevo [`docs/despliegue/tunel-vercel-worker-pc.md`](../despliegue/tunel-vercel-worker-pc.md): topologías A/B/C, bloqueo disco efímero en Vercel, runbooks Cloudflare Quick Tunnel y Tailscale, checklist demo 8–18.
+- Decisión MVP: **túnel → PC completo** (misma app que `bun run dev`); worker sigue en localhost.
+- Enlace desde ADR 0011; ROADMAP ítem 9 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 10: `typecheck:all` + PR a `main`.
+- Opcional: probar un quick tunnel real y anotar resultado.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-downloads"></a>
+
+## [2026-08-18] - Frontend | descargas PDF/Excel desde resultado del job
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 8**: exponer descargas reutilizando APIs ya existentes (PDF Claude + Excel MEI completo).
+
+### Implementación técnica:
+
+- `descargas` en GET result: `pdfPath` + `excelPath` opcional si la URL está en META MEI.
+- Resultado: botón PDF para cualquier informe Claude cargado; Excel MEI cuando aplica.
+- Stub worker sigue sin informe canónico (sin PDF útil).
+- ROADMAP paso 4 ítem 8 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 9: spike/documentación de túnel Vercel↔PC.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-ui-poll"></a>
+
+## [2026-08-18] - Frontend | Continuar → job → poll en procesando
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 7**: cablear el formulario Continuar a la cola on-demand y sustituir el timer mock cuando hay `jobId`.
+
+### Implementación técnica:
+
+- Formulario: URL + nombre auditor → `POST /api/audit-jobs` → `/auditar/procesando?jobId=`.
+- Procesando con `jobId`: poll cada 5 s; `done` → resultado real; stub → mensaje sin abrir informe; `failed` / errores visibles.
+- Flujo legacy `?url=` (captura/fixtures) conserva el timer mock.
+- ROADMAP paso 4 ítem 7 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 8: descargas PDF/Excel desde resultado del job.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-result"></a>
+
+## [2026-08-18] - Backend | GET result e historial de audit-jobs
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 6**: devolver resultado cuando el job está `done`, con historial por URL y rutas de descarga (sin cablear UI aún).
+
+### Implementación técnica:
+
+- `GET /api/audit-jobs/[id]/result` → 200 con `historial` + `descargas`; 409 con shape de poll si no está `done`.
+- Historial: filas launch (piloto/Clarity) + jobs `done` locales de la misma URL.
+- Stub sin JSON canónico: entrada sin %/estado; paths PDF/resultado listos para ítem 8.
+- ROADMAP paso 4 ítem 6 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 7: Continuar → job → poll en `/auditar/procesando`.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-worker-script"></a>
+
+## [2026-08-18] - Infraestructura | worker audit-jobs stub local
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 5** con un bucle operativo claim → complete **sin** invocar Claude Code §17 aún (stub), para validar la cola en local.
+
+### Implementación técnica:
+
+- Script `src/scripts/audit-jobs-worker.ts` + `bun run worker:audit-jobs` (`--once` opcional).
+- Respeta horario 8–18; llama `POST …/claim` y `…/complete` con `X-Worker-Secret`.
+- Modo `AUDIT_JOBS_WORKER_MODE=stub`: `auditId` provisional `stub-{slug}_{fecha}` (sin JSON canónico).
+- `AUDIT_JOBS_WORKER_IGNORE_HOURS=1` para probar fuera de 8–18 en local.
+- Variables documentadas en `.env.example`.
+- ROADMAP paso 4 ítem 5 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 6: `GET …/result` + historial.
+- Más adelante: modo que lance §17 real en lugar del stub.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-claim"></a>
+
+## [2026-08-18] - Backend | claim/complete audit-jobs + secreto worker
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 4**: protocolo para que el PC reclame y complete jobs sin tocar §17/skills.
+
+### Implementación técnica:
+
+- Store: `promoteOutsideHoursToQueued`, `claimNextQueuedJob`, `completeJobSuccess` / `completeJobFailure`.
+- `POST /api/audit-jobs/claim` (204 si vacío; dentro de horario promueve `outside_hours`).
+- `POST /api/audit-jobs/[id]/complete` (`ok` + `auditId` o `errorMessage`).
+- Auth header `X-Worker-Secret` vs `AUDIT_JOBS_WORKER_SECRET` (`.env.example` raíz y `frontend/`).
+- ROADMAP paso 4 ítem 4 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 5: script worker local (stub §17 OK primero).
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-hours"></a>
+
+## [2026-08-18] - Backend | horario 8–18 y estado `outside_hours`
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 3**: al crear un job, decidir `queued` vs `outside_hours` según ventana laboral Chile, sin claim ni promoción automática aún.
+
+### Implementación técnica:
+
+- `src/lib/audit-jobs/business-hours.ts`: lun–vie `[08:00, 18:00)` en `America/Santiago`.
+- `POST /api/audit-jobs` usa `initialAuditJobStatus()`; fuera de ventana **persiste** `outside_hours` (mensaje del contrato).
+- ROADMAP paso 4 ítem 3 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 4: claim/complete del worker (`X-Worker-Secret`).
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-api"></a>
+
+## [2026-08-18] - Backend | POST/GET `/api/audit-jobs`
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 2**: exponer crear job y poll de estado sobre el store JSON, sin horario 8–18 ni claim del worker.
+
+### Implementación técnica:
+
+- `POST /api/audit-jobs` y `GET /api/audit-jobs/[id]` (runtime Node).
+- Validación URL con hosts de `auditUrlFormSchema`; nombre 1–120 sin HTML.
+- Persistencia vía `createJob` / `readJob` con `repoRoot()` (disco del monorepo en `bun run dev`).
+- POST deja siempre `queued` (ítem 3 añadirá `outside_hours`).
+- ROADMAP paso 4 ítem 2 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 3: ventana 08:00–18:00 America/Santiago al crear el job.
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-store"></a>
+
+## [2026-08-18] - Backend | persistencia audit-jobs (`data/jobs` + Zod)
+
+### Contexto y objetivos:
+
+Arrancar el **paso 4** de la Fase 4 (ítem 1): modelo y store en disco antes de exponer HTTP. Sin routes, sin UI, sin worker.
+
+### Implementación técnica:
+
+- Rama `feat/mvp-audit-jobs-worker`.
+- Schema Zod en `src/schemas/audit-job.ts` (estados del contrato + `createAuditJobInputSchema`).
+- Store `src/lib/audit-jobs/store.ts`: `createJob` / `writeJob` / `readJob` / `updateJob` / `listJobs` / `listJobsByStatus`; raíz vía `LC_REPO_ROOT` o ruta del módulo.
+- Carpeta `data/jobs/` (`.gitkeep`); JSON locales ignorados en `.gitignore`.
+- ROADMAP paso 4 ítem 1 marcado `[x]`.
+
+### Próximos pasos:
+
+- Ítem 2: `POST` / `GET` Route Handlers `/api/audit-jobs` (sin horario ni claim aún).
 
 ---
 

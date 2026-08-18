@@ -78,5 +78,9 @@ auditorias/htmls/**/*.gif
 
 data/exports/*.xlsx
 
+# Jobs on-demand locales (persistencia MVP; no versionar JSON de prueba)
+data/jobs/*.json
+!data/jobs/.gitkeep
+
 # Local CLI binaries (not for repo)
 .tools/

@@ -22,7 +22,7 @@ El MVP acordado con Álvaro / Bernarda (ago-2026) pide: pegar URL → Continuar 
 
 5. **Persistencia inicial** — `data/jobs/` (JSON por job) **o** SQLite local; suficiente para un único worker. El historial por URL reutiliza el patrón de launch/JSON ya existente donde aplique.
 
-6. **Túnel Vercel ↔ PC** — Cloudflare Tunnel o Tailscale para que la API en Vercel (o el worker) alcance el otro extremo. Spike en implementación (paso 4); este ADR solo fija la necesidad.
+6. **Túnel Vercel ↔ PC** — Cloudflare Tunnel o Tailscale para que la API en Vercel (o el worker) alcance el otro extremo. Spike documentado: [tunel-vercel-worker-pc.md](../despliegue/tunel-vercel-worker-pc.md) (MVP demo = túnel al PC completo; disco Vercel efímero no sirve para `data/jobs/`).
 
 7. **UX no técnica** — la UI no muestra JSON, HTML crudo ni ids internos al funcionario.
 

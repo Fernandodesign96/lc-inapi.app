@@ -257,18 +257,18 @@ Rama: `docs/mvp-audit-jobs-contracts`.
 
 **Después** de planificar archivos en modo plan. Rama nueva desde `main`, p. ej. `feat/mvp-audit-jobs-worker`.
 
-Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan):
+Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan). Rama: `feat/mvp-audit-jobs-worker`.
 
-1. [ ] Persistencia jobs (`data/jobs/` o SQLite) + tipos Zod del job
-2. [ ] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` (stub estados: `queued` | `running` | `done` | `failed` | `outside_hours`)
-3. [ ] Mensaje **fuera de horario 8–18** (America/Santiago) sin encolar o encolando según decisión del plan
-4. [ ] Endpoint o protocolo de **claim** para el worker local
-5. [ ] Worker script local: reclama job → lanza flujo Claude Code §17 existente → escribe resultado → marca `done`
-6. [ ] `GET .../result` + enlace a historial (fecha + `auditorNombre`)
-7. [ ] UI: Continuar en `/auditar` → crea job → `/auditar/procesando` hace **poll** (deja de ser solo timer mock)
-8. [ ] Descargas PDF/Excel desde resultado del job (reutilizar APIs existentes donde baste)
-9. [ ] Plan / spike de **túnel** Vercel↔PC (Cloudflare Tunnel o Tailscale) — documentar; implementar mínimo viable si el tiempo alcanza
-10. [ ] `bun run typecheck:all` + PR a `main`
+1. [x] Persistencia jobs (`data/jobs/` + Zod) — `src/schemas/audit-job.ts`, `src/lib/audit-jobs/store.ts`
+2. [x] `POST /api/audit-jobs` + `GET /api/audit-jobs/:id` — routes Next; POST siempre `queued` (horario → ítem 3)
+3. [x] Fuera de horario 8–18 America/Santiago → persistir `outside_hours` (contrato: sí se encola diferido)
+4. [x] Claim/complete worker: `POST …/claim` + `POST …/:id/complete` + `X-Worker-Secret`
+5. [x] Worker script local stub: `bun run worker:audit-jobs` (claim → stub §17 → complete; sin Claude aún)
+6. [x] `GET …/result` + historial (fecha + `auditorNombre`; launch + jobs done)
+7. [x] UI: Continuar → POST job → `/auditar/procesando?jobId=` con poll (mock timer solo sin jobId)
+8. [x] Descargas PDF (+ Excel MEI si URL META) desde resultado; `descargas` en GET …/result
+9. [x] Spike túnel Vercel↔PC documentado → [`docs/despliegue/tunel-vercel-worker-pc.md`](despliegue/tunel-vercel-worker-pc.md) (MVP demo = túnel al PC; sin binarios en repo)
+10. [x] `bun run typecheck:all` OK (2026-08-18) — abrir PR a `main` desde `feat/mvp-audit-jobs-worker`
 
 **No hacer en este paso:** Nest/Prisma/Supabase Auth; reescribir §17/skills; Anthropic API operativa; exponer JSON/HTML en UI MVP. **Vercel Pro no es requisito** para la API delgada (Hobby suele bastar); las auditorías largas no corren en Vercel.
 
