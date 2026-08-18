@@ -1,0 +1,652 @@
+{
+  "id": "www-inapi-cl-acerca-de-inapi_2026-08-18",
+  "url": "https://www.inapi.cl/acerca-de/inapi",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [fuera de alcance — metadata del <head>, no evaluar]: <title> del documento («INAPI»), no es contenido visible en pantalla | T002 [fuera de alcance — metadata del <head>, no evaluar]: <meta name=\"keywords\"> (primera etiqueta, HTML-L1), no es contenido visible ni evidencia válida | T003 [fuera de alcance — metadata del <head>, no evaluar]: <meta name=\"description\"> (HTML-L555), no es contenido visible | T004 [fuera de alcance — metadata del <head>, no evaluar]: <meta name=\"keywords\"> (segunda etiqueta duplicada, HTML-L555), no es contenido visible ni evidencia válida para ningún criterio | T005 [HTML-L633]: «ACCESOS» (barra superior mobile, enlace externo → https://tramites.inapi.cl) | T006 [HTML-L634]: «BUSCADOR» (barra superior mobile, placeholder de buscador) | T007 [HTML-L649]: «BUSCADOR» (barra superior escritorio, duplicado del anterior) | T008 [HTML-L650]: «ACCESOS» (barra superior escritorio, id=\"btn-acceso\", enlace externo → https://tramites.inapi.cl) — nota: T005-T008 son la cabecera global de www.inapi.cl, excluida de D7 por calibración CLAUDE.md §2 | T009 [HTML-L563/660]: «Conoce más» (ítem de menú principal → /propiedad-intelectual-e-industrial) | T010 [HTML-L566/663]: «PCT» (ítem de menú principal → /pct, sigla sin definir en esta página) | T011 [HTML-L580/605]: «Observancia» (ítem de menú principal → /protege-tu-idea, texto no coincide con destino) | T012 [HTML-L659-668]: resto de menú principal escritorio: «Nosotros» (activo), «Marcas», «Patentes», «Sistema de Madrid», «Sello de Origen», «Aprende», «Conecta», «Trámites» | T013 [HTML-L632]: h3 «INAPI» (encabezado del modal de acceso/login) | T014 [HTML-L632]: «Usuario Frecuente» (enlace de login → https://ion.inapi.cl/) | T015 [HTML-L632]: «Registro» (enlace → https://claveunica.gob.cl/, ambiguo entre registro de marca y creación de cuenta) | T016 [HTML-L632]: «LINK EXTERNO» (botón rojo del modal de login, href=\"#\", texto de desarrollo no eliminado) | T017 [HTML-L649-ss]: h3 «BUSCAR Y TRAMITAR» (encabezado del modal de búsqueda) | T018 [HTML-L649-ss]: placeholder de input «BUSCADOR» (modal de búsqueda) | T019 [HTML-L649-ss]: h4 «MARCAS» (columna del modal de búsqueda, con enlaces «Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos», «Clasificador de productos y servicios») | T020 [HTML-L649-ss]: h4 «PATENTES» (columna del modal de búsqueda, con enlaces «Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea», «Presentación de escritos») | T021 [HTML-L701-703]: breadcrumbs «Home / Nosotros / INAPI» | T022 [HTML-L716]: ítem de menú de pestañas (activo) «INAPI» (encabezado de sección, enlace a la propia página) | T023 [HTML-L719-730]: submenú de «INAPI»: «Funciones», «Objetivos», «Director nacional», «Organigrama» | T024 [HTML-L734-738]: resto de menú de pestañas: «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable» | T025 [HTML-L685]: H1 «Acerca de» | T026 [HTML-L686]: H2 «INAPI» (banner interior) | T027 [HTML-L757]: párrafo 1: «INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile. Le corresponde, asimismo, promover la protección que brinda la propiedad industrial y difundir el acervo tecnológico y la información de que dispone.» | T028 [HTML-L757]: párrafo 2: «INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes para el uso y protección de los derechos de propiedad industrial, promoviendo la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.» | T029 [HTML-L771]: H4 «Visión» | T030 [HTML-L773]: texto de Visión: «INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.» (56 palabras, oración única) | T031 [HTML-L784]: H4 «Misión» | T032 [HTML-L786]: texto de Misión: «Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.» (44 palabras; nota: la versión vigente ya corrigió «comprehensiva» → «integral» respecto al JSON de 2026-06-07) | T033 [HTML-L799]: H2 «Valores Institucionales» | T034 [HTML-L799]: ítem «Calidad de Servicio: Los productos y servicios ofertados por INAPI incorporan, en el diseño y la evaluación, la perspectiva de satisfacción de usuarios y se adoptan medidas necesarias para la mejora continua.» | T035 [HTML-L800]: ítem «Trabajo en equipo: Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.» (error de concordancia: «los asume» debería ser «los asumen») | T036 [HTML-L800]: ítem «Calidad de Vida: Los(as) funcionarios(as) se benefician de medidas que favorecen un mejor balance de la vida laboral y familiar, que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.» (voz pasiva) | T037 [HTML-L801]: ítem «Innovación: INAPI reconoce el potencial intelectual y creativo de sus funcionarios(as) y canaliza sus aportes y sugerencias de procesos y nuevos servicios, que contribuyen al desarrollo institucional.» | T038 [HTML-L802]: ítem «Socialmente responsable: INAPI incorpora en todos sus procesos consideraciones de su impacto ambiental (consumo energético, reciclaje, medición de la huella de carbono), medidas de inclusión, y de pago oportuno a sus proveedores.» (nota: la versión vigente ya corrigió «su proveedores» → «sus proveedores» respecto al JSON de 2026-06-07) | T039 [HTML-L814]: imagen del carrusel, alt/title «Plan de Acción de Cumplimiento 2025 (PDF)» → enlaza a res-pac-2025.pdf (sin indicar peso) | T040 [HTML-L816]: imagen del carrusel, alt/title «Medición de Satisfacción Usuaria INAPI 2025» → enlaza a sitio externo (no PDF) | T041 [HTML-L818]: imagen del carrusel, alt/title «Teletrabajo» → enlaza a inapi_informes_teletrabajo.pdf (sin indicar formato ni peso en el texto visible) | T042 [HTML-L822]: imagen del carrusel, alt/title «Código de Ética INAPI 2026» → enlaza a codigo-de-etica_inapi-2026.pdf (sin indicar formato ni peso en el texto visible) | T043 [HTML-L828]: imagen del carrusel con alt=\"\" y title=\"\" (vacíos) → enlaza a sitio externo cchrgm.cl | T044 [HTML-L862]: botón «¿Quieres contactarnos?» (abre modal de contacto) | T045 [HTML-L863]: h2 del modal «Utiliza el canal de comunicación que prefieras:» | T046 [HTML-L863]: columna teléfono «(56 2) 2 887 0400» + «Lunes a jueves de 09:00 a 18:00 hrs y viernes de 09:00 a 17:00 hrs.» | T047 [HTML-L863]: columna correo «inapi@inapi.cl» + «Tu consulta será atendida por un especialista.» (voz pasiva) | T048 [HTML-L863]: columna dirección «Av. Libertador Bernardo O'Higgins 194, Santiago» + «Lunes a viernes de 09:00 a 14:00 hrs.» | T049 [HTML-L869]: footer h4 «Dónde estamos» + párrafo «Instituto Nacional de Propiedad industrial (INAPI) / RUT: 65.999.669-3» (nota: «industrial» en minúscula indebida — error de capitalización del nombre institucional, patrón de shell compartido con /marcas y /patentes; RUT de persona jurídica pública) | T050 [HTML-L869]: footer dirección «Av. Libertador Bernardo O'Higgins 194, Santiago.» + teléfono «(56 2) 2 887 0400» + correo «inapi@inapi.cl» | T051 [HTML-L873]: footer h4 «Conversemos» | T052 [HTML-L881]: footer enlace «Contacto» (→ /contacto) | T053 [HTML-L893]: footer h4 «Accesos» | T054 [HTML-L905]: footer enlace «Uso de los Contenidos de este Sitio» (→ /uso-de-los-contenidos-de-este-sitio) | T055 [HTML-L907]: footer enlace «Política de privacidad» (→ /polItica-de-privacidad, target=\"_blank\") | T056 [HTML-L919]: pie inferior «©2026 INAPI. Todos los derechos reservados» — sin fecha de actualización visible en ninguna parte de la página",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El primer párrafo bajo el H1/H2 explica de inmediato el propósito de INAPI (administración de propiedad industrial) sin necesidad de leer el resto de la página.",
+      "cita_textual": "T027"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "La página sigue una estructura de lo general a lo específico: definición institucional primero, luego Visión, Misión, Valores y finalmente contenidos secundarios (documentos, contacto).",
+      "cita_textual": "T027, T028"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "El contenido está fragmentado en secciones con encabezados informativos (Visión, Misión, Valores Institucionales), evitando bloques continuos sin título.",
+      "cita_textual": "T029, T031, T033"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Cada bloque de texto (introducción, Visión, Misión, cada ítem de Valores) se mantiene bajo 110 palabras; el bloque más extenso (Visión) tiene 56 palabras.",
+      "cita_textual": "T030"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple",
+      "comentario": "Al ser una página de tipo «Acerca de/Quiénes somos», la Visión, Misión y Valores corresponden al género de contenido esperado para esta sección, no a relleno institucional ajeno a la tarea del usuario (conocer la institución).",
+      "cita_textual": "T029, T031, T033"
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detectan páginas «en construcción» ni contenido manifiestamente incompleto en el inventario visible.",
+      "cita_textual": "T027"
+    },
+    {
+      "id": "A7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página no incluye un resumen o recuadro destacado que reúna en un solo punto los datos clave (qué es INAPI, para quién, dónde y cuándo contactar). La información de contacto (dónde/cuándo) solo está disponible dentro de un modal secundario, no como recuadro visible en el flujo principal.",
+      "cita_textual": "T027, T046"
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "A8 aplica solo a páginas de trámites (applicability: tramites); esta es una página informativa de sitioweb."
+    },
+    {
+      "id": "A9",
+      "estado": "cumple",
+      "comentario": "La página usa encabezados jerárquicos (H2/H4) y listas para los Valores Institucionales, facilitando el escaneo visual del contenido.",
+      "cita_textual": "T033, T034"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El bloque de Valores Institucionales usa voz pasiva reiterada en vez de voz activa, lo que despersonaliza la acción institucional (ej. 'se adoptan medidas', 'es propiciado institucionalmente').",
+      "cita_textual": "T034: «se adoptan medidas necesarias para la mejora continua»; T036: «que es propiciado institucionalmente mediante la gestión por objetivos»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los párrafos introductorios usan expresiones de jerga institucional sin glosar para la ciudadanía, como 'acervo tecnológico' y 'Sistema Nacional de Propiedad Industrial', que no se explican en lenguaje común en esta página.",
+      "cita_textual": "T027: «difundir el acervo tecnológico y la información de que dispone»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La sigla PCT aparece en el menú de navegación de esta página sin definición ni expansión la primera vez que se usa. Patrón sistémico ya identificado en el sitio (menú Patentes).",
+      "cita_textual": "T010: «PCT» (ítem de menú principal, sin definir)"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "El texto principal (párrafos institucionales, Visión, Misión, Valores) no presenta abreviaturas ni extranjerismos relevantes; el uso de siglas se limita a INAPI, nombre propio de la institución.",
+      "cita_textual": "T027, T028, T030, T032"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El tono del contenido visible es propositivo y describe lo que INAPI hace y busca lograr, sin construcciones negativas o de prohibición.",
+      "cita_textual": "T027, T028, T037, T038"
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Hay mezcla de registros en la misma pantalla: los párrafos institucionales y Valores usan tercera persona formal e impersonal ('Le corresponde', 'se adoptan'), mientras el modal de contacto usa tuteo directo ('Utiliza el canal...', 'Tu consulta será atendida').",
+      "cita_textual": "T045: «Utiliza el canal de comunicación que prefieras»; T027: «Le corresponde, asimismo, promover...»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El párrafo de contexto institucional acumula frases de relleno formal ('generando sistemas eficientes...', 'promoviendo la innovación, el emprendimiento y la transferencia de conocimiento') que podrían simplificarse sin perder sentido.",
+      "cita_textual": "T028: «generando sistemas eficientes para el uso y protección de los derechos de propiedad industrial, promoviendo la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad»"
+    },
+    {
+      "id": "B8",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No se ejecutó medición de legibilidad con herramienta (Legible u equivalente) sobre el texto principal de esta página (párrafos T027/T028, Visión T030, Misión T032) dentro de este flujo automatizado. Se documenta ausencia de medición conforme a CLAUDE.md §2; se recomienda ejecutar la herramienta antes de la publicación definitiva del informe.",
+      "cita_textual": "T027, T028, T030, T032"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las oraciones del cuerpo principal (T027, T028) siguen orden sujeto-verbo-predicado reconocible, aun cuando algunas incorporan cláusulas subordinadas o gerundios al final (T030).",
+      "cita_textual": "T027: «INAPI es el organismo encargado de...»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Predomina el presente simple en los párrafos institucionales ('es', 'corresponde', 'contribuye'). La Visión usa futuro ('será'), convención esperable de este tipo de declaración institucional y no domina el resto del texto.",
+      "cita_textual": "T027: «es el organismo encargado»; T028: «contribuye a la estrategia»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las declaraciones de Visión y Misión son oraciones únicas que superan ampliamente las 30 palabras recomendadas, dificultando la lectura directa.",
+      "cita_textual": "T030 (56 palabras): «INAPI será una institución referente a nivel mundial...»; T032 (44 palabras): «Consolidar el Sistema Nacional de Propiedad Industrial...»"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El primer párrafo institucional combina dos ideas distintas (rol administrativo de INAPI y su rol de difusión/promoción) en un mismo bloque, en vez de separarlas en ideas independientes.",
+      "cita_textual": "T027: «INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile. Le corresponde, asimismo, promover la protección...»"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos del cuerpo (T027, T028, T030, T032) son de una sola oración y ocupan pocas líneas en pantalla de escritorio, bajo el límite de 8 líneas.",
+      "cita_textual": "T027, T028, T030, T032"
+    },
+    {
+      "id": "C6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La página reúne al menos 4 bloques de texto continuo (párrafos institucionales T027/T028, Visión T030, Misión T032, más los 5 ítems de Valores) sin un resumen o bajada inicial antes del H1/H2 que oriente a la persona usuaria sobre el contenido completo de la página.",
+      "cita_textual": "T025: H1 «Acerca de»; T026: H2 «INAPI» (sin bajada de resumen)"
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "La página no presenta listas de requisitos de trámite; los ítems de Valores Institucionales son descripciones, no pasos o requisitos que deban expresarse en modo infinitivo.",
+      "cita_textual": "T034-T038"
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "Esta es una página institucional de 'Acerca de' (Misión/Visión/Valores), no un contenido de ayuda o trámite estructurable como preguntas frecuentes. Se recomienda para una mejora futura evaluar si un bloque breve tipo '¿Qué hace INAPI por mí?' facilitaría la conexión con la ciudadanía, sin que esto sea una falta en el formato institucional actual.",
+      "cita_textual": "T025, T026, T027, T028"
+    },
+    {
+      "id": "C9",
+      "estado": "cumple",
+      "comentario": "El cuerpo editorial principal tiene 4 párrafos identificables (T027, T028, Visión T030, Misión T032), dentro del rango de 2 a 8 párrafos.",
+      "cita_textual": "T027, T028, T030, T032"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "En el pie de página, el nombre institucional aparece con un error de capitalización: 'Propiedad industrial' debería escribirse 'Propiedad Industrial', ya que es parte del nombre propio de la institución (Instituto Nacional de Propiedad Industrial). Es un error de precisión conceptual en el nombre oficial, visible en pantalla.",
+      "cita_textual": "T049"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el ítem 'Trabajo en equipo' de Valores Institucionales hay un error de concordancia gramatical: el sujeto plural 'Los(as) funcionarios(as)' se combina con el verbo en singular 'asume', debiendo ser 'asumen'.",
+      "cita_textual": "T035"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "El espaciado entre párrafos es un criterio visual/CSS, fuera del alcance de esta evaluación editorial (CLAUDE.md §16)."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "La alineación del texto es un criterio visual/CSS, fuera del alcance de esta evaluación editorial (CLAUDE.md §16)."
+    },
+    {
+      "id": "D5",
+      "estado": "cumple",
+      "comentario": "La sección 'Valores Institucionales' presenta cada valor como un ítem de lista (estructura <ul><li>), cumpliendo con el uso correcto de listas para enumeraciones.",
+      "cita_textual": "T034-T038"
+    },
+    {
+      "id": "D6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Los textos de Visión y Misión son oraciones largas (56 y 44 palabras respectivamente) sin ninguna palabra o frase clave destacada en negrita, dificultando el escaneo rápido del contenido.",
+      "cita_textual": "T030, T032"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de la cabecera global excluida (ACCESOS/BUSCADOR de T005-T008), la página presenta varios textos en mayúsculas sostenidas: el botón 'LINK EXTERNO' del modal de login, el encabezado 'BUSCAR Y TRAMITAR', el placeholder 'BUSCADOR' del modal de búsqueda y los subtítulos 'MARCAS' y 'PATENTES' dentro de ese mismo modal.",
+      "cita_textual": "T016, T017, T018, T019, T020"
+    },
+    {
+      "id": "E1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El texto de Visión incluye una calificación subjetiva/aspiracional («referente a nivel mundial») que no es un dato objetivo verificable, lo que se aleja de la objetividad exigida.",
+      "cita_textual": "T030"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La autoría institucional es claramente identificable mediante el H2 «INAPI» y el nombre completo en el pie de página.",
+      "cita_textual": "T026, T049"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe en la página una fecha de publicación o última actualización visible. El símbolo de copyright del pie («©2026») no constituye una fecha de actualización de contenido y no debe usarse como sustituto.",
+      "cita_textual": "(ausencia)"
+    },
+    {
+      "id": "E4",
+      "estado": "cumple",
+      "comentario": "El H1 «Acerca de» junto al H2 «INAPI» comunican de forma clara que la página corresponde a la sección institucional «quiénes somos» de INAPI, coherente con el submenú de la sección (Funciones, Objetivos, Director nacional, Organigrama). Reevaluado usando exclusivamente el H1/H2 visibles; el <title> del <head> queda fuera de alcance.",
+      "cita_textual": "T025, T026"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «Observancia» (T011) no coincide con el nombre de la página de destino (/protege-tu-idea). El texto visible del enlace debe reflejar el título real de la sección a la que lleva.",
+      "cita_textual": "T011: «Observancia» → /protege-tu-idea"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «Conoce más» (T009) es un texto genérico que no describe el destino ni la acción; el usuario no puede anticipar a dónde lo llevará el enlace sin contexto adicional.",
+      "cita_textual": "T009: «Conoce más» → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El botón «LINK EXTERNO» (T016) apunta a href=\"#\" y no tiene destino funcional real, por lo que no es significativo ni describe ninguna acción; además, el enlace «Registro» (T015) es ambiguo, pues no queda claro si se refiere a crear una cuenta ClaveÚnica o a registrar una marca.",
+      "cita_textual": "T016: «LINK EXTERNO» (href=\"#\"); T015: «Registro» → https://claveunica.gob.cl/"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los documentos descargables del carrusel institucional no especifican de forma consistente los cuatro elementos requeridos (título, formato, peso y descripción breve). El Plan de Acción de Cumplimiento 2025 (T039) y el Código de Ética (T042) omiten el peso del archivo; el documento de Teletrabajo (T041) no indica en el texto visible que se trata de un PDF ni su peso.",
+      "cita_textual": "T039: «Plan de Acción de Cumplimiento 2025 (PDF)» (sin peso); T041: «Teletrabajo» (sin formato ni peso); T042: «Código de Ética INAPI 2026» (sin formato ni peso)"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "El cuerpo editorial de la página (Visión, Misión, Valores) no contiene enlaces incrustados dentro del texto que se debe leer; los CTAs y accesos están ubicados fuera del cuerpo del contenido.",
+      "cita_textual": "T025-T038: bloque de contenido editorial sin enlaces internos en el texto corrido"
+    },
+    {
+      "id": "F6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La página no incorpora, dentro o al cierre del contenido editorial, enlaces relacionados hacia otras subpáginas de la misma sección (por ejemplo, Funciones, Objetivos, Director Nacional u Organigrama). Los únicos accesos a esos contenidos existen en el submenú de pestañas de navegación global, que no constituye un enlace relacionado insertado en el cuerpo editorial.",
+      "cita_textual": "T023: submenú de pestañas «Funciones», «Objetivos», «Director nacional», «Organigrama» (navegación de menú, no enlace relacionado en el cuerpo del texto)"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El único RUT visible en la página es el institucional de INAPI (persona jurídica pública), presente en el pie de página junto a la razón social. No se detectan RUN, nombres completos ni datos de contacto de personas naturales en ningún nodo visible del inventario. Los ítems de Valores Institucionales describen conductas esperadas de 'funcionarios(as)' en abstracto, sin identificar a personas.",
+      "cita_textual": "T049: «Instituto Nacional de Propiedad industrial (INAPI) / RUT: 65.999.669-3» — RUT de persona jurídica pública en el pie de página"
+    },
+    {
+      "id": "G2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página solo ofrece un enlace a «Política de privacidad» en el pie de página, sin ninguna mención visible en esta pantalla sobre cómo ejercer derechos ARCO (acceso, rectificación, cancelación, oposición) ni un canal específico para solicitarlos.",
+      "cita_textual": "T055: enlace de pie de página «Política de privacidad» (target=\"_blank\"), sin texto adicional sobre derechos ARCO en la página"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "Las condiciones de uso del contenido del sitio están publicadas mediante enlace directo en el pie de página, y la nota de derechos reservados con año vigente está presente al final de la página.",
+      "cita_textual": "T054: «Uso de los Contenidos de este Sitio»; T056: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No existen versiones anteriores publicadas ni rótulos de contenido archivado o no vigente en esta página. Los documentos del carrusel (Plan de Acción de Cumplimiento 2025, Medición de Satisfacción Usuaria 2025, Código de Ética 2026) corresponden a versiones vigentes de sus respectivos ciclos, no a versiones históricas de sí mismos que requieran rotulación de archivo."
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 41,
+  "criterios_aprobados": 19,
+  "porcentaje_cumplimiento": 46.3,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 22 incumplimientos sobre 41 criterios aplicables (46.3%), evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia, CLAUDE.md §2 y §5). Correcciones prioritarias: (1) expandir la sigla PCT en el menú (B3); (2) agregar fecha de actualización visible (E3); (3) reparar o eliminar el botón «LINK EXTERNO» del modal de login y renombrar «Registro» a «Crear cuenta con ClaveÚnica» (F3); (4) reemplazar la voz pasiva en dos ítems de Valores Institucionales y en el modal de contacto (B1); (5) dividir las oraciones de Visión (56 palabras) y Misión (44 palabras) en frases más cortas (C3); (6) corregir la concordancia «los asume»→«los asumen» en el ítem Trabajo en equipo (D2); (7) corregir «Propiedad industrial»→«Propiedad Industrial» en el pie de página (D1); (8) indicar formato «(PDF)» en los enlaces de Teletrabajo y Código de Ética, y el peso en el Plan de Acción de Cumplimiento (F4); (9) normalizar mayúsculas sostenidas en LINK EXTERNO, BUSCAR Y TRAMITAR, BUSCADOR, MARCAS y PATENTES del modal de búsqueda (D7); (10) corregir enlaces «Observancia» y «Conoce más» para que describan su destino real (F1/F2); (11) agregar un recuadro-resumen con qué/para quién/dónde/cuándo (A7) y una bajada introductoria antes de Visión/Misión/Valores (C6); (12) mencionar explícitamente los derechos ARCO junto al enlace de Política de privacidad (G2); (13) ejecutar y documentar medición de legibilidad (B8). El array sustituciones[] contiene 30 filas con cobertura 1:1 para los 22 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) de /acerca-de/inapi de INAPI obtiene un 46.3% de cumplimiento sobre 41 criterios aplicables — estado RECHAZADO, evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia, CLAUDE.md §2 y §5). Persisten los mismos incumplimientos sistémicos del shell compartidos con /marcas y /patentes (PCT sin definir, LINK EXTERNO, mayúsculas sostenidas en modales, modal de contacto en voz pasiva, ausencia de fecha de actualización) y hallazgos propios de esta página: Visión y Misión con oraciones únicas de 56 y 44 palabras (C3), voz pasiva en dos de los cinco ítems de Valores Institucionales (B1), error de concordancia verbal 'los asume' (D2), error de capitalización 'Propiedad industrial' en el pie (D1), enlaces genéricos/ambiguos «Conoce más», «Observancia» y «Registro» (F1/F2/F3), y ausencia de enlaces relacionados internos al cierre del contenido editorial (F6). D1 se acota a la evidencia visible real: varios errores del JSON histórico v1.1 (2026-06-07) ya fueron corregidos en el sitio vigente («comprehensiva»→«integral», «su proveedores»→«sus proveedores», H2 «Inapi»→«INAPI»), por lo que el hallazgo D1 remanente se limita al footer compartido con /marcas y /patentes. E4 se reevalúa como cumple: el H1 «Acerca de» + H2 «INAPI» comunican adecuadamente que es la página institucional 'quiénes somos', coherente con su submenú (Funciones, Objetivos, Director nacional, Organigrama). G1 se mantiene calibrado como cumple (RUT institucional de persona jurídica pública).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/acerca-de/inapi fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios, 5 grupos temáticos vía sub-subagentes), como parte del lote de reauditoría META MEI (orden 4, rol «Página de información interior (1/2)»), evaluando exclusivamente contenido visible en pantalla (el <title>, <meta description> y <meta keywords> del <head> quedan fuera de alcance y no se usan como evidencia). De los 41 criterios aplicables, 19 se cumplen, lo que arroja un 46.3% de cumplimiento y un estado de aceptación RECHAZADO (≤80%). Se detectaron 22 incumplimientos; los de severidad alta son: sigla PCT sin definir en el menú (B3), ausencia de fecha de actualización (E3), y el botón «LINK EXTERNO» sin destino funcional junto con el enlace ambiguo «Registro» (F3). Respecto al JSON histórico v1.1 (2026-06-07), varios errores editoriales ya fueron corregidos en el sitio vigente: «comprehensiva»→«integral», «su proveedores»→«sus proveedores», y el H2 «Inapi»→«INAPI»; por eso el porcentaje mejora frente a la auditoría anterior (34,3%), aunque persisten hallazgos sistémicos del shell (PCT sin definir, LINK EXTERNO, mayúsculas sostenidas, modal en voz pasiva).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B3) La sigla PCT aparece en el menú de navegación de esta página sin definición ni expansión la primera vez que se usa. Patrón sistémico ya identificado en el sitio (menú Patentes).",
+      "(E3) No existe en la página una fecha de publicación o última actualización visible. El símbolo de copyright del pie («©2026») no constituye una fecha de actualización de contenido y no debe usarse como sustituto.",
+      "(F3) El botón «LINK EXTERNO» (T016) apunta a href=\"#\" y no tiene destino funcional real, por lo que no es significativo ni describe ninguna acción; además, el enlace «Registro» (T015) es ambiguo, pues no queda claro si se refiere a crear una cuenta ClaveÚnica o a registrar una marca."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A7) La página no incluye un resumen o recuadro destacado que reúna en un solo punto los datos clave (qué es INAPI, para quién, dónde y cuándo contactar). La información de contacto (dónde/cuándo) solo está disponible dentro de un modal secundario, no como recuadro visible en el flujo principal.",
+      "(B1) El bloque de Valores Institucionales usa voz pasiva reiterada en vez de voz activa, lo que despersonaliza la acción institucional (ej. 'se adoptan medidas', 'es propiciado institucionalmente').",
+      "(B2) Los párrafos introductorios usan expresiones de jerga institucional sin glosar para la ciudadanía, como 'acervo tecnológico' y 'Sistema Nacional de Propiedad Industrial', que no se explican en lenguaje común en esta página.",
+      "(B6) Hay mezcla de registros en la misma pantalla: los párrafos institucionales y Valores usan tercera persona formal e impersonal ('Le corresponde', 'se adoptan'), mientras el modal de contacto usa tuteo directo ('Utiliza el canal...', 'Tu consulta será atendida').",
+      "(B8) No se ejecutó medición de legibilidad con herramienta (Legible u equivalente) sobre el texto principal de esta página (párrafos T027/T028, Visión T030, Misión T032) dentro de este flujo automatizado. Se documenta ausencia de medición conforme a CLAUDE.md §2; se recomienda ejecutar la herramienta antes de la publicación definitiva del informe.",
+      "(C3) Las declaraciones de Visión y Misión son oraciones únicas que superan ampliamente las 30 palabras recomendadas, dificultando la lectura directa.",
+      "(D2) En el ítem 'Trabajo en equipo' de Valores Institucionales hay un error de concordancia gramatical: el sujeto plural 'Los(as) funcionarios(as)' se combina con el verbo en singular 'asume', debiendo ser 'asumen'.",
+      "(D7) Fuera de la cabecera global excluida (ACCESOS/BUSCADOR de T005-T008), la página presenta varios textos en mayúsculas sostenidas: el botón 'LINK EXTERNO' del modal de login, el encabezado 'BUSCAR Y TRAMITAR', el placeholder 'BUSCADOR' del modal de búsqueda y los subtítulos 'MARCAS' y 'PATENTES' dentro de ese mismo modal.",
+      "(F1) El enlace «Observancia» (T011) no coincide con el nombre de la página de destino (/protege-tu-idea). El texto visible del enlace debe reflejar el título real de la sección a la que lleva.",
+      "(F2) El enlace «Conoce más» (T009) es un texto genérico que no describe el destino ni la acción; el usuario no puede anticipar a dónde lo llevará el enlace sin contexto adicional.",
+      "(F4) Los documentos descargables del carrusel institucional no especifican de forma consistente los cuatro elementos requeridos (título, formato, peso y descripción breve). El Plan de Acción de Cumplimiento 2025 (T039) y el Código de Ética (T042) omiten el peso del archivo; el documento de Teletrabajo (T041) no indica en el texto visible que se trata de un PDF ni su peso.",
+      "(G2) La página solo ofrece un enlace a «Política de privacidad» en el pie de página, sin ninguna mención visible en esta pantalla sobre cómo ejercer derechos ARCO (acceso, rectificación, cancelación, oposición) ni un canal específico para solicitarlos."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(B7) El párrafo de contexto institucional acumula frases de relleno formal ('generando sistemas eficientes...', 'promoviendo la innovación, el emprendimiento y la transferencia de conocimiento') que podrían simplificarse sin perder sentido.",
+      "(C4) El primer párrafo institucional combina dos ideas distintas (rol administrativo de INAPI y su rol de difusión/promoción) en un mismo bloque, en vez de separarlas en ideas independientes.",
+      "(C6) La página reúne al menos 4 bloques de texto continuo (párrafos institucionales T027/T028, Visión T030, Misión T032, más los 5 ítems de Valores) sin un resumen o bajada inicial antes del H1/H2 que oriente a la persona usuaria sobre el contenido completo de la página.",
+      "(D1) En el pie de página, el nombre institucional aparece con un error de capitalización: 'Propiedad industrial' debería escribirse 'Propiedad Industrial', ya que es parte del nombre propio de la institución (Instituto Nacional de Propiedad Industrial). Es un error de precisión conceptual en el nombre oficial, visible en pantalla.",
+      "(D6) Los textos de Visión y Misión son oraciones largas (56 y 44 palabras respectivamente) sin ninguna palabra o frase clave destacada en negrita, dificultando el escaneo rápido del contenido.",
+      "(E1) El texto de Visión incluye una calificación subjetiva/aspiracional («referente a nivel mundial») que no es un dato objetivo verificable, lo que se aleja de la objetividad exigida.",
+      "(F6) La página no incorpora, dentro o al cierre del contenido editorial, enlaces relacionados hacia otras subpáginas de la misma sección (por ejemplo, Funciones, Objetivos, Director Nacional u Organigrama). Los únicos accesos a esos contenidos existen en el submenú de pestañas de navegación global, que no constituye un enlace relacionado insertado en el cuerpo editorial."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L757",
+      "original": "(ausencia)",
+      "propuesto": "Recuadro destacado bajo la introducción con: «Qué es: organismo público de propiedad industrial. Para quién: personas y empresas que requieren proteger marcas, patentes y otros derechos de propiedad industrial. Dónde y cuándo contactar: Av. Libertador Bernardo O'Higgins 194, Santiago; atención lunes a jueves 09:00–18:00 hrs y viernes 09:00–17:00 hrs.»",
+      "criterio_id": "A7",
+      "motivo": "No existe un resumen visible con los datos clave (qué, para quién, dónde, cuándo); la información de contacto solo aparece en un modal secundario.",
+      "ubicacion_pantalla": "Justo debajo del segundo párrafo introductorio sobre INAPI, antes de la sección Visión.",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L773",
+      "original": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.",
+      "propuesto": "INAPI busca ser una institución de excelencia en el registro, gestión, promoción y calidad de la propiedad industrial, impulsando el emprendimiento y la innovación para contribuir a la productividad y diversificación de la economía del país.",
+      "criterio_id": "E1",
+      "motivo": "La calificación «referente a nivel mundial» es una afirmación subjetiva/aspiracional no verificable; se reemplaza por una redacción más objetiva y verificable de los objetivos institucionales.",
+      "ubicacion_pantalla": "En el texto de la sección Visión.",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "HTML-L685",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: [fecha de la última revisión editorial de esta página]",
+      "criterio_id": "E3",
+      "motivo": "No hay fecha de publicación ni de última modificación visible en ninguna parte de la página; el ©2026 del pie no equivale a una fecha de actualización de contenido.",
+      "ubicacion_pantalla": "Como línea visible bajo el título principal «Acerca de / INAPI», o al final del contenido editorial antes del carrusel de documentos.",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T034",
+      "html_linea_aprox": "HTML-L799",
+      "original": "Los productos y servicios ofertados por INAPI incorporan, en el diseño y la evaluación, la perspectiva de satisfacción de usuarios y se adoptan medidas necesarias para la mejora continua.",
+      "propuesto": "INAPI incorpora la perspectiva de satisfacción de usuarios en el diseño y la evaluación de sus productos y servicios, y adopta medidas necesarias para la mejora continua.",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la construcción pasiva 'se adoptan' por voz activa con INAPI como sujeto explícito.",
+      "ubicacion_pantalla": "En el listado de Valores Institucionales, ítem 'Calidad de Servicio'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T036",
+      "html_linea_aprox": "HTML-L800",
+      "original": "que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad",
+      "propuesto": "que INAPI propicia mediante la gestión por objetivos, la medición de productos y la orientación hacia la calidad",
+      "criterio_id": "B1",
+      "motivo": "Reemplaza la voz pasiva 'es propiciado' por voz activa con sujeto institucional explícito.",
+      "ubicacion_pantalla": "En el listado de Valores Institucionales, ítem 'Calidad de Vida'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L757",
+      "original": "difundir el acervo tecnológico y la información de que dispone",
+      "propuesto": "difundir la información y el conocimiento técnico que reúne",
+      "criterio_id": "B2",
+      "motivo": "Reemplaza jerga institucional ('acervo tecnológico') por lenguaje común.",
+      "ubicacion_pantalla": "En el primer párrafo institucional, bajo el título 'Acerca de'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "HTML-L566",
+      "original": "PCT",
+      "propuesto": "Tratado de Cooperación en Materia de Patentes (PCT)",
+      "criterio_id": "B3",
+      "motivo": "La sigla PCT no está definida la primera vez que aparece en el menú de esta página; se propone expandirla en su primera aparición.",
+      "ubicacion_pantalla": "En el menú principal de navegación",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T045",
+      "html_linea_aprox": "HTML-L863",
+      "original": "Utiliza el canal de comunicación que prefieras:",
+      "propuesto": "Elige el canal de comunicación que prefieras",
+      "criterio_id": "B6",
+      "motivo": "El modal de contacto usa tuteo cercano mientras el resto de la página usa tercera persona formal e impersonal; se recomienda unificar el registro en toda la pantalla (extendiendo el tuteo también a los párrafos institucionales, o viceversa).",
+      "ubicacion_pantalla": "En la ventana emergente de contacto",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "HTML-L757",
+      "original": "INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes para el uso y protección de los derechos de propiedad industrial, promoviendo la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.",
+      "propuesto": "INAPI apoya la estrategia de innovación del Gobierno de Chile. Para ello, protege los derechos de propiedad industrial y promueve la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.",
+      "criterio_id": "B7",
+      "motivo": "Elimina relleno formal acumulado y divide la oración larga en frases más directas.",
+      "ubicacion_pantalla": "En el segundo párrafo institucional, bajo el título 'Acerca de'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "(ausencia)",
+      "html_linea_aprox": "HTML-L757",
+      "original": "(no existe medición de legibilidad ejecutada)",
+      "propuesto": "Ejecutar medición con herramienta de legibilidad (Legible u equivalente) sobre los párrafos T027, T028, Visión T030 y Misión T032, y registrar el resultado (≥3 de 5 indicadores en nivel Normal) antes de la publicación final del informe.",
+      "criterio_id": "B8",
+      "motivo": "No se realizó medición de legibilidad en este flujo automatizado; se deja como acción pendiente para TI/UX conforme a CLAUDE.md §2.",
+      "ubicacion_pantalla": "Sobre el texto principal de la página (párrafos institucionales, Visión y Misión)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "HTML-L773",
+      "original": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.",
+      "propuesto": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial. Así, se constituirá en un motor del emprendimiento y la innovación, contribuyendo a incrementar la productividad y diversificación de la economía del país.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de 56 palabras en dos oraciones más cortas y directas.",
+      "ubicacion_pantalla": "En el bloque 'Visión'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "HTML-L786",
+      "original": "Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.",
+      "propuesto": "Consolidar el Sistema Nacional de Propiedad Industrial. Para ello, protegemos los derechos, difundimos el conocimiento y fomentamos una visión equilibrada e integral de la propiedad industrial, contribuyendo al desarrollo económico y social de Chile.",
+      "criterio_id": "C3",
+      "motivo": "Divide la oración de 44 palabras en frases más breves.",
+      "ubicacion_pantalla": "En el bloque 'Misión'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "HTML-L757",
+      "original": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile. Le corresponde, asimismo, promover la protección que brinda la propiedad industrial y difundir el acervo tecnológico y la información de que dispone.",
+      "propuesto": "INAPI es el organismo encargado de administrar y atender los servicios de la propiedad industrial en Chile. Además, promueve la protección que brinda la propiedad industrial y difunde la información y el conocimiento técnico que reúne.",
+      "criterio_id": "C4",
+      "motivo": "Separa en dos frases las dos ideas distintas que hoy conviven en un mismo bloque (rol administrativo vs. rol de promoción/difusión).",
+      "ubicacion_pantalla": "En el primer párrafo institucional, bajo el título 'Acerca de'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "(ausencia)",
+      "html_linea_aprox": "HTML-L685",
+      "original": "(no existe en HTML)",
+      "propuesto": "Breve bajada introductoria bajo el H1 'Acerca de', por ejemplo: 'En esta sección encontrarás qué es INAPI, su misión, visión y los valores que guían su trabajo.'",
+      "criterio_id": "C6",
+      "motivo": "Inserta un resumen inicial que oriente a la persona usuaria ante los múltiples bloques de contenido continuo (párrafos institucionales, Visión, Misión, Valores).",
+      "ubicacion_pantalla": "Al inicio de la sección 'Acerca de', antes del primer párrafo institucional",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T049",
+      "html_linea_aprox": "HTML-L869",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "D1",
+      "motivo": "Corrección de capitalización: 'Industrial' es parte del nombre propio de la institución y debe ir con mayúscula inicial.",
+      "ubicacion_pantalla": "En el pie de página, bajo 'Dónde estamos'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "HTML-L800",
+      "original": "Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.",
+      "propuesto": "Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asumen como atributos de excelencia en el desempeño.",
+      "criterio_id": "D2",
+      "motivo": "Corrección de concordancia verbal: el sujeto plural requiere el verbo en plural ('asumen', no 'asume').",
+      "ubicacion_pantalla": "En el ítem 'Trabajo en equipo' de la sección Valores Institucionales",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T030, T032",
+      "html_linea_aprox": "HTML-L773, HTML-L786",
+      "original": "(ausencia)",
+      "propuesto": "Destacar en negrita las palabras clave de los textos de Visión y Misión (por ejemplo, los conceptos centrales de cada oración) para facilitar el escaneo visual.",
+      "criterio_id": "D6",
+      "motivo": "Los párrafos de Visión y Misión son extensos y no destacan ningún término clave, dificultando la lectura rápida.",
+      "ubicacion_pantalla": "En los bloques 'Visión' y 'Misión'",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "HTML-L632",
+      "original": "LINK EXTERNO",
+      "propuesto": "Link externo",
+      "criterio_id": "D7",
+      "motivo": "Evitar el uso de mayúsculas sostenidas en el texto del botón; se recomienda capitalización estándar. NOTA DE CONFLICTO: este mismo nodo tiene una propuesta de mayor severidad en F3 (eliminar el nodo por no tener destino funcional); ver nota_final_tic.",
+      "ubicacion_pantalla": "En el botón rojo del modal de inicio de sesión",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "HTML-L649",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el encabezado del modal de búsqueda.",
+      "ubicacion_pantalla": "En el encabezado del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-L649",
+      "original": "BUSCADOR",
+      "propuesto": "Buscador",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en el placeholder del campo de búsqueda dentro del modal, distinto del ítem de la cabecera global.",
+      "ubicacion_pantalla": "En el campo de búsqueda dentro del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T019, T020",
+      "html_linea_aprox": "HTML-L649",
+      "original": "MARCAS / PATENTES",
+      "propuesto": "Marcas / Patentes",
+      "criterio_id": "D7",
+      "motivo": "Evitar mayúsculas sostenidas en los subtítulos de las categorías de búsqueda del modal.",
+      "ubicacion_pantalla": "En los subtítulos de categorías dentro del modal de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T011",
+      "html_linea_aprox": "HTML-L580/605",
+      "original": "Observancia",
+      "propuesto": "Protege tu idea",
+      "criterio_id": "F1",
+      "motivo": "El texto del enlace debe coincidir con el título real de la página de destino para que el usuario sepa qué esperar antes de hacer clic.",
+      "ubicacion_pantalla": "En el menú principal de navegación",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T009",
+      "html_linea_aprox": "HTML-L563/660",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad intelectual e industrial",
+      "criterio_id": "F2",
+      "motivo": "Evitar textos genéricos de enlace; el texto debe anticipar el contenido de destino sin depender del contexto visual circundante.",
+      "ubicacion_pantalla": "En el menú principal de navegación",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "HTML-L632",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "F3",
+      "motivo": "El botón no tiene un destino funcional (href=\"#\"); debe eliminarse o repararse con un enlace real y un texto descriptivo de la acción que realiza. Esta propuesta (severidad alta) prevalece sobre la de D7 para el mismo nodo — ver nota_final_tic.",
+      "ubicacion_pantalla": "En el modal de acceso/login, botón rojo junto a las opciones de usuario frecuente y registro",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L632",
+      "original": "Registro",
+      "propuesto": "Crear cuenta con ClaveÚnica",
+      "criterio_id": "F3",
+      "motivo": "El texto actual es ambiguo entre registrar una cuenta de acceso y registrar una marca; se debe especificar la acción real del enlace.",
+      "ubicacion_pantalla": "En el modal de acceso/login, opción para crear una cuenta nueva",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T039",
+      "html_linea_aprox": "HTML-L814",
+      "original": "Plan de Acción de Cumplimiento 2025 (PDF)",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, peso a confirmar por TI)",
+      "criterio_id": "F4",
+      "motivo": "Falta el peso del archivo en el texto visible; no se conoce el peso exacto en el CMS, por lo que se solicita a TI completar el dato en el atributo alt/title.",
+      "ubicacion_pantalla": "En el carrusel de documentos institucionales de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T041",
+      "html_linea_aprox": "HTML-L818",
+      "original": "Teletrabajo",
+      "propuesto": "Informe de Teletrabajo INAPI (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El texto visible no indica que el enlace corresponde a un documento PDF; se agrega la indicación de formato para cumplir con el criterio.",
+      "ubicacion_pantalla": "En el carrusel de documentos institucionales de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "HTML-L822",
+      "original": "Código de Ética INAPI 2026",
+      "propuesto": "Código de Ética INAPI 2026 (PDF)",
+      "criterio_id": "F4",
+      "motivo": "El texto visible no indica el formato del documento; se agrega la indicación (PDF) sin inventar un peso no confirmado en el CMS.",
+      "ubicacion_pantalla": "En el carrusel de documentos institucionales de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T023",
+      "html_linea_aprox": "HTML-L719-730",
+      "original": "(no existe en HTML)",
+      "propuesto": "Bloque «Conoce también» al cierre del contenido editorial, con enlaces a Funciones, Objetivos, Director Nacional y Organigrama",
+      "criterio_id": "F6",
+      "motivo": "El cuerpo editorial no ofrece enlaces relacionados internos distintos del menú de navegación global; se propone incorporar un bloque explícito de contenidos relacionados al final del texto.",
+      "ubicacion_pantalla": "Al final del contenido editorial de la página Acerca de INAPI, antes del carrusel de documentos institucionales",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T055",
+      "html_linea_aprox": "HTML-L907",
+      "original": "Política de privacidad",
+      "propuesto": "Política de privacidad y derechos ARCO (acceso, rectificación, cancelación y oposición sobre tus datos personales)",
+      "criterio_id": "G2",
+      "motivo": "El enlace actual no menciona explícitamente los derechos ARCO en la página, por lo que el ciudadano no identifica de inmediato que existe un mecanismo para ejercerlos.",
+      "ubicacion_pantalla": "En el pie de página, en la columna de accesos junto al enlace de Política de privacidad",
+      "capa": "VISIBLE"
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-06-07, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla (CLAUDE.md §2 y §5): el <title>, <meta description> y <meta keywords> del <head> no se usan como evidencia en ningún criterio. CONFLICTO DE CONSOLIDACIÓN: el nodo T016 «LINK EXTERNO» (botón rojo del modal de login, href=\"#\") recibió dos propuestas de distintos grupos — D7 (severidad media) propone solo normalizar la capitalización a 'Link externo'; F3 (severidad alta) propone eliminar el nodo completo por no tener destino funcional. Se retiene como propuesta canónica la de F3 (severidad más alta): eliminar el nodo. Si TI decide en cambio conservar el botón y repararle un destino real, aplicar entonces la normalización de capitalización de D7 sobre el texto final. Para aplicar el resto de las sustituciones: (1) hacer backup del HTML antes de cualquier cambio; (2) los párrafos de Visión (HTML-L773) y Misión (HTML-L786) están dentro de <p> anidados en <div class=\"cont\"> dentro de <div class=\"box-mv\"> — editar solo el texto del <p>; (3) el error de concordancia 'los asume' (HTML-L800) y la voz pasiva de los ítems de Valores están dentro de <li> de un <ul class=\"lista-check azul\"> — editar solo el texto, no el marcado de lista; (4) el error de capitalización 'Propiedad industrial' (HTML-L869) está en el footer compartido con /marcas y /patentes — coordinar el cambio a nivel de plantilla (_Layout.cshtml), no por página, para no duplicar el esfuerzo; (5) los tres PDFs del carrusel (HTML-L814, L818, L822) usan atributos alt/title en <img> dentro de <a> — la corrección de F4 requiere editar esos atributos; (6) las filas con linea '(ausencia)' o 'T025' para A7, E3 y C6 requieren insertar nuevos nodos de texto en el HTML, no reemplazar texto existente — coordinar con el equipo de CMS la posición exacta de inserción; (7) G1 se mantiene calibrado como cumple para el RUT institucional de persona jurídica pública (65.999.669-3); (8) B8 requiere ejecutar medición de legibilidad con herramienta externa (Legible.es) — tarea de seguimiento fuera del alcance de esta auditoría automatizada."
+}

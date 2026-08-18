@@ -281,18 +281,6 @@ function ResultadoInner() {
 
   const clarityMeta = deliveryBundle?.clarity ?? null
 
-  const origenDatos:
-    | "claude_audit_api"
-    | "fixture_api"
-    | "import_json"
-    | "url_mock" = claudeAuditForDisplay
-    ? "claude_audit_api"
-    : fixtureAuditForDisplay
-      ? "fixture_api"
-      : importedAudit
-        ? "import_json"
-        : "url_mock"
-
   const criteriosFiltrados = useMemo(() => {
     if (!auditoria) return []
     return criteriosVisiblesParaEntrega(auditoria.criterios_evaluados).filter(
@@ -426,17 +414,6 @@ function ResultadoInner() {
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
 
-  const descripcionOrigen =
-    origenDatos === "claude_audit_api"
-      ? "Datos cargados desde auditoría piloto Claude en el repositorio (API /api/claude-audits/…)."
-      : origenDatos === "fixture_api"
-        ? "Datos cargados desde el fixture del repositorio (API /api/audit-fixtures/…, validado con strictAuditRecordSchema)."
-        : origenDatos === "import_json"
-          ? "Datos cargados desde JSON pegado o importado en el navegador."
-          : "Datos generados en cliente con buildStrictAuditForAuditarUrl o buildDemoStrictAudit desde @contracts/checklist."
-
-
-
   return (
     <div className="flex w-full flex-col gap-6">
       {!claudeAuditId ? (
@@ -523,8 +500,7 @@ function ResultadoInner() {
         <CardHeader className="gap-4 space-y-0">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0 flex-1 space-y-1.5">
-              <CardTitle>Resultado de la auditoría (mock)</CardTitle>
-              <CardDescription>{descripcionOrigen}</CardDescription>
+              <CardTitle>Resultado de la auditoría</CardTitle>
             </div>
             <Button
               type="button"
