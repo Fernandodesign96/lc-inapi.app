@@ -51,22 +51,18 @@ export function AuditarClaudePilotSection() {
     <Card className="border-border bg-card">
       <CardHeader>
         <CardTitle className="text-base">
-          Piloto auditoría LC — 9 URLs (entrega TIC)
+          Auditoría 10 URLs INAPI - META MEI
         </CardTitle>
         <CardDescription>
-          Auditorías Claude en el repositorio. Cada fila muestra la{" "}
-          <strong className="font-medium text-foreground">
-            última auditoría
-          </strong>{" "}
-          disponible para esa URL. Abra una fila disponible para el informe (siete
-          bloques).
+          Cada fila muestra la última auditoría realizada para cada URL, abra
+          una fila disponible para ver el informe en detalle.
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="piloto-junio-2026">
             <AccordionTrigger className="text-start text-sm sm:text-base">
-              URLs auditadas — piloto (última auditoría vigente)
+              10 URLs - META MEI
             </AccordionTrigger>
             <AccordionContent>
               <div className="overflow-x-auto px-1 pb-2">
