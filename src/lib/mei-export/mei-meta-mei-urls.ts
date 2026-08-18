@@ -93,7 +93,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://tramites.inapi.cl/siac",
     nombreUi: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    auditId: "tramites-inapi-cl-siac_2026-06-07",
+    auditId: "tramites-inapi-cl-siac_2026-08-18",
     rolMetaMei: "Formulario (trámites)",
   },
 ]

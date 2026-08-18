@@ -1,0 +1,496 @@
+{
+  "id": "tramites-inapi-cl-siac_2026-08-18",
+  "url": "https://tramites.inapi.cl/siac",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "tramites",
+  "texto_capturado": "NOTA: HTML capturado con Playwright MCP (DOM renderizado, 2026-08-18) como volcado de una sola línea; las anclas entre comillas son el texto exacto a buscar con Ctrl+F, no números de línea. Solo se inventaría contenido VISIBLE al ciudadano; <title> y <meta> quedan fuera de alcance (el <title> de esta página tiene el error tipográfico «...Marcas, Patentes y máss», no evaluado por estar fuera de alcance). captura_con_sesion: false — formulario público, sin login obligatorio (modal ofrece «Continuar sin Iniciar Sesión»); todos los campos están vacíos. IMPORTANTE: esta página NO tiene ningún encabezado semántico H1/H2/H3 en todo el documento. | T001 masthead/navbar-brand: «Trámites y Servicios» (área, normal) + «FORMULARIO CONTACTO SIAC» (span.form-title, mayúsculas — único «título» visual, no es H1, se repite en navbar sticky) | T002 navbar mega-menú: «MI INAPI» (mayúsculas), «TRAMITACIÓN» (mayúsculas), «PAGOS» (mayúsculas, incluye «Pagar Tasas PCT Fase Internacional» con PCT sin expandir), «SERVICIOS» (mayúsculas) — sin exclusión de D7 en este subdominio | T003 nav móvil: «Home» (→ /), «Iniciar Sesión» (→ /, NO lleva a un login real) | T004 navbar desktop: «Marcas», «Patentes» (normal) | T005 card-header: «Sistema Integral de Atención Ciudadana. (SIAC)» (sigla expandida aquí) | T006 párrafo de alerta: «Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:» | T007 fieldset legend: «Formulario» | T008 label «Tipo de Atención: » + select «...Seleccione...», «Consulta», «Sugerencia», «Reclamo», «Felicitación» (corregido: ya no dice «...Selecione...» como en la auditoría v1.1) | T009 label «Área de Atención: » + select «...Seleccione...», «Trámite de Marca», «Trámite de Patentes», «Servicio en línea», «Capacitaciones, Talleres o Cursos», «General» | T010 label «RUT: » (corregido: mayúsculas correctas, antes «Rut:») + input sin ayuda de formato proactiva (solo tooltip reactivo «¡Rut incorrecto!») | T011 label «Género: » + select «Seleccione...», «Masculino», «Femenino», «Otro» | T012 label «Nombres: » + input | T013 label «Apellidos: » + input | T014 label «Correo Electrónico: » + input | T015 label «Repita Correo Electrónico: » + input | T016 label «Teléfono de contacto: » + input sin indicar formato esperado | T017 label «Describa su solicitud (Máximo 7000 caracteres):» + textarea + contador «0 / 7000 caracteres» | T018 botones «Enviar» / «Limpiar» | T019 modal automático al cargar (sin sesión): «¡Atención!» (corregido: antes «Atención!» sin apertura) + «Para hacer seguimiento a su consulta debe iniciar sesión.» + botones «Iniciar Sesión» (→ /, no lleva a login real) / «Continuar sin Iniciar Sesión» | T020 modal de confirmación (oculto, tras enviar): «Su consulta ha sido recibida» / «Su número de atención es: [vacío]. Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.» / botón «Aceptar» | T021 modal genérico de alertas del sistema con botón «OK» | T022 footer «Dónde estamos»: «Instituto Nacional de Propiedad Industrial (INAPI)» (correctamente capitalizado en este subdominio) / «RUT: 65.999.669-3» / «Carabineros de Chile Nº 195, Santiago, Chile» / «(56 2) 2 887 0400» / «inapi@inapi.cl» | T023 footer «Conversemos»: enlaces Contacto, Facebook, Twitter, Instagram, Linkedin | T024 footer «Accesos»: lista de enlaces, incluye «Política de privacidad» (enlace directo a PDF, target=_blank) | T025 footer inferior: «©2026 INAPI. Todos los derechos reservados» / «v 2.3.104.0» (cadena de versión técnica visible al público)",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página no cuenta con ningún encabezado H1 (ni H2/H3) que anuncie el mensaje principal en la parte superior del contenido. El único elemento que funciona visualmente como título es un span.form-title («FORMULARIO CONTACTO SIAC») ubicado en el masthead/navbar, que no es un encabezado semántico. El párrafo de alerta (T006) comunica el propósito, pero la ausencia de un encabezado estructural en la parte superior incumple el criterio.",
+      "cita_textual": "T001: «FORMULARIO CONTACTO SIAC» (span.form-title, sin ser H1/H2/H3)"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "El párrafo de alerta (T006) antepone el propósito general del formulario antes de solicitar los datos específicos del ciudadano, siguiendo pirámide invertida: primero el qué/para qué, luego el detalle operativo (los campos del formulario).",
+      "cita_textual": "T006: «Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe ningún encabezado semántico H1/H2/H3 en toda la página. El fieldset legend «Formulario» (T007) no es un encabezado de contenido y el card-header (T005) tampoco está marcado como encabezado visible. La página consiste en un único bloque sin fragmentación en secciones tituladas.",
+      "cita_textual": "(ausencia) — no existe ningún H1/H2/H3 semántico en toda la página"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Los únicos bloques de texto continuo visibles son el card-header (T005) y el párrafo de alerta (T006), ambos muy breves (menos de 30 palabras cada uno), muy por debajo del umbral de 110 palabras por bloque."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El pie de página inferior expone el número de versión técnica de la plataforma, información de desarrollo/despliegue sin utilidad para la persona usuaria y que no debería ser visible en producción.",
+      "cita_textual": "T025: «v 2.3.104.0»"
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detectan textos de tipo «en construcción», placeholders de desarrollo ni contenido inconcluso en la página."
+    },
+    {
+      "id": "A7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página comunica el qué (tipos de atención: consulta, sugerencia, reclamo, felicitación) y el cómo (a través del formulario), pero no destaca en ningún recuadro o resumen el cuándo (plazo esperado de respuesta) ni el para quién. Esta información sigue ausente incluso tras enviar el formulario (T020 solo confirma el envío, sin plazo).",
+      "cita_textual": "(ausencia) — no se explica en ninguna parte el plazo esperado de respuesta ni a quién está dirigido el canal SIAC"
+    },
+    {
+      "id": "A8",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Al ser una página de trámite, debería brindar información suficiente para completar el proceso de forma autónoma: requisitos, plazos y canales. Carece de plazo estimado de respuesta, de explicación de qué ocurre tras enviar el formulario más allá de un número de atención que en el modal de confirmación aparece vacío, y de canales de seguimiento vinculados específicamente al SIAC.",
+      "cita_textual": "T020: «Su número de atención es: . Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.»"
+    },
+    {
+      "id": "A9",
+      "estado": "cumple",
+      "comentario": "El formulario presenta etiquetas claras por campo, agrupación mediante fieldset/legend, un recuadro de alerta destacado antes del formulario y un contador dinámico de caracteres, lo que favorece razonablemente el escaneo visual dado el tamaño acotado del contenido."
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El texto introductorio (T006) usa voz activa correctamente, pero el modal de confirmación de envío (T020) recurre a voz pasiva perifrástica en ambas oraciones («ha sido recibida», «se ha enviado»).",
+      "cita_textual": "T020: «Su consulta ha sido recibida... Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.»"
+    },
+    {
+      "id": "B2",
+      "estado": "cumple",
+      "comentario": "Las etiquetas de campo y opciones de selección (Tipo de Atención, Área de Atención, Género) usan términos de uso común sin jerga técnica sin definir."
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La sigla SIAC se expande correctamente en su primera aparición visible (T005), buena práctica a mantener. Sin embargo, la sigla PCT aparece en el mega-menú de navegación (T002) sin expandir en su única aparición en la página, patrón sistémico ya identificado en URLs de Trámites.",
+      "cita_textual": "T002: «Pagar Tasas PCT Fase Internacional»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos en las etiquetas, textos de ayuda ni mensajes de modal visibles del formulario."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El tono general es neutro-institucional sin formulaciones negativas o desalentadoras; incluso el modal de aviso de sesión (T019) se plantea como instrucción, no como prohibición."
+    },
+    {
+      "id": "B6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El formulario mantiene un registro consistentemente formal («usted») en todas las etiquetas e instrucciones («Repita», «Describa su solicitud», «debe iniciar sesión»), sin usar tuteo en ningún punto de la página.",
+      "cita_textual": "T017: «Describa su solicitud (Máximo 7000 caracteres):»"
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se observa relleno formal o lenguaje institucional redundante en los textos evaluables del formulario; los textos son directos y funcionales."
+    },
+    {
+      "id": "B8",
+      "estado": "no_aplica",
+      "comentario": "La página es un formulario transaccional; el único texto corrido continuo (T006, ~16 palabras) es insuficiente para aplicar un índice de legibilidad, que requiere muestras de al menos ~200 palabras. No existe otro cuerpo editorial continuo medible."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "El texto introductorio (T006) sigue orden sujeto-verbo-predicado claro.",
+      "cita_textual": "T006: «Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los textos evaluables (T006, T019, T020) se construyen en tiempos del presente (presente simple o presente compuesto); no se detecta uso de tiempos verbales inadecuados como futuro o condicional para instrucciones."
+    },
+    {
+      "id": "C3",
+      "estado": "cumple",
+      "comentario": "Las oraciones visibles son breves: T006 (~16 palabras) y las oraciones de T020 (~15 palabras cada una), muy por debajo del límite de 30 palabras."
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada bloque de texto (T006, T020) desarrolla una sola idea: T006 explica qué se puede enviar por el formulario; T020 confirma la recepción y el envío del correo de confirmación."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Todos los bloques de texto evaluables ocupan una sola línea/oración corta, muy por debajo del límite de 8 líneas por párrafo."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página tiene menos de 4 párrafos de texto editorial (solo T006 antes del formulario y T020 en el modal de confirmación); no corresponde exigir resumen inicial."
+    },
+    {
+      "id": "C7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No hay lista de requisitos de trámite en esta página (es un formulario de contacto). Sin embargo, el aspecto de «formato esperado en campos» sí falla: el campo RUT (T010) no indica proactivamente el formato esperado (solo un tooltip de error reactivo tras un intento fallido) y el campo Teléfono de contacto (T016) no indica cantidad de dígitos ni si debe incluir código de área.",
+      "cita_textual": "T010: «RUT: » [input sin ayuda de formato] / T016: «Teléfono de contacto: » [input sin ayuda de formato]"
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "La página no presenta estructura de preguntas frecuentes (FAQ); es un formulario de contacto sin bloque de preguntas y respuestas."
+    },
+    {
+      "id": "C9",
+      "estado": "no_aplica",
+      "comentario": "Pantalla de solo formulario/estado sin cuerpo editorial de párrafos narrativos. Los únicos bloques de texto (T006, T020) son instrucciones puntuales, no un cuerpo de contenido editorial."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Los errores tipográficos detectados en la auditoría v1.1 (2026-06-07) — «Selecione» en Tipo de Atención, «Rut:» en minúscula, «Atención!» sin apertura de exclamación — están corregidos en esta revisión. Persiste un hallazgo nuevo: el footer inferior expone una cadena de versión de build/desarrollo («v 2.3.104.0») como texto visible al público, texto de desarrollo sin eliminar en contenido visible.",
+      "cita_textual": "T025: «v 2.3.104.0» (footer inferior, junto a «©2026 INAPI. Todos los derechos reservados»)"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "Verificado contra el HTML crudo capturado: las etiquetas del formulario («Tipo de Atención: », «Área de Atención: », «RUT: », etc.) no tienen espacio antes de los dos puntos; el colon va inmediatamente después de la palabra, con un espacio de separación después. La puntuación y concordancia gramatical del contenido visible son correctas."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "El espaciado entre párrafos es un criterio CSS/visual, fuera del alcance editorial de esta auditoría."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "La alineación del texto es un criterio CSS/visual, fuera del alcance editorial de esta auditoría."
+    },
+    {
+      "id": "D5",
+      "estado": "no_aplica",
+      "comentario": "No hay enumeraciones de requisitos o pasos en el formulario SIAC que requieran formato de lista; las opciones de los campos select son controles de formulario, no listados editoriales."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso en la página que requiera destacar palabras clave con negritas; el único párrafo editorial (T006) es una línea breve y el resto del contenido es interfaz de formulario."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "A diferencia de www.inapi.cl, en tramites.inapi.cl no aplica ninguna exclusión de plantilla para D7. Se detecta mayúscula sostenida en el título del masthead y en la navbar sticky («FORMULARIO CONTACTO SIAC») y en los cuatro ítems del navbar mega-menú («MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»), consistente con el patrón sistémico documentado en CLAUDE.md §6 para el menú de Trámites.",
+      "cita_textual": "T001: «FORMULARIO CONTACTO SIAC» / T002: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El contenido es neutral e institucional; no se detecta lenguaje promocional, opinión ni sesgo en el texto visible del formulario o su encabezado."
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica claramente a la entidad responsable, con RUT institucional, dirección y canales de contacto oficiales.",
+      "cita_textual": "T022: «Instituto Nacional de Propiedad Industrial (INAPI)»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "No existe fecha de publicación ni de última actualización visible en ninguna parte de la página. Se descarta el copyright del pie como sustituto válido, conforme a la calibración del proyecto.",
+      "cita_textual": "(ausencia) — no hay fecha de actualización/vigencia visible en ninguna parte de la página"
+    },
+    {
+      "id": "E4",
+      "estado": "no_aplica",
+      "comentario": "No existe ningún H1 visible en la página (ausencia ya evaluada como incumplimiento en A1 y A3), por lo que no hay un título semántico sobre el cual evaluar fidelidad de contenido. El texto con apariencia de título (span.form-title) no es un H1 real; su problema es de marcado semántico, ya cubierto en A1/A3."
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «Iniciar Sesión» del menú móvil y el botón «Iniciar Sesión» del modal de bienvenida (T019) apuntan a href=\"/\" (portada del sitio), no a un formulario de inicio de sesión. El texto del enlace promete una acción que el destino real no cumple.",
+      "cita_textual": "«Iniciar Sesión» (nav móvil y botón modal T019, ambos href=\"/\")"
+    },
+    {
+      "id": "F2",
+      "estado": "cumple",
+      "comentario": "No se detectan enlaces con texto genérico tipo «Ver más», «Leer más» o «Click aquí» en el inventario visible (menú, formulario, modales, footer)."
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los botones «Enviar»/«Limpiar» y «Continuar sin Iniciar Sesión» son descriptivos. Sin embargo, el botón «Aceptar» del modal de confirmación de envío (T020) y el botón «OK» del modal genérico de alertas del sistema (T021) son textos de sistema genéricos que no indican qué acción se confirma o cierra, patrón transversal ya identificado en el layout compartido.",
+      "cita_textual": "«Aceptar» (T020, modal de confirmación) / «OK» (T021, modal de alertas de sistema)"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» del footer (T024) apunta directamente a un archivo PDF sin indicar en el texto visible del enlace que se trata de un documento descargable, su formato ni su peso.",
+      "cita_textual": "T024: «Política de privacidad» (enlace directo a politica_de_privacidad.pdf, sin formato ni peso indicados)"
+    },
+    {
+      "id": "F5",
+      "estado": "no_aplica",
+      "comentario": "La pantalla es un formulario de contacto sin bloques de texto corrido/editorial donde pudieran embeberse enlaces dentro de un párrafo. Todos los enlaces detectados son elementos estructurales/de navegación, no enlaces insertados en texto corrido."
+    },
+    {
+      "id": "F6",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "No se detecta ningún enlace relacionado al contexto específico del trámite SIAC (por ejemplo, preguntas frecuentes sobre el SIAC u otros canales de atención) más allá del menú global de navegación y el enlace genérico «Contacto» del footer.",
+      "cita_textual": "(ausencia) — no se detecta enlace relacionado al SIAC en el cuerpo del formulario ni cerca de él"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "No hay sesión iniciada (modal ofrece explícitamente «Continuar sin Iniciar Sesión») y todos los campos del formulario están vacíos — no se expone ningún dato de un solicitante real en el HTML estático. El único RUT presente es el institucional de INAPI en el footer, persona jurídica pública.",
+      "cita_textual": "T022: «RUT: 65.999.669-3» (footer institucional) / T010-T016: campos vacíos (value=\"\")"
+    },
+    {
+      "id": "G2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El formulario SIAC recolecta activamente datos personales (RUT, Género, Nombres, Apellidos, Correo Electrónico, Teléfono), pero la única referencia a tratamiento de datos personales en toda la página es el enlace genérico «Política de privacidad» del footer, común a todo el sitio institucional, sin mención específica cerca de los campos sobre para qué se usarán esos datos ni cómo ejercer derechos ARCO en este trámite.",
+      "cita_textual": "T024: «Política de privacidad» (footer «Accesos», enlace directo a PDF) — único punto de la página con mención relacionada a datos personales"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright institucional está publicado y con año vigente en el footer inferior.",
+      "cita_textual": "T025: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de «archivo»/«no vigente». Esta página no contiene imágenes de contenido editorial, solo iconos de interfaz sin función informativa, por lo que el patrón sistémico de imágenes sin alt tampoco es evaluable aquí."
+    }
+  ],
+  "criterios_no_aplica": 11,
+  "criterios_aplicables": 36,
+  "criterios_aprobados": 19,
+  "porcentaje_cumplimiento": 52.8,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 17 incumplimientos sobre 36 criterios aplicables (52,8 %), evaluando exclusivamente contenido visible en pantalla. Las correcciones de mayor impacto son: (1) agregar un H1 semántico real «Formulario de contacto SIAC» y encabezados H2 intermedios que fragmenten la página en secciones (A1, A3, ambas alta); (2) completar la información de autonomía del trámite — plazo de respuesta, canal de seguimiento — tanto en la introducción como en el modal de confirmación (A8, alta); (3) expandir PCT en el mega-menú «Pagar Tasas PCT Fase Internacional» (B3, alta); (4) indicar formato/peso en el enlace a la política de privacidad, que apunta directo a un PDF (F4, alta); (5) corregir el destino del enlace «Iniciar Sesión», que actualmente lleva a la portada en vez de a un login real (F1, media); (6) reemplazar los botones genéricos «Aceptar»/«OK» de los modales por textos descriptivos (F3, media); (7) reformular en voz activa el modal de confirmación de envío (B1, media); (8) aplicar tuteo consistente en las etiquetas del formulario (B6, media); (9) indicar el formato esperado en los campos RUT y Teléfono de contacto (C7, media); (10) agregar mayúsculas normales en el mega-menú de navegación y en el título del masthead (D7, media); (11) agregar una nota específica sobre el uso de los datos personales recolectados y el ejercicio de derechos ARCO cerca del formulario (G2, media); (12) eliminar la cadena de versión técnica visible en el footer (A5/D1, baja); (13) agregar fecha de vigencia (E3, baja); (14) agregar un enlace relacionado al contexto del SIAC (F6, baja). El array sustituciones[] contiene 22 filas con cobertura 1:1 para los 17 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) del Formulario de Contacto SIAC obtiene un 52,8 % de cumplimiento sobre 36 criterios aplicables — estado RECHAZADO (≤80 %), evaluando exclusivamente contenido visible en pantalla. Respecto a la auditoría histórica v1.1 (2026-06-07, 57,6 %), se corrigieron tres errores ortográficos puntuales («...Selecione...» → «...Seleccione...», «Rut:» → «RUT:», «Atención!» → «¡Atención!»), pero el porcentaje baja levemente por la ampliación a 47 criterios v2.1 con hallazgos estructurales nuevos de mayor peso: ausencia total de encabezados semánticos H1/H2/H3 en toda la página (A1, A3, ambas alta) e insuficiencia de información para completar el trámite de forma autónoma —sin plazo de respuesta ni canal de seguimiento explícito— (A8, alta). El otro incumplimiento de severidad alta es sistémico: la sigla PCT sin expandir en el mega-menú (B3) y el enlace a la política de privacidad sin indicar que es un PDF (F4). Los incumplimientos de severidad media cubren tanto patrones de plantilla compartida (D7 mayúsculas en navbar/mega-menú, F1 destino incorrecto del enlace «Iniciar Sesión», F3 botones «Aceptar»/«OK» genéricos) como hallazgos propios de este formulario (B1 voz pasiva en confirmación, B6 ausencia de tuteo, C7 campos RUT/teléfono sin indicar formato esperado, G2 ausencia de nota específica sobre uso de datos personales recolectados). Las fortalezas son la estructura clara de campos con fieldset/legend y contador de caracteres (A9), el tono objetivo sin opiniones (E1), la identificación institucional clara (E2), y la correcta calibración de G1 (formulario sin sesión, campos vacíos, RUT institucional del footer).",
+  "resumen_ejecutivo": "La página https://tramites.inapi.cl/siac fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios), como parte del lote de reauditoría META MEI (orden 10, rol «Formulario (trámites)»), evaluando exclusivamente contenido visible en pantalla, con `captura_con_sesion: false` (formulario público sin login obligatorio). De los 36 criterios aplicables (11 no aplican: B8, C6, C8, C9, D3, D4, D5, D6, E4, F5, H1 — mayoría por tratarse de una pantalla de solo formulario sin cuerpo editorial), 19 se cumplen, lo que arroja un 52,8 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 17 incumplimientos; los de severidad alta son: ausencia total de encabezados H1/H2/H3 (A1, A3), información insuficiente para completar el trámite de forma autónoma —sin plazo de respuesta ni canal de seguimiento— (A8), la sigla PCT sin expandir en el mega-menú (B3), y el enlace a la política de privacidad sin indicar que es un documento PDF (F4). Respecto a la auditoría histórica v1.1 (2026-06-07, 57,6 %), se corrigieron tres errores ortográficos puntuales, pero la ampliación a 47 criterios v2.1 expone deudas estructurales de mayor peso (A1, A3, A8) no visibles en el checklist anterior de 39 criterios.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(A1) La página no tiene ningún H1 que anuncie el mensaje principal; el único texto con apariencia de título es un span sin marcado semántico.",
+      "(A3) No existe ningún encabezado H1/H2/H3 en toda la página; es un único bloque sin fragmentación en secciones tituladas.",
+      "(A8) Falta plazo estimado de respuesta y explicación de qué ocurre tras enviar el formulario más allá de un número de atención que aparece vacío en el modal de confirmación.",
+      "(B3) «PCT» (mega-menú «Pagar Tasas PCT Fase Internacional») sin expandir en su única aparición en la página.",
+      "(F4) El enlace «Política de privacidad» apunta directo a un PDF sin indicar formato ni peso en el texto visible."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A7) No se destaca el plazo de respuesta ni el público objetivo del canal SIAC.",
+      "(B1) El modal de confirmación de envío usa voz pasiva perifrástica en ambas oraciones.",
+      "(B6) El formulario mantiene registro formal («usted») en todas las etiquetas, sin tuteo.",
+      "(C7) Los campos RUT y Teléfono de contacto no indican proactivamente el formato esperado.",
+      "(D7) Mayúsculas sostenidas en el masthead («FORMULARIO CONTACTO SIAC») y en el mega-menú («MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS»), sin exclusión vigente en tramites.inapi.cl.",
+      "(F1) El enlace/botón «Iniciar Sesión» apunta a la portada del sitio, no a un formulario de login real.",
+      "(F3) Los botones «Aceptar» y «OK» de los modales de confirmación y alertas son genéricos.",
+      "(G2) No hay mención específica sobre el uso de los datos personales recolectados (RUT, correo, teléfono) ni sobre derechos ARCO en el contexto de este trámite."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A5/D1) El footer inferior expone la cadena de versión técnica «v 2.3.104.0», texto de desarrollo sin eliminar.",
+      "(E3) No hay fecha de publicación ni de última actualización visible en la página.",
+      "(F6) No existe ningún enlace relacionado al contexto específico del trámite SIAC más allá del menú global y el footer."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T001",
+      "html_linea_aprox": "FORMULARIO CONTACTO SIAC",
+      "original": "(no existe H1 en la página; el texto «FORMULARIO CONTACTO SIAC» solo existe como span.form-title en el masthead/navbar)",
+      "propuesto": "Agregar <h1>Formulario de contacto SIAC</h1> como encabezado semántico visible al inicio del contenido principal, antes del card-header «Sistema Integral de Atención Ciudadana»",
+      "criterio_id": "A1",
+      "motivo": "La página carece de un encabezado H1 que anuncie el mensaje principal en la parte superior del contenido; el texto visual actual no es un encabezado semántico."
+    },
+    {
+      "linea": "T007",
+      "html_linea_aprox": "Formulario",
+      "original": "(no existe fragmentación en secciones con encabezados informativos; único fieldset legend «Formulario» sin jerarquía semántica)",
+      "propuesto": "Incorporar encabezados semánticos: <h1>Formulario de contacto SIAC</h1>, seguido de <h2>Antes de completar este formulario</h2> (bloque de plazos y canales) y <h2>Datos de contacto</h2> sobre los campos del formulario",
+      "criterio_id": "A3",
+      "motivo": "Toda la página es un único bloque sin fragmentación en secciones tituladas; se requieren encabezados intermedios para cumplir con la organización en secciones lógicas."
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "v 2.3.104.0",
+      "original": "v 2.3.104.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "A5",
+      "motivo": "El número de versión técnica de la plataforma es información de desarrollo/despliegue sin utilidad para la persona usuaria; no debe exponerse en el pie de página público."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
+      "original": "(ausencia) — falta indicar plazo de respuesta y público objetivo",
+      "propuesto": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación. Este canal está disponible para toda persona usuaria de los servicios de INAPI y su consulta será respondida en un plazo estimado de [N] días hábiles al correo electrónico indicado.",
+      "criterio_id": "A7",
+      "motivo": "Falta destacar el plazo esperado de respuesta (cuándo) y el público al que está dirigido el canal (para quién)."
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "Su consulta ha sido recibida",
+      "original": "Su número de atención es: . Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "propuesto": "Su número de atención es: [número]. Puede hacer seguimiento a su consulta ingresando con ClaveÚnica en «Mi INAPI», o comunicándose al teléfono (56 2) 2 887 0400 o al correo inapi@inapi.cl indicando su número de atención. El plazo estimado de respuesta es de [N] días hábiles. Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "criterio_id": "A8",
+      "motivo": "El mensaje de confirmación no indica plazo de respuesta ni canales de seguimiento explícitos, lo que impide que la persona usuaria complete el trámite de forma autónoma."
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "Sistema Integral de Atención Ciudadana. (SIAC)",
+      "original": "(ausencia)",
+      "propuesto": "Última actualización: [DD de mes de AAAA] — agregar bajo el card-header o en el pie de página, cerca de la información institucional",
+      "criterio_id": "E3",
+      "motivo": "No existe fecha de publicación ni de última actualización visible; el copyright del pie no debe sustituir esta fecha conforme a la calibración del proyecto."
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "Su consulta ha sido recibida",
+      "original": "Su consulta ha sido recibida. Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "propuesto": "Recibimos su consulta. Enviamos un correo electrónico de confirmación a la casilla de correo indicada. Gracias.",
+      "criterio_id": "B1",
+      "motivo": "El mensaje de confirmación usa voz pasiva perifrástica en ambas oraciones; se reformula en voz activa manteniendo el registro formal."
+    },
+    {
+      "linea": "T002",
+      "html_linea_aprox": "Pagar Tasas PCT Fase Internacional",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "Pagar tasas del Tratado de Cooperación en Materia de Patentes (PCT), fase internacional",
+      "criterio_id": "B3",
+      "motivo": "La sigla PCT aparece en el mega-menú sin expandir en su única aparición en la página; patrón sistémico transversal a URLs de Trámites."
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "Puede enviar consultas, felicitaciones, reclamos o sugerencias",
+      "original": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
+      "propuesto": "Puedes enviarnos tus consultas, felicitaciones, reclamos o sugerencias a través del siguiente formulario de contacto:",
+      "criterio_id": "B6",
+      "motivo": "El texto usa registro formal/usted impersonal; se propone tuteo consistente con el estándar de lenguaje claro para trámites ciudadanos."
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "Describa su solicitud (Máximo 7000 caracteres):",
+      "original": "Describa su solicitud (Máximo 7000 caracteres):",
+      "propuesto": "Describe tu solicitud (máximo 7000 caracteres):",
+      "criterio_id": "B6",
+      "motivo": "Misma inconsistencia de tuteo detectada en T006; se ilustra el ajuste en otra etiqueta del formulario para el patrón sistémico de registro formal."
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "RUT: ",
+      "original": "(ausencia)",
+      "propuesto": "Ingresa tu RUT sin puntos y con guion antes del dígito verificador (ej. 12345678-9).",
+      "criterio_id": "C7",
+      "motivo": "El campo RUT no indica proactivamente el formato esperado; el único apoyo es un tooltip de error reactivo que aparece tras un intento fallido."
+    },
+    {
+      "linea": "T016",
+      "html_linea_aprox": "Teléfono de contacto: ",
+      "original": "(ausencia)",
+      "propuesto": "Ingresa tu número de teléfono con código de área, sin espacios (ej. 56912345678).",
+      "criterio_id": "C7",
+      "motivo": "El campo de teléfono no indica cantidad de dígitos esperada ni si debe incluir código de área."
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "v 2.3.104.0",
+      "original": "v 2.3.104.0",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "D1",
+      "motivo": "Cadena de versión de build/desarrollo visible al público en el footer inferior; no es contenido editorial y debe eliminarse del HTML renderizado o moverse a un comentario no visible / metadato interno. Coincide con la propuesta de A5 sobre el mismo nodo — aplicar una sola vez."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "FORMULARIO CONTACTO SIAC",
+      "original": "FORMULARIO CONTACTO SIAC",
+      "propuesto": "Formulario contacto SIAC",
+      "criterio_id": "D7",
+      "motivo": "Mayúscula sostenida en el título del masthead (span.form-title) que se repite en la navbar sticky; usar capitalización estándar de oración."
+    },
+    {
+      "linea": "T002",
+      "html_linea_aprox": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "original": "MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS",
+      "propuesto": "Mi INAPI / Tramitación / Pagos / Servicios",
+      "criterio_id": "D7",
+      "motivo": "Mayúscula sostenida en los cuatro ítems del navbar mega-menú de tramites.inapi.cl; en este subdominio no existe exclusión de D7 vigente. El componente es compartido (_Layout.cshtml) en múltiples URLs de Trámites; coordinar con TI para aplicar el cambio sin romper otras páginas que reutilizan el mismo menú."
+    },
+    {
+      "linea": "T003",
+      "html_linea_aprox": "Iniciar Sesión (nav móvil)",
+      "original": "«Iniciar Sesión» (enlace en menú móvil, href=\"/\")",
+      "propuesto": "Corregir el destino del enlace hacia la pantalla real de inicio de sesión (ClaveÚnica/Clave INAPI); si por restricción técnica el destino debe permanecer en la portada, renombrar el enlace a «Ir al inicio»",
+      "criterio_id": "F1",
+      "motivo": "El nombre del enlace promete iniciar sesión pero el destino real es la portada del sitio."
+    },
+    {
+      "linea": "T019",
+      "html_linea_aprox": "Iniciar Sesión (botón modal bienvenida)",
+      "original": "«Iniciar Sesión» (botón en modal de bienvenida, href=\"/\")",
+      "propuesto": "Mismo tratamiento que el enlace del nav móvil: apuntar a la pantalla de login real o renombrar el botón a «Ir al inicio» si el destino no puede modificarse",
+      "criterio_id": "F1",
+      "motivo": "Mismo patrón: el botón induce expectativa de acceso a login que el destino no cumple."
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "Aceptar (modal confirmación envío)",
+      "original": "«Aceptar»",
+      "propuesto": "«Aceptar y volver al formulario»",
+      "criterio_id": "F3",
+      "motivo": "Botón de sistema genérico sin especificar la acción que confirma."
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "OK (modal alertas de sistema)",
+      "original": "«OK»",
+      "propuesto": "«Entendido»",
+      "criterio_id": "F3",
+      "motivo": "Botón de sistema completamente genérico sin contexto de la acción que confirma o del mensaje que responde."
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "Política de privacidad (footer, enlace a politica_de_privacidad.pdf)",
+      "original": "«Política de privacidad»",
+      "propuesto": "«Política de privacidad (PDF)»",
+      "criterio_id": "F4",
+      "motivo": "El enlace apunta directamente a un PDF sin indicar formato ni peso en el texto visible; no se conoce el peso exacto en el CMS, por lo que se usa solo «(PDF)» según convención del proyecto."
+    },
+    {
+      "linea": "T005-T017",
+      "html_linea_aprox": "card-header del formulario SIAC",
+      "original": "(ausencia)",
+      "propuesto": "Añadir enlace relacionado, por ejemplo: «¿Tienes dudas sobre este formulario? Consulta las preguntas frecuentes del SIAC» o un enlace a otro canal de atención institucional",
+      "criterio_id": "F6",
+      "motivo": "No existe ningún enlace relacionado interno específico al contexto del trámite SIAC más allá del menú global y el footer genérico."
+    },
+    {
+      "linea": "T005-T017-privacidad",
+      "html_linea_aprox": "bloque del fieldset «Formulario», antes del botón «Enviar» (cerca de T017/T018)",
+      "original": "(ausencia)",
+      "propuesto": "Los datos personales que ingreses en este formulario (RUT, nombres, correo y teléfono) se usan exclusivamente para gestionar tu consulta y responderte. Revisa cómo ejercer tus derechos de acceso, rectificación, cancelación y oposición (ARCO) en nuestra Política de privacidad (PDF).",
+      "criterio_id": "G2",
+      "motivo": "El formulario recolecta datos personales pero solo existe un enlace genérico a la política de privacidad en el footer, sin mención específica en el punto de recolección sobre el uso de esos datos ni sobre el ejercicio de derechos ARCO en el contexto de este trámite."
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-06-07, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla. El HTML fue capturado con Playwright MCP como volcado de una sola línea; las referencias 'html_linea_aprox' son el texto exacto a buscar con Ctrl+F, no números de línea. FORMULARIO SIN SESIÓN: la captura se realizó sin iniciar sesión (`captura_con_sesion: false`); el modal T019 confirma que el formulario puede usarse sin autenticación mediante «Continuar sin Iniciar Sesión», y todos los campos están vacíos — no aplica la calibración de CLAUDE.md §19. CORRECCIÓN DE CONSOLIDACIÓN: el sub-subagente del Grupo 3 (D) reportó inicialmente un hallazgo D2 sobre «espacio antes de los dos puntos» en las etiquetas del formulario; el agente raíz verificó directamente contra el HTML crudo capturado y confirmó que ese espacio NO existe (las etiquetas son «Tipo de Atención: », colon inmediato tras la palabra) — D2 se registra como cumple. NOTA DE CONTENIDO (no editorial, para revisión de CMS): el <title> de esta página tiene un error tipográfico («...Marcas, Patentes y máss», doble «s») que no se evalúa por estar fuera del alcance visible, pero se deja registrado para que TI lo corrija en la plantilla. Para aplicar las sustituciones: (1) hacer backup del HTML fuente antes de cualquier cambio; (2) el masthead/mega-menú (D7, F1) y el layout de modales «Aceptar»/«OK» (F3) son componentes compartidos por múltiples páginas de tramites.inapi.cl — coordinar el cambio a nivel de plantilla, no por página; (3) el nodo «v 2.3.104.0» (A5/D1) recibió dos propuestas equivalentes de eliminación — aplicar una sola vez; (4) los mensajes de validación ocultos con doble espacio (ej. «El campo Tipo de Atención:  es obligatorio.») están en atributos `data-val-*` que solo se renderizan dinámicamente al fallar la validación — no se evaluaron por no ser contenido visible por defecto, pero se recomienda a TI limpiar el espacio doble en esos mensajes como buena práctica; (5) G1 se mantiene calibrado como cumple: RUT institucional en el footer, sin datos de un solicitante real en los campos vacíos del formulario."
+}
