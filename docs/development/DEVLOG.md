@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Documentación: spike túnel Vercel↔worker PC](#devlog-2026-08-18-tunel-spike) |
 | 2026-08-18 | [Frontend: descargas PDF/Excel desde resultado del job](#devlog-2026-08-18-audit-jobs-downloads) |
 | 2026-08-18 | [Frontend: Continuar → job → poll en procesando](#devlog-2026-08-18-audit-jobs-ui-poll) |
 | 2026-08-18 | [Backend: GET result e historial de audit-jobs](#devlog-2026-08-18-audit-jobs-result) |
@@ -66,6 +67,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-tunel-spike"></a>
+
+## [2026-08-18] - Documentación | spike túnel Vercel↔worker PC
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 9**: dejar escrito cómo exponer la demo sin implementar todavía store remoto ni rewrites Vercel.
+
+### Implementación técnica:
+
+- Nuevo [`docs/despliegue/tunel-vercel-worker-pc.md`](../despliegue/tunel-vercel-worker-pc.md): topologías A/B/C, bloqueo disco efímero en Vercel, runbooks Cloudflare Quick Tunnel y Tailscale, checklist demo 8–18.
+- Decisión MVP: **túnel → PC completo** (misma app que `bun run dev`); worker sigue en localhost.
+- Enlace desde ADR 0011; ROADMAP ítem 9 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 10: `typecheck:all` + PR a `main`.
+- Opcional: probar un quick tunnel real y anotar resultado.
 
 ---
 
