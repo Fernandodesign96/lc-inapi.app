@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-17 | [Infraestructura: Claude Team INAPI — migración cuenta + smoke test](#devlog-2026-08-17-claude-team-inapi) |
 | 2026-08-17 | [Checklist: v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude](#devlog-2026-08-17-checklist-v21-47) |
 | 2026-07-29 | [Infraestructura: Reauditoría §17 de 3 URLs META MEI + Excel regenerado](#devlog-2026-07-29-meta-mei-reauditoria-17) |
 | 2026-07-29 | [Frontend/MEI: 10 URLs META MEI + pestaña Fuentes en Excel](#devlog-2026-07-29-meta-mei-10-urls-fuentes) |
@@ -57,6 +58,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-08-17-claude-team-inapi"></a>
+
+## [2026-08-17] - Infraestructura | Claude Team INAPI — migración cuenta + smoke test
+
+### Contexto y objetivos:
+
+Cerrar el **paso 0** de la [Fase 4 del ROADMAP](../ROADMAP.md#fase-4--mvp-on-demand-cuenta-claude-pro-institucional--worker-local--be-delgado): dejar de operar auditorías §17 con la cuenta Claude personal y usar solo el asiento **institucional INAPI** (Claude Team).
+
+### Implementación técnica:
+
+- `claude auth logout` (sesión personal expirada `fernandodesign96@gmail.com`).
+- `claude auth login --claudeai --email farriagada@inapi.cl` → **Login method: Claude Team account**, **Organization: Inapi**.
+- `claude mcp list`: playwright ✔, rag-auditoria ✔ (también Google Drive MCP, opcional).
+- Chroma local: `chroma run --path ./rag/chroma_db --port 8000`.
+- Smoke test en Claude Code (sin JSON de auditoría): Playwright en `https://www.inapi.cl/` (title + H1) + criterio B3 vía checklist/RAG.
+
+### Próximos pasos:
+
+- Paso 1 Fase 4: PR/merge de `feat/checklist-v2.1-47-criterios` → `main`.
+- Luego docs worker on-demand + contratos BE (pasos 2–3) en rama nueva.
+
+---
+
 <a id="devlog-2026-08-17-checklist-v21-47"></a>
 
 ## [2026-08-17] - Checklist | v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude
@@ -74,8 +98,9 @@ Incorporar el Word **Checklist Editorial INAPI v2.1** (ago-2026): 8 criterios nu
 
 ### Próximos pasos:
 
-- Plan mode: contratos BE mínimos (jobs on-demand) en rama nueva + commits atómicos.
-- Tras checklist estable: elegir 5 URLs META MEI para §17 con v2.1.
+- ~~Migración Claude Pro personal → Team INAPI~~ (hecho — ver [entrada cuenta](#devlog-2026-08-17-claude-team-inapi)).
+- PR/merge checklist v2.1 a `main`; luego plan worker/BE.
+- Tras checklist en `main`: elegir 5 URLs META MEI para §17 con v2.1.
 - Cotización Anthropic API solo como evidencia de costo (no operativa).
 
 ---

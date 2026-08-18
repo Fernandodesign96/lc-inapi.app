@@ -208,15 +208,15 @@
 
 ### Paso 0 — Cambiar cuenta Claude Pro (personal → institucional INAPI) — BLOQUEANTE
 
-- [ ] Confirmar con TI / administración el **asiento Pro o Enterprise institucional** (correo INAPI) y que puede usar **Claude Code** en WSL/PC de trabajo.
-- [ ] Cerrar sesión de la cuenta **personal** en Claude Code / CLI (`claude` auth) en el entorno de auditoría.
-- [ ] Iniciar sesión con la cuenta **institucional INAPI**; verificar `claude auth status` (o equivalente) y que el plan activo es el institucional.
-- [ ] Re-registrar MCP necesarios bajo esa cuenta: Playwright + RAG (`claude mcp list`); Chroma local (`chroma run`) sigue en el mismo PC.
-- [ ] Smoke test mínimo: una captura Playwright de URL pública + consulta RAG Colección A (sin auditoría completa aún).
-- [ ] Documentar en DEVLOG: fecha del cambio, cuenta usada (sin secretos), y que a partir de aquí **toda** auditoría §17 y el worker on-demand usan solo la cuenta institucional.
-- [ ] **Commit atómico (docs):** `docs: registrar migración Claude Pro personal → institucional INAPI` (solo si hay nota operativa en repo; no subir tokens).
+- [x] Confirmar con TI / administración el **asiento Pro o Enterprise institucional** (correo INAPI) y que puede usar **Claude Code** en WSL/PC de trabajo.
+- [x] Cerrar sesión de la cuenta **personal** en Claude Code / CLI (`claude` auth) en el entorno de auditoría.
+- [x] Iniciar sesión con la cuenta **institucional INAPI**; verificar `claude auth status` (o equivalente) y que el plan activo es el institucional.
+- [x] Re-registrar MCP necesarios bajo esa cuenta: Playwright + RAG (`claude mcp list`); Chroma local (`chroma run`) sigue en el mismo PC.
+- [x] Smoke test mínimo: una captura Playwright de URL pública + consulta RAG Colección A (sin auditoría completa aún).
+- [x] Documentar en DEVLOG: fecha del cambio, cuenta usada (sin secretos), y que a partir de aquí **toda** auditoría §17 y el worker on-demand usan solo la cuenta institucional.
+- [x] **Commit atómico (docs):** `docs: registrar migración Claude Pro personal → institucional INAPI` (solo si hay nota operativa en repo; no subir tokens).
 
-**Criterio de salida paso 0:** Claude Code en el PC de trabajo autentica solo con INAPI; MCP verdes; smoke test OK.
+**Criterio de salida paso 0:** Claude Code en el PC de trabajo autentica solo con INAPI; MCP verdes; smoke test OK. **Cumplido 2026-08-17** (`farriagada@inapi.cl`, Claude Team · org Inapi; Playwright + rag-auditoria Connected; smoke `www.inapi.cl` + B3).
 
 ### Paso 1 — Cerrar checklist v2.1 en `main` (rama ya creada)
 
