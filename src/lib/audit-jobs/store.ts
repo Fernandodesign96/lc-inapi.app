@@ -122,3 +122,107 @@ export function createJob(
   writeJob(job, root)
   return job
 }
+
+/** Promueve `outside_hours` → `queued` (ventana laboral / claim). */
+export function promoteOutsideHoursToQueued(
+  root = defaultRepoRoot(),
+): AuditJob[] {
+  const promoted: AuditJob[] = []
+  for (const job of listJobsByStatus("outside_hours", root)) {
+    promoted.push(updateJob(job.id, { status: "queued" }, root))
+  }
+  return promoted
+}
+
+/**
+ * Reclama el job `queued` más antiguo → `running`.
+ * MVP un worker; no hay candado de disco.
+ */
+export function claimNextQueuedJob(
+  options: { workerId?: string; root?: string } = {},
+): AuditJob | null {
+  const root = options.root ?? defaultRepoRoot()
+  const queued = listJobsByStatus("queued", root).sort((a, b) =>
+    a.createdAt.localeCompare(b.createdAt),
+  )
+  const next = queued[0]
+  if (!next) return null
+
+  const claimedAt = new Date().toISOString()
+  return updateJob(
+    next.id,
+    {
+      status: "running",
+      claimedAt,
+      workerId: options.workerId?.trim() || undefined,
+    },
+    root,
+  )
+}
+
+export function completeJobSuccess(
+  id: string,
+  auditId: string,
+  root = defaultRepoRoot(),
+): AuditJob {
+  const current = readJob(id, root)
+  if (!current) throw new JobNotFoundError(id)
+  if (current.status !== "running") {
+    throw new JobConflictError(
+      id,
+      `El job no está en curso (estado: ${current.status})`,
+    )
+  }
+  return updateJob(
+    id,
+    {
+      status: "done",
+      auditId: auditId.trim(),
+      finishedAt: new Date().toISOString(),
+      errorMessage: undefined,
+    },
+    root,
+  )
+}
+
+export function completeJobFailure(
+  id: string,
+  errorMessage: string,
+  root = defaultRepoRoot(),
+): AuditJob {
+  const current = readJob(id, root)
+  if (!current) throw new JobNotFoundError(id)
+  if (current.status !== "running") {
+    throw new JobConflictError(
+      id,
+      `El job no está en curso (estado: ${current.status})`,
+    )
+  }
+  return updateJob(
+    id,
+    {
+      status: "failed",
+      errorMessage: errorMessage.trim(),
+      finishedAt: new Date().toISOString(),
+    },
+    root,
+  )
+}
+
+export class JobNotFoundError extends Error {
+  readonly id: string
+  constructor(id: string) {
+    super(`Job no encontrado: ${id}`)
+    this.name = "JobNotFoundError"
+    this.id = id
+  }
+}
+
+export class JobConflictError extends Error {
+  readonly id: string
+  constructor(id: string, message: string) {
+    super(message)
+    this.name = "JobConflictError"
+    this.id = id
+  }
+}

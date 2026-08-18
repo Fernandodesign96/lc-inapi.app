@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Backend: claim/complete audit-jobs + secreto worker](#devlog-2026-08-18-audit-jobs-claim) |
 | 2026-08-18 | [Backend: horario 8–18 y estado `outside_hours`](#devlog-2026-08-18-audit-jobs-hours) |
 | 2026-08-18 | [Backend: POST/GET `/api/audit-jobs`](#devlog-2026-08-18-audit-jobs-api) |
 | 2026-08-18 | [Backend: persistencia audit-jobs (`data/jobs` + Zod)](#devlog-2026-08-18-audit-jobs-store) |
@@ -61,6 +62,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-claim"></a>
+
+## [2026-08-18] - Backend | claim/complete audit-jobs + secreto worker
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 4**: protocolo para que el PC reclame y complete jobs sin tocar §17/skills.
+
+### Implementación técnica:
+
+- Store: `promoteOutsideHoursToQueued`, `claimNextQueuedJob`, `completeJobSuccess` / `completeJobFailure`.
+- `POST /api/audit-jobs/claim` (204 si vacío; dentro de horario promueve `outside_hours`).
+- `POST /api/audit-jobs/[id]/complete` (`ok` + `auditId` o `errorMessage`).
+- Auth header `X-Worker-Secret` vs `AUDIT_JOBS_WORKER_SECRET` (`.env.example` raíz y `frontend/`).
+- ROADMAP paso 4 ítem 4 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 5: script worker local (stub §17 OK primero).
 
 ---
 
