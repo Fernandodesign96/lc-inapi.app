@@ -44,7 +44,7 @@ export async function GET(
       finishedAt: job.finishedAt ?? job.updatedAt,
       auditId: job.auditId,
       historial: buildHistorialForJob(job, root),
-      descargas: buildDescargas(job.auditId),
+      descargas: buildDescargas(job.auditId, job.url),
     })
   } catch (e) {
     console.error("[audit-jobs] GET result falló", e)

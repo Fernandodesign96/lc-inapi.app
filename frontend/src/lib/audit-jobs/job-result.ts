@@ -2,7 +2,9 @@ import type { AuditJob } from "@contracts/audit-job"
 
 import { CLAUDE_PILOT_URL_ROWS } from "@/lib/claude-audits-launch"
 import { CLARITY_AUDIT_LAUNCH_ROWS } from "@/lib/clarity-audits-launch"
+import { MEI_COMPLETO_EXPORT_HREF } from "@/lib/mei-calidad-web/export-href"
 import { listJobsByStatus } from "@repo/lib/audit-jobs/store"
+import { MEI_META_MEI_URLS } from "@repo/lib/mei-export/mei-meta-mei-urls"
 
 export type HistorialEstadoAceptacion =
   | "rechazado"
@@ -159,10 +161,21 @@ export function buildHistorialForJob(
   return { url: job.url, entradas }
 }
 
-export function buildDescargas(auditId: string) {
+/** Excel MEI completo si la URL está en la muestra META MEI. */
+export function excelPathForAuditUrl(url: string): string | undefined {
+  const target = normalizeAuditUrl(url)
+  const hit = MEI_META_MEI_URLS.some(
+    (row) => normalizeAuditUrl(row.url) === target,
+  )
+  return hit ? MEI_COMPLETO_EXPORT_HREF : undefined
+}
+
+export function buildDescargas(auditId: string, url?: string) {
   const q = encodeURIComponent(auditId)
+  const excelPath = url ? excelPathForAuditUrl(url) : undefined
   return {
     resultadoPath: `/auditar/resultado?claudeAudit=${q}`,
     pdfPath: `/api/claude-audits/${q}/export/pdf`,
+    ...(excelPath ? { excelPath } : {}),
   }
 }

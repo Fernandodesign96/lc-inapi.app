@@ -266,7 +266,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 5. [x] Worker script local stub: `bun run worker:audit-jobs` (claim → stub §17 → complete; sin Claude aún)
 6. [x] `GET …/result` + historial (fecha + `auditorNombre`; launch + jobs done)
 7. [x] UI: Continuar → POST job → `/auditar/procesando?jobId=` con poll (mock timer solo sin jobId)
-8. [ ] Descargas PDF/Excel desde resultado del job (reutilizar APIs existentes donde baste)
+8. [x] Descargas PDF (+ Excel MEI si URL META) desde resultado; `descargas` en GET …/result
 9. [ ] Plan / spike de **túnel** Vercel↔PC (Cloudflare Tunnel o Tailscale) — documentar; implementar mínimo viable si el tiempo alcanza
 10. [ ] `bun run typecheck:all` + PR a `main`
 

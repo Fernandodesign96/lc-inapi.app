@@ -31,6 +31,7 @@ type JobResult = {
   descargas: {
     resultadoPath: string
     pdfPath: string
+    excelPath?: string
   }
 }
 

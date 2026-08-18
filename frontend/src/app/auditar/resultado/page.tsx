@@ -17,6 +17,7 @@ import {
   type StrictAuditRecord,
 } from "@contracts/checklist"
 import { Button } from "@/components/ui/button"
+import { excelPathForAuditUrl } from "@/lib/audit-jobs/job-result"
 import {
   Card,
   CardContent,
@@ -1102,7 +1103,7 @@ function ResultadoInner() {
           ) : null}
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
-          {esInformePiloto && claudeAuditId ? (
+          {claudeAuditId && claudeAuditForDisplay ? (
             <Button type="button" asChild>
               <a
                 href={`/api/claude-audits/${encodeURIComponent(claudeAuditId)}/export/pdf`}
@@ -1112,6 +1113,19 @@ function ResultadoInner() {
               </a>
             </Button>
           ) : null}
+          {claudeAuditForDisplay
+            ? (() => {
+                const excelHref = excelPathForAuditUrl(claudeAuditForDisplay.url)
+                if (!excelHref) return null
+                return (
+                  <Button type="button" variant="secondary" asChild>
+                    <a href={excelHref} download>
+                      Descargar Excel MEI
+                    </a>
+                  </Button>
+                )
+              })()
+            : null}
           <Button type="button" variant="outline" asChild>
             <Link href="/auditar">Nueva auditoría</Link>
           </Button>
