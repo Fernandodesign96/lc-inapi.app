@@ -264,7 +264,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 3. [x] Fuera de horario 8–18 America/Santiago → persistir `outside_hours` (contrato: sí se encola diferido)
 4. [x] Claim/complete worker: `POST …/claim` + `POST …/:id/complete` + `X-Worker-Secret`
 5. [x] Worker script local stub: `bun run worker:audit-jobs` (claim → stub §17 → complete; sin Claude aún)
-6. [ ] `GET .../result` + enlace a historial (fecha + `auditorNombre`)
+6. [x] `GET …/result` + historial (fecha + `auditorNombre`; launch + jobs done)
 7. [ ] UI: Continuar en `/auditar` → crea job → `/auditar/procesando` hace **poll** (deja de ser solo timer mock)
 8. [ ] Descargas PDF/Excel desde resultado del job (reutilizar APIs existentes donde baste)
 9. [ ] Plan / spike de **túnel** Vercel↔PC (Cloudflare Tunnel o Tailscale) — documentar; implementar mínimo viable si el tiempo alcanza

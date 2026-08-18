@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Backend: GET result e historial de audit-jobs](#devlog-2026-08-18-audit-jobs-result) |
 | 2026-08-18 | [Infraestructura: worker audit-jobs stub local](#devlog-2026-08-18-audit-jobs-worker-script) |
 | 2026-08-18 | [Backend: claim/complete audit-jobs + secreto worker](#devlog-2026-08-18-audit-jobs-claim) |
 | 2026-08-18 | [Backend: horario 8–18 y estado `outside_hours`](#devlog-2026-08-18-audit-jobs-hours) |
@@ -63,6 +64,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-result"></a>
+
+## [2026-08-18] - Backend | GET result e historial de audit-jobs
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 6**: devolver resultado cuando el job está `done`, con historial por URL y rutas de descarga (sin cablear UI aún).
+
+### Implementación técnica:
+
+- `GET /api/audit-jobs/[id]/result` → 200 con `historial` + `descargas`; 409 con shape de poll si no está `done`.
+- Historial: filas launch (piloto/Clarity) + jobs `done` locales de la misma URL.
+- Stub sin JSON canónico: entrada sin %/estado; paths PDF/resultado listos para ítem 8.
+- ROADMAP paso 4 ítem 6 `[x]`.
+
+### Próximos pasos:
+
+- Ítem 7: Continuar → job → poll en `/auditar/procesando`.
 
 ---
 
