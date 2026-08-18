@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Frontend: tabla META MEI 10 URLs e historial unificado](#devlog-2026-08-18-meta-mei-ui-historial) |
 | 2026-08-18 | [Infraestructura: typecheck:all paso 4 audit-jobs](#devlog-2026-08-18-audit-jobs-typecheck) |
 | 2026-08-18 | [Documentación: spike túnel Vercel↔worker PC](#devlog-2026-08-18-tunel-spike) |
 | 2026-08-18 | [Frontend: descargas PDF/Excel desde resultado del job](#devlog-2026-08-18-audit-jobs-downloads) |
@@ -68,6 +69,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-meta-mei-ui-historial"></a>
+
+## [2026-08-18] - Frontend | tabla META MEI 10 URLs e historial unificado
+
+### Contexto y objetivos:
+
+Mientras Claude Code reaudita el lote META MEI (§17 / checklist v2.1), alinear `/auditar` a las **10 URLs oficiales** del compromiso y evitar que desaparezcan URLs ya auditadas al cambiar la lista superior.
+
+### Implementación técnica:
+
+- Helper `frontend/src/lib/mei-meta-mei-launch.ts`: filas desde `MEI_META_MEI_URLS`, historial unificado (Clarity + launch no Clarity) y puerta de UI `metaMeiAuditReadyForUi` (solo ids con fecha ≥ `2026-08-18` activan links).
+- Tabla superior (`auditar-claude-pilot-section.tsx`): las 10 META MEI; filas en **Pendiente** hasta cablear reauditoría v2.1 (no usan JSON v1.1 previos).
+- Historial inferior: una sola tabla (`clarity-inventory-historial-table.tsx`) con inventario Clarity más URLs piloto/META MEI ausentes en Clarity; textos explicativos extras eliminados.
+- `typecheck` frontend OK. No incluir en este commit capturas HTML sueltas de Claude (`auditorias/htmls/…`).
+
+### Próximos pasos:
+
+- Completar lote §17 (URLs 1–5 y luego 6–10), cablear ids `…_2026-08-18` en launch + `mei-meta-mei-urls.ts` para habilitar filas superiores.
+- Regenerar Excel MEI cuando el lote v2.1 esté cerrado.
 
 ---
 
