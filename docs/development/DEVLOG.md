@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 5 buscador de noticias (cierre lote 1–5)](#devlog-2026-08-18-meta-mei-url-5) |
 | 2026-08-18 | [Frontend: entrega solo visible + Excel por URL](#devlog-2026-08-18-entrega-visible-excel-url) |
 | 2026-08-18 | [Frontend: tabla META MEI 10 URLs e historial unificado](#devlog-2026-08-18-meta-mei-ui-historial) |
 | 2026-08-18 | [Infraestructura: typecheck:all paso 4 audit-jobs](#devlog-2026-08-18-audit-jobs-typecheck) |
@@ -70,6 +71,35 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-meta-mei-url-5"></a>
+## [2026-08-18] - Infraestructura | META MEI v2.1: URL 5 buscador de noticias (cierre lote 1–5)
+
+**Rama:** `feat/meta-mei-v21-lote-2` | **Entorno:** PC oficina (Windows) — Claude Code Enterprise INAPI, Playwright MCP, Chroma local (Colección B)
+
+### Contexto y objetivos:
+
+Cerrar las **cinco** URLs META MEI prioritarias con checklist v2.1 y alcance solo visible. Las órdenes 1–4 (portada, marcas, patentes, acerca-de) ya estaban en `main` (`…_2026-08-18`). Faltaba la orden 5: buscador de noticias, para poder pasar al lote 6–10 y, al final, al Excel Bernarda de 10 URLs.
+
+### Implementación técnica:
+
+- Captura Playwright → `auditorias/htmls/www-inapi-cl-buscador-noticias_2026-08-18.html`.
+- JSON canónico `data/claude-audits/sitioweb/2026-08-18/www-inapi-cl-buscador-noticias_2026-08-18.json`: 47 criterios, `version_checklist: "2.1"`, sustituciones con `ubicacion_pantalla` + `capa: "VISIBLE"`; sin evidencia de `<title>`/`<meta>`.
+- Resultado: **40,6 %** LC sobre 32 aplicables (**rechazado**); 13 cumple, 19 incumple, 15 no_aplica.
+- Cableado: `claude-audits-launch.ts` (vigente + `history` a `…_2026-06-07`) y `mei-meta-mei-urls.ts` orden 5.
+- Setup oficina: Python 3.12 + `chromadb`, PATH de `claude`, `ingest:b` (1502 chunks). Colección A pendiente (sin PDFs en `documentos/`).
+
+### 💡 Repaso técnico: Chroma en Windows sin WSL:
+
+El CLI `chroma` no venía con el repo: hace falta Python + `pip install chromadb`. La base `rag/chroma_db/` no se versiona; en un PC nuevo hay que levantar el servidor e ingerir B (y A si hay PDFs). Sin Colección A el flujo §17 sigue válido con checklist + B + skills.
+
+### Próximos pasos:
+
+- PR/merge de `feat/meta-mei-v21-lote-2` a `main` (URL 5 + docs).
+- Lote 2: órdenes 6–10 (Solicitud Nueva, Sala de Prensa, dos noticias detalle, SIAC).
+- Excel completo 10 URLs solo cuando las 10 estén en v2.1 visible.
 
 ---
 
