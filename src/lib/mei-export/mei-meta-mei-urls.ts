@@ -37,7 +37,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/patentes",
     nombreUi: "Patentes",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-patentes_2026-07-29",
+    auditId: "www-inapi-cl-patentes_2026-08-18",
     rolMetaMei: "Menú principal (2/2)",
   },
   {

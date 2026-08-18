@@ -168,18 +168,25 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     fechaEvaluacionIso: string
     evaluadorUid: string
   }
+  /**
+   * Auditorías anteriores de la misma URL (ids en repo).
+   * El `id` debe ser siempre la más reciente.
+   */
+  history?: { id: string }[]
 }> = [
   {
-    id: "www-inapi-cl-patentes_2026-07-29",
+    id: "www-inapi-cl-patentes_2026-08-18",
     url: "https://www.inapi.cl/patentes",
     label: "Patentes",
     tipoPagina: "sitioweb",
+    // Reauditoría v2.1 (meta-mei orden 3)
     resumenMvp: {
       porcentajeLc: 42.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-patentes_2026-07-29" }],
   },
   {
     id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",
