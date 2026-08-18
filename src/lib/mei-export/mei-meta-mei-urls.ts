@@ -29,7 +29,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas",
     nombreUi: "Marcas",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas_2026-08-18",
+    auditId: "www-inapi-cl-marcas_2026-08-19",
     rolMetaMei: "Menú principal (1/2)",
   },
   {
