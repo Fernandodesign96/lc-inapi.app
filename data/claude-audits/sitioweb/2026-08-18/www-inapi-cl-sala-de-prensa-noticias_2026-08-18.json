@@ -1,0 +1,577 @@
+{
+  "id": "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
+  "url": "https://www.inapi.cl/sala-de-prensa/noticias",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "NOTA: HTML capturado con Playwright MCP (DOM renderizado, 2026-08-18) como volcado de una sola línea (outerHTML sin saltos de línea); las anclas indicadas entre comillas simples son el texto exacto a buscar con Ctrl+F en el HTML fuente servido por Sitefinity, no números de línea. Solo se inventaría contenido VISIBLE al ciudadano; <title> y <meta> quedan fuera de alcance. | T001 [ancla: 'class=\"accesos\">\\n            ACCESOS']: «ACCESOS» (header global, mayúsculas — EXCLUIDO de D7 por calibración de cabecera global www.inapi.cl) | T002 [ancla: '<span>BUSCADOR</span>']: «BUSCADOR» (span buscador-top global, mayúsculas — EXCLUIDO de D7) | T003 [ancla: 'Usuario Frecuente']: «Usuario Frecuente» (modal login → ion.inapi.cl) | T004 [ancla: 'Registro</span>']: «Registro» (modal login → claveunica.gob.cl) | T005 [ancla: 'LINK EXTERNO']: «LINK EXTERNO» (botón modal login, href=\"#\", texto de desarrollo sin eliminar) | T006 [ancla: 'BUSCAR Y TRAMITAR']: «BUSCAR Y TRAMITAR» (h3 modal buscador, mayúsculas) | T007 [ancla: 'placeholder=\"BUSCADOR\"']: placeholder «BUSCADOR» (input modal buscador, mayúsculas) | T008 [ancla: '<h4>MARCAS</h4>']: «MARCAS» (h4 modal buscador, mayúsculas) | T009 [ancla: '<h4>PATENTES</h4>']: «PATENTES» (h4 modal buscador, mayúsculas) | T010 [ancla: '<h1>Sala de Prensa</h1>']: H1 «Sala de Prensa» (banner) | T011 [ancla: '<h2>Noticias</h2>']: H2 «Noticias» (banner, visible; existe un segundo H2 «Noticias» con clase 'titulo negro' oculto por CSS display:none — no es contenido visible) | T012 [ancla: 'breadcrumbs']: breadcrumb «Home» › «Sala de Prensa» › «Noticias» | T013 [ancla: 'menu-tabs']: menú de tabs «Noticias» (activo) | «Columnas» | T014 [ancla: 'INAPI y Ministerio de Economía presentan plataforma']: H4 noticia 1 «INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible» | T015 [ancla: 'Miércoles 12 agosto de 2026']: fecha noticia 1 | T016 [ancla: 'La herramienta de acceso público reúne 148 productos']: extracto noticia 1 | T017 [ancla: 'portada-12-8.png']: imagen noticia 1, alt=\"\" title=\"\" (vacíos) | T018 [ancla: 'INAPI amplía plazos administrativos']: H4 noticia 2 «INAPI amplía plazos administrativos para usuarios con residencia en Japón debido a la emergencia provocada por los recientes sismos» | T019 [ancla: 'Martes 11 agosto de 2026']: fecha noticia 2 | T020 [ancla: 'La medida beneficia a los titulares de solicitudes']: extracto noticia 2 | T021 [ancla: 'notcia11-8.png']: imagen noticia 2, sin atributo alt (ausencia total) | T022 [ancla: 'INAPI promueve la participación de innovadores']: H4 noticia 3 «INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI» | T023 [ancla: 'Jueves 30 julio de 2026']: fecha noticia 3 | T024 [ancla: 'El Director Nacional de la institución, Esteban Figueroa']: extracto noticia 3 | T025 [ancla: 'noticia-asipi.jpg']: imagen noticia 3, sin atributo alt (ausencia total) | T026 [ancla: 'Ver todas las noticias']: CTA «Ver todas las noticias» → /sala-de-prensa/noticias/todas-las-noticias | T027 [ancla: 'Plan de Acción de Cumplimiento 2025']: carrusel logos, alt/title «Plan de Acción de Cumplimiento 2025 (PDF)» → res-pac-2025.pdf, sin peso | T028 [ancla: 'title=\"Teletrabajo\"']: carrusel logos, alt/title «Teletrabajo» → inapi_informes_teletrabajo.pdf, sin indicar formato ni peso | T029 [ancla: 'Código de Ética INAPI 2026']: carrusel logos, alt/title «Código de Ética INAPI 2026» → codigo-de-etica_inapi-2026.pdf, sin indicar formato ni peso | T030 [ancla: 'Utiliza el canal de comunicación que prefieras']: modal contacto, H2 | T031 [ancla: 'Tu consulta será atendida por un especialista']: modal contacto (voz pasiva) | T032 [ancla: '¿Quieres contactarnos?']: botón flotante modal contacto | T033 [ancla: 'wrap-menu'][menú principal desktop]: «Nosotros», «Conoce más» (→ /propiedad-intelectual-e-industrial), «Marcas», «Patentes», «PCT» (sin definir en esta página), «Sistema de Madrid», «Sello de Origen», «Aprende», «Conecta», «Trámites» | T034 [ancla: 'menu-sec'][menú burger secundario]: «Nosotros», «Centro de Documentación», «Contacto», «Sala de Prensa» (activo), «Glosario», «Observancia» (→ /protege-tu-idea), «Preguntas Frecuentes», «Datos Abiertos», «Gasto Presupuestario» | T035 [ancla: 'Dónde estamos']: footer «Instituto Nacional de Propiedad industrial (INAPI)» (nota: «industrial» en minúscula indebida) / «RUT: 65.999.669-3» (RUT institucional de persona jurídica pública) | T036 [ancla: \"O'Higgins 194, Santiago\"]: footer dirección / teléfono «(56 2) 2 887 0400» / correo «inapi@inapi.cl» | T037 [ancla: 'Conversemos']: footer «Conversemos» + enlace «Contacto» | T038 [ancla: 'Atajos del Teclado']: footer «Accesos»: «Atajos del Teclado», «Descarga de Visualizadores», «Glosario», «Mapa del Sitio», «Uso de los Contenidos de este Sitio», «Accesibilidad», «Política de privacidad» (target=_blank) | T039 [ancla: '©2026']: copyright «©2026 INAPI. Todos los derechos reservados» | (ausencia) — no existe ningún Tnnn que indique fecha de actualización de la sección «Noticias»; T015/T019/T023 son fechas de cada noticia individual | (ausencia) — no hay párrafo introductorio bajo el H2 «Noticias» (T011) antes de las tarjetas de noticias",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El H1 «Sala de Prensa» (T010) y el H2 «Noticias» (T011) comunican el propósito de la página de inmediato; la tarjeta de la noticia más reciente (T014) aparece en primer plano, sin necesidad de desplazarse ni leer contenido adicional para entender de qué trata la página.",
+      "cita_textual": "T010: «Sala de Prensa» (H1) / T011: «Noticias» (H2, banner)"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las tarjetas de noticias aparecen directamente bajo el H2 «Noticias» sin un párrafo introductorio que explique qué tipo de contenido publica INAPI en esta sección, con qué frecuencia se actualiza o cómo acceder al archivo completo.",
+      "cita_textual": "(ausencia de párrafo introductorio antes de T014) — las tarjetas de noticias aparecen directamente bajo el H2 «Noticias» (T011)"
+    },
+    {
+      "id": "A3",
+      "estado": "cumple",
+      "comentario": "La página fragmenta el contenido con H1 «Sala de Prensa» (T010), H2 «Noticias» (T011), breadcrumb (T012), menú de tabs «Noticias»/«Columnas» (T013) y un H4 propio para cada noticia (T014, T018, T022). La jerarquía informativa es clara y sin bloques de texto continuo sin título.",
+      "cita_textual": "T010 / T011 / T013 / T014, T018, T022 (H4 de cada noticia)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "El bloque de texto continuo más largo corresponde a cada extracto de noticia (T016, T020, T024); ninguno supera las 60 palabras y ningún bloque de la página supera el umbral de 110 palabras.",
+      "cita_textual": "T016, T020, T024 — extractos de menos de 60 palabras cada uno"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple",
+      "comentario": "No se observa texto de relleno institucional o de marketing en el contenido editorial de esta página (títulos y extractos de noticias). El texto de desarrollo sin eliminar detectado en la captura («LINK EXTERNO», T005) corresponde a un componente global del modal de login y se evalúa en D1 (Grupo 3), no como exceso de contenido bajo A5."
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detectan textos «en construcción», marcadores de contenido pendiente («próximamente») ni secciones vacías. Las tres tarjetas de noticias, el carrusel de documentos y los menús están completos y con contenido real publicado."
+    },
+    {
+      "id": "A7",
+      "estado": "cumple",
+      "comentario": "Cada tarjeta de noticia destaca el qué (titular H4), el cuándo (fecha visible bajo el titular: T015, T019, T023) y aporta contexto de para quién/cómo en el extracto (por ejemplo, T020 identifica a quién beneficia la medida administrativa).",
+      "cita_textual": "T015: «Miércoles 12 agosto de 2026» / T020: «La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón…»"
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "Página de tipo sitioweb informativo (listado de noticias); A8 (información suficiente para autonomía en trámites) tiene applicability: tramites y no corresponde evaluarlo aquí."
+    },
+    {
+      "id": "A9",
+      "estado": "cumple",
+      "comentario": "La página es escaneable: jerarquía de encabezados (H1, H2, H4 por noticia), fechas visibles bajo cada titular y breadcrumb permiten ubicar el contenido sin leer párrafos completos. El menú de tabs «Noticias»/«Columnas» (T013) facilita distinguir subsecciones de un vistazo.",
+      "cita_textual": "T013: menú de tabs «Noticias» (activo) | «Columnas»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el módulo flotante de contacto se detecta una construcción en voz pasiva ('será atendida') en lugar de voz activa. El resto del contenido visible (titulares, extractos de noticias, CTA) usa mayoritariamente voz activa.",
+      "cita_textual": "T031: «Tu consulta será atendida por un especialista.»"
+    },
+    {
+      "id": "B2",
+      "estado": "cumple",
+      "comentario": "Los extractos de noticias visibles usan vocabulario común, sin jerga burocrática o legal sin definir (ej. «plataforma de información tecnológica de patentes», «plazos administrativos», «residencia informada»). No se detecta terminología jurídica sin explicación en el texto principal."
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Dos siglas aparecen sin definir en su primera ocurrencia visible: «ASIPI» en el titular y extracto de la tercera noticia (Asociación Interamericana de la Propiedad Intelectual), y «PCT» en el menú principal de navegación (patrón sistémico ya identificado en otras URLs de www.inapi.cl).",
+      "cita_textual": "T022: «INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI»"
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se detectan abreviaturas, extranjerismos ni modismos en el texto principal visible (titulares y extractos de noticias, CTA, módulo de contacto)."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El contenido visible se enmarca en tono positivo e informativo (qué hace INAPI, qué beneficio otorga la medida, qué actividad se realizó), sin frases centradas en restricciones o prohibiciones."
+    },
+    {
+      "id": "B6",
+      "estado": "cumple",
+      "comentario": "El tono varía apropiadamente según la función de cada bloque: los extractos de noticias mantienen un registro informativo de tercera persona (propio del género periodístico) y el módulo de contacto usa tuteo cercano («¿Quieres contactarnos?», «Utiliza el canal...»). No se detecta mezcla de registros dentro de un mismo bloque de contenido."
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se identifican frases de relleno ni lenguaje formal vacío de sentido en los titulares, extractos o CTA visibles."
+    },
+    {
+      "id": "B8",
+      "estado": "no_aplica",
+      "comentario": "No se aplicó herramienta de legibilidad (Legible.es u equivalente) en esta pasada. Se justifica no_aplica porque el texto medible del cuerpo principal se limita a tres extractos breves (menos de 60 palabras cada uno), insuficientes para una medición confiable de indicadores de legibilidad; la página funciona como listado/índice de noticias y no como artículo con cuerpo extenso."
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Los extractos visibles siguen orden sujeto-verbo-predicado («La herramienta... reúne 148 productos...»; «La medida beneficia a los titulares...»; «El Director Nacional... sostuvo un encuentro...»)."
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "Los titulares, CTA y elementos de navegación usan predominantemente presente simple («presentan», «amplía», «promueve», «beneficia», «busca»). El uso de pretérito en los cuerpos de las noticias («sostuvo») corresponde a la narración de hechos ya ocurridos, convención propia del género periodístico."
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Dos de los tres extractos de noticias superan las 30 palabras en una sola oración: el extracto de la noticia 2 (34 palabras) y el de la noticia 3 (36 palabras). Se recomienda dividir en oraciones más cortas y directas.",
+      "cita_textual": "T020: «La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada extracto de noticia desarrolla una sola idea central (la plataforma de patentes, la ampliación de plazos por sismos en Japón, el encuentro con ASIPI), aunque algunas oraciones sean extensas (ver C3)."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los tres extractos de noticias son párrafos breves de una sola línea/bloque, muy por debajo del límite de 8 líneas en escritorio."
+    },
+    {
+      "id": "C6",
+      "estado": "no_aplica",
+      "comentario": "La página es un listado de tarjetas de noticias (3 extractos independientes), no un artículo con 4 o más párrafos continuos de texto corrido; no corresponde exigir resumen inicial."
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "No existen listas de requisitos de trámite en esta página (es un listado editorial de noticias, tipo_pagina sitioweb)."
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "La página es un listado editorial de noticias institucionales, no un contenido de tipo consulta o trámite que amerite estructura de preguntas y respuestas (FAQ). No se detectó vocación de responder dudas del usuario en este bloque."
+    },
+    {
+      "id": "C9",
+      "estado": "cumple",
+      "comentario": "El cuerpo principal de la página (excluyendo menús, pie y modales) está compuesto por 3 extractos de noticias (T016, T020, T024), que funcionan como el texto principal de este listado y se encuentran dentro del rango de 2 a 8 párrafos exigido. Se distingue de C6, que evalúa continuidad/extensión para exigir resumen inicial (no_aplica en este caso)."
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Se detectan dos errores visibles en contenido publicado: (1) el botón del modal de login conserva el rótulo de desarrollo «LINK EXTERNO» sin traducir a lenguaje ciudadano, expuesto al público; (2) en el footer «Dónde estamos» el nombre oficial de la institución aparece con error de capitalización: «Instituto Nacional de Propiedad industrial (INAPI)» en lugar de «Industrial».",
+      "cita_textual": "«LINK EXTERNO» (T005); «Instituto Nacional de Propiedad industrial (INAPI)» (T035)"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "Los extractos de noticias (T016, T020, T024), los textos del modal de contacto (T030, T031) y los datos de contacto del footer (T036) presentan puntuación y concordancia gramatical correctas: uso adecuado de comas explicativas, punto final y concordancia de género/número en sujeto-verbo."
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio de espaciado entre párrafos: corresponde a implementación CSS/visual, fuera del alcance de esta auditoría editorial (calibración del proyecto)."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio de alineación de texto: corresponde a implementación CSS/visual, fuera del alcance de esta auditoría editorial (calibración del proyecto)."
+    },
+    {
+      "id": "D5",
+      "estado": "no_aplica",
+      "comentario": "La página no contiene enumeraciones en texto corrido que requieran formato de lista, viñetas o tabla: las noticias se presentan como tarjetas individuales (H4 + fecha + extracto breve) y el bloque «Accesos» del footer es un menú de navegación, no una enumeración editorial."
+    },
+    {
+      "id": "D6",
+      "estado": "no_aplica",
+      "comentario": "No hay texto corrido extenso en la página: los extractos de noticias (T016, T020, T024) son párrafos breves de resumen (una a tres líneas) sin necesidad editorial de destacar palabras clave con negritas."
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de la cabecera global excluida por calibración (T001 «ACCESOS», T002 «BUSCADOR» — restricción de estilo de plantilla), el modal de búsqueda comparte un patrón sistémico de mayúsculas sostenidas: el encabezado «BUSCAR Y TRAMITAR» (T006), el placeholder del campo de búsqueda «BUSCADOR» (T007) y los subtítulos de categoría «MARCAS» (T008) y «PATENTES» (T009) están escritos íntegramente en mayúsculas. El menú principal desktop (T033) y el menú burger (T034) sí usan capitalización normal.",
+      "cita_textual": "«BUSCAR Y TRAMITAR» / «BUSCADOR» (placeholder) / «MARCAS» / «PATENTES» (modal buscador)"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "Los titulares y extractos de las tres noticias son descriptivos y factuales (cifras, plazos, encuentros institucionales), sin adjetivos calificativos ni opiniones del redactor.",
+      "cita_textual": "T014, T018, T022 — titulares de hechos concretos sin adjetivos valorativos"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI está identificado como fuente en el H1 (T010), en los titulares de las noticias (T014, T018), en el footer institucional (T035) y en el copyright (T039).",
+      "cita_textual": "T035: «Instituto Nacional de Propiedad industrial (INAPI)» / T039: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "E3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe ninguna fecha de actualización visible de la sección «Noticias» en sí misma. Las fechas T015, T019 y T023 corresponden a cada noticia individual, no al listado o sección. El copyright ©2026 (T039) no equivale a una fecha de actualización del contenido de la sección.",
+      "cita_textual": "(ausencia) — ningún Tnnn indica cuándo fue actualizada la sección «Noticias» como tal"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 visible «Sala de Prensa» (T010) corresponde a la sección padre y no describe específicamente que esta página es el listado de noticias; el nombre específico «Noticias» aparece solo como H2 (T011). Un usuario que llega directamente a esta URL no obtiene del H1 una representación fiel del contenido específico que está viendo, a diferencia de otra subsección como «Columnas» (T013) que comparte el mismo H1.",
+      "cita_textual": "T010: «Sala de Prensa» (H1) / T011: «Noticias» (H2)"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Existen enlaces cuyo texto no corresponde al nombre de la página de destino. El ítem del menú burger «Observancia» dirige a /protege-tu-idea, cuyo nombre real de página es «Protege tu idea», no «Observancia». El botón «Registro» del modal de login dirige a claveunica.gob.cl, pero el término «Registro» en el contexto de INAPI es ambiguo porque puede confundirse con «registro de una marca o patente».",
+      "cita_textual": "«Observancia» (menú) → /protege-tu-idea; «Registro» (modal login) → claveunica.gob.cl"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace del menú principal «Conoce más» (→ /propiedad-intelectual-e-industrial) usa el patrón genérico «más» sin contexto que anticipe el contenido de destino. El resto de los enlaces evaluados en el cuerpo (titulares de noticias T014, T018, T022 y el CTA «Ver todas las noticias») sí describen su destino con claridad.",
+      "cita_textual": "«Conoce más» → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El botón del modal de login con texto visible «LINK EXTERNO» no describe ninguna acción del sistema y su href=\"#\" no tiene destino funcional real, lo que es más grave que un «Aceptar»/«OK» genérico porque el enlace parece roto o inconcluso ante el usuario.",
+      "cita_textual": "«LINK EXTERNO» (botón modal login, href=\"#\")"
+    },
+    {
+      "id": "F4",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los tres documentos PDF institucionales enlazados desde el carrusel de logos («Plan de Acción de Cumplimiento 2025», «Teletrabajo», «Código de Ética INAPI 2026») no exponen visiblemente los 4 elementos exigidos (título, formato, peso, descripción breve). Solo el primero indica «(PDF)», pero como atributo alt/title de una imagen, no como texto visible en la página; ninguno indica peso ni trae una descripción visible del contenido del documento.",
+      "cita_textual": "alt/title «Plan de Acción de Cumplimiento 2025 (PDF)»; alt/title «Teletrabajo»; alt/title «Código de Ética INAPI 2026»"
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "La página no presenta cuerpo de texto corrido con enlaces incrustados a mitad de oración. El único CTA relevante, «Ver todas las noticias», está posicionado correctamente al final de la sección de tarjetas de noticias, fuera de cualquier bloque de lectura continua.",
+      "cita_textual": "«Ver todas las noticias» (CTA al final de la sección de tarjetas)"
+    },
+    {
+      "id": "F6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La página «Noticias» no ofrece ningún enlace relacionado editorial hacia otro contenido informativo del sitio (p. ej. «Columnas» de Sala de Prensa, preguntas frecuentes sobre prensa, o «Acerca de INAPI»). Los únicos enlaces internos presentes corresponden al menú global, footer y al CTA «Ver todas las noticias», que es paginación de la misma sección y no un enlace relacionado a otro contenido.",
+      "cita_textual": "(ausencia de sección de enlaces relacionados fuera de menú/footer/paginación)"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El único RUT expuesto en el HTML público (footer «Dónde estamos») es «RUT: 65.999.669-3», correspondiente a INAPI como persona jurídica pública, no a una persona natural. No se detectan RUN, nombres completos ni datos de contacto de individuos en el HTML estático de esta página de listado de noticias.",
+      "cita_textual": "RUT: 65.999.669-3 — Instituto Nacional de Propiedad industrial (INAPI)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer «Accesos» incluye un enlace a «Política de privacidad» (target=_blank), que corresponde al canal habilitado para informar sobre el tratamiento de datos personales y el ejercicio de derechos ARCO.",
+      "cita_textual": "Política de privacidad"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El pie de página exhibe una nota de copyright con año vigente al momento de la auditoría (2026), cumpliendo con la publicación de condiciones de uso del contenido.",
+      "cita_textual": "©2026 INAPI. Todos los derechos reservados"
+    },
+    {
+      "id": "H1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de archivo/no vigente en esta página (es un listado de noticias vigentes). Sin embargo, se evalúa aquí el patrón sistémico de imágenes sin atributo alt descriptivo: las tres imágenes de noticia carecen de alt útil (una con alt=\"\" y title=\"\" vacíos, dos sin el atributo alt directamente) y una imagen del carrusel de logos institucionales (enlace externo a cchrgm.cl) también presenta alt=\"\" y title=\"\" vacíos sin nombre asociado, afectando la accesibilidad para usuarios de lectores de pantalla.",
+      "cita_textual": "Imágenes de noticia sin texto alternativo descriptivo (alt vacío o ausente)"
+    }
+  ],
+  "criterios_no_aplica": 9,
+  "criterios_aplicables": 38,
+  "criterios_aprobados": 24,
+  "porcentaje_cumplimiento": 63.2,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 14 incumplimientos sobre 38 criterios aplicables (63.2 %), evaluando exclusivamente contenido visible en pantalla (el <title> y los <meta> del <head> quedan fuera de alcance). Las correcciones de mayor impacto son: (1) agregar fecha de actualización visible de la sección Noticias (E3, alta); (2) expandir ASIPI en el titular de la noticia 3 y PCT en el menú principal (B3, alta); (3) corregir «LINK EXTERNO» sin destino funcional en el modal de login y «Instituto Nacional de Propiedad industrial» con minúscula indebida en el footer (D1, alta); (4) definir un destino real o eliminar el botón «LINK EXTERNO» del modal de login (F3, alta); (5) agregar formato «(PDF)», peso y descripción visible a los tres documentos del carrusel de logos (F4, alta); (6) insertar párrafo introductorio bajo el H2 «Noticias» (A2, media); (7) ampliar el H1 a «Sala de Prensa – Noticias» (E4, media); (8) dividir en oraciones más cortas los extractos de las noticias 2 y 3 (C3, media); (9) normalizar mayúsculas sostenidas del modal buscador (D7, media); (10) corregir «Observancia»→destino real y «Registro»→texto descriptivo (F1, media); (11) reemplazar «Conoce más» por texto descriptivo (F2, media); (12) agregar un bloque de enlaces relacionados de Sala de Prensa (F6, media); (13) reescribir en voz activa el modal de contacto (B1, media); (14) agregar alt descriptivo a las tres imágenes de noticias y a una imagen del carrusel de logos (H1, media). El array sustituciones[] contiene 26 filas con cobertura 1:1 para los 14 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) de la sección Noticias de la Sala de Prensa de INAPI obtiene un 63.2 % de cumplimiento sobre 38 criterios aplicables — estado RECHAZADO (≤80 %), evaluando exclusivamente contenido visible en pantalla. Respecto a la auditoría histórica v1.1 (2026-06-07, 45.5 %), el porcentaje mejora sustancialmente: las tres imágenes del carrusel de logos institucionales (Plan de Acción de Cumplimiento 2025, Medición de Satisfacción Usuaria, Código de Ética) que antes tenían alt vacío ahora tienen alt/title descriptivos, y el RUT institucional del footer se recalibró como cumple (persona jurídica pública, ya no incumplimiento G1). También cambió el contenido editorial: las tres noticias vigentes al 2026-08-18 son distintas a las evaluadas en junio de 2026. Los incumplimientos de severidad alta persistentes son: ausencia de fecha de actualización de la sección (E3), siglas ASIPI y PCT sin definir (B3), error de capitalización institucional y texto de desarrollo «LINK EXTERNO» sin eliminar (D1), el mismo botón «LINK EXTERNO» sin destino funcional (F3), y los tres PDFs del carrusel sin formato/peso/descripción visibles (F4). Los incumplimientos de severidad media incluyen: ausencia de párrafo introductorio (A2), H1 genérico que no distingue esta subsección de «Columnas» (E4), oraciones extensas en dos extractos (C3), mayúsculas sostenidas en el modal buscador (D7), enlaces «Observancia»/«Registro»/«Conoce más» no descriptivos de su destino (F1, F2), ausencia de enlaces relacionados editoriales (F6), voz pasiva en el modal de contacto (B1), y dos imágenes de noticias sin alt descriptivo más una del carrusel de logos (H1). Las fortalezas son la estructura clara con H1/H2/H4 (A1, A3), el uso de presente simple y voz activa en los titulares (C2, E1), el copyright vigente y el enlace a política de privacidad (G2, G3), y el RUT institucional correctamente calibrado (G1).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/sala-de-prensa/noticias fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios), como parte del lote de reauditoría META MEI (orden 7, rol «Listado últimas noticias»), evaluando exclusivamente contenido visible en pantalla. De los 38 criterios aplicables (9 no aplican, principalmente por tratarse de un listado de tarjetas sin cuerpo editorial extenso: C6, C7, C8, B8, D3, D4, D5, D6, A8), 24 se cumplen, lo que arroja un 63.2 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 14 incumplimientos; los de severidad alta son: ausencia de fecha de actualización de la sección (E3), siglas ASIPI y PCT sin definir (B3), error de capitalización institucional y texto de desarrollo sin eliminar (D1), botón «LINK EXTERNO» sin destino funcional (F3), y tres PDFs del carrusel de logos sin formato/peso/descripción (F4). Respecto a la auditoría histórica v1.1 (2026-06-07, 45.5 %), el porcentaje mejora por correcciones ya aplicadas en imágenes del carrusel de logos y por la recalibración del RUT institucional (G1), aunque persisten los patrones sistémicos del shell compartido (D7 en modal buscador, D1 en footer, PCT sin definir en menú).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B3) «ASIPI» (T022) en el titular de la noticia 3 sin definir en ningún punto de la página. «PCT» (T033) en el menú principal sin expandir — patrón sistémico transversal.",
+      "(D1) Botón «LINK EXTERNO» (T005) del modal de login con texto de desarrollo sin eliminar. «Instituto Nacional de Propiedad industrial» (T035) con minúscula indebida en el footer.",
+      "(E3) Ausencia de fecha de actualización visible de la sección «Noticias»; las fechas T015/T019/T023 son de cada noticia individual, no de la sección.",
+      "(F3) El botón «LINK EXTERNO» (T005) tiene href=\"#\" sin destino funcional real.",
+      "(F4) Los tres documentos del carrusel de logos (Plan de Acción de Cumplimiento 2025, Teletrabajo, Código de Ética INAPI 2026) no indican formato, peso ni descripción visibles en pantalla."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) Las tarjetas de noticias se presentan sin párrafo introductorio sobre el tipo de contenido que publica INAPI en esta sección.",
+      "(B1) El modal de contacto usa voz pasiva: «Tu consulta será atendida por un especialista» (T031).",
+      "(C3) Los extractos de las noticias 2 (T020, 34 palabras) y 3 (T024, 36 palabras) superan las 30 palabras en una sola oración.",
+      "(D7) Mayúsculas sostenidas en el modal buscador: «BUSCAR Y TRAMITAR» (T006), placeholder «BUSCADOR» (T007), «MARCAS» (T008), «PATENTES» (T009).",
+      "(E4) El H1 «Sala de Prensa» (T010) no distingue este listado de noticias de otras subsecciones (ej. «Columnas») que comparten el mismo H1.",
+      "(F1) «Observancia» (T034) lleva a /protege-tu-idea, cuyo nombre real de página no coincide. «Registro» (T004) es ambiguo con registro de marca.",
+      "(F2) «Conoce más» (T033) es enlace genérico sin describir su destino.",
+      "(F6) No existe ningún enlace relacionado editorial fuera del menú global, footer y CTA de paginación «Ver todas las noticias».",
+      "(H1) Dos de las tres imágenes de noticias no tienen atributo alt (ausencia total) y una tiene alt vacío; una imagen del carrusel de logos (banner-recursos → cchrgm.cl) también tiene alt/title vacíos."
+    ],
+    "hallazgos_prioridad_baja": []
+  },
+  "sustituciones": [
+    {
+      "linea": "A2-intro",
+      "html_linea_aprox": "ancla: '<h2>Noticias</h2>' (banner)",
+      "original": "(ausencia de párrafo introductorio antes de la primera tarjeta de noticia)",
+      "propuesto": "Aquí encontrarás las últimas noticias publicadas por INAPI sobre propiedad industrial en Chile.",
+      "criterio_id": "A2",
+      "motivo": "Insertar una frase introductoria breve bajo el H2 «Noticias» y antes de la primera tarjeta, para aplicar pirámide invertida y dar contexto de sección al usuario.",
+      "ubicacion_pantalla": "Bajo el título «Noticias» (H2) del banner superior, antes de la primera tarjeta de noticia",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T031",
+      "html_linea_aprox": "ancla: 'Tu consulta será atendida por un especialista'",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista atenderá tu consulta.",
+      "criterio_id": "B1",
+      "motivo": "Cambiar de voz pasiva a voz activa según RLC §7 e IEW 5.2.1.",
+      "ubicacion_pantalla": "Ventana modal flotante de contacto, bajo el título «Utiliza el canal de comunicación que prefieras»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T022",
+      "html_linea_aprox": "ancla: 'certámenes regionales de ASIPI'",
+      "original": "INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI",
+      "propuesto": "INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI (Asociación Interamericana de la Propiedad Intelectual)",
+      "criterio_id": "B3",
+      "motivo": "Sigla técnica sin definir en su primera aparición visible; afecta la comprensión de usuarios no especializados (RLC §7, IEW 5.1.3).",
+      "ubicacion_pantalla": "Titular de la tercera tarjeta de noticia, listado de Sala de Prensa",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T033",
+      "html_linea_aprox": "ancla: 'Sistema de Madrid' (menú principal)",
+      "original": "PCT",
+      "propuesto": "PCT (Tratado de Cooperación en materia de Patentes)",
+      "criterio_id": "B3",
+      "motivo": "Sigla sin expansión en el menú principal; patrón sistémico transversal ya identificado en otras URLs de www.inapi.cl (CLAUDE.md §6).",
+      "ubicacion_pantalla": "Menú de navegación principal (escritorio), ítem entre «Patentes» y «Sistema de Madrid»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "ancla: 'cuya residencia informada corresponda a Japón'",
+      "original": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
+      "propuesto": "La medida beneficia a los titulares de solicitudes con residencia informada en Japón. Busca facilitar el cumplimiento de los plazos administrativos que estaban en curso al 10 de agosto de 2026.",
+      "criterio_id": "C3",
+      "motivo": "Oración de 34 palabras; se recomienda dividir en dos oraciones para cumplir el límite de 30 palabras (IEW 5.2.2).",
+      "ubicacion_pantalla": "Extracto de la segunda tarjeta de noticia, listado de Sala de Prensa",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "ancla: 'sostuvo un encuentro con la representación en Chile'",
+      "original": "El Director Nacional de la institución, Esteban Figueroa, sostuvo un encuentro con la representación en Chile de la entidad continental para abordar el alcance de dos concursos de innovación y diseño que se premiarán en Santiago.",
+      "propuesto": "El Director Nacional de la institución, Esteban Figueroa, sostuvo un encuentro con la representación en Chile de la entidad continental. Ambos abordaron el alcance de dos concursos de innovación y diseño que se premiarán en Santiago.",
+      "criterio_id": "C3",
+      "motivo": "Oración de 36 palabras; se recomienda dividir en dos oraciones (IEW 5.2.2).",
+      "ubicacion_pantalla": "Extracto de la tercera tarjeta de noticia, listado de Sala de Prensa",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "ancla: 'LINK EXTERNO'",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo)",
+      "criterio_id": "D1",
+      "motivo": "Texto de desarrollo sin eliminar en botón visible del modal de login; expone un rótulo técnico interno al usuario final. Coincide con la propuesta de eliminación de F3 sobre el mismo nodo — aplicar una sola vez.",
+      "ubicacion_pantalla": "Modal de login — botón de acceso externo",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T035",
+      "html_linea_aprox": "ancla: 'Instituto Nacional de Propiedad industrial (INAPI)'",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "D1",
+      "motivo": "Error de capitalización en el nombre oficial de la institución dentro del bloque «Dónde estamos» del footer; es un patrón de shell compartido con /marcas, /patentes, /acerca-de y /buscador — coordinar el cambio a nivel de plantilla/footer, no por página.",
+      "ubicacion_pantalla": "Footer — bloque «Dónde estamos»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "ancla: 'BUSCAR Y TRAMITAR'",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en el encabezado h3 del modal de búsqueda; patrón sistémico del componente modal compartido, no de la cabecera global de accesos/búsqueda (excluida por calibración de plantilla).",
+      "ubicacion_pantalla": "Modal buscador — encabezado principal",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T007",
+      "html_linea_aprox": "ancla: 'placeholder=\"BUSCADOR\"'",
+      "original": "BUSCADOR",
+      "propuesto": "Buscar marca o patente",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en el placeholder del campo de búsqueda del modal; patrón sistémico del componente modal compartido, distinto del span «BUSCADOR» de la cabecera global excluido por calibración.",
+      "ubicacion_pantalla": "Modal buscador — campo de entrada",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T008",
+      "html_linea_aprox": "ancla: '<h4>MARCAS</h4>'",
+      "original": "MARCAS",
+      "propuesto": "Marcas",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en subtítulo h4 de categoría dentro del modal de búsqueda; patrón sistémico del componente modal compartido.",
+      "ubicacion_pantalla": "Modal buscador — subtítulo de categoría",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T009",
+      "html_linea_aprox": "ancla: '<h4>PATENTES</h4>'",
+      "original": "PATENTES",
+      "propuesto": "Patentes",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en subtítulo h4 de categoría dentro del modal de búsqueda; patrón sistémico del componente modal compartido.",
+      "ubicacion_pantalla": "Modal buscador — subtítulo de categoría",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "E3-ausencia",
+      "html_linea_aprox": "ancla: 'menu-tabs' (bajo el H2 Noticias)",
+      "original": "(ausencia)",
+      "propuesto": "Sección actualizada por última vez el 12 de agosto de 2026",
+      "criterio_id": "E3",
+      "motivo": "Insertar una fecha de actualización visible de la sección, idealmente generada de forma dinámica a partir de la fecha de publicación de la noticia más reciente (T015); actualmente no existe ningún indicador de este tipo a nivel de sección.",
+      "ubicacion_pantalla": "Bajo el título «Noticias» (H2) y el menú de tabs «Noticias»/«Columnas», antes del listado de tarjetas de noticias",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "E4-H1",
+      "html_linea_aprox": "ancla: '<h1>Sala de Prensa</h1>'",
+      "original": "Sala de Prensa",
+      "propuesto": "Sala de Prensa – Noticias",
+      "criterio_id": "E4",
+      "motivo": "El H1 visible solo indica la sección padre y no el contenido específico de esta página (listado de noticias, identificado únicamente en el H2). Combinar ambos niveles en el H1 evita que la página se perciba como genérica frente a otras subsecciones de Sala de Prensa (ej. Columnas), que comparten el mismo H1.",
+      "ubicacion_pantalla": "En el título principal (H1) del banner superior de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T034",
+      "html_linea_aprox": "ancla: 'Observancia' (menú burger)",
+      "original": "Observancia",
+      "propuesto": "Protege tu idea",
+      "criterio_id": "F1",
+      "motivo": "El texto del enlace no coincide con el nombre real de la página de destino (/protege-tu-idea), lo que genera expectativas erróneas de navegación (RLC §9).",
+      "ubicacion_pantalla": "Menú burger (navegación superior)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "ancla: 'Registro</span>' (modal login)",
+      "original": "Registro",
+      "propuesto": "Regístrate con ClaveÚnica",
+      "criterio_id": "F1",
+      "motivo": "El término «Registro» es ambiguo en el contexto de INAPI, ya que puede confundirse con «registro de una marca o patente»; el destino real es la autenticación/registro en claveunica.gob.cl.",
+      "ubicacion_pantalla": "Modal de login (header global)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T033",
+      "html_linea_aprox": "ancla: 'Conoce más' (menú principal)",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad intelectual e industrial",
+      "criterio_id": "F2",
+      "motivo": "Texto genérico tipo «más» sin contexto que anticipe el contenido de destino (IEW 5.2.4 / IESD 5.2.4).",
+      "ubicacion_pantalla": "Menú principal desktop (item «Nosotros»)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "ancla: 'LINK EXTERNO'",
+      "original": "LINK EXTERNO",
+      "propuesto": "(eliminar nodo o asignar destino funcional real con texto descriptivo, ej. «Ingresar como Usuario Frecuente»)",
+      "criterio_id": "F3",
+      "motivo": "El botón muestra un texto de placeholder no descriptivo de ninguna acción y su href=\"#\" no lleva a ningún destino funcional; TI debe definir el destino real o retirar el botón del modal. Coincide con la propuesta de D1 sobre el mismo nodo — aplicar una sola vez.",
+      "ubicacion_pantalla": "Modal de login (header global)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "ancla: 'Plan de Acción de Cumplimiento 2025'",
+      "original": "Plan de Acción de Cumplimiento 2025 (PDF)",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF) — Medidas de cumplimiento normativo de INAPI para el período 2025.",
+      "criterio_id": "F4",
+      "motivo": "El indicador «(PDF)» solo existe como alt/title no visible; falta texto visible en pantalla con formato, descripción breve y peso (agregar peso si el CMS lo conoce; de lo contrario mantener solo «(PDF)»).",
+      "ubicacion_pantalla": "Carrusel de logos institucionales (footer)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "ancla: 'title=\"Teletrabajo\"'",
+      "original": "Teletrabajo",
+      "propuesto": "Informe de Teletrabajo INAPI (PDF) — Resultados y balance del programa de teletrabajo institucional.",
+      "criterio_id": "F4",
+      "motivo": "No se indica visualmente que el destino es un documento PDF ni se incluye descripción o peso; el elemento no cumple ninguno de los 4 requisitos visibles.",
+      "ubicacion_pantalla": "Carrusel de logos institucionales (footer)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "ancla: 'Código de Ética INAPI 2026'",
+      "original": "Código de Ética INAPI 2026",
+      "propuesto": "Código de Ética INAPI 2026 (PDF) — Normas de conducta institucional para funcionarias y funcionarios de INAPI.",
+      "criterio_id": "F4",
+      "motivo": "Falta indicar formato «(PDF)», descripción breve y peso visibles en pantalla; solo se muestra el título como alt/title de una imagen.",
+      "ubicacion_pantalla": "Carrusel de logos institucionales (footer)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "F6-relacionados",
+      "html_linea_aprox": "ancla: 'Ver todas las noticias'",
+      "original": "(no existe en HTML)",
+      "propuesto": "Quizás te interese: Columnas de opinión de Sala de Prensa · Preguntas frecuentes sobre prensa",
+      "criterio_id": "F6",
+      "motivo": "No existe ningún bloque de enlaces relacionados editoriales distinto del menú global/footer/paginación; se recomienda agregar un bloque de enlaces relacionados hacia otro contenido de Sala de Prensa (ej. Columnas) al final de la sección de noticias.",
+      "ubicacion_pantalla": "Sección de tarjetas de noticias, bajo el CTA «Ver todas las noticias»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "ancla: 'portada-12-8.png'",
+      "original": "alt=\"\" title=\"\" (vacíos, imagen de la noticia sin descripción)",
+      "propuesto": "alt=\"INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes\"",
+      "criterio_id": "H1",
+      "motivo": "Inserción de texto alternativo descriptivo para accesibilidad de lectores de pantalla en la imagen destacada de la noticia.",
+      "ubicacion_pantalla": "Listado de noticias — tarjeta noticia 1 (miércoles 12 de agosto de 2026)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "ancla: 'notcia11-8.png'",
+      "original": "(no existe atributo alt en HTML)",
+      "propuesto": "alt=\"INAPI amplía plazos administrativos para usuarios con residencia en Japón por emergencia sísmica\"",
+      "criterio_id": "H1",
+      "motivo": "La imagen de la noticia carece por completo del atributo alt; se debe insertar para cumplir con accesibilidad básica de imágenes informativas.",
+      "ubicacion_pantalla": "Listado de noticias — tarjeta noticia 2 (martes 11 de agosto de 2026)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "ancla: 'noticia-asipi.jpg'",
+      "original": "(no existe atributo alt en HTML)",
+      "propuesto": "alt=\"INAPI promueve la participación de innovadores y diseñadores chilenos en certámenes regionales de ASIPI\"",
+      "criterio_id": "H1",
+      "motivo": "La imagen de la noticia carece por completo del atributo alt; se debe insertar para cumplir con accesibilidad básica de imágenes informativas.",
+      "ubicacion_pantalla": "Listado de noticias — tarjeta noticia 3 (jueves 30 de julio de 2026)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027-carrusel",
+      "html_linea_aprox": "ancla: 'banner-recursos' (cchrgm.cl)",
+      "original": "alt=\"\" title=\"\" (vacíos, imagen decorativa del carrusel de logos, enlace externo a cchrgm.cl)",
+      "propuesto": "alt=\"Banner informativo — enlace externo al sitio cchrgm.cl\"",
+      "criterio_id": "H1",
+      "motivo": "Imagen del carrusel de logos institucionales sin texto alternativo ni nombre asociado, dificultando la comprensión del destino del enlace para usuarios de lectores de pantalla.",
+      "ubicacion_pantalla": "Footer — carrusel de logos y recursos institucionales",
+      "capa": "VISIBLE"
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-06-07, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla (CLAUDE.md §2 y §5): el <title> y los <meta> del <head> no se usan como evidencia en ningún criterio. El HTML fue capturado con Playwright MCP como volcado de una sola línea (outerHTML sin saltos de línea real); las referencias 'ancla: ...' en cada fila de sustituciones[] son el texto exacto a buscar con Ctrl+F en el HTML fuente servido por Sitefinity, no números de línea. CONFLICTO DE CONSOLIDACIÓN (no bloqueante): el nodo T005 «LINK EXTERNO» (botón rojo del modal de login, href=\"#\") recibió dos propuestas equivalentes de D1 y F3, ambas con severidad alta y ambas recomendando eliminar el nodo (F3 admite alternativamente asignarle un destino funcional real); aplicar la corrección una sola vez, no duplicar el trabajo. Para aplicar el resto de las sustituciones: (1) hacer backup del HTML fuente antes de cualquier cambio; (2) el error de capitalización «Instituto Nacional de Propiedad industrial» (T035) está en el footer compartido con /acerca-de, /marcas, /patentes y /buscador — coordinar el cambio a nivel de plantilla (_Layout.cshtml o widget de footer), no por página, para no duplicar el esfuerzo; (3) las correcciones de mayúsculas D7 (T006-T009) están acotadas al componente del modal de búsqueda compartido, distinto de la cabecera global ACCESOS/BUSCADOR excluida por calibración; (4) las tres imágenes de noticias (T017, T021, T025) tienen comportamientos distintos en el HTML: T017 tiene el atributo alt presente pero vacío (editar el atributo existente), mientras T021 y T025 no tienen el atributo alt en absoluto (agregarlo); (5) los tres PDFs del carrusel de logos (T027-T029) requieren agregar formato, descripción y peso visibles en pantalla — no inventar un peso en KB/MB si no se conoce el valor real en el CMS, mantener solo «(PDF)»; (6) G1 se mantiene calibrado como cumple para el RUT institucional de persona jurídica pública (65.999.669-3); (7) el HTML puede contener entidades como &oacute; (ó), &aacute; (á), &eacute; (é) que deben buscarse en forma codificada si el editor de TI trabaja sobre el HTML crudo servido por Sitefinity."
+}
