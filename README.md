@@ -41,6 +41,7 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | 0008 | [TypeScript sobre Python para RAG y orquestación](docs/adr/0008-typescript-sobre-python-para-rag.md) | Aceptado |
 | 0009 | [Claude Code Pro como orquestador principal](docs/adr/0009-claude-code-pro-como-orquestador.md) | Aceptado |
 | 0010 | [RAG local con Chroma y @xenova/transformers](docs/adr/0010-rag-local-chroma-xenova-transformers.md) | Aceptado |
+| 0011 | [Worker local on-demand (Vercel + Claude Code)](docs/adr/0011-worker-local-on-demand-vercel.md) | Borrador |
 
 ---
 

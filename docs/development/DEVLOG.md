@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-17 | [Documentación: ADR 0011 worker on-demand + cotización API](#devlog-2026-08-17-adr-0011-worker) |
+| 2026-08-17 | [Checklist: merge v2.1 a main (Fase 4 paso 1)](#devlog-2026-08-17-checklist-merge-main) |
 | 2026-08-17 | [Infraestructura: Claude Team INAPI — migración cuenta + smoke test](#devlog-2026-08-17-claude-team-inapi) |
 | 2026-08-17 | [Checklist: v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude](#devlog-2026-08-17-checklist-v21-47) |
 | 2026-07-29 | [Infraestructura: Reauditoría §17 de 3 URLs META MEI + Excel regenerado](#devlog-2026-07-29-meta-mei-reauditoria-17) |
@@ -55,6 +57,49 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-17-adr-0011-worker"></a>
+
+## [2026-08-17] - Documentación | ADR 0011 worker on-demand + cotización API
+
+### Contexto y objetivos:
+
+Cerrar el **paso 2** de la Fase 4: documentar la arquitectura MVP (Vercel UI + worker PC 8–18 + Claude Code Team, sin API Anthropic operativa) y dejar una plantilla de cotización API solo como evidencia de costo. **Sin** vincular Vercel/Cursor ni implementar código de jobs.
+
+### Implementación técnica:
+
+- Rama `docs/mvp-worker-on-demand`.
+- Nuevo [ADR 0011](../adr/0011-worker-local-on-demand-vercel.md) (borrador): flujo job/poll/claim, sin auth, persistencia `data/jobs/` o SQLite, túnel pendiente de spike.
+- [`docs/cotizacion-anthropic-api-evidencia.md`](../cotizacion-anthropic-api-evidencia.md): método + placeholders.
+- ROADMAP paso 2 marcado `[x]`.
+
+### Próximos pasos:
+
+- Paso 3: contratos HTTP `audit-jobs` + claim del worker (spec en repo).
+- Paso 4: implementación en rama `feat/mvp-audit-jobs-worker` tras plan de archivos.
+
+---
+
+<a id="devlog-2026-08-17-checklist-merge-main"></a>
+
+## [2026-08-17] - Checklist | merge v2.1 a main (Fase 4 paso 1)
+
+### Contexto y objetivos:
+
+Cerrar el **paso 1** de la Fase 4: dejar el checklist v2.1 (47 criterios) y la documentación del paso 0 (Claude Team INAPI) en `main`.
+
+### Implementación técnica:
+
+- Rama `feat/checklist-v2.1-47-criterios` pusheada; PR mergeado en GitHub.
+- Tip de `main`: `fad7d70` — *feat(checklist): v2.1 — 47 criterios + Claude Team INAPI* (merge de `5c1fce9` + `cda076c`).
+- `bun run typecheck:all` verificado en verde antes del push.
+
+### Próximos pasos:
+
+- Fase 4 **paso 2**: documentación worker on-demand (ADR/one-pager, cotización API placeholders).
+- Luego paso 3 contratos BE; paso 4 implementación en rama nueva (plan de archivos primero).
 
 ---
 

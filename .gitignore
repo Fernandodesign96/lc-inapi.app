@@ -77,3 +77,6 @@ auditorias/htmls/**/*.gif
 .playwright-mcp/
 
 data/exports/*.xlsx
+
+# Local CLI binaries (not for repo)
+.tools/

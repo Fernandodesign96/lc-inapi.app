@@ -222,21 +222,25 @@
 
 Rama existente: `feat/checklist-v2.1-47-criterios` (47 criterios, Zod, skills, MEI Fuentes).
 
-- [ ] Revisar diff vs `main`; `bun run typecheck:all` en verde.
-- [ ] Abrir **PR** → `main` (título/cuerpo alineados a convención de commits).
-- [ ] Merge tras revisión; actualizar local: `git checkout main && git pull`.
-- [ ] **No** auditar URLs en este paso.
+- [x] Revisar diff vs `main`; `bun run typecheck:all` en verde.
+- [x] Abrir **PR** → `main` (título/cuerpo alineados a convención de commits).
+- [x] Merge tras revisión; actualizar local: `git checkout main && git pull`.
+- [x] **No** auditar URLs en este paso.
+
+**Hecho 2026-08-17:** merge en `main` — commit `fad7d70` (`feat(checklist): v2.1 — 47 criterios + Claude Team INAPI`).
 
 ### Paso 2 — Documentación worker on-demand (commits atómicos de docs)
 
-Nueva rama desde `main` actualizado, p. ej. `docs/mvp-worker-on-demand` (o commits atómicos en la rama de implementación del paso 3 si se prefiere un solo PR de docs+código).
+Rama: `docs/mvp-worker-on-demand` (desde `main` con checklist v2.1).
 
-- [ ] One-pager o borrador ADR: worker local + Claude Code, **sin** API Anthropic operativa; horario 8–18; Vercel orquesta/muestra.
-- [ ] ROADMAP/DEVLOG: historial (fecha + nombre libre), sin auth, persistencia inicial SQLite o `data/jobs/`.
-- [ ] Borrador cotización API Anthropic (método + placeholders; tokens 1–3 URLs si hay tiempo) — solo evidencia de costo.
-- [ ] Commits atómicos sugeridos:
+- [x] One-pager o borrador ADR: worker local + Claude Code, **sin** API Anthropic operativa; horario 8–18; Vercel orquesta/muestra → [`docs/adr/0011-worker-local-on-demand-vercel.md`](adr/0011-worker-local-on-demand-vercel.md).
+- [x] ROADMAP/DEVLOG: historial (fecha + nombre libre), sin auth, persistencia inicial SQLite o `data/jobs/`.
+- [x] Borrador cotización API Anthropic (método + placeholders) → [`docs/cotizacion-anthropic-api-evidencia.md`](cotizacion-anthropic-api-evidencia.md) — solo evidencia de costo.
+- [x] Commits atómicos:
   1. `docs(adr): borrador worker local on-demand sin API operativa`
   2. `docs: cotización Anthropic API como evidencia de costo (placeholders)`
+
+**Nota:** este paso **no** requiere vincular Cursor ni cuenta Vercel. El túnel y el cableado Continuar→job son pasos 3–4.
 
 ### Paso 3 — Contratos BE mínimo (especificación en repo, commit atómico)
 
