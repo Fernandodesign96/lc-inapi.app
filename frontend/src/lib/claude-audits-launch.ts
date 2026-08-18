@@ -103,39 +103,45 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     label: "Solicitud Nueva",
     tipoPagina: "sitioweb",
-    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07",
+    // Reauditoría v2.1 (meta-mei orden 6)
+    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 44.8,
+      porcentajeLc: 47.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-07T16:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" }],
   },
   {
     pilotoNum: 7,
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     label: "Sala de Prensa",
     tipoPagina: "sitioweb",
-    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07",
+    // Reauditoría v2.1 (meta-mei orden 7)
+    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 45.5,
+      porcentajeLc: 63.2,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-07T18:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" }],
   },
   {
     pilotoNum: 8,
     url: "https://tramites.inapi.cl/siac",
     label: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    claudeAuditId: "tramites-inapi-cl-siac_2026-06-07",
+    // Reauditoría v2.1 (meta-mei orden 10)
+    claudeAuditId: "tramites-inapi-cl-siac_2026-08-18",
     resumenMvp: {
-      porcentajeLc: 51.5,
+      porcentajeLc: 52.8,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-06-07T20:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "tramites-inapi-cl-siac_2026-06-07" }],
   },
   {
     pilotoNum: 9,
@@ -193,28 +199,32 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     history: [{ id: "www-inapi-cl-patentes_2026-07-29" }],
   },
   {
-    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
+    // Reauditoría v2.1 (meta-mei orden 8)
     resumenMvp: {
-      porcentajeLc: 60.0,
+      porcentajeLc: 41.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" }],
   },
   {
-    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29",
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
+    // Reauditoría v2.1 (meta-mei orden 9)
     resumenMvp: {
-      porcentajeLc: 65.7,
+      porcentajeLc: 58.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-29T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
+    history: [{ id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" }],
   },
 ]
 

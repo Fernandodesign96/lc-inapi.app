@@ -640,3 +640,47 @@ Al lanzar el sub-subagente del Grupo 5 con `captura_con_sesion: true`, incluir e
 ### Chroma / RAG en sesión autenticada
 
 Chroma **no** accede a la URL ni al HTML de sesión. El RAG MCP solo aporta normativa (A) y precedentes anonimizados del repo (B). Consultar precedentes de URLs similares del mismo tipo de formulario, no fragmentos con PII.
+
+---
+
+## 20. Calibración META MEI v2.1 — puntaje, VISIBLE, patrones y cruces
+
+*Aplica a reauditorías de las 10 URLs META MEI y a auditorías nuevas con `version_checklist: "2.1"`.*
+
+### 20.1 Solo contenido visible (impacto en %)
+
+| Evidencia | ¿Descuenta %? | Entrega |
+| --- | --- | --- |
+| Texto/UI visible o modal abrible con un clic | Sí (`incumple`) | Sustitución + `ubicacion_pantalla` |
+| `<title>`, `<meta>`, OG, keywords | No | Opcional en `nota_final_tic` (capa METADATA) |
+| Nodo en DOM oculto / off-screen / no disparado | No | Nota TI sin `incumple` |
+| Snippet de índice no mostrado en esa URL | No | Nota TI / CMS |
+
+### 20.2 Patrones de Layout (shell)
+
+Hallazgos de header, footer, modal de contacto/login, buscador global:
+
+- **Sí descuentan** en cada URL (el ciudadano los ve ahí).
+- Marcar `patron_sistema: true` en la sustitución.
+- En `motivo` / `comentario`: «Patrón de sitio: corregir en el origen (Layout / modal compartido); al publicar se corrige en todas las URLs.»
+
+### 20.3 Criterios cruzados (mismo texto propuesto)
+
+Si C1/C3/C4 (o B8/C3, etc.) apuntan al **mismo** `original`/`propuesto`:
+
+1. Una sola fila en `sustituciones[]` con `criterio_id` = **primario** y `criterios_relacionados: [...]`.
+2. Prioridad sugerida de primario: C7 > C4 > C3 > C1 > B8 (ajustar con Bernarda si hace falta).
+3. Primario → `incumple` (descuenta).
+4. Secundarios → `incumple` + `agrupado_en: "<primario>"` (mostrar justificación; **no** descuentan en `summarizeEvaluations`).
+5. En UI/PDF/Excel: mostrar «C1, C3, C4» y las justificaciones juntas.
+
+### 20.4 Justificación obligatoria en `no_aplica`
+
+Los **47** criterios aparecen siempre en pantalla, PDF y Excel.
+
+- `no_aplica` **debe** llevar `comentario` breve (por qué no aplica en esta URL).
+- Auditorías históricas sin comentario muestran «Sin justificación registrada» hasta reauditar.
+
+### 20.5 Lenguaje de resumen y nota TI
+
+`resumen_ejecutivo` y `nota_final_tic` deben redactarse en **lenguaje claro** (párrafos cortos, sin jerga de orquestación ni códigos HTML innecesarios). La UI/PDF además formatean párrafos para lectura.

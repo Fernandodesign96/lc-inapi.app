@@ -30,6 +30,10 @@ import {
     PASOS_SEGUN_ESTADO,
   } from "@/lib/resultado-mock-copy"
   import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
+  import {
+    etiquetaCriteriosSustitucion,
+    parrafosInformeLegible,
+  } from "@repo/lib/informe-texto-legible"
   
   function trunc(text: string, max: number): string {
     if (text.length <= max) return text
@@ -106,10 +110,15 @@ import {
   }
   
   function BloqueResumen({ texto }: { texto: string }) {
+    const parrafos = parrafosInformeLegible(texto)
     return (
       <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Resumen Auditoría" />
-        <Text style={styles.body}>{texto}</Text>
+        <PdfSectionBar title="Resumen de la auditoría" />
+        {parrafos.map((p, i) => (
+          <Text key={`resumen-${i}`} style={[styles.body, { marginBottom: 6 }]}>
+            {p}
+          </Text>
+        ))}
       </View>
     )
   }
@@ -131,12 +140,16 @@ import {
   function CriterioFilaPdf({ row }: { row: CriterionEvaluation }) {
     const pres = presentacionCriterio(row)
     const pastilla = pastillaSeveridadTexto(pastillaSeveridadLabel(row))
-    const comentario =
-      row.estado === "no_aplica"
-        ? "—"
-        : row.comentario
-          ? trunc(row.comentario, 140)
-          : "—"
+    const comentario = row.comentario
+      ? trunc(
+          row.agrupado_en
+            ? `Agrupado con ${row.agrupado_en}. ${row.comentario}`
+            : row.comentario,
+          160,
+        )
+      : row.estado === "no_aplica"
+        ? "Sin justificación registrada"
+        : "—"
   
     return (
       <View style={styles.tableRow} wrap={false}>
@@ -157,9 +170,13 @@ import {
   
   function BloqueCriterios({ bundle }: { bundle: ClaudeAuditBundle }) {
     const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
+    const titulo =
+      bundle.audit.version_checklist === "2.1"
+        ? `${rows.length} criterios evaluados`
+        : `${rows.length} criterios evaluados`
     return (
       <View style={styles.sectionWrap}>
-        <PdfSectionBar title="39 Criterios Evaluados" />
+        <PdfSectionBar title={titulo} />
         <View style={styles.tableHeaderRow}>
           <Text style={[styles.tableHeaderCell, { width: "14%" }]}>Sección</Text>
           <Text style={[styles.tableHeaderCell, { width: "28%" }]}>Criterio</Text>
@@ -168,7 +185,7 @@ import {
             Severidad
           </Text>
           <Text style={[styles.tableHeaderCell, { width: "30%" }]}>
-            Comentario
+            Comentario / justificación
           </Text>
         </View>
         {rows.map((row) => (
@@ -228,7 +245,20 @@ import {
             Ref. técnica
           </Text>
         </View>
-        {sustituciones.map((s, i) => (
+        {sustituciones.map((s, i) => {
+          const crit = etiquetaCriteriosSustitucion(
+            s.criterio_id,
+            s.criterios_relacionados,
+          )
+          const motivo = [
+            s.patron_sistema
+              ? "Patrón de sitio (origen compartido)."
+              : null,
+            s.motivo,
+          ]
+            .filter(Boolean)
+            .join(" ")
+          return (
           <View key={`s-${s.linea}-${i}`} style={styles.tableRow}>
             <Text style={[styles.tableCell, { width: "18%" }]}>
               {trunc(s.original, 100)}
@@ -240,26 +270,32 @@ import {
               {trunc(s.ubicacion_pantalla?.trim() || "—", 100)}
             </Text>
             <Text style={[styles.tableCell, { width: "22%" }]}>
-              {trunc(s.motivo, 120)}
+              {trunc(motivo, 120)}
             </Text>
             <Text style={[styles.tableCell, { width: "8%" }]}>
-              {s.criterio_id}
+              {trunc(crit, 24)}
             </Text>
             <Text style={[styles.tableCell, { width: "16%" }]}>
               {s.linea}
               {s.html_linea_aprox ? `\n${s.html_linea_aprox}` : ""}
             </Text>
           </View>
-        ))}
+          )
+        })}
       </View>
     )
   }
   
   function BloqueNotaTi({ texto }: { texto: string }) {
+    const parrafos = parrafosInformeLegible(texto)
     return (
       <View style={styles.sectionWrap}>
         <PdfSectionBar title="Nota para el equipo TI" />
-        <Text style={styles.body}>{texto}</Text>
+        {parrafos.map((p, i) => (
+          <Text key={`nota-${i}`} style={[styles.body, { marginBottom: 6 }]}>
+            {p}
+          </Text>
+        ))}
       </View>
     )
   }

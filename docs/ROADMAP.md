@@ -1,7 +1,7 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-08-17
+**Última actualización:** 2026-08-18
 
 ### Checklist editorial (ago-2026)
 
@@ -279,15 +279,18 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 **Muestra acordada (órdenes 1–5 de `mei-meta-mei-urls.ts`):** Portada, Marcas, Patentes, Acerca de INAPI, Buscador de noticias. Alcance **solo visible**; `version_checklist: "2.1"` (47 criterios).
 
 - [x] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch (+ `ingest:b` en PC oficina)
-- [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado — rama `feat/meta-mei-v21-lote-2`)
+- [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado; orden 6: `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18`, **47,1 %** rechazado — rama `feat/meta-mei-v21-lote-3`)
 - [x] **No** JSON provisorio Cursor
 - [x] Commits atómicos **por URL** (`feat(audits): …`) + cableado `claude-audits-launch.ts` / `mei-meta-mei-urls.ts`
-- [ ] Órdenes **6–10** (Solicitud Nueva, Sala de Prensa, 2 noticias detalle, SIAC) — lote siguiente; Excel completo 10 URLs solo al cerrar las 10
+- [x] Órdenes **7–10** (Sala de Prensa, 2 noticias detalle, SIAC) — cerradas 2026-08-18 en `feat/meta-mei-v21-lote-3`: orden 7 `www-inapi-cl-sala-de-prensa-noticias_2026-08-18` (63,2 % rechazado); orden 8 `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18` (41,5 % rechazado); orden 9 `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18` (58,5 % rechazado); orden 10 `tramites-inapi-cl-siac_2026-08-18` (52,8 % rechazado, formulario sin sesión). Las **10 URLs META MEI** quedan en v2.1; Excel completo Bernarda pendiente de generar.
 
 ### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
 
-- [ ] PDF/Excel más claros para funcionario (auditor, fecha, %, criterios; sin jerga interna)
-- [ ] Excel META MEI: mantener Bernarda + Fuentes; ajustar textos/columnas según feedback
+- [x] Calibración META MEI documentada (CLAUDE.md §20): VISIBLE vs no visible, patrones Layout, criterios cruzados (`agrupado_en` / `criterios_relacionados`), justificación en `no_aplica` — rama `feat/meta-mei-calibracion-ui-resultado`
+- [x] UI `/auditar/resultado`: resumen y nota TI en lenguaje claro (párrafos); barra de criterios plegable; Excel MEI mismo estilo primary que PDF; botón fijo «volver arriba»
+- [x] PDF/Excel: comentario en `no_aplica`; criterios relacionados y `patron_sistema` en sustituciones
+- [ ] Reauditoría §17 de las 10 URLs con calibración §20 (actualizar % y textos)
+- [ ] Excel META MEI completo Bernarda de las 10 URLs tras reauditoría
 - [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
 
 ### Spike opcional (si sobra tiempo)
@@ -295,7 +298,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **5 auditorías §17 v2.1** (órdenes META MEI 1–5, ago-2026) + plan de pulido PDF/Excel; completar 6–10 y Excel Bernarda de 10 URLs en oleada siguiente.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026, las 10 URLs META MEI completas) + plan de pulido PDF/Excel; queda pendiente generar el Excel Bernarda de las 10 URLs y el merge de `feat/meta-mei-v21-lote-3` a `main`.
 
 ---
 

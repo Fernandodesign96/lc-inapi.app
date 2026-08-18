@@ -1,0 +1,630 @@
+{
+  "id": "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
+  "url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "NOTA: HTML capturado con Playwright MCP (DOM renderizado, 2026-08-18) como volcado de una sola línea; las anclas entre comillas son el texto exacto a buscar con Ctrl+F, no números de línea. Solo se inventaría contenido VISIBLE al ciudadano; <title> y <meta> quedan fuera de alcance. Noticia individual (artículo), no listado. | T001 «ACCESOS» (header global, EXCLUIDO de D7) | T002 «BUSCADOR» span (EXCLUIDO de D7) | T003 «Usuario Frecuente» (modal login) | T004 «Registro» (modal login) | T005 «LINK EXTERNO» (modal login, href=\"#\") | T006 «BUSCAR Y TRAMITAR» (h3 modal buscador) | T007 placeholder «BUSCADOR» (input modal) | T008 «MARCAS» (h4 modal) | T009 «PATENTES» (h4 modal) | T010 H1 «Detalle » (banner, plantilla GENÉRICA compartida por todas las noticias, con espacio final) | T011 H2 «Noticia» (banner, genérico) | T012 Breadcrumb «Home» › «Sala de Prensa» › «Detalle Noticia» | T013 fecha visible «jun. 21, 2026» | T014 H3 titular real «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial» | T015 imagen carrusel 1/5: alt/title «Portada de las Directrices de Marcas 2026 publicadas por INAPI» (NO corresponde al tema de esta noticia) | T016-T019 imágenes carrusel 2/5 a 5/5: alt=\"\" title=\"foto-2\"/\"foto-3\"/\"foto-4\"/\"foto-5\" | T020 H5 bajada: «La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional, así como los desafíos proyectados para seguir fortaleciendo la innovación y la protección de la propiedad industrial en Chile.» | T021 párrafo 1 (INICIA EN MINÚSCULA sin conector): «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.» | T022 párrafo 2: «La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.» | T023 párrafo 3 (cita de Esteban Figueroa Nagel, Director Nacional): «Durante su presentación, el Director Nacional destacó que \\\"la propiedad industrial dejó de ser solo un trámite administrativo para transformarse en una herramienta clave para proteger la capacidad de crear valor, impulsar la innovación y fortalecer la competitividad del país\\\".» | T024 párrafo 4 (cifras): «En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.» | T025 párrafo 5 (PCT sin expandir en el cuerpo): «Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038, consolidando el posicionamiento técnico de Chile a nivel internacional y permitiendo continuar realizando exámenes de invenciones en español e inglés para usuarios de distintos países.» | T026 párrafo 6 (voz pasiva «fue presentada»): «La Cuenta Pública también puso énfasis en el proceso de descentralización institucional impulsado por INAPI. En esa línea, la realización de la ceremonia en Valparaíso fue presentada como parte de una estrategia orientada a acercar la propiedad industrial a las regiones y fortalecer el acceso a estas herramientas en todo el territorio nacional.» | T027 párrafo 7 (cita de Figueroa): «\\\"El desafío es que la innovación y la propiedad industrial no estén concentradas en unos pocos territorios o sectores, sino que lleguen a todos los rincones de Chile\\\", señaló Figueroa.» | T028 párrafo 8: «En este marco, el Director Nacional destacó los resultados de la iniciativa INAPI+Cerca, campaña piloto desarrollada en las regiones de Coquimbo, Maule y Los Lagos, que permitió conectar con públicos tradicionalmente alejados de estas materias, incluyendo comunidades rurales y personas mayores.» | T029 párrafo 9 (voz pasiva «se abordaron»; PLT sí expandido): «Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.» | T030 párrafo 10: «La jornada finalizó con la presentación de María José García, Subdirectora de Patentes de INAPI, quien expuso sobre el valor de las patentes como herramienta para impulsar la innovación, el desarrollo y la transferencia tecnológica.» | T031 párrafo 11 (cierre, enlace «formulario disponible» dentro del texto corrido → Google Forms externo, target=_blank): «La jornada concluyó con una invitación a ser parte del proceso de participación ciudadana asociado a la Cuenta Pública Participativa 2026, mediante un formulario disponible para recibir consultas, comentarios y sugerencias sobre la gestión y desafíos institucionales de INAPI.» | T032 enlace «Volver» con imagen volver.png SIN atributo alt → /sala-de-prensa | T033 iconos compartir (Facebook/LinkedIn/X/WhatsApp) sin texto visible ni aria-label | T034 sidebar H4 «Otras Noticias» | T035 item1 «INAPI y Ministerio de Economía presentan plataforma...» fecha «ago. 12, 2026» alt=\"\" | T036 item2 «INAPI amplía plazos administrativos... Japón» fecha «ago. 11, 2026» alt=\"\" | T037 item3 «INAPI promueve la participación... ASIPI» fecha «jul. 30, 2026» alt=\"\" | T038 item4 «ClaveÚnica: INAPI refuerza la seguridad de sus trámites en línea...» fecha «jul. 30, 2026» alt=\"\" | T039 item5 «INAPI reunió al ecosistema de innovación...» fecha «jul. 23, 2026» alt=\"\" | T040 CTA «Ver todas las noticias» → /sala-de-prensa/noticias/todas-las-noticias | T041 modal contacto H2 «Utiliza el canal de comunicación que prefieras:» | T042 modal contacto «Tu consulta será atendida por un especialista.» (voz pasiva) | T043 botón flotante «¿Quieres contactarnos?» | T044 footer «Dónde estamos»: «Instituto Nacional de Propiedad industrial (INAPI)» (minúscula indebida) / «RUT: 65.999.669-3» | T045 footer dirección/teléfono/correo | T046 footer «Conversemos» + «Contacto» | T047 footer «Accesos»: incluye «Política de privacidad» | T048 copyright «©2026 INAPI. Todos los derechos reservados» | T049 menú principal desktop: incluye «Conoce más», «PCT» sin definir en el menú | T050 menú burger: incluye «Observancia»",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "La bajada (H5, T020) y el primer párrafo del cuerpo (T021) comunican de inmediato qué ocurrió (Cuenta Pública Participativa 2026), quién la encabezó (Director Nacional Esteban Figueroa Nagel) y el propósito general (avances institucionales y desafíos proyectados), sin necesidad de leer el resto de la nota.",
+      "cita_textual": "T020: «La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional...»"
+    },
+    {
+      "id": "A2",
+      "estado": "cumple",
+      "comentario": "El artículo sigue una estructura de pirámide invertida razonable: bajada con síntesis (T020), contexto y autoridad que preside (T021-T022), cita de respaldo (T023) y luego cifras y detalles progresivos (T024-T030), cerrando con la convocatoria a participación (T031).",
+      "cita_textual": "T021: «instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales...»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo del artículo (T020-T031) es un bloque continuo de una bajada y 11 párrafos sin ningún encabezado interno que fragmente los distintos temas que trata (resultados 2025, renovación PCT, descentralización/INAPI+Cerca, compromisos 2026, cierre de participación ciudadana). No hay encabezados informativos que permitan identificar secciones lógicas dentro de la nota.",
+      "cita_textual": "(ausencia de encabezados intermedios entre T020 y T031)"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Cada párrafo del cuerpo (T021-T031) está fragmentado y ninguno supera individualmente las 110 palabras; el párrafo más extenso (T021) tiene aproximadamente 48 palabras.",
+      "cita_textual": "T021: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...»"
+    },
+    {
+      "id": "A5",
+      "estado": "cumple",
+      "comentario": "El contenido visible corresponde a información periodística directamente relacionada con el hecho noticioso (cifras de gestión, citas de la autoridad, compromisos institucionales); no se observa relleno institucional genérico ajeno al hecho reportado."
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detectan rótulos de «en construcción», placeholders de desarrollo ni contenido inconcluso en el cuerpo visible de la noticia."
+    },
+    {
+      "id": "A7",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El artículo destaca con claridad el qué (Cuenta Pública Participativa 2026), el quién (INAPI, Director Nacional Esteban Figueroa Nagel) y el dónde (Casa Central PUCV, Valparaíso); el cuándo solo es visible en el campo de fecha (T013) y no se retoma explícitamente en el cuerpo, y no se explicita para quién son relevantes los avances y compromisos descritos.",
+      "cita_textual": "T029: «Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional...»"
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "Página informativa (sitioweb) tipo noticia; A8 aplica únicamente a páginas de trámites."
+    },
+    {
+      "id": "A9",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo del artículo no utiliza ningún recurso de escaneabilidad: no hay negritas para resaltar cifras clave (2,3 años, 97%, 56% a 3%) ni listas para enumerar los compromisos institucionales 2026 (T029), que se presentan en prosa continua.",
+      "cita_textual": "T024: «el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses...»"
+    },
+    {
+      "id": "B1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La mayoría de las oraciones usan voz activa («realizó», «presentó», «destacó», «señaló», «relevó»), pero aparecen construcciones pasivas puntuales: «fue presentada» (T026) y «se abordaron» (T029).",
+      "cita_textual": "T026: «la realización de la ceremonia en Valparaíso fue presentada como parte de una estrategia»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo usa términos técnico-administrativos sin glosa para el ciudadano promedio, como «juicios de oposición» (T024) y «Autoridad Internacional de Búsqueda y Examen» (T025).",
+      "cita_textual": "T024: «la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%»"
+    },
+    {
+      "id": "B3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La sigla «PCT» aparece en T025 sin expansión previa en el cuerpo de la noticia (solo se define INAPI en T021). Coincide con el patrón sistémico ya documentado en el proyecto (PCT sin expandir en primera aparición).",
+      "cita_textual": "T025: «la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038»"
+    },
+    {
+      "id": "B4",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "T029 introduce el extranjerismo «Patent Law Treaty (PLT)» sin traducción ni glosa en español, pese a que el resto del texto es mayormente en español claro.",
+      "cita_textual": "T029: «la implementación del Patent Law Treaty (PLT)»"
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El artículo mantiene un tono positivo y constructivo en toda su extensión, destacando avances, logros y compromisos institucionales sin lenguaje alarmista ni negativo.",
+      "cita_textual": "T024: «relevó avances en eficiencia institucional»"
+    },
+    {
+      "id": "B6",
+      "estado": "cumple",
+      "comentario": "El cuerpo editorial (T021-T031) mantiene un registro formal-institucional consistente de tercera persona a lo largo de toda la noticia, sin mezclar tuteo ni registros coloquiales. El modal de contacto (T041-T043) con tuteo es un componente global de plantilla ajeno al cuerpo editorial de esta noticia.",
+      "cita_textual": "T028: «el Director Nacional destacó los resultados de la iniciativa INAPI+Cerca»"
+    },
+    {
+      "id": "B7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Se repiten conectores de relleno institucional sin aporte informativo real («En ese contexto» T024, «En esa línea» T026, «En este marco» T028, «Asimismo» T025/T029), típicos de redacción burocrática.",
+      "cita_textual": "T026: «En esa línea, la realización de la ceremonia en Valparaíso fue presentada como parte de una estrategia»"
+    },
+    {
+      "id": "B8",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "No se aplicó herramienta de legibilidad (Legible.es u equivalente) sobre el cuerpo principal de 11 párrafos, que sí constituye texto medible y extenso. Ante la presencia de oraciones largas (ver C3), es probable que el resultado esté por debajo de 3/5 indicadores «Normal»; corresponde documentar medición faltante, no marcar no_aplica.",
+      "cita_textual": "(sin medición de legibilidad documentada para el cuerpo de la noticia)"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las oraciones del cuerpo siguen mayoritariamente el orden sujeto-verbo-predicado (ej. «el Director Nacional destacó...», «la actividad reunió a autoridades...»).",
+      "cita_textual": "T022: «La actividad reunió a autoridades regionales y nacionales»"
+    },
+    {
+      "id": "C2",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El cuerpo está redactado casi íntegramente en pretérito («realizó», «reunió», «destacó», «señaló», «permitió», «finalizó», «concluyó»), sin predominio de presente simple; se sugiere aplicar presente al menos en los pasajes sobre compromisos futuros (T029).",
+      "cita_textual": "T029: «Asimismo, se abordaron los principales compromisos institucionales para 2026»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Varias oraciones superan las 30 palabras recomendadas, dificultando la lectura: T021 (~48 palabras), T024 (primera oración ~40 palabras), T025 (~45 palabras), T029 (oración enumerativa de ~55 palabras).",
+      "cita_textual": "T021: «el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel...»"
+    },
+    {
+      "id": "C4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "T029 desarrolla al menos cinco ideas distintas (modernización del sitio web, IA en procesos de examen, implementación del PLT, financiamiento con activos intangibles, Estrategia Nacional de PI) en un solo párrafo/oración, incumpliendo el principio de una idea por párrafo.",
+      "cita_textual": "T029: «entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen...»"
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Los párrafos individuales (T021-T031), aunque contienen oraciones largas, no exceden aproximadamente 8 líneas en pantalla de escritorio según su extensión estimada (30-55 palabras por párrafo)."
+    },
+    {
+      "id": "C6",
+      "estado": "cumple",
+      "comentario": "La bajada H5 (T020), ubicada antes del cuerpo de 11 párrafos, cumple la función de resumen inicial al anticipar los ejes temáticos (eficiencia, liderazgo internacional, descentralización, modernización institucional y desafíos proyectados) que luego se desarrollan en el cuerpo.",
+      "cita_textual": "T020: «La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional»"
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "La noticia no presenta listas de requisitos de trámite; es un artículo informativo sobre un evento institucional."
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "Corresponde a una noticia de crónica institucional, no a una página de procedimiento o trámite que deba resolver preguntas frecuentes del usuario; no aplica estructura tipo FAQ en este género editorial."
+    },
+    {
+      "id": "C9",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo principal tiene 11 párrafos (T021-T031), superando el rango de 2 a 8 párrafos establecido. Al ser un artículo periodístico institucional extenso, se recomienda introducir subtítulos que segmenten el contenido en bloques temáticos.",
+      "cita_textual": "(cuerpo de la noticia compuesto por 11 párrafos consecutivos, T021-T031)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El párrafo 1 del cuerpo (T021) inicia en minúscula («la Casa Central de la Pontificia Universidad Católica de Valparaíso...») justo después de la bajada (T020) que cierra con punto, sin sujeto ni conector previo. Adicionalmente, en el footer institucional (T044, patrón compartido de shell) el nombre «Instituto Nacional de Propiedad industrial (INAPI)» tiene «industrial» en minúscula, debiendo ser «Industrial».",
+      "cita_textual": "T021: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026»"
+    },
+    {
+      "id": "D2",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La primera oración del cuerpo (T021) yuxtapone «la Casa Central de la Pontificia Universidad Católica de Valparaíso» y «el Instituto Nacional de Propiedad Industrial (INAPI)» sin una preposición que vincule el lugar de la actividad con el sujeto que la realiza, generando una construcción gramaticalmente incompleta (falta «En» al inicio).",
+      "cita_textual": "T021: «la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Criterio de espaciado entre párrafos: corresponde a implementación CSS/visual, fuera del alcance de esta auditoría editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Criterio de alineación de texto: corresponde a implementación CSS/visual, fuera del alcance de esta auditoría editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El párrafo 9 (T029) enumera en texto corrido 5 compromisos institucionales para 2026 separados por comas. Al tratarse de una enumeración de 5 elementos, el formato de lista con viñetas mejora la escaneabilidad respecto del párrafo corrido.",
+      "cita_textual": "T029: «la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial»"
+    },
+    {
+      "id": "D6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo editorial tiene 11 párrafos extensos con cifras y datos clave (2,3 años, 97%, reducción de 56% a 3%, renovación PCT hasta 2038) y no usa ninguna negrita para destacarlos, dificultando el escaneo rápido de la información más relevante de la noticia.",
+      "cita_textual": "T024: «el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses»"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal de buscador y login presenta frases en mayúsculas sostenidas: botón «LINK EXTERNO» (T005), h3 «BUSCAR Y TRAMITAR» (T006), placeholder «BUSCADOR» (T007) y los h4 «MARCAS»/«PATENTES» (T008, T009). Distinto de los ítems «ACCESOS»/«BUSCADOR» de la cabecera global, excluidos de D7 por calibración de proyecto.",
+      "cita_textual": "T006: «BUSCAR Y TRAMITAR»"
+    },
+    {
+      "id": "E1",
+      "estado": "cumple",
+      "comentario": "El texto mantiene tono institucional objetivo; las valoraciones («herramienta clave», «desafío») están contenidas en citas textuales atribuidas a una persona identificada (Esteban Figueroa Nagel, Director Nacional), lo cual es admisible y no constituye opinión del medio.",
+      "cita_textual": "T023: «el Director Nacional destacó que \"la propiedad industrial dejó de ser solo un trámite administrativo para transformarse en una herramienta clave...\"»"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "La autoría institucional es identificable de forma inequívoca: encabezado de Sala de Prensa, mención reiterada de INAPI en el cuerpo, footer institucional con RUT y datos de contacto (T044-T045)."
+    },
+    {
+      "id": "E3",
+      "estado": "cumple",
+      "comentario": "A diferencia de otras páginas del sitio auditadas (donde la fecha estaba ausente), esta noticia individual sí exhibe una fecha de publicación visible junto al titular, satisfaciendo el criterio.",
+      "cita_textual": "T013: «jun. 21, 2026»"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 visible («Detalle », T010) es genérico y no representa el contenido específico de la noticia; corresponde a una plantilla compartida por todas las noticias individuales del sitio. El H3 (T014) sí es el titular real y descriptivo, pero no cumple el rol semántico de H1.",
+      "cita_textual": "T010: «Detalle » (H1) / T014: «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso...» (H3)"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El bloque «Otras Noticias» (T035-T039) cumple correctamente F1, pero en el menú burger el enlace «Observancia» (T050) no coincide con el nombre real de la página de destino (/protege-tu-idea).",
+      "cita_textual": "«Observancia» (menú burger) → destino /protege-tu-idea, cuyo nombre no coincide con el texto del enlace"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El menú principal desktop usa «Conoce más» (T049) como texto de enlace, una fórmula genérica sin contexto sobre el destino (/propiedad-intelectual-e-industrial).",
+      "cita_textual": "«Conoce más» (menú principal desktop) → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F3",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El modal de login (T005) contiene un enlace con texto placeholder «LINK EXTERNO» y href=\"#\" sin destino real. Adicionalmente, el enlace «Volver» (T032) retorna a la sección padre «Sala de Prensa» y no a «Noticias» específicamente, lo que puede confundir al usuario sobre dónde aterrizará.",
+      "cita_textual": "T005: «LINK EXTERNO» (modal login, href=\"#\")"
+    },
+    {
+      "id": "F4",
+      "estado": "no_aplica",
+      "comentario": "No hay documentos descargables (PDF/DOC) enlazados en el cuerpo de esta noticia individual; los elementos presentes son imágenes de carrusel decorativas y enlaces de texto/navegación. El criterio no puede evaluarse porque no existe el supuesto (documento adjunto)."
+    },
+    {
+      "id": "F5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El enlace «formulario disponible» (T031, target=\"_blank\" hacia Google Forms) que invita a la participación ciudadana está incrustado dentro del texto corrido del párrafo de cierre, en lugar de ubicarse fuera del cuerpo que se debe leer (como CTA independiente).",
+      "cita_textual": "T031: «...mediante un formulario disponible para recibir consultas, comentarios y sugerencias sobre la gestión y desafíos institucionales de INAPI.»"
+    },
+    {
+      "id": "F6",
+      "estado": "cumple",
+      "comentario": "El sidebar «Otras Noticias» (T034-T039) constituye un bloque de enlaces relacionados editoriales genuino, distinto del menú global y del footer: agrupa 5 noticias temáticamente afines con texto de enlace que coincide con el titular real de cada noticia destino, cerrando con un CTA «Ver todas las noticias» (T040) correctamente ubicado fuera del texto corrido.",
+      "cita_textual": "T034-T039: bloque «Otras Noticias», 5 enlaces a noticias relacionadas del mismo sitio"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El RUT «65.999.669-3» del footer corresponde a INAPI como persona jurídica pública, no a un individuo. La noticia menciona a Esteban Figueroa Nagel (Director Nacional) y a María José García (Subdirectora de Patentes) exclusivamente en su rol institucional dentro de un relato periodístico; no se expone RUT, RUN, teléfono ni correo personal de ninguna de las dos personas.",
+      "cita_textual": "T044: RUT: 65.999.669-3 (footer institucional) / T021, T030: «Esteban Figueroa Nagel, Director Nacional de INAPI» / «María José García, Subdirectora de Patentes de INAPI» (sin datos de contacto personal)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "El footer incluye, dentro del bloque «Accesos», un enlace directo a «Política de privacidad» (abre en nueva pestaña), canal donde el sitio institucional documenta el ejercicio de derechos ARCO.",
+      "cita_textual": "T047: «Política de privacidad» (enlace en footer, sección Accesos, target=_blank)"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El footer publica una línea de copyright con año vigente (2026) y declaración de reserva de derechos, cumpliendo el requisito de condiciones de uso del contenido publicadas.",
+      "cita_textual": "T048: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No se detectan versiones anteriores de esta noticia ni rótulos de contenido archivado/no vigente. Sin embargo, en el aspecto de accesibilidad que cubre H1, la página presenta varios incumplimientos: las 4 imágenes restantes del carrusel (2/5 a 5/5) tienen alt=\"\" vacío con solo un title genérico; el ícono del enlace «Volver» (volver.png) no tiene atributo alt en absoluto; y las 5 imágenes del bloque «Otras Noticias» tienen alt=\"\" vacío.",
+      "cita_textual": "T016-T019: alt=\"\" title=\"foto-2\" (y análogos) / T032: imagen volver.png sin atributo alt / T034-T039: alt=\"\" en imágenes de «Otras Noticias»"
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 41,
+  "criterios_aprobados": 17,
+  "porcentaje_cumplimiento": 41.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 24 incumplimientos sobre 41 criterios aplicables (41,5 %), evaluando exclusivamente contenido visible en pantalla. Las correcciones de mayor impacto son: (1) corregir la mayúscula inicial y la preposición faltante del primer párrafo del cuerpo (D1, D2, ambas alta); (2) expandir la sigla PCT en su aparición en el cuerpo del artículo (B3, alta); (3) definir un destino real o eliminar el botón «LINK EXTERNO» del modal de login (F3, alta); (4) dividir en oraciones más cortas los párrafos T021, T025 y T029 (C3, alta); (5) fragmentar el cuerpo de 11 párrafos con subtítulos internos (A3, media) y ajustar C9 con la misma solución; (6) ampliar el H1 genérico «Detalle» con el titular real de la noticia (E4, media); (7) agregar negritas a las cifras clave de gestión y convertir en lista los 5 compromisos institucionales 2026 (A9, D5, D6, media/baja); (8) reformular en voz activa «fue presentada»/«se abordaron» (B1, baja); (9) glosar «juicios de oposición» y traducir «Patent Law Treaty» (B2 media, B4 baja); (10) reubicar el enlace al formulario de participación ciudadana como CTA independiente fuera del texto corrido (F5, media); (11) agregar alt descriptivo a las imágenes del carrusel, al ícono «Volver» y a las tarjetas de «Otras Noticias» (H1, media); (12) corregir enlaces «Observancia» y «Conoce más» para que describan su destino (F1 media, F2 baja); (13) corregir «Instituto Nacional de Propiedad industrial» en el footer compartido (D1). El array sustituciones[] contiene 33 filas con cobertura 1:1 para los 24 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) de esta noticia individual de INAPI (Cuenta Pública Participativa 2026 en Valparaíso) obtiene un 41,5 % de cumplimiento sobre 41 criterios aplicables — estado RECHAZADO (≤80 %), evaluando exclusivamente contenido visible en pantalla. A diferencia de la mayoría de las páginas del sitio, esta URL sí tiene un cuerpo editorial extenso (11 párrafos) con citas atribuidas, cifras de gestión y una fecha de publicación visible (E3 cumple, algo excepcional en el inventario de www.inapi.cl). Los incumplimientos de severidad alta son estructurales de redacción: el primer párrafo del cuerpo inicia en minúscula y sin preposición de enlace con la bajada anterior (D1, D2), la sigla PCT no se expande en el cuerpo (B3), el botón «LINK EXTERNO» del modal de login no tiene destino funcional (F3), y varias oraciones superan las 30 palabras recomendadas (C3). Los incumplimientos de severidad media incluyen: ausencia de encabezados internos que fragmenten los 11 párrafos en secciones temáticas (A3, y su reflejo en C9 por exceder el rango de 2-8 párrafos), falta de recursos de escaneabilidad como negritas y listas (A9, D5, D6), voz pasiva reiterada y conectores de relleno burocrático («en esa línea», «en este marco») en la narrativa (B7), un H1 genérico de plantilla que no representa el contenido (E4), enlaces del modal buscador en mayúsculas sostenidas (D7), el CTA de participación ciudadana incrustado en el texto corrido en vez de destacado como llamado a la acción (F5), y múltiples imágenes sin atributo alt descriptivo (H1). Las fortalezas son la estructura de pirámide invertida con bajada-resumen (A1, A2, C6), la objetividad del relato con citas correctamente atribuidas (E1), el bloque «Otras Noticias» como enlaces relacionados genuinos (F6), y la calibración correcta de G1 (RUT institucional y nombres de funcionarios en su rol público no son incumplimiento).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios), como parte del lote de reauditoría META MEI (orden 8, rol «Últimas noticias — detalle 1/2»), evaluando exclusivamente contenido visible en pantalla. De los 41 criterios aplicables (6 no aplican: A8, C7, C8, D3, D4, F4, por tratarse de una noticia sin trámite ni documentos adjuntos), 17 se cumplen, lo que arroja un 41,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 24 incumplimientos; los de severidad alta son: párrafo inicial del cuerpo con mayúscula y preposición faltantes (D1, D2), sigla PCT sin expandir en el cuerpo (B3), botón «LINK EXTERNO» sin destino funcional (F3), y oraciones que superan las 30 palabras recomendadas (C3). Respecto a la auditoría histórica v1.1 (2026-07-29, 39 criterios), esta reauditoría v2.1 mantiene los hallazgos estructurales de redacción y accesibilidad ya identificados (imagen del carrusel temáticamente desalineada, imágenes sin alt, PCT sin definir) y agrega nuevos criterios v2.1 (A6-A9, B8, C8, C9, F6) que revelan fragmentación insuficiente del cuerpo extenso (C9) y falta de escaneabilidad (A9).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(B3) «PCT» (T025) aparece sin expandir en el cuerpo del artículo.",
+      "(C3) Varias oraciones superan las 30 palabras: T021 (~48), T024 (~40), T025 (~45), T029 (~55).",
+      "(D1) El primer párrafo del cuerpo (T021) inicia en minúscula sin sujeto ni conector previo. «Instituto Nacional de Propiedad industrial» (T044) con minúscula indebida en el footer.",
+      "(D2) Falta la preposición «En» al inicio del primer párrafo del cuerpo (T021), generando una construcción gramaticalmente incompleta.",
+      "(F3) El botón «LINK EXTERNO» (T005) del modal de login tiene href=\"#\" sin destino funcional real."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A3) El cuerpo de 11 párrafos (T020-T031) no tiene ningún encabezado interno que fragmente los distintos temas tratados.",
+      "(A9) No se usan negritas para cifras clave ni listas para los 5 compromisos institucionales 2026 (T029).",
+      "(B2) «Juicios de oposición» (T024) y «Autoridad Internacional de Búsqueda y Examen» (T025) son jerga técnica sin glosa.",
+      "(B7) Conectores de relleno burocrático reiterados: «En ese contexto», «En esa línea», «En este marco», «Asimismo».",
+      "(C4) T029 desarrolla al menos cinco ideas distintas en un solo párrafo/oración.",
+      "(C9) El cuerpo principal tiene 11 párrafos, superando el rango de 2 a 8 establecido.",
+      "(D6) No se usan negritas para destacar las cifras clave de gestión (2,3 años, 97%, 56% a 3%, 2038).",
+      "(D7) Mayúsculas sostenidas en el modal buscador/login: «LINK EXTERNO», «BUSCAR Y TRAMITAR», placeholder «BUSCADOR», «MARCAS», «PATENTES».",
+      "(E4) El H1 «Detalle » es genérico de plantilla y no representa el contenido específico de la noticia.",
+      "(F1) «Observancia» (menú burger) no coincide con el nombre real de la página de destino /protege-tu-idea.",
+      "(F5) El enlace al «formulario disponible» de participación ciudadana está incrustado en el texto corrido en vez de ser un CTA independiente.",
+      "(H1) Cuatro imágenes del carrusel, el ícono «Volver» y las cinco imágenes de «Otras Noticias» no tienen atributo alt descriptivo."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(A7) El artículo no explicita para quién son relevantes los avances y compromisos institucionales descritos.",
+      "(B1) Construcciones en voz pasiva puntuales: «fue presentada» (T026), «se abordaron» (T029).",
+      "(B4) «Patent Law Treaty (PLT)» (T029) sin traducción al español.",
+      "(B8) No se aplicó herramienta de legibilidad sobre el cuerpo principal de 11 párrafos.",
+      "(C2) El cuerpo está redactado casi íntegramente en pretérito, sin predominio de presente simple.",
+      "(D5) El párrafo de compromisos 2026 (T029) enumera 5 elementos en texto corrido con comas en vez de lista.",
+      "(F2) «Conoce más» (menú principal desktop) es un enlace genérico sin contexto del destino."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T020-T031",
+      "html_linea_aprox": "así como los desafíos proyectados para seguir fortaleciendo la innovación",
+      "original": "(ausencia)",
+      "propuesto": "Insertar encabezados internos (h4) que fragmenten el cuerpo en secciones lógicas: «Resultados institucionales 2025» (antes de T021), «Renovación como Autoridad Internacional PCT» (antes de T025), «Descentralización e INAPI+Cerca» (antes de T026) y «Compromisos institucionales 2026» (antes de T029).",
+      "criterio_id": "A3",
+      "motivo": "El cuerpo trata al menos cuatro temas distintos en un bloque continuo de 11 párrafos sin ningún encabezado que los separe, dificultando el escaneo y la localización de información.",
+      "ubicacion_pantalla": "Cuerpo del artículo, entre la bajada (H5) y el cierre",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T020",
+      "html_linea_aprox": "así como los desafíos proyectados para seguir fortaleciendo la innovación",
+      "original": "(ausencia)",
+      "propuesto": "Agregar al final de la bajada: «Estos avances y desafíos son relevantes para innovadores, emprendedores, empresas y comunidades de todas las regiones del país.»",
+      "criterio_id": "A7",
+      "motivo": "El artículo no explicita para quién son relevantes los avances y compromisos institucionales descritos.",
+      "ubicacion_pantalla": "Bajada del artículo (H5), bajo el titular real (H3)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "entre ellos la modernización del sitio web institucional",
+      "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Los principales compromisos institucionales para 2026 son: • Modernización del sitio web institucional. • Incorporación de herramientas de inteligencia artificial en procesos de examen. • Implementación del Tratado sobre el Derecho de Patentes (PLT). • Impulso a mecanismos de financiamiento basados en activos intangibles. • Inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "criterio_id": "A9",
+      "motivo": "El párrafo enumera cinco compromisos institucionales en prosa continua, dificultando el escaneo visual; se propone convertir a lista con viñetas.",
+      "ubicacion_pantalla": "Penúltimo párrafo del cuerpo del artículo",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "el tiempo promedio de tramitación de patentes alcanzó los 2,3 años",
+      "original": "...el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "...el tiempo promedio de tramitación de patentes alcanzó los **2,3 años** durante 2025 y que el **97%** de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un **56% a un 3%**.",
+      "criterio_id": "A9",
+      "motivo": "Las cifras de gestión son el dato más relevante del párrafo y no cuentan con énfasis visual, dificultando el escaneo rápido.",
+      "ubicacion_pantalla": "Cuarto párrafo del cuerpo del artículo (cifras de gestión)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "Detalle",
+      "original": "Detalle ",
+      "propuesto": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial",
+      "criterio_id": "E4",
+      "motivo": "El H1 visible es genérico («Detalle») y no representa el contenido específico de la noticia. Nota para TI: este H1 corresponde a una plantilla compartida por todas las noticias individuales del sitio; el cambio requiere que el CMS inyecte el titular dinámico de cada noticia en el H1, ajuste que afecta a toda la plantilla, no solo a esta URL.",
+      "ubicacion_pantalla": "Banner superior de la página (H1), bajo el menú principal",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "fue presentada como parte de una estrategia orientada a acercar",
+      "original": "la realización de la ceremonia en Valparaíso fue presentada como parte de una estrategia orientada a acercar la propiedad industrial a las regiones",
+      "propuesto": "INAPI presentó la ceremonia en Valparaíso como parte de una estrategia orientada a acercar la propiedad industrial a las regiones",
+      "criterio_id": "B1",
+      "motivo": "Voz pasiva refleja; reformular en voz activa con sujeto explícito (INAPI).",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 6",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "se abordaron los principales compromisos institucionales para 2026",
+      "original": "se abordaron los principales compromisos institucionales para 2026",
+      "propuesto": "INAPI también presenta sus principales compromisos institucionales para 2026",
+      "criterio_id": "B1",
+      "motivo": "Voz pasiva refleja; reformular en voz activa con sujeto explícito.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 9",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "la reducción histórica del rezago en juicios de oposición",
+      "original": "la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%",
+      "propuesto": "la reducción histórica del rezago en juicios de oposición —los reclamos que otras marcas o personas presentan contra una solicitud—, que pasó de un 56% a un 3%",
+      "criterio_id": "B2",
+      "motivo": "Término técnico-administrativo sin glosa para el público general.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 4",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "Autoridad Internacional de Búsqueda y Examen PCT hasta 2038",
+      "original": "la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038",
+      "propuesto": "la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen del Tratado de Cooperación en materia de Patentes (PCT) hasta 2038",
+      "criterio_id": "B3",
+      "motivo": "Sigla PCT usada sin expansión previa en el cuerpo.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 5",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "la implementación del Patent Law Treaty (PLT)",
+      "original": "la implementación del Patent Law Treaty (PLT)",
+      "propuesto": "la implementación del Tratado sobre el Derecho de Patentes (PLT, por su sigla en inglés)",
+      "criterio_id": "B4",
+      "motivo": "Extranjerismo sin traducción al español.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 9",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "En esa línea, la realización de la ceremonia en Valparaíso",
+      "original": "En esa línea, la realización de la ceremonia en Valparaíso fue presentada como parte de una estrategia orientada a acercar la propiedad industrial a las regiones",
+      "propuesto": "La ceremonia en Valparaíso forma parte de una estrategia para acercar la propiedad industrial a las regiones",
+      "criterio_id": "B7",
+      "motivo": "Conector de relleno institucional («En esa línea») sin aporte informativo; simplificar y eliminar voz pasiva a la vez.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 6",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel",
+      "original": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026. La instancia fue encabezada por el Director Nacional, Esteban Figueroa Nagel, quien presentó los principales avances institucionales de 2025 y los desafíos estratégicos para los próximos años.",
+      "criterio_id": "B8",
+      "motivo": "Dividir la oración larga inicial contribuye a elevar el puntaje de legibilidad medible (Legible.es u equivalente), aún no aplicado sobre este cuerpo.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 1",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "criterio_id": "D1",
+      "motivo": "Corrige la mayúscula inicial de la primera oración del cuerpo editorial, que actualmente comienza en minúscula sin sujeto ni conector previo.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 1",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T044",
+      "html_linea_aprox": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "D1",
+      "motivo": "Corrige la capitalización del nombre institucional en el footer; patrón compartido del shell replicado en otras páginas de www.inapi.cl — coordinar el cambio a nivel de plantilla, no por página.",
+      "ubicacion_pantalla": "Footer, bloque «Dónde estamos»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...",
+      "propuesto": "En la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026...",
+      "criterio_id": "D2",
+      "motivo": "Incorpora la preposición «En» faltante que conecta el lugar de la actividad con el verbo «realizó», corrigiendo la estructura gramatical incompleta.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 1",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial",
+      "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos:\n- La modernización del sitio web institucional.\n- La incorporación de herramientas de inteligencia artificial en procesos de examen.\n- La implementación del Patent Law Treaty (PLT).\n- El impulso a mecanismos de financiamiento basados en activos intangibles.\n- El inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "criterio_id": "D5",
+      "motivo": "Convierte la enumeración de 5 compromisos institucionales, en texto corrido separado por comas, a formato de lista con viñetas.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 9",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "el tiempo promedio de tramitación de patentes alcanzó los 2,3 años",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los **2,3 años** durante 2025 y que el **97%** de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un **56% a un 3%**.",
+      "criterio_id": "D6",
+      "motivo": "Destaca en negrita las cifras clave del párrafo para facilitar el escaneo visual de los datos más relevantes.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 4",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T025",
+      "html_linea_aprox": "la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038",
+      "original": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038, consolidando el posicionamiento técnico de Chile a nivel internacional y permitiendo continuar realizando exámenes de invenciones en español e inglés para usuarios de distintos países.",
+      "propuesto": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT **hasta 2038**, consolidando el posicionamiento técnico de Chile a nivel internacional y permitiendo continuar realizando exámenes de invenciones en español e inglés para usuarios de distintos países.",
+      "criterio_id": "D6",
+      "motivo": "Destaca en negrita el hito del año de renovación (2038), dato clave del párrafo.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 5",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "LINK EXTERNO",
+      "original": "LINK EXTERNO",
+      "propuesto": "Ir al sitio externo",
+      "criterio_id": "D7",
+      "motivo": "Patrón sistémico del componente modal de login/registro (compartido entre páginas de www.inapi.cl), NO de la cabecera global excluida de D7.",
+      "ubicacion_pantalla": "Modal de login/registro, botón de acceso externo",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "BUSCAR Y TRAMITAR",
+      "original": "BUSCAR Y TRAMITAR / BUSCADOR (placeholder) / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Buscador (placeholder) / Marcas / Patentes",
+      "criterio_id": "D7",
+      "motivo": "Patrón sistémico del componente MODAL de búsqueda, distinto de los ítems «ACCESOS»/«BUSCADOR» de la cabecera global excluidos de D7.",
+      "ubicacion_pantalla": "Modal de buscador, encabezado y accesos rápidos",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T050",
+      "html_linea_aprox": "Observancia",
+      "original": "Observancia",
+      "propuesto": "Ajustar el texto del enlace del menú burger para que coincida con el título real de la página de destino /protege-tu-idea",
+      "criterio_id": "F1",
+      "motivo": "RLC §9 exige que el nombre del enlace coincida con el nombre de la página de destino; hay un desalineamiento entre el rótulo del menú y el título real de /protege-tu-idea.",
+      "ubicacion_pantalla": "Menú principal (burger), ítem «Observancia»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T049",
+      "html_linea_aprox": "Conoce más",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad intelectual e industrial",
+      "criterio_id": "F2",
+      "motivo": "Evitar fórmulas genéricas de enlace sin contexto («Conoce más»); el texto debe anticipar el contenido específico del destino.",
+      "ubicacion_pantalla": "Menú principal desktop, enlace «Conoce más»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "LINK EXTERNO",
+      "original": "LINK EXTERNO (href=\"#\")",
+      "propuesto": "(eliminar el enlace no funcional o completarlo con la URL de destino real y un texto descriptivo, ej. «Ingresar a Portal ION»)",
+      "criterio_id": "F3",
+      "motivo": "El texto «LINK EXTERNO» no describe ninguna acción y el href=\"#\" no lleva a ningún destino real.",
+      "ubicacion_pantalla": "Modal de inicio de sesión, tercera opción de acceso",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "Volver",
+      "original": "Volver",
+      "propuesto": "Volver a Sala de Prensa",
+      "criterio_id": "F3",
+      "motivo": "El texto «Volver» no especifica a qué sección regresa el usuario (destino real: /sala-de-prensa, no la lista de noticias), generando ambigüedad.",
+      "ubicacion_pantalla": "Pie del cuerpo de la noticia, enlace «Volver»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T031",
+      "html_linea_aprox": "formulario disponible",
+      "original": "La jornada concluyó con una invitación a ser parte del proceso de participación ciudadana asociado a la Cuenta Pública Participativa 2026, mediante un enlace de texto «formulario disponible» para recibir consultas, comentarios y sugerencias sobre la gestión y desafíos institucionales de INAPI.",
+      "propuesto": "La jornada concluyó con una invitación a ser parte del proceso de participación ciudadana asociado a la Cuenta Pública Participativa 2026, para recibir consultas, comentarios y sugerencias sobre la gestión y desafíos institucionales de INAPI. [CTA independiente] Completa el formulario de participación ciudadana",
+      "criterio_id": "F5",
+      "motivo": "El enlace relevante para la acción ciudadana debe ubicarse fuera del cuerpo del texto que se debe leer, como CTA independiente.",
+      "ubicacion_pantalla": "Párrafo de cierre del cuerpo de la noticia",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T016-T019",
+      "html_linea_aprox": "title=\"foto-2\"",
+      "original": "alt=\"\" title=\"foto-2\" (y análogos foto-3, foto-4, foto-5)",
+      "propuesto": "alt=\"Autoridades y asistentes durante la Cuenta Pública Participativa 2026 de INAPI en Valparaíso\" (texto específico por cada imagen)",
+      "criterio_id": "H1",
+      "motivo": "Imágenes del carrusel sin atributo alt descriptivo — barrera de accesibilidad para lectores de pantalla.",
+      "ubicacion_pantalla": "Carrusel de imágenes de la noticia, posiciones 2/5 a 5/5",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T032",
+      "html_linea_aprox": "volver.png",
+      "original": "(no existe atributo alt en la imagen del enlace «Volver»)",
+      "propuesto": "alt=\"Volver al listado de noticias\"",
+      "criterio_id": "H1",
+      "motivo": "Ícono funcional de navegación sin alternativa textual — ausencia total del atributo alt.",
+      "ubicacion_pantalla": "Enlace «Volver» al pie del cuerpo de la noticia",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T034-T039",
+      "html_linea_aprox": "Otras Noticias",
+      "original": "alt=\"\" en las 5 imágenes de las tarjetas del bloque «Otras Noticias»",
+      "propuesto": "alt=\"Imagen ilustrativa de la noticia: [título de la noticia asociada a cada tarjeta]\" (valor específico por cada tarjeta)",
+      "criterio_id": "H1",
+      "motivo": "Imágenes decorativas/informativas de tarjetas de noticias relacionadas sin alternativa textual.",
+      "ubicacion_pantalla": "Sidebar «Otras Noticias», bloque de 5 tarjetas",
+      "capa": "VISIBLE"
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-07-29, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla: el <title> y los <meta> del <head> no se usan como evidencia en ningún criterio. El HTML fue capturado con Playwright MCP como volcado de una sola línea; las referencias 'html_linea_aprox' son el texto exacto a buscar con Ctrl+F, no números de línea. NOTA DE CONTENIDO (no editorial, para revisión de CMS): la imagen 1/5 del carrusel (T015) tiene alt/title «Portada de las Directrices de Marcas 2026 publicadas por INAPI», que corresponde a OTRA noticia y no al tema de esta Cuenta Pública 2026 — parece un error de asociación de imagen en Sitefinity; se recomienda a TI revisar y reemplazar por una fotografía real del evento en Valparaíso. Para aplicar las sustituciones: (1) hacer backup del HTML fuente antes de cualquier cambio; (2) el H1 genérico «Detalle»/H2 «Noticia» (E4) y el modal buscador/login (D7) son patrones de PLANTILLA compartidos por todas las noticias del sitio — coordinar el cambio a nivel de plantilla Sitefinity, no por página, para no duplicar el esfuerzo; (3) el error de capitalización «Instituto Nacional de Propiedad industrial» (T044) está en el footer compartido con otras páginas de www.inapi.cl — coordinar a nivel de plantilla; (4) las correcciones D1/D2 del párrafo 1 (T021) son ediciones puntuales del cuerpo de ESTA noticia únicamente; (5) G1 se mantiene calibrado como cumple: el RUT institucional (65.999.669-3) y los nombres de los funcionarios (Esteban Figueroa Nagel, María José García) en su rol público dentro de un relato periodístico no son incumplimiento; (6) el HTML puede contener entidades como &oacute; (ó), &aacute; (á), &eacute; (é) codificadas si el editor de TI trabaja sobre el HTML crudo servido por Sitefinity."
+}

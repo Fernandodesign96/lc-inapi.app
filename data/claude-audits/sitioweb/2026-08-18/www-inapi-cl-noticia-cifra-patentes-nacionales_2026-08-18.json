@@ -1,0 +1,621 @@
+{
+  "id": "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
+  "url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+  "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
+  "evaluador_uid": "Fernando Arriagada Castillo",
+  "version_checklist": "2.1",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "NOTA: HTML capturado con Playwright MCP (DOM renderizado, 2026-08-18) como volcado de una sola línea; las anclas entre comillas son el texto exacto a buscar con Ctrl+F, no números de línea. Solo se inventaría contenido VISIBLE al ciudadano; <title> y <meta> quedan fuera de alcance. Noticia individual (artículo con 9 párrafos y 3 citas atribuidas), no listado. | T001 «ACCESOS» (EXCLUIDO de D7) | T002 «BUSCADOR» span (EXCLUIDO de D7) | T003 «Usuario Frecuente» | T004 «Registro» | T005 «LINK EXTERNO» (modal login, href=\"#\") | T006 «BUSCAR Y TRAMITAR» (h3 modal) | T007 placeholder «BUSCADOR» (modal) | T008 «MARCAS» (h4 modal) | T009 «PATENTES» (h4 modal) | T010 H1 «Detalle » (banner, plantilla GENÉRICA de todas las noticias) | T011 H2 «Noticia» (genérico) | T012 Breadcrumb «Home» › «Sala de Prensa» › «Detalle Noticia» | T013 fecha visible «jun. 21, 2026» | T014 H3 titular real «Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década» | T015 imagen única del carrusel: alt/title «Premio Europeo al Inventor 2026 — biofiltro chileno que combate la contaminación del aire» (NO corresponde al tema de esta noticia) | T016 H5 bajada: «En solo seis meses, inventores chilenos presentaron 296 solicitudes de patentes de invención, la cifra más alta desde al menos 2017. La Serena lidera el ranking comunal por primera vez, por encima de Santiago.» | T017 párrafo 1: «Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.» | T018 párrafo 2: «El contraste con la década previa es marcado. Entre 2017 y 2024, las solicitudes de residentes oscilaron entre 119 y 152 en el mismo periodo. El salto de 2025 (181 solicitudes) ya había llamado la atención. El de 2026 lo supera en un 63% para el mismo periodo.» | T019 imagen intercalada «foto-1.png» SIN atributo alt | T020 párrafo 3 (dos citas de Esteban Figueroa, director nacional de INAPI): «\\\"Cuando los inventores deciden proteger lo que crean, es porque confían en que esa protección tiene valor real o en otras palabras las ideas de hoy son los activos del mañana\\\", señala Esteban Figueroa, director nacional de INAPI. Para el director, el incremento no es espontáneo: \\\"Es el resultado de años de trabajo para acercar el sistema de patentes a emprendedores, investigadores y empresas\\\".» | T021 párrafo 4: «Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años. Durante ese período, ningún tercero puede fabricar, vender ni importar el producto o proceso protegido sin autorización. Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.» | T022 párrafo 5 (cita de Figueroa): «\\\"Una patente no es solo un certificado. Es un activo que define quién tiene el derecho a explotar una tecnología y en qué condiciones. Para una empresa o un inventor, eso puede ser la diferencia entre liderar un mercado o quedar fuera de él\\\", dice Figueroa.» | T023 párrafo 6: «Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.» | T024 imagen intercalada «foto-2.png» SIN alt | T025 párrafo 7 (cita de Figueroa): «\\\"Que La Serena encabece este ranking es una señal alentadora\\\", dice Figueroa, quien impulsa INAPI Más Cerca, un programa que busca reducir las brechas territoriales a través de capacitaciones, herramientas digitales y campañas de difusión en regiones. \\\"Vamos en esa dirección\\\", agrega.» | T026 párrafo 8: «La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.» | T027 imagen intercalada «foto-3.png» SIN alt | T028 imagen intercalada «foto-4.png» SIN alt | T029 párrafo 9 (cierre, sin enlace ni CTA embebido): «El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento. Las solicitudes de no residentes, en cambio, aumentaron apenas un 5%, de 1.063 a 1.120, en línea con años anteriores. El dinamismo, en esta ocasión, es local.» | T030 enlace «Volver» con volver.png SIN alt → /sala-de-prensa | T031 iconos compartir (Facebook/LinkedIn/X/WhatsApp) sin texto/aria-label | T032 sidebar H4 «Otras Noticias» | T033-T037: 5 ítems relacionados con fecha cada uno | T038 CTA «Ver todas las noticias» | T039 modal contacto H2 «Utiliza el canal de comunicación que prefieras:» | T040 «Tu consulta será atendida por un especialista.» (voz pasiva, plantilla) | T041 «¿Quieres contactarnos?» | T042 footer «Dónde estamos»: «Instituto Nacional de Propiedad industrial (INAPI)» (minúscula indebida) / «RUT: 65.999.669-3» | T043-T046 footer (dirección, Conversemos, Accesos con «Política de privacidad», copyright «©2026 INAPI. Todos los derechos reservados») | T047 menú principal desktop (incluye «Conoce más», «PCT» sin definir) | T048 menú burger (incluye «Observancia»)",
+  "criterios_evaluados": [
+    {
+      "id": "A1",
+      "estado": "cumple",
+      "comentario": "El mensaje principal (cifra histórica de 296 solicitudes de inventores chilenos y liderazgo de La Serena) se presenta de inmediato en la bajada H5 (T016), justo después del titular real (T014), antes de cualquier desarrollo.",
+      "cita_textual": "T016: «En solo seis meses, inventores chilenos presentaron 296 solicitudes de patentes de invención, la cifra más alta desde al menos 2017. La Serena lidera el ranking comunal por primera vez, por encima de Santiago.»"
+    },
+    {
+      "id": "A2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La pirámide invertida se rompe en dos puntos: el párrafo 4 (T021) inserta una explicación genérica de qué es una patente entre bloques de cifras y citas, interrumpiendo el flujo de la noticia; y el hallazgo del párrafo 9 (T029) sobre el alza del 101% en solicitantes personas naturales —un dato de primer orden— queda relegado al cierre, perdiendo jerarquía.",
+      "cita_textual": "T029: «El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior...»"
+    },
+    {
+      "id": "A3",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El artículo desarrolla al menos tres focos temáticos diferenciados (cifras generales, distribución geográfica por comuna, distribución por área tecnológica) sin ningún encabezado visual que los segmente; todo el cuerpo son párrafos corridos bajo el mismo H3/H5.",
+      "cita_textual": "T023: «Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones...»"
+    },
+    {
+      "id": "A4",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos del cuerpo (T017-T029) se mantienen bajo 110 palabras cada uno (el más extenso, T021, ronda 75 palabras)."
+    },
+    {
+      "id": "A5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El párrafo 4 (T021) desarrolla una explicación institucional genérica sobre qué es una patente y su plazo de vigencia, información de referencia ya disponible en otras páginas del sitio, que no aporta al hecho noticioso específico (cifras del semestre 2026) y extiende innecesariamente el cuerpo.",
+      "cita_textual": "T021: «Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años...»"
+    },
+    {
+      "id": "A6",
+      "estado": "cumple",
+      "comentario": "No se detecta texto de desarrollo, placeholders ni menciones de «en construcción» en el contenido visible inventariado."
+    },
+    {
+      "id": "A7",
+      "estado": "cumple",
+      "comentario": "El artículo destaca qué (aumento histórico de solicitudes de patentes), cuánto (296 de 1.416 totales, alza de 63% y 101%), quién (inventores chilenos, personas naturales), dónde (La Serena, Chile) y cuándo (primer semestre 2026) de forma clara en el cuerpo.",
+      "cita_textual": "T017: «Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos...»"
+    },
+    {
+      "id": "A8",
+      "estado": "no_aplica",
+      "comentario": "A8 (suficiencia para autonomía en trámites) no aplica: esta es una página informativa de sitioweb (noticia), no una pantalla de trámites."
+    },
+    {
+      "id": "A9",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No hay recursos de escaneabilidad (listas, negritas sobre cifras clave, recuadros de datos) dentro de nueve párrafos corridos con múltiples cifras relevantes (1.416, 296, 63%, 44, 101%); un lector que escanea la página puede perder los datos centrales al estar diluidos en texto corrido.",
+      "cita_textual": "T017: «Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes.»"
+    },
+    {
+      "id": "B1",
+      "estado": "cumple",
+      "comentario": "El cuerpo editorial (T017-T029) usa predominantemente voz activa: «Chile recibió...», «inventores chilenos presentaron...», «La Serena encabeza el ranking...», «Las personas naturales... registraron un alza del 101%». Solo se detecta una construcción reflejo-pasiva puntual («se había producido», T017) entre más de 25 verbos, insuficiente para afectar la predominancia de voz activa.",
+      "cita_textual": "T017: «Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026»"
+    },
+    {
+      "id": "B2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El término «residentes / no residentes» (T017, T018, T029) es jerga propia de oficinas de propiedad industrial y se usa repetidamente sin glosa. En T026 las categorías de clasificación técnica de patentes («productos orgánicos elementales», «química de materiales», «ingeniería química») se presentan como etiquetas sin explicación para el lector no especializado.",
+      "cita_textual": "T017: «sumando residentes y no residentes» / T026: «productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%)»"
+    },
+    {
+      "id": "B3",
+      "estado": "cumple",
+      "comentario": "La única sigla que aparece en el cuerpo del artículo es «INAPI» (T020), reconocida a nivel de sitio como sigla institucional consolidada, por lo que no requiere expansión en cada aparición. No se detectan otras siglas sin definir dentro del alcance B/C."
+    },
+    {
+      "id": "B4",
+      "estado": "cumple",
+      "comentario": "No se identifican extranjerismos ni anglicismos en el cuerpo del artículo (T017-T029); todo el vocabulario está en español."
+    },
+    {
+      "id": "B5",
+      "estado": "cumple",
+      "comentario": "El tono del artículo es positivo y de logro institucional: «cifra histórica», «señal alentadora», «el dinamismo, en esta ocasión, es local».",
+      "cita_textual": "T025: «Que La Serena encabece este ranking es una señal alentadora»"
+    },
+    {
+      "id": "B6",
+      "estado": "cumple",
+      "comentario": "El tono es amable y consistente en todo el cuerpo editorial, combinando registro informativo con citas directas del director nacional que humanizan el contenido sin perder formalidad. El patrón de plantilla del modal de contacto queda fuera del cuerpo editorial de esta noticia."
+    },
+    {
+      "id": "B7",
+      "estado": "cumple",
+      "comentario": "No se detecta relleno formal ni fórmulas burocráticas redundantes en el cuerpo del artículo; el texto es directo y orientado a datos."
+    },
+    {
+      "id": "B8",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El artículo tiene cuerpo extenso y medible (9 párrafos, T017-T029), pero no existe medición de legibilidad documentada (Legible.es u equivalente) que acredite un puntaje ≥3/5. Corresponde incumplir por falta de medición, no marcar no_aplica.",
+      "cita_textual": "(ausencia de medición documentada sobre T017-T029)"
+    },
+    {
+      "id": "C1",
+      "estado": "cumple",
+      "comentario": "Las oraciones del cuerpo siguen predominantemente el orden sujeto-verbo-predicado: «Chile recibió 1.416 solicitudes...», «La Serena encabeza el ranking...», «Concepción aparece cuarta con 18 solicitudes».",
+      "cita_textual": "T023: «La Serena encabeza el ranking de comunas con mayor número de solicitudes»"
+    },
+    {
+      "id": "C2",
+      "estado": "cumple",
+      "comentario": "El artículo usa pretérito simple para hechos ya ocurridos («recibió», «presentaron», «aumentaron») y presente para datos vigentes y citas («concentran», «dice», «señala»), uso apropiado al contenido narrativo de una noticia.",
+      "cita_textual": "T026: «Los productos farmacéuticos concentran el 24,64% de las solicitudes»"
+    },
+    {
+      "id": "C3",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La mayoría de las oraciones del cuerpo están dentro del límite de 30 palabras. Se detecta una excepción puntual de 32 palabras en T021.",
+      "cita_textual": "T021: «Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.»"
+    },
+    {
+      "id": "C4",
+      "estado": "cumple",
+      "comentario": "Cada párrafo del cuerpo mantiene una idea central única con datos de apoyo coherentes: T017-T018 cifras del semestre, T020/T022 declaraciones, T021 qué es una patente, T023/T026 distribución geográfica y sectorial, T029 perfil de solicitantes."
+    },
+    {
+      "id": "C5",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos del cuerpo (T017-T029) se mantienen por debajo de 8 líneas de despliegue típico, sin bloques de texto corrido excesivos."
+    },
+    {
+      "id": "C6",
+      "estado": "cumple",
+      "comentario": "El cuerpo tiene 9 párrafos (≥4), por lo que C6 aplica. La bajada H5 (T016) cumple función de resumen inicial: anticipa los dos hallazgos centrales del artículo antes de que el lector entre al detalle del cuerpo.",
+      "cita_textual": "T016: «En solo seis meses, inventores chilenos presentaron 296 solicitudes de patentes de invención, la cifra más alta desde al menos 2017. La Serena lidera el ranking comunal por primera vez...»"
+    },
+    {
+      "id": "C7",
+      "estado": "no_aplica",
+      "comentario": "El artículo no contiene listas de requisitos o pasos a seguir; es una noticia narrativa sin estructura de trámite."
+    },
+    {
+      "id": "C8",
+      "estado": "no_aplica",
+      "comentario": "El artículo es una noticia narrativa, no una página de preguntas frecuentes; no corresponde exigir estructura FAQ."
+    },
+    {
+      "id": "C9",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El cuerpo editorial tiene 9 párrafos (T017-T029), uno por sobre el rango de 2-8 establecido para facilitar el escaneo. El contenido está bien segmentado por tema, pero excede el máximo recomendado, patrón ya observado en otras noticias extensas del sitio.",
+      "cita_textual": "(cuerpo de la noticia compuesto por 9 párrafos consecutivos, T017-T029)"
+    },
+    {
+      "id": "D1",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El cuerpo editorial de la noticia (bajada y 9 párrafos) está bien escrito, sin errores tipográficos ni de tildes. El footer institucional presenta un error de capitalización compartido: «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería ir con mayúscula inicial al formar parte del nombre propio de la institución.",
+      "cita_textual": "T042: «Instituto Nacional de Propiedad industrial (INAPI)»"
+    },
+    {
+      "id": "D2",
+      "estado": "cumple",
+      "comentario": "Los 9 párrafos del cuerpo editorial usan puntuación correcta: las citas textuales están delimitadas con comillas y coma antes del verbo introductorio, las cifras con miles usan punto («1.416», «1.063») y los decimales usan coma («24,64%»), conforme a la convención numérica en español.",
+      "cita_textual": "T020: «\"Cuando los inventores deciden proteger lo que crean, es porque confían en que esa protección tiene valor real...\", señala Esteban Figueroa, director nacional de INAPI.»"
+    },
+    {
+      "id": "D3",
+      "estado": "no_aplica",
+      "comentario": "Espaciado entre párrafos es un criterio de CSS/visual, fuera del alcance de esta auditoría editorial."
+    },
+    {
+      "id": "D4",
+      "estado": "no_aplica",
+      "comentario": "Alineación del texto es un criterio de CSS/visual, fuera del alcance de esta auditoría editorial."
+    },
+    {
+      "id": "D5",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El párrafo 8 (T026) enumera 5 áreas técnicas con sus porcentajes en texto corrido separadas por comas. Al tratarse de una enumeración de 5 elementos con datos numéricos discretos, el formato de lista (viñetas) mejora la escaneabilidad y facilita comparar las cifras entre sí.",
+      "cita_textual": "T026: «Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).»"
+    },
+    {
+      "id": "D6",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo editorial es extenso (bajada + 9 párrafos) y concentra múltiples cifras clave (1.416, 296, 63%, 44, 101%, 5%) que sostienen el valor noticioso de la nota, pero ninguna está destacada con negrita, obligando al lector a re-leer el texto corrido para ubicar los datos relevantes.",
+      "cita_textual": "T017: «Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos...»"
+    },
+    {
+      "id": "D7",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El modal «Buscar y tramitar» sostiene mayúsculas en su encabezado, en el placeholder del campo de búsqueda y en las pestañas de categoría: «BUSCAR Y TRAMITAR», placeholder «BUSCADOR», «MARCAS», «PATENTES». También el enlace «LINK EXTERNO» del modal de login sostiene mayúsculas. Distinto de los ítems «ACCESOS»/«BUSCADOR» de la cabecera global, excluidos de D7.",
+      "cita_textual": "T006: «BUSCAR Y TRAMITAR»"
+    },
+    {
+      "id": "E1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El texto en sí es objetivo y las opiniones solo aparecen como citas atribuidas a Esteban Figueroa (director nacional, persona identificada), lo cual es admisible. Sin embargo, la imagen principal del carrusel corresponde a una noticia distinta (premio europeo a un biofiltro), generando una asociación visual incorrecta que afecta la fiabilidad de la pieza publicada.",
+      "cita_textual": "T015: «Premio Europeo al Inventor 2026 — biofiltro chileno que combate la contaminación del aire»"
+    },
+    {
+      "id": "E2",
+      "estado": "cumple",
+      "comentario": "INAPI es identificable como fuente de la información: aparece en el breadcrumb («Sala de Prensa»), reiteradamente en el cuerpo del artículo y en el footer institucional con RUT y datos de contacto (T042-T043), satisfaciendo la verificación del criterio (nombre de la institución en encabezado o pie).",
+      "cita_textual": "T042: «Instituto Nacional de Propiedad industrial (INAPI)»"
+    },
+    {
+      "id": "E3",
+      "estado": "cumple",
+      "comentario": "La fecha de publicación es visible junto al titular y corresponde a la fecha real de la noticia, no al copyright del footer.",
+      "cita_textual": "T013: «jun. 21, 2026»"
+    },
+    {
+      "id": "E4",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El H1 visible es «Detalle », una etiqueta genérica de plantilla compartida por todas las noticias del sitio; no describe el contenido específico de este artículo. El titular real existe solo como H3 (T014), que no sustituye al H1 para efectos de este criterio.",
+      "cita_textual": "T010: «Detalle » (H1) / T014: «Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década» (H3)"
+    },
+    {
+      "id": "F1",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Se identifican tres casos donde el nombre del enlace no coincide o no describe con claridad la página/acción de destino: «Registro» → claveunica.gob.cl (ambiguo con registro de marca/patente); «LINK EXTERNO» → href=\"#\" (texto de desarrollo sin destino real); «Observancia» (menú burger) → /protege-tu-idea (no coincide con el rótulo). En contraste, el bloque «Otras Noticias» sí cumple.",
+      "cita_textual": "«Registro» → claveunica.gob.cl; «LINK EXTERNO» → href=\"#\"; «Observancia» → /protege-tu-idea"
+    },
+    {
+      "id": "F2",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El menú principal desktop usa el texto genérico «Conoce más» para enlazar a /propiedad-intelectual-e-industrial, sin indicar hacia qué contenido específico dirige.",
+      "cita_textual": "«Conoce más» (menú principal desktop) → /propiedad-intelectual-e-industrial"
+    },
+    {
+      "id": "F3",
+      "estado": "cumple",
+      "comentario": "No se identifican en el inventario visible botones o mensajes de sistema con texto genérico tipo «OK»/«Aceptar» sin contexto. Los íconos de compartir en redes usan logos reconocibles de cada plataforma, patrón estándar aceptado."
+    },
+    {
+      "id": "F4",
+      "estado": "no_aplica",
+      "comentario": "El cuerpo del artículo no incluye documentos descargables (PDF u otro formato adjunto); el contenido es texto e imágenes intercaladas sin función de enlace a archivo."
+    },
+    {
+      "id": "F5",
+      "estado": "cumple",
+      "comentario": "A diferencia de otra noticia del sitio, este artículo no contiene ningún enlace embebido dentro de los párrafos del cuerpo (T017-T029): las imágenes intercaladas (foto-1 a foto-4) no cumplen función de enlace. Todos los enlaces de la página están fuera del texto corrido.",
+      "cita_textual": "(ausencia de enlaces embebidos en el cuerpo del artículo, T017-T029)"
+    },
+    {
+      "id": "F6",
+      "estado": "cumple",
+      "comentario": "El sidebar «Otras Noticias» (T032) presenta un bloque genuino de enlaces relacionados editoriales, distinto del menú global y del footer: cinco noticias relacionadas con texto de enlace coincidente con el titular de destino, más un CTA de cierre «Ver todas las noticias».",
+      "cita_textual": "T032-T038: bloque «Otras Noticias», 5 enlaces relacionados + CTA «Ver todas las noticias»"
+    },
+    {
+      "id": "G1",
+      "estado": "cumple",
+      "comentario": "El RUT expuesto en el footer corresponde a INAPI como persona jurídica pública (65.999.669-3). El nombre «Esteban Figueroa, director nacional de INAPI» aparece tres veces siempre en su rol institucional dentro de una nota periodística, sin exponer RUT, teléfono ni correo personal de esa persona.",
+      "cita_textual": "T042: «RUT: 65.999.669-3» / T020, T022, T025: «Esteban Figueroa, director nacional de INAPI» (sin datos de contacto personal)"
+    },
+    {
+      "id": "G2",
+      "estado": "cumple",
+      "comentario": "La página incluye enlace visible a «Política de privacidad» en el footer de accesos, lo que permite al usuario acceder a información sobre tratamiento de datos y derechos ARCO.",
+      "cita_textual": "T045: «Política de privacidad» (footer, target=_blank)"
+    },
+    {
+      "id": "G3",
+      "estado": "cumple",
+      "comentario": "El copyright del footer está vigente y corresponde al año en curso.",
+      "cita_textual": "T046: «©2026 INAPI. Todos los derechos reservados»"
+    },
+    {
+      "id": "H1",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No existen versiones archivadas ni rótulos de contenido no vigente (comportamiento esperado). Se detecta el patrón sistémico de imágenes sin atributo alt descriptivo: las 4 imágenes intercaladas en el cuerpo (T019, T024, T027, T028) carecen totalmente del atributo alt, el ícono «Volver» (T030) también carece de alt, y las 5 imágenes del sidebar «Otras Noticias» (T032-T037) tienen alt vacío. Observación adicional: la única imagen del carrusel principal (T015) tiene alt descriptivo pero temáticamente no corresponde a esta noticia.",
+      "cita_textual": "4 imágenes de cuerpo sin atributo alt (T019, T024, T027, T028); ícono «Volver» sin alt (T030); 5 imágenes de sidebar con alt=\"\" (T032-T037)"
+    }
+  ],
+  "criterios_no_aplica": 6,
+  "criterios_aplicables": 41,
+  "criterios_aprobados": 24,
+  "porcentaje_cumplimiento": 58.5,
+  "estado_aceptacion": "rechazado",
+  "texto_propuesto": "Se identificaron 17 incumplimientos sobre 41 criterios aplicables (58,5 %), evaluando exclusivamente contenido visible en pantalla. Las correcciones de mayor impacto son: (1) corregir el rótulo del enlace «LINK EXTERNO» del modal de login (F1, alta); (2) reemplazar la imagen del carrusel principal, que corresponde a otra noticia (E1, media); (3) ampliar el H1 genérico «Detalle» con el titular real (E4, media); (4) reorganizar la pirámide invertida moviendo el dato del alza del 101% en personas naturales más cerca del inicio y recortando la explicación genérica de qué es una patente (A2, A5, media); (5) insertar subtítulos que segmenten los 3 focos temáticos del artículo (A3, media) y aplicar la misma solución a la extensión de 9 párrafos (C9, baja); (6) agregar negritas a las cifras clave y convertir en lista las 5 áreas tecnológicas del párrafo 8 (A9, D6 media; D5 media); (7) normalizar las mayúsculas sostenidas del modal buscador/login (D7, media); (8) glosar «residentes/no residentes» y las categorías técnicas de clasificación de patentes (B2, media); (9) corregir «Instituto Nacional de Propiedad industrial» en el footer compartido (D1, baja); (10) corregir el enlace genérico «Conoce más» (F2, media); (11) agregar alt descriptivo a las 4 imágenes intercaladas del cuerpo, al ícono «Volver» y a las 5 imágenes de «Otras Noticias» (H1, media); (12) dividir la oración de 32 palabras del párrafo 4 (C3, baja); (13) documentar una medición de legibilidad sobre el cuerpo extenso (B8, baja). El array sustituciones[] contiene 29 filas con cobertura 1:1 para los 17 criterios incumplidos.",
+  "observaciones_lc": "La reauditoría v2.1 (2026-08-18) de esta noticia individual de INAPI (cifra histórica de solicitudes de patentes nacionales) obtiene un 58,5 % de cumplimiento sobre 41 criterios aplicables — estado RECHAZADO (≤80 %), evaluando exclusivamente contenido visible en pantalla. Es el mejor resultado entre las tres noticias/listados del lote META MEI 7-10, con mejor ortografía y gramática de base (D1 solo incumple por un patrón de shell compartido) y predominio consistente de voz activa (B1 cumple). El único incumplimiento de severidad alta es el rótulo «LINK EXTERNO» del modal de login sin destino funcional (F1), patrón sistémico ya documentado en otras páginas del sitio. Los incumplimientos de severidad media se concentran en: estructura (A2, A3, A5 — pirámide invertida interrumpida por una explicación genérica de qué es una patente, y ausencia de subtítulos internos), escaneabilidad (A9, D5, D6 — sin negritas ni listas para las múltiples cifras del artículo), un H1 de plantilla genérico (E4), una imagen de carrusel mal asociada a otra noticia (E1), jerga sin glosar (B2), mayúsculas sostenidas en el modal buscador/login (D7), enlace genérico «Conoce más» (F2), y múltiples imágenes sin alt descriptivo (H1). Las fortalezas son la bajada-resumen que cumple pirámide invertida en su primer nivel (A1, C6), el uso consistente de voz activa y presente/pretérito apropiado (B1, C1, C2), las citas correctamente atribuidas al director nacional Esteban Figueroa (E1 parcial, sin afectar objetividad), el bloque «Otras Noticias» como enlaces relacionados genuinos (F6), y la calibración correcta de G1 (RUT institucional y nombre de funcionario en su rol público no son incumplimiento).",
+  "resumen_ejecutivo": "La página https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada fue evaluada con el Checklist Editorial INAPI v2.1 (47 criterios), como parte del lote de reauditoría META MEI (orden 9, rol «Últimas noticias — detalle 2/2»), evaluando exclusivamente contenido visible en pantalla. De los 41 criterios aplicables (6 no aplican: A8, C7, C8, D3, D4, F4), 24 se cumplen, lo que arroja un 58,5 % de cumplimiento y un estado de aceptación RECHAZADO (≤80 %). Se detectaron 17 incumplimientos; el único de severidad alta es el enlace «LINK EXTERNO» del modal de login sin destino funcional (F1). Respecto a la auditoría histórica v1.1 (2026-07-29, 39 criterios), esta reauditoría v2.1 mantiene los hallazgos de accesibilidad (imágenes sin alt, imagen de carrusel desalineada temáticamente) y agrega hallazgos de criterios v2.1 nuevos (A9, D5, D6, C9, F6) que revelan falta de escaneabilidad y un cuerpo de 9 párrafos que excede el rango recomendado.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(F1) El botón «LINK EXTERNO» del modal de login tiene href=\"#\" sin destino funcional real; «Registro» y «Observancia» tampoco describen su destino real."
+    ],
+    "hallazgos_prioridad_media": [
+      "(A2) El párrafo 9 con el dato del alza del 101% en solicitantes personas naturales queda relegado al cierre, perdiendo jerarquía frente a información de menor relevancia.",
+      "(A3) El cuerpo desarrolla tres focos temáticos distintos sin ningún encabezado que los organice.",
+      "(A5) El párrafo 4 desarrolla una explicación institucional genérica sobre qué es una patente, ajena al hecho noticioso específico.",
+      "(A9) No se usan negritas ni listas para las cifras clave dispersas en 9 párrafos de texto corrido.",
+      "(B2) «Residentes/no residentes» y las categorías técnicas de clasificación de patentes se usan sin glosa.",
+      "(D5) El párrafo 8 enumera 5 áreas técnicas con porcentajes en texto corrido en vez de lista.",
+      "(D6) No se destacan con negrita las cifras clave de la noticia (1.416, 296, 63%, 101%).",
+      "(D7) Mayúsculas sostenidas en el modal buscador/login: «LINK EXTERNO», «BUSCAR Y TRAMITAR», «BUSCADOR», «MARCAS», «PATENTES».",
+      "(E1) La imagen principal del carrusel corresponde a otra noticia (premio europeo a un biofiltro), no a esta.",
+      "(E4) El H1 «Detalle » es genérico de plantilla y no representa el contenido específico de la noticia.",
+      "(F2) «Conoce más» (menú principal desktop) es un enlace genérico sin contexto del destino.",
+      "(H1) Cuatro imágenes intercaladas del cuerpo, el ícono «Volver» y las cinco imágenes de «Otras Noticias» no tienen atributo alt descriptivo."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(B8) No se aplicó herramienta de legibilidad sobre el cuerpo principal de 9 párrafos.",
+      "(C3) Una oración del párrafo 4 supera las 30 palabras (32 palabras).",
+      "(C9) El cuerpo principal tiene 9 párrafos, uno por sobre el rango de 2 a 8 establecido.",
+      "(D1) «Instituto Nacional de Propiedad industrial» con minúscula indebida en el footer compartido."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T029",
+      "html_linea_aprox": "El perfil de los solicitantes también cambió.",
+      "original": "Párrafo 9 (cierre): «El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior...»",
+      "propuesto": "Mover el dato del alza del 101% en solicitantes personas naturales inmediatamente después del párrafo 1 (T017), ya que es un hallazgo de primer orden comparable en relevancia a la cifra de 296 solicitudes; actualmente queda como cierre y pierde jerarquía informativa.",
+      "criterio_id": "A2",
+      "motivo": "Pirámide invertida: la información más relevante debe anteceder a la de menor relevancia; este dato queda mal posicionado al final del artículo.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 9 (cierre)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T023",
+      "html_linea_aprox": "Uno de los datos más llamativos del período es el geográfico.",
+      "original": "(ausencia)",
+      "propuesto": "Insertar subtítulo visual antes de este bloque, ej. «Ranking regional», y otro antes del párrafo de áreas tecnológicas (T026), ej. «Áreas de la innovación», para segmentar visualmente los tres focos del artículo.",
+      "criterio_id": "A3",
+      "motivo": "El cuerpo desarrolla varios subtemas diferenciados sin encabezados que los organicen, dificultando la lectura por secciones.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, entre párrafo 5 y párrafo 6",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años.",
+      "original": "Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años. Durante ese período, ningún tercero puede fabricar, vender ni importar el producto o proceso protegido sin autorización. Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "propuesto": "Una patente otorga a su titular el derecho exclusivo de explotar su invención por hasta 20 años. Conoce más sobre qué es una patente y cómo solicitarla.",
+      "criterio_id": "A5",
+      "motivo": "Contenido de referencia genérico e institucional que no aporta al hecho noticioso específico; se recomienda reducirlo a una línea con enlace a la página informativa correspondiente.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, párrafo 4",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T016-T017",
+      "html_linea_aprox": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026",
+      "original": "(ausencia)",
+      "propuesto": "Insertar un recuadro o lista de cifras clave inmediatamente después de la bajada: «1.416 solicitudes totales del semestre · 296 de inventores chilenos (cifra histórica) · La Serena lidera con 44 solicitudes comunales · Alza de 101% en personas naturales».",
+      "criterio_id": "A9",
+      "motivo": "Mejora la escaneabilidad para lectores que no leen el cuerpo completo, destacando visualmente las cifras centrales dispersas en el texto corrido.",
+      "ubicacion_pantalla": "Entre la bajada H5 y el primer párrafo del cuerpo",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "Premio Europeo al Inventor 2026 — biofiltro chileno que combate la contaminación del aire",
+      "original": "Imagen del carrusel principal con alt/title «Premio Europeo al Inventor 2026 — biofiltro chileno que combate la contaminación del aire»",
+      "propuesto": "Reemplazar la imagen del carrusel por una fotografía o gráfico relacionado con solicitudes de patentes nacionales, ya que la imagen actual corresponde a una noticia distinta.",
+      "criterio_id": "E1",
+      "motivo": "La imagen no corresponde al tema de la noticia, afectando la fiabilidad percibida del contenido publicado.",
+      "ubicacion_pantalla": "Carrusel de imagen principal, sobre el titular",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T010",
+      "html_linea_aprox": "Detalle",
+      "original": "Detalle ",
+      "propuesto": "Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década",
+      "criterio_id": "E4",
+      "motivo": "El H1 visible es genérico y compartido por toda la plantilla de noticias; debe reflejar dinámicamente el titular real de cada artículo (requiere ajuste de plantilla, no solo de esta URL).",
+      "ubicacion_pantalla": "Banner superior, H1 de la página",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "sumando residentes y no residentes",
+      "original": "sumando residentes y no residentes",
+      "propuesto": "sumando solicitudes de personas y empresas con domicilio en Chile (residentes) y del extranjero (no residentes)",
+      "criterio_id": "B2",
+      "motivo": "«Residentes/no residentes» es jerga de oficinas de propiedad industrial usada varias veces sin glosa; se propone explicar el término en su primera aparición.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 1",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%)",
+      "original": "productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%)",
+      "propuesto": "productos orgánicos elementales —compuestos químicos de base, como fármacos genéricos o insumos industriales— (12,57%), química de materiales (8,57%) e ingeniería química (8,19%)",
+      "criterio_id": "B2",
+      "motivo": "Etiquetas de clasificación técnica de patentes presentadas sin explicación para el lector no especializado.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 8",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017-T029",
+      "html_linea_aprox": "Cuerpo completo del artículo (T017 a T029)",
+      "original": "(ausencia)",
+      "propuesto": "Ejecutar medición de legibilidad (Legible.es u equivalente) sobre el cuerpo del artículo antes de publicar y documentar el resultado (meta ≥3/5) en el control de calidad editorial.",
+      "criterio_id": "B8",
+      "motivo": "No hay medición de legibilidad documentada sobre un cuerpo editorial extenso y medible (9 párrafos).",
+      "ubicacion_pantalla": "Cuerpo del artículo (T017-T029)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T021",
+      "html_linea_aprox": "Esa protección temporal es también la base de la transferencia tecnológica",
+      "original": "Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "propuesto": "Esa protección temporal es también la base de la transferencia tecnológica. Permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "criterio_id": "C3",
+      "motivo": "La oración original tiene 32 palabras, supera el máximo de 30. Se divide en dos oraciones manteniendo el sentido.",
+      "ubicacion_pantalla": "Cuerpo del artículo, párrafo 4",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017-T029",
+      "html_linea_aprox": "Cuerpo completo del artículo (T017 a T029, 9 párrafos)",
+      "original": "(estructura actual en 9 párrafos corridos sin subtítulos)",
+      "propuesto": "Agrupar los 9 párrafos bajo 3-4 subtítulos temáticos: «Cifras del semestre» (T017-T018), «Contexto y declaraciones» (T020-T022), «Distribución geográfica y sectorial» (T023-T026) y «Perfil de los solicitantes» (T029); alternativamente, fusionar T023 y T025 para reducir a 8 párrafos.",
+      "criterio_id": "C9",
+      "motivo": "El cuerpo tiene 9 párrafos, supera el rango de 2-8 establecido para facilitar el escaneo.",
+      "ubicacion_pantalla": "Cuerpo del artículo (T017-T029)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T042",
+      "html_linea_aprox": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "D1",
+      "motivo": "Error de capitalización en el nombre propio de la institución dentro del footer; patrón de shell compartido con otras páginas de www.inapi.cl.",
+      "ubicacion_pantalla": "Footer — bloque «Dónde estamos»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T026",
+      "html_linea_aprox": "Los productos farmacéuticos concentran el 24,64% de las solicitudes",
+      "original": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+      "propuesto": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por:\n- Biotecnología: 15,76%\n- Productos orgánicos elementales: 12,57%\n- Química de materiales: 8,57%\n- Ingeniería química: 8,19%",
+      "criterio_id": "D5",
+      "motivo": "Enumeración de 5 áreas técnicas con cifras discretas presentada en texto corrido; el formato de lista facilita comparar los porcentajes entre sí.",
+      "ubicacion_pantalla": "Cuerpo editorial — párrafo 8",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T017",
+      "html_linea_aprox": "Chile recibió 1.416 solicitudes de patentes de invención",
+      "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible.",
+      "propuesto": "Chile recibió **1.416 solicitudes** de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, **296 corresponden a inventores chilenos**, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible.",
+      "criterio_id": "D6",
+      "motivo": "Cifra central de la noticia sin ningún énfasis tipográfico en un cuerpo editorial extenso; el mismo patrón se repite en otras cifras del cuerpo (63%, 44, 101%) — aplicar negrita de forma consistente.",
+      "ubicacion_pantalla": "Cuerpo editorial — párrafo 1",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T029",
+      "html_linea_aprox": "registraron un alza del 101% respecto al mismo período del año anterior",
+      "original": "Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento.",
+      "propuesto": "Las personas naturales —inventores individuales— registraron un **alza del 101%** respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento.",
+      "criterio_id": "D6",
+      "motivo": "Segunda cifra clave del cierre de la noticia sin destacar; refuerza la necesidad de aplicar negrita de forma consistente a los datos centrales del artículo.",
+      "ubicacion_pantalla": "Cuerpo editorial — párrafo 9 (cierre)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "LINK EXTERNO",
+      "original": "LINK EXTERNO",
+      "propuesto": "Enlace externo",
+      "criterio_id": "D7",
+      "motivo": "Mayúsculas sostenidas en el modal de login/usuario frecuente; patrón sistémico del componente compartido, no de la cabecera global excluida de D7.",
+      "ubicacion_pantalla": "Modal de login / Usuario Frecuente",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T006",
+      "html_linea_aprox": "BUSCAR Y TRAMITAR",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Buscar y tramitar",
+      "criterio_id": "D7",
+      "motivo": "Encabezado del modal buscador con mayúsculas sostenidas; patrón sistémico del componente modal compartido en todo www.inapi.cl.",
+      "ubicacion_pantalla": "Modal «Buscar y tramitar» — encabezado h3",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T007",
+      "html_linea_aprox": "placeholder BUSCADOR (modal)",
+      "original": "BUSCADOR",
+      "propuesto": "Buscar marcas o patentes",
+      "criterio_id": "D7",
+      "motivo": "Placeholder del campo de búsqueda dentro del modal con mayúsculas sostenidas, distinto del ítem «BUSCADOR» de la cabecera global excluido de D7.",
+      "ubicacion_pantalla": "Modal «Buscar y tramitar» — campo de búsqueda",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T008-T009",
+      "html_linea_aprox": "MARCAS / PATENTES (pestañas modal)",
+      "original": "MARCAS / PATENTES",
+      "propuesto": "Marcas / Patentes",
+      "criterio_id": "D7",
+      "motivo": "Pestañas de categoría del modal buscador con mayúsculas sostenidas; patrón sistémico del componente compartido.",
+      "ubicacion_pantalla": "Modal «Buscar y tramitar» — pestañas de categoría",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T005",
+      "html_linea_aprox": "LINK EXTERNO",
+      "original": "LINK EXTERNO",
+      "propuesto": "Iniciar sesión",
+      "criterio_id": "F1",
+      "motivo": "El texto visible del enlace es un placeholder de desarrollo sin destino real (href=\"#\") que en realidad abre un modal de inicio de sesión; debe reemplazarse por un texto que describa la acción real.",
+      "ubicacion_pantalla": "Cabecera superior, junto a «Usuario Frecuente» y «Registro»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T004",
+      "html_linea_aprox": "Registro",
+      "original": "Registro",
+      "propuesto": "Regístrate en ClaveÚnica",
+      "criterio_id": "F1",
+      "motivo": "El nombre del enlace es ambiguo en el contexto de un sitio de propiedad industrial (puede confundirse con registro de marca o patente); debe especificar que se trata del registro de ClaveÚnica.",
+      "ubicacion_pantalla": "Cabecera superior, junto a «Usuario Frecuente»",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T048",
+      "html_linea_aprox": "Observancia",
+      "original": "Observancia",
+      "propuesto": "Protege tu idea",
+      "criterio_id": "F1",
+      "motivo": "El texto del enlace «Observancia» no coincide con el contenido real de la página de destino (/protege-tu-idea).",
+      "ubicacion_pantalla": "Menú burger (navegación móvil)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T047",
+      "html_linea_aprox": "Conoce más",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad intelectual e industrial",
+      "criterio_id": "F2",
+      "motivo": "Texto de enlace genérico que no describe el destino específico (/propiedad-intelectual-e-industrial).",
+      "ubicacion_pantalla": "Menú principal desktop",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T019",
+      "html_linea_aprox": "ancla: primera imagen intercalada en el cuerpo de la noticia (foto-1)",
+      "original": "(no existe atributo alt en el HTML)",
+      "propuesto": "alt=\"Fotografía institucional relacionada con el anuncio de cifras de solicitudes de patentes nacionales de INAPI\"",
+      "criterio_id": "H1",
+      "motivo": "Imagen del cuerpo de la noticia sin atributo alt — impide accesibilidad para lectores de pantalla.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, primera imagen intercalada (foto-1)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T024",
+      "html_linea_aprox": "ancla: segunda imagen intercalada en el cuerpo de la noticia (foto-2)",
+      "original": "(no existe atributo alt en el HTML)",
+      "propuesto": "alt=\"Fotografía institucional relacionada con el anuncio de cifras de solicitudes de patentes nacionales de INAPI\"",
+      "criterio_id": "H1",
+      "motivo": "Imagen del cuerpo de la noticia sin atributo alt.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, segunda imagen intercalada (foto-2)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T027",
+      "html_linea_aprox": "ancla: tercera imagen intercalada en el cuerpo de la noticia (foto-3)",
+      "original": "(no existe atributo alt en el HTML)",
+      "propuesto": "alt=\"Fotografía institucional relacionada con el anuncio de cifras de solicitudes de patentes nacionales de INAPI\"",
+      "criterio_id": "H1",
+      "motivo": "Imagen del cuerpo de la noticia sin atributo alt.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, tercera imagen intercalada (foto-3)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T028",
+      "html_linea_aprox": "ancla: cuarta imagen intercalada en el cuerpo de la noticia (foto-4)",
+      "original": "(no existe atributo alt en el HTML)",
+      "propuesto": "alt=\"Fotografía institucional relacionada con el anuncio de cifras de solicitudes de patentes nacionales de INAPI\"",
+      "criterio_id": "H1",
+      "motivo": "Imagen del cuerpo de la noticia sin atributo alt.",
+      "ubicacion_pantalla": "Cuerpo de la noticia, cuarta imagen intercalada (foto-4)",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T030",
+      "html_linea_aprox": "ancla: enlace «Volver» con imagen volver.png",
+      "original": "(no existe atributo alt en el HTML)",
+      "propuesto": "alt=\"Volver al listado de noticias\"",
+      "criterio_id": "H1",
+      "motivo": "Ícono de navegación «Volver» sin atributo alt — impide identificar la función del enlace mediante lector de pantalla.",
+      "ubicacion_pantalla": "Enlace «Volver» sobre el titular de la noticia",
+      "capa": "VISIBLE"
+    },
+    {
+      "linea": "T032-T037",
+      "html_linea_aprox": "ancla: sidebar «Otras Noticias», 5 miniaturas de imagen",
+      "original": "alt=\"\"",
+      "propuesto": "alt=\"Miniatura de la noticia: [título de la noticia relacionada]\"",
+      "criterio_id": "H1",
+      "motivo": "Las 5 imágenes del sidebar «Otras Noticias» tienen alt vacío en vez de un texto descriptivo del título de cada noticia enlazada.",
+      "ubicacion_pantalla": "Sidebar «Otras Noticias», 5 ítems",
+      "capa": "VISIBLE"
+    }
+  ],
+  "nota_final_tic": "Reauditoría v2.1 (2026-08-18) que reemplaza al JSON piloto original (2026-07-29, v1.1, 39 criterios), ampliada a 47 criterios y alineada al alcance visible en pantalla. El HTML fue capturado con Playwright MCP como volcado de una sola línea; las referencias 'html_linea_aprox' son el texto exacto a buscar con Ctrl+F, no números de línea. AJUSTE DE CONSOLIDACIÓN: el sub-subagente del Grupo 1 propuso E2 como incumple (por ausencia de una firma de autoría periodística distinta del director citado); el agente raíz corrigió a E2=cumple porque la verificación literal del criterio en checklist-criteria.json solo exige que el nombre de la institución (INAPI) sea identificable en encabezado o pie, condición que se cumple ampliamente en esta página — no exige una firma de periodista o unidad de comunicaciones. NOTA DE CONTENIDO (no editorial, para revisión de CMS): la imagen del carrusel principal (T015) tiene alt/title de OTRA noticia (premio europeo a un biofiltro) — error de asociación de imagen en Sitefinity; se recomienda a TI reemplazarla por una fotografía real relacionada con solicitudes de patentes. Para aplicar las sustituciones: (1) hacer backup del HTML fuente antes de cualquier cambio; (2) el H1 genérico «Detalle»/H2 «Noticia» (E4) y el modal buscador/login (D7, F1) son patrones de PLANTILLA compartidos por todas las noticias del sitio — coordinar el cambio a nivel de plantilla Sitefinity, no por página; (3) el error de capitalización «Instituto Nacional de Propiedad industrial» (T042) está en el footer compartido con otras páginas de www.inapi.cl — coordinar a nivel de plantilla; (4) las 4 imágenes intercaladas del cuerpo (T019, T024, T027, T028) no tienen el atributo alt en absoluto (agregarlo), mientras las 5 del sidebar «Otras Noticias» sí tienen el atributo pero vacío (editar el existente); (5) G1 se mantiene calibrado como cumple: el RUT institucional y el nombre del funcionario (Esteban Figueroa) en su rol público dentro de un relato periodístico no son incumplimiento; (6) el HTML puede contener entidades codificadas (&oacute;, &aacute;, &eacute;) si el editor de TI trabaja sobre el HTML crudo servido por Sitefinity."
+}

@@ -41,6 +41,7 @@ import {
 } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
+import { ResultadoScrollTopButton } from "@/components/resultado-scroll-top-button"
 import {
   formatFechaEvaluacion,
   labelTipoPagina,
@@ -413,9 +414,14 @@ function ResultadoInner() {
   
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
+  const tituloCriteriosEvaluados =
+    auditoria.version_checklist === "2.1"
+      ? `${criteriosEntregaCount} criterios evaluados`
+      : `${criteriosEntregaCount} criterios evaluados`
 
   return (
     <div className="flex w-full flex-col gap-6">
+      <ResultadoScrollTopButton />
       {!claudeAuditId ? (
       <Card className="border-dashed">
         <CardHeader className="space-y-1.5">
@@ -801,22 +807,15 @@ function ResultadoInner() {
           </div>
         ) : null}
 
-          <section
-            className="overflow-hidden rounded-lg border border-border shadow-sm"
-            aria-labelledby="resultado-criterios-titulo"
-          >
-            <div
-              id="resultado-criterios-titulo"
-              className="bg-[#0F69C4] px-4 py-3 text-sm font-semibold text-white"
-            >
-              {esInformePiloto
-                ? "39 Criterios Evaluados"
-                : "Criterios evaluados"}
-            </div>
-            <div className={cn(PANEL_BODY_CLASS, "p-0")}>
+          <ResultadoInformeCollapsibleGroup>
+              <ResultadoInformeCollapsible
+                value="criterios-evaluados"
+                title={tituloCriteriosEvaluados}
+                contentClassName="border-t-0 bg-card p-0 pt-0"
+              >
             <div
                 className="flex flex-wrap gap-x-5 gap-y-2 border-b border-border bg-muted/30 px-4 py-3 text-xs text-muted-foreground"
-                aria-label="Leyenda: la tabla incluye sección y enunciado del criterio (catálogo v1.1); estos íconos describen solo la columna Estado y la severidad en incumplidos"
+                aria-label="Leyenda: la tabla incluye sección y enunciado del criterio; estos íconos describen solo la columna Estado y la severidad en incumplidos"
               >
                 <span className="inline-flex max-w-[11rem] flex-col gap-0.5">
                   <span className="font-medium text-foreground">Severidad alta</span>
@@ -971,7 +970,9 @@ function ResultadoInner() {
                     </TableHead>
                     <TableHead className="text-card-foreground">Estado</TableHead>
                     <TableHead className="text-card-foreground">Severidad</TableHead>
-                    <TableHead className="text-card-foreground">Comentario</TableHead>
+                    <TableHead className="text-card-foreground">
+                      Comentario / justificación
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -1043,16 +1044,18 @@ function ResultadoInner() {
                         </TableCell>
                         <TableCell
                           className="max-w-[min(100vw,24rem)] text-sm leading-snug text-foreground"
-                          title={
-                            row.estado === "no_aplica"
-                              ? undefined
-                              : (row.comentario ?? undefined)
-                          }
+                          title={row.comentario ?? undefined}
                         >
-                          {row.estado === "no_aplica" ? (
-                            <span className="text-muted-foreground">—</span>
-                          ) : row.comentario ? (
-                            <span className="line-clamp-2">{row.comentario}</span>
+                          {row.comentario ? (
+                            <span className="line-clamp-3">
+                              {row.agrupado_en
+                                ? `Agrupado con ${row.agrupado_en}. ${row.comentario}`
+                                : row.comentario}
+                            </span>
+                          ) : row.estado === "no_aplica" ? (
+                            <span className="text-muted-foreground">
+                              Sin justificación registrada
+                            </span>
                           ) : (
                             <span className="text-muted-foreground">—</span>
                           )}
@@ -1062,11 +1065,8 @@ function ResultadoInner() {
                   })}
                 </TableBody>
               </Table>
-            </div>
-          </section>
-          {esInformePiloto ? (
-            <ResultadoInformeCollapsibleGroup>
-              {tieneSeveridadPiloto && severidadPiloto ? (
+              </ResultadoInformeCollapsible>
+              {esInformePiloto && tieneSeveridadPiloto && severidadPiloto ? (
                 <ResultadoInformeCollapsible
                   value="observaciones-severidad"
                   title="Observaciones finales por severidad"
@@ -1074,7 +1074,7 @@ function ResultadoInner() {
                   <ObservacionesSeveridadContent severidad={severidadPiloto} />
                 </ResultadoInformeCollapsible>
               ) : null}
-              {sustitucionesPiloto.length > 0 ? (
+              {esInformePiloto && sustitucionesPiloto.length > 0 ? (
                 <ResultadoInformeCollapsible
                   value="texto-propuesto"
                   title="Texto propuesto"
@@ -1084,7 +1084,7 @@ function ResultadoInner() {
                   />
                 </ResultadoInformeCollapsible>
               ) : null}
-              {pilotMeta?.nota_final_tic ? (
+              {esInformePiloto && pilotMeta?.nota_final_tic ? (
                 <ResultadoInformeCollapsible
                   value="nota-equipo-ti"
                   title="Nota para el equipo TI"
@@ -1093,7 +1093,6 @@ function ResultadoInner() {
                 </ResultadoInformeCollapsible>
               ) : null}
             </ResultadoInformeCollapsibleGroup>
-          ) : null}
         </CardContent>
         <CardFooter className="flex flex-wrap gap-2">
           {claudeAuditId && claudeAuditForDisplay ? (
@@ -1111,7 +1110,7 @@ function ResultadoInner() {
                 const excelHref = excelPathForClaudeAudit(claudeAuditId)
                 if (!excelHref) return null
                 return (
-                  <Button type="button" variant="secondary" asChild>
+                  <Button type="button" asChild>
                     <a href={excelHref} download>
                       Descargar Excel MEI (esta URL)
                     </a>
@@ -1138,4 +1137,5 @@ export default function ResultadoPage() {
       <ResultadoInner />
     </Suspense>
   )
-}          
+}
+          

@@ -231,7 +231,17 @@ export function buildRowsForHito(
         tipoEntrega: "correccion_texto",
         textoOriginal: sust.original,
         textoPropuesto: sust.propuesto,
-        motivo: sust.motivo,
+        motivo: [
+          sust.patron_sistema
+            ? "Patrón de sitio (corregir en Layout/header/footer/modal compartido)."
+            : null,
+          sust.criterios_relacionados?.length
+            ? `Criterios: ${sust.criterio_id}, ${sust.criterios_relacionados.join(", ")}.`
+            : null,
+          sust.motivo,
+        ]
+          .filter(Boolean)
+          .join(" "),
         ubicacionPantalla: sust.ubicacion_pantalla ?? "",
         lineaRef: sust.linea,
         htmlLineaAprox: sust.html_linea_aprox ?? "",
@@ -248,6 +258,7 @@ export function buildRowsForHito(
     for (const ev of audit.bundle.audit.criterios_evaluados) {
       if (!criteriosSet.has(ev.id) || ev.estado !== "incumple") continue
       if (covered.has(ev.id)) continue
+      if (ev.agrupado_en) continue
       if (isMetadataCriterionEvaluation(ev, audit.bundle.pilot.sustituciones ?? [])) {
         continue
       }
@@ -280,6 +291,43 @@ export function buildRowsForHito(
         requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
         estado: "pendiente",
         notasTic: notasTicFor(ev.id, audit.rank),
+        fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
+        auditor: audit.bundle.audit.evaluador_uid,
+        auditId: audit.auditId,
+      })
+    }
+
+    for (const ev of audit.bundle.audit.criterios_evaluados) {
+      if (!criteriosSet.has(ev.id) || ev.estado !== "no_aplica") continue
+      num++
+      rows.push({
+        num,
+        actividadMei: actividadPrincipal(hitoId),
+        hitoId,
+        fechaInicioActividad: hito.fechaInicioActividad,
+        fechaTerminoActividad: hito.fechaTerminoActividad,
+        fechaHito: hito.fechaHito,
+        rankClarity: audit.rank,
+        url: audit.url,
+        nombreUi: audit.nombreUi,
+        tipoPagina: audit.tipoPagina,
+        criterioId: ev.id,
+        criterioEnunciado: enunciados.get(ev.id) ?? "",
+        estadoAuditoria: "no_aplica",
+        severidad: "",
+        tipoEntrega: "nuevo_contenido",
+        textoOriginal: "—",
+        textoPropuesto: "—",
+        motivo:
+          ev.comentario?.trim() ||
+          "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
+        ubicacionPantalla: "",
+        lineaRef: "",
+        htmlLineaAprox: "",
+        fragmentoBusqueda: "",
+        requiereValidacionTic: "no",
+        estado: "pendiente",
+        notasTic: "",
         fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
         auditor: audit.bundle.audit.evaluador_uid,
         auditId: audit.auditId,

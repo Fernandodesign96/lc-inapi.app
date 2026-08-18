@@ -19,7 +19,18 @@ export const claudeSustitucionSchema = z.object({
   capa: z.enum(["VISIBLE", "METADATA", "SISTEMA"]).optional(),
   original: z.string().min(1),
   propuesto: z.string().min(1),
+  /** Criterio primario que descuenta en el % (uno por hallazgo editorial). */
   criterio_id: criterionIdSchema,
+  /**
+   * Otros criterios del mismo texto/propuesta. No generan filas ni descuentos
+   * adicionales; se muestran juntos en UI/PDF/Excel.
+   */
+  criterios_relacionados: z.array(criterionIdSchema).optional(),
+  /**
+   * Hallazgo de shell compartido (header, footer, modal global, `_Layout`).
+   * Sigue descontando en la URL; la justificación debe indicar el origen.
+   */
+  patron_sistema: z.boolean().optional(),
   motivo: z.string().min(1),
 })
 

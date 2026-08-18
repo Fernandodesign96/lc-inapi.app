@@ -4,6 +4,11 @@ import type {
   ClaudeAuditPilotMeta,
   ClaudeSustitucion,
 } from "@contracts/claude-audit-pilot"
+import {
+  etiquetaCriteriosSustitucion,
+  parrafosInformeLegible,
+} from "@repo/lib/informe-texto-legible"
+
 export { formatFechaEvaluacion, labelTipoPagina } from "@/lib/informe-piloto-format"
 
 function SeveridadList({
@@ -26,12 +31,19 @@ function SeveridadList({
   )
 }
 
-export function ResumenAuditoriaContent({ texto }: { texto: string }) {
+function BloqueTextoLegible({ texto }: { texto: string }) {
+  const parrafos = parrafosInformeLegible(texto)
   return (
-    <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-      {texto}
-    </p>
+    <div className="space-y-3 text-sm leading-relaxed text-foreground">
+      {parrafos.map((p, i) => (
+        <p key={`p-${i}`}>{p}</p>
+      ))}
+    </div>
   )
+}
+
+export function ResumenAuditoriaContent({ texto }: { texto: string }) {
+  return <BloqueTextoLegible texto={texto} />
 }
 
 export function ObservacionesSeveridadContent({
@@ -78,32 +90,49 @@ export function SustitucionesTextoContent({
           </tr>
         </thead>
         <tbody>
-          {sustituciones.map((s, i) => (
-            <tr
-              key={`${s.linea}-${s.criterio_id}-${i}`}
-              className="border-b border-border align-top"
-            >
-              <td className="max-w-[14rem] p-2 text-muted-foreground">
-                {s.original}
-              </td>
-              <td className="max-w-[14rem] p-2 text-foreground">
-                {s.propuesto}
-              </td>
-              <td className="max-w-[14rem] p-2 text-foreground">
-                {s.ubicacion_pantalla?.trim()
-                  ? s.ubicacion_pantalla
-                  : "—"}
-              </td>
-              <td className="max-w-[16rem] p-2 text-foreground">{s.motivo}</td>
-              <td className="p-2 font-mono text-xs">{s.criterio_id}</td>
-              <td className="p-2 font-mono text-xs whitespace-nowrap text-muted-foreground">
-                {s.linea}
-                {s.html_linea_aprox ? (
-                  <span className="mt-0.5 block">{s.html_linea_aprox}</span>
-                ) : null}
-              </td>
-            </tr>
-          ))}
+          {sustituciones.map((s, i) => {
+            const criterioLabel = etiquetaCriteriosSustitucion(
+              s.criterio_id,
+              s.criterios_relacionados,
+            )
+            const motivo = [
+              s.patron_sistema
+                ? "Patrón de sitio (corregir en header, footer o modal compartido)."
+                : null,
+              s.motivo,
+              s.criterios_relacionados?.length
+                ? `También aplica a: ${s.criterios_relacionados.join(", ")}.`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" ")
+            return (
+              <tr
+                key={`${s.linea}-${s.criterio_id}-${i}`}
+                className="border-b border-border align-top"
+              >
+                <td className="max-w-[14rem] p-2 text-muted-foreground">
+                  {s.original}
+                </td>
+                <td className="max-w-[14rem] p-2 text-foreground">
+                  {s.propuesto}
+                </td>
+                <td className="max-w-[14rem] p-2 text-foreground">
+                  {s.ubicacion_pantalla?.trim()
+                    ? s.ubicacion_pantalla
+                    : "—"}
+                </td>
+                <td className="max-w-[16rem] p-2 text-foreground">{motivo}</td>
+                <td className="p-2 font-mono text-xs">{criterioLabel}</td>
+                <td className="p-2 font-mono text-xs whitespace-nowrap text-muted-foreground">
+                  {s.linea}
+                  {s.html_linea_aprox ? (
+                    <span className="mt-0.5 block">{s.html_linea_aprox}</span>
+                  ) : null}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
@@ -111,9 +140,5 @@ export function SustitucionesTextoContent({
 }
 
 export function NotaEquipoTiContent({ texto }: { texto: string }) {
-  return (
-    <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-      {texto}
-    </p>
-  )
+  return <BloqueTextoLegible texto={texto} />
 }

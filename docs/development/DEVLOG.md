@@ -8,6 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Frontend/docs: calibración META MEI §20 + UI resultado legible](#devlog-2026-08-18-calibracion-ui-resultado) |
+| 2026-08-18 | [Infraestructura: META MEI v2.1 — cierre lote 7–10 (Sala de Prensa, 2 noticias, SIAC)](#devlog-2026-08-18-meta-mei-lote-7-10) |
+| 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 6 Solicitud Nueva (orden 6)](#devlog-2026-08-18-meta-mei-url-6) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — URL 5 buscador de noticias (cierre lote 1–5)](#devlog-2026-08-18-meta-mei-url-5) |
 | 2026-08-18 | [Frontend: entrega solo visible + Excel por URL](#devlog-2026-08-18-entrega-visible-excel-url) |
 | 2026-08-18 | [Frontend: tabla META MEI 10 URLs e historial unificado](#devlog-2026-08-18-meta-mei-ui-historial) |
@@ -71,6 +74,87 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-calibracion-ui-resultado"></a>
+## [2026-08-18] - Frontend | Calibración META MEI §20 + UI resultado legible
+
+**Rama:** `feat/meta-mei-calibracion-ui-resultado` (desde `feat/meta-mei-v21-lote-3`)
+
+### Contexto y objetivos:
+
+Tras cerrar las 10 URLs META MEI v2.1, jefatura observó: (1) criterios cruzados con el mismo texto propuesto bajaban el % varias veces; (2) hallazgos de Layout repetidos en todas las URLs sin etiqueta de patrón; (3) elementos en DOM/metadata no visibles descontaban %; (4) `no_aplica` sin justificación; (5) resumen y nota TI ilegibles; (6) UI de resultado pesada (criterios siempre abiertos, Excel secundario, sin volver arriba).
+
+### Implementación técnica:
+
+- Documentación: `.claude/CLAUDE.md` §20 + skill `auditoria-lc.md` (VISIBLE / patrones / cruces / `no_aplica`).
+- Schema: `agrupado_en` en criterios; `criterios_relacionados` y `patron_sistema` en sustituciones; `summarizeEvaluations` no descuenta agrupados.
+- UI `/auditar/resultado`: párrafos legibles en resumen y nota TI; criterios en acordeón; Excel MEI estilo primary; botón fijo volver arriba.
+- PDF y Excel MEI alineados (comentario en `no_aplica`, criterios relacionados, patrones).
+
+### Próximos pasos:
+
+- Reauditar las 10 URLs con calibración §20.
+- Generar Excel Bernarda completo y merge a `main`.
+
+---
+
+<a id="devlog-2026-08-18-meta-mei-lote-7-10"></a>
+## [2026-08-18] - Infraestructura | META MEI v2.1: cierre lote 7–10 (Sala de Prensa, 2 noticias, SIAC)
+
+**Rama:** `feat/meta-mei-v21-lote-3` | **Entorno:** Claude Code Enterprise INAPI, Playwright MCP verificado (navigate + evaluate con guardado directo a disco), Chroma local (Colección B disponible para varios sub-subagentes)
+
+### Contexto y objetivos:
+
+Cerrar las últimas cuatro URLs de la muestra META MEI (órdenes 7–10), completando así las **10 URLs oficiales** en checklist v2.1 con alcance solo visible. Cada URL se procesó con la arquitectura de 5 sub-subagentes (§17): Grupo 1 (A+E), Grupo 2 (B+C), Grupo 3 (D), Grupo 4 (F), Grupo 5 (G+H), lanzados en paralelo por URL y consolidados por el agente raíz.
+
+### Implementación técnica:
+
+- **Orden 7 — Sala de Prensa (Noticias, listado):** `www-inapi-cl-sala-de-prensa-noticias_2026-08-18.json`. **63,2 %** LC sobre 38 aplicables (**rechazado**); 24 cumple, 14 incumple (5 alta, 9 media), 9 no_aplica. Mejora notable vs v1.1 (45,5 %): las imágenes del carrusel de logos institucionales que antes tenían `alt` vacío ahora están descritas, y G1 se recalibra a `cumple` (RUT institucional).
+- **Orden 8 — Noticia Cuenta Pública 2026:** `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18.json`. **41,5 %** LC sobre 41 aplicables (**rechazado**); 24 cumple, 24 incumple (5 alta, 12 media, 7 baja), 6 no_aplica. Hallazgo alta severidad propio: el primer párrafo del cuerpo editorial inicia en minúscula sin conector (D1/D2). Corrección de consolidación: se ajustó el comentario de E2 del sub-subagente Grupo 1 para no exigir firma periodística explícita (el criterio solo pide que INAPI sea identificable en encabezado/pie).
+- **Orden 9 — Noticia Cifra histórica de patentes:** `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18.json`. **58,5 %** LC sobre 41 aplicables (**rechazado**); 24 cumple, 17 incumple (1 alta, 12 media, 4 baja), 6 no_aplica. Mejor ortografía/gramática de base del lote; único hallazgo alta es el botón «LINK EXTERNO» del modal de login sin destino funcional (F1, patrón sistémico). Corrección de consolidación: se revirtió a `cumple` el criterio E2 que el Grupo 1 marcó incumple por el mismo motivo que en la orden 8 (exigencia no contemplada en la definición del criterio).
+- **Orden 10 — Formulario Contacto SIAC (`tramites.inapi.cl/siac`):** `tramites-inapi-cl-siac_2026-08-18.json`, `tipo_pagina: "tramites"`, `captura_con_sesion: false` (formulario público, sin login obligatorio — el modal de bienvenida ofrece «Continuar sin Iniciar Sesión»; todos los campos capturados vacíos). **52,8 %** LC sobre 36 aplicables (**rechazado**); 19 cumple, 17 incumple (5 alta, 8 media, 4 baja), 11 no_aplica. Se corrigieron tres errores ortográficos de la v1.1 (`...Selecione...` → `...Seleccione...`, `Rut:` → `RUT:`, `Atención!` → `¡Atención!`), pero el checklist v2.1 expone deudas estructurales nuevas de mayor peso: la página no tiene **ningún** encabezado H1/H2/H3 semántico (A1 y A3, ambas alta) y falta información de autonomía del trámite — plazo de respuesta y canal de seguimiento explícito (A8, alta). Corrección de consolidación: el sub-subagente del Grupo 3 (D) reportó un hallazgo D2 falso («espacio antes de los dos puntos» en las etiquetas del formulario); se verificó directamente contra el HTML crudo capturado y se descartó — D2 quedó como `cumple`.
+- Las cuatro capturas Playwright se guardaron directo a disco con `browser_evaluate({ filename })`, sin volcar el HTML completo al contexto de la conversación; el HTML resultante es un volcado de una sola línea (`outerHTML` sin saltos), por lo que en `sustituciones[]` se usó `html_linea_aprox` con anclas de texto (Ctrl+F) en vez de números de línea reales.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (orden 7 y 10 en `CLAUDE_PILOT_URL_ROWS`, con `history` al id v1.1; órdenes 8 y 9 en `META_MEI_EXTRA_AUDITS`, con `history`) y `src/lib/mei-export/mei-meta-mei-urls.ts` (órdenes 7–10 apuntando a los ids `_2026-08-18`).
+- `bun run validate:claude-audits` y `bun run typecheck:all` en verde tras cada URL; commit atómico por URL.
+
+### 💡 Repaso técnico: correcciones del agente raíz en la consolidación
+
+En dos URLs (8 y 9) el sub-subagente del Grupo 1 marcó `E2` como `incumple` exigiendo una firma editorial/periodística distinta del director citado — un requisito que **no** está en la verificación literal del criterio (`data/checklist-criteria.json`: «Aparece el nombre de la institución (INAPI) en encabezado o pie»). En la URL 10, el sub-subagente del Grupo 3 reportó un `D2` inexistente por una nota ambigua del prompt del agente raíz («verificar consistencia» de un espacio antes de los dos puntos que en realidad no está en el HTML). Ambos casos se corrigieron en la consolidación tras verificar contra la definición del criterio y el HTML crudo respectivamente — la arquitectura §17 delega la palabra final al agente raíz precisamente para resolver este tipo de desviaciones antes de escribir el JSON canónico.
+
+### Próximos pasos:
+
+- PR/merge de `feat/meta-mei-v21-lote-3` a `main`.
+- Generar el Excel Bernarda de las **10 URLs** META MEI ahora que todas están en v2.1 visible.
+- Revisión editorial con Bernarda de las filas nuevas (especialmente A1/A3 sin H1 en SIAC, y A8 de autonomía del trámite).
+
+---
+
+<a id="devlog-2026-08-18-meta-mei-url-6"></a>
+## [2026-08-18] - Infraestructura | META MEI v2.1: URL 6 Solicitud Nueva (orden 6)
+
+**Rama:** `feat/meta-mei-v21-lote-3` | **Entorno:** PC oficina (Windows) — Playwright MCP en timeout (Chrome no llega a cargar la página; HTML capturado manualmente vía Ctrl+U/renombrado), Chroma local (solo Colección B disponible en esta sesión)
+
+### Contexto y objetivos:
+
+Continuar el lote 6–10 de reauditoría META MEI v2.1 cerrado con la orden 5 (buscador de noticias). Esta entrada cierra la orden 6: `/marcas/tramites/solicitud-nueva`, el único trámite de la muestra clasificado como `sitioweb`.
+
+### Implementación técnica:
+
+- Playwright MCP quedó en timeout (180s) al navegar; se usó el HTML entregado manualmente por el usuario en `auditorias/htmls/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18.html` (formato view-source con numeración de línea real).
+- Script auxiliar en el scratchpad (`bun` + regex) para decodificar entidades y despojar el marcado de resaltado del view-source, permitiendo inventariar el HTML de forma legible sin exceder el contexto.
+- JSON canónico `data/claude-audits/sitioweb/2026-08-18/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18.json`: 47 criterios, `version_checklist: "2.1"`, sustituciones con `ubicacion_pantalla` + `capa: "VISIBLE"`; sin evidencia de `<title>`/`<meta>`.
+- Resultado: **47,1 %** LC sobre 34 aplicables (**rechazado**); 16 cumple, 18 incumple, 13 no_aplica.
+- Comparado con la auditoría v1.1 (2026-06-07, 44,8 %): el carrusel de recursos institucionales mejoró de forma verificable (alt/title vacíos o en minúscula corregidos); G1 se recalibra a `cumple` (RUT institucional, persona jurídica pública), alineado con el resto del lote.
+- RAG: Colección A (normativa) no disponible — Chroma no estaba levantado en `localhost:8000` para esa colección en esta sesión; Colección B (precedentes) sí respondió y confirmó la calibración de G1 y el patrón de shell compartido de D1 («Propiedad industrial»).
+- Cableado: `claude-audits-launch.ts` (vigente + `history` a `…_2026-06-07`) y `mei-meta-mei-urls.ts` orden 6.
+
+### Próximos pasos:
+
+- PR/merge de `feat/meta-mei-v21-lote-3` a `main`.
+- Lote siguiente: órdenes 7–10 (Sala de Prensa, dos noticias detalle, SIAC).
+- Levantar Chroma con Colección A cargada para las próximas reauditorías.
 
 ---
 

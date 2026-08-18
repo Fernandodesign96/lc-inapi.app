@@ -61,7 +61,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     nombreUi: "Solicitud Nueva (Marcas)",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07",
+    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18",
     rolMetaMei: "Información del servicio digital / trámite",
   },
   {
@@ -69,7 +69,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     nombreUi: "Sala de Prensa — Noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07",
+    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
     rolMetaMei: "Listado últimas noticias",
   },
   {
@@ -77,7 +77,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     nombreUi: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29",
+    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
     rolMetaMei: "Últimas noticias (detalle 1/2)",
   },
   {
@@ -85,7 +85,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     nombreUi: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29",
+    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
     rolMetaMei: "Últimas noticias (detalle 2/2)",
   },
   {
@@ -93,7 +93,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://tramites.inapi.cl/siac",
     nombreUi: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    auditId: "tramites-inapi-cl-siac_2026-06-07",
+    auditId: "tramites-inapi-cl-siac_2026-08-18",
     rolMetaMei: "Formulario (trámites)",
   },
 ]
