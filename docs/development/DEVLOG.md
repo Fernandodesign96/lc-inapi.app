@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Backend: persistencia audit-jobs (`data/jobs` + Zod)](#devlog-2026-08-18-audit-jobs-store) |
 | 2026-08-17 | [Documentación: contratos API audit-jobs y claim worker](#devlog-2026-08-17-contratos-audit-jobs) |
 | 2026-08-17 | [Documentación: ADR 0011 worker on-demand + cotización API](#devlog-2026-08-17-adr-0011-worker) |
 | 2026-08-17 | [Checklist: merge v2.1 a main (Fase 4 paso 1)](#devlog-2026-08-17-checklist-merge-main) |
@@ -58,6 +59,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-store"></a>
+
+## [2026-08-18] - Backend | persistencia audit-jobs (`data/jobs` + Zod)
+
+### Contexto y objetivos:
+
+Arrancar el **paso 4** de la Fase 4 (ítem 1): modelo y store en disco antes de exponer HTTP. Sin routes, sin UI, sin worker.
+
+### Implementación técnica:
+
+- Rama `feat/mvp-audit-jobs-worker`.
+- Schema Zod en `src/schemas/audit-job.ts` (estados del contrato + `createAuditJobInputSchema`).
+- Store `src/lib/audit-jobs/store.ts`: `createJob` / `writeJob` / `readJob` / `updateJob` / `listJobs` / `listJobsByStatus`; raíz vía `LC_REPO_ROOT` o ruta del módulo.
+- Carpeta `data/jobs/` (`.gitkeep`); JSON locales ignorados en `.gitignore`.
+- ROADMAP paso 4 ítem 1 marcado `[x]`.
+
+### Próximos pasos:
+
+- Ítem 2: `POST` / `GET` Route Handlers `/api/audit-jobs` (sin horario ni claim aún).
 
 ---
 
