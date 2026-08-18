@@ -268,7 +268,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 7. [x] UI: Continuar → POST job → `/auditar/procesando?jobId=` con poll (mock timer solo sin jobId)
 8. [x] Descargas PDF (+ Excel MEI si URL META) desde resultado; `descargas` en GET …/result
 9. [x] Spike túnel Vercel↔PC documentado → [`docs/despliegue/tunel-vercel-worker-pc.md`](despliegue/tunel-vercel-worker-pc.md) (MVP demo = túnel al PC; sin binarios en repo)
-10. [ ] `bun run typecheck:all` + PR a `main`
+10. [x] `bun run typecheck:all` OK (2026-08-18) — abrir PR a `main` desde `feat/mvp-audit-jobs-worker`
 
 **No hacer en este paso:** Nest/Prisma/Supabase Auth; reescribir §17/skills; Anthropic API operativa; exponer JSON/HTML en UI MVP. **Vercel Pro no es requisito** para la API delgada (Hobby suele bastar); las auditorías largas no corren en Vercel.
 

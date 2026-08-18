@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-18 | [Infraestructura: typecheck:all paso 4 audit-jobs](#devlog-2026-08-18-audit-jobs-typecheck) |
 | 2026-08-18 | [Documentación: spike túnel Vercel↔worker PC](#devlog-2026-08-18-tunel-spike) |
 | 2026-08-18 | [Frontend: descargas PDF/Excel desde resultado del job](#devlog-2026-08-18-audit-jobs-downloads) |
 | 2026-08-18 | [Frontend: Continuar → job → poll en procesando](#devlog-2026-08-18-audit-jobs-ui-poll) |
@@ -67,6 +68,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-18-audit-jobs-typecheck"></a>
+
+## [2026-08-18] - Infraestructura | typecheck:all paso 4 audit-jobs
+
+### Contexto y objetivos:
+
+Cerrar el **paso 4 ítem 10** de validación local antes del PR a `main`.
+
+### Implementación técnica:
+
+- `bun run typecheck:all` OK: checklist v2.1, fixtures, claude-audits, `tsc` raíz y frontend.
+- ROADMAP paso 4 ítem 10 marcado (typecheck); falta push + PR de la rama.
+
+### Próximos pasos:
+
+- Push `feat/mvp-audit-jobs-worker` y `gh pr create` a `main`.
+- Después: worker modo §17 real; pasos 5–6 ROADMAP si aplica.
 
 ---
 
