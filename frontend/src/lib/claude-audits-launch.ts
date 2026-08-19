@@ -98,15 +98,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
     label: "Buscador de noticias",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (meta-mei orden 5)
-    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-19",
+    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 5)
+    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 43.8,
+      porcentajeLc: 69.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
     history: [
+      { id: "www-inapi-cl-buscador-noticias_2026-08-19" },
       { id: "www-inapi-cl-buscador-noticias_2026-08-18" },
       { id: "www-inapi-cl-buscador-noticias_2026-06-07" },
     ],
