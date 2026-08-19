@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-19 | [Frontend: entrega visible — H1/E4 y 47 criterios en tabla](#devlog-2026-08-19-entrega-h1-47) |
 | 2026-08-19 | [Documentación: workflow 1-URL profundidad (§20.6/§21, Playwright/Chroma)](#devlog-2026-08-19-workflow-1url) |
 | 2026-08-19 | [Infraestructura: META MEI §20 — reauditoría Tanda A (órdenes 1–5)](#devlog-2026-08-19-meta-mei-reaudit-s20-lote-a) |
 | 2026-08-18 | [Frontend/docs: calibración META MEI §20 + UI resultado legible](#devlog-2026-08-18-calibracion-ui-resultado) |
@@ -76,6 +77,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-19-entrega-h1-47"></a>
+## [2026-08-19] - Frontend | Entrega visible: H1/E4 y 47 criterios en tabla
+
+**Rama:** `fix/entrega-visible-h1-47-criterios`
+
+### Contexto y objetivos:
+
+Tras la reauditoría 1-URL de la portada (`www-inapi-cl_2026-08-20`), la UI mostraba «46 criterios evaluados» y el resumen 27/40 (67,5 %), aunque el JSON tenía 47 filas. Causa: el filtro de entrega interpretó como metadata el comentario de E4 («No se evaluó `<title>`/`<meta>`») y ocultó el criterio H1 visible.
+
+### Implementación técnica:
+
+- `src/lib/audit-visible-content.ts`: neutralizar frases de negación title/meta; no marcar como metadata textos con H1/Tnnn/estructura visible; si hay sustitución VISIBLE ligada, el criterio no es metadata; `criteriosVisiblesParaEntrega` conserva **todas** las filas (47 en v2.1) — metadata real sigue pasando a `no_aplica` en el % sin borrar la pregunta.
+- JSON portada: E4 con `capa: "VISIBLE"` y comentario sin literales `<title>`/`<meta>`.
+- CLAUDE.md §20.1 y skill `auditoria-lc`: regla de redacción de comentarios + H1 siempre en entrega.
+- Botón fijo «volver arriba» en `/auditar/resultado`: de inferior-izquierda a **inferior-derecha**.
+
+### Próximos pasos:
+
+- Merge a `main`; recargar resultado de portada (debe decir 47 criterios y E4 visible).
+- Continuar reauditoría órdenes 2–10 con comentarios sin literales title/meta.
 
 ---
 
