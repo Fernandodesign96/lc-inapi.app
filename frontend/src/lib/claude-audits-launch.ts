@@ -240,18 +240,21 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 9)
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 9)
     resumenMvp: {
-      porcentajeLc: 58.5,
+      porcentajeLc: 58.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
-    history: [{ id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" }],
+    history: [
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18" },
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" },
+    ],
   },
 ]
 
