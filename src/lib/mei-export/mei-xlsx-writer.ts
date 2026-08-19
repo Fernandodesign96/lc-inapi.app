@@ -17,6 +17,7 @@ import {
   buildRowsForHito,
   type MeiExcelRow,
 } from "./mei-row-builder"
+import { MEI_CATEGORIA_BERNARDA } from "./mei-criterio-categoria"
 import {
   documentosLabelFromSource,
   sourceNotaMetaMei,
@@ -54,6 +55,7 @@ const WHITE_BOLD: Partial<ExcelJS.Font> = {
 const DETAIL_HEADERS = [
   "Página",
   "Dirección",
+  "Categoría",
   "Texto en pantalla",
   "Corrección propuesta",
   "Ubicación en pantalla",
@@ -62,6 +64,12 @@ const DETAIL_HEADERS = [
   "CheckList",
   "Línea / ref. técnica",
 ] as const
+
+const CATEGORY_SECTION_FILL: ExcelJS.Fill = {
+  type: "pattern",
+  pattern: "solid",
+  fgColor: { argb: "FFE2EFDA" },
+}
 
 function styleHeaderRow(row: ExcelJS.Row, colCount: number) {
   for (let c = 1; c <= colCount; c++) {
@@ -416,24 +424,41 @@ function addDetallePorTipoSheet(
       const empty = sheet.getRow(rowIdx)
       empty.getCell(1).value = audit.nombreUi
       empty.getCell(2).value = audit.url
-      empty.getCell(3).value = "(sin incumplimientos visibles en el alcance de este export)"
+      empty.getCell(3).value = "—"
+      empty.getCell(4).value =
+        "(sin criterios evaluados en el alcance de este export)"
       rowIdx++
     } else {
-      for (const data of auditRows) {
-        const r = sheet.getRow(rowIdx)
-        r.getCell(1).value = data.nombreUi
-        r.getCell(2).value = data.url
-        r.getCell(3).value = data.textoOriginal
-        r.getCell(4).value = data.textoPropuesto
-        r.getCell(5).value = ubicacionEntrega(data)
-        r.getCell(6).value = data.motivo
-        r.getCell(7).value = data.criterioId
-        r.getCell(8).value = data.criterioEnunciado
-        r.getCell(9).value = lineaId(data)
-        for (const c of [3, 4, 5, 6, 8, 9] as const) {
-          r.getCell(c).alignment = { wrapText: true, vertical: "top" }
+      for (const cat of MEI_CATEGORIA_BERNARDA) {
+        const catRows = auditRows.filter((r) => r.categoriaBernarda === cat)
+        if (catRows.length === 0) continue
+
+        const sep = sheet.getRow(rowIdx)
+        sheet.mergeCells(rowIdx, 1, rowIdx, DETAIL_HEADERS.length)
+        sep.getCell(1).value = `${cat} (${catRows.length})`
+        sep.getCell(1).font = { bold: true }
+        for (let c = 1; c <= DETAIL_HEADERS.length; c++) {
+          sep.getCell(c).fill = CATEGORY_SECTION_FILL
         }
         rowIdx++
+
+        for (const data of catRows) {
+          const r = sheet.getRow(rowIdx)
+          r.getCell(1).value = data.nombreUi
+          r.getCell(2).value = data.url
+          r.getCell(3).value = data.categoriaBernarda || "—"
+          r.getCell(4).value = data.textoOriginal
+          r.getCell(5).value = data.textoPropuesto
+          r.getCell(6).value = ubicacionEntrega(data)
+          r.getCell(7).value = data.motivo
+          r.getCell(8).value = data.criterioId
+          r.getCell(9).value = data.criterioEnunciado
+          r.getCell(10).value = lineaId(data)
+          for (const c of [4, 5, 6, 7, 9, 10] as const) {
+            r.getCell(c).alignment = { wrapText: true, vertical: "top" }
+          }
+          rowIdx++
+        }
       }
     }
 

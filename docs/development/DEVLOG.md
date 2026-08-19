@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-19 | [Frontend/MEI: Excel con 47 criterios y 5 categorías Bernarda](#devlog-2026-08-19-excel-47-categorias) |
 | 2026-08-19 | [Frontend: META MEI órdenes 7–10 en proceso en UI](#devlog-2026-08-19-meta-mei-en-proceso) |
 | 2026-08-19 | [Frontend: entrega visible — H1/E4 y 47 criterios en tabla](#devlog-2026-08-19-entrega-h1-47) |
 | 2026-08-19 | [Documentación: workflow 1-URL profundidad (§20.6/§21, Playwright/Chroma)](#devlog-2026-08-19-workflow-1url) |
@@ -78,6 +79,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-19-excel-47-categorias"></a>
+## [2026-08-19] - Frontend/MEI | Excel con 47 criterios y 5 categorías Bernarda
+
+### Contexto y objetivos:
+
+El Excel por URL (y el completo) solo listaba incumplimientos + no_aplica del alcance H02 (B+C+D), sin los «Cumple». Bernarda/Fernando necesitan revisar los **47** criterios como en MVP/PDF, agrupados en las cinco etiquetas de la UI.
+
+### Implementación técnica:
+
+- `mei-criterio-categoria.ts`: mapeo Cumple / Cumple con observaciones / Medianamente cumple / No cumple / No aplica (`estado` + `severidad`).
+- `mei-row-builder.ts`: una fila por criterio A1–H1; enriquecer incumple con `sustituciones[]`; orden por categoría.
+- `mei-xlsx-writer.ts`: columna «Categoría» + filas sección por categoría en web INAPI / sitio TRAMITES.
+
+### Próximos pasos:
+
+- Descargar Excel de una URL `…_2026-08-20` en localhost y contrastar con la tabla de 47 del resultado.
+- Tras órdenes 7–10: Excel completo con 10×47 filas de detalle.
 
 ---
 

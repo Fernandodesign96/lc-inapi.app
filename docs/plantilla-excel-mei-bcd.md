@@ -137,7 +137,9 @@ bun run export:mei-xlsx -- --hito=H02
 # completo H01+H02 vía API UI o buildMeiWorkbookWithStats({ hitoIds: ["H01","H02"] })
 ```
 
-Columnas de detalle (web / trámites): Página \| Dirección \| ID/Línea \| Criterio \| CheckList \| Texto original \| Sustitución propuesta \| Justificación.
+Columnas de detalle (web / trámites): Página \| Dirección \| **Categoría** (Cumple / Cumple con observaciones / Medianamente cumple / No cumple / No aplica) \| Texto en pantalla \| Corrección propuesta \| Ubicación \| Justificación \| Criterio \| CheckList \| Línea/ref.
+
+Las hojas de detalle listan los **47** criterios por URL (como MVP/PDF), agrupados en secciones por categoría Bernarda.
 
 **H01:** evidencia documental — Índice con nota N/A; CheckList + Fuentes completos; hojas URL con mensaje N/A.
 
