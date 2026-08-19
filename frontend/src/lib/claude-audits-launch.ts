@@ -153,15 +153,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://tramites.inapi.cl/siac",
     label: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    // Reauditoría v2.1 (meta-mei orden 10)
-    claudeAuditId: "tramites-inapi-cl-siac_2026-08-18",
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 10)
+    claudeAuditId: "tramites-inapi-cl-siac_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 52.8,
+      porcentajeLc: 51.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
-    history: [{ id: "tramites-inapi-cl-siac_2026-06-07" }],
+    history: [
+      { id: "tramites-inapi-cl-siac_2026-08-18" },
+      { id: "tramites-inapi-cl-siac_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 9,
