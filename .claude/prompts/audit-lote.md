@@ -1,118 +1,64 @@
-# Plantilla: Auditoría de lote de URLs con sub-subagentes
+# Plantilla: Lote de URLs (orquestación multi-sesión)
 
-> Copia y pega este prompt directamente en Claude Code Pro (bash).
-> Completa las secciones marcadas con `TODO` antes de enviar.
-> Referencia arquitectónica: `.claude/CLAUDE.md` §14 (lote), §17 (sub-subagentes) y §19 (sesión autenticada).
-
----
-
-## Prerrequisitos (verificar antes de lanzar)
-
-```bash
-claude mcp list          # confirmar que playwright y rag-auditoria aparecen como activos
-chroma run --path ./rag/chroma_db --port 8000 &   # dejar corriendo en terminal aparte
-```
-
-**URLs post-login:** crear sesión una vez con `playwright codegen --save-storage=auditorias/.auth/tramites-session.json` y capturar con `bun run capture:tramites-html` (ver `docs/fase-3-3-captura-auth-claveunica.md`).
-
-## Prompt a pegar en Claude Code Pro
-
-Vamos a auditar el siguiente lote de URLs con la arquitectura de sub-subagentes (CLAUDE.md §17).
-
-### URLs del lote
-
-TODO: reemplazar con las URLs reales (máximo 5)
-
-1. https://tramites.inapi.cl/...   (tipo_pagina: tramites | serie: clarity | rank: N | captura_con_sesion: true|false)
-2. https://tramites.inapi.cl/...   (tipo_pagina: tramites | serie: clarity | rank: N | captura_con_sesion: true|false)
-3. ...
-
-### Instrucciones de ejecución
-
-Para CADA URL, ejecuta el siguiente flujo de forma secuencial (termina una URL antes de empezar la siguiente):
-
-**Paso 1 — Captura HTML (una sola vez por URL)**
-
-- **URLs públicas:** Playwright MCP → `playwright_navigate` → `playwright_get_content` → guardar en `auditorias/htmls/{slug}_{fecha}.html`
-- **URLs post-login (`captura_con_sesion: true`):** `bun run capture:tramites-html -- --url "..." --slug "..." --date "YYYY-MM-DD"` (requiere `auditorias/.auth/tramites-session.json`)
-- Compartir el HTML como `texto_capturado` anonimizado (inventario T001…) con los 5 sub-subagentes
-- **Solo contenido visible:** no inventariar ni evaluar `<title>`, `<meta>` ni Open Graph. E4 = H1 visible. En sitioweb, cada sustitución debe traer `ubicacion_pantalla` legible para jefatura no TI.
-- Si `captura_con_sesion: true`, aplicar **CLAUDE.md §19** en todos los grupos (especialmente Grupo 5)
-
-**Paso 2 — 5 Sub-subagentes en paralelo**
-
-Lanzar los 5 sub-subagentes simultáneamente, cada uno con:
-- El `texto_capturado` completo (inventario anonimizado si hay sesión)
-- La URL, `tipo_pagina`, `fecha` y `captura_con_sesion`
-- Su sección asignada del checklist:
-
-  | Sub-subagente | Secciones | Skill |
-  |---|---|---|
-  | Grupo 1 | A1–A9, E1–E4 | auditoria-lc.md §A,§E + auditoria-calidad-web.md |
-  | Grupo 2 | B1–B8, C1–C9 | auditoria-lc.md §B,§C + auditoria-calidad-web.md |
-  | Grupo 3 | D1–D7        | auditoria-lc.md §D + auditoria-calidad-web.md |
-  | Grupo 4 | F1–F6        | auditoria-lc.md §F + auditoria-calidad-web.md |
-  | Grupo 5 | G1–G3, H1    | auditoria-lc.md §G,§H + **CLAUDE.md §19** si sesión |
-
-Instrucción a cada sub-subagente:
-> "Evalúa SOLO los criterios de tu sección. Entrega ÚNICAMENTE: (1) el array `criterios_evaluados[]` de tu sección + (2) el array `sustituciones[]` correspondiente. No calcules resumen total ni escribas JSON completo. Si `captura_con_sesion: true`, anonimiza citas y no marques G1 por datos del solicitante en su formulario."
-
-Para precedentes, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B antes de evaluar.
-
-**Paso 3 — Consolidación (agente raíz)**
-- Unir los 5 arrays de criterios → exactamente 47 entradas (v2.1), orden A1…H1
-- Unir todos los `sustituciones[]`; si hay conflicto en la misma `linea`, retener `severidad` más alta
-- Calcular: `criterios_aprobados`, `criterios_aplicables`, `porcentaje_cumplimiento`, `estado_aceptacion`
-- Verificar: 47 criterios exactos (v2.1) + cobertura 1:1 `incumple` ↔ `sustituciones[]`
-- Verificar anonimización si `captura_con_sesion: true`
-
-**Paso 4 — Guardado y validación**
-- Ruta: `data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{slug-url}_{YYYY-MM-DD}.json`
-- Ejecutar: `bun run validate:claude-audits` (debe pasar sin errores)
-
-**Paso 5 — Commit por URL**
-```bash
-git add data/claude-audits/tramites/...   # o sitioweb/
-git commit -m "feat(audits): agregar auditoría {slug-url} — {estado} {porcentaje}%"
-```
-
-### Una vez completado el lote
-
-```bash
-bun run validate:claude-audits   # verificación final de todos los JSONs
-bun run rag/ingest-b.ts          # reindexar precedentes si hay JSON nuevos
-git log --oneline -5             # confirmar commits del lote
-```
-
-**Paso 6 — Cablear el frontend (obligatorio; no es automático)**
-
-`ingest:b` solo actualiza Chroma (RAG). La UI **no** escanea `data/claude-audits/` en runtime.
-
-Para que el informe aparezca en `/auditar`, historial y resultado:
-
-1. **Serie Clarity:** editar `frontend/src/lib/clarity-audits-launch.ts`
-   - Mover el `id` anterior a `history: [{ id: "…_fecha-anterior" }]`
-   - Poner el nuevo id como vigente + `resumenMvp` (% , estado, fecha ISO)
-   - Añadir el nuevo id (y el anterior si falta) en `CLARITY_AUDIT_META_BY_ID`
-2. **Si la URL también está en el piloto (p. ej. home `www` o landing `tramites`):** editar `frontend/src/lib/claude-audits-launch.ts` igual — `claudeAuditId` = última auditoría; ids viejos en `history`
-3. `bun run validate:claude-audits` y `bun run typecheck:all`
-4. Commit del cableado frontend junto con el JSON (o commit atómico `feat(frontend): cablear …`)
-
-Sin este paso, el JSON existe en el repo y en Colección B, pero las tablas siguen mostrando la auditoría anterior.
-
-Reportar al finalizar:
-- URLs auditadas con su `porcentaje_cumplimiento` y `estado_aceptacion`
-- Si usaron `captura_con_sesion: true`
-- Si el launch frontend quedó actualizado
-- Cualquier criterio que requiera calibración con el Equipo UX (G1, D7, E3)
+> **Preferir** `.claude/prompts/audit-una-url.md` (una URL = una sesión) para META MEI y reauditorías §20.
+> Este archivo solo coordina **varias sesiones** o un máximo de **2 URLs** en la misma sesión si son hermanas y la primera ya cerró limpia.
+> Referencias: `.claude/CLAUDE.md` §14, §17, §20, §21.
 
 ---
 
-## Notas de uso
+## Política de tamaño (obligatoria)
 
-- **Límite:** máximo 5 URLs por lote antes de verificar resultados.
-- **No lanzar el Paso 3** hasta que los 5 sub-subagentes hayan entregado su output.
-- **Sin RAG:** si Chroma no está corriendo, los sub-subagentes operan con `CLAUDE.md` + skills solamente (degradado).
-- **Chroma no navega URLs** — solo aporta normativa y precedentes durante el análisis.
-- **Ranks pendientes TI (no auditar):** 8, 11, 13, 15 — ver `docs/fase-3-3-captura-auth-claveunica.md` §3.
-- **HTMLs del lote:** `auditorias/htmls/` (versionar `.html`/`.txt`; revisar que no contengan PII antes de commit).
+| Caso | Tamaño | Cómo |
+| --- | --- | --- |
+| Reauditoría META MEI / §20 | **1 URL** | Pegar `audit-una-url.md` una vez por URL |
+| Dos páginas muy similares (ej. 2 noticias) | **Máx. 2** | Misma sesión solo si la 1ª terminó validate+commit |
+| Smoke / Clarity ligero | Hasta 5 (legacy) | Verificar tras cada URL; no apilar consolidaciones |
+
+**Prohibido** en reauditoría profunda: lanzar 3–5 URLs en un solo prompt maestro “de una vez”.
+
+---
+
+## Prerrequisitos
+
+```bash
+claude mcp list
+chroma run --path ./rag/chroma_db --port 8000 &
+```
+
+---
+
+## Prompt coordinador (lista de trabajo)
+
+Vas a auditar el siguiente conjunto. Para **cada** URL, ejecuta el flujo completo de `audit-una-url.md` (captura → inventario R+U → RAG → 5 subagentes → consolidación §20 → validate → cable → commit) **antes** de pasar a la siguiente.
+
+### URLs
+
+TODO:
+
+1. https://… (tipo | fecha | slug | sesión)
+2. https://… (solo si política permite 2)
+
+### Reglas
+
+- No compartir contexto de evaluación entre URLs (sí pueden compartir patrones Layout ya documentados en `nota_final_tic`).
+- Tras cada URL: `bun run validate:claude-audits`.
+- Al cerrar el conjunto: reportar tabla URL / % / estado / id; opcional `bun run rag/ingest-b.ts`.
+
+### Cableado frontend (Paso F / legacy «Paso 6»)
+
+Tras cada JSON válido:
+
+1. Actualizar `frontend/src/lib/claude-audits-launch.ts` y/o `clarity-audits-launch.ts`.
+2. Si META MEI: `src/lib/mei-export/mei-meta-mei-urls.ts` (id vigente + `history[]`).
+3. `bun run typecheck:all` si hubo cambios TS.
+4. Commit atómico por URL.
+
+Detalle: `audit-una-url.md` Paso F.
+
+---
+
+## Notas
+
+- Límite histórico de 5 URLs queda **deprecado** para entregas Bernarda; usar solo smoke.
+- Sin RAG: degradado con CLAUDE.md + skills (anotar en DEVLOG).
+- Ranks pendientes TI: 8, 11, 13, 15 — no auditar.

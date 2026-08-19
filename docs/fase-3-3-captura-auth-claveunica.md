@@ -101,7 +101,7 @@ Si el MCP de Playwright no acepta `storageState`, usar **siempre** este script p
 
 1. Cargar skills `auditoria-lc.md` y `pesquisa-criterios.md`.
 2. Indicar explícitamente: `captura_con_sesion: true` (ver `CLAUDE.md` §19).
-3. Ejecutar arquitectura de sub-subagentes (§17) o plantilla `.claude/prompts/audit-lote.md`.
+3. Ejecutar arquitectura de sub-subagentes (§17) con plantilla `.claude/prompts/audit-una-url.md` (preferida) o coordinar con `audit-lote.md`.
 4. Guardar JSON en `data/claude-audits/tramites/{YYYY-MM-DD}/{id}.json`.
 5. `bun run validate:claude-audits`.
 
@@ -117,7 +117,7 @@ bun run rag/ingest-b.ts    # reindexar precedentes si hay JSON nuevos
 2. Si la URL está también en el piloto 9 URLs: `frontend/src/lib/claude-audits-launch.ts` (mismo criterio: vigente = última; anteriores en `history`).
 3. `bun run validate:claude-audits`.
 
-Detalle: `.claude/prompts/audit-lote.md` § «Paso 6 — Cablear el frontend».
+Detalle: `.claude/prompts/audit-una-url.md` Paso F / `audit-lote.md` § Cableado frontend.
 
 ---
 
@@ -167,7 +167,8 @@ Hasta entonces: mantener ranks en **Pendiente TI** sin JSON forzado en el MVP.
 | Documento | Contenido |
 | --- | --- |
 | [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §11, §19 | Workflow captura auth y calibración sesión |
-| [`.claude/prompts/audit-lote.md`](../.claude/prompts/audit-lote.md) | Plantilla de lote actualizada |
+| [`.claude/prompts/audit-una-url.md`](../.claude/prompts/audit-una-url.md) | Plantilla canónica 1 URL |
+| [`.claude/prompts/audit-lote.md`](../.claude/prompts/audit-lote.md) | Coordinación multi-sesión (máx. 2) |
 | [`docs/ROADMAP.md`](ROADMAP.md) | Fases 2–3 completadas; Fase 3.3 — lote ranks 5–7 hecho; pendiente TI 8/11/13/15 |
 | [`docs/SECURITY.md`](SECURITY.md) §3 | `storageState`, anonimización, RAG |
 | [`src/scripts/capture-tramites-html.ts`](../src/scripts/capture-tramites-html.ts) | Script de captura con sesión |

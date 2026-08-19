@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-19 | [Documentación: workflow 1-URL profundidad (§20.6/§21, Playwright/Chroma)](#devlog-2026-08-19-workflow-1url) |
 | 2026-08-19 | [Infraestructura: META MEI §20 — reauditoría Tanda A (órdenes 1–5)](#devlog-2026-08-19-meta-mei-reaudit-s20-lote-a) |
 | 2026-08-18 | [Frontend/docs: calibración META MEI §20 + UI resultado legible](#devlog-2026-08-18-calibracion-ui-resultado) |
 | 2026-08-18 | [Infraestructura: META MEI v2.1 — cierre lote 7–10 (Sala de Prensa, 2 noticias, SIAC)](#devlog-2026-08-18-meta-mei-lote-7-10) |
@@ -78,6 +79,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-08-19-workflow-1url"></a>
+## [2026-08-19] - Documentación | Workflow 1-URL profundidad (Claude Code + Playwright + Chroma)
+
+**Rama:** `feat/audit-workflow-1url-profundidad` (desde `main`)
+
+### Contexto y objetivos:
+
+Tras la Tanda A §20 se observó que lotes de varias URLs en un solo prompt maestro diluyen la profundidad (mismo texto propuesto en varios criterios; D3/D4/A9/E3/F4 poco explotados). Se acordó fijar **una URL por sesión** como default de producción y alinear prompts, CLAUDE.md y skills al máximo rendimiento de Claude Code (orquestador), Playwright MCP (captura/a11y/estilos) y Chroma RAG (fundamento + precedentes).
+
+### Implementación técnica:
+
+- Nueva plantilla canónica `.claude/prompts/audit-una-url.md` (captura una vez → inventario R+U → RAG → 5 subagentes → consolidación §20 → validate → cable → commit).
+- `.claude/prompts/audit-lote.md` reescrito: coordina multi-sesión; default 1 URL; máx. 2 hermanas; 5 solo smoke; sección de cableado (reemplaza el antiguo «Paso 6»).
+- `.claude/CLAUDE.md`: §8 playbook de herramientas; §12 apunta a `audit-una-url`; §14 política de tamaño; §17 flujo enriquecido; §20.6 gate de evidencia / hallazgos distintos; §21 playbook A9/D3/D4/E3/E4/F4/H1.
+- `.claude/skills/auditoria-lc.md`: inventario dos capas R/U; gate evidencia; D3/D4 evaluables con `getComputedStyle` (ya no `no_aplica` por defecto «es CSS»).
+- ROADMAP paso 6: workflow 1-URL marcado hecho; reauditoría órdenes 1–10 (fecha sugerida `2026-08-20`) sustituye Tanda B aislada; Excel Bernarda tras esa pasada.
+- Referencias actualizadas en `docs/ux/inventario-urls-clarity.md` y `docs/fase-3-3-captura-auth-claveunica.md`.
+
+### Próximos pasos:
+
+- Merge de esta rama a `main` (lint / typecheck / build).
+- Reauditar META MEI órdenes **1→10** una URL por sesión con `audit-una-url.md` y fecha `2026-08-20` (confirmar al lanzar).
+- Generar Excel Bernarda completo cuando las 10 estén cerradas.
+
+---
+
 <a id="devlog-2026-08-19-meta-mei-reaudit-s20-lote-a"></a>
 ## [2026-08-19] - Infraestructura | META MEI §20: reauditoría Tanda A (órdenes 1–5)
 
@@ -107,8 +134,8 @@ La regla operativa que emergió al consolidar: un criterio secundario solo recib
 
 ### Próximos pasos:
 
-- Merge de `feat/meta-mei-reaudit-s20-lote-a` a `main` (lint / typecheck / build en verde).
-- Tanda B (órdenes 6–10) con el mismo flujo y calibración.
+- Merge de `feat/meta-mei-reaudit-s20-lote-a` a `main` (si aún pendiente).
+- Tras merge del workflow 1-URL: reauditar órdenes **1–10** (no solo Tanda B) con `.claude/prompts/audit-una-url.md`.
 - Tras cerrar las 10 URLs: generar el Excel Bernarda completo.
 
 ---
