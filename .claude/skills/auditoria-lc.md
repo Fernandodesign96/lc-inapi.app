@@ -2,7 +2,8 @@
 
 Fuente de verdad de criterios: `./data/checklist-criteria.json`
 Fuente de verdad de schemas: `./src/schemas/claude-audit-pilot.ts` y `./src/schemas/url-audit.ts`
-Referencia operativa: `.claude/CLAUDE.md` (especialmente §2, §5, §12, §16, §17)
+Referencia operativa: `.claude/CLAUDE.md` (especialmente §2, §5, §8, §12, §16, §17, §20, §21)
+Plantilla canónica: `.claude/prompts/audit-una-url.md`
 
 ---
 
@@ -12,34 +13,39 @@ También se carga automáticamente en los sub-subagentes de cada grupo temático
 
 ---
 
-## Fase 0 — Inventario de incidencias
+## Fase 0 — Inventario de incidencias (dos capas)
 
-Antes de evaluar criterios, generar inventario completo de nodos relevantes del HTML:
+Antes de evaluar criterios, generar inventario completo de nodos **visibles**:
 
 ```
-T001 [HTML-L{n}]: «texto literal» (contexto: navbar / H1 / párrafo / botón / footer)
-T002 [HTML-L{n}]: «texto literal» (contexto: ...)
+T001 [R|U] [HTML-L{n}]: «texto literal» (contexto: navbar / H1 / párrafo / botón / footer / fecha / PDF)
+T002 [R|U] [HTML-L{n}]: «texto literal» (contexto: ...)
 ...
 ```
 
+| Capa | Qué inventariar | Sirve sobre todo a |
+| --- | --- | --- |
+| **R** Redacción | H1–H3, párrafos, CTAs, menús, footer, modales, glosas | B, C, parte A/E/F |
+| **U** Chrome UI / formato | Fechas visibles, listas/viñetas, alineación, espacios, enlaces PDF (título/formato/peso/desc), `alt`, encabezados de escaneo | A9, D3–D5, D4, E3, F4, H1 |
+
 **Reglas del inventario:**
 - **Alcance = solo contenido visible en pantalla** para el ciudadano. **No** inventariar ni evaluar `<title>`, `<meta description>`, `<meta keywords>`, Open Graph ni otros nodos de capa METADATA del `<head>`.
-- Numerar ocurrencias de texto **visible** en orden de aparición (H1–H3, menús, párrafos, botones, footer, fechas visibles, etc.).
-- Incluir siempre: `<h1>`–`<h3>`, primer párrafo del cuerpo principal, botones de acción, items del menú, footer con copyright, fecha **si es visible**.
-- **No** usar el `<title>` de la pestaña del navegador como evidencia de E4: E4 se evalúa sobre el **H1 visible** (y encabezados visibles relacionados).
+- Numerar ocurrencias de texto **visible** en orden de aparición.
+- Incluir siempre: `<h1>`–`<h3>`, primer párrafo del cuerpo, botones, menú, footer, fecha **si es visible**, enlaces a documentos.
+- **No** usar el `<title>` de la pestaña como evidencia de E4: E4 = **H1 visible**.
 - Para series Clarity: incluir el bloque del encabezado del servicio **visible**.
-- Si no existe un elemento esperado visible (fecha, H1, alt en imagen): registrarlo como `(ausencia de H1)`, `(ausencia de fecha)`, etc.
-- Los `html_linea_aprox` del inventario son los que se usan en `sustituciones[]`; deben corresponder al HTML real capturado **del nodo visible**.
-- En cada sustitución de **sitioweb**, completar `ubicacion_pantalla` en lenguaje no técnico: p. ej. «En el título principal (H1)», «En el subtítulo de la sección Noticias», «En el menú superior › Marcas». La ref. técnica (`linea` / `html_linea_aprox`) es secundaria para TI.
-- Marcar `capa: "VISIBLE"` en evaluaciones/sustituciones cuando sea claro. Nunca emitir hallazgos con evidencia solo de METADATA.
-- **Calibración META MEI (CLAUDE.md §20):** patrones Layout → `patron_sistema: true` (siguen descontando); no visibles → sin `incumple`; mismo texto propuesto → un primario + `criterios_relacionados` / `agrupado_en`; cada `no_aplica` con `comentario` breve.
+- Si falta un elemento esperado: `(ausencia de H1)`, `(ausencia de fecha)`, `(PDF sin peso)`, etc.
+- Los `html_linea_aprox` alimentan `sustituciones[]` y deben corresponder al HTML capturado del nodo visible.
+- En cada sustitución de **sitioweb**, completar `ubicacion_pantalla` en lenguaje no técnico. La ref. técnica (`linea` / `html_linea_aprox`) es secundaria para TI.
+- Marcar `capa: "VISIBLE"` cuando sea claro. Nunca hallazgos solo METADATA.
+- **Calibración META MEI (CLAUDE.md §20–§21):** patrones Layout → `patron_sistema: true`; gate de evidencia antes de `cumple`; cruces §20.3 solo si mismo nodo; cada `no_aplica` con `comentario`.
 
 ### Pantallas con sesión autenticada (`captura_con_sesion: true`)
 
 Ver `CLAUDE.md` §19. Reglas adicionales para el inventario:
 
 - **Valores de campos del usuario logueado** (RUT, nombre, correo, marca, expediente): registrar como  
-  `T042 [HTML-L512]: «[valor de sesión — no transcribir]» (contexto: campo «RUT del solicitante» prellenado)`.
+  `T042 [R] [HTML-L512]: «[valor de sesión — no transcribir]» (contexto: campo «RUT del solicitante» prellenado)`.
 - **Sí inventariar** etiquetas, placeholders de ayuda, textos de instrucción, títulos de sección y botones — con el texto literal institucional.
 - **No** incluir en `original`/`propuesto` de sustituciones valores reales del solicitante.
 
@@ -57,15 +63,16 @@ Ver `CLAUDE.md` §19. Reglas adicionales para el inventario:
 | Grupo 4 | F | F1–F6 | Sub-subagente 4 |
 | Grupo 5 | G + H | G1–G3, H1 | Sub-subagente 5 |
 
-Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
+Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1. Preferir siempre §17 + `audit-una-url.md`.
 
 ### Procedimiento por criterio
 
 1. Identificar la definición exacta en `data/checklist-criteria.json` por `id`.
 2. Consultar RAG colección A: fundamento normativo del criterio (`source` del JSON).
-3. Consultar RAG colección B: precedentes de la URL o de URLs con el mismo patrón.
-4. Aplicar la definición al HTML capturado.
-5. Registrar UNA evidencia representativa por criterio (la más grave si hay varias ocurrencias).
+3. Consultar RAG colección B: precedentes de la URL o del mismo patrón.
+4. Aplicar la definición al inventario R+U (y estilos/a11y si §21 lo pide).
+5. **Gate de evidencia (§20.6):** no emitir `cumple` sin evidencia positiva; `incumple` exige cita/Tnnn + sustitución; `no_aplica` exige `comentario`.
+6. Registrar UNA evidencia representativa por criterio (la más grave si hay varias). Preferir hallazgos **distintos** entre criterios; si es el mismo nodo → §20.3.
 
 ---
 
@@ -83,7 +90,7 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 | A6 ★ | Sin páginas «en construcción» ni contenido manifiestamente incompleto | Placeholders, «próximamente», secciones vacías | Alta si hay placeholders visibles; distinto de A5 (exceso vs ausencia) |
 | A7 ★ | Destaca datos clave: qué, cómo, dónde, cuándo, para quién | Resumen/recuadro o identificación fácil en el texto | Media si el usuario debe inferir plazos/canales sin ayuda visual |
 | A8 ★ | Trámites: información suficiente para autonomía | Requisitos, pasos, plazos y canales en la página | Solo `tramites` (`applicability`); `no_aplica` en sitioweb informativo; distinto de A5 |
-| A9 ★ | Escaneabilidad (formato F) | Negritas, listas y encabezados permiten escanear | Media si solo hay muro de texto sin anclas visuales |
+| A9 ★ | Escaneabilidad (formato F) | Negritas, listas y encabezados permiten escanear | Media si muro de texto sin anclas; usar capa U + a11y (§21) |
 
 **`no_aplica` en sección A:**
 - A4: `no_aplica` cuando la página es formulario o pantalla de estado sin bloques editoriales.
@@ -137,15 +144,14 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 |---|---|---|---|
 | D1 | Sin errores ortográficos | Revisar íntegro el inventario | **Alta transversal:** «Titulos» sin tilde en menú de Patentes (L471, L900). No confundir D1 (typos/tildes) con E4 (solo `<title>` con guiones) |
 | D2 | Puntuación facilita la lectura | Puntos seguidos > comas encadenadas | Baja |
-| D3 | Espacio entre párrafos | Verificar visualmente | `no_aplica`: criterio CSS/visual, fuera del alcance editorial |
-| D4 | Texto alineado a la izquierda | No centrado ni justificado | `no_aplica`: criterio CSS/visual, fuera del alcance editorial |
+| D3 | Espacio entre párrafos | Márgenes/padding visibles entre bloques de cuerpo | Evaluar con inventario U + `getComputedStyle` si dudoso (§21). `no_aplica` solo si no hay cuerpo editorial (formulario/estado puro) |
+| D4 | Texto alineado a la izquierda | Cuerpo no centrado ni justificado | Evaluar `text-align` del contenedor de texto (§21). `no_aplica` solo sin cuerpo editorial; **no** omitir por «es CSS» |
 | D5 | Listas o tablas para enumeraciones | Sin enumeraciones con comas en texto corrido | Baja |
 | D6 | Negritas para palabras clave | Máximo una negrita por párrafo | `no_aplica` si no hay texto corrido extenso |
 | D7 | Sin frases en MAYÚSCULAS SOSTENIDAS | «Ingrese aquí» ✓ / «INGRESE AQUÍ» ✗ | **Media transversal:** MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS en navbar (transversal a `_Layout.cshtml`) |
 
 **`no_aplica` en sección D:**
-- D3: casi siempre `no_aplica` (criterio visual/CSS).
-- D4: casi siempre `no_aplica` (criterio visual/CSS).
+- D3/D4: `no_aplica` **solo** sin bloques editoriales; en páginas con párrafos, evaluar con evidencia (capa U / estilos).
 - D6: `no_aplica` si no hay texto corrido extenso con palabras clave.
 
 **Distinción D1 vs E4:** D1 = errores tipográficos y faltas de ortografía en texto **visible**; E4 = el **H1 visible** no es representativo del contenido (no evaluar el `<title>` del head).
@@ -158,7 +164,7 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 |---|---|---|---|
 | E1 | Sin opiniones ni adjetivos calificativos | Sin «excelente servicio», «moderna plataforma» | Generalmente cumple |
 | E2 | Fuente o autoría identificable | Nombre de la institución en encabezado o pie | Cumple: INAPI siempre visible |
-| E3 | Fecha de publicación o última modificación visible | Verificar en la página | **Alta transversal:** ausencia total de fecha en casi todas las páginas del inventario; ©año en footer NO equivale a fecha de actualización |
+| E3 | Fecha de publicación o última modificación visible | Verificar en la página (capa U) | **Alta transversal:** ausencia total de fecha en casi todas las páginas del inventario; ©año en footer NO equivale a fecha de actualización |
 | E4 ↑ | El **H1 visible** representa fielmente el contenido específico | No genérico de área ni promesa distinta; **no** evaluar `<title>`/`<meta>` | Media: H1 genérico o desalineado del contenido |
 
 **`no_aplica` en sección E:** ningún criterio E es `no_aplica` salvo páginas sin texto institucional alguno.
@@ -172,7 +178,7 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1.
 | F1 | Nombre del enlace = nombre de la página de destino | «Solicitar marca» → lleva a página «Solicitar marca» | Baja: verificar CTAs principales |
 | F2 | Sin «Haz clic aquí», «Más», «Ver más» o «Acceder» repetido vacío | Usar enlaces descriptivos | Baja |
 | F3 | Enlaces, botones y mensajes de sistema significativos | «Consultar fecha de pago» ≠ «Consultar» | **Media transversal:** botones «Aceptar» y «OK» en modales de `_Layout.cshtml` |
-| F4 ↑ | Documentos: título, formato, peso y breve descripción | Los cuatro elementos presentes | **Alta transversal:** PDFs sin formato/peso/descripción |
+| F4 ↑ | Documentos: título, formato, peso y breve descripción | Los **cuatro** elementos presentes | **Alta transversal:** PDFs sin formato/peso/descripción; no inventar MB (§21) |
 | F5 | Enlaces fuera del texto corrido que se debe leer | Al final del párrafo o como CTA | Baja |
 | F6 ★ | Enlaces relacionados al mismo sitio (no solo menú global) | ≥1 enlace interno relevante de contexto | Distinto de F5 (posición vs destino); Baja/Media según página |
 

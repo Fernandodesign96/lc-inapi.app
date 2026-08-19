@@ -167,10 +167,19 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 
 | Servidor | Comando de registro | Qué hace |
 | --- | --- | --- |
-| `playwright` | `claude mcp add playwright npx @playwright/mcp@latest` | Navega URLs, extrae HTML completo del DOM renderizado |
+| `playwright` | `claude mcp add playwright npx @playwright/mcp@latest` | Navega URLs, extrae HTML/DOM, a11y snapshot, evaluate (`getComputedStyle`), listar enlaces/PDF |
 | `rag-auditoria` | `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts` | Consulta semántica sobre Colección A (PDFs normativos) y Colección B (JSONs + ADRs del repo) |
 
-**Estado actual:** Playwright MCP y RAG MCP se configuran en Fase 1 y Fase 2 respectivamente. En sesiones anteriores a esas fases, el contexto viene de `CLAUDE.md` + Skills + archivos del repo.
+**Playbook de uso (máximo rendimiento por URL):**
+
+| Herramienta | Rol | Qué hacer / qué no |
+| --- | --- | --- |
+| **Claude Code (agente raíz)** | Orquestador único | Lanza 5 sub-subagentes §17, consolida §20, escribe JSON, valida, cablea. **No** evaluar los 47 criterios solo en el raíz. |
+| **Playwright MCP** | Captura una vez | `navigate` → HTML a disco → snapshot a11y → `evaluate` estilos si D3/D4 dudosos → abrir modales de 1 clic. **No** re-navegar por cada grupo. |
+| **Chroma / RAG MCP** | Fundamento + precedentes | Colección A por `source` del criterio; Colección B por URL/patrón. Consultas puntuales; **no** volcar PDFs enteros al chat. |
+| **Skills** | Especialización | Cada subagente carga `auditoria-lc` de su sección (+ `auditoria-calidad-web` / `pesquisa-criterios` si hace falta). |
+
+**Estado actual:** Playwright MCP y RAG MCP activos en el flujo de producción local. Sin MCP: degradado con `CLAUDE.md` + skills (anotar en DEVLOG).
 
 ---
 
@@ -243,20 +252,21 @@ Si el MCP no acepta `storageState`, el script local es la vía obligatoria para 
 
 ## 12. Workflow — Auditoría completa de una URL
 
-*Flujo de referencia. Ver prompts detallados en `docs/flujo-piloto-10-urls-claude-mvp.md` §3.1–§3.2.*
+*Flujo canónico de producción: **`.claude/prompts/audit-una-url.md`** (1 URL = 1 sesión Claude Code).*  
+*Referencia legacy piloto: `docs/flujo-piloto-10-urls-claude-mvp.md` §3.1–§3.2. Multi-sesión: `audit-lote.md`.*
 
 ### Paso 1 — Preparación
-- Identificar URL objetivo y `tipo_pagina` (`sitioweb` | `tramites`).
-- Obtener HTML (Playwright §11, script `capture:tramites-html` si post-login, o Ctrl+U si Fase 0).
+- Identificar **una** URL objetivo y `tipo_pagina` (`sitioweb` | `tramites`).
+- Obtener HTML (Playwright §11 + playbook §8, script `capture:tramites-html` si post-login, o Ctrl+U si Fase 0).
 - Si la captura fue con sesión autenticada: marcar `captura_con_sesion: true` y aplicar §19 en todos los sub-subagentes.
 - Para serie Clarity: leer metadatos en `data/ux/clarity-fichas-mock.json` (rank, `nombre_ui`, `visitas_ref`).
-- ¿Existe JSON previo para la misma URL y mismo HTML? → Copiar, actualizar `id`/`fecha`/`clarity_meta`, conservar criterios y sustituciones.
+- ¿Existe JSON previo para la misma URL? → Reauditar con evidencia nueva; id previo a `history[]` tras cablear el vigente.
 
-### Paso 2 — Primera pasada (inventario + evaluación en prosa)
-Prompt §3.1 del flujo. Entregar:
-- Inventario `T001: «texto» (contexto)` de todos los nodos relevantes.
-- Tabla de 47 criterios v2.1 (id, estado, severidad si incumple, comentario, `cita_textual`).
-- Resumen numérico preliminar + lista de sustituciones.
+### Paso 2 — Inventario en dos capas + evaluación (§17)
+Plantilla `audit-una-url.md`. Entregar:
+- Inventario `T001…` en capas **R** (redacción) y **U** (chrome UI / formato) — ver skill `auditoria-lc.md`.
+- 5 sub-subagentes en paralelo (§17) con gate de evidencia §20.6 / §21.
+- Tabla de 47 criterios v2.1 + `sustituciones[]` consolidadas por el agente raíz.
 
 ### Paso 3 — Segunda pasada (JSON canónico)
 Prompt §3.2 del flujo. Reglas de contrato:
@@ -306,7 +316,7 @@ El JSON en disco y `bun run ingest:b` **no** bastan para la UI. Actualizar:
 - `frontend/src/lib/clarity-audits-launch.ts` (serie Clarity / historial `/auditar/historial`)
 - `frontend/src/lib/claude-audits-launch.ts` si la URL está en el piloto 9
 
-Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver `.claude/prompts/audit-lote.md` Paso 6.
+Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver `audit-una-url.md` Paso F / `audit-lote.md` (cableado).
 
 ### Paso 5 — Commit y DEVLOG
 ```bash
@@ -352,33 +362,38 @@ GET /api/claude-audits/{id}/export/pdf
 
 ---
 
-## 14. Workflow — Lote de URLs con subagentes en paralelo
+## 14. Workflow — Conjunto de URLs (multi-sesión)
 
-*Aplica desde Fase 3 (flujo completo automatizado).*
+*Aplica desde Fase 3. Plantilla: `.claude/prompts/audit-lote.md`. Canónico por URL: `audit-una-url.md`.*
 
-### Preparación del lote
-1. Definir la lista de URLs objetivo (extraer de `data/ux/clarity-fichas-mock.json` o del inventario).
-2. Verificar que Playwright MCP y RAG MCP están activos.
-3. Crear un directorio de trabajo temporal `auditorias/lote-{fecha}/` para HTMLs del lote.
+### Política de tamaño (obligatoria)
 
-### Ejecución con subagentes
-- Crear **un subagente por URL**; cada uno ejecuta el workflow §12 de forma independiente.
-- Sincronización: el sistema de archivos es el canal — cada subagente escribe su JSON en `data/claude-audits/` al terminar.
-- **No lanzar el siguiente subagente hasta que el anterior haya guardado su JSON** para evitar condiciones de carrera.
-- Límite recomendado: lotes de **5 URLs máximo** antes de verificar resultados.
+| Caso | Tamaño | Cómo |
+| --- | --- | --- |
+| META MEI / reauditoría §20 | **1 URL por sesión** | Pegar `audit-una-url.md` |
+| Dos páginas hermanas | **Máx. 2** | Solo si la 1ª cerró `validate` + commit |
+| Smoke Clarity ligero | Hasta 5 (legacy) | Verificar tras cada URL; no apilar consolidaciones |
 
-### Verificación del lote
+**Prohibido** en entregas Bernarda / profundidad §20: un solo prompt maestro con 3–5 URLs.
+
+### Preparación del conjunto
+1. Definir la lista ordenada (p. ej. `mei-meta-mei-urls.ts` órdenes 1…N).
+2. Verificar Playwright MCP + RAG MCP (`claude mcp list`; Chroma en `:8000`).
+3. HTMLs en `auditorias/htmls/` o `auditorias/lote-{fecha}/`.
+
+### Ejecución
+- Por cada URL: workflow §12 + §17 + §20 + §21 **completo** (captura → 5 grupos → consolidación → validate → cable → commit atómico).
+- **No** abrir la siguiente URL hasta cerrar la actual.
+- El agente raíz orquesta; los 5 sub-subagentes son **por URL**, no un subagente “por URL” que haga los 47 solo.
+
+### Verificación
 ```bash
-bun run validate:claude-audits   # verifica todos los JSONs del directorio
+bun run validate:claude-audits
 ```
-- Revisar que `porcentaje_cumplimiento` y `estado_aceptacion` son coherentes entre sí.
-- Revisar que no hay criterios duplicados (`incumple` en arreglo + fila en `sustituciones[]`).
+- Coherencia `%` / `estado_aceptacion`; cobertura `incumple` ↔ `sustituciones[]`; agrupados §20.3.
 
-### Commit del lote
-```bash
-git add data/claude-audits/
-git commit -m "feat(audits): agregar lote {N} URLs — serie Clarity ranks {A}–{B}"
-```
+### Commit
+Preferir **un commit por URL** (`feat(audits): …`). Lote solo si el usuario lo pide explícitamente.
 
 ---
 
@@ -462,44 +477,41 @@ Evaluar los 47 criterios en una sola pasada puede sacrificar profundidad en secc
 ### Flujo completo (por URL)
 
 ```
-Agente raíz
+Agente raíz (Claude Code — orquestador)
 │
-├── [1] Playwright MCP → captura HTML → texto_capturado (compartido)
+├── [1] Playwright MCP (una vez): navigate → HTML → a11y → evaluate estilos si hace falta
+│       → inventario capas R + U (texto_capturado compartido)
+├── [1b] RAG MCP: consultas A/B puntuales (fundamento + precedentes de la URL)
 │
-├── [2] Sub-subagente Grupo 1 (A+E) ← texto_capturado + skill auditoria-lc §A,§E
-├── [3] Sub-subagente Grupo 2 (B+C) ← texto_capturado + skill auditoria-lc §B,§C
-├── [4] Sub-subagente Grupo 3 (D)   ← texto_capturado + skill auditoria-lc §D
-├── [5] Sub-subagente Grupo 4 (F)   ← texto_capturado + skill auditoria-lc §F
-└── [6] Sub-subagente Grupo 5 (G+H) ← texto_capturado + skill auditoria-lc §G,§H
-        │
-        ↓ (cada uno entrega: array de criterios de su sección + sustituciones parciales)
-        │
-├── [7] Agente raíz consolida los 5 outputs:
-│       - Une los 5 arrays → exactamente 47 criterios (v2.1), orden A1…H1
-│       - Une todos los sustituciones[] de los 5 grupos
-│       - Calcula resumen numérico (criterios_aprobados, porcentaje, estado_aceptacion)
-│       - Escribe el JSON canónico completo
+├── [2–6] Cinco sub-subagentes EN PARALELO (cada uno SOLO su grupo)
+│       + skill de sección + gate evidencia §20.6 / §21
 │
-└── [8] validate:claude-audits (Hook automático)
+├── [7] Agente raíz consolida:
+│       - 47 criterios orden A1…H1; cruces §20.3; patron_sistema §20.2
+│       - resumen con summarizeEvaluations; resumen_ejecutivo / nota_final_tic §20.5
+│       - JSON canónico + cable launch si aplica
+│
+└── [8] bun run validate:claude-audits → commit atómico de esta URL
 ```
 
 ### Reglas de consolidación (agente raíz — paso 7)
 
-- **El `texto_capturado` se captura UNA SOLA VEZ** y se pasa como contexto a los 5 sub-subagentes. No capturar el HTML 5 veces.
-- **Sin superposición de criterios:** cada criterio es evaluado por exactamente un grupo. Si hay duda (ej. E4 vs D1 en un H1 visible): E4 es de Grupo 1, D1 de Grupo 3. Metadata HTML está fuera de alcance.
-- **Consolidación de `sustituciones[]`:** unir los arrays de los 5 grupos. Si dos grupos proponen cambio para el mismo `linea`, el agente raíz retiene la propuesta del grupo con `severidad` más alta y anota el conflicto en `nota_final_tic`.
-- **Verificación de completitud antes de cerrar:** contar filas en `criterios_evaluados[]` = 47 (v2.1); verificar cobertura 1:1 entre `incumple` y `sustituciones[]`.
-- **No lanzar el paso 7 hasta que los 5 sub-subagentes hayan entregado su output.**
+- **Captura UNA SOLA VEZ** (Playwright); inventario R+U compartido. No re-navegar por grupo.
+- **Sin superposición de criterios:** un criterio → un grupo. E4 = Grupo 1; D1 = Grupo 3. METADATA fuera de alcance.
+- **`sustituciones[]`:** unir; si mismo `linea` y conflicto, retención por severidad + nota en `nota_final_tic`.
+- **Completitud:** 47 filas; cobertura 1:1 `incumple` ↔ sustituciones (salvo agrupados §20.3 documentados).
+- **No consolidar** hasta que los 5 grupos entreguen output.
 
 ### Instrucción de contexto para cada sub-subagente
 
 Al lanzar cada sub-subagente, incluir siempre:
-1. El `texto_capturado` completo (HTML inventariado T001…).
-2. La URL, `tipo_pagina` y `fecha` de la auditoría.
-3. Flag `captura_con_sesion: true|false` — si `true`, aplicar §19 (Grupo 5 es crítico para G1–G3).
-4. Las secciones del checklist que debe evaluar (ej. "Evalúa SOLO los criterios A1–A9 y E1–E4").
-5. La instrucción: "Entrega SOLO el array de criterios de tu sección + el array de sustituciones[] correspondiente. No calcules el resumen total."
-6. La calibración aplicable a su sección (ver §2 y §19 de este CLAUDE.md).
+1. Inventario R+U completo (`T001…`).
+2. URL, `tipo_pagina`, `fecha`.
+3. `captura_con_sesion: true|false` — si `true`, §19 (Grupo 5 crítico en G1–G3).
+4. Secciones a evaluar (ej. «SOLO A1–A9 y E1–E4»).
+5. «Entrega SOLO criterios de tu sección + `sustituciones[]`. No calcules el % total.»
+6. Calibración §2, §19, §20, §21: **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
+7. Énfasis Grupo 1: A9, E3, E4=H1. Grupo 3: D3/D4 con estilo si dudoso. Grupo 4: F4 completo (4 elementos).
 
 ### Skill que carga cada sub-subagente
 
@@ -684,3 +696,35 @@ Los **47** criterios aparecen siempre en pantalla, PDF y Excel.
 ### 20.5 Lenguaje de resumen y nota TI
 
 `resumen_ejecutivo` y `nota_final_tic` deben redactarse en **lenguaje claro** (párrafos cortos, sin jerga de orquestación ni códigos HTML innecesarios). La UI/PDF además formatean párrafos para lectura.
+
+### 20.6 Gate de evidencia y hallazgos distintos
+
+Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
+
+| Estado | Exigencia mínima |
+| --- | --- |
+| `cumple` | Evidencia positiva (Tnnn, atributo, estilo, o ausencia documentada de problema). **Prohibido** «parece bien» / omisión. |
+| `incumple` | Evidencia concreta + fila en `sustituciones[]` con `ubicacion_pantalla` (sitioweb) y `capa: "VISIBLE"`. |
+| `no_aplica` | `comentario` breve obligatorio (§20.4). |
+
+**Hallazgos distintos:** preferir que cada `incumple` aporte un descubrimiento distinto (nodo, atributo o problema). Si varios criterios chocan con el **mismo** nodo/texto → solo entonces §20.3 (primario + `agrupado_en`). No reutilizar el mismo `propuesto` genérico en filas independientes sin agrupación.
+
+**Criterios de formato / chrome (no solo redacción):** A9, D3, D4, E3, F4 — inventariar capa **U** y, si hace falta, Playwright `evaluate` / a11y (ver §21). No marcar D3/D4 como `no_aplica` por defecto «es CSS».
+
+---
+
+## 21. Playbook por criterio crítico (herramientas)
+
+*Complementa §8 y §17. Usar en reauditorías 1-URL (`audit-una-url.md`).*
+
+| Criterio | Evidencia preferida | Herramienta |
+| --- | --- | --- |
+| **A9** | Encabezados, listas, negritas / muro de texto | Inventario U + a11y (roles heading/list) |
+| **D3** | Márgenes/padding entre bloques de cuerpo | `getComputedStyle` en párrafos principales |
+| **D4** | `text-align` left vs center/justify en cuerpo | `getComputedStyle` en contenedor de texto |
+| **E3** | Fecha de publicación o última modificación **visible** | Inventario U; ©año footer ≠ fecha |
+| **E4** | H1 visible vs contenido | Inventario R; nunca `<title>` |
+| **F4** | Título + formato + peso + descripción en cada doc | DOM enlaces; no inventar MB |
+| **H1** | `alt` / archivo / versiones | a11y names + DOM |
+
+Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae precedentes; el skill fija el juicio editorial.
