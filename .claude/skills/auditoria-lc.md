@@ -32,7 +32,7 @@ T002 [R|U] [HTML-L{n}]: «texto literal» (contexto: ...)
 - **Alcance = solo contenido visible en pantalla** para el ciudadano. **No** inventariar ni evaluar `<title>`, `<meta description>`, `<meta keywords>`, Open Graph ni otros nodos de capa METADATA del `<head>`.
 - Numerar ocurrencias de texto **visible** en orden de aparición.
 - Incluir siempre: `<h1>`–`<h3>`, primer párrafo del cuerpo, botones, menú, footer, fecha **si es visible**, enlaces a documentos.
-- **No** usar el `<title>` de la pestaña como evidencia de E4: E4 = **H1 visible**.
+- **No** usar el `<title>` de la pestaña como evidencia de E4: E4 = **H1 visible**. En comentarios, preferir «no se usó el título de pestaña ni metadatos del head» (evitar literales `<title>`/`<meta>` que disparan el filtro de entrega).
 - Para series Clarity: incluir el bloque del encabezado del servicio **visible**.
 - Si falta un elemento esperado: `(ausencia de H1)`, `(ausencia de fecha)`, `(PDF sin peso)`, etc.
 - Los `html_linea_aprox` alimentan `sustituciones[]` y deben corresponder al HTML capturado del nodo visible.

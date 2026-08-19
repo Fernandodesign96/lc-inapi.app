@@ -663,10 +663,12 @@ Chroma **no** accede a la URL ni al HTML de sesión. El RAG MCP solo aporta norm
 
 | Evidencia | ¿Descuenta %? | Entrega |
 | --- | --- | --- |
-| Texto/UI visible o modal abrible con un clic | Sí (`incumple`) | Sustitución + `ubicacion_pantalla` |
-| `<title>`, `<meta>`, OG, keywords | No | Opcional en `nota_final_tic` (capa METADATA) |
+| Texto/UI visible o modal abrible con un clic (incl. **H1**) | Sí (`incumple`) | Sustitución + `ubicacion_pantalla`; **siempre** en tabla UI/PDF/Excel (47 filas) |
+| `<title>`, `<meta>`, OG, keywords | No | `no_aplica` en vista de entrega (con marca); la fila del criterio **sigue visible** |
 | Nodo en DOM oculto / off-screen / no disparado | No | Nota TI sin `incumple` |
 | Snippet de índice no mostrado en esa URL | No | Nota TI / CMS |
+
+En comentarios de criterios visibles, no escribir literales `<title>`/`<meta>` al negar su uso (falso positivo del filtro). Preferir: «no se usó el título de pestaña ni metadatos del head».
 
 ### 20.2 Patrones de Layout (shell)
 

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 /**
- * Botón fijo inferior izquierdo para volver al inicio de la página de resultado
+ * Botón fijo inferior derecho para volver al inicio de la página de resultado
  * cuando hay muchos acordeones abiertos.
  */
 export function ResultadoScrollTopButton() {
@@ -28,7 +28,7 @@ export function ResultadoScrollTopButton() {
       size="icon"
       variant="default"
       className={cn(
-        "fixed bottom-6 left-4 z-40 size-11 rounded-full shadow-md transition-opacity",
+        "fixed bottom-6 right-4 z-40 size-11 rounded-full shadow-md transition-opacity",
         visible ? "opacity-100" : "pointer-events-none opacity-0",
       )}
       aria-label="Volver al inicio de la página"
