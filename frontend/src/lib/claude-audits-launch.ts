@@ -135,15 +135,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     label: "Sala de Prensa",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 7)
-    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 7)
+    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 63.2,
+      porcentajeLc: 64.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
       evaluadorUid: "Fernando Arriagada Castillo",
     },
-    history: [{ id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" }],
+    history: [
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18" },
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 8,
