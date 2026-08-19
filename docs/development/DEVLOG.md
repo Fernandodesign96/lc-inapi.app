@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-19 | [Frontend: META MEI órdenes 7–10 en proceso en UI](#devlog-2026-08-19-meta-mei-en-proceso) |
 | 2026-08-19 | [Frontend: entrega visible — H1/E4 y 47 criterios en tabla](#devlog-2026-08-19-entrega-h1-47) |
 | 2026-08-19 | [Documentación: workflow 1-URL profundidad (§20.6/§21, Playwright/Chroma)](#devlog-2026-08-19-workflow-1url) |
 | 2026-08-19 | [Infraestructura: META MEI §20 — reauditoría Tanda A (órdenes 1–5)](#devlog-2026-08-19-meta-mei-reaudit-s20-lote-a) |
@@ -77,6 +78,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-19-meta-mei-en-proceso"></a>
+## [2026-08-19] - Frontend | META MEI órdenes 7–10 en proceso en UI
+
+### Contexto y objetivos:
+
+Tras cerrar la reauditoría 1-URL de órdenes 1–6 (`…_2026-08-20`), las órdenes 7–10 siguen con JSON `…_2026-08-18` y confundían la tabla META MEI (mismo aspecto «Disponible» / % rechazado). Hay que marcarlas como trabajo en curso hasta mañana.
+
+### Implementación técnica:
+
+- Flag `reauditoriaEnProceso` en `mei-meta-mei-urls.ts` (órdenes 7–10).
+- `mei-meta-mei-launch.ts`: filas en proceso sin `resumenMvp` ni enlace a resultado; MVP «En proceso».
+- Excel completo Bernarda no se habilita mientras haya filas en proceso.
+- Copy de la tarjeta META MEI actualizado.
+
+### Próximos pasos:
+
+- Reauditar órdenes 7→10 con `audit-una-url.md` y quitar `reauditoriaEnProceso` al cablear cada una.
 
 ---
 

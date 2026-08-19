@@ -13,6 +13,11 @@ export type MeiMetaMeiUrl = {
   auditId: string | null
   /** Rol en la muestra META MEI. */
   rolMetaMei: string
+  /**
+   * Si true, la tabla META MEI en `/auditar` muestra «En proceso» (sin %/estado
+   * ni enlace al JSON previo) mientras corre la reauditoría 1-URL.
+   */
+  reauditoriaEnProceso?: boolean
 }
 
 export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
@@ -71,6 +76,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     tipoPagina: "sitioweb",
     auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
     rolMetaMei: "Listado últimas noticias",
+    reauditoriaEnProceso: true,
   },
   {
     orden: 8,
@@ -79,6 +85,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     tipoPagina: "sitioweb",
     auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
     rolMetaMei: "Últimas noticias (detalle 1/2)",
+    reauditoriaEnProceso: true,
   },
   {
     orden: 9,
@@ -87,6 +94,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     tipoPagina: "sitioweb",
     auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
     rolMetaMei: "Últimas noticias (detalle 2/2)",
+    reauditoriaEnProceso: true,
   },
   {
     orden: 10,
@@ -95,6 +103,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     tipoPagina: "tramites",
     auditId: "tramites-inapi-cl-siac_2026-08-18",
     rolMetaMei: "Formulario (trámites)",
+    reauditoriaEnProceso: true,
   },
 ]
 
