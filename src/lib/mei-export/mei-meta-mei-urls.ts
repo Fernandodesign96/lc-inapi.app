@@ -82,9 +82,8 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     nombreUi: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
+    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20",
     rolMetaMei: "Últimas noticias (detalle 1/2)",
-    reauditoriaEnProceso: true,
   },
   {
     orden: 9,
