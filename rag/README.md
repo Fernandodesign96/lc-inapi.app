@@ -10,7 +10,7 @@ Referencia arquitectónica: [`docs/adr/0010-rag-local-chroma-xenova-transformers
 | Colección | Fuente | Propósito |
 |---|---|---|
 | `coleccion_a` | `../documentos/*.pdf` (local, no en repo) | Fundamentos normativos: **Meta MEI** (principal), RLC, instrumentos IEW/IESD, UI Kit |
-| `coleccion_b` | Archivos del repo (`data/`, `docs/`) | Checklist PTD-LC v3.0 (51), Word/mapa PTD, precedentes de auditorías, ADRs |
+| `coleccion_b` | Archivos del repo (`data/`, `docs/`) | Checklist PTD-LC v3.0 (**51** LC) + hitos Word/JSON (también inventarios Usabilidad **18** y Seguridad **10** catalogados) + mapa IEW/IESD + precedentes de auditorías + ADRs |
 
 > **Calidad web:** no hay un PDF separado `calidad-web-2.0.pdf`. El marco de calidad web institucional se fundamenta en **Meta MEI** y se complementa con RLC e instrumentos de evaluación. Las citas `CW` del checklist son referencias conceptuales a ese marco.
 
@@ -85,14 +85,16 @@ claude mcp add rag-auditoria bun /home/fernando/projects/lc-inapi-app/rag/mcp-se
 ### Probar queries manualmente (desde `rag/`)
 
 ```bash
-# Colección B (precedentes) — por defecto
-bun run query "criterio D7 encabezados mayúsculas"
-bun run query "G1 RUT institucional persona jurídica cumple" coleccion_b 5
+# Colección B (precedentes) — por defecto; usar ids LC-* en queries nuevas
+bun run query "LC-1.2.4-05 mayúsculas menú layout"
+bun run query "LC-1.1.7-01 RUT institucional persona jurídica cumple" coleccion_b 5
 
 # Colección A (normativa)
 bun run query "CW 5.2.4 tipografía mayúsculas" coleccion_a 3
 bun run query "Meta MEI criterio redacción lenguaje claro tramitación" coleccion_a
 ```
+
+> Tras actualizar catálogo 51, mapa, Word extraído, ADRs o auditorías canónicas: re-ejecutar `bun run ingest:b` con Chroma en `:8000` para que Colección B no sirva fragmentos obsoletos.
 
 ### Herramientas MCP disponibles para Claude Code Pro
 

@@ -1,17 +1,47 @@
 ﻿# Skill: Auditoría Lenguaje Claro PTD-LC v3.0
 
-Fuente de verdad de criterios: `./data/checklist-criteria-lc-ptd.json` (**51** criterios / indicadores IEW·IESD)
-Fuente de verdad de schemas: `./src/schemas/claude-audit-pilot.ts` y `./src/schemas/url-audit.ts`
-Referencia operativa: `.claude/CLAUDE.md` (especialmente §2, §5, §8, §12, §16, §17, §20, §21, **§22**, **§23**)
-Plantilla canónica: `.claude/prompts/audit-una-url.md`
-**PTD LC (META MEI 2026):** Word `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` + `data/checklist-editorial-ptd-v2.json` + catálogo **51** filas. **No** consolidar a A–H. Usabilidad **18** y Seguridad **10** fuera del % (§23).
-**Histórico:** `data/checklist-criteria.json` (47 A–H) solo para JSON ya emitidos.
+## Qué es este documento
+
+Skill operativa de **evaluación editorial**: inventario visible (capas R+U), los **51** criterios `LC-*`, estados/severidad, sustituciones CMS-first y checklist antes de emitir el JSON canónico.
+
+## Para qué se utiliza
+
+- Que el **agente raíz** y **cada sub-subagente (§17)** sepan cómo puntuar sin inventar nomenclatura A–H.
+- Que las propuestas lleguen en lenguaje entendible para CMS/Sitefinity (§22).
+
+## Objetivo
+
+Garantizar auditorías v3.0 coherentes: 51 filas, cobertura 1:1 `incumple`→`sustituciones[]`, evidencia VISIBLE, realismo y validación previa al commit.
+
+## Importancia en la orquestación Claude Code
+
+Es la skill **obligatoria** en toda auditoría. Sin ella, prompts y sub-subagentes no comparten el mismo procedimiento de evaluación. Se carga automáticamente al pegar `audit-una-url.md` / oro / lote y en cada grupo 1–5.
+
+## Cableado (conversa con)
+
+| Pieza | Relación |
+| --- | --- |
+| `../CLAUDE.md` | Constitución: §2 checklist, **§5 reglas**, §12 workflow, **§17 sub-subagentes**, §19–§23 |
+| `../prompts/audit-una-url.md` | Prompt canónico que ordena Pasos A–F y exige esta skill |
+| `../prompts/audit-lote.md` / `audit-oro-s22.md` | Delegan evaluación aquí vía `audit-una-url` |
+| `auditoria-calidad-web.md` | Fundamento normativo de comentarios |
+| `pesquisa-criterios.md` | RAG A/B y catálogo cuando hay duda |
+| `../diagrams/workflow_diagram.md` | Vista del grafo completo |
+| Frontend | Tras Paso F: JSON → `/auditar`, Excel MEI, PDF (no evalúa criterios) |
+
+**Reglas** = CLAUDE.md §5 (no hay carpeta `/rules` aparte). **Sub-subagentes** = CLAUDE.md §17 + Paso D del prompt.
+
+Fuente de verdad de criterios: `./data/checklist-criteria-lc-ptd.json` (**51** / indicadores IEW·IESD)  
+Schemas: `./src/schemas/claude-audit-pilot.ts`, `./src/schemas/url-audit.ts`  
+**PTD LC 2026:** Word + `checklist-editorial-ptd-v2.json` + **51** filas. **No** A–H en auditorías nuevas. US **18** / SE **10** fuera del % (§23).  
+**Histórico:** `data/checklist-criteria.json` (47 A–H) solo JSON ya emitidos.
 
 ---
 
 ## Cuándo activar
-Cuando se pida auditar una URL, procesar un HTML o generar un JSON canónico de auditoría.
-También se carga automáticamente en los sub-subagentes de cada grupo temático (ver §17 de CLAUDE.md).
+Cuando se pida auditar una URL, procesar un HTML o generar un JSON canónico.
+**Obligatoria** en los 5 sub-subagentes (CLAUDE.md §17) y en el agente raíz al consolidar.
+Complementar con `auditoria-calidad-web.md` (norma) y `pesquisa-criterios.md` (RAG/precedentes).
 
 ---
 
@@ -73,9 +103,9 @@ Para pasada única (sin sub-subagentes): evaluar en orden del catálogo `checkli
 2. Consultar RAG colección A: fundamento normativo (`source`).
 3. Consultar RAG colección B: precedentes + Word/mapa PTD.
 4. Aplicar la definición al inventario R+U (y estilos/a11y si §21 lo pide).
-5. **Gate de evidencia (§20.6):** no emitir `cumple` sin evidencia positiva; `incumple` exige cita/Tnnn + sustitución; `no_aplica` exige `comentario`.
+5. **Gate de evidencia (§20.6):** no emitir `cumple` sin evidencia positiva; todo `incumple` (incl. severidad baja/media = cumple con observaciones / medianamente cumple) exige cita/Tnnn + sustitución en lenguaje CMS; `no_aplica` exige `comentario`. Nunca `null` en claves de estado.
 6. Registrar UNA evidencia representativa por criterio. Preferir hallazgos **distintos**; si es el mismo nodo → §20.3.
-7. **Entrega humana (§22):** **ninguna casilla vacía.** Todo criterio lleva `comentario`. Si `incumple` → `ubicacion_pantalla`, `original`, `propuesto` accionable y `motivo`.
+7. **Entrega humana (§22):** **ninguna casilla vacía.** Todo criterio lleva `comentario`. Si `incumple` → `ubicacion_pantalla` (CMS primero), `original`, `propuesto` accionable y `motivo`; la línea HTML es secundaria.
 8. **Realismo:** no forzar `incumple` donde el criterio no cabe (datos clave en labels de menú; reescritura de oraciones sobre atajos). Preferir `cumple`/`no_aplica` o propuestas sutiles (siglas → tooltip).
 9. **PTD LC (§23):** cubrir las **51** preguntas; `version_checklist: "3.0"`. No puntuar Usabilidad (18) ni Seguridad (10).
 
@@ -93,13 +123,14 @@ Antes de devolver el grupo al agente raíz:
 
 **Por cada fila de `sustituciones[]`:**
 
-- [ ] ¿Un editor CMS sabría **dónde** mirar solo con `ubicacion_pantalla` (zona › bloque › elemento)?
+- [ ] ¿`ubicacion_pantalla` es entendible para CMS (zona › bloque › elemento) **antes** que la línea HTML?
 - [ ] ¿`propuesto` se puede **pegar** o es instrucción inequívoca (no “mejorar claridad”)?
 - [ ] ¿Documentos: título + formato + peso + descripción, o instrucción de completar formato/peso sin inventar KB?
 - [ ] ¿Fecha: instrucción de fecha visible bajo título (no solo © del pie)?
 - [ ] ¿Siglas en menú: propuesta sutil (tooltip/`title`/destino) sin congestionar el ítem?
-- [ ] ¿`motivo` = pregunta + fallo + (si aplica) patrón de layout / WCAG?
+- [ ] ¿`motivo` = pregunta + fallo + (si aplica) patrón de layout, en lenguaje claro?
 - [ ] ¿`criterio_id` es un id `LC-*` (no A1–H1)?
+- [ ] Si `incumple`: ¿hay `severidad` (`baja`/`media`/`alta`) alineada a la gravedad?
 
 - [ ] ¿Sin jerga §17 / Tnnn como única ubicación / selectores CSS?
 
@@ -128,7 +159,8 @@ Catálogo Hito→Tarea→Pregunta: `data/checklist-editorial-ptd-v2.json` · cri
 | Objetividad | 1.3.2 / 5.3.1 | LC-1.3.2-01…02 | Neutro; 80 % hechos (solo IEW) |
 | Archivo | 1.3.3 / 5.3.2 | LC-1.3.3-01 | Versiones no vigentes rotuladas |
 
-Severidad (`baja`/`media`/`alta`) solo en `incumple`. Estados: `cumple` | `incumple` | `no_aplica` (+ comentario siempre).
+**Estados JSON:** solo `cumple` | `incumple` | `no_aplica` (nunca `null`).  
+**Severidad** solo en `incumple`: `baja` → UI «Cumple con observaciones» · `media` → «Medianamente cumple» · `alta` → «No cumple». Cada `incumple` exige `sustituciones[]` con lenguaje CMS primero (ubicación en pantalla) y ancla HTML como apoyo TI. Ver CLAUDE.md §5 y §20.6.
 
 ---
 
@@ -173,16 +205,16 @@ Verificar ANTES de escribir el JSON final:
 
 Estos patrones aparecen en la mayoría de URLs del inventario INAPI (componentes compartidos `_Layout.cshtml`, menús globales):
 
-| Criterio | Patrón | Origen probable |
+| Criterio | Patrón | Cómo comunicarlo a CMS |
 |---|---|---|
-| LC-1.2.4-05 | MAYÚSCULAS en navbar: MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS | `_Layout.cshtml` — navbar global |
-| LC-1.1.5-01 | «Titulos» sin tilde en menú de Patentes | `_Layout.cshtml` — menú de Patentes |
-| LC-5.2.4-01 / rótulos | Botones «OK» / «Aceptar» / «Más» ambiguos | Modales / CTAs globales |
-| LC-1.2.4-07/08 | PDFs sin título/formato/peso/descripción | Sección documentos |
-| LC-1.1.4-01 | Ausencia de fecha de actualización visible | Sin componente de fecha |
-| LC-1.1.2-01 | H1 visible genérico o desalineado | No usar `<title>` del head |
-| LC-1.1.3-05 | PCT en menú de Patentes sin expansión contextual | Menú de Patentes |
-| LC-1.3.1-01 | Imágenes sin apoyo visual / `alt` débil | Layout |
+| LC-1.2.4-05 | MAYÚSCULAS en navbar | «En el menú, cambiar MI INAPI / TRAMITACIÓN / … a mayúscula inicial para facilitar la lectura.» (origen típico: layout compartido) |
+| LC-1.1.5-01 | «Titulos» sin tilde | «En el menú de Patentes, corregir «Titulos» → «Títulos».» |
+| LC-5.2.4-01 / rótulos | Botones «OK» / «Aceptar» / «Más» | «Cambiar el botón a un texto que diga la acción, p. ej. «Aceptar selección».» |
+| LC-1.2.4-07/08 | PDFs incompletos | «Junto al enlace: título + formato + peso + breve descripción.» |
+| LC-1.1.4-01 | Sin fecha visible | «Bajo el título, añadir «Actualizado: DD de mes de AAAA». El © del pie no basta.» |
+| LC-1.1.2-01 | H1 genérico | «El título grande de la página debe describir el contenido; no usar el de la pestaña.» |
+| LC-1.1.3-05 | PCT sin definición | «Definir PCT la primera vez (tooltip, glosa o página destino).» |
+| LC-1.3.1-01 | Imagen sin descripción | «Añadir una descripción breve de lo que muestra la imagen (texto alternativo).» |
 
 **Nota:** cuando el hallazgo es sistémico (layout), `motivo` / `patron_sistema: true` debe indicar que el cambio en `_Layout.cshtml` afecta a todas las páginas del sitio.
 
@@ -203,7 +235,11 @@ Ejemplos reales del repo:
 
 Después de guardar:
 ```bash
-bun run validate:claude-audits   # debe pasar sin errores
+bun run validate:claude-audits
+# Cablear frontend si aplica (launch + mei-meta-mei-urls) — ver audit-una-url Paso F
 git add data/claude-audits/...
 git commit -m "feat(audits): agregar auditoría {slug-url} — {estado_aceptacion} {porcentaje}%"
+# Opcional: cd rag && bun run ingest:b
 ```
+
+Ver diagrama de orquestación: `../diagrams/workflow_diagram.md`.

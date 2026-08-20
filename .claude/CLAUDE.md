@@ -2,7 +2,39 @@
 
 Eres el asistente técnico del proyecto **lc-inapi-app**: aplicativo de auditoría editorial con IA para INAPI (Instituto Nacional de Propiedad Industrial, Chile).
 
-Carga este archivo al inicio de cada sesión. Para conocimiento especializado, carga las Skills en `.claude/skills/`.
+## Qué es este documento
+
+Constitución operativa de Claude Code en este repo: dominio, checklist **51** `LC-*`, **reglas permanentes**, workflows, arquitectura de **sub-subagentes**, sesión autenticada, calibración, entrega CMS y alcance META MEI.
+
+## Para qué se utiliza
+
+Cargarlo al inicio de cada sesión de auditoría/orquestación. Define *qué está permitido*, *cómo se puntúa* y *cómo se habla con prompts, skills, RAG y frontend*.
+
+## Objetivo
+
+Que toda auditoría nueva sea v3.0 (solo `LC-*`), con estados cerrados, severidad→etiquetas UI, propuestas CMS-first y 1 URL por sesión.
+
+## Importancia en la orquestación Claude Code
+
+Sin este archivo no hay contrato compartido. Los prompts ejecutan; las skills especializan; **este archivo regula**. Las «Reglas» del proyecto son las secciones permanentes aquí (§5 y calibraciones §16–§23), no una carpeta `/rules` separada. Los «Sub-subagentes» se definen en **§17**.
+
+## Mapa de cableado `.claude/` (conversan entre sí)
+
+| Pieza | Rol |
+| --- | --- |
+| **Este `CLAUDE.md`** | Reglas §5 · Sub-subagentes §17 · Workflows §12–§14 · §19–§23 |
+| `prompts/audit-una-url.md` | Prompt maestro canónico (1 URL = Pasos A–F) |
+| `prompts/audit-lote.md` | Cola multi-sesión (META MEI 1…10) |
+| `prompts/audit-oro-s22.md` | Muestra oro UX (Portada + noticia orden 9) |
+| `skills/auditoria-lc.md` | Evaluación 51 criterios + inventario (obligatoria en grupos 1–5) |
+| `skills/auditoria-calidad-web.md` | Fundamento normativo IEW/IESD/RLC/MEI |
+| `skills/pesquisa-criterios.md` | Catálogo + RAG A/B |
+| `diagrams/workflow_diagram.md` | Diagramas del workflow completo y por etapas |
+| **Frontend** | Consumidor del JSON tras cableado launch/MEI (`/auditar`, Excel, PDF) |
+
+Flujo mental: **Prompt → lee CLAUDE.md → carga skills → lanza sub-subagentes §17 → RAG → JSON → frontend**.
+
+Carga este archivo al inicio de cada sesión. Para conocimiento especializado, carga las Skills en `.claude/skills/`. Para la vista gráfica: `.claude/diagrams/workflow_diagram.md`.
 
 ---
 
@@ -140,7 +172,7 @@ Cada auditoría produce un archivo `{slug-url}_{YYYY-MM-DD}.json`. La fuente de 
     "baja": []
   },
   "sustituciones": [
-    { "linea": "T007", "html_linea_aprox": "HTML-L10", "original": "...", "propuesto": "...", "criterio_id": "E4", "motivo": "..." }
+    { "linea": "T007", "html_linea_aprox": "HTML-L10", "ubicacion_pantalla": "Cuerpo › bajo el H1 › primer párrafo", "original": "...", "propuesto": "...", "criterio_id": "LC-1.1.2-01", "motivo": "..." }
   ],
   "nota_final_tic": "Instrucciones para TI al implementar las sustituciones..."
 }
@@ -157,30 +189,39 @@ Los JSONs del piloto en `data/claude-audits/` usan los nombres `criterios_evalua
 ## 5. Reglas permanentes
 
 - **NUNCA inventar criterios** — solo los **51** de `data/checklist-criteria-lc-ptd.json` en auditorías nuevas. Históricos: 47 (v2.1) o 39 (v1.1).
-- **Estado de criterio:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores.
+- **Estado de criterio (JSON):** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
+- **Presentación en UI/Excel (derivada, no es un cuarto estado JSON):** cuando `estado = "incumple"`, la clave `severidad` determina cómo se muestra al equipo:
+  | `estado` | `severidad` | Etiqueta de presentación (MEI / UI) | Significado operativo |
+  | --- | --- | --- | --- |
+  | `cumple` | *(omitir)* | Cumple | Responde la pregunta del instrumento con evidencia positiva |
+  | `incumple` | `baja` | **Cumple con observaciones** | Hay corrección menor; no bloquea publicación, pero **sí** exige fila en `sustituciones[]` |
+  | `incumple` | `media` | **Medianamente cumple** | Hallazgo relevante; corregir en esta iteración; fila en `sustituciones[]` |
+  | `incumple` | `alta` | **No cumple** | Bloqueante o grave; prioridad alta; fila en `sustituciones[]` |
+  | `no_aplica` | *(omitir)* | No aplica | La pregunta no cabe en esta URL; `comentario` obligatorio |
+- **`severidad`:** SOLO si `estado = "incumple"`. Valores: `"baja"` \| `"media"` \| `"alta"`. Omitir la clave en `cumple` y `no_aplica`. Nunca `null`.
 - **Contar cada criterio UNA SOLA VEZ** por URL, independientemente de cuántas ocurrencias haya.
-- **Cobertura 1:1 obligatoria:** cada `incumple` → al menos una entrada en `sustituciones[]`.
-- **Umbrales:** ≤ 80 % → `rechazado` · 81–90,9 % → `aceptado_con_observaciones` · ≥ 91 % → `aprobado`.
-- **G1 — RUT institucional:** persona jurídica pública = `cumple`. RUN/nombre en HTML **público** estático = `incumple alta`. En **sesión autenticada** (§19): datos del solicitante en formulario = esperados; evaluar claridad de etiquetas/ayudas, no la presencia del dato.
-- **E3:** ausencia de fecha de actualización = `incumple`. Nunca sustituir por `©año` del footer.
-- **D1 vs E4:** D1 = errores tipográficos, tildes, capitalización, texto de dev sin eliminar (visible). E4 = **H1 visible** que no describe el contenido. **Prohibido** usar `<title>`/`<meta>` como evidencia.
+- **Cobertura 1:1 obligatoria:** cada `incumple` (incluidos «cumple con observaciones» y «medianamente cumple») → al menos una entrada en `sustituciones[]`. La propuesta debe ser **coherente y realista**: decir *dónde* mirar en pantalla (lenguaje CMS), *qué* pegar o configurar, y *por qué* — aunque la corrección implique HTML o layout. Si no hay texto original que reemplazar, usar tipo Inserción/Eliminación con instrucción clara para CMS o TI (ver §12).
+- **Umbrales de aceptación de la URL:** ≤ 80 % → `rechazado` · 81–90,9 % → `aceptado_con_observaciones` · ≥ 91 % → `aprobado`.
+- **LC-1.1.7-01 / RUN y datos personales:** RUT de persona jurídica pública (ej. INAPI en pie) = `cumple`. RUN o nombre de persona natural en HTML **público** estático = `incumple` + `severidad: "alta"`. En **sesión autenticada** (sección **§19** de este archivo — reglas para pantallas post-login): datos del solicitante en su formulario = esperados; evaluar claridad de etiquetas/ayudas, no la sola presencia del dato.
+- **LC-1.1.4-01 / fecha:** ausencia de fecha de publicación o actualización **visible** = `incumple`. Nunca sustituir por `©año` del footer.
+- **LC-1.1.5-01 vs LC-1.1.2-01:** ortografía/tildes/capitalización/texto de desarrollo visible = Redacción (`LC-1.1.5-*`). Fidelidad del **H1 visible** al contenido = Completitud (`LC-1.1.2-01`). **Prohibido** usar `<title>`/`<meta>` como evidencia.
 
 ---
 
 ## 6. Patrones sistémicos conocidos (transversales a todas las URLs)
 
-Verificar siempre antes de dar por terminada la auditoría:
+Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]` / `motivo` / `ubicacion_pantalla`: **priorizar lenguaje CMS** (dónde se ve en pantalla y qué debe cambiar el editor); la referencia técnica (`_Layout.cshtml`, línea HTML) es apoyo para TI, no el mensaje principal.
 
-| Patrón | Criterio | Descripción |
+| Patrón | Criterio | Cómo comunicarlo a CMS (y apoyo TI) |
 | --- | --- | --- |
-| Mayúsculas en navbar | D7 🟡 | `MI INAPI`, `TRAMITACIÓN`, `PAGOS`, `SERVICIOS` en menú lateral Trámites |
-| «Titulos» sin tilde, «Patentes PCT» | D1 🔴 | Presentes en menú de varias páginas Trámites |
-| Botones `OK` / `Aceptar` en modales | F3 🟡 | Transversal a `_Layout.cshtml`; proponer «Aceptar selección» |
-| PDF sin formato/peso | F4 🔴 | Documentos descargables sin indicar `(PDF, X KB)` |
-| Ausencia de fecha de actualización | E3 🔴 | Sin fecha visible fuera de noticias individuales |
-| H1 genérico o desalineado | E4 🟡 | Evaluar solo H1 visible; no usar `<title>` del head |
-| PCT en menú Patentes sin expansión | B3 🔴 | Sigla sin expandir en primera aparición |
-| Imágenes sin `alt` descriptivo | H1 🟡 | Imágenes que no tienen atributo `alt` o lo tienen vacío |
+| Mayúsculas en navbar | LC-1.2.4-05 | «En el menú lateral, los rótulos MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS están solo en mayúsculas. Cambiar a mayúscula inicial (ej. «Tramitación») para facilitar la lectura.» TI: suele venir del layout compartido. |
+| «Titulos» sin tilde; «Patentes PCT» | LC-1.1.5-01 / LC-1.1.3-05 | «En el menú de Patentes, corregir «Titulos» → «Títulos». Expandir PCT la primera vez o añadir ayuda/tooltip.» |
+| Botones `OK` / `Aceptar` en modales | LC-5.2.4-01 (trámites) / rótulos | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. |
+| PDF sin formato/peso/descripción | LC-1.2.4-07 / LC-1.2.4-08 | «Junto al enlace del documento, mostrar título + formato + peso + breve descripción (ej. «Guía de marcas (PDF, 245 KB) — …»).» |
+| Sin fecha de actualización | LC-1.1.4-01 | «Bajo el título de la página, añadir una línea visible: «Actualizado: DD de mes de AAAA». El © del pie no cuenta como fecha de contenido.» |
+| H1 genérico o desalineado | LC-1.1.2-01 | «El título grande de la página (H1) debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
+| PCT en menú sin expansión | LC-1.1.3-05 | «La primera vez que aparece PCT en el menú, definirla (tooltip, glosa o página destino), sin convertir el ítem en un párrafo largo.» |
+| Imágenes sin texto alternativo útil | LC-1.3.1-01 / accesibilidad editorial | «Cada imagen informativa debe tener una descripción breve de lo que muestra (texto alternativo), para quien no ve la imagen.» |
 
 ---
 
@@ -215,8 +256,8 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 | Herramienta | Rol | Qué hacer / qué no |
 | --- | --- | --- |
 | **Claude Code (agente raíz)** | Orquestador único | Lanza 5 sub-subagentes §17, consolida §20, escribe JSON, valida, cablea. **No** evaluar los 51 criterios solo en el raíz. |
-| **Playwright MCP** | Captura una vez | `navigate` → HTML a disco → snapshot a11y → `evaluate` estilos si D3/D4 dudosos → abrir modales de 1 clic. **No** re-navegar por cada grupo. |
-| **Chroma / RAG MCP** | Fundamento + precedentes | Colección A por `source` del criterio; Colección B por URL/patrón. Consultas puntuales; **no** volcar PDFs enteros al chat. |
+| **Playwright MCP** | Captura una vez | `navigate` → HTML a disco → snapshot a11y → `evaluate` estilos si legibilidad (`LC-1.2.3-*`) es dudosa → abrir modales de 1 clic. **No** re-navegar por cada grupo. |
+| **Chroma / RAG MCP** | Fundamento + precedentes | Colección A por `source` del criterio; Colección B = checklist v3.0 + Word/mapa PTD + auditorías/ADRs. Consultas puntuales; **no** volcar PDFs enteros al chat. |
 | **Skills** | Especialización | Cada subagente carga `auditoria-lc` de su sección (+ `auditoria-calidad-web` / `pesquisa-criterios` si hace falta). |
 
 **Estado actual:** Playwright MCP y RAG MCP activos en el flujo de producción local. Sin MCP: degradado con `CLAUDE.md` + skills (anotar en DEVLOG).
@@ -237,19 +278,19 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 
 ## 10. Stack tecnológico
 
-| Componente | Tecnología | Notas |
+| Componente | Tecnología | Qué es y qué función cumple |
 | --- | --- | --- |
-| **Frontend** | Next.js 16 + TypeScript + Bun (`./frontend/`) | Vercel; App Router; Server Components |
-| **Orquestador IA** | Claude Code Pro (WSL, terminal) | Suscripción existente; sin API key; cero costo adicional (ADR 0009) |
-| **Captura HTML** | Playwright MCP (`npx @playwright/mcp@latest`) | Navegación real de URLs; DOM renderizado (Fase 1) |
-| **Embeddings** | `@xenova/transformers` — `Xenova/paraphrase-multilingual-MiniLM-L12-v2` | ~400 MB, offline en CPU, multilingüe (ADR 0010) |
-| **Base vectorial** | Chroma local (puerto 8000, `./rag/`) | Datos sensibles no salen de INAPI; copia directa al servidor TI (ADR 0010) |
-| **Pipeline RAG** | LangChain.js (TypeScript, `./rag/`) | Colección A (PDFs normativos) + Colección B (JSONs + ADRs) (ADR 0008) |
-| **RAG MCP** | `bun rag/mcp-server.ts` | Expone Chroma a Claude Code como herramientas nativas (Fase 2) |
-| **Validación contratos** | Zod + `validate-claude-audits.ts` + Hooks | Automatiza la validación al guardar cada JSON |
-| **Runtime** | Bun | Coherente con el monorepo existente; `bun.lock` único |
+| **Frontend** | Next.js 16 + TypeScript + Bun (`./frontend/`) | Aplicación web del MVP: pantallas `/auditar`, resultado, PDF/Excel. En local, las API routes de Next actúan también como backend ligero. Despliegue típico en Vercel. |
+| **Orquestador IA** | Claude Code Pro (terminal / WSL) | Agente que lee este `CLAUDE.md`, lanza subagentes, usa MCP y escribe el JSON canónico. No es un servicio Nest separado en el flujo local actual (ADR 0009). |
+| **Captura HTML** | Playwright MCP (`npx @playwright/mcp@latest`) | Navegador automatizado: abre la URL real, obtiene el DOM renderizado (no solo el HTML «Ver código fuente»), snapshots de accesibilidad y, si hace falta, estilos computados. |
+| **Embeddings** | `@xenova/transformers` — modelo `paraphrase-multilingual-MiniLM-L12-v2` | Librería que convierte texto a vectores numéricos **en la CPU local** (sin enviar PDFs a la nube). Permite buscar “parecido semántico” en el RAG (ADR 0010). |
+| **Base vectorial** | Chroma local (`./rag/chroma_db`, puerto 8000) | Almacén de esos vectores + fragmentos de texto. Colección A = normativa; Colección B = checklist/auditorías/ADRs del repo. Los datos no salen de la máquina INAPI. |
+| **Pipeline RAG** | Scripts TypeScript en `./rag/` (ingesta + consulta; patrón tipo LangChain) | **LangChain.js** (o el flujo equivalente en este repo) orquesta “leer documento → trocear → embeber → guardar/consultar”. No sustituye el juicio editorial: solo recupera fragmentos útiles para fundamentar. |
+| **RAG MCP** | `bun rag/mcp-server.ts` | Puente: Claude Code llama herramientas (`rag_search_normativa`, `rag_search_precedentes`) y el servidor consulta Chroma. |
+| **Validación de contratos** | **Zod** + `validate-claude-audits.ts` + **Hooks** de Claude Code | **Zod** = esquema TypeScript que define la forma exacta del JSON (ids, estados, conteos). El script valida todos los JSON del repo. Los **hooks** son disparadores locales que pueden rechazar un guardado si el JSON no cumple el contrato. |
+| **Runtime** | Bun | Ejecutor JS/TS del monorepo (`bun install`, `bun run …`), más rápido que Node para scripts del proyecto. |
 
-Referencias completas: `docs/ARCHITECTURE.md` · `docs/PROPUESTA_TECNICA_INTEGRAL.md` · `docs/adr/`.
+Referencias: `docs/ARCHITECTURE.md` · `docs/PROPUESTA_TECNICA_INTEGRAL.md` · `docs/adr/`.
 
 ---
 
@@ -295,50 +336,52 @@ Si el MCP no acepta `storageState`, el script local es la vía obligatoria para 
 *Flujo canónico de producción: **`.claude/prompts/audit-una-url.md`** (1 URL = 1 sesión Claude Code).*  
 *Referencia legacy piloto: `docs/flujo-piloto-10-urls-claude-mvp.md` §3.1–§3.2. Multi-sesión: `audit-lote.md`.*
 
+**Cómo leer las referencias «§N» en este archivo:** cada «§N» apunta a una **sección numerada de este mismo `CLAUDE.md`**. Ejemplo: «§19» = sección **19. Auditorías con sesión autenticada**; «§17» = sección **17. Arquitectura de sub-subagentes**; «§20» = calibración VISIBLE/patrones/cruces; «§21» = playbook de herramientas por criterio crítico; «§22» = entrega legible para CMS.
+
 ### Paso 1 — Preparación
 - Identificar **una** URL objetivo y `tipo_pagina` (`sitioweb` | `tramites`).
-- Obtener HTML (Playwright §11 + playbook §8, script `capture:tramites-html` si post-login, o Ctrl+U si Fase 0).
-- Si la captura fue con sesión autenticada: marcar `captura_con_sesion: true` y aplicar §19 en todos los sub-subagentes.
+- Obtener HTML (Playwright: sección **§11**; playbook MCP: **§8**; script `capture:tramites-html` si post-login; o Ctrl+U solo en Fase 0).
+- Si la captura fue con sesión autenticada: marcar `captura_con_sesion: true` y aplicar la sección **§19** (reglas de privacidad/anonimización en pantallas post-login) en todos los sub-subagentes.
 - Para serie Clarity: leer metadatos en `data/ux/clarity-fichas-mock.json` (rank, `nombre_ui`, `visitas_ref`).
 - ¿Existe JSON previo para la misma URL? → Reauditar con evidencia nueva; id previo a `history[]` tras cablear el vigente.
 
-### Paso 2 — Inventario en dos capas + evaluación (§17)
-Plantilla `audit-una-url.md`. Entregar:
+### Paso 2 — Inventario en dos capas + evaluación (sección **§17**)
+Plantilla `audit-una-url.md`. La sección **§17** define la arquitectura de **5 sub-subagentes por grupos de indicadores** (no una sola pasada de 51 criterios). Entregar:
 - Inventario `T001…` en capas **R** (redacción) y **U** (chrome UI / formato) — ver skill `auditoria-lc.md`.
-- 5 sub-subagentes en paralelo (§17) con gate de evidencia §20.6 / §21.
+- 5 sub-subagentes en paralelo (**§17**) con gate de evidencia (**§20.6**) y playbook de herramientas (**§21**).
 - Tabla de **51** criterios v3.0 + `sustituciones[]` consolidadas por el agente raíz.
 
 ### Paso 3 — Segunda pasada (JSON canónico)
-Prompt §3.2 del flujo. Reglas de contrato:
+Prompt §3.2 del flujo piloto (o equivalente en `audit-una-url.md`). Reglas de contrato:
 - Exactamente **51 objetos** en `criterios_evaluados[]` (v3.0), orden del catálogo LC-PTD. Históricos: 47 (v2.1) o 39 (v1.1).
-- Estado: SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
-- `severidad` SOLO si `estado = "incumple"` — omitir la clave en `cumple`/`no_aplica`.
+- **Estado JSON:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
+- **`severidad`:** SOLO si `estado = "incumple"` (`baja` = cumple con observaciones · `media` = medianamente cumple · `alta` = no cumple en UI). Omitir la clave en `cumple`/`no_aplica`. Nunca `null`.
 - `cita_textual`: omitir la clave si no hay cita (nunca `null`).
-- Cobertura 1:1 obligatoria: cada `incumple` → al menos una fila en `sustituciones[]`.
+- **Cobertura 1:1:** cada `incumple` → al menos una fila en `sustituciones[]`, con propuesta **entendible para CMS** (ver tipos abajo) y, en segundo plano, ancla técnica (`linea` / `html_linea_aprox`) para TI.
 - Todo hallazgo en `observaciones_lc_por_severidad` DEBE tener fila equivalente en `sustituciones[]`.
-- Resumen numérico coherente con el array: `criterios_aprobados` = conteo de `"cumple"`.
-- `porcentaje_cumplimiento` = `criterios_aprobados / criterios_aplicables × 100` (un decimal).
+- Resumen numérico coherente: `criterios_aprobados` incluye `cumple` + agrupados; el % usa aplicables (excluye `no_aplica`).
 - Para serie Clarity: añadir bloque `clarity_meta` con `serie`, `rank`, `nombre_ui`, `ruta_etiqueta`, `visitas_ref`, `encargado_ref`.
 
 ### Tipos de propuesta en `sustituciones[]`
 
-Cada fila en `sustituciones[]` debe corresponder a **uno** de estos cinco tipos:
+Cada fila debe ser **User Experience primero**: un editor CMS debe saber *dónde mirar en pantalla* y *qué hacer*, sin necesitar ser desarrollador. La línea HTML (Ctrl+U / `html_linea_aprox`) es **obligatoria como apoyo**, pero **secundaria** frente a `ubicacion_pantalla` en lenguaje humano.
 
-| Tipo | Cuándo usarlo | `original` | `propuesto` |
+| Tipo | Cuándo usarlo | `original` (evidencia) | `propuesto` (lenguaje CMS + apoyo TI) |
 | --- | --- | --- | --- |
-| **Sustitución** | El texto existe y debe cambiar | Literal del HTML (con entidades `&#243;`, etc.) | Texto corregido en lenguaje claro |
-| **Inserción** | El elemento no existe: falta fecha, intro, glosa de sigla, `alt` en imagen | `"(ausencia)"` o `"(no existe en HTML)"` | Bloque literal que TI debe insertar |
-| **Eliminación** | El fragmento debe quitarse: texto de dev, RUT redundante, `LINK EXTERNO` | Fragmento literal | `"(eliminar nodo)"` + nota en `motivo` |
-| **Reorden / estructura** | El contenido existe pero en orden incorrecto (A2 pirámide invertida) | Titular técnico que aparece primero | Párrafo de propósito que debe ir antes; `html_linea_aprox` del bloque contenedor |
-| **Enlace / slug** | F1, F3: nombre del enlace ≠ nombre del destino | Texto del enlace actual | Texto descriptivo del destino; si el slug no puede renombrarse, anotarlo en `motivo` |
+| **Sustitución** | El texto ya está en pantalla y debe cambiar | Literal visible (o HTML con entidades si hace falta a TI) | Texto corregido en lenguaje claro, listo para pegar en el CMS |
+| **Inserción** | Falta un elemento: fecha, intro, glosa de sigla, descripción de imagen | `"(ausencia)"` o `"(no existe en la página)"` | Instrucción + bloque de texto a **añadir** (dónde en pantalla: bajo el título, junto al enlace, etc.) |
+| **Eliminación** | Hay que quitar algo: texto de desarrollo, dato personal indebido, enlace confuso | Fragmento literal visible | Instrucción clara: «Quitar este texto/elemento de [zona]» + nota en `motivo` (TI puede leer «eliminar nodo» como apoyo) |
+| **Reorden / estructura** | El contenido existe pero en mal orden (pirámide invertida `LC-1.2.4-01`) | Lo que hoy aparece primero | Qué debe ir primero (párrafo de propósito) y dónde reubicarlo en la página |
+| **Enlace / rótulo** | El texto del enlace o botón no describe la acción/destino (`LC-5.2.4-01`, etc.) | Texto actual del enlace/botón | Rótulo descriptivo; si el destino técnico no puede renombrarse, explicarlo en `motivo` en lenguaje claro |
 
 **Reglas de estilo de las propuestas:**
-- Lenguaje claro, voz activa, sin mayúsculas en toda la palabra salvo siglas reconocidas (PCT, INAPI, OMPI).
-- Una fila por cambio localizable; no agrupar criterios distintos en una fila salvo párrafo continuo (ej. T432–T435 como bloque único).
-- No inventar pesos en MB para documentos; usar solo `"(PDF)"` si no se conoce el peso exacto en el CMS.
-- Orden sugerido del array: por sección A→H o por `linea` (Tnnn) ascendente.
+- Lenguaje claro, voz activa; sin jerga de orquestación ni selectores CSS como único mensaje.
+- **Prioridad de localización:** (1) `ubicacion_pantalla` humana (zona › bloque › elemento), (2) luego `linea` / `html_linea_aprox` / fragmento para TI.
+- Una fila por cambio localizable; no agrupar criterios distintos salvo párrafo continuo del mismo nodo.
+- No inventar pesos en KB/MB; pedir que el CMS complete formato/peso reales.
+- Orden sugerido del array: por orden del catálogo `LC-*` o por aparición en pantalla.
 
-**Regla para `no_aplica` con propuesta excepcional:** si un criterio es `no_aplica` por la estructura actual de la página, pero TI podría incorporar el elemento en una mejora futura, documentar la recomendación en el campo `comentario` del criterio — **no** crear fila en `sustituciones[]` salvo que sea una mejora explícitamente acordada con Equipo UX.
+**Regla para `no_aplica` con propuesta excepcional:** si el criterio no aplica hoy pero podría incorporarse en una mejora futura, documentar en `comentario` — **no** crear fila en `sustituciones[]` salvo acuerdo explícito con Equipo UX.
 
 ### Paso 4 — Validación y guardado
 ```bash
@@ -410,7 +453,7 @@ GET /api/claude-audits/{id}/export/pdf
 
 | Caso | Tamaño | Cómo |
 | --- | --- | --- |
-| META MEI / reauditoría §20 | **1 URL por sesión** | Pegar `audit-una-url.md` |
+| META MEI / reauditoría con calibración **§20** (sección 20 de este archivo: puntaje, VISIBLE, patrones, cruces) | **1 URL por sesión** | Pegar `audit-una-url.md` |
 | Dos páginas hermanas | **Máx. 2** | Solo si la 1ª cerró `validate` + commit |
 | Smoke Clarity ligero | Hasta 5 (legacy) | Verificar tras cada URL; no apilar consolidaciones |
 
@@ -422,7 +465,11 @@ GET /api/claude-audits/{id}/export/pdf
 3. HTMLs en `auditorias/htmls/` o `auditorias/lote-{fecha}/`.
 
 ### Ejecución
-- Por cada URL: workflow §12 + §17 + §20 + §21 **completo** (captura → 5 grupos → consolidación → validate → cable → commit atómico).
+- Por cada URL ejecutar el ciclo completo:
+  - **§12** — workflow de una URL (preparación → inventario → JSON → validate → cable → commit)
+  - **§17** — 5 sub-subagentes por grupos de indicadores
+  - **§20** — calibración VISIBLE / patrones / cruces / gate de evidencia
+  - **§21** — playbook de herramientas para criterios críticos (fecha, documentos, H1, etc.)
 - **No** abrir la siguiente URL hasta cerrar la actual.
 - El agente raíz orquesta; los 5 sub-subagentes son **por URL**, no un subagente “por URL” que haga los 51 solo.
 
@@ -430,7 +477,7 @@ GET /api/claude-audits/{id}/export/pdf
 ```bash
 bun run validate:claude-audits
 ```
-- Coherencia `%` / `estado_aceptacion`; cobertura `incumple` ↔ `sustituciones[]`; agrupados §20.3.
+- Coherencia `%` / `estado_aceptacion`; cobertura `incumple` ↔ `sustituciones[]`; agrupados **§20.3** (cruces mismo nodo).
 
 ### Commit
 Preferir **un commit por URL** (`feat(audits): …`). Lote solo si el usuario lo pide explícitamente.
@@ -453,7 +500,7 @@ bun run typecheck:all                     # TypeScript + lint completo (CI)
 chroma run --path ./rag/chroma_db --port 8000   # levantar Chroma (dejar corriendo)
 bun run rag/ingest-b.ts                   # ingestar colección B (datos del repo)
 bun run rag/ingest-a.ts                   # ingestar colección A (PDFs normativos)
-bun run rag/query.ts "criterio D7"        # probar consulta semántica
+bun run rag/query.ts "criterio LC-1.2.4-05 mayúsculas"  # probar consulta semántica
 
 # ── MCP ────────────────────────────────────────────────────────────────────
 claude mcp add playwright npx @playwright/mcp@latest
@@ -473,32 +520,36 @@ git push origin main                      # subir a remoto
 
 ---
 
-## 16. Política de `no_aplica` — cuándo usar cada criterio
+## 16. Política de `no_aplica` — cuándo usar cada criterio (ids v3.0)
 
 | Criterio | Usar `no_aplica` cuando... | Ejemplo |
 | --- | --- | --- |
-| A4 | La página es un formulario, pantalla de estado o panel de tramitación sin bloques de texto editorial | `tramites.inapi.cl/Trademark/TrademarkApplication` |
-| A5 | No hay texto institucional o de relleno visible — solo contenido funcional | Páginas de sólo formulario |
-| A8 | La página es `sitioweb` informativa (A8 solo aplica a trámites) | Noticia o página institucional de `www.inapi.cl` |
-| B8 | No hay texto principal medible (página vacía / solo UI sin cuerpo) | Pantalla de error mínima |
-| C6 | El texto tiene menos de 4 párrafos continuos en la página | Home con secciones tipo tarjeta corta |
-| C7 | No hay listas de requisitos en la página | Páginas de portal/home sin listados de pasos |
-| C9 | No hay cuerpo editorial con párrafos (solo formulario/estado) | Wizard de trámite sin texto introductorio |
-| D3 | El espaciado entre párrafos es criterio CSS/visual — declarar fuera del alcance editorial en esta auditoría | Aplica a casi todas las páginas |
-| D4 | La alineación del texto es criterio CSS/visual — fuera del alcance editorial | Aplica a casi todas las páginas |
-| D6 | No hay texto corrido extenso que requiera destacar palabras clave con negritas | Páginas tipo portal con titulares cortos |
-| G2 | La página es interna o transaccional sin exposición pública de política de privacidad | Pantallas de tramitación post-login |
-| H1 | No hay versiones anteriores publicadas ni rótulos de contenido archivado | La mayoría de URLs del inventario |
+| LC-1.1.2-04 | No hay textos de trámite / autonomía del trámite no aplica | Página informativa de `www.inapi.cl` |
+| LC-1.1.3-01 | No hay texto principal medible (página vacía / solo UI sin cuerpo) | Pantalla de error mínima |
+| LC-1.1.3-05 | No aparecen siglas ni acrónimos en el contenido evaluado | Página sin siglas |
+| LC-1.1.7-01 | No hay listados de personas con RUN | Página sin listados |
+| LC-1.1.7-03 / ARCO | Pantalla interna post-login sin expectativa de publicar política ARCO en esa vista (ver §19) | Wizard autenticado |
+| LC-1.1.8-* | No hay menores ni contenidos sensibles en la página | Mayoría del inventario |
+| LC-1.2.1-05 | No hay listas de requisitos de servicios | Home/portal sin requisitos |
+| LC-1.2.2-05 | El texto tiene menos de 4 párrafos continuos | Home con tarjetas cortas |
+| LC-1.2.4-06 | No aplica enlaces relacionados (p. ej. solo trámite IESD sin sitio informativo) | Según `applicability` |
+| LC-5.2.1-01 / LC-5.2.2-01 / LC-5.2.4-01 | Variantes solo IESD en página `sitioweb` informativa pura | Noticia institucional |
+| LC-1.2.4-07 / 08 | No hay documentos descargables | Página sin PDFs |
+| LC-1.3.1-01 | No hay datos que requieran apoyos visuales | Texto puramente narrativo |
+| LC-1.3.3-01 | No hay versiones anteriores / archivo publicado | Mayoría de URLs |
 
-**Regla de oro:** `no_aplica` = el criterio no puede evaluarse porque el supuesto del criterio no existe en la página. No usar `no_aplica` para evitar marcar un incumplimiento evidente.
+**ARCO** = derechos de **A**cceso, **R**ectificación, **C**ancelación/eliminación, **O**posición (y bloqueo) de datos personales (Ley de protección de la vida privada). Criterio máquina: `LC-1.1.7-03`.
 
-**Regla de `no_aplica` con propuesta excepcional:** si el criterio no aplica por la estructura actual pero TI podría incorporarlo en una mejora futura (ej. C6 — la página hoy tiene 3 párrafos, pero al ampliar contenido necesitará resumen inicial), documentar la recomendación en `comentario`. No crear fila en `sustituciones[]` salvo que esté acordado explícitamente con Equipo UX.
+**Regla de oro:** `no_aplica` = el supuesto del criterio no existe en la página. No usar `no_aplica` para ocultar un incumplimiento evidente.
+
+**Propuesta excepcional:** si hoy no aplica pero podría incorporarse en una mejora (ej. resumen inicial cuando crezca el contenido — `LC-1.2.2-05`), documentar en `comentario`. No crear `sustituciones[]` sin acuerdo UX.
 
 ---
 
 ## 17. Arquitectura de sub-subagentes por grupo de secciones
 
-*Aplica desde Fase 3 (flujo completo automatizado). Requiere Playwright MCP + RAG MCP activos.*
+*Aplica desde Fase 3 (flujo completo automatizado). Requiere Playwright MCP + RAG MCP activos.*  
+*Prompt canónico: `prompts/audit-una-url.md` Paso D. Skills: `skills/auditoria-lc.md` (obligatoria) + `auditoria-calidad-web.md` / `pesquisa-criterios.md`. Diagrama: `diagrams/workflow_diagram.md` §6.*
 
 ### Motivación
 
@@ -548,35 +599,46 @@ Agente raíz (Claude Code — orquestador)
 Al lanzar cada sub-subagente, incluir siempre:
 1. Inventario R+U completo (`T001…`).
 2. URL, `tipo_pagina`, `fecha`.
-3. `captura_con_sesion: true|false` — si `true`, §19 (Grupo 5 crítico en privacidad/ARCO).
+3. `captura_con_sesion: true|false` — si `true`, aplicar **§19** (sesión autenticada): el Grupo 5 es crítico en privacidad y **ARCO** (derechos acceso/rectificación/cancelación/oposición — criterio `LC-1.1.7-03`).
 4. Indicadores a evaluar (ej. «SOLO Fiabilidad/Completitud/Actualización/Objetividad/Archivo/Visualización»).
 5. «Entrega SOLO criterios de tu sección + `sustituciones[]`. No calcules el % total.»
-6. Calibración §2, §19, §20, §21: **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
+6. Calibración **§2** (checklist e indicadores), **§19** (sesión), **§20** (VISIBLE/evidencia), **§21** (playbook herramientas): **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
 7. Énfasis Grupo 1: fecha (`LC-1.1.4-01`), completitud. Grupo 4: documentos (título+formato+peso+desc). Grupo 2: Legible.
-8. **Entrega humana §22:** `ubicacion_pantalla` / `propuesto` / `motivo` / `comentario` legibles para editor CMS; cada criterio responde la pregunta del instrumento; `propuesto` pegable o instrucción concreta.
+8. **Entrega humana §22** (sección 22 — copy accionable para CMS): `ubicacion_pantalla` / `propuesto` / `motivo` / `comentario` legibles; `propuesto` pegable o instrucción concreta.
 
 ### Skill que carga cada sub-subagente
 
-| Grupo | Skill principal | Indicadores |
-| --- | --- | --- |
-| Grupo 1 | `auditoria-lc.md` (Fiabilidad…Visualización) | 1.1.1, 1.1.2, 1.1.4, 1.3.x |
-| Grupo 2 | `auditoria-lc.md` (Lenguaje plano) | 1.1.3 / 5.1.3 |
-| Grupo 3 | `auditoria-lc.md` (Redacción/Claridad/Concisión) | 1.1.5, 1.2.1, 1.2.2 |
-| Grupo 4 | `auditoria-lc.md` (Legibilidad/Escritura web) | 1.2.3, 1.2.4 |
-| Grupo 5 | `auditoria-lc.md` (PI/Privacidad/Sensibles) | 1.1.6–1.1.8 |
+| Grupo | Skill principal | Skills de apoyo | Indicadores |
+| --- | --- | --- | --- |
+| Grupo 1 | `auditoria-lc.md` (Fiabilidad…Visualización) | calidad-web / pesquisa si duda | 1.1.1, 1.1.2, 1.1.4, 1.3.x |
+| Grupo 2 | `auditoria-lc.md` (Lenguaje plano) | idem | 1.1.3 / 5.1.3 |
+| Grupo 3 | `auditoria-lc.md` (Redacción/Claridad/Concisión) | idem | 1.1.5, 1.2.1, 1.2.2 |
+| Grupo 4 | `auditoria-lc.md` (Legibilidad/Escritura web) | idem | 1.2.3, 1.2.4 |
+| Grupo 5 | `auditoria-lc.md` (PI/Privacidad/Sensibles) | §19 + pesquisa ARCO | 1.1.6–1.1.8 |
 
 Para fundamentos normativos de cualquier sección, cargar también `auditoria-calidad-web.md`.
 Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B.
+Prompts que lanzan estos grupos: `audit-una-url.md` (canónico), `audit-oro-s22.md`, `audit-lote.md` (por URL).
 
 ### Ventajas vs una sola pasada
 
-| Aspecto | Pasada única | Sub-subagentes (5 grupos) |
+| Aspecto | Pasada única (51 de golpe) | Sub-subagentes (5 grupos) + **1 URL por prompt maestro** |
 | --- | --- | --- |
-| Profundidad lingüística | Media — comparte contexto con 51 criterios | Alta — el agente se concentra solo en su grupo |
-| Consistencia ortográfica / formato | Puede perder ocurrencias | Grupo dedicado — revisa el HTML íntegro |
-| Trazabilidad de errores | Difícil aislar qué indicador falló | Error acotado al grupo que lo produjo |
-| Tiempo total | Más rápido | Más lento (paralelo), pero más preciso |
-| Riesgo de conflicto entre criterios | Alto (misma evidencia en varios indicadores) | Bajo — un criterio → un grupo |
+| Profundidad lingüística | Media — el contexto se diluye entre 51 preguntas | Alta — cada agente se concentra en un bloque de indicadores |
+| Consistencia ortográfica / formato | Puede perder ocurrencias | Grupo dedicado revisa el HTML con foco |
+| Trazabilidad | Difícil saber qué indicador falló | Error acotado al grupo |
+| Tiempo | Más rápido en reloj | Más lento en paralelo, más preciso |
+| Conflicto entre criterios | Alto (misma evidencia repartida mal) | Bajo — un criterio → un grupo |
+
+**Por qué aspirar a 1 URL por prompt maestro (`audit-una-url.md`):**
+
+1. **Contexto útil, no saturado:** una sola página cabe entera (HTML + inventario + RAG puntual) sin empujar fuera del contexto los criterios del final de la lista.
+2. **Mejor análisis:** los 5 grupos pueden razonar con la misma evidencia fresca; no hay “promedio” entre home y un trámite distinto.
+3. **Mejor ejecución del contrato:** consolidar 51 filas + `sustituciones[]` + §22 es un gate duro; mezclar varias URLs en un prompt aumenta omisiones, `cumple` por fatiga y propuestas genéricas.
+4. **Mejor resultado entregable:** un JSON validable, cableado y commiteado por URL; la UI/Excel/PDF reflejan una auditoría completa, no un lote a medias.
+5. **RAG más preciso:** las consultas a Colección B se anclan a *esa* URL/patrón, no a un promedio de lotes.
+
+La arquitectura de 5 grupos **dentro** de esa 1 URL es el complemento: profundidad por indicador sin abandonar la disciplina de una sola página por sesión.
 
 ---
 
@@ -618,10 +680,10 @@ Referencia completa: `docs/SECURITY.md`.
 
 ### Variables de entorno requeridas
 
-| Variable | Entorno | Descripción |
+| Variable | Entorno | Función |
 | --- | --- | --- |
-| `LC_REPO_ROOT` | Vercel / producción | Ruta raíz del monorepo; requerida si el `cwd` en runtime no es la raíz (ver `docs/despliegue/despliegue-hibrido.md`) |
-| `CHROMA_PORT` | Local / servidor TI | Puerto de Chroma (defecto `8000`); configurar en `.env.local` |
+| `LC_REPO_ROOT` | Vercel / producción (a veces local) | Ruta absoluta a la **raíz del monorepo** (`lc-inapi.app`). Las API de PDF/Excel y los loaders buscan `data/claude-audits/` y catálogos relativos a esa raíz. Si el proceso arranca con otro `cwd`, sin esta variable no encuentra los JSON. Ver `docs/despliegue/despliegue-hibrido.md`. |
+| `CHROMA_PORT` | Local / servidor TI | Puerto HTTP donde escucha el servidor Chroma del RAG (por defecto **8000**). El MCP `rag-auditoria` y los scripts `rag/ingest-*.ts` / `query.ts` usan ese puerto para embeber y consultar. Configurar en `.env.local` solo si no usas el valor por defecto. |
 
 ### Checklist antes de cada push a `main`
 
@@ -631,6 +693,8 @@ Referencia completa: `docs/SECURITY.md`.
 - [ ] `rag/chroma_db/` y `documentos/` no aparecen en el staging area.
 - [ ] `bun run validate:claude-audits` pasa sin errores.
 - [ ] `bun run typecheck:all` pasa sin errores.
+- [ ] `bun run lint` pasa sin errores.
+- [ ] `bun run build` pasa sin errores (build de frontend/Next antes de merge y despliegue).
 
 ---
 
@@ -645,51 +709,58 @@ Referencia completa: `docs/SECURITY.md`.
 
 ### Qué NO hacer
 
-- **No** marcar `incumple` en G1 solo porque aparece el RUT, nombre, correo o marca del solicitante en su propio formulario.
+- **No** marcar `incumple` en `LC-1.1.7-01` solo porque aparece el RUT, nombre, correo o marca del solicitante en su propio formulario.
 - **No** proponer sustituciones que eliminen o reemplacen datos de sesión del usuario.
 - **No** transcribir valores reales en `cita_textual`, `original`, `propuesto`, `observaciones_lc` ni en el inventario Tnnn del JSON.
-- **No** usar severidad `alta` en G1 por datos esperables del flujo transaccional.
+- **No** usar `severidad: "alta"` en privacidad por datos esperables del flujo transaccional.
 
-### Qué SÍ evaluar (por criterio)
+### Qué SÍ evaluar (por indicador / criterio v3.0)
 
-| Criterio | Enfoque en pantalla autenticada |
+| Criterio / grupo | Enfoque en pantalla autenticada |
 | --- | --- |
-| **G1** | ¿Se exponen datos de **terceros** sin justificación? ¿Hay datos personales fuera del contexto del formulario (p. ej. en pie de página estático)? Los datos del solicitante en su trámite → `cumple` o evaluar solo si la **exposición es indebida** |
-| **G2** | `no_aplica` en pantallas transaccionales post-login (ya calibrado en §16) |
-| **G3** | Copyright / condiciones institucionales del layout — igual que URLs públicas |
-| **B1–B8, C1–C9** | Claridad de etiquetas de campo, ayudas contextuales, instrucciones de pasos — citar la **etiqueta**, no el valor del input |
-| **F1–F6** | CTAs, PDFs descriptivos y enlaces relacionados del flujo de trámite |
-| **A1–A9, D, E** | Estructura, completitud/autonomía (A6–A8), escaneabilidad, títulos, fechas, ortografía de copy **institucional** |
+| **LC-1.1.7-01 / 02** | ¿Se exponen datos de **terceros** sin justificación? ¿Hay datos personales fuera del formulario (p. ej. pie estático)? Datos del solicitante en su trámite → `cumple`, salvo exposición indebida |
+| **LC-1.1.7-03 (ARCO)** | Suele ser `no_aplica` en vistas post-login internas (§16); si la pantalla debe informar derechos ARCO, evaluar con evidencia. ARCO = acceso, rectificación, cancelación/eliminación, oposición (y bloqueo) |
+| **LC-1.1.6-*** | Condiciones de uso / licencia del layout — igual que URLs públicas |
+| **Lenguaje plano / Claridad / Concisión** (`LC-1.1.3-*`, `LC-1.2.1-*`, `LC-1.2.2-*`) | Claridad de **etiquetas**, ayudas e instrucciones — citar la etiqueta, nunca el valor del input |
+| **Escritura web / rótulos** (`LC-1.2.4-*`, `LC-5.2.4-01`) | CTAs, PDFs descriptivos, rótulos de acción del flujo |
+| **Completitud / Actualización / Ortografía** (`LC-1.1.2-*`, `LC-1.1.4-01`, `LC-1.1.5-*`) | Suficiencia del trámite, fechas institucionales, ortografía del copy **institucional** |
 
 ### Anonimización obligatoria en salidas
 
-| Campo JSON | Regla |
+Objetivo: auditar claridad y estructura **sin filtrar PII**. Aplicar con rigor (no bastan frases vagas).
+
+| Campo JSON | Regla operativa (hacer / no hacer) |
 | --- | --- |
-| Inventario `Tnnn` | `«[valor de sesión — no transcribir]» (contexto: campo «RUT del solicitante» prellenado)` |
-| `cita_textual` | Referir tipo de dato y ubicación: «Campo «Nombre de la marca» con etiqueta clara y ayuda contextual» |
-| `original` / `propuesto` en sustituciones | Solo copy **institucional** editable (etiquetas, placeholders de ayuda, textos de instrucción). Nunca el valor del usuario |
-| `texto_capturado` | Resumen del inventario anonimizado (T001…), no volcado literal del HTML con PII |
+| Inventario `Tnnn` | **Hacer:** rol del campo + etiqueta. Ej.: `T042 [R]: «[valor de sesión — no transcribir]» (contexto: campo «RUT del solicitante» prellenado)`. **No:** pegar RUT, nombre, correo, marca o expediente reales. |
+| `cita_textual` | **Hacer:** evidencia sin PII. Placeholders fijos si hace falta: `[RUT del solicitante]`, `[nombre de marca]`. **No:** citar el valor tipeado/prellenado. |
+| `original` / `propuesto` | **Hacer:** solo copy institucional (etiquetas, ayudas, botones, instrucciones). **No:** borrar/reescribir el valor de sesión; si el problema es claridad, se cambia la etiqueta/ayuda. |
+| `motivo` / `comentario` | **Hacer:** fallo de lenguaje claro o privacidad de terceros + ubicación en pantalla. **No:** narrar el expediente del solicitante. |
+| `texto_capturado` | **Hacer:** resumen del inventario anonimizado (T001…). **No:** volcado HTML con PII. |
+| `observaciones_lc*` / `nota_final_tic` | Mismas reglas: sin PII; sí acción CMS. |
 
-### Ejemplo de comentario G1 correcto (sesión autenticada)
+Si un valor real ya entró al borrador: **reescribir antes** de validate/commit.
 
-```
-G1 cumple: la pantalla muestra datos del solicitante en campos de formulario acotados al trámite
-(etiquetas «RUT», «Nombre solicitante», «Marca»). No se exponen datos de terceros ni información
-fuera del contexto transaccional esperado.
-```
-
-### Ejemplo de comentario B2 correcto (evaluar claridad sin nombrar datos)
+### Ejemplo de comentario correcto — `LC-1.1.7-01` (sesión autenticada)
 
 ```
-B2 incumple media: la etiqueta del campo de clasificación Niza no explica qué debe ingresar el
-usuario; solo muestra el código sin glosa. Propuesta: añadir texto de ayuda bajo el campo.
+LC-1.1.7-01 cumple: la pantalla muestra datos del solicitante solo en campos del trámite
+(etiquetas «RUT», «Nombre solicitante», «Marca»). No se exponen datos de terceros ni
+información personal fuera del contexto transaccional esperado.
 ```
 
-### Instrucción para el Grupo 5 (sub-subagente G+H)
+### Ejemplo de comentario correcto — claridad de etiqueta (sin nombrar datos)
 
-Al lanzar el sub-subagente del Grupo 5 con `captura_con_sesion: true`, incluir explícitamente:
+```
+LC-1.1.3-03 incumple (severidad media → «Medianamente cumple» en UI): la etiqueta del campo
+de clasificación Niza no explica qué debe ingresar la persona; solo muestra el código sin
+glosa. Propuesta: añadir texto de ayuda bajo el campo (sin mencionar el valor ingresado).
+```
 
-> «Evalúa G1–G3 según CLAUDE.md §19. Los datos del solicitante logueado en formularios NO son incumplimiento G1. Anonimiza toda cita. Evalúa si las etiquetas, ayudas y estructura del formulario son entendibles para completar el trámite.»
+### Instrucción para el Grupo 5 (sub-subagente PI / Privacidad / Sensibles)
+
+Al lanzar el Grupo 5 con `captura_con_sesion: true`, incluir explícitamente:
+
+> «Evalúa `LC-1.1.6-*`, `LC-1.1.7-*` y `LC-1.1.8-*` según CLAUDE.md §19. Los datos del solicitante logueado en formularios NO son incumplimiento de `LC-1.1.7-01`. Anonimiza toda cita. Evalúa etiquetas, ayudas y estructura del formulario. ARCO = `LC-1.1.7-03`.»
 
 ### Chroma / RAG en sesión autenticada
 
@@ -722,13 +793,13 @@ Hallazgos de header, footer, modal de contacto/login, buscador global:
 
 ### 20.3 Criterios cruzados (mismo texto propuesto)
 
-Si C1/C3/C4 (o B8/C3, etc.) apuntan al **mismo** `original`/`propuesto`:
+Si varios criterios (p. ej. Claridad/Concisión `LC-1.2.1-*` / `LC-1.2.2-*`, o Lenguaje plano + Concisión) apuntan al **mismo** `original`/`propuesto` y al **mismo** nodo visible:
 
 1. Una sola fila en `sustituciones[]` con `criterio_id` = **primario** y `criterios_relacionados: [...]`.
-2. Prioridad sugerida de primario: C7 > C4 > C3 > C1 > B8 (ajustar con Equipo UX si hace falta).
-3. Primario → `incumple` (descuenta).
-4. Secundarios → `incumple` + `agrupado_en: "<primario>"` (mostrar justificación; **no** descuentan en `summarizeEvaluations`).
-5. En UI/PDF/Excel: mostrar «C1, C3, C4» y las justificaciones juntas.
+2. Prioridad sugerida de primario (ajustar con Equipo UX si hace falta): requisitos en infinitivo (`LC-1.2.1-05`) > una idea por párrafo (`LC-1.2.2-03`) > oraciones simples (`LC-1.2.2-04`) > estructura FAQ (`LC-1.2.1-01`) > Legible (`LC-1.1.3-01`).
+3. Primario → `incumple` (descuenta). Elegir `severidad` según gravedad (`baja`/`media`/`alta` → presentación Cumple con observaciones / Medianamente cumple / No cumple).
+4. Secundarios → `incumple` + `agrupado_en: "<primario>"` (justificación propia; **no** descuentan en `summarizeEvaluations`).
+5. En UI/PDF/Excel: mostrar los ids `LC-*` relacionados y las justificaciones juntas, en lenguaje CMS.
 
 ### 20.4 Justificación obligatoria en `no_aplica`
 
@@ -745,31 +816,34 @@ Los **51** criterios (v3.0) aparecen siempre en pantalla, PDF y Excel. Históric
 
 Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
 
-| Estado | Exigencia mínima |
-| --- | --- |
-| `cumple` | Evidencia positiva (Tnnn, atributo, estilo, o ausencia documentada de problema). **Prohibido** «parece bien» / omisión. |
-| `incumple` | Evidencia concreta + fila en `sustituciones[]` con `ubicacion_pantalla` (sitioweb) y `capa: "VISIBLE"`. |
-| `no_aplica` | `comentario` breve obligatorio (§20.4). |
+| Estado JSON | `severidad` | Presentación UI | Exigencia mínima |
+| --- | --- | --- | --- |
+| `cumple` | omitir | Cumple | Evidencia positiva (Tnnn, atributo, estilo, o ausencia documentada de problema). **Prohibido** «parece bien» / omisión. |
+| `incumple` | `baja` | Cumple con observaciones | Evidencia + fila en `sustituciones[]` con `ubicacion_pantalla` humana y propuesta accionable (corrección menor). |
+| `incumple` | `media` | Medianamente cumple | Idem; hallazgo relevante para esta iteración. |
+| `incumple` | `alta` | No cumple | Idem; prioridad alta / bloqueante. |
+| `no_aplica` | omitir | No aplica | `comentario` breve obligatorio (§20.4). |
 
-**Hallazgos distintos:** preferir que cada `incumple` aporte un descubrimiento distinto (nodo, atributo o problema). Si varios criterios chocan con el **mismo** nodo/texto → solo entonces §20.3 (primario + `agrupado_en`). No reutilizar el mismo `propuesto` genérico en filas independientes sin agrupación.
+**Hallazgos distintos:** preferir que cada `incumple` aporte un descubrimiento distinto. Si varios criterios chocan con el **mismo** nodo/texto → §20.3 (primario + `agrupado_en`). No reutilizar el mismo `propuesto` genérico en filas independientes sin agrupación.
 
-**Criterios de formato / chrome (no solo redacción):** A9, D3, D4, E3, F4 — inventariar capa **U** y, si hace falta, Playwright `evaluate` / a11y (ver §21). No marcar D3/D4 como `no_aplica` por defecto «es CSS».
+**Criterios de formato / chrome (no solo redacción):** escaneabilidad (`LC-1.2.4-03`), espacio entre párrafos (`LC-1.2.3-01`), alineación (`LC-1.2.3-02`), fecha (`LC-1.1.4-01`), documentos (`LC-1.2.4-07/08`) — inventariar capa **U** y, si hace falta, Playwright `evaluate` / a11y (ver §21). No marcar legibilidad como `no_aplica` por defecto «es CSS».
 
 ---
 
 ## 21. Playbook por criterio crítico (herramientas)
 
-*Complementa §8 y §17. Usar en reauditorías 1-URL (`audit-una-url.md`).*
+*Complementa §8 (MCP) y §17 (sub-subagentes). Usar en reauditorías 1-URL (`audit-una-url.md`).*
 
 | Criterio | Evidencia preferida | Herramienta |
 | --- | --- | --- |
-| **A9** | Encabezados, listas, negritas / muro de texto | Inventario U + a11y (roles heading/list) |
-| **D3** | Márgenes/padding entre bloques de cuerpo | `getComputedStyle` en párrafos principales |
-| **D4** | `text-align` left vs center/justify en cuerpo | `getComputedStyle` en contenedor de texto |
-| **E3** | Fecha de publicación o última modificación **visible** | Inventario U; ©año footer ≠ fecha |
-| **E4** | H1 visible vs contenido | Inventario R; nunca `<title>` |
-| **F4** | Título + formato + peso + descripción en cada doc | DOM enlaces; no inventar MB |
-| **H1** | `alt` / archivo / versiones | a11y names + DOM |
+| **LC-1.2.4-03** (escaneo) | Encabezados, listas, negritas / muro de texto | Inventario U + a11y (roles heading/list) |
+| **LC-1.2.3-01** (espacio) | Márgenes/separación entre bloques de cuerpo | `getComputedStyle` en párrafos principales |
+| **LC-1.2.3-02** (alineación) | Texto a la izquierda vs centrado/justificado en cuerpo | `getComputedStyle` en contenedor de texto |
+| **LC-1.1.4-01** (fecha) | Fecha de publicación o última modificación **visible** | Inventario U; ©año footer ≠ fecha |
+| **LC-1.1.2-01** (título↔contenido) | H1 visible vs contenido | Inventario R; nunca `<title>` |
+| **LC-1.2.4-07 / 08** (documentos) | Título + formato + peso + descripción | DOM enlaces; no inventar KB/MB |
+| **LC-1.3.1-01 / alt** | Apoyos visuales / texto alternativo útil | a11y names + DOM |
+| **LC-1.1.3-05** (siglas) | Primera aparición definida (tooltip/glosa/destino) | Inventario R; propuesta sutil en menú |
 
 Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae precedentes; el skill fija el juicio editorial.
 
@@ -777,7 +851,8 @@ Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae preced
 
 ## 22. Entrega legible para quien implementa (editor CMS / TIC no IA)
 
-*Obligatorio en reauditorías 1-URL y en cualquier JSON nuevo v2.1. Complementa §17, §20.5 y `audit-una-url.md`.*
+*Obligatorio en reauditorías 1-URL y en cualquier JSON nuevo v3.0. Complementa §17, §20.5 y `audit-una-url.md`.*
+
 
 ### 22.1 Audiencia
 
@@ -792,7 +867,7 @@ Antes de fijar el estado, el subagente debe poder responder en una frase la **pr
 | Estado | Qué debe quedar claro en `comentario` (o en `motivo` de la sustitución) |
 | --- | --- |
 | `cumple` | Qué se vio que demuestra el sí (ej. «Hay H1 visible “Marcas” alineado al contenido»). |
-| `incumple` | Qué falla respecto a la pregunta + qué hay que cambiar. |
+| `incumple` + `severidad` | Qué falla + qué cambiar. En UI: `baja`→Cumple con observaciones · `media`→Medianamente cumple · `alta`→No cumple. |
 | `no_aplica` | Por qué la pregunta no tiene sentido en esta URL (ya exigido en §20.4). |
 
 La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la traduce a una acción editable.
@@ -821,14 +896,15 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 
 **Motivo**
 
-- Malo: `Incumple B1 según skill; evidencia capa R.`
-- Bueno: `La pregunta pide voz activa y mensaje entendible. El texto actual usa voz pasiva y no dice qué puede hacer la persona. El propuesto dice la acción en presente.`
+- Malo: `Incumple LC-1.1.3-02 según skill; evidencia capa R.`
+- Bueno: `La pregunta pide un tono cercano. El texto actual usa voz distante y no dice qué puede hacer la persona. El propuesto dice la acción en presente.`
+
 
 ### 22.5 Instrucción extra al lanzar cada sub-subagente (§17)
 
 Añadir siempre al brief del grupo:
 
-> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22 completo, esp. §22.8–§22.11). Cada criterio responde la pregunta del instrumento con evidencia; `comentario` nunca vacío. `propuesto` = texto pegable o instrucción concreta (F4 cuatro elementos; E3 fecha; B3 menú sutil). Realismo: no forzar A7 en atajos de navegación ni correcciones sin necesidad real.»
+> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22 completo, esp. §22.8–§22.11). Cada criterio responde la pregunta del instrumento con evidencia; `comentario` nunca vacío. `propuesto` = texto pegable o instrucción concreta (documentos: título+formato+peso+desc; fecha visible; siglas en menú con propuesta sutil). Realismo: no forzar datos clave (qué/cómo/dónde) en atajos de navegación ni correcciones sin necesidad real. Priorizar lenguaje CMS; la línea HTML es apoyo para TI.»
 
 ### 22.6 Consolidación (agente raíz)
 
@@ -848,12 +924,13 @@ En la entrega (UI / PDF / Excel MEI y en el JSON canónico) **ningún campo úti
 
 | Estado / categoría presentación | Qué debe quedar escrito |
 | --- | --- |
-| `cumple` | `comentario` con evidencia de **qué se vio** que responde la pregunta (1–3 frases). |
-| `incumple` | `comentario` + fila en `sustituciones[]` con `ubicacion_pantalla`, `original`, `propuesto`, `motivo` **todos** no vacíos y accionables. |
-| `no_aplica` | `comentario` obligatorio (§20.4) explicando por qué la pregunta no cabe en esta URL. |
-| Cumple con observaciones / Medianamente cumple (capa MEI) | Misma regla: justificación +, si hay corrección, `propuesto` concreto. |
+| `cumple` | `comentario` con evidencia de **qué se vio** (1–3 frases). |
+| `incumple` + `severidad: baja` (UI: Cumple con observaciones) | `comentario` + fila en `sustituciones[]` con ubicación CMS + `propuesto` accionable (corrección menor). |
+| `incumple` + `severidad: media` (UI: Medianamente cumple) | Idem; hallazgo de esta iteración. |
+| `incumple` + `severidad: alta` (UI: No cumple) | Idem; prioridad alta. |
+| `no_aplica` | `comentario` obligatorio (§20.4) explicando por qué la pregunta no cabe. |
 
-**Coherencia instrucción ↔ herramienta:** si el criterio exige algo operativo (ej. «usar herramienta de validación ortográfica» / B8 legibilidad), el `motivo` y el `propuesto` deben nombrar **cómo** hacerlo (herramienta sugerida o paso en el CMS) y **por qué**. Una fila que dice “no usa corrector” sin decir qué hacer queda **inválida** por vaguedad.
+**Coherencia instrucción ↔ herramienta:** si el criterio exige algo operativo (ej. «usar herramienta de validación ortográfica» / Legible `LC-1.1.3-01`), el `motivo` y el `propuesto` deben nombrar **cómo** hacerlo (herramienta sugerida o paso en el CMS) y **por qué**. Una fila que dice “no usa corrector” sin decir qué hacer queda **inválida** por vaguedad.
 
 ### 22.9 Realismo: no forzar correcciones donde el criterio no aplica al tipo de elemento
 
