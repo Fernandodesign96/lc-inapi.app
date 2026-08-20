@@ -1,4 +1,4 @@
-# Skill: Auditoría Calidad Web — Marco Normativo INAPI
+﻿# Skill: Auditoría Calidad Web — Marco Normativo INAPI
 
 Referencia operativa: `.claude/CLAUDE.md` §1 (dominio) y §2 (criterios)
 ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
@@ -11,9 +11,9 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
 - Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
 - Cuando se requiera contexto normativo (citas `IEW`/`IESD`/`RLC`/`MEI` del checklist v2.1), o el UI Kit Gobierno.
-- Cuando se trace un hito/tarea del Checklist Editorial PTD (v2.0) hacia criterios A–H — ver `docs/checklist-ptd-v2-mapa.md`.
+- Cuando se trace un hito/tarea del Checklist Editorial PTD v2.0 hacia criterios `LC-*` — ver `data/checklist-criteria-lc-ptd.json`, `data/checklist-editorial-ptd-v2.json` y `docs/checklist-ptd-v2-mapa.md`.
 
-**Nota de alcance 2026:** el motor §17 evalúa **Lenguaje claro / contenido editorial** (47 criterios). Las dimensiones Usabilidad y Seguridad del PTD editorial v2.0 **no** se evalúan aún en los sub-subagentes; el mapa documenta el puente para no confundir alcances.
+**Nota de alcance META MEI 2026:** el motor §17 evalúa **Lenguaje claro** (**51** criterios v3.0 por indicadores IEW·IESD). Usabilidad (**18**) y Seguridad (**10**) del Word/JSON **no** se puntúan aún (CLAUDE.md §23).
 
 ---
 
@@ -21,85 +21,32 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 
 | Documento (PDF en `documentos/`) | Abreviatura en `source` | Qué regula | Relevante para |
 |---|---|---|---|
-| Instrumento de Evaluación de Sitios Web (`instrumento-evaluacion-sitios-web.pdf`) | `IEW` | Calidad de sitios web informativos | A, B, C, D, E, F, G, H (citas IEW) |
-| Instrumento de Evaluación de Servicios Digitales Transaccionales (`instrumento-evaluacion-servicios-digitales-transaccionales.pdf`) | `IESD` | Servicios/trámites digitales | A6–A8 (trámites), B–H en `tramites.inapi.cl` |
-| Recomendaciones de Lenguaje Claro (`lenguaje-claro-recomendaciones.pdf`) | `RLC` | Lenguaje claro, estructura, enlaces | A1–A5, A9, B1–B3, B7, F1–F5 |
-| **Meta MEI** (`meta-mei.pdf`) | `MEI` | Compromiso institucional PMG-MEI (no sustituye IEW/IESD) | Contexto de hitos; no es la cita primaria de cada criterio v2.1 |
-| UI Kit Gobierno 3.0.1 (`ui-kit-gobierno-3.0.1.pdf`) | `UI` | Diseño visual / componentes | Complemento D3/D4/D6 (fuera de alcance editorial frecuente) |
+| Instrumento de Evaluación de Sitios Web | `IEW` | Calidad de sitios web informativos | Indicadores LC §1 (1.1.x–1.3.x) |
+| Instrumento de Evaluación de Servicios Digitales Transaccionales | `IESD` | Servicios/trámites digitales | Indicadores LC §5 (5.1.x–5.3.x) |
+| Recomendaciones de Lenguaje Claro | `RLC` | Lenguaje claro, estructura, enlaces | Lenguaje plano, Claridad, Escritura web |
+| **Meta MEI** (`meta-mei.pdf`) | `MEI` | Compromiso institucional PMG-MEI | Contexto de hitos; no sustituye IEW/IESD |
+| UI Kit Gobierno 3.0.1 | `UI` | Diseño visual / componentes | Complemento de legibilidad (fuera de alcance editorial frecuente) |
 
-**v2.1:** la sigla genérica `CW` queda **deprecada** en el catálogo. Auditorías históricas v1.1 pueden seguir citando `CW` (legado → consultar `meta-mei.pdf` + IEW/IESD).
-
----
-
-## 2. Relación fuente normativa ↔ criterio (v2.1)
-
-Derivado del campo `source` en `data/checklist-criteria.json` (47 criterios):
-
-| Criterio | Fuente (`source`) |
-|---|---|
-| A1 | RLC §5 |
-| A2 | RLC §4, IEW 5.2.4, IESD 5.2.4 |
-| A3 | RLC §4,§5, IEW 5.2.4 |
-| A4 | RLC §1 |
-| A5 | RLC §4 |
-| A6 | IEW 1.1.2, IESD 5.1.2 |
-| A7 | IEW 1.1.2, IESD 5.1.2 |
-| A8 | IESD 5.1.2 |
-| A9 | IEW 1.2.4, IESD 5.2.4, RLC §1 |
-| B1 | RLC §7, IEW 5.2.1, IESD 5.2.1 |
-| B2 | RLC §7,§8, IEW 5.1.3, IESD 5.1.3 |
-| B3 | RLC §7, IEW 5.1.3, IESD 5.1.3 |
-| B4 | IEW 5.1.3, IESD 5.1.3 |
-| B5 | IEW 5.1.3, IESD 5.1.3 |
-| B6 | IEW 5.2.1, IESD 5.2.1 |
-| B7 | RLC §8 |
-| B8 | IEW 5.1.3, IESD 5.1.3 |
-| C1 | IEW 5.2.1, IESD 5.2.1 |
-| C2 | IEW 5.2.1, IESD 5.2.1 |
-| C3 | IEW 5.2.2, IESD 5.2.2 |
-| C4 | IEW 5.2.2, IESD 5.2.2 |
-| C5 | IEW 5.2.2, IESD 5.2.2 |
-| C6 | IEW 5.2.2, IESD 5.2.2 |
-| C7 | IEW 5.2.1, IESD 5.2.1 |
-| C8 | IEW 1.2.1, IESD 5.2.1 |
-| C9 | IEW 1.2.2, IESD 5.2.2 |
-| D1 | IEW 5.1.5, IESD 5.1.5 |
-| D2 | IEW 5.1.5, IESD 5.1.5 |
-| D3 | IEW 5.2.3, IESD 5.2.3 |
-| D4 | IEW 5.2.3, IESD 5.2.3 |
-| D5 | IEW 5.2.3, IESD 5.2.3 |
-| D6 | IEW 5.2.4, IESD 5.2.4 |
-| D7 | IEW 5.2.4, IESD 5.2.4 |
-| E1 | IEW 5.3.1, IESD 5.3.1 |
-| E2 | IEW 5.1.1, IESD 5.1.1 |
-| E3 | IEW 5.1.4, IESD 5.1.4 |
-| E4 | IEW 5.1.2, IESD 5.1.2 |
-| F1 | RLC §9 |
-| F2 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
-| F3 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
-| F4 | RLC §9, IEW 5.2.4, IESD 5.2.4 |
-| F5 | RLC §9 |
-| F6 | IEW 1.2.4, IESD 5.2.4 |
-| G1 | IEW 5.1.7, IESD 5.1.7 |
-| G2 | IEW 5.1.7, IESD 5.1.7 |
-| G3 | IEW 5.1.6, IESD 5.1.6 |
-| H1 | IEW 5.3.2, IESD 5.3.2 |
+**v3.0:** citar `IEW`/`IESD`/`RLC`/`MEI` del campo `source` en `checklist-criteria-lc-ptd.json`. La sigla `CW` queda deprecada.
 
 ---
 
-## 3. Marco IEW / IESD (reemplazo de citas `CW`)
+## 2. Relación fuente normativa ↔ criterio (v3.0)
 
-El checklist v2.1 usa numeración del instrumento (p. ej. `IEW 5.1.3`, `IESD 5.1.2`). Orientación:
+Usar el campo `source` de cada fila en `data/checklist-criteria-lc-ptd.json` (51 criterios). No mantener tabla A1–H1 aquí: está obsoleta para auditorías nuevas.
 
-| Dimensión | Secciones del checklist | Contenido |
+## 3. Marco IEW / IESD
+
+El catálogo v3.0 usa numeración del instrumento (p. ej. `IEW 1.1.3`, `IESD 5.1.2`). Orientación:
+
+| Dimensión | Indicadores | Contenido |
 |---|---|---|
-| **Completitud / contenido clave** | A6, A7, A8, E4 | Sin «en construcción»; datos qué/cómo/dónde/cuándo/quién; autonomía del trámite; título fiel |
-| **Lenguaje y legibilidad** | B1–B8 | Voz activa, jerga, siglas, tono, Legible ≥3/5 |
-| **Redacción y FAQ** | C1–C9 | Oraciones, párrafos, resumen, FAQ, 2–8 párrafos |
-| **Formato** | D1–D7 | Ortografía, puntuación, listas, negritas, mayúsculas |
-| **Autoría / fechas** | E1–E3 | Objetividad, autoría, fecha visible |
-| **Enlaces** | F1–F6 | CTAs, PDF con descripción, enlaces relacionados |
-| **Datos / archivo** | G1–G3, H1 | Privacidad, ARCO, condiciones de uso, versiones |
+| **Completitud / contenido clave** | 1.1.2 / 5.1.2 | Sin «en construcción»; datos qué/cómo/dónde/cuándo/quién; autonomía del trámite; título fiel |
+| **Lenguaje plano** | 1.1.3 / 5.1.3 | Legible, jerga, siglas, tono |
+| **Claridad / Concisión** | 1.2.1–1.2.2 / 5.2.1–5.2.2 | FAQ, oraciones, párrafos, resumen |
+| **Legibilidad / Escritura web** | 1.2.3–1.2.4 / 5.2.3–5.2.4 | Espacio, listas, pirámide, PDF, rótulos |
+| **Autoría / fechas / objetividad / archivo** | 1.1.1, 1.1.4, 1.3.2–1.3.3 | Fuente, fecha visible, neutro, versiones |
+| **PI / Privacidad / Sensibles** | 1.1.6–1.1.8 / 5.1.6–5.1.7 | Licencias, ARCO, RUN, sensibles |
 
 **PDFs a consultar:** `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`, `lenguaje-claro-recomendaciones.pdf`. `meta-mei.pdf` = compromiso MEI, no cita primaria de cada fila.
 
@@ -107,17 +54,14 @@ El checklist v2.1 usa numeración del instrumento (p. ej. `IEW 5.1.3`, `IESD 5.1
 
 ## 4. Meta MEI — documento principal de calidad web / servicios digitales
 
-El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-MEI. En v2.1, la fuente primaria de cada criterio es `IEW`/`IESD`/`RLC` según el campo `source`; MEI no sustituye esos instrumentos.
+El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-MEI. En v3.0, la fuente primaria de cada criterio es `IEW`/`IESD`/`RLC` según el campo `source`; MEI no sustituye esos instrumentos.
 
 **Foco del Meta MEI en el checklist INAPI:**
-- **Sección B** (lenguaje claro): voz activa, tuteo, siglas, tono positivo — peso aumentado en tramitación.
-- **Sección C** (redacción): párrafos de una idea, presente simple, oraciones simples — especialmente para instrucciones de formularios.
-- **Sección D** (mecánica): ortografía, tipografía — errores en contexto de trámites generan desconfianza institucional.
+- **Lenguaje plano:** voz activa, tuteo, siglas, tono positivo — peso aumentado en tramitación.
+- **Claridad / Concisión:** párrafos de una idea, presente simple, oraciones simples — especialmente para instrucciones de formularios.
+- **Redacción y ortografía:** errores en contexto de trámites generan desconfianza institucional.
 
-**Criterios MEI que INAPI priorizó para la entrega jun 2026 (acuerdo con Equipo UX/jefatura de proyecto):**
-- B: lenguaje claro en instrucciones de tramitación
-- C: redacción concisa en pasos del proceso
-- D: ortografía y tipografía sin errores en interfaz de trámite
+**Prioridad entrega 2026 (acuerdo Equipo UX):** lenguaje claro e instrucciones de tramitación; concisión en pasos; ortografía en interfaz de trámite.
 
 **Páginas del inventario donde aplica Meta MEI con mayor peso:**
 - `tramites.inapi.cl/` (landing del portal)
@@ -140,10 +84,10 @@ El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-M
 | `buscador` | Buscador de marcas y patentes | `buscadormarcas.inapi.cl` |
 
 **Relevancia del tipo para criterios:**
-- `tramites` **públicas:** aplicar Meta MEI con mayor peso en B, C, D; G1 según HTML estático (RUN/nombre ajeno = incumple).
-- `tramites` **con sesión (`captura_con_sesion: true`):** G1 calibrado en `CLAUDE.md` §19 — datos del solicitante en formulario = esperados; evaluar claridad de etiquetas y ayudas (B, C, F).
-- `sitioweb`: aplicar IEW; verificar A1–A9 (estructura editorial).
-- `buscador`: aplicar criterios de herramienta interactiva; A4/A5 frecuentemente `no_aplica`.
+- `tramites` **públicas:** aplicar Meta MEI con mayor peso en lenguaje plano / claridad / ortografía; RUN ajeno en HTML estático = incumple (`LC-1.1.7-01`).
+- `tramites` **con sesión (`captura_con_sesion: true`):** privacidad calibrada en `CLAUDE.md` §19 — datos del solicitante = esperados; evaluar claridad de etiquetas y ayudas.
+- `sitioweb`: aplicar IEW (15 indicadores LC); exclusivas IEW cuando correspondan.
+- `buscador`: herramienta interactiva; varios criterios de cuerpo editorial pueden ser `no_aplica`.
 
 ---
 
@@ -156,12 +100,12 @@ En el campo `comentario` del criterio:
 
 En el campo `nota_final_tic` (para TI INAPI):
 ```
-"Las correcciones de D7 aplican al _Layout.cshtml según el estándar Calidad Web 2.0 §5.2.4 del Gobierno de Chile. Afectan a todas las páginas del portal de tramitación que usan este layout compartido."
+"Las correcciones de mayúsculas sostenidas (LC-1.2.4-05) aplican al _Layout.cshtml según IEW/IESD escritura para la web. Afectan a todas las páginas del portal que usan este layout compartido."
 ```
 
 En el `resumen_ejecutivo`:
 ```
-"La evaluación aplica el Checklist Editorial INAPI v2.1 (47 criterios) con citas IEW, IESD, RLC y MEI."
+"La evaluación aplica el Checklist Editorial INAPI PTD-LC v3.0 (51 criterios por indicadores IEW/IESD) con citas IEW, IESD, RLC y MEI."
 ```
 
 ---
@@ -171,14 +115,14 @@ En el `resumen_ejecutivo`:
 Para obtener la cita normativa exacta antes de redactar el comentario:
 
 ```
-RAG colección A — query: "IEW 5.2.4 mayúsculas tipografía encabezados"
+RAG colección A — query: "IEW 1.2.4 mayúsculas tipografía encabezados"
 → Resultado esperado: fragmento de IEW/IESD (y/o RLC) que sustente la regla de mayúsculas.
 
-RAG colección A — query: "RLC §7 siglas acrónimos primera vez"
+RAG colección A — query: "RLC siglas acrónimos primera vez"
 → Resultado esperado: párrafo del PDF lenguaje-claro-recomendaciones.pdf
 
 RAG colección A — query: "MEI criterio lenguaje claro trámite digital"
 → Resultado esperado: fragmento del instrumento meta-mei.pdf sobre redacción en tramitación
 ```
 
-**Si el RAG no está disponible:** usar los campos `source` del `checklist-criteria.json` como referencia bibliográfica y formular el comentario indicando la sección del estándar sin cita textual.
+**Si el RAG no está disponible:** usar los campos `source` de `checklist-criteria-lc-ptd.json` como referencia bibliográfica y formular el comentario indicando la sección del estándar sin cita textual.

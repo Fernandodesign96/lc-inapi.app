@@ -1,7 +1,11 @@
 /**
  * ingest-b.ts — Ingesta Colección B: material de trabajo del repo
  *
- *   - data/checklist-criteria.json
+ *   - data/checklist-criteria-lc-ptd.json (vigente v3.0)
+ *   - data/checklist-criteria.json (histórico v2.1)
+ *   - data/checklist-editorial-ptd-v2.json
+ *   - docs/Checklist_Editorial_INAPI_v2_0_actualizado.extracted.md
+ *   - docs/checklist-ptd-v2-mapa.md
  *   - data/claude-audits/tramites/ (recursivo, archivos .json)
  *   - data/claude-audits/sitioweb/ (recursivo, archivos .json)
  *   - docs/adr/*.md
@@ -12,7 +16,7 @@
  * IMPORTANTE: ejecutar ANTES de ingest:a (los datos del repo ya existen).
  * NUNCA incluir en esta colección: RUT de personas naturales, expedientes,
  * credenciales ni resultados del buscador de anterioridades (ver SECURITY.md).
-*/
+ */
 
 import { ChromaClient } from "chromadb";
 import { pipeline } from "@xenova/transformers";
@@ -92,15 +96,29 @@ async function main() {
 
   let totalChunks = 0;
 
-  // 1. checklist-criteria.json
-  const checklistPath = join(REPO_ROOT, "data", "checklist-criteria.json");
-  if (existsSync(checklistPath)) {
-    const n = await ingestFile(collection, embedder, checklistPath, "checklist");
+  const repoDocs: Array<{ rel: string; tipo: string }> = [
+    { rel: "data/checklist-criteria-lc-ptd.json", tipo: "checklist_lc_ptd" },
+    { rel: "data/checklist-criteria.json", tipo: "checklist_historico_v21" },
+    { rel: "data/checklist-editorial-ptd-v2.json", tipo: "checklist_ptd_hitos" },
+    {
+      rel: "docs/Checklist_Editorial_INAPI_v2_0_actualizado.extracted.md",
+      tipo: "checklist_editorial_docx",
+    },
+    { rel: "docs/checklist-ptd-v2-mapa.md", tipo: "checklist_ptd_mapa" },
+  ];
+
+  for (const doc of repoDocs) {
+    const full = join(REPO_ROOT, doc.rel);
+    if (!existsSync(full)) {
+      console.warn(`⚠ no encontrado: ${doc.rel}`);
+      continue;
+    }
+    const n = await ingestFile(collection, embedder, full, doc.tipo);
     totalChunks += n;
-    console.log(`✓ checklist-criteria.json (${n} chunks)`);
+    console.log(`✓ ${doc.rel} (${n} chunks)`);
   }
 
-  // 2. JSONs canónicos (Meta MEI + fecha)
+  // JSONs canónicos (Meta MEI + fecha)
   const auditJsons = await glob("data/claude-audits/{tramites,sitioweb}/**/*.json", {
     cwd: REPO_ROOT,
   });
@@ -117,7 +135,7 @@ async function main() {
     console.log(`✓ ${f} (${n} chunks)`);
   }
 
-  // 3. ADRs
+  // ADRs
   const adrs = await glob("docs/adr/*.md", { cwd: REPO_ROOT });
   for (const f of adrs) {
     const n = await ingestFile(collection, embedder, join(REPO_ROOT, f), "adr");
@@ -126,7 +144,9 @@ async function main() {
   }
 
   console.log(`\n=== Ingesta Colección B completada: ${totalChunks} chunks totales ===`);
-  console.log(`Archivos: 1 checklist + ${auditCount} auditorías + ${adrs.length} ADRs`);
+  console.log(
+    `Archivos: ${repoDocs.length} catálogos/docs + ${auditCount} auditorías + ${adrs.length} ADRs`,
+  );
 }
 
 main().catch((e) => {

@@ -2,7 +2,7 @@
 
 > **Default META MEI / reauditoría §20:** una sesión Claude Code = **una URL**.
 > Para 2 URLs hermanas (opcional) o lotes legacy, ver `audit-lote.md` (máx. 2 recomendado; 5 solo smoke).
-> Referencias: `.claude/CLAUDE.md` §12, §17, §20, §21 · skills `auditoria-lc.md`.
+> Referencias: `.claude/CLAUDE.md` §12, §17, §20, §21, **§22**, **§23** · skills `auditoria-lc.md` · `data/checklist-editorial-ptd-v2.json` · mapa `docs/checklist-ptd-v2-mapa.md`.
 
 ---
 
@@ -36,7 +36,11 @@ TODO: completar
 
 ### Principio rector
 
-Cada criterio del checklist es una **pregunta del instrumento** (IEW/IESD/RLC). Debes **responderla con evidencia**, no solo proponer un texto genérico. La fila en `sustituciones[]` es la consecuencia editorial de un `incumple`, no el sustituto de la pregunta.
+Cada criterio A–H responde **preguntas del Checklist Editorial PTD v2.0** (Hito → Tarea → Indicador → Pregunta en `data/checklist-editorial-ptd-v2.json`, Dimensión LC) y del instrumento IEW/IESD (`docs/checklist-ptd-v2-mapa.md`). Debes **responderlas con evidencia**, no solo proponer un texto genérico. La fila en `sustituciones[]` es la consecuencia editorial de un `incumple`.
+
+**Alcance META MEI 2026:** solo **Lenguaje claro** (**51** criterios / indicadores IEW·IESD, `version_checklist: "3.0"`). No puntuar Usabilidad (**18**) ni Seguridad (**10**) en el % (CLAUDE.md §23).
+
+**Audiencia:** quien implementa correcciones en Sitefinity/CMS. **Ninguna casilla vacía** (§22.8). **Realismo** (§22.9).
 
 ### Paso A — Captura (Playwright MCP, una vez)
 
@@ -58,17 +62,16 @@ Generar `texto_capturado` (T001…) con **dos capas explícitas**:
 | Capa | Qué inventariar | Sirve a |
 | --- | --- | --- |
 | **R** Redacción | H1–H3, párrafos, CTAs, menús, footer, modales, glosas | B, C, parte A/E/F |
-| **U** Chrome UI / formato | Fechas visibles, listas/viñetas, alineación, espacios, enlaces PDF (título/formato/peso/desc), `alt`, encabezados de escaneo | D3–D5, D4, A9, E3, F4, H1 |
+| **U** Chrome UI / formato | Fechas visibles, listas/viñetas, alineación, espacios, enlaces PDF (título/formato/peso/desc), `alt`, encabezados de escaneo | Legibilidad, Escritura web, Actualización, Archivo |
 
 Solo **VISIBLE**. Sin `<title>` / `<meta>` / OG como evidencia de criterios.
 
-### Paso C — RAG (antes de los subagentes)
+### Paso C — RAG + catálogo PTD LC (antes de los subagentes)
 
-Por URL (agente raíz o cada grupo, sin saturar):
-
-1. Colección **A**: fundamento del `source` de los criterios dudosos del grupo.
-2. Colección **B**: precedentes de la misma URL o patrón (home, marcas, formulario…).
-3. No volcar PDFs enteros al chat: consultas puntuales vía MCP RAG.
+1. Cargar `data/checklist-criteria-lc-ptd.json` (**51** criterios) y, para hitos, `data/checklist-editorial-ptd-v2.json` (CL1).
+2. Colección **A**: fundamento del `source` de los criterios dudosos del grupo.
+3. Colección **B**: precedentes + Word/mapa PTD (`Checklist_Editorial_…extracted.md`, `checklist-ptd-v2-mapa.md`).
+4. No volcar PDFs enteros al chat: consultas puntuales vía MCP RAG.
 
 ### Paso D — 5 sub-subagentes en paralelo (§17)
 
@@ -76,25 +79,25 @@ Cada uno recibe: inventario R+U, URL, tipo, fecha, sesión, §20/§21, skill de 
 
 | Grupo | Criterios | Énfasis de evidencia |
 | --- | --- | --- |
-| 1 | A1–A9, E1–E4 | Estructura, A9 escaneo, E3 fecha visible, E4 = H1 |
-| 2 | B1–B8, C1–C9 | Lenguaje; no marcar `cumple` sin releer citas |
-| 3 | D1–D7 | Typos + D3/D4 con estilo computado si es dudoso |
-| 4 | F1–F6 | F4 completo (4 elementos); F6 relacionados |
-| 5 | G1–G3, H1 | §19 si sesión; alts / archivo |
+| 1 | LC-1.1.1-*, LC-1.1.2-*, LC-1.1.4-*, LC-1.3.* | Completitud, fecha visible, objetividad, archivo, visualización |
+| 2 | LC-1.1.3-01…06 | Lenguaje plano / Legible / siglas |
+| 3 | LC-1.1.5-*, LC-1.2.1-*, LC-5.2.1-01, LC-1.2.2-*, LC-5.2.2-01 | Ortografía, claridad, concisión |
+| 4 | LC-1.2.3-*, LC-1.2.4-*, LC-5.2.4-01 | Legibilidad; PDF 4 elementos; rótulos IESD |
+| 5 | LC-1.1.6-*, LC-1.1.7-*, LC-1.1.8-* | §19 si sesión; PI; ARCO; sensibles |
 
 **Instrucción obligatoria a cada subagente:**
 
-> Evalúa SOLO tus criterios. Para **cada** id: (1) estado que **responde la pregunta** del instrumento (`criterion`/`verification` en el checklist), (2) evidencia concreta (Tnnn, atributo, estilo, ausencia) o `no_aplica` con `comentario`, (3) si `incumple` → fila(s) en `sustituciones[]` con `ubicacion_pantalla` en ruta de pantalla (no solo Tnnn), `propuesto` listo para pegar o instrucción concreta, `motivo` en 1–3 frases para editor CMS, y `capa: "VISIBLE"` (CLAUDE.md §22). Prohibido `cumple` por omisión, “parece bien”, o `propuesto` vago del tipo “mejorar la claridad”. No calcules el % total ni escribas el JSON completo.
+> Evalúa SOLO tus criterios (CLAUDE.md §20–§23 + skill auditoria-lc). Usa ids `LC-*` y `display_label` de `checklist-criteria-lc-ptd.json`. Para **cada** id: (1) estado que responde la pregunta, (2) `comentario` **no vacío**, (3) si `incumple` → sustitución §22. No puntúes Usabilidad/Seguridad. Realismo §22.9. No calcules el % total ni escribas el JSON completo.
 
 ### Paso E — Consolidación (agente raíz)
 
-1. Unir → exactamente **47** criterios orden A1…H1.
+1. Unir → exactamente **51** criterios orden del catálogo LC-PTD; `version_checklist: "3.0"`.
 2. Aplicar §20.3 cruces solo si **toda** la evidencia del secundario es el mismo nodo/texto que el primario (`agrupado_en` / `criterios_relacionados`).
 3. `patron_sistema: true` en shell Layout (sigue descontando).
 4. Cobertura 1:1 `incumple` ↔ `sustituciones[]` (salvo agrupados documentados).
-5. **Pase §22:** reescribir sustituciones ilegibles (ubicación solo técnica, propuesto genérico, motivo con jerga de orquestación).
+5. **Pase §22 duro (§22.12) + gate PTD-LC (§23.5):** reescribir si hay `comentario` vacío, ubicación solo técnica, propuesto genérico; confirmar **51** filas y **cero** score de Usabilidad/Seguridad.
 6. Calcular % / `estado_aceptacion` con `summarizeEvaluations` (respetar agrupados).
-7. `resumen_ejecutivo` y `nota_final_tic` en lenguaje claro (§20.5 + §22).
+7. `resumen_ejecutivo` y `nota_final_tic` en lenguaje claro (§20.5 + §22); cobertura PTD-LC **51**; sin score US (**18**) / SE (**10**).
 
 ### Paso F — Guardado, cableado, validación, commit
 

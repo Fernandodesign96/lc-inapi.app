@@ -1,4 +1,5 @@
-import checklistCriteriaFile from "../../../data/checklist-criteria.json"
+import checklistCriteriaV21 from "../../../data/checklist-criteria.json"
+import checklistCriteriaV30 from "../../../data/checklist-criteria-lc-ptd.json"
 
 export type ChecklistCriterionCatalogRow = {
   id: string
@@ -7,27 +8,40 @@ export type ChecklistCriterionCatalogRow = {
   criterion: string
   verification: string
   source: string
+  display_label?: string
+  indicator_name?: string
 }
 
-
-/** Texto para la columna «Criterio»: id + enunciado del catálogo (v1.1). Si falta el id en el catálogo, devuelve solo el id. */
+/** Texto para la columna «Criterio»: preferir display_label v3.0; si no, id + enunciado. */
 export function formatCriterioEnunciado(id: string): string {
-    const row = getCriterionCatalogRow(id)
-    if (!row) return id
-    return `${id} ${row.criterion}`
-  }
-  
-  /** Texto para la columna «Sección»; «—» si el id no está en el catálogo. */
-  export function formatSeccionTitulo(id: string): string {
-    return getCriterionCatalogRow(id)?.section_title ?? "—"
-  }
+  const row = getCriterionCatalogRow(id)
+  if (!row) return id
+  if (row.display_label) return row.display_label
+  return `${id} ${row.criterion}`
+}
 
-const criteria = checklistCriteriaFile.criteria as ChecklistCriterionCatalogRow[]
+/** Texto para la columna «Sección»; indicador o section_title; «—» si falta. */
+export function formatSeccionTitulo(id: string): string {
+  const row = getCriterionCatalogRow(id)
+  if (!row) return "—"
+  return row.indicator_name ?? row.section_title
+}
 
-/** Mapa id de criterio (A1…H1) → fila del catálogo checklist v1.1 */
-export const CRITERION_CATALOG_BY_ID = new Map<string, ChecklistCriterionCatalogRow>(
-  criteria.map((row) => [row.id, row]),
-)
+const criteria = [
+  ...(checklistCriteriaV30.criteria as ChecklistCriterionCatalogRow[]),
+  ...(checklistCriteriaV21.criteria as ChecklistCriterionCatalogRow[]),
+]
+
+/** Mapa id → fila (v3.0 primero; v2.1 rellena históricos A–H). */
+export const CRITERION_CATALOG_BY_ID = new Map<
+  string,
+  ChecklistCriterionCatalogRow
+>()
+for (const row of criteria) {
+  if (!CRITERION_CATALOG_BY_ID.has(row.id)) {
+    CRITERION_CATALOG_BY_ID.set(row.id, row)
+  }
+}
 
 export function getCriterionCatalogRow(
   id: string,

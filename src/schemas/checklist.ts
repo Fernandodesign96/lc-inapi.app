@@ -1,10 +1,69 @@
 import { z } from "zod"
 
 /**
- * IDs oficiales del Checklist Editorial INAPI v2.1 (47 criterios).
- * Fuente: `data/checklist-criteria.json` (Word v2.1 / ago-2026).
+ * IDs oficiales META MEI 2026 — Lenguaje claro PTD (51 preguntas / indicadores IEW·IESD).
+ * Fuente: `data/checklist-criteria-lc-ptd.json` · nomenclatura `LC-{indicador}-{nn}`.
+ * Auditorías nuevas: `version_checklist: "3.0"`.
  */
-export const CRITERION_IDS = [
+export const CRITERION_IDS_V30 = [
+  "LC-1.1.1-01",
+  "LC-1.1.2-01",
+  "LC-1.1.2-02",
+  "LC-1.1.2-03",
+  "LC-1.1.2-04",
+  "LC-1.1.3-01",
+  "LC-1.1.3-02",
+  "LC-1.1.3-03",
+  "LC-1.1.3-04",
+  "LC-1.1.3-05",
+  "LC-1.1.3-06",
+  "LC-1.1.4-01",
+  "LC-1.1.5-01",
+  "LC-1.1.5-02",
+  "LC-1.1.5-03",
+  "LC-1.1.6-01",
+  "LC-1.1.6-02",
+  "LC-1.1.7-01",
+  "LC-1.1.7-02",
+  "LC-1.1.7-03",
+  "LC-1.1.8-01",
+  "LC-1.1.8-02",
+  "LC-1.1.8-03",
+  "LC-1.2.1-01",
+  "LC-5.2.1-01",
+  "LC-1.2.1-02",
+  "LC-1.2.1-03",
+  "LC-1.2.1-04",
+  "LC-1.2.1-05",
+  "LC-1.2.2-01",
+  "LC-5.2.2-01",
+  "LC-1.2.2-02",
+  "LC-1.2.2-03",
+  "LC-1.2.2-04",
+  "LC-1.2.2-05",
+  "LC-1.2.3-01",
+  "LC-1.2.3-02",
+  "LC-1.2.3-03",
+  "LC-1.2.4-01",
+  "LC-1.2.4-02",
+  "LC-1.2.4-03",
+  "LC-1.2.4-04",
+  "LC-1.2.4-05",
+  "LC-1.2.4-06",
+  "LC-5.2.4-01",
+  "LC-1.2.4-07",
+  "LC-1.2.4-08",
+  "LC-1.3.1-01",
+  "LC-1.3.2-01",
+  "LC-1.3.2-02",
+  "LC-1.3.3-01",
+] as const
+
+/**
+ * IDs históricos Checklist Editorial INAPI v2.1 (47 criterios A–H).
+ * Fuente: `data/checklist-criteria.json`. Solo para JSON ya emitidos (no auditorías nuevas).
+ */
+export const CRITERION_IDS_V21 = [
   "A1",
   "A2",
   "A3",
@@ -54,6 +113,9 @@ export const CRITERION_IDS = [
   "H1",
 ] as const
 
+/** Alias histórico — preferir `CRITERION_IDS_V21` / `CRITERION_IDS_V30`. */
+export const CRITERION_IDS = CRITERION_IDS_V21
+
 /** IDs históricos v1.1 (39) — auditorías y fixtures previos a v2.1. */
 export const CRITERION_IDS_V11 = [
   "A1",
@@ -97,12 +159,29 @@ export const CRITERION_IDS_V11 = [
   "H1",
 ] as const
 
-export const CRITERION_COUNT = CRITERION_IDS.length
+export const CRITERION_COUNT_V30 = CRITERION_IDS_V30.length
+export const CRITERION_COUNT_V21 = CRITERION_IDS_V21.length
+/** @deprecated Usar CRITERION_COUNT_V21; demos/fixtures siguen en 47. */
+export const CRITERION_COUNT = CRITERION_COUNT_V21
 export const CRITERION_COUNT_V11 = CRITERION_IDS_V11.length
 
-export type CriterionId = (typeof CRITERION_IDS)[number]
+export type CriterionIdV30 = (typeof CRITERION_IDS_V30)[number]
+export type CriterionIdV21 = (typeof CRITERION_IDS_V21)[number]
+export type CriterionId =
+  | CriterionIdV30
+  | CriterionIdV21
+  | (typeof CRITERION_IDS_V11)[number]
 
-export const criterionIdSchema = z.enum(CRITERION_IDS)
+const KNOWN_CRITERION_IDS = new Set<string>([
+  ...CRITERION_IDS_V30,
+  ...CRITERION_IDS_V21,
+  ...CRITERION_IDS_V11,
+])
+
+export const criterionIdSchema = z.string().refine(
+  (id): id is CriterionId => KNOWN_CRITERION_IDS.has(id),
+  { message: "id de criterio desconocido (no está en v3.0 / v2.1 / v1.1)" },
+)
 
 export const checklistApplicabilitySchema = z.enum([
   "ambos",
@@ -112,8 +191,9 @@ export const checklistApplicabilitySchema = z.enum([
 
 export type ChecklistApplicability = z.infer<typeof checklistApplicabilitySchema>
 
+/** Criterio v2.1 (secciones A–H). */
 export const checklistCriterionSchema = z.object({
-  id: criterionIdSchema,
+  id: z.enum(CRITERION_IDS_V21),
   section_id: z.enum(["A", "B", "C", "D", "E", "F", "G", "H"]),
   section_title: z.string().min(1),
   criterion: z.string().min(1),
@@ -125,11 +205,42 @@ export const checklistCriterionSchema = z.object({
 export const checklistCriteriaFileSchema = z.object({
   checklist_version: z.string().min(1),
   title: z.string().min(1),
-  criteria: z.array(checklistCriterionSchema).length(CRITERION_COUNT),
+  criteria: z.array(checklistCriterionSchema).length(CRITERION_COUNT_V21),
 })
+
+/** Criterio v3.0 PTD-LC (indicadores IEW/IESD). */
+export const checklistCriterionLcPtdSchema = z.object({
+  id: z.enum(CRITERION_IDS_V30),
+  indicator_code_iew: z.string().nullable(),
+  indicator_code_iesd: z.string().nullable(),
+  indicator_code_display: z.string().min(1),
+  indicator_name: z.string().min(1),
+  section_id: z.string().min(1),
+  section_title: z.string().min(1),
+  criterion: z.string().min(1),
+  verification: z.string().min(1),
+  display_label: z.string().min(1),
+  source: z.string().min(1),
+  applicability: checklistApplicabilitySchema,
+  criticidad: z.enum(["imprescindible", "esperable", "deseable"]),
+  dimension: z.literal("lenguaje_claro"),
+})
+
+export const checklistCriteriaLcPtdFileSchema = z
+  .object({
+    checklist_version: z.literal("3.0"),
+    title: z.string().min(1),
+    criterion_count: z.literal(CRITERION_COUNT_V30),
+    criteria: z.array(checklistCriterionLcPtdSchema).length(CRITERION_COUNT_V30),
+  })
+  .passthrough()
 
 export type ChecklistCriterion = z.infer<typeof checklistCriterionSchema>
 export type ChecklistCriteriaFile = z.infer<typeof checklistCriteriaFileSchema>
+export type ChecklistCriterionLcPtd = z.infer<typeof checklistCriterionLcPtdSchema>
+export type ChecklistCriteriaLcPtdFile = z.infer<
+  typeof checklistCriteriaLcPtdFileSchema
+>
 
 /** Estado por criterio tras una evaluación (humana o asistida por IA). */
 export const criterionResultStateSchema = z.enum([
@@ -196,17 +307,38 @@ export function enrichCriterionEvaluationsForMock(
   })
 }
 
-/** Conjunto de IDs esperado según cantidad de filas (v1.1 = 39, v2.1 = 47). */
+/** Conjunto de IDs esperado según cantidad de filas (v3.0=51, v2.1=47, v1.1=39). */
 export function expectedCriterionIds(
   evaluationCount: number,
 ): readonly CriterionId[] {
-  if (evaluationCount === CRITERION_COUNT) return CRITERION_IDS
+  if (evaluationCount === CRITERION_COUNT_V30) {
+    return CRITERION_IDS_V30 as readonly CriterionId[]
+  }
+  if (evaluationCount === CRITERION_COUNT_V21) {
+    return CRITERION_IDS_V21 as readonly CriterionId[]
+  }
   if (evaluationCount === CRITERION_COUNT_V11) {
     return CRITERION_IDS_V11 as readonly CriterionId[]
   }
   throw new Error(
-    `Se esperaban ${CRITERION_COUNT_V11} (v1.1) o ${CRITERION_COUNT} (v2.1) evaluaciones, hay ${evaluationCount}`,
+    `Se esperaban ${CRITERION_COUNT_V30} (v3.0), ${CRITERION_COUNT_V21} (v2.1) o ${CRITERION_COUNT_V11} (v1.1) evaluaciones, hay ${evaluationCount}`,
   )
+}
+
+/** IDs canónicos según `version_checklist` del JSON de auditoría. */
+export function criterionIdsForChecklistVersion(
+  version: string,
+): readonly CriterionId[] {
+  if (version === "3.0" || version.startsWith("3.")) {
+    return CRITERION_IDS_V30 as readonly CriterionId[]
+  }
+  if (version === "2.1" || version.startsWith("2.")) {
+    return CRITERION_IDS_V21 as readonly CriterionId[]
+  }
+  if (version === "1.1" || version.startsWith("1.")) {
+    return CRITERION_IDS_V11 as readonly CriterionId[]
+  }
+  return CRITERION_IDS_V30 as readonly CriterionId[]
 }
 
 export const criterionEvaluationSchema = z.object({
@@ -296,10 +428,14 @@ export function summarizeEvaluations(
 const criteriosEvaluadosSchema = z
   .array(criterionEvaluationSchema)
   .superRefine((arr, ctx) => {
-    if (arr.length !== CRITERION_COUNT && arr.length !== CRITERION_COUNT_V11) {
+    const ok =
+      arr.length === CRITERION_COUNT_V30 ||
+      arr.length === CRITERION_COUNT_V21 ||
+      arr.length === CRITERION_COUNT_V11
+    if (!ok) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: `criterios_evaluados debe tener ${CRITERION_COUNT_V11} (v1.1) o ${CRITERION_COUNT} (v2.1) filas; hay ${arr.length}`,
+        message: `criterios_evaluados debe tener ${CRITERION_COUNT_V30} (v3.0), ${CRITERION_COUNT_V21} (v2.1) o ${CRITERION_COUNT_V11} (v1.1) filas; hay ${arr.length}`,
       })
     }
   })
@@ -313,9 +449,9 @@ export const auditRecordSchema = z.object({
   version_checklist: z.string().min(1),
   texto_capturado: z.string(),
   criterios_evaluados: criteriosEvaluadosSchema,
-  criterios_aprobados: z.number().int().min(0).max(CRITERION_COUNT),
-  criterios_aplicables: z.number().int().min(0).max(CRITERION_COUNT),
-  criterios_no_aplica: z.number().int().min(0).max(CRITERION_COUNT),
+  criterios_aprobados: z.number().int().min(0).max(CRITERION_COUNT_V30),
+  criterios_aplicables: z.number().int().min(0).max(CRITERION_COUNT_V30),
+  criterios_no_aplica: z.number().int().min(0).max(CRITERION_COUNT_V30),
   porcentaje_cumplimiento: z.number().min(0).max(100),
   estado_aceptacion: acceptanceStatusSchema,
   texto_propuesto: z.string().optional(),
@@ -360,6 +496,12 @@ export type StrictAuditRecord = z.infer<typeof strictAuditRecordSchema>
 
 export function parseChecklistCriteriaFile(data: unknown): ChecklistCriteriaFile {
   return checklistCriteriaFileSchema.parse(data)
+}
+
+export function parseChecklistCriteriaLcPtdFile(
+  data: unknown,
+): ChecklistCriteriaLcPtdFile {
+  return checklistCriteriaLcPtdFileSchema.parse(data)
 }
 
 export function parseAuditRecord(data: unknown): AuditRecord {

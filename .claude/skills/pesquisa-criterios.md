@@ -14,25 +14,25 @@ ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
 
 ---
 
-## Fuente primaria: `checklist-criteria.json`
+## Fuente primaria: `checklist-criteria-lc-ptd.json`
 
-**SIEMPRE consultar primero `./data/checklist-criteria.json`.**
+**SIEMPRE consultar primero `./data/checklist-criteria-lc-ptd.json`.**
 
-Este archivo es la **fuente de verdad** de los 47 criterios (v2.1). Tiene la definición exacta de cada criterio, su sección, su instrucción de verificación, la fuente normativa (`source`) y la aplicabilidad (`ambos` / `sitioweb` / `tramites`).
+Este archivo es la **fuente de verdad** de los **51** criterios LC (v3.0): indicador, pregunta (`criterion` / `display_label`), `source`, `applicability` y criticidad.
+
+Histórico A–H: `./data/checklist-criteria.json` (solo para interpretar JSON ya emitidos v2.1).
 
 No usar solo el RAG para criterios — el JSON es la fuente de verdad.
 
-Al citar un criterio hacia Equipo UX / TIC, preferir el texto de `criterion` + `verification` (la **pregunta**) y, en hallazgos, el formato de entrega §22 de CLAUDE.md (ubicación humana + propuesto accionable).
+Al citar un criterio hacia Equipo UX / TIC, preferir el `display_label` (Indicador + pregunta) y el formato de entrega §22 de CLAUDE.md.
 
 ```json
-// Estructura de cada criterio en el JSON:
+// Estructura de cada criterio en el JSON v3.0:
 {
-  "id": "B3",
-  "section_id": "B",
-  "section_title": "Lenguaje claro",
-  "criterion": "Las siglas y acrónimos están definidos la primera vez que aparecen",
-  "verification": "«Tratado de Cooperación en materia de Patentes (PCT)» en lugar de solo «PCT».",
-  "source": "RLC §7, IEW 5.1.3, IESD 5.1.3",
+  "id": "LC-1.1.3-05",
+  "indicator_name": "Lenguaje plano",
+  "display_label": "Lenguaje plano 1.1.3 / 5.1.3 — Criterio: ¿Se define cada sigla…?",
+  "criterion": "¿Se define cada sigla y acrónimo…?",
   "applicability": "ambos"
 }
 ```
@@ -85,10 +85,14 @@ Ejemplos de queries efectivas:
 **Propósito:** buscar cómo se evaluó un criterio en URLs ya auditadas y detectar patrones recurrentes.
 
 **Contenido de Colección B** (fuente: `docs/adr/0010`):
-- `data/checklist-criteria.json` — los 47 criterios del checklist v2.1
-- `data/claude-audits/**/*.json` — auditorías canónicas (históricas v1.1 = 39 filas; nuevas v2.1 = 47)
+- `data/checklist-criteria-lc-ptd.json` — los **51** criterios LC v3.0 (vigente)
+- `data/checklist-editorial-ptd-v2.json` — Hitos → Tareas → Preguntas PTD (LC activa 2026; US/SE catalogadas)
+- `data/checklist-criteria.json` — histórico 47 A–H (solo JSON ya emitidos)
+- `data/claude-audits/**/*.json` — auditorías (v3.0 = 51; históricas v2.1 = 47; v1.1 = 39)
 - `data/claude-audits/urls-clarity/*.json` — serie Clarity (5 URLs disponibles jun 2026)
 - `docs/adr/*.md` — decisiones arquitectónicas del proyecto
+- `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` (+ `.extracted.md`) — checklist editorial humano
+- `docs/checklist-ptd-v2-mapa.md` — inventario IEW↔IESD por indicador
 
 **URLs ya auditadas en Colección B (piloto jun 2026):**
 - `tramites-inapi-cl` (57.6% → rechazado)
@@ -131,7 +135,7 @@ cat data/claude-audits/tramites-inapi-cl_2026-06-07.json | jq '.criterios_evalua
 Para justificar una evaluación con máxima solidez:
 
 ```
-1. Leer la definición en checklist-criteria.json → obtener el campo `source`
+1. Leer la definición en `checklist-criteria-lc-ptd.json` → obtener el campo `source`
 2. RAG colección A: buscar "{code} {concept}" → cita normativa completa
 3. RAG colección B: buscar "{code} {url-similar}" → ver precedente de evaluación
 4. Comparar HTML actual con el precedente → decidir incumple / cumple / no_aplica
@@ -151,7 +155,7 @@ portal de tramites."
 
 ## Cuándo NO necesitas el RAG
 
-- Para los 47 criterios del checklist v2.1: basta con `checklist-criteria.json` + esta skill.
+- Para los **51** criterios LC v3.0: basta con `checklist-criteria-lc-ptd.json` + esta skill + Word/mapa PTD (§23).
 - Para los patrones sistémicos (D7, D1, F3, F4, E3, E4, B3, H1): están documentados en `auditoria-lc.md` con las calibraciones INAPI ya incorporadas.
 - Para decidir `no_aplica`: consultar primero la sección §16 de `CLAUDE.md` antes de abrir el RAG.
 - **Capturas con sesión autenticada:** el RAG no sustituye §19 de `CLAUDE.md`. No ingresar HTML con PII a Colección B; los precedentes deben ser JSON ya anonimizados del repo.

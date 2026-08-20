@@ -8,6 +8,10 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-21 | [Orquestación: catálogo PTD-LC v3.0 — 51 criterios por indicadores](#devlog-2026-08-21-ptd-lc-v30) |
+| 2026-08-21 | [Orquestación: Checklist PTD v2.0 → §23 Hito/Tarea/Pregunta LC](#devlog-2026-08-21-ptd-s23) |
+| 2026-08-21 | [Docs: mapa IEW/IESD completo LC·Usabilidad·Seguridad](#devlog-2026-08-21-mapa-iew-iesd) |
+| 2026-08-21 | [Orquestación: §22 reforzado copy accionable CMS + prompt oro](#devlog-2026-08-21-s22-copy-accionable) |
 | 2026-08-20 | [Docs/código: roles institucionales sin nombres de personas](#devlog-2026-08-20-roles-institucionales) |
 | 2026-08-20 | [Orquestación: §22 entrega legible + mapa Checklist Editorial PTD v2.0](#devlog-2026-08-20-entrega-legible-ptd) |
 | 2026-08-19 | [Frontend/MEI: Excel con 47 criterios y 5 categorías de presentación MEI](#devlog-2026-08-19-excel-47-categorias) |
@@ -81,6 +85,100 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-21-ptd-lc-v30"></a>
+## [2026-08-21] - Orquestación | Catálogo PTD-LC v3.0 — 51 criterios por indicadores
+
+**Rama:** `feat/orquestacion-s22-copy-accionable-cms`
+
+### Contexto y objetivos:
+
+Dejar atrás A1–H1 como nomenclatura y estructura primaria de Claude. Las auditorías nuevas usan **51** criterios agrupados en **15 indicadores IEW** / **13 IESD**, con ids `LC-*` y `display_label` tipo «Fiabilidad 1.1.1 / 5.1.1 — Criterio: …». El Word PTD y el mapa entran al RAG.
+
+### Implementación técnica:
+
+- `data/checklist-criteria-lc-ptd.json` (51) + generador `scripts/_gen_lc_ptd_criteria.py`.
+- Zod dual: v3.0 (51) + históricos v2.1 (47) / v1.1 (39) en `src/schemas/checklist.ts`; `validate-checklist-data` valida ambos.
+- `CLAUDE.md` §2/§17/§20/§22/§23; skills `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios`; prompts `audit-una-url`, `audit-oro-s22`.
+- `docs/checklist-ptd-v2-mapa.md` + conteos 38/10/3; Word → `docs/…extracted.md`; `rag/ingest-b.ts` ingesta catálogos + Word + mapa.
+- Excel/UI: catálogo fusionado; filas Excel según `version_checklist` de cada auditoría.
+
+### Próximos pasos:
+
+- Reauditorías oro con Claude Code (`version_checklist: "3.0"`, 51 filas).
+- Re-ingestar Colección B (`bun run ingest:b`) cuando Chroma esté arriba.
+
+---
+
+<a id="devlog-2026-08-21-ptd-s23"></a>
+## [2026-08-21] - Orquestación | Checklist PTD v2.0 actualizado → §23 (LC 2026)
+
+**Rama:** `feat/orquestacion-s22-copy-accionable-cms`
+
+### Contexto y objetivos:
+
+El Word `Checklist_Editorial_INAPI_v2_0_actualizado.docx` quedó alineado con todas las preguntas IEW/IESD de LC, Usabilidad y Seguridad. Claude Code debe auditar con la estructura **Hito → Tarea → Pregunta**, con énfasis META MEI 2026 solo en Lenguaje claro; Usabilidad/Seguridad después del Excel LC.
+
+### Implementación técnica:
+
+- Versionar el Word en `docs/` y generar `data/checklist-editorial-ptd-v2.json` (CL1/US2/SE8 + mapeo indicador→A–H + reglas).
+- Conteos oficiales de preguntas **únicas**: LC **51** · Usabilidad **18** · Seguridad **10** (total **79**); documentados en JSON `conteos_preguntas_unicas` y CLAUDE.md §23.1.1.
+- `CLAUDE.md` **§23**; skills `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios`; prompts `audit-una-url` y `audit-oro-s22`; mapa PTD actualizado.
+- Score / Excel de auditorías **nuevas**: **51** filas `LC-*` (`version_checklist: "3.0"`). El puente A–H quedó obsoleto para emisión nueva (ver entrada PTD-LC v3.0).
+
+### Próximos pasos:
+
+- Muestra oro + reauditorías LC 10 URLs; Excel MEI coherente.
+- Luego skills/pasadas Usabilidad y Seguridad para cierre de año.
+
+---
+
+<a id="devlog-2026-08-21-mapa-iew-iesd"></a>
+## [2026-08-21] - Documentación | Mapa IEW/IESD: preguntas LC · Usabilidad · Seguridad
+
+**Rama:** `feat/orquestacion-s22-copy-accionable-cms`
+
+### Contexto y objetivos:
+
+El mapa PTD solo resumía indicadores. Para reforzar la orquestación Claude Code hace falta el inventario **pregunta a pregunta** de los instrumentos oficiales de sitios web (IEW) y servicios digitales (IESD), con numeración de dimensión distinta en cada PDF.
+
+### Implementación técnica:
+
+- Reescritura de `docs/checklist-ptd-v2-mapa.md`: todas las preguntas de chequeo de LC (IEW §1 / IESD §5), Usabilidad (IEW §2 / IESD §1) y Seguridad (IEW §8 / IESD §7), con códigos duales, variantes solo-IEW o solo-IESD, y columna motor A–H donde aplica.
+- Usabilidad/Seguridad siguen fuera del % §17 2026; G2 enlaza política de privacidad como contenido.
+
+### Próximos pasos:
+
+- Briefs de subagentes y muestra oro apoyados en este mapa.
+- No mezclar Usabilidad/Seguridad en el score LC sin decisión explícita.
+
+---
+
+<a id="devlog-2026-08-21-s22-copy-accionable"></a>
+## [2026-08-21] - Orquestación | §22 reforzado: copy accionable CMS + realismo PTD
+
+**Rama:** `feat/orquestacion-s22-copy-accionable-cms` (desde `main`)
+
+### Contexto y objetivos:
+
+La reunión jefatura + Equipo UX pidió que propuesto / justificación / ubicación sean accionables para quien corrige en CMS; ninguna casilla vacía; y que el mapa PTD refuerce los 47 criterios sin forzar correcciones ilógicas (p. ej. A7 sobre atajos de menú; B3 con propuestas sutiles tipo tooltip).
+
+### Implementación técnica:
+
+- `CLAUDE.md` §22.8–§22.12: casillas no vacías; realismo A7/B3/navegación; cruces con justificación propia sin inventar defectos; plantillas E3/F4; gate duro de consolidación.
+- Skill `auditoria-lc.md`, `audit-una-url.md` y `docs/checklist-ptd-v2-mapa.md` alineados a esas reglas.
+- Prompt listo para Claude Code: `.claude/prompts/audit-oro-s22.md` (Portada + noticia cifra patentes, fecha `2026-08-21`).
+
+### 💡 Repaso técnico: realismo vs cobertura 47
+
+Cubrir los 47 criterios significa **responder cada pregunta** con evidencia, no inventar un `incumple` por fila. Labels de menú no son párrafos: A7 se evalúa en el cuerpo; B3 en navegación admite tooltip/WCAG sin congestionar el ítem.
+
+### Próximos pasos:
+
+- Ejecutar en Claude Code las 2 URLs oro (`audit-oro-s22.md`); validar + commit atómico por URL.
+- Revisar muestra con Equipo UX; luego Excel MEI completo y/o doc TI.
 
 ---
 

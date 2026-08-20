@@ -8,26 +8,62 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 
 ## 1. Dominio del proyecto
 
-- **Qué hace:** automatiza la auditoría del Checklist Editorial INAPI v2.1 (47 criterios A1–H1) sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
+- **Qué hace:** automatiza la auditoría de **Lenguaje claro** del Checklist Editorial INAPI PTD v2.0 / catálogo máquina **v3.0** — **51 preguntas únicas** (criterios) agrupadas en **15 indicadores IEW** (sitios web) y **13 indicadores IESD** (servicios digitales), sobre URLs de `inapi.cl` y `tramites.inapi.cl`. Fuentes: `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx`, `data/checklist-criteria-lc-ptd.json`, `data/checklist-editorial-ptd-v2.json` (§23). Usabilidad (18) y Seguridad (10) catalogadas para después del Excel LC.
 - **Resultado de cada auditoría:** un JSON canónico con 7 secciones (ver §4) que alimenta el frontend en `/auditar/resultado` y genera un informe PDF institucional.
-- **Estado actual (jul 2026):** Fases 0–3 completadas en WSL (Playwright + RAG + flujo sub-subagentes). Fase 3.3 en curso: captura autenticada ClaveÚnica y calibración de datos de sesión (`docs/fase-3-3-captura-auth-claveunica.md`). MVP: 9 URLs piloto + 13/17 serie Clarity con JSON.
+- **Estado actual (ago 2026):** Fases 0–3 completadas en WSL (Playwright + RAG + flujo sub-subagentes). Nomenclatura vigente = indicadores + pregunta (`LC-*`); A1–H1 queda solo en JSON históricos v2.1. Fase 3.3: captura autenticada ClaveÚnica (`docs/fase-3-3-captura-auth-claveunica.md`).
 
 ---
 
-## 2. Checklist v2.1 — 47 criterios
+## 2. Checklist PTD-LC v3.0 — 51 criterios por indicadores
 
-| Sección | IDs | Título |
-| --- | --- | --- |
-| A | A1–A9 | Estructura y organización del contenido |
-| B | B1–B8 | Lenguaje claro |
-| C | C1–C9 | Redacción y concisión |
-| D | D1–D7 | Ortografía, gramática y formato |
-| E | E1–E4 | Objetividad, autoría y fiabilidad |
-| F | F1–F6 | Enlaces y referencias |
-| G | G1–G3 | Datos personales y propiedad intelectual |
-| H | H1 | Archivo y versionado |
+**Fuente de verdad (auditorías nuevas):** `data/checklist-criteria-lc-ptd.json` · `version_checklist: "3.0"` · exactamente **51** filas en `criterios_evaluados[]`.
 
-**Fuente de verdad:** `data/checklist-criteria.json` (incluye `criterion`, `verification`, `source` y `applicability` por criterio). Nuevas auditorías: **47** filas y `version_checklist: "2.1"`. Las JSON históricas v1.1 (39) siguen válidas.
+**Nomenclatura:** `{Indicador} {código IEW/IESD} — Criterio: {pregunta del instrumento}`.  
+**ID máquina:** `LC-{código}-{nn}` (ej. `LC-1.1.1-01`). En `sustituciones[].criterio_id` y en la UI/Excel usar el **id** + el `display_label` del catálogo.
+
+**Obligatorio:** ejecutar siempre las **51** preguntas únicas aplicables a la URL (no inventar un 52.º; no omitir exclusivas del instrumento). Conteos: **38** ambos · **10** solo IEW · **3** solo IESD (el listado UX «8 solo IEW» agrupa sensibles×3 como un tema).
+
+JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen válidos en validación; **no** emitir A1–H1 en auditorías nuevas.
+
+### 2.1 Instrumento sitios web (IEW §1) — 15 indicadores
+
+| Indicador | Código | Nivel | Criterios (IDs) |
+| --- | --- | --- | --- |
+| Fiabilidad | 1.1.1 | Imprescindible | LC-1.1.1-01 |
+| Completitud | 1.1.2 | Imprescindible | LC-1.1.2-01 … 04 |
+| Lenguaje plano | 1.1.3 | Imprescindible | LC-1.1.3-01 … 06 |
+| Actualización | 1.1.4 | Imprescindible | LC-1.1.4-01 |
+| Redacción y ortografía | 1.1.5 | Imprescindible | LC-1.1.5-01 … 03 (03 solo IEW) |
+| Propiedad intelectual | 1.1.6 | Imprescindible | LC-1.1.6-01 … 02 (02 solo IEW) |
+| Privacidad y datos personales | 1.1.7 | Imprescindible | LC-1.1.7-01 … 03 (01–02 solo IEW) |
+| Contenidos sensibles | 1.1.8 | Imprescindible | LC-1.1.8-01 … 03 (solo IEW) |
+| Claridad | 1.2.1 | Esperable | LC-1.2.1-01 … 05 |
+| Concisión | 1.2.2 | Esperable | LC-1.2.2-01 … 05 |
+| Legibilidad | 1.2.3 | Esperable | LC-1.2.3-01 … 03 |
+| Escritura para la web | 1.2.4 | Esperable | LC-1.2.4-01 … 08 (06 solo IEW) |
+| Visualización de la información | 1.3.1 | Deseable | LC-1.3.1-01 (solo IEW) |
+| Objetividad | 1.3.2 | Deseable | LC-1.3.2-01 … 02 (02 solo IEW) |
+| Archivo | 1.3.3 | Deseable | LC-1.3.3-01 |
+
+### 2.2 Instrumento servicios digitales (IESD §5) — 13 indicadores
+
+| Indicador | Código | Nivel | Notas |
+| --- | --- | --- | --- |
+| Fiabilidad | 5.1.1 | Imprescindible | Mismo criterio que 1.1.1 |
+| Completitud | 5.1.2 | Imprescindible | Mismos que 1.1.2 |
+| Lenguaje plano | 5.1.3 | Imprescindible | Mismos que 1.1.3 |
+| Actualización | 5.1.4 | Imprescindible | Mismo que 1.1.4 |
+| Redacción y ortografía | 5.1.5 | Imprescindible | Sin pregunta de conectores |
+| Propiedad intelectual | 5.1.6 | Imprescindible | Sin anti-redifusión |
+| Privacidad y datos personales | 5.1.7 | Imprescindible | Solo ARCO (sin RUN/teléfonos) |
+| Claridad | 5.2.1 | Esperable | + variante `LC-5.2.1-01` (servicio digital) |
+| Concisión | 5.2.2 | Esperable | + variante `LC-5.2.2-01` (inicio+trámite) |
+| Legibilidad | 5.2.3 | Esperable | Mismos que 1.2.3 |
+| Escritura para la web | 5.2.4 | Esperable | + rótulos `LC-5.2.4-01` (solo IESD); sin enlaces relacionados |
+| Objetividad | 5.3.1 | Deseable | Sin el 80 % hechos |
+| Archivo | 5.3.2 | Deseable | Mismo que 1.3.3 |
+
+*No hay indicador IESD equivalente a Contenidos sensibles (1.1.8) ni Visualización (1.3.1).*
 
 ### Umbrales de aceptación
 
@@ -37,18 +73,18 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 | 81 – 90 % | `aceptado_con_observaciones` |
 | ≥ 91 % | `aprobado` |
 
-### Calibraciones acordadas con UX
+### Calibraciones acordadas con UX (ids v3.0)
 
-- **G1 — RUT institucional:** RUT de **persona jurídica pública** (ej. `65.999.669-3` de INAPI en footer) → `cumple`. RUN o nombre de usuario de persona natural en **HTML estático público** → `incumple`, `severidad: alta`.
-- **G1 — pantallas con sesión autenticada (`captura_con_sesion: true`):** los datos del **solicitante logueado** (RUT, nombre, correo, marca en trámite, etc.) en campos de formulario o resúmenes **no son incumplimiento G1** — son esperables. Evaluar si la **estructura del formulario** (etiquetas, ayudas, orden, claridad de instrucciones) permite completar el trámite sin ambigüedad. Ver §19.
-- **D7 — mayúsculas en cabecera global:** los ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** de D7 (restricción de estilo de plantilla). Aplicar D7 con normalidad en el resto de la página y en todas las URLs de `tramites.inapi.cl`.
-- **E3 — fecha de publicación:** si no hay fecha visible en la página, registrar `(ausencia)` en `cita_textual` y proponer insertar una línea visible. Cobertura mínima 1:1. **Nunca** sustituir por `©año` del footer — el año de copyright no es fecha de actualización del contenido.
-- **D1 vs E4:** D1 cubre errores tipográficos, falta de tildes, capitalización incorrecta y texto de desarrollo sin eliminar **en contenido visible**. E4 es el **H1 visible** que no describe el contenido específico. **No** evaluar ni inventariar `<title>` / `<meta>` (fuera de alcance de entrega).
-- **A5 vs A8:** A5 penaliza **exceso** (relleno institucional). A8 exige **suficiencia** para autonomía en trámites (`applicability: tramites`). No son opuestos del mismo hallazgo.
-- **C5 vs C9:** C5 mide **longitud** por párrafo; C9 mide **cantidad** de párrafos del cuerpo (2–8).
-- **F5 vs F6:** F5 es **posición** del enlace; F6 es presencia de **enlaces relacionados** internos (no solo menú).
-- **B8:** documentar en `comentario` el resultado de Legible (u equivalente); sin medición sobre texto principal → incumplir o justificar `no_aplica`.
-- **Citas normativas v2.1:** usar `IEW` / `IESD` / `RLC` / `MEI` del campo `source`. No inventar `CW` en auditorías nuevas.
+- **LC-1.1.7-01 / RUN:** RUT de **persona jurídica pública** (ej. `65.999.669-3` de INAPI en footer) → `cumple`. RUN de persona natural en **HTML estático público** → `incumple`, `severidad: alta`.
+- **Sesión autenticada (`captura_con_sesion: true`):** datos del solicitante logueado en formularios **no** son incumplimiento de privacidad — son esperables. Evaluar etiquetas, ayudas y claridad del trámite. Ver §19.
+- **LC-1.2.4-05 — mayúsculas:** ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** (plantilla). Aplicar en el resto y en `tramites.inapi.cl`.
+- **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer.
+- **LC-1.1.2-01 vs título visible:** fidelidad título↔contenido sobre el **H1 visible**, no `<title>`/`<meta>` (fuera de entrega).
+- **LC-1.1.2-02 vs LC-1.1.2-04:** páginas vacías / «En construcción» vs suficiencia para autonomía en trámites (`applicability`).
+- **LC-1.2.2-02 vs LC-1.2.2-01:** longitud por párrafo vs cantidad de párrafos del cuerpo.
+- **LC-1.2.4-06 vs posición de enlace:** presencia de **enlaces relacionados** internos (no solo menú).
+- **LC-1.1.3-01 (Legible):** documentar en `comentario` el resultado; sin medición → incumplir o justificar `no_aplica`.
+- **Citas:** usar `IEW` / `IESD` / `RLC` / `MEI` del campo `source`. No inventar `CW`.
 
 ---
 
@@ -56,7 +92,11 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 
 | Ruta | Descripción |
 | --- | --- |
-| `data/checklist-criteria.json` | Fuente de verdad — 47 criterios v2.1 (enunciado, verificación, fuente, applicability) |
+| `data/checklist-criteria-lc-ptd.json` | **Fuente vigente** — 51 criterios LC v3.0 (indicadores IEW/IESD) |
+| `data/checklist-criteria.json` | Histórico v2.1 (47 A–H) — solo JSON ya emitidos |
+| `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` | Checklist editorial humano (hitos/tareas) — RAG |
+| `docs/Checklist_Editorial_INAPI_v2_0_actualizado.extracted.md` | Texto extraído del Word para ingesta RAG |
+| `data/checklist-editorial-ptd-v2.json` | Hitos PTD → tareas → preguntas + conteos |
 | `data/claude-audits/tramites/{YYYY-MM-DD}/` | JSONs Meta MEI Trámites (piloto + Clarity) |
 | `data/claude-audits/sitioweb/{YYYY-MM-DD}/` | JSONs Meta MEI Sitio Web (piloto + Clarity) |
 | `auditorias/htmls/` | HTMLs capturados por Playwright (`.html`/`.txt` versionados; auxiliares binarios ignorados) |
@@ -89,10 +129,10 @@ Cada auditoría produce un archivo `{slug-url}_{YYYY-MM-DD}.json`. La fuente de 
   "evaluador_uid": "equipo de desarrollo",
   "clarity_meta": { "rank": 1, "nombre_ui": "Portal Trámites", "visitas_ref": 1200 },
   "criterios": [
-    { "id": "A1", "estado": "cumple|incumple|no_aplica", "severidad": "baja|media|alta", "comentario": "...", "cita_textual": "..." }
+    { "id": "LC-1.1.1-01", "estado": "cumple|incumple|no_aplica", "severidad": "baja|media|alta", "comentario": "...", "cita_textual": "..." }
   ],
-  "resumen": { "total": 47, "cumple": 0, "incumple": 0, "no_aplica": 0, "porcentaje": 0.0 },
-  "version_checklist": "2.1",
+  "resumen": { "total": 51, "cumple": 0, "incumple": 0, "no_aplica": 0, "porcentaje": 0.0 },
+  "version_checklist": "3.0",
   "resumen_ejecutivo": "...",
   "observaciones_lc_por_severidad": {
     "alta": [],
@@ -116,7 +156,7 @@ Los JSONs del piloto en `data/claude-audits/` usan los nombres `criterios_evalua
 
 ## 5. Reglas permanentes
 
-- **NUNCA inventar criterios** — solo los 47 de `data/checklist-criteria.json` (o 39 si se reabre una auditoría histórica v1.1).
+- **NUNCA inventar criterios** — solo los **51** de `data/checklist-criteria-lc-ptd.json` en auditorías nuevas. Históricos: 47 (v2.1) o 39 (v1.1).
 - **Estado de criterio:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores.
 - **Contar cada criterio UNA SOLA VEZ** por URL, independientemente de cuántas ocurrencias haya.
 - **Cobertura 1:1 obligatoria:** cada `incumple` → al menos una entrada en `sustituciones[]`.
@@ -153,7 +193,7 @@ El resultado de cada auditoría alimenta `/auditar/resultado`, que muestra **7 s
 | 1 | Datos de Auditoría | `id`, `url`, `fecha`, `evaluador_uid`, `tipo_pagina` |
 | 2 | Resumen | `resumen` (`total`, `cumple`, `incumple`, `no_aplica`, `porcentaje`) |
 | 3 | Pasos a seguir | `estado_aceptacion` / `resumen.porcentaje` → umbral → copy UI |
-| 4 | 47 criterios evaluados (v2.1) | `criterios` (tabla completa con estado y severidad) |
+| 4 | **51** criterios evaluados (v3.0) | `criterios` (tabla completa con estado y severidad) |
 | 5 | Observaciones por severidad | `observaciones_lc_por_severidad` (`alta`, `media`, `baja`) |
 | 6 | Texto propuesto | `sustituciones[]` |
 | 7 | Nota para TI | `nota_final_tic` |
@@ -174,7 +214,7 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 
 | Herramienta | Rol | Qué hacer / qué no |
 | --- | --- | --- |
-| **Claude Code (agente raíz)** | Orquestador único | Lanza 5 sub-subagentes §17, consolida §20, escribe JSON, valida, cablea. **No** evaluar los 47 criterios solo en el raíz. |
+| **Claude Code (agente raíz)** | Orquestador único | Lanza 5 sub-subagentes §17, consolida §20, escribe JSON, valida, cablea. **No** evaluar los 51 criterios solo en el raíz. |
 | **Playwright MCP** | Captura una vez | `navigate` → HTML a disco → snapshot a11y → `evaluate` estilos si D3/D4 dudosos → abrir modales de 1 clic. **No** re-navegar por cada grupo. |
 | **Chroma / RAG MCP** | Fundamento + precedentes | Colección A por `source` del criterio; Colección B por URL/patrón. Consultas puntuales; **no** volcar PDFs enteros al chat. |
 | **Skills** | Especialización | Cada subagente carga `auditoria-lc` de su sección (+ `auditoria-calidad-web` / `pesquisa-criterios` si hace falta). |
@@ -266,11 +306,11 @@ Si el MCP no acepta `storageState`, el script local es la vía obligatoria para 
 Plantilla `audit-una-url.md`. Entregar:
 - Inventario `T001…` en capas **R** (redacción) y **U** (chrome UI / formato) — ver skill `auditoria-lc.md`.
 - 5 sub-subagentes en paralelo (§17) con gate de evidencia §20.6 / §21.
-- Tabla de 47 criterios v2.1 + `sustituciones[]` consolidadas por el agente raíz.
+- Tabla de **51** criterios v3.0 + `sustituciones[]` consolidadas por el agente raíz.
 
 ### Paso 3 — Segunda pasada (JSON canónico)
 Prompt §3.2 del flujo. Reglas de contrato:
-- Exactamente **47 objetos** en `criterios_evaluados[]` (v2.1), orden A1…H1 (incluye A6–A9, B8, C8, C9, F6). Auditorías históricas v1.1: 39 objetos.
+- Exactamente **51 objetos** en `criterios_evaluados[]` (v3.0), orden del catálogo LC-PTD. Históricos: 47 (v2.1) o 39 (v1.1).
 - Estado: SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
 - `severidad` SOLO si `estado = "incumple"` — omitir la clave en `cumple`/`no_aplica`.
 - `cita_textual`: omitir la clave si no hay cita (nunca `null`).
@@ -350,7 +390,7 @@ GET /api/claude-audits/{id}/export/pdf
 | 1 | Datos de Auditoría (`url`, checklist, cumplimiento, fecha, evaluador) |
 | 2 | Resumen (`resumen_ejecutivo`) |
 | 3 | Pasos a seguir (según `estado_aceptacion`) |
-| 4 | 47 criterios evaluados v2.1 (tabla completa) |
+| 4 | **51** criterios evaluados v3.0 (tabla completa por indicadores) |
 | 5 | Observaciones por severidad (`observaciones_lc_por_severidad`) |
 | 6 | Texto propuesto (tabla `sustituciones[]`) |
 | 7 | Nota para TI (`nota_final_tic`) |
@@ -384,7 +424,7 @@ GET /api/claude-audits/{id}/export/pdf
 ### Ejecución
 - Por cada URL: workflow §12 + §17 + §20 + §21 **completo** (captura → 5 grupos → consolidación → validate → cable → commit atómico).
 - **No** abrir la siguiente URL hasta cerrar la actual.
-- El agente raíz orquesta; los 5 sub-subagentes son **por URL**, no un subagente “por URL” que haga los 47 solo.
+- El agente raíz orquesta; los 5 sub-subagentes son **por URL**, no un subagente “por URL” que haga los 51 solo.
 
 ### Verificación
 ```bash
@@ -462,17 +502,17 @@ git push origin main                      # subir a remoto
 
 ### Motivación
 
-Evaluar los 47 criterios en una sola pasada puede sacrificar profundidad en secciones complejas (B/C lingüística, F/G compliance). Esta arquitectura delega cada grupo de secciones a un sub-subagente especializado, garantizando análisis robusto y consistente.
+Evaluar los **51** criterios en una sola pasada puede sacrificar profundidad. Esta arquitectura delega grupos de **indicadores** a sub-subagentes especializados.
 
-### 5 grupos temáticos
+### 5 grupos temáticos (por indicadores LC)
 
-| Grupo | Secciones | Criterios | Foco |
+| Grupo | Indicadores | IDs (orientativo) | Foco |
 | --- | --- | --- | --- |
-| **1 — Estructura y Objetividad** | A + E | A1–A9, E1–E4 | Organización, completitud (A6–A8), escaneabilidad (A9), fechas, títulos |
-| **2 — Lenguaje y Redacción** | B + C | B1–B8, C1–C9 | Voz activa, tuteo, siglas, legibilidad B8, FAQ (C8), conteo párrafos (C9) |
-| **3 — Mecánica** | D | D1–D7 | Ortografía, puntuación, formato visual, mayúsculas sostenidas |
-| **4 — Enlaces** | F | F1–F6 | CTAs, PDFs con descripción (F4), enlaces relacionados (F6) |
-| **5 — Datos y Archivo** | G + H | G1–G3, H1 | Datos personales, derechos ARCO, versiones archivadas |
+| **1 — Fiabilidad / Completitud / Actualización / Objetividad / Archivo / Visualización** | 1.1.1, 1.1.2, 1.1.4, 1.3.1–1.3.3 (+ IESD 5.1.1/5.1.2/5.1.4/5.3.x) | LC-1.1.1-*, LC-1.1.2-*, LC-1.1.4-*, LC-1.3.* | Fuente, completitud, fechas, objetividad, archivo, apoyos visuales |
+| **2 — Lenguaje plano** | 1.1.3 / 5.1.3 | LC-1.1.3-01…06 | Legible, tono, jerga, abreviaturas, siglas, tono positivo |
+| **3 — Redacción / Claridad / Concisión** | 1.1.5, 1.2.1, 1.2.2 (+ variantes IESD) | LC-1.1.5-*, LC-1.2.1-*, LC-5.2.1-01, LC-1.2.2-*, LC-5.2.2-01 | Ortografía, conectores, FAQ, concisión |
+| **4 — Legibilidad / Escritura web** | 1.2.3, 1.2.4 / 5.2.3, 5.2.4 | LC-1.2.3-*, LC-1.2.4-*, LC-5.2.4-01 | Espaciado, alineación, listas, pirámide, negritas, enlaces/PDF/rótulos |
+| **5 — PI / Privacidad / Sensibles** | 1.1.6–1.1.8 / 5.1.6–5.1.7 | LC-1.1.6-*, LC-1.1.7-*, LC-1.1.8-* | Licencias, ARCO, RUN/teléfonos, contenidos sensibles |
 
 ### Flujo completo (por URL)
 
@@ -487,7 +527,7 @@ Agente raíz (Claude Code — orquestador)
 │       + skill de sección + gate evidencia §20.6 / §21
 │
 ├── [7] Agente raíz consolida:
-│       - 47 criterios orden A1…H1; cruces §20.3; patron_sistema §20.2
+│       - 51 criterios orden catálogo LC-PTD; cruces §20.3; patron_sistema §20.2
 │       - resumen con summarizeEvaluations; resumen_ejecutivo / nota_final_tic §20.5
 │       - JSON canónico + cable launch si aplica
 │
@@ -497,9 +537,9 @@ Agente raíz (Claude Code — orquestador)
 ### Reglas de consolidación (agente raíz — paso 7)
 
 - **Captura UNA SOLA VEZ** (Playwright); inventario R+U compartido. No re-navegar por grupo.
-- **Sin superposición de criterios:** un criterio → un grupo. E4 = Grupo 1; D1 = Grupo 3. METADATA fuera de alcance.
+- **Sin superposición de criterios:** un criterio → un grupo. METADATA fuera de alcance.
 - **`sustituciones[]`:** unir; si mismo `linea` y conflicto, retención por severidad + nota en `nota_final_tic`.
-- **Completitud:** 47 filas; cobertura 1:1 `incumple` ↔ sustituciones (salvo agrupados §20.3 documentados).
+- **Completitud:** 51 filas; cobertura 1:1 `incumple` ↔ sustituciones (salvo agrupados §20.3 documentados).
 - **Legibilidad §22:** reescribir filas con `propuesto` vago o `ubicacion_pantalla` solo técnica antes de validar.
 - **No consolidar** hasta que los 5 grupos entreguen output.
 
@@ -508,22 +548,22 @@ Agente raíz (Claude Code — orquestador)
 Al lanzar cada sub-subagente, incluir siempre:
 1. Inventario R+U completo (`T001…`).
 2. URL, `tipo_pagina`, `fecha`.
-3. `captura_con_sesion: true|false` — si `true`, §19 (Grupo 5 crítico en G1–G3).
-4. Secciones a evaluar (ej. «SOLO A1–A9 y E1–E4»).
+3. `captura_con_sesion: true|false` — si `true`, §19 (Grupo 5 crítico en privacidad/ARCO).
+4. Indicadores a evaluar (ej. «SOLO Fiabilidad/Completitud/Actualización/Objetividad/Archivo/Visualización»).
 5. «Entrega SOLO criterios de tu sección + `sustituciones[]`. No calcules el % total.»
 6. Calibración §2, §19, §20, §21: **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
-7. Énfasis Grupo 1: A9, E3, E4=H1. Grupo 3: D3/D4 con estilo si dudoso. Grupo 4: F4 completo (4 elementos).
+7. Énfasis Grupo 1: fecha (`LC-1.1.4-01`), completitud. Grupo 4: documentos (título+formato+peso+desc). Grupo 2: Legible.
 8. **Entrega humana §22:** `ubicacion_pantalla` / `propuesto` / `motivo` / `comentario` legibles para editor CMS; cada criterio responde la pregunta del instrumento; `propuesto` pegable o instrucción concreta.
 
 ### Skill que carga cada sub-subagente
 
-| Grupo | Skill principal | Secciones del checklist |
+| Grupo | Skill principal | Indicadores |
 | --- | --- | --- |
-| Grupo 1 (A+E) | `auditoria-lc.md` §A y §E | Estructura y Objetividad |
-| Grupo 2 (B+C) | `auditoria-lc.md` §B y §C | Lenguaje y Redacción |
-| Grupo 3 (D) | `auditoria-lc.md` §D | Mecánica |
-| Grupo 4 (F) | `auditoria-lc.md` §F | Enlaces |
-| Grupo 5 (G+H) | `auditoria-lc.md` §G y §H | Datos y Archivo |
+| Grupo 1 | `auditoria-lc.md` (Fiabilidad…Visualización) | 1.1.1, 1.1.2, 1.1.4, 1.3.x |
+| Grupo 2 | `auditoria-lc.md` (Lenguaje plano) | 1.1.3 / 5.1.3 |
+| Grupo 3 | `auditoria-lc.md` (Redacción/Claridad/Concisión) | 1.1.5, 1.2.1, 1.2.2 |
+| Grupo 4 | `auditoria-lc.md` (Legibilidad/Escritura web) | 1.2.3, 1.2.4 |
+| Grupo 5 | `auditoria-lc.md` (PI/Privacidad/Sensibles) | 1.1.6–1.1.8 |
 
 Para fundamentos normativos de cualquier sección, cargar también `auditoria-calidad-web.md`.
 Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B.
@@ -532,11 +572,11 @@ Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP
 
 | Aspecto | Pasada única | Sub-subagentes (5 grupos) |
 | --- | --- | --- |
-| Profundidad en B/C (lingüística) | Media — comparte contexto con 47 criterios | Alta — el agente se concentra solo en su grupo |
-| Consistencia en D (typos masivos) | Puede perder ocurrencias | Grupo dedicado — revisa el HTML íntegro solo para D |
-| Trazabilidad de errores | Difícil aislar qué sección falló | Error acotado al grupo que lo produjo |
+| Profundidad lingüística | Media — comparte contexto con 51 criterios | Alta — el agente se concentra solo en su grupo |
+| Consistencia ortográfica / formato | Puede perder ocurrencias | Grupo dedicado — revisa el HTML íntegro |
+| Trazabilidad de errores | Difícil aislar qué indicador falló | Error acotado al grupo que lo produjo |
 | Tiempo total | Más rápido | Más lento (paralelo), pero más preciso |
-| Riesgo de conflicto entre criterios | Alto (D1 vs E4, G1 vs A5) | Bajo — la asignación por grupo elimina la ambigüedad |
+| Riesgo de conflicto entre criterios | Alto (misma evidencia en varios indicadores) | Bajo — un criterio → un grupo |
 
 ---
 
@@ -657,15 +697,15 @@ Chroma **no** accede a la URL ni al HTML de sesión. El RAG MCP solo aporta norm
 
 ---
 
-## 20. Calibración META MEI v2.1 — puntaje, VISIBLE, patrones y cruces
+## 20. Calibración META MEI — puntaje, VISIBLE, patrones y cruces
 
-*Aplica a reauditorías de las 10 URLs META MEI y a auditorías nuevas con `version_checklist: "2.1"`.*
+*Aplica a reauditorías META MEI y a auditorías nuevas con `version_checklist: "3.0"` (51 LC). JSON históricos v2.1 siguen las mismas reglas de VISIBLE/patrones.*
 
 ### 20.1 Solo contenido visible (impacto en %)
 
 | Evidencia | ¿Descuenta %? | Entrega |
 | --- | --- | --- |
-| Texto/UI visible o modal abrible con un clic (incl. **H1**) | Sí (`incumple`) | Sustitución + `ubicacion_pantalla`; **siempre** en tabla UI/PDF/Excel (47 filas) |
+| Texto/UI visible o modal abrible con un clic (incl. **H1** visible) | Sí (`incumple`) | Sustitución + `ubicacion_pantalla`; **siempre** en tabla UI/PDF/Excel (**51** filas v3.0) |
 | `<title>`, `<meta>`, OG, keywords | No | `no_aplica` en vista de entrega (con marca); la fila del criterio **sigue visible** |
 | Nodo en DOM oculto / off-screen / no disparado | No | Nota TI sin `incumple` |
 | Snippet de índice no mostrado en esa URL | No | Nota TI / CMS |
@@ -692,7 +732,7 @@ Si C1/C3/C4 (o B8/C3, etc.) apuntan al **mismo** `original`/`propuesto`:
 
 ### 20.4 Justificación obligatoria en `no_aplica`
 
-Los **47** criterios aparecen siempre en pantalla, PDF y Excel.
+Los **51** criterios (v3.0) aparecen siempre en pantalla, PDF y Excel. Históricos v2.1: 47 filas A–H.
 
 - `no_aplica` **debe** llevar `comentario` breve (por qué no aplica en esta URL).
 - Auditorías históricas sin comentario muestran «Sin justificación registrada» hasta reauditar.
@@ -747,7 +787,7 @@ Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ej
 
 ### 22.2 Cada criterio = pregunta del instrumento
 
-Antes de fijar el estado, el subagente debe poder responder en una frase la **pregunta** del criterio (`criterion` / `verification` en `data/checklist-criteria.json`, alineada al Checklist Editorial PTD / IEW–IESD–RLC).
+Antes de fijar el estado, el subagente debe poder responder en una frase la **pregunta** del criterio (`criterion` / `verification` / `display_label` en `data/checklist-criteria-lc-ptd.json`).
 
 | Estado | Qué debe quedar claro en `comentario` (o en `motivo` de la sustitución) |
 | --- | --- |
@@ -788,12 +828,150 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 
 Añadir siempre al brief del grupo:
 
-> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22). Cada criterio debe responder la pregunta del instrumento con evidencia. `propuesto` = texto pegable o instrucción concreta; ubicación = ruta en pantalla, no solo Tnnn.»
+> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22 completo, esp. §22.8–§22.11). Cada criterio responde la pregunta del instrumento con evidencia; `comentario` nunca vacío. `propuesto` = texto pegable o instrucción concreta (F4 cuatro elementos; E3 fecha; B3 menú sutil). Realismo: no forzar A7 en atajos de navegación ni correcciones sin necesidad real.»
 
 ### 22.6 Consolidación (agente raíz)
 
 Antes de `validate:claude-audits`, revisar una muestra de sustituciones: si `propuesto` es vago o `ubicacion_pantalla` es solo técnica, **reescribir** esas filas. `resumen_ejecutivo` / `nota_final_tic` siguen §20.5 + §22.1.
 
-### 22.7 Relación con Checklist Editorial PTD (v2.0)
+### 22.7 Relación con Checklist Editorial PTD / instrumentos IEW–IESD
 
-El documento *Checklist Editorial INAPI v2.0* (local en `documentos/`, no versionado) organiza hitos PTD de **Lenguaje claro**, **Usabilidad** y **Seguridad**. El motor §17 y `checklist-criteria.json` v2.1 cubren la dimensión **Contenido y Lenguaje claro** (47 criterios A–H). Usabilidad y Seguridad quedan **fuera** de la evaluación automática actual; ver mapa en `docs/checklist-ptd-v2-mapa.md`.
+**Fuente PTD (hitos → tareas → preguntas):** `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` + catálogo máquina `data/checklist-editorial-ptd-v2.json`.  
+**Inventario IEW/IESD por pregunta:** `docs/checklist-ptd-v2-mapa.md`.  
+**Motor de score / Excel / UI (nuevas):** `data/checklist-criteria-lc-ptd.json` (**51** criterios LC v3.0). Históricos: `checklist-criteria.json` (47 A–H).
+
+META MEI **2026** = solo **Lenguaje claro** (Dimensión 1 / CL1). Usabilidad y Seguridad están en el Word/JSON pero **no** entran al % §17 hasta el cierre de año (ver §23).
+
+### 22.8 Ninguna casilla vacía (entrega a quien corrige)
+
+En la entrega (UI / PDF / Excel MEI y en el JSON canónico) **ningún campo útil al implementador puede quedar en blanco** por “ya cumple” o “no aplica”.
+
+| Estado / categoría presentación | Qué debe quedar escrito |
+| --- | --- |
+| `cumple` | `comentario` con evidencia de **qué se vio** que responde la pregunta (1–3 frases). |
+| `incumple` | `comentario` + fila en `sustituciones[]` con `ubicacion_pantalla`, `original`, `propuesto`, `motivo` **todos** no vacíos y accionables. |
+| `no_aplica` | `comentario` obligatorio (§20.4) explicando por qué la pregunta no cabe en esta URL. |
+| Cumple con observaciones / Medianamente cumple (capa MEI) | Misma regla: justificación +, si hay corrección, `propuesto` concreto. |
+
+**Coherencia instrucción ↔ herramienta:** si el criterio exige algo operativo (ej. «usar herramienta de validación ortográfica» / B8 legibilidad), el `motivo` y el `propuesto` deben nombrar **cómo** hacerlo (herramienta sugerida o paso en el CMS) y **por qué**. Una fila que dice “no usa corrector” sin decir qué hacer queda **inválida** por vaguedad.
+
+### 22.9 Realismo: no forzar correcciones donde el criterio no aplica al tipo de elemento
+
+Evaluar **todos** los criterios ≠ inventar un defecto en cada atajo o ítem de menú.
+
+| Criterio / caso | Regla de realismo |
+| --- | --- |
+| **LC-1.1.2-03** (qué / cómo / dónde / cuándo / para quién) | Aplicar a **párrafos, oraciones o recuadros informativos** del cuerpo. **No** exigir resumen en ítems cortos de menú/navegación. |
+| **LC-1.1.3-05** (siglas en menú) | Puede incumplir si la sigla aparece sin definición. Preferir propuestas **sutiles** (tooltip/`title`, glosa, definición en destino). |
+| **Claridad/Concisión/Legibilidad sobre navegación** | No tratar labels de menú como “oraciones” o “párrafos” a reescribir. |
+| Páginas con poco texto | Es válido `no_aplica` o `cumple` con comentario breve; **no** fabricar `incumple` para “llenar” el checklist. |
+
+### 22.10 Cruces (§20.3) + justificación propia, sin forzar el mismo nodo
+
+Si varios criterios apuntan al **mismo** nodo/texto: primario descuenta; secundarios con `agrupado_en` / `criterios_relacionados` (§20.3). Cada uno mantiene **lógica de justificación propia** (responde su pregunta).
+
+**Pero:** no cruzar criterios solo para “aplicar los 51”. Si un criterio **no tiene necesidad real** de corrección en ese elemento (ej. Completitud/datos clave sobre un atajo de tres palabras), no inventar `incumple` ni un `propuesto` idéntico forzado. Preferir `cumple` con evidencia o `no_aplica` con comentario.
+
+### 22.11 Plantillas de `propuesto` para ausencias frecuentes
+
+**Fecha (`LC-1.1.4-01`)** — si no hay fecha visible:
+
+- `ubicacion_pantalla`: zona donde debe ir (ej. «Bajo el H1 › línea de metadatos de la página»).
+- `propuesto` (instrucción): `Añadir texto visible: «Publicado: DD de mes de AAAA» o «Actualizado: DD de mes de AAAA» (usar la fecha real de publicación/revisión).`
+- No usar solo el © del pie como sustituto de fecha de actualización.
+
+**Documento descargable (`LC-1.2.4-07` + `LC-1.2.4-08`)** — el `propuesto` debe cubrir **siempre** título + formato + peso + descripción:
+
+Formato de ejemplo:
+
+`Documento de solicitud de patentes (PDF, 245 KB) — Guía para solicitar una patente en Chile.`
+
+Si Claude Code **no puede** conocer formato o peso exactos (enlace roto, descarga bloqueada, sin headers):
+
+- `propuesto`: incluir título + descripción + instrucción explícita: `Especificar formato (p. ej. PDF) y peso en KB o MB junto al enlace; no dejar solo el nombre del archivo.`
+- `motivo`: decir qué faltó medir y que el CMS debe completar formato/peso reales.
+- **Prohibido** inventar KB/MB.
+
+**Atajo / ítem de menú** — `ubicacion_pantalla` debe nombrar la zona del menú y el label exacto; `propuesto` = texto corto pegable **o** instrucción de interacción (tooltip WCAG), no un párrafo de cuerpo editorial.
+
+### 22.12 Gate de consolidación §22 (agente raíz) — checklist duro
+
+Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si encuentra:
+
+1. `comentario` vacío en cualquier criterio (incluido `cumple`).
+2. Sustitución con `ubicacion_pantalla` solo técnica, `propuesto` vago («mejorar claridad»), o `motivo` sin responder la pregunta del instrumento.
+3. Completitud/datos clave aplicado solo a labels de navegación sin cuerpo informativo.
+4. Documentos sin mención de título + formato + peso + descripción (o instrucción de completar formato/peso).
+5. Criterio operativo (ortografía, legibilidad, corrector) sin **cómo** hacerlo efectivo.
+6. `incumple` sin necesidad real en el tipo de elemento (forzado).
+
+---
+
+## 23. Orquestación PTD: Hito → Tarea → Pregunta (META MEI 2026 = LC)
+
+*Obligatorio en reauditorías 1-URL a partir de la calibración con `Checklist_Editorial_INAPI_v2_0_actualizado.docx`.*
+
+### 23.1 Fuentes
+
+| Artefacto | Rol |
+| --- | --- |
+| `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` | Checklist editorial humano: hitos PTD, tareas, preguntas IEW/IESD |
+| `docs/Checklist_Editorial_INAPI_v2_0_actualizado.extracted.md` | Texto del Word para RAG Colección B |
+| `data/checklist-editorial-ptd-v2.json` | Hitos PTD → tareas → preguntas + conteos |
+| `docs/checklist-ptd-v2-mapa.md` | Cruce IEW↔IESD por indicador |
+| `data/checklist-criteria-lc-ptd.json` | **51** filas LC v3.0 = score, UI, PDF, Excel MEI |
+| `data/checklist-criteria.json` | Histórico 47 A–H (no usar en auditorías nuevas) |
+
+### 23.1.1 Preguntas únicas IEW/IESD (sin duplicar entre instrumentos)
+
+| Dimensión | Total único | Ambos | Solo IEW | Solo IESD | ¿En % §17 ahora? |
+| --- | --- | --- | --- | --- | --- |
+| **Lenguaje claro** | **51** | 38 | 10 | 3 | **Sí** — JSON canónico = 51 filas `LC-*` |
+| **Usabilidad** | **18** | 16 | 1 | 1 | **No** (post-Excel LC) |
+| **Seguridad** | **10** | 9 | 1 | 0 | **No** (salvo solape **LC-1.1.7-03**) |
+| **Total 3 dimensiones** | **79** | 65 | 10 | 4 | — |
+
+**Nota conteo LC:** el listado UX «8 solo IEW» agrupa «Contenidos sensibles ×3» como un tema; en filas son 10 exclusivas IEW (38+10+3=51).
+
+**LC — exclusivas:** IEW = conectores, anti-redifusión, RUN, teléfonos/direcciones, sensibles (×3), 80 % hechos vs adjetivos, enlaces relacionados, visualización 1.3.1; IESD = variante claridad «servicio digital», variante concisión inicio+trámite, rótulos de enlace descriptivos.  
+**Usabilidad — exclusivas:** IEW = botones de video; IESD = anclar interacciones si autenticado.  
+**Seguridad — exclusiva IEW:** directorios internos no listables.
+
+Al auditar LC, cubrir las **51** preguntas únicas aplicables a la URL. La misma pregunta bajo varios hitos PTD se responde **una** vez.
+
+### 23.2 Alcance temporal
+
+| Dimensión PTD | Proyecto | Auditoría Claude Code ahora | Después (fin 2026 / 2027–28) |
+| --- | --- | --- | --- |
+| Contenido y lenguaje claro | PTD-D2.1-CL1 | **Sí** — 51 criterios por indicadores | Mantener |
+| Usabilidad | PTD-D2.1-US2 | **No** puntuar ni mezclar en % LC | Tras Excel LC coherente |
+| Seguridad | PTD-D2.1-SE8 | **No** (salvo solape editorial **LC-1.1.7-03** ARCO) | Tras Usabilidad o en paralelo acordado |
+
+### 23.3 Flujo por URL (además de §17)
+
+1. Cargar `data/checklist-criteria-lc-ptd.json` (**51** criterios) y, para contexto de hitos, `data/checklist-editorial-ptd-v2.json` (dimensión CL1).
+2. Para cada **Indicador → Criterio (pregunta)**: responder con evidencia visible; agrupar trabajo por grupos §17. Cobertura = **51** preguntas únicas aplicables.
+3. Si la misma pregunta se repite en varias tareas del Word: **una** evidencia por URL.
+4. Consolidar en exactamente **51** `criterios_evaluados` (ids `LC-*`) + `sustituciones[]` (§20 + §22). `version_checklist: "3.0"`.
+5. En `nota_final_tic` / `resumen_ejecutivo`: cobertura PTD-LC v3.0 (51); sin score Usabilidad (18) ni Seguridad (10).
+6. **Prohibido:** filas Usabilidad/Seguridad en el JSON canónico; emitir A1–H1 en auditorías nuevas.
+
+### 23.4 Asignación orientativa Hito LC → grupos §17
+
+| Hitos PTD (LC) | Énfasis (indicadores) | Grupos |
+| --- | --- | --- |
+| 492, 500, 509, 515*, 517, 519 | Completitud, Actualización, Escritura web, Archivo, Visualización | 1, 4 |
+| 494, 496, 498 | Lenguaje plano, Claridad, Concisión, Redacción | 2, 3 |
+| 502, 505, 513* | PI, Privacidad, Sensibles | 5 |
+| 507 | Legibilidad | 4 |
+
+\*Visualización y sensibles: `no_aplica` / nota si no hay datos/menores — no forzar `incumple` vacío.
+
+### 23.5 Gate de consolidación PTD-LC (agente raíz)
+
+Antes de `validate:claude-audits`:
+
+1. Exactamente **51** filas `LC-*` en orden del catálogo; cada una con `comentario` (§22.8).
+2. Exclusivas IESD (`LC-5.2.1-01`, `LC-5.2.2-01`, `LC-5.2.4-01`): aplicar en trámites/servicio digital; en sitioweb informativo → `no_aplica` justificado si no caben.
+3. No omitir fecha (`LC-1.1.4-01`), documentos (`LC-1.2.4-07/08`), siglas (`LC-1.1.3-05`), datos clave (`LC-1.1.2-03`) con realismo §22.9–§22.11.
+4. Confirmar que **no** se añadieron Usabilidad (18) ni Seguridad (10) al % de los **51**.

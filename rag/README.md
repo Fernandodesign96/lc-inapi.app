@@ -10,7 +10,7 @@ Referencia arquitectónica: [`docs/adr/0010-rag-local-chroma-xenova-transformers
 | Colección | Fuente | Propósito |
 |---|---|---|
 | `coleccion_a` | `../documentos/*.pdf` (local, no en repo) | Fundamentos normativos: **Meta MEI** (principal), RLC, instrumentos IEW/IESD, UI Kit |
-| `coleccion_b` | Archivos del repo (`data/`, `docs/adr/`) | Checklist, precedentes de auditorías, ADRs |
+| `coleccion_b` | Archivos del repo (`data/`, `docs/`) | Checklist PTD-LC v3.0 (51), Word/mapa PTD, precedentes de auditorías, ADRs |
 
 > **Calidad web:** no hay un PDF separado `calidad-web-2.0.pdf`. El marco de calidad web institucional se fundamenta en **Meta MEI** y se complementa con RLC e instrumentos de evaluación. Las citas `CW` del checklist son referencias conceptuales a ese marco.
 
