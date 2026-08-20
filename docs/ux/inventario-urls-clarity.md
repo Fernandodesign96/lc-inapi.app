@@ -101,7 +101,7 @@ Patrón visual: barra colapsable según [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYST
 | `#` | Rank 1–17; enlace a `/auditar/resultado?claudeAudit=` cuando hay JSON en `tramites/` o `sitioweb/`; ficha `/auditar/inventario/clarity/[rank]` disponible |
 | Ruta o etiqueta (Clarity) | Etiqueta documental; enlace a la misma ficha |
 | **Tipo** | `type_url`: **Trámites** \| **Sitio Web** (badge o columna; derivado del JSON) |
-| **Encargado** | Responsable mock de seguimiento (Fase 1: **Fernando Arriagada** en todas las filas) |
+| **Encargado** | Responsable mock de seguimiento (Fase 1: **equipo de desarrollo** en todas las filas) |
 | Visitas (ref.) | Volumen Clarity de referencia |
 | **Auditorías (ref.)** | Conteo mock de revisiones LC internas |
 | **Última revisión (ref.)** | Fecha ISO `YYYY-MM-DD` de la auditoría más reciente |
@@ -158,7 +158,7 @@ Orden por volumen relativo en el extracto entregado al repositorio (sin pretende
 
 \* Visitas con asterisco: orden de magnitud del **extracto Clarity** (365 días, mayo 2026); filas «*(editorial)*» conservan métricas mock previas hasta volcado completo en JSON. Rank 21: visitas «—» (no aparece en el top Clarity revisado; criterio editorial).
 
-**Encargado (mock):** columna fija **Fernando Arriagada** (`encargadoRef` en JSON).
+**Encargado (mock):** columna fija **equipo de desarrollo** (`encargadoRef` en JSON).
 
 **URLs absolutas:** dominio `tramites.inapi.cl` en ranks 1–20; `www.inapi.cl` en ranks 21–22. Detalle por fila en [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) (campo `type_url` en las 22 fichas).
 

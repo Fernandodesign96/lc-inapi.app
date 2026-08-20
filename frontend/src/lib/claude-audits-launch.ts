@@ -32,7 +32,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 65.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl_2026-08-19" },
@@ -52,7 +52,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 39.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-06-05T15:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
   },
   {
@@ -60,15 +60,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas",
     label: "Marcas",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (meta-mei orden 2)
-    claudeAuditId: "www-inapi-cl-marcas_2026-08-19",
+    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 2)
+    claudeAuditId: "www-inapi-cl-marcas_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 66.7,
+      porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas_2026-08-19" },
       { id: "www-inapi-cl-marcas_2026-08-18" },
       { id: "www-inapi-cl-marcas_2026-06-05" },
     ],
@@ -78,15 +79,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/acerca-de/inapi",
     label: "Acerca de INAPI",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (meta-mei orden 4)
-    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-19",
+    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 4)
+    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 50.0,
+      porcentajeLc: 55.8,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-acerca-de-inapi_2026-08-19" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-18" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-06-07" },
     ],
@@ -96,15 +98,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
     label: "Buscador de noticias",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (meta-mei orden 5)
-    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-19",
+    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 5)
+    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 43.8,
+      porcentajeLc: 69.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-buscador-noticias_2026-08-19" },
       { id: "www-inapi-cl-buscador-noticias_2026-08-18" },
       { id: "www-inapi-cl-buscador-noticias_2026-06-07" },
     ],
@@ -114,45 +117,54 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     label: "Solicitud Nueva",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 6)
-    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18",
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 6)
+    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 47.1,
+      porcentajeLc: 62.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
-    history: [{ id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" }],
+    history: [
+      { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18" },
+      { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 7,
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     label: "Sala de Prensa",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 7)
-    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 7)
+    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 63.2,
+      porcentajeLc: 64.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
-    history: [{ id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" }],
+    history: [
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18" },
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 8,
     url: "https://tramites.inapi.cl/siac",
     label: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    // Reauditoría v2.1 (meta-mei orden 10)
-    claudeAuditId: "tramites-inapi-cl-siac_2026-08-18",
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 10)
+    claudeAuditId: "tramites-inapi-cl-siac_2026-08-20",
     resumenMvp: {
-      porcentajeLc: 52.8,
+      porcentajeLc: 51.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
-    history: [{ id: "tramites-inapi-cl-siac_2026-06-07" }],
+    history: [
+      { id: "tramites-inapi-cl-siac_2026-08-18" },
+      { id: "tramites-inapi-cl-siac_2026-06-07" },
+    ],
   },
   {
     pilotoNum: 9,
@@ -165,7 +177,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 60.6,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "tramites-inapi-cl_2026-06-11" },
@@ -196,49 +208,56 @@ export const META_MEI_EXTRA_AUDITS: Array<{
   history?: { id: string }[]
 }> = [
   {
-    id: "www-inapi-cl-patentes_2026-08-19",
+    id: "www-inapi-cl-patentes_2026-08-20",
     url: "https://www.inapi.cl/patentes",
     label: "Patentes",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (meta-mei orden 3)
+    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 3)
     resumenMvp: {
-      porcentajeLc: 61.0,
+      porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-19T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-patentes_2026-08-19" },
       { id: "www-inapi-cl-patentes_2026-08-18" },
       { id: "www-inapi-cl-patentes_2026-07-29" },
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 8)
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 8)
     resumenMvp: {
-      porcentajeLc: 41.5,
+      porcentajeLc: 44.2,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
-    history: [{ id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" }],
+    history: [
+      { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18" },
+      { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" },
+    ],
   },
   {
-    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (meta-mei orden 9)
+    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 9)
     resumenMvp: {
-      porcentajeLc: 58.5,
+      porcentajeLc: 58.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-18T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
-    history: [{ id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" }],
+    history: [
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18" },
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" },
+    ],
   },
 ]
 

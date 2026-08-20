@@ -23,7 +23,7 @@ Decisiones clave: [ADR 0008](adr/0008-typescript-sobre-python-para-rag.md) · [A
 | Frontend | Vercel (tier gratuito) |
 | Backend futuro | Railway (tier gratuito) — fase posterior, no bloqueante |
 | BD futura | Supabase (PostgreSQL 16, tier gratuito) — fase posterior |
-| Producción IA | Servidor interno TI de INAPI (Octavio) — fase final |
+| Producción IA | Servidor interno TI de INAPI (TI INAPI) — fase final |
 
 Chroma corre como proceso local en desarrollo (`chroma run --path ./rag/chroma_db --port 8000`) y se copia al servidor TI en producción. **Ningún documento interno sale a internet.**
 

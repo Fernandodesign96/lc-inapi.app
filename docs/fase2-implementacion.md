@@ -28,7 +28,7 @@ Este plan complementa [`ROADMAP.md`](ROADMAP.md) con un **desglose ejecutable** 
 | [`adr/0005-api-backend-nestjs-prisma.md`](adr/0005-api-backend-nestjs-prisma.md) | Nest + Prisma |
 | [`adr/0006-lc-evaluation-python-claude-aws.md`](adr/0006-lc-evaluation-python-claude-aws.md) | Python + Claude + AWS |
 | [`adr/0007-modelo-datos-parseo-pre-conexiones.md`](adr/0007-modelo-datos-parseo-pre-conexiones.md) | Mapeo Zod ↔ SQL y parseo |
-| [`PROPUESTA_TECNICA_INTEGRAL.md`](PROPUESTA_TECNICA_INTEGRAL.md) | Roles y colaboración con Camila |
+| [`PROPUESTA_TECNICA_INTEGRAL.md`](PROPUESTA_TECNICA_INTEGRAL.md) | Roles y colaboración con desarrollo backend |
 
 ---
 
@@ -47,7 +47,7 @@ Decisiones adoptadas para este plan, alineadas al contexto del equipo UX (sin TI
 | **Proveedor LLM** | **Claude API** (Anthropic) | Claves solo en Lambda; nunca en cliente |
 | **Auth Nest ↔ Lambda** | **API Key** en header (servicio-a-servicio) | Secreto en Railway + AWS; rotación manual en MVP |
 | **Contratos de datos** | **Zod** (`src/schemas/checklist.ts`) | Fuente compartida FE/BE; validación en Nest |
-| **Desarrollo local Python** | **Docker** | Paridad con Lambda; coordinación con Camila |
+| **Desarrollo local Python** | **Docker** | Paridad con Lambda; coordinación con desarrollo backend |
 | **Monorepo** | Evolución gradual hacia `apps/backend-api` | No bloquea primeros endpoints |
 
 ### Fuera de alcance inmediato de Fase 2
@@ -80,7 +80,7 @@ flowchart TB
     PG[(PostgreSQL)]
   end
 
-  subgraph aws [AWS - Camila]
+  subgraph aws [AWS - desarrollo backend]
     GW[API Gateway]
     Lambda[Lambda Python]
     Claude[Claude API]
@@ -244,7 +244,7 @@ flowchart LR
   Prisma --> SB[(Supabase dev)]
 ```
 
-**Objetivo Docker:** mismo código/imagen base que Lambda; Camila mantiene Dockerfile; tú pruebas integración sin instalar Python global.
+**Objetivo Docker:** mismo código/imagen base que Lambda; desarrollo backend mantiene Dockerfile; tú pruebas integración sin instalar Python global.
 
 ---
 
@@ -299,7 +299,7 @@ Cada sub-fase incluye **bloque de estudio** y **entregables**. Marcar `[ ]` / `[
 **Implementar / acordar:**
 
 - [ ] Cierre demo UX Fase 1 (go explícito a Fase 2).
-- [ ] Reunión con Camila: contrato REST `POST /evaluate`, API Key Nest↔Gateway, timeline Lambda.
+- [ ] Reunión con desarrollo backend: contrato REST `POST /evaluate`, API Key Nest↔Gateway, timeline Lambda.
 - [ ] Crear proyecto **Supabase** (dev).
 - [ ] Crear proyecto **Railway** (servicio vacío, preparado para Nest).
 - [ ] Definir convención wire JSON: campos en **español** en API pública (alineado a Zod) vs columnas SQL en inglés (mapeo en Nest).
@@ -404,7 +404,7 @@ flowchart TB
 
 ---
 
-### Fase 2.4 — Servicio Python, Docker y Claude (con Camila)
+### Fase 2.4 — Servicio Python, Docker y Claude (con desarrollo backend)
 
 **Estudiar:**
 
@@ -416,7 +416,7 @@ flowchart TB
 
 | Responsable | Tareas |
 | --- | --- |
-| **Camila** | Lambda Python, prompt v1, parseo salida, API Gateway, secreto Anthropic en AWS |
+| **Desarrollo backend** | Lambda Python, prompt v1, parseo salida, API Gateway, secreto Anthropic en AWS |
 | **Tú** | Cliente `EvaluationService` en Nest, timeout, reintentos acotados (ADR 0004), persistencia post-validación Zod |
 | **Ambos** | Contrato JSON común; Docker local; prueba E2E dev |
 
@@ -473,7 +473,7 @@ flowchart TB
 | `EVALUATION_API_KEY` | Auth servicio-a-servicio |
 | `CORS_ORIGINS` | Dominios Vercel |
 
-### AWS Lambda (Camila)
+### AWS Lambda (desarrollo backend)
 
 | Variable | Uso |
 | --- | --- |
@@ -494,7 +494,7 @@ flowchart TB
 | 3 | NestJS fundamentals | Fase 2.2 endpoints CRUD + Railway |
 | 4 | Supabase Auth + JWT | Fase 2.3 login + FE conectado |
 | 5 | REST servicio-a-servicio, Docker | Fase 2.4 stub evaluate |
-| 6 | Lambda, Claude, observabilidad | Fase 2.4 E2E con Camila |
+| 6 | Lambda, Claude, observabilidad | Fase 2.4 E2E con desarrollo backend |
 | 7 | SECURITY.md | Fase 2.5 endurecimiento + demo |
 
 > Ajustar ritmo según disponibilidad. Es válido repetir semanas; lo crítico es **no saltar persistencia** antes de conectar LLM.
@@ -529,7 +529,7 @@ flowchart TB
 ## 12. Próximo paso inmediato
 
 1. Ejecutar **Fase 1.5** según [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md): 10 URLs, Claude → `data/claude-audits/`, UI piloto, PDF en MVP.
-2. Tras cierre del piloto: **Fase 2.0** — proyecto Supabase + borrador contrato REST con Camila.
+2. Tras cierre del piloto: **Fase 2.0** — proyecto Supabase + borrador contrato REST con desarrollo backend.
 3. **Fase 2.1**: Prisma schema + primera migración + seed checklist.
 
 **Nota:** el export PDF descrito en §11 de [`diagramas_procesos.md`](diagramas_procesos.md) se **adelanta** en Fase 1.5 para el piloto; la persistencia del informe en BD sigue en Fase 2.

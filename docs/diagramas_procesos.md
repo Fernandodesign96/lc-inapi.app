@@ -236,7 +236,7 @@ sequenceDiagram
 
 - Una auditoría = un job corto (event-driven).
 - Bajo tráfico demo UX → costo bajo.
-- Separa IA (Camila/AWS) de dominio + datos (Nest/Railway).
+- Separa IA (desarrollo backend/AWS) de dominio + datos (Nest/Railway).
 - Clave Anthropic no sale de AWS.
 
 ### Lambda vs persistencia
@@ -494,7 +494,7 @@ sequenceDiagram
 
 ## 12. Docker local (servicio Python)
 
-Paridad local ↔ Lambda (coordinación con Camila).
+Paridad local ↔ Lambda (coordinación con desarrollo backend).
 
 ```mermaid
 flowchart LR

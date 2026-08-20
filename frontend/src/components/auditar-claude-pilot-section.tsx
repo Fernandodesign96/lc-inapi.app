@@ -52,8 +52,9 @@ export function AuditarClaudePilotSection() {
         </CardTitle>
         <CardDescription>
           Cada fila muestra la última auditoría §17 v2.1 (contenido visible en
-          pantalla). El Excel de las 10 URLs aparece aquí cuando las diez estén
-          listas; entretanto, cada resultado descarga el Excel de esa URL.
+          pantalla). Órdenes en reauditoría 1-URL aparecen como «En proceso». El
+          Excel de las 10 URLs aparece aquí cuando las diez estén listas;
+          entretanto, cada resultado descarga el Excel de esa URL.
         </CardDescription>
         {excelCompletoListo ? (
           <div className="pt-1">
@@ -169,6 +170,10 @@ export function AuditarClaudePilotSection() {
                             {href ? (
                               <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400">
                                 Disponible
+                              </span>
+                            ) : row.enProceso ? (
+                              <span className="text-xs font-medium text-amber-700 dark:text-amber-400">
+                                En proceso
                               </span>
                             ) : (
                               <span className="text-xs text-muted-foreground">

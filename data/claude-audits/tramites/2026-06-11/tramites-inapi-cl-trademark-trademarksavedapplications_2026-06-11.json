@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-trademark-trademarksavedapplications_2026-06-11",
   "url": "https://tramites.inapi.cl/Trademark/TrademarkSavedApplications",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Solicitudes guardadas",
     "ruta_etiqueta": "Trademark Saved Applications",
     "visitas_ref": "65.628",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Listado de solicitudes de marca guardadas para continuar más tarde."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L31]: «Marcas» (contexto activo navbar) | T004 [HTML-L31]: «Solicitudes Guardadas de Marcas» (parte del title y card-header div) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T046 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T054 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L906) | T056 [HTML-L489]: «Documentación Mínima PCT» | T057 [HTML-L170]: «Home» | T058 [HTML-L507]: «Perfil [Nombre usuario]» (anonimizado) | T059 [HTML-L511]: «Cerrar Sesión» | T060 [HTML-L507]: «[Nombre usuario]» (anonimizado) | T061 [HTML-L1031]: «Mostrar Filtros de Búsqueda» (capitalización tipo título) | T062 [HTML-L1075]: «Aquí puede revisar todas sus solicitudes de Marcas, crear una nueva, ingresar en forma incremental la información requerida y luego presentar y pagar en línea.» | T063 [HTML-L1027]: «Filtros de Búsqueda» (leyenda fieldset, capitalización tipo título) | T064 [HTML-L1084]: «N° de Atención» (label) | T065 [HTML-L1093]: «N° de Solicitud» (label) | T066 [HTML-L1102]: «Titular/Solicitante» (label) | T067 [HTML-L1111]: «Estado» (label select) | T069-T071 [HTML-L1113-1115]: «Borrador», «Confirmada con Pago», «Confirmada sin Pago» (opciones select sin opción por defecto «Todos») | T072 [HTML-L1142]: «Advertencia: Solicitudes en estado Borrador serán eliminadas automáticamente a los 60 días desde su última modificación.» | T073 [HTML-L1146]: «Resultados» (leyenda fieldset) | T074 [HTML-L1149]: «No se encontraron resultados.» | T075 [HTML-L1079]: «OK» (botón modal alerta) | T076 [HTML-L1220]: «Aceptar» (botón modal confirm) | T077 [HTML-L1122]: «Buscar» (botón formulario) | T078 [HTML-L1123]: «Limpiar» (botón formulario) | T079 [HTML-L1130]: «Crear nueva Solicitud de Marca» (botón → /Trademark/TrademarkApplication/Step1) | T081 [HTML-L1248]: «RUT: 65.999.669-3» (footer, persona jurídica) | T096 [HTML-L1282]: «Uso de los Contenidos de este Sitio» | T098 [HTML-L1284]: «Política de privacidad» (→ PDF) | T099 [HTML-L1299]: «©2026 INAPI. Todos los derechos reservados» | T101 [HTML-L1300]: «v 2.3.90.0»",

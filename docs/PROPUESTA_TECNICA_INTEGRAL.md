@@ -38,7 +38,7 @@ El sistema se organiza en **5 capas del AI Stack**: Infraestructura, Modelo, Dat
 | **Runtime** | Bun | Coherente con el monorepo existente; `bun.lock` único |
 | **BD futura** | Supabase (PostgreSQL 16, tier gratuito) | Fase posterior; no bloquea las fases actuales |
 | **Backend futuro** | Railway (tier gratuito) | Fase posterior; se re-evalúa cuando haya persistencia multiusuario |
-| **Producción IA** | Servidor TI INAPI (Octavio) | Fase final; `chroma_db/` se copia, no hay que reingestar |
+| **Producción IA** | Servidor TI INAPI | Fase final; `chroma_db/` se copia, no hay que reingestar |
 
 ---
 
@@ -205,7 +205,7 @@ Para lotes, los pasos 1–6 corren en **paralelo con subagents** (un subagente p
 **Resultado:** auditorías LC en pantallas autenticadas sin falsos positivos por datos del solicitante.
 
 ### Fase 4 — Producción (servidor TI)
-1. Coordinar con Álvaro / Bernarda / Octavio la viabilidad del servidor interno.
+1. Coordinar con jefatura de proyecto / Equipo UX / TI INAPI la viabilidad del servidor interno.
 2. Copiar `rag/chroma_db/` al servidor (no hay que reingestar).
 3. Levantar `mcp-server.ts` como servicio en el servidor TI.
 4. Configurar Claude Code para apuntar al servidor remoto.

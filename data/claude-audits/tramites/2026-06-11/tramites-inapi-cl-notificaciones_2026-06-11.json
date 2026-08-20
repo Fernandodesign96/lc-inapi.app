@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-notificaciones_2026-06-11",
   "url": "https://tramites.inapi.cl/Notificaciones",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Notificaciones Marcas",
     "ruta_etiqueta": "Notificaciones Marcas",
     "visitas_ref": "79.775",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Pantalla de consulta de notificaciones electrónicas de marcas en el sitio de trámites."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Trámites y Servicios» | T004 [HTML-L31]: «Notificaciones Electrónicas» (parte del title) | T005 [HTML-L116]: «Marcas» (navbar activo) | T006 [HTML-L129]: «MI INAPI» | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (navbar) | T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L906) | T058 [HTML-L489]: «Documentación Mínima PCT» | T059 [HTML-L170]: «Home» | T060 [HTML-L507]: «Perfil [Nombre usuario]» | T061 [HTML-L511]: «Cerrar Sesión» | T063 [HTML-L1055]: «Notificaciones Electrónicas de Marcas» (card-header div, no H) | T064 [HTML-L1063]: «Mostrar filtros de búsqueda» (enlace colapsable) | T065 [HTML-L1069]: «En esta pantalla puede revisar las notificaciones enviadas por INAPI(Marcas)» (falta espacio antes del paréntesis) | T066 [HTML-L1076]: «Número de Solicitud» (label) | T067 [HTML-L1085]: «Fecha de notificación» (label) | T068 [HTML-L1095]: «Titular/Solicitante» (label) | T069 [HTML-L1107]: «RUN Notificado:» | T070 [HTML-L1107]: «[RUN usuario]» (dato del usuario autenticado — anonimizado en repo) | T071 [HTML-L1111]: «Nombre:» | T072 [HTML-L1111]: «[Nombre usuario]» (nombre del usuario autenticado — anonimizado en repo) | T073 [HTML-L1115]: «Última actualización de notificaciones:» | T074 [HTML-L1115]: «11/06/2026 08:00:00 a. m.» (fecha del sistema, no de la página) | T075 [HTML-L1119]: «Ver Estado Diario Marcas» (botón) | T076 [HTML-L1143]: «Resultados» (leyenda fieldset) | T077 [HTML-L1146]: «No se encontraron resultados.» (mensaje vacío grilla) | T079 [HTML-L1184]: «Advertencia» (H5 modal — se muestra automáticamente al cargar) | T080 [HTML-L1191]: «Las notificaciones electrónicas disponibles como cortesía  en esta plataforma, así como los avisos de alerta por correo electrónico, no reemplazan la notificación legal, la cual se realiza por el estado diario (Art. 13 de la Ley 19.039).» (doble espacio antes de «en») | T081 [HTML-L1195]: «La Ley obliga a notificar electrónicamente solo la demanda de oposición, la observación de fondo y la resolución que acepta el registro solicitado. Para otras resoluciones, el interesado debe revisar siempre los estados diarios.» | T082–T084 [HTML-L1200]: «Para más información consulte la Resolución Exenta 138, Instructivo del Sistema de Tramitación Electrónica del INAPI, numerales 11 a 13.» | T085 [HTML-L1205]: «OK» (botón modal Advertencia) | T086 [HTML-L1361]: «Aceptar» | T087 [HTML-L1362]: «Cancelar» | T108 [HTML-L1425]: «Política de privacidad» (→ PDF) | T109–T110 [HTML-L1440–1441]: «©2026 INAPI. Todos los derechos reservados» / «v 2.3.90.0»",

@@ -39,7 +39,7 @@ No hay sincronización automática entre el chat del Proyecto y la app. Flujo: *
 
 ## 2. URLs del piloto (lista operativa en repo)
 
-**Nota:** la reunión 2026-06-02 propuso **10 URLs** (tabla histórica al final de esta §2). En junio 2026 el equipo cerró **9 URLs** con auditoría Claude, JSON en repo y MVP «Disponible». La **10.ª URL** queda como decisión pendiente con Bernarda/TIC.
+**Nota:** la reunión 2026-06-02 propuso **10 URLs** (tabla histórica al final de esta §2). En junio 2026 el equipo cerró **9 URLs** con auditoría Claude, JSON en repo y MVP «Disponible». La **10.ª URL** queda como decisión pendiente con Equipo UX/TIC.
 
 | # piloto | Página (etiqueta UI) | URL canónica | `tipo_pagina` | % LC | Estado | Id repo (`claudeAudit`) | MVP |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -52,9 +52,9 @@ No hay sincronización automática entre el chat del Proyecto y la app. Flujo: *
 | 7 | Sala de Prensa | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | 45,5 % | rechazado | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | Disponible |
 | 8 | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 51,5 % | rechazado | `tramites-inapi-cl-siac_2026-06-07` | Disponible |
 | 9 | Trámites y Servicios | `https://tramites.inapi.cl/` | `tramites` | 57,6 % | rechazado | `tramites-inapi-cl_2026-06-07` | Disponible |
-| 10 | *Por definir con Bernarda* | — | — | — | — | — | Pendiente |
+| 10 | *Por definir con Equipo UX* | — | — | — | — | — | Pendiente |
 
-**Encargado (piloto):** Fernando Arriagada Castillo (columna fija en tabla hasta existir login real).
+**Encargado (piloto):** equipo de desarrollo (columna fija en tabla hasta existir login real).
 
 **Convención `id`:** `slug-desde-url_YYYY-MM-DD` (archivo, campo `"id"` en JSON y `claudeAuditId` en launch deben coincidir).
 
@@ -68,7 +68,7 @@ No hay sincronización automática entre el chat del Proyecto y la app. Flujo: *
 | 3 | `https://tramites.inapi.cl/` | `tramites` | 1 |
 | 4 | `https://tramites.inapi.cl/Notificaciones` | `tramites` | 4 |
 | 5 | `https://tramites.inapi.cl/Account/Login` | `tramites` | 2 |
-| 6–10 | Por definir con Bernarda | — | — |
+| 6–10 | Por definir con Equipo UX | — | — |
 
 La lista operativa §2 (9 URLs) **no coincide línea a línea** con esta propuesta: se priorizaron páginas con mayor valor editorial para la demo TIC (buscador marcas, marcas, SIAC, etc.).
 
@@ -131,7 +131,7 @@ Para esta auditoría, sustituye solo los valores según la URL y el HTML adjunto
 - version_checklist: "1.1"
 - tipo_pagina: "sitioweb" | "tramites"
 - fecha_evaluacion: ISO 8601 en UTC terminado en Z (ej. 2026-06-03T04:00:00.000Z). Convierte desde hora Chile si hace falta.
-- evaluador_uid: "Fernando Arriagada Castillo"
+- evaluador_uid: "equipo de desarrollo"
 
 CONTRATO OBLIGATORIO (strictAuditRecordSchema — núcleo importable en la app):
 
@@ -241,7 +241,7 @@ Si un campo opcional no aplica, omite la clave o usa [] en arrays. Nunca uses nu
 
 ### 3.3 Tercera corrida — HTML corregido (entrega TIC, **después** de revisión UX)
 
-Solo tras **aprobar** sustituciones con Bernarda:
+Solo tras **aprobar** sustituciones con Equipo UX:
 
 ```text
 Aplica ÚNICAMENTE las sustituciones aprobadas de la lista [pegar números o JSON de sustituciones].
@@ -269,7 +269,7 @@ Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la p
 
 ### 3.6 Auditoría con DevTools IA (DOM + entrega MEI)
 
-**Contexto (jun 2026):** conversación con equipo TI y Bernarda confirmó que **Ctrl+U no coincide** con la línea de implementación en código (JS inyectado en BE, DOM dinámico). Para hitos MEI (30-jun-2026) el flujo complementario usa **DevTools IA** sobre el **DOM renderizado**, con **fragmento único buscable** para TI (no `HTML-Lnnn` como identificador principal). Checklist de referencia en prompt: **v2.0**.
+**Contexto (jun 2026):** conversación con equipo TI y Equipo UX confirmó que **Ctrl+U no coincide** con la línea de implementación en código (JS inyectado en BE, DOM dinámico). Para hitos MEI (30-jun-2026) el flujo complementario usa **DevTools IA** sobre el **DOM renderizado**, con **fragmento único buscable** para TI (no `HTML-Lnnn` como identificador principal). Checklist de referencia en prompt: **v2.0**.
 
 **Documentación completa:** [`stack-orquestación.md`](stack-orquestación.md) (6 pasos, arquitectura, herramientas). **Excel MEI (solo B/C/D):** [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
 
@@ -300,7 +300,7 @@ Checklist: Lenguaje Claro v2.0 (39 criterios A1–H1) — en esta sesión PRIORI
 URL: https://www.inapi.cl/
 tipo_pagina: sitioweb
 fecha_auditoria: 27-06-2026
-auditor: Fernando Arriagada Castillo
+auditor: equipo de desarrollo
 Guía de referencia: https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf
 </contexto>
 
@@ -355,7 +355,7 @@ NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
 </salida>
 ```
 
-**Después de DevTools:** revisión con Bernarda → Excel [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Para informe institucional completo y MVP/PDF, segunda pasada **Claude §3.1 + §3.2** (o consolidar hallazgos DevTools en `sustituciones[]` del JSON).
+**Después de DevTools:** revisión con Equipo UX → Excel [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Para informe institucional completo y MVP/PDF, segunda pasada **Claude §3.1 + §3.2** (o consolidar hallazgos DevTools en `sustituciones[]` del JSON).
 
 ### 3.5 Serie Clarity — 17 URLs (inventario Calidad Web)
 
@@ -398,7 +398,7 @@ METADATOS CLARITY (tomar de data/ux/clarity-fichas-mock.json — rank [N]):
 - encargado_ref: [campo encargadoRef]
 - descripcion: [campo descripcion de la ficha, opcional en clarity_meta]
 - fecha evaluación: [AAAA-MM-DD]
-- evaluador_uid (JSON final): Fernando Arriagada Castillo
+- evaluador_uid (JSON final): equipo de desarrollo
 - id objetivo (§3.5.2): [slug]_YYYY-MM-DD
 
 Adjunto: [nombre].html (vista código fuente Ctrl+U).
@@ -440,7 +440,7 @@ Para esta auditoría, sustituye solo los valores según la URL, el HTML adjunto 
 - version_checklist: "1.1"
 - tipo_pagina: "sitioweb" | "tramites" (debe coincidir con type_url de la ficha)
 - fecha_evaluacion: ISO 8601 UTC terminado en Z (ej. 2026-06-11T22:00:00.000Z)
-- evaluador_uid: "Fernando Arriagada Castillo"
+- evaluador_uid: "equipo de desarrollo"
 
 CONTRATO OBLIGATORIO — núcleo LC (idéntico a §3.2 ítems 1–5 y extensiones piloto 6–9):
 - criterios_evaluados: exactamente 39 objetos A1…H1 (mismas reglas §3.2).
@@ -564,14 +564,14 @@ Botón primario: **«Descargar informe PDF»** (visible cuando `?claudeAudit=` e
 ```mermaid
 flowchart TB
   subgraph prep [Preparación]
-    A1[Lista piloto cerrada con Bernarda]
+    A1[Lista piloto cerrada con Equipo UX]
     A2[Backup HTML Ctrl+U por URL]
   end
 
   subgraph claude [Proyecto Claude]
     B1[Mensaje auditoría + HTML adjunto]
     B2[Mensaje 3.2 cierre JSON MVP]
-    B3[Revisión UX Bernarda]
+    B3[Revisión Equipo UX]
     B4[Mensaje 3.3 HTML corregido opcional]
   end
 
@@ -590,7 +590,7 @@ flowchart TB
 
   subgraph tic [Entrega TIC]
     E1[PDF + HTML corregido aprobado]
-    E2[Control de cambios Bernarda]
+    E2[Control de cambios Equipo UX]
   end
 
   A1 --> A2 --> B1 --> B2 --> C1 --> C2 --> C3
@@ -602,7 +602,7 @@ flowchart TB
 
 ### Paso 0 — Alineación (una vez)
 
-1. Validar alcance final del piloto (**9 URLs en repo** vs **10.ª URL** pendiente) con Bernarda y TIC.
+1. Validar alcance final del piloto (**9 URLs en repo** vs **10.ª URL** pendiente) con Equipo UX y TIC.
 2. Usar reglas de calibración en **§3.2** (cobertura 1:1 sustituciones, E3 ausencias, G1 institucional) y [`Comparación…`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) §9.
 3. Confirmar proveedor: **Claude** (hecho).
 
@@ -610,14 +610,14 @@ flowchart TB
 
 | Paso | Acción | Responsable |
 | --- | --- | --- |
-| 1.1 | Guardar HTML: `{slug}-original.html` en carpeta segura (backup). | Fernando |
-| 1.2 | Proyecto Claude: mensaje **§3.1** + adjunto HTML. | Fernando |
-| 1.3 | Proyecto Claude: mensaje **§3.2** (cierre JSON MVP). | Fernando |
-| 1.4 | Copiar bloque JSON del chat. | Fernando |
-| 1.5 | Guardar en repo: `data/claude-audits/{claudeAudit-id}.json`. | Fernando |
-| 1.6 | Ejecutar local: `bun run validate:claude-audits` (cuando exista script). | Fernando / CI |
-| 1.7 | Revisión UX: filtrar falsos positivos (ej. G1 RUT); marcar sustituciones **aprobadas**. | Bernarda + Fernando |
-| 1.8 | (Opcional) Mensaje **§3.3** → HTML corregido para TIC. | Fernando |
+| 1.1 | Guardar HTML: `{slug}-original.html` en carpeta segura (backup). | equipo de desarrollo |
+| 1.2 | Proyecto Claude: mensaje **§3.1** + adjunto HTML. | equipo de desarrollo |
+| 1.3 | Proyecto Claude: mensaje **§3.2** (cierre JSON MVP). | equipo de desarrollo |
+| 1.4 | Copiar bloque JSON del chat. | equipo de desarrollo |
+| 1.5 | Guardar en repo: `data/claude-audits/{claudeAudit-id}.json`. | equipo de desarrollo |
+| 1.6 | Ejecutar local: `bun run validate:claude-audits` (cuando exista script). | equipo de desarrollo / CI |
+| 1.7 | Revisión UX: filtrar falsos positivos (ej. G1 RUT); marcar sustituciones **aprobadas**. | Equipo UX + desarrollo |
+| 1.8 | (Opcional) Mensaje **§3.3** → HTML corregido para TIC. | equipo de desarrollo |
 
 ### Paso 2 — Implementación en MVP (desarrollo) — **completado 2026-06-08**
 
@@ -637,13 +637,13 @@ flowchart TB
 2. Clic en fila **Home INAPI** (u otra con JSON en repo).
 3. Revisar bloques 1–7 en `/auditar/resultado` (§4).
 4. Clic **«Descargar informe PDF»**.
-5. Enviar PDF (+ HTML corregido si aplica) a TIC con ticket de control de cambios (Bernarda).
+5. Enviar PDF (+ HTML corregido si aplica) a TIC con ticket de control de cambios (Equipo UX).
 
 ### Paso 4 — URLs 2–9 (completado) y 10.ª URL (opcional)
 
 URLs **1–9:** flujo §5 Paso 1–3 ejecutado; todas «Disponible» en MVP (verificado local y Vercel, junio 2026).
 
-**10.ª URL:** repetir Paso 1 si Bernarda/TIC confirman alcance; la tabla mostrará «Pendiente» hasta existir JSON en `data/claude-audits/`.
+**10.ª URL:** repetir Paso 1 si Equipo UX / TIC confirman alcance; la tabla mostrará «Pendiente» hasta existir JSON en `data/claude-audits/`.
 
 ---
 
@@ -685,7 +685,7 @@ El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recal
 ### Entrega editorial (pendiente)
 
 - [ ] Decisión documentada: cierre en **9 URLs** o incorporación de **10.ª URL**.
-- [ ] Revisión UX (Bernarda): sustituciones aprobadas por URL.
+- [ ] Revisión Equipo UX: sustituciones aprobadas por URL.
 - [ ] Entrega TIC: PDF (+ HTML §3.3 donde aplique) y control de cambios.
 - [ ] Acta breve UX/TIC (proveedor Claude, reglas G1/E3/cobertura 1:1).
 

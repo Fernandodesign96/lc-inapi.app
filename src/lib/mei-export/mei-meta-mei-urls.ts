@@ -2,7 +2,7 @@ import type { CriterionId } from "../../schemas/checklist"
 
 /**
  * 10 URLs META MEI (compromiso INAPI / reunión jefatura).
- * Orden Bernarda 2026-07-29. Solo SIAC es trámites; el resto sitioweb.
+ * Orden META MEI 2026-07-29. Solo SIAC es trámites; el resto sitioweb.
  */
 export type MeiMetaMeiUrl = {
   orden: number
@@ -13,6 +13,11 @@ export type MeiMetaMeiUrl = {
   auditId: string | null
   /** Rol en la muestra META MEI. */
   rolMetaMei: string
+  /**
+   * Si true, la tabla META MEI en `/auditar` muestra «En proceso» (sin %/estado
+   * ni enlace al JSON previo) mientras corre la reauditoría 1-URL.
+   */
+  reauditoriaEnProceso?: boolean
 }
 
 export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
@@ -29,7 +34,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas",
     nombreUi: "Marcas",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas_2026-08-19",
+    auditId: "www-inapi-cl-marcas_2026-08-20",
     rolMetaMei: "Menú principal (1/2)",
   },
   {
@@ -37,7 +42,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/patentes",
     nombreUi: "Patentes",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-patentes_2026-08-19",
+    auditId: "www-inapi-cl-patentes_2026-08-20",
     rolMetaMei: "Menú principal (2/2)",
   },
   {
@@ -45,7 +50,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/acerca-de/inapi",
     nombreUi: "Acerca de INAPI",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-19",
+    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-20",
     rolMetaMei: "Página de información interior (1/2)",
   },
   {
@@ -53,7 +58,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
     nombreUi: "Buscador de noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-buscador-noticias_2026-08-19",
+    auditId: "www-inapi-cl-buscador-noticias_2026-08-20",
     rolMetaMei: "Página de información interior (2/2)",
   },
   {
@@ -61,7 +66,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     nombreUi: "Solicitud Nueva (Marcas)",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18",
+    auditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20",
     rolMetaMei: "Información del servicio digital / trámite",
   },
   {
@@ -69,7 +74,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     nombreUi: "Sala de Prensa — Noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18",
+    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-20",
     rolMetaMei: "Listado últimas noticias",
   },
   {
@@ -77,7 +82,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     nombreUi: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18",
+    auditId: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20",
     rolMetaMei: "Últimas noticias (detalle 1/2)",
   },
   {
@@ -85,7 +90,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     nombreUi: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18",
+    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20",
     rolMetaMei: "Últimas noticias (detalle 2/2)",
   },
   {
@@ -93,7 +98,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://tramites.inapi.cl/siac",
     nombreUi: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
-    auditId: "tramites-inapi-cl-siac_2026-08-18",
+    auditId: "tramites-inapi-cl-siac_2026-08-20",
     rolMetaMei: "Formulario (trámites)",
   },
 ]

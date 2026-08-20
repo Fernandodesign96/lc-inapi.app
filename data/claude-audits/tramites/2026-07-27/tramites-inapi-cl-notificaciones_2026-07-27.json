@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-notificaciones_2026-07-27",
   "url": "https://tramites.inapi.cl/Notificaciones",
   "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Notificaciones Marcas",
     "ruta_etiqueta": "Notificaciones Marcas",
     "visitas_ref": "79.775",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Pantalla de consulta de notificaciones electrónicas de marcas en el sitio de trámites."
   },
   "texto_capturado": "T002 [HTML-L29]: «Notificaciones Electrónicas INAPI — Portal de Trámites: Marcas, Patentes y máss» (título; em dash correcto, typo transversal «máss», genérico) | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde — corregido) | T012 [HTML-L379,706]: «Documentación Mínima PCT» | T013-T017: datos de sesión (perfil, navbar) | T020 [HTML-L836-837]: «Notificaciones Electrónicas de Marcas» (div.card-header, no H) | T021 [HTML-L845]: «Mostrar filtros de búsqueda» | T022 [HTML-L851]: «En esta pantalla puede revisar las notificaciones enviadas por INAPI (Marcas)» (corregido el espacio «INAPI(Marcas)»→«INAPI (Marcas)»; persiste tono impersonal) | T023 [HTML-L858]: «Número de Solicitud» con placeholder «Ingrese número de solicitud» (NUEVO, corregido) | T024 [HTML-L867]: «Fecha de notificación» | T025 [HTML-L869]: mensaje de validación «El campo CreationDateF debe ser una fecha.» (nombre técnico expuesto, idéntico a 2026-06-11) | T026 [HTML-L877]: «Titular/Solicitante» | T027 [HTML-L889]: «RUN Notificado:» «[RUN del usuario autenticado]» (dato de persona natural en HTML ESTÁTICO — hallazgo crítico G1, sin corregir) | T028 [HTML-L893]: «Nombre:» «[nombre del usuario autenticado]» (ídem, sin corregir) | T029 [HTML-L897]: «Última actualización de notificaciones:» «[fecha del sistema]» (fecha del sistema del usuario, no de la página) | T030 [HTML-L901]: «Ver Estado Diario Marcas» (singular; destino /EstadosDiariosMarcas plural — inconsistencia persiste) | T031 [HTML-L909-910]: «Buscar» / «Limpiar» | T032 [HTML-L925]: «Resultados» | T033 [HTML-L928]: «No se encontraron resultados.» | T034 [HTML-L966]: «Advertencia» (modal automático) | T035 [HTML-L973-974]: nota sobre notificaciones de cortesía vs legal, voz pasiva, ≈40 palabras (doble espacio corregido, contenido idéntico) | T036 [HTML-L977-979]: «...el interesado debe revisar siempre los estados diarios... https://tramites.inapi.cl/EstadosDiariosMarcas.» (tercera persona, URL cruda como enlace) | T037 [HTML-L982-983]: «Resolución Exenta 138...» (enlace a PDF embebido en texto corrido, sin indicar formato) | T038-T039 [HTML-L987,1101]: «OK» (dos modales) | T040 [HTML-L1143]: «Aceptar» (modal confirmación) | T041 [HTML-L1206]: «Política de privacidad» (→ PDF, sin formato) | T042: «©2026 INAPI. Todos los derechos reservados» | T043 [HTML-L1222]: «v 2.3.96.0» (bump de versión) | (ausencia): sin fecha de publicación/actualización de la página",

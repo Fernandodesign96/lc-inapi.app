@@ -59,6 +59,6 @@ Detalle: `audit-una-url.md` Paso F.
 
 ## Notas
 
-- Límite histórico de 5 URLs queda **deprecado** para entregas Bernarda; usar solo smoke.
+- Límite histórico de 5 URLs queda **deprecado** para entregas MEI; usar solo smoke.
 - Sin RAG: degradado con CLAUDE.md + skills (anotar en DEVLOG).
 - Ranks pendientes TI: 8, 11, 13, 15 — no auditar.

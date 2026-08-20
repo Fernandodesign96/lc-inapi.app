@@ -3,7 +3,7 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Fecha** | 2026-06-28 (actualizado 2026-06-27 — prompt home) |
-| **Autores** | Fernando Arriagada Castillo (con Bernarda — entrega MEI) |
+| **Autores** | equipo de desarrollo (con Equipo UX — entrega MEI) |
 | **Objetivo** | Unificar captura DOM, checklist LC, localización para TI y entregables duales (Excel MEI + JSON MVP) |
 | **Referencias** | [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`ROADMAP.md`](ROADMAP.md) (Fase 1.5 MEI) · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [Guía LC Chile (PDF)](https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf) |
 
@@ -31,7 +31,7 @@ En URLs de **Trámites**, el JS puede inyectarse desde el backend: la línea 100
 | **DevTools IA** | DOM real, ortografía visible, menús duplicados, entidades `&#8230;` | Sesión efímera; sin persistencia en repo sin export manual |
 | **Cursor** | Orquestación, reglas persistentes, validación schema, futuro Playwright/MCP | No sustituye «ojos» en runtime sin browser MCP |
 
-**Conclusión operativa:** roles separados — **Auditor normativo** (Claude/Cursor), **Auditor de campo** (DevTools), **Revisor humano** (Fernando + Bernarda).
+**Conclusión operativa:** roles separados — **Auditor normativo** (Claude/Cursor), **Auditor de campo** (DevTools), **Revisor humano** (desarrollo + Equipo UX).
 
 ---
 
@@ -145,7 +145,7 @@ Marcar `requiere_validacion_tic = sí` si el término legal debe mantenerse por 
 
 | Entregable | Formato | Audiencia | Plantilla |
 | --- | --- | --- | --- |
-| **A — Humano** | Excel / CSV | Bernarda, MEI, TI | [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) |
+| **A — Humano** | Excel / CSV | Equipo UX, MEI, TI | [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) |
 | **B — Sistema** | JSON canónico | MVP, PDF, CI | `data/claude-audits/*.json` — §3.2 del flujo piloto |
 
 Filtro MEI: solo criterios **B\*, C\*, D\*** en Excel.
@@ -194,7 +194,7 @@ Checklist: Lenguaje Claro v2.0 (39 criterios A1–H1) — en esta sesión PRIORI
 URL: https://www.inapi.cl/
 tipo_pagina: sitioweb
 fecha_auditoria: 27-06-2026
-auditor: Fernando Arriagada Castillo
+auditor: equipo de desarrollo
 Guía de referencia: https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf
 </contexto>
 
@@ -305,7 +305,7 @@ NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
 | Checklist editorial obligatorio en flujo de publicación | Checklist v2.0 (39 criterios) + flujo §3 + Prompt v2 + revisión humana |
 | Contenidos en LC sin errores ortográficos/gramaticales | Excel B/C/D con correcciones priorizadas + muestra implementada en Trámites |
 
-**Alcance:** URLs **Trámites** y **sitioweb**; entrega MEI enfatiza **B, C, D** (Excel con Bernarda). Informe completo 39 criterios permanece en MVP/PDF.
+**Alcance:** URLs **Trámites** y **sitioweb**; entrega MEI enfatiza **B, C, D** (Excel con Equipo UX). Informe completo 39 criterios permanece en MVP/PDF.
 
 ---
 
@@ -324,7 +324,7 @@ NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
 
 | Día | Acción |
 | --- | --- |
-| Inmediato | Cerrar plantilla Excel con Bernarda; listar URLs Trámites prioritarias |
+| Inmediato | Cerrar plantilla Excel con Equipo UX; listar URLs Trámites prioritarias |
 | Semana previa | 2–3 URLs Trámites con Pasos 1–6 (DevTools Prompt v2) |
 | 29-jun | Consolidar Excel; marcar `requiere_validacion_tic` |
 | 30-jun | Entregar Excel MEI + 1-pager proceso + enlace MVP/PDF piloto |

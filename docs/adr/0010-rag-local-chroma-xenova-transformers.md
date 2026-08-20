@@ -26,7 +26,7 @@ Opciones evaluadas para proveer este contexto de forma semántica:
 
 **Chroma** corre como proceso local independiente del lenguaje cliente:
 - Desarrollo: `chroma run --path ./rag/chroma_db --port 8000` en WSL.
-- Producción: proceso en el servidor TI de INAPI (Octavio); la carpeta `rag/chroma_db/` se copia desde el equipo de desarrollo — no es necesario reingestar.
+- Producción: proceso en el servidor TI de INAPI (TI INAPI); la carpeta `rag/chroma_db/` se copia desde el equipo de desarrollo — no es necesario reingestar.
 - `rag/chroma_db/` está en `.gitignore`; los vectores no se versionan en el repo.
 
 ### Modelo de embeddings

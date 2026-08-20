@@ -26,7 +26,9 @@ export function meiUrlXlsxFilename(auditId: string): string {
   return `entrega-mei-url_${safe}_${fecha}.xlsx`
 }
 
-/** Las 10 META MEI tienen auditoría v2.1 cableada (≥ 2026-08-18). */
+/** Las 10 META MEI tienen auditoría v2.1 lista (sin filas «En proceso»). */
 export function metaMeiCompletoExcelReady(): boolean {
-  return MEI_META_MEI_URLS.every((u) => metaMeiAuditReadyForUi(u.auditId))
+  return MEI_META_MEI_URLS.every(
+    (u) => !u.reauditoriaEnProceso && metaMeiAuditReadyForUi(u.auditId),
+  )
 }

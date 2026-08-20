@@ -30,6 +30,8 @@ export type MetaMeiTableRow = {
   /** Id JSON vigente en launch / mei-meta-mei-urls (null = aún sin cable). */
   claudeAuditId: string | null
   resumenMvp?: MetaMeiLaunchResumen
+  /** Reauditoría 1-URL en curso: sin % ni enlace al JSON previo. */
+  enProceso: boolean
 }
 
 function resumenFromLaunch(
@@ -71,11 +73,21 @@ export function metaMeiAuditReadyForUi(auditId: string | null): boolean {
   return fecha !== null && fecha >= META_MEI_UI_READY_FROM_ISO
 }
 
+/** True si la fila puede mostrarse como disponible (no «En proceso»). */
+export function metaMeiRowListoParaUi(entry: {
+  auditId: string | null
+  reauditoriaEnProceso?: boolean
+}): boolean {
+  if (entry.reauditoriaEnProceso) return false
+  return metaMeiAuditReadyForUi(entry.auditId)
+}
+
 /** Las 10 URLs META MEI para la barra superior de `/auditar`. */
 export const META_MEI_TABLE_ROWS: MetaMeiTableRow[] = MEI_META_MEI_URLS.map(
   (entry) => {
     const claudeAuditId = entry.auditId
-    const ready = metaMeiAuditReadyForUi(claudeAuditId)
+    const enProceso = Boolean(entry.reauditoriaEnProceso)
+    const ready = metaMeiRowListoParaUi(entry)
     return {
       orden: entry.orden,
       url: entry.url,
@@ -83,6 +95,7 @@ export const META_MEI_TABLE_ROWS: MetaMeiTableRow[] = MEI_META_MEI_URLS.map(
       tipoPagina: entry.tipoPagina,
       rolMetaMei: entry.rolMetaMei,
       claudeAuditId,
+      enProceso,
       resumenMvp: ready
         ? resumenFromLaunch(entry.url, claudeAuditId)
         : undefined,
@@ -91,7 +104,7 @@ export const META_MEI_TABLE_ROWS: MetaMeiTableRow[] = MEI_META_MEI_URLS.map(
 )
 
 export function metaMeiRowDisponibleEnMvp(row: MetaMeiTableRow): boolean {
-  return metaMeiAuditReadyForUi(row.claudeAuditId)
+  return !row.enProceso && metaMeiAuditReadyForUi(row.claudeAuditId)
 }
 
 export function metaMeiResultadoHref(row: MetaMeiTableRow): string | null {

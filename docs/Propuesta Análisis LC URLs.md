@@ -3,8 +3,8 @@
 | Metadatos | Detalle |
 | --- | --- |
 | **Fecha** | 2026-06-02 |
-| **Autor** | Fernando Arriagada Castillo |
-| **Audiencia** | Álvaro González López, Equipo UX (Bernarda, Camila), liderazgo proyecto |
+| **Autor** | equipo de desarrollo |
+| **Audiencia** | jefatura de proyecto, Equipo UX, liderazgo del proyecto |
 | **Objetivo de la reunión** | Consolidar alcance post-MVP mock, validar prioridades de producto y decidir lineamientos técnicos (incl. proveedor LLM) para Fase 2 |
 | **Documentos base** | [`fase2-implementacion.md`](fase2-implementacion.md), [`diagramas_procesos.md`](diagramas_procesos.md), [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md), [`ROADMAP.md`](ROADMAP.md) |
 
@@ -62,9 +62,9 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 
 ---
 
-## 3. Alineamiento con la reunión del 2026-06-01 (Álvaro)
+## 3. Alineamiento con la reunión del 2026-06-01 (jefatura de proyecto)
 
-| Tema de la reunión | Postura de Álvaro | Implicación para la propuesta |
+| Tema de la reunión | Postura de jefatura de proyecto | Implicación para la propuesta |
 | --- | --- | --- |
 | **22 URLs y foco LC** | El sistema debe servir para corregir lenguaje claro en el sitio, más allá de las 7 URLs iniciales | Mantener inventario de **22 URLs** como **cola de trabajo** del MVP; no ampliar UI con más acordeones ni productos paralelos |
 | **Memoria / historial** | Validó registrar **fecha de última revisión** y trazabilidad por ejecución | En Fase 2: cada evaluación real crea fila en `audits` con `evaluated_at` y `evaluator_user_id` (JWT) |
@@ -74,7 +74,7 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 | **Contexto y observaciones** | El contexto describe la página; las observaciones son hallazgos Clarity/editoriales | Conservar en ficha; en evaluación real, enriquecer con salida LLM (`observaciones_lc`, criterios con cita) |
 | **Notas post-auditoría** | Preferiría **detección automática** de si se aplicaron mejoras (diff vs auditoría anterior) | **No MVP:** registrar como **backlog Fase 3+**; en MVP, notas manuales opcionales o solo texto propuesto del informe |
 | **Gemini vs herramientas pagas** | Usar **Gemini** cuando sea posible para abaratar tokens en pruebas | Ver §5 — piloto antes de sustituir Claude en ADR |
-| **Próxima sesión (hoy)** | Revisar documentos y consolidar alcance; invitar **Bernarda** y **Camila** | Esta propuesta es insumo; cerrar decisiones en §7 |
+| **Próxima sesión (hoy)** | Revisar documentos y consolidar alcance; invitar **Equipo UX** y **desarrollo backend** | Esta propuesta es insumo; cerrar decisiones en §7 |
 
 ---
 
@@ -84,7 +84,7 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 
 **Auditar las 22 URLs prioritarias con el checklist LC de 39 criterios, entregar un informe revisable (web + PDF) y sostener el seguimiento del estado de cada URL — con usuarios identificados y costo controlado.**
 
-### 4.2 Alcance IN (prioridad Álvaro)
+### 4.2 Alcance IN (prioridad de jefatura)
 
 | # | Entregable | Fase propuesta | Notas |
 | --- | --- | --- | --- |
@@ -103,7 +103,7 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 | Segundo producto de «control de cambios» / diff automático entre auditorías | Acordado: no es objetivo actual |
 | Captura automática Cheerio/Playwright | Fase 3; en MVP el texto puede pegarse o usar HTML mock |
 | Histórico completo multi-URL en UI tipo analytics | Fase 4 / post-MVP |
-| Métrica protagonista «N auditorías» sin cambio de estado | Feedback Álvaro 2026-06-01 |
+| Métrica protagonista «N auditorías» sin cambio de estado | Feedback jefatura de proyecto 2026-06-01 |
 | Login Google Workspace institucional | Dependencia TI 2027; MVP: Supabase Auth |
 | Reestructura monorepo `apps/*` | Opcional; no bloquea primer E2E |
 
@@ -125,16 +125,16 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 | Aspecto | Claude (plan actual) | Gemini (propuesta INAPI) |
 | --- | --- | --- |
 | **Coste** | API Anthropic de pago (tokens en staging/prod) | Cuenta **gratuita permanente** otorgada por INAPI |
-| **Objetivo Álvaro** | — | Reducir costo en **pruebas de calidad** y piloto de las 22 URLs |
+| **Objetivo jefatura de proyecto** | — | Reducir costo en **pruebas de calidad** y piloto de las 22 URLs |
 | **Arquitectura** | Lambda → Claude | Lambda → **Gemini API** (mismo contrato de salida) |
 | **Documentación repo** | ADR 0006, `fase2-implementacion.md` | Requiere **ADR enmienda** o ADR 0008 si se adopta |
 
 ### 5.2 Criterios de decisión (para acordar hoy)
 
-1. **Calidad:** en muestra de **3 URLs** (p. ej. ranks 1, 4 y 22), comparar salida JSON vs fixture editorial y revisión humana (Bernarda / equipo LC).
+1. **Calidad:** en muestra de **3 URLs** (p. ej. ranks 1, 4 y 22), comparar salida JSON vs fixture editorial y revisión humana (Equipo UX / equipo LC).
 2. **Contrato:** la Lambda debe seguir devolviendo JSON alineado a `strictAuditRecordSchema` (39 criterios); el proveedor es intercambiable detrás de una capa `LLMClient` en Python.
 3. **Límites de cuenta gratuita:** cuotas, tamaño de contexto, política de datos INAPI — validar con TI / responsable de la cuenta Gemini.
-4. **Responsabilidad:** Camila mantiene Lambda + Gateway; cambio de SDK/clave en variables `GEMINI_API_KEY` vs `ANTHROPIC_API_KEY`.
+4. **Responsabilidad:** El equipo backend mantiene Lambda + Gateway; cambio de SDK/clave en variables `GEMINI_API_KEY` vs `ANTHROPIC_API_KEY`.
 5. **Plan B:** mantener abstracción para volver a Claude en staging si el piloto no alcanza ≥85 % acuerdo con criterio humano (meta PRD).
 
 ### 5.3 Recomendación propuesta
@@ -146,7 +146,7 @@ Se documentó la **arquitectura objetivo** y los **flujos ejecutables** para est
 | **Topología** | **Sin cambio:** Next → Nest → API Gateway → Lambda Python → LLM → Nest → Postgres |
 | **Coste operativo** | Gemini en piloto y primeras 22 URLs; revisar coste si escala fuera de cuota gratuita |
 
-**No bloqueante para Fase 2.0–2.3:** Supabase, Prisma y Nest CRUD pueden avanzar con **fixtures** sin LLM; el piloto Gemini puede correr en paralelo con Camila en semana 5–6 del plan de [`fase2-implementacion.md`](fase2-implementacion.md).
+**No bloqueante para Fase 2.0–2.3:** Supabase, Prisma y Nest CRUD pueden avanzar con **fixtures** sin LLM; el piloto Gemini puede correr en paralelo con desarrollo backend en semana 5–6 del plan de [`fase2-implementacion.md`](fase2-implementacion.md).
 
 ---
 
@@ -159,11 +159,11 @@ gantt
   section Fase 1.5 piloto UX
   10 URLs Claude + JSON repo + MVP PDF :active, 2026-06-02, 21d
   section Fase 2 núcleo
-  2.0 Supabase + contrato REST Camila :2026-06-23, 5d
+  2.0 Supabase + contrato REST (desarrollo backend) :2026-06-23, 5d
   2.1 Prisma + migraciones + seed      :2026-06-28, 7d
   2.2 Nest CRUD audits (sin LLM)       :2026-07-05, 7d
   2.3 Auth + FE conectado a Nest       :2026-07-12, 7d
-  section Valor Álvaro
+  section Valor jefatura de proyecto
   2.4 Evaluación IA (API Claude/Lambda):2026-07-19, 10d
   2.5 Seguridad + demo Fase 2          :2026-07-29, 7d
   section Después MVP
@@ -179,7 +179,7 @@ gantt
 | **H2** | Evaluación IA completa 39 criterios y persiste (Gemini o Claude tras piloto) |
 | **H3** | Misma URL muestra estado y fecha actualizados en tabla `/auditar` |
 | **H4** | Editor descarga **PDF** del informe tras revisar en pantalla *(Fase 1.5 en MVP)* |
-| **H5** | Piloto **10 URLs** + acta de aceptación calidad (Bernarda / UX) |
+| **H5** | Piloto **10 URLs** + acta de aceptación calidad (Equipo UX / UX) |
 
 ---
 
@@ -195,8 +195,8 @@ Marcar acuerdo del equipo:
 | D4 | ¿**Piloto Gemini** autorizado antes de modificar ADR 0006? | **Claude** en piloto; Gemini como referencia comparativa |
 | D5 | ¿Se **oculta o rebaja** la columna «Auditorías (ref.)» en la tabla del inventario? | Pendiente UX (no bloquea piloto) |
 | D6 | ¿**Detección automática de cambios** queda explícitamente fuera del MVP? | **Sí**, backlog |
-| D7 | ¿**Camila** confirma timeline Lambda con contrato JSON compartido (Zod)? | Post Fase 1.5 (Fase 2.4) |
-| D8 | ¿**Bernarda** valida criterios de aceptación del piloto LLM (§5.2)? | En curso — lista 10 URLs + calibración |
+| D7 | ¿**Desarrollo backend** confirma timeline Lambda con contrato JSON compartido (Zod)? | Post Fase 1.5 (Fase 2.4) |
+| D8 | ¿**Equipo UX** valida criterios de aceptación del piloto LLM (§5.2)? | En curso — lista 10 URLs + calibración |
 
 ---
 
@@ -204,16 +204,16 @@ Marcar acuerdo del equipo:
 
 | Responsable | Acción | Plazo sugerido |
 | --- | --- | --- |
-| **Bernarda + equipo UX** | Cerrar lista oficial **10 URLs** del piloto | Inmediato |
-| **Fernando** | Volcar JSON home en `data/claude-audits/`; completar 9 URLs restantes vía Claude | Fase 1.5 |
-| **Fernando** | Implementar adaptador JSON, UI acordeón piloto, resultado piloto (7 bloques §4 flujo), API PDF | Fase 1.5 |
+| **Equipo UX** | Cerrar lista oficial **10 URLs** del piloto | Inmediato |
+| **equipo de desarrollo** | Volcar JSON home en `data/claude-audits/`; completar 9 URLs restantes vía Claude | Fase 1.5 |
+| **equipo de desarrollo** | Implementar adaptador JSON, UI acordeón piloto, resultado piloto (7 bloques §4 flujo), API PDF | Fase 1.5 |
 | **Equipo UX** | Revisar sustituciones y aprobar HTML corregido antes de TIC | Por URL |
-| **Fernando** | DEVLOG y ROADMAP Fase 1.5 | Hecho 2026-06-02 |
-| **Camila / Fernando** | Supabase + Lambda (Fase 2) | Tras cierre piloto 10 URLs |
+| **equipo de desarrollo** | DEVLOG y ROADMAP Fase 1.5 | Hecho 2026-06-02 |
+| **Desarrollo backend** | Supabase + Lambda (Fase 2) | Tras cierre piloto 10 URLs |
 
 ---
 
-## 9. Mensaje clave para liderazgo (Álvaro)
+## 9. Mensaje clave para jefatura de proyecto
 
 1. **Ya tenemos** el mapa de las 22 URLs y un mock creíble; el piloto operativo es **10 URLs** con entrega tangible a TIC.
 2. **Lo que sigue (Fase 1.5)** es **auditar con Claude**, volcar JSON al MVP, **descargar PDF** y enviar **HTML con sustituciones** — sin esperar Supabase ni Lambda.
@@ -239,7 +239,7 @@ Marcar acuerdo del equipo:
 
 | Tema | Acuerdo |
 | --- | --- |
-| Alcance inmediato | **10 URLs** para TIC antes de fin de año (lista a cerrar con Bernarda) |
+| Alcance inmediato | **10 URLs** para TIC antes de fin de año (lista a cerrar con Equipo UX) |
 | Proveedor piloto | **Claude** (Proyecto); comparación home en doc dedicado |
 | Entregables TIC | **PDF** + **HTML** con sustituciones de texto (solo reemplazo de copy, no rediseño) |
 | Integración app | Export JSON **manual** → repositorio → MVP; sin API Anthropic en Fase 1.5 |

@@ -2,7 +2,7 @@
   "id": "www-inapi-cl_2026-08-18",
   "url": "https://www.inapi.cl/",
   "fecha_evaluacion": "2026-08-18T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "2.1",
   "tipo_pagina": "sitioweb",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Portada / inicio INAPI",
     "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
     "visitas_ref": "—",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "fuente_piloto_id": "www-inapi-cl_2026-07-22",
     "descripcion": "Reevaluación v2.1 (47 criterios, arquitectura de 5 sub-subagentes, CLAUDE.md §17) de la portada institucional para el lote META MEI (rol: Portada o página de inicio, orden 1). Amplía el checklist de 33 criterios aplicables (v1.1, jul-2026) a 39 aplicables (v2.1) e incorpora contenido de noticias renovado (12-08-2026)."
   },

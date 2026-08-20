@@ -1,15 +1,22 @@
-import type { CriterionId } from "../../schemas/checklist"
+import type { CriterionEvaluation, CriterionId } from "../../schemas/checklist"
+import { CRITERION_IDS } from "../../schemas/checklist"
 
 import {
   isMetadataCriterionEvaluation,
   isMetadataSustitucion,
 } from "../audit-visible-content"
+import type { ClaudeSustitucion } from "../../schemas/claude-audit-pilot"
 import { loadChecklistEnunciados } from "./mei-checklist-catalog"
 import {
   formatFechaDdMmYyyy,
   type LoadedClarityAudit,
 } from "./mei-audit-loader"
-import { criterioIdsForHito, hitoById } from "./mei-hitos"
+import {
+  categoriaPresentacionFromEvaluation,
+  ordenCategoriaPresentacion,
+  type MeiCategoriaPresentacion,
+} from "./mei-criterio-categoria"
+import { hitoById } from "./mei-hitos"
 
 export type MeiUrlResumen = {
   rankClarity: number
@@ -38,6 +45,8 @@ export type MeiExcelRow = {
   criterioId: string
   criterioEnunciado: string
   estadoAuditoria: "cumple" | "incumple" | "no_aplica" | "n/a"
+  /** Etiqueta Equipo UX (5 categorías) para secciones en Excel. */
+  categoriaPresentacion: MeiCategoriaPresentacion | ""
   severidad: string
   tipoEntrega: "correccion_texto" | "config_cms" | "nuevo_contenido" | "evidencia"
   textoOriginal: string
@@ -82,21 +91,200 @@ function requiereValidacionTic(
   return "no"
 }
 
-function notasTicFor(
-  criterioId: CriterionId,
-  rank: number | null,
-): string {
+function notasTicFor(criterioId: CriterionId, rank: number | null): string {
   if (criterioId === "G1" && rank !== null && SESSION_G1_RANKS.has(rank)) {
-    return "Revisar con Bernarda/TI: posible dato de sesión (§19), no PII de terceros."
+    return "Revisar con Equipo UX/TI: posible dato de sesión (§19), no PII de terceros."
   }
   return ""
+}
+
+function emptyDocumentaryRow(
+  num: number,
+  hitoId: string,
+): MeiExcelRow {
+  const hito = hitoById(hitoId)!
+  return {
+    num,
+    actividadMei: actividadPrincipal(hitoId),
+    hitoId,
+    fechaInicioActividad: hito.fechaInicioActividad,
+    fechaTerminoActividad: hito.fechaTerminoActividad,
+    fechaHito: hito.fechaHito,
+    rankClarity: null,
+    url: "(evidencia repo)",
+    nombreUi: "Checklist Editorial INAPI v2.1",
+    tipoPagina: "—",
+    criterioId: "N/A",
+    criterioEnunciado: "47 criterios A1–H1 en data/checklist-criteria.json",
+    estadoAuditoria: "n/a",
+    categoriaPresentacion: "",
+    severidad: "",
+    tipoEntrega: "evidencia",
+    textoOriginal: "",
+    textoPropuesto:
+      "Checklist v2.1 operativo en repo + flujo auditoría Claude §17 + validate:claude-audits.",
+    motivo: "Evidencia actividad 1 / hito H01 (ago-2026).",
+    ubicacionPantalla: "",
+    lineaRef: "",
+    htmlLineaAprox: "",
+    fragmentoBusqueda: "",
+    requiereValidacionTic: "no",
+    estado: "pendiente",
+    notasTic: "",
+    fechaAuditoria: "",
+    auditor: "",
+    auditId: "",
+  }
+}
+
+/**
+ * Entrega Excel (por URL y completo): siempre los **47** criterios A1–H1,
+ * igual que la tabla del MVP y el PDF.
+ */
+function criterioIdsParaDetalleUrl(_hitoId: string): readonly CriterionId[] {
+  return CRITERION_IDS
+}
+
+function sustitucionPrimariaPorCriterio(
+  sustituciones: readonly ClaudeSustitucion[],
+): Map<CriterionId, ClaudeSustitucion> {
+  const map = new Map<CriterionId, ClaudeSustitucion>()
+  for (const s of sustituciones) {
+    if (isMetadataSustitucion(s)) continue
+    if (!map.has(s.criterio_id)) map.set(s.criterio_id, s)
+    for (const rel of s.criterios_relacionados ?? []) {
+      if (!map.has(rel)) map.set(rel, s)
+    }
+  }
+  return map
+}
+
+function rowFromEvaluation(opts: {
+  num: number
+  hitoId: string
+  audit: LoadedClarityAudit
+  ev: CriterionEvaluation
+  enunciados: Map<string, string>
+  sust?: ClaudeSustitucion
+}): MeiExcelRow {
+  const { num, hitoId, audit, ev, enunciados, sust } = opts
+  const hito = hitoById(hitoId)!
+  const categoria = categoriaPresentacionFromEvaluation(ev)
+  const base = {
+    num,
+    actividadMei: actividadPrincipal(hitoId),
+    hitoId,
+    fechaInicioActividad: hito.fechaInicioActividad,
+    fechaTerminoActividad: hito.fechaTerminoActividad,
+    fechaHito: hito.fechaHito,
+    rankClarity: audit.rank,
+    url: audit.url,
+    nombreUi: audit.nombreUi,
+    tipoPagina: audit.tipoPagina,
+    criterioId: ev.id,
+    criterioEnunciado: enunciados.get(ev.id) ?? "",
+    categoriaPresentacion: categoria,
+    fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
+    auditor: audit.bundle.audit.evaluador_uid,
+    auditId: audit.auditId,
+    estado: "pendiente" as const,
+    fragmentoBusqueda: "",
+  }
+
+  if (ev.estado === "no_aplica") {
+    return {
+      ...base,
+      estadoAuditoria: "no_aplica",
+      severidad: "",
+      tipoEntrega: "nuevo_contenido",
+      textoOriginal: "—",
+      textoPropuesto: "—",
+      motivo:
+        ev.comentario?.trim() ||
+        "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
+      ubicacionPantalla: "",
+      lineaRef: "",
+      htmlLineaAprox: "",
+      requiereValidacionTic: "no",
+      notasTic: "",
+    }
+  }
+
+  if (ev.estado === "cumple") {
+    return {
+      ...base,
+      estadoAuditoria: "cumple",
+      severidad: "",
+      tipoEntrega: "nuevo_contenido",
+      textoOriginal: ev.cita_textual?.trim() || "—",
+      textoPropuesto: "—",
+      motivo: ev.comentario?.trim() || "Cumple según evidencia visible en la página.",
+      ubicacionPantalla: "",
+      lineaRef: "",
+      htmlLineaAprox: "",
+      requiereValidacionTic: "no",
+      notasTic: "",
+    }
+  }
+
+  // incumple (incl. agrupado_en): enriquecer con sustitución si existe
+  if (sust) {
+    return {
+      ...base,
+      estadoAuditoria: "incumple",
+      severidad: ev.severidad ?? "",
+      tipoEntrega: "correccion_texto",
+      textoOriginal: sust.original,
+      textoPropuesto: sust.propuesto,
+      motivo: [
+        ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
+        sust.patron_sistema
+          ? "Patrón de sitio (corregir en Layout/header/footer/modal compartido)."
+          : null,
+        sust.criterios_relacionados?.length
+          ? `Criterios: ${sust.criterio_id}, ${sust.criterios_relacionados.join(", ")}.`
+          : null,
+        sust.motivo,
+        ev.comentario,
+      ]
+        .filter(Boolean)
+        .join(" "),
+      ubicacionPantalla: sust.ubicacion_pantalla ?? "",
+      lineaRef: sust.linea,
+      htmlLineaAprox: sust.html_linea_aprox ?? "",
+      requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
+      notasTic: notasTicFor(ev.id, audit.rank),
+    }
+  }
+
+  const propuesto =
+    CMS_PROPUESTOS[ev.id] ?? `Corregir incumplimiento de ${ev.id}.`
+  return {
+    ...base,
+    estadoAuditoria: "incumple",
+    severidad: ev.severidad ?? "",
+    tipoEntrega: CMS_PROPUESTOS[ev.id] ? "config_cms" : "nuevo_contenido",
+    textoOriginal: ev.cita_textual ?? "(ausencia)",
+    textoPropuesto: propuesto,
+    motivo: [
+      ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
+      ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
+    ]
+      .filter(Boolean)
+      .join(" "),
+    ubicacionPantalla: "",
+    lineaRef: "",
+    htmlLineaAprox: "",
+    requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
+    notasTic: notasTicFor(ev.id, audit.rank),
+  }
 }
 
 export function buildUrlSummariesForHito(
   hitoId: string,
   audits: LoadedClarityAudit[],
 ): MeiUrlResumen[] {
-  const criterios = new Set(criterioIdsForHito(hitoId))
+  const criterios = new Set(criterioIdsParaDetalleUrl(hitoId))
   return audits.map((audit) => {
     const evals = audit.bundle.audit.criterios_evaluados.filter((e) =>
       criterios.has(e.id),
@@ -125,43 +313,12 @@ export function buildRowsForHito(
   if (!hito) return []
 
   const enunciados = loadChecklistEnunciados(root)
-  const criteriosSet = new Set(criterioIdsForHito(hitoId))
   const rows: MeiExcelRow[] = []
   let num = 0
 
   if (!hito.incluyeAuditoriasUrl) {
     num++
-    rows.push({
-      num,
-      actividadMei: actividadPrincipal(hitoId),
-      hitoId,
-      fechaInicioActividad: hito.fechaInicioActividad,
-      fechaTerminoActividad: hito.fechaTerminoActividad,
-      fechaHito: hito.fechaHito,
-      rankClarity: null,
-      url: "(evidencia repo)",
-      nombreUi: "Checklist Editorial INAPI v2.1",
-      tipoPagina: "—",
-      criterioId: "N/A",
-      criterioEnunciado: "47 criterios A1–H1 en data/checklist-criteria.json",
-      estadoAuditoria: "n/a",
-      severidad: "",
-      tipoEntrega: "evidencia",
-      textoOriginal: "",
-      textoPropuesto:
-        "Checklist v2.1 operativo en repo + flujo auditoría Claude §17 + validate:claude-audits.",
-      motivo: "Evidencia actividad 1 / hito H01 (ago-2026).",
-      ubicacionPantalla: "",
-      lineaRef: "",
-      htmlLineaAprox: "",
-      fragmentoBusqueda: "",
-      requiereValidacionTic: "no",
-      estado: "pendiente",
-      notasTic: "",
-      fechaAuditoria: "",
-      auditor: "",
-      auditId: "",
-    })
+    rows.push(emptyDocumentaryRow(num, hitoId))
     return rows
   }
 
@@ -180,8 +337,10 @@ export function buildRowsForHito(
         nombreUi: audit.nombreUi,
         tipoPagina: audit.tipoPagina,
         criterioId: "N/A",
-        criterioEnunciado: "Apoyos visuales (sin criterio directo en checklist A1–H1)",
+        criterioEnunciado:
+          "Apoyos visuales (sin criterio directo en checklist A1–H1)",
         estadoAuditoria: "n/a",
+        categoriaPresentacion: "",
         severidad: "",
         tipoEntrega: "evidencia",
         textoOriginal: "(revisión pendiente)",
@@ -203,135 +362,61 @@ export function buildRowsForHito(
     return rows
   }
 
+  const idsAlcance = criterioIdsParaDetalleUrl(hitoId)
+  const orderIndex = new Map(idsAlcance.map((id, i) => [id, i]))
+
   for (const audit of audits) {
-    const sustituciones = (audit.bundle.pilot.sustituciones ?? []).filter(
-      (s) => !isMetadataSustitucion(s),
+    const sustMap = sustitucionPrimariaPorCriterio(
+      audit.bundle.pilot.sustituciones ?? [],
     )
-    const covered = new Set<CriterionId>()
+    const byId = new Map(
+      audit.bundle.audit.criterios_evaluados.map((e) => [e.id, e]),
+    )
 
-    for (const sust of sustituciones) {
-      if (!criteriosSet.has(sust.criterio_id)) continue
-      covered.add(sust.criterio_id)
-      num++
-      rows.push({
-        num,
-        actividadMei: actividadPrincipal(hitoId),
-        hitoId,
-        fechaInicioActividad: hito.fechaInicioActividad,
-        fechaTerminoActividad: hito.fechaTerminoActividad,
-        fechaHito: hito.fechaHito,
-        rankClarity: audit.rank,
-        url: audit.url,
-        nombreUi: audit.nombreUi,
-        tipoPagina: audit.tipoPagina,
-        criterioId: sust.criterio_id,
-        criterioEnunciado: enunciados.get(sust.criterio_id) ?? "",
-        estadoAuditoria: "incumple",
-        severidad: "",
-        tipoEntrega: "correccion_texto",
-        textoOriginal: sust.original,
-        textoPropuesto: sust.propuesto,
-        motivo: [
-          sust.patron_sistema
-            ? "Patrón de sitio (corregir en Layout/header/footer/modal compartido)."
-            : null,
-          sust.criterios_relacionados?.length
-            ? `Criterios: ${sust.criterio_id}, ${sust.criterios_relacionados.join(", ")}.`
-            : null,
-          sust.motivo,
-        ]
-          .filter(Boolean)
-          .join(" "),
-        ubicacionPantalla: sust.ubicacion_pantalla ?? "",
-        lineaRef: sust.linea,
-        htmlLineaAprox: sust.html_linea_aprox ?? "",
-        fragmentoBusqueda: "",
-        requiereValidacionTic: requiereValidacionTic(sust.criterio_id, audit.rank),
-        estado: "pendiente",
-        notasTic: notasTicFor(sust.criterio_id, audit.rank),
-        fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
-        auditor: audit.bundle.audit.evaluador_uid,
-        auditId: audit.auditId,
-      })
-    }
-
-    for (const ev of audit.bundle.audit.criterios_evaluados) {
-      if (!criteriosSet.has(ev.id) || ev.estado !== "incumple") continue
-      if (covered.has(ev.id)) continue
-      if (ev.agrupado_en) continue
-      if (isMetadataCriterionEvaluation(ev, audit.bundle.pilot.sustituciones ?? [])) {
+    const evals: CriterionEvaluation[] = []
+    for (const id of idsAlcance) {
+      const ev = byId.get(id)
+      if (!ev) continue
+      // Metadata solo-head: en entrega visible ya viene como no_aplica; no omitir la fila.
+      if (
+        ev.estado === "incumple" &&
+        isMetadataCriterionEvaluation(
+          ev,
+          audit.bundle.pilot.sustituciones ?? [],
+        )
+      ) {
+        evals.push({
+          ...ev,
+          estado: "no_aplica",
+          severidad: undefined,
+          comentario: ev.comentario
+            ? `${ev.comentario} (evidencia solo metadata; no descuenta %)`
+            : "Evidencia solo metadata HTML; no descuenta %.",
+        })
         continue
       }
-
-      const propuesto = CMS_PROPUESTOS[ev.id] ?? `Corregir incumplimiento de ${ev.id}.`
-      num++
-      rows.push({
-        num,
-        actividadMei: actividadPrincipal(hitoId),
-        hitoId,
-        fechaInicioActividad: hito.fechaInicioActividad,
-        fechaTerminoActividad: hito.fechaTerminoActividad,
-        fechaHito: hito.fechaHito,
-        rankClarity: audit.rank,
-        url: audit.url,
-        nombreUi: audit.nombreUi,
-        tipoPagina: audit.tipoPagina,
-        criterioId: ev.id,
-        criterioEnunciado: enunciados.get(ev.id) ?? "",
-        estadoAuditoria: "incumple",
-        severidad: ev.severidad ?? "",
-        tipoEntrega: CMS_PROPUESTOS[ev.id] ? "config_cms" : "nuevo_contenido",
-        textoOriginal: ev.cita_textual ?? "(ausencia)",
-        textoPropuesto: propuesto,
-        motivo: ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
-        ubicacionPantalla: "",
-        lineaRef: "",
-        htmlLineaAprox: "",
-        fragmentoBusqueda: "",
-        requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
-        estado: "pendiente",
-        notasTic: notasTicFor(ev.id, audit.rank),
-        fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
-        auditor: audit.bundle.audit.evaluador_uid,
-        auditId: audit.auditId,
-      })
+      evals.push(ev)
     }
 
-    for (const ev of audit.bundle.audit.criterios_evaluados) {
-      if (!criteriosSet.has(ev.id) || ev.estado !== "no_aplica") continue
+    evals.sort((a, b) => {
+      const ca = ordenCategoriaPresentacion(categoriaPresentacionFromEvaluation(a))
+      const cb = ordenCategoriaPresentacion(categoriaPresentacionFromEvaluation(b))
+      if (ca !== cb) return ca - cb
+      return (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0)
+    })
+
+    for (const ev of evals) {
       num++
-      rows.push({
-        num,
-        actividadMei: actividadPrincipal(hitoId),
-        hitoId,
-        fechaInicioActividad: hito.fechaInicioActividad,
-        fechaTerminoActividad: hito.fechaTerminoActividad,
-        fechaHito: hito.fechaHito,
-        rankClarity: audit.rank,
-        url: audit.url,
-        nombreUi: audit.nombreUi,
-        tipoPagina: audit.tipoPagina,
-        criterioId: ev.id,
-        criterioEnunciado: enunciados.get(ev.id) ?? "",
-        estadoAuditoria: "no_aplica",
-        severidad: "",
-        tipoEntrega: "nuevo_contenido",
-        textoOriginal: "—",
-        textoPropuesto: "—",
-        motivo:
-          ev.comentario?.trim() ||
-          "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
-        ubicacionPantalla: "",
-        lineaRef: "",
-        htmlLineaAprox: "",
-        fragmentoBusqueda: "",
-        requiereValidacionTic: "no",
-        estado: "pendiente",
-        notasTic: "",
-        fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
-        auditor: audit.bundle.audit.evaluador_uid,
-        auditId: audit.auditId,
-      })
+      rows.push(
+        rowFromEvaluation({
+          num,
+          hitoId,
+          audit,
+          ev,
+          enunciados,
+          sust: sustMap.get(ev.id),
+        }),
+      )
     }
   }
 
@@ -352,6 +437,7 @@ export const MEI_EXCEL_COLUMNS: Array<keyof MeiExcelRow> = [
   "criterioId",
   "criterioEnunciado",
   "estadoAuditoria",
+  "categoriaPresentacion",
   "severidad",
   "tipoEntrega",
   "textoOriginal",
@@ -383,6 +469,7 @@ export const MEI_EXCEL_HEADER_LABELS: Record<keyof MeiExcelRow, string> = {
   criterioId: "criterio_id",
   criterioEnunciado: "criterio_enunciado",
   estadoAuditoria: "estado_auditoria",
+  categoriaPresentacion: "categoria_presentacion",
   severidad: "severidad",
   tipoEntrega: "tipo_entrega",
   textoOriginal: "texto_original",

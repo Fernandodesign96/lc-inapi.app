@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-trademark-trademarkuserdocument_2026-07-27",
   "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument",
   "fecha_evaluacion": "2026-07-27T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Presentación de escritos",
     "ruta_etiqueta": "Trademark User Document (Escritos)",
     "visitas_ref": "23.141",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca."
   },
   "texto_capturado": "NOTA: esta captura (2026-07-27) muestra una pantalla distinta a la auditada el 2026-06-11 en la misma URL. La auditoría anterior evaluó «Escritos Guardados de Marcas» (listado/filtro de escritos ya guardados). La captura actual muestra «Presentar Escritos de Marcas» (formulario de búsqueda para iniciar la presentación de un escrito nuevo). Se audita el DOM tal como fue capturado hoy. | T002 [HTML-L29]: «Presentar Escritos de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss» (título; em dash correcto, typo transversal «máss») | T006-T009,T018 [HTML-L126,147,180,201,461,481,513,533]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» (mayúsculas) | T010 [HTML-L330,658]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir) | T011,T019 [HTML-L367,694]: «Títulos y Certificados Patentes» (con tilde — corregido) | T012 [HTML-L379,706]: «Documentación Mínima PCT» | T020 [HTML-L893-894]: «Presentar Escritos de Marcas» (div.card-header, no H) | T021 [HTML-L899]: «Ingrese el número de documento de la Marca a la que requiere presentar un escrito.» (imperativo formal, sujeto impersonal) | T022-T028 [HTML-L905-912]: label «Presentar escrito a» con opciones «Solicitud de Marcas», «Proceso de Anotación y Renovación», «Juicio de Nulidad de Marca», «Juicio de Caducidad», «Juicio de Cancelación de IG/DO» (sigla sin definir), «Juicio de Limitación Territorial» | T029-T031 [HTML-L921,930,940]: labels «Número de solicitud» / «Número de anotación» / «Número de expediente» (campos condicionales) | T032 [HTML-L963-964]: «Buscar» / «Limpiar» | T033 [HTML-L967-969]: «Nota: Si lo requiere, puede descargar ejemplos tipo de escritos para MARCAS, en este link.» (MARCAS en mayúsculas, «en este link» genérico, anglicismo «link») | T034-T035 [HTML-L991-995]: modal «Solicitudes encontradas» / «Cargando...» | T036 [HTML-L1027]: «OK» (modal alerta local) | T037-T038 [HTML-L1069-1070]: «Aceptar» / «Cancelar» (modal confirm _Layout) | T039 [HTML-L1096]: «RUT: 65.999.669-3» (footer, persona jurídica pública; sin datos de persona natural en esta captura, formulario vacío) | T040-T042: dirección, teléfono, correo institucional | T043 [HTML-L1132]: «Política de privacidad» (→ PDF, sin formato) | T044: «©2026 INAPI. Todos los derechos reservados» | T045 [HTML-L1148]: «v 2.3.96.0» (bump de versión) | (ausencia): sin fecha de publicación/actualización de la página",

@@ -9,7 +9,7 @@
 
 ## 1. Problema
 
-En local, UI + API + `data/jobs/` + worker viven en el **mismo PC**. En demo hacia Álvaro/Bernarda:
+En local, UI + API + `data/jobs/` + worker viven en el **mismo PC**. En demo hacia jefatura de proyecto/Equipo UX:
 
 | Pieza | Dónde suele vivir |
 | --- | --- |
@@ -115,7 +115,7 @@ Preferible si INAPI ya usa Tailscale; si no, Cloudflare Quick Tunnel es más rá
 
 ---
 
-## 6. Checklist demo Álvaro / Bernarda (8–18)
+## 6. Checklist demo jefatura de proyecto / Equipo UX (8–18)
 
 - [ ] PC encendido; Claude Team institucional autenticado  
 - [ ] `frontend/.env.local` con `AUDIT_JOBS_WORKER_SECRET`  

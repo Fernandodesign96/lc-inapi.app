@@ -7,7 +7,7 @@
 | **Checklist** | Editorial INAPI v1.1 (39 criterios A1–H1) |
 | **Entrada** | HTML fuente (Ctrl+U, ~1341 líneas) |
 | **Agentes** | Gema Gemini «Auditor Lenguaje Claro URLs INAPI» · Proyecto Claude (mismas instrucciones base) |
-| **Audiencia** | Equipo UX (Bernarda, Camila, Álvaro) + TIC |
+| **Audiencia** | Equipo UX y jefatura de proyecto + TIC |
 | **Decisión equipo (2026-06-02)** | **Claude** como proveedor del piloto; **9 URLs** operativas en MVP (2026-06-08); ver [`ROADMAP.md`](ROADMAP.md) Fase 1.5 y [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) |
 
 ---
@@ -32,7 +32,7 @@ Se ejecutó la **misma URL piloto** (home institucional) con dos agentes configu
 | --- | --- | --- |
 | **Informe de auditoría serio y entrega a TIC** | **Claude** | Mayor cobertura de hallazgos, más sustituciones accionables, detecta textos de desarrollo y enlaces genéricos que Gemini omitió. |
 | **Comunicación ejecutiva «página en buen estado con ajustes puntuales»** | Ni uno solo sin revisión humana | Gemini suaviza demasiado el diagnóstico; puede subestimar trabajo pendiente antes de fin de año (10 URLs). |
-| **Automatización futura (API)** | **Piloto dual** en 2–3 URLs más | Calibrar prompt: nivel de rigor acordado con Bernarda (p. ej. reglas para G1 RUT institucional, E3 en home, meta no visible). |
+| **Automatización futura (API)** | **Piloto dual** en 2–3 URLs más | Calibrar prompt: nivel de rigor acordado con Equipo UX (p. ej. reglas para G1 RUT institucional, E3 en home, meta no visible). |
 
 **Veredicto técnico-editorial:** para el objetivo acordado en reunión del 2026-06-02 (PDF + HTML corregido + solicitudes concretas a TIC), **Claude entregó la auditoría más útil**. Gemini es más legible como resumen positivo, pero **no sustituye** una segunda revisión humana ni la comparación de sustituciones antes de enviar a TIC.
 
@@ -220,9 +220,9 @@ Leyenda: **G** = cumple/incumple más favorable a la página · **C** = más est
 ```text
 Claude  → auditoría completa + lista larga de sustituciones
      ↓
-Revisión UX (Bernarda) → filtra falsos positivos y prioriza
+Revisión Equipo UX → filtra falsos positivos y prioriza
      ↓
-Gemini  → opcional: redactar resumen ejecutivo para Álvaro/TIC
+Gemini  → opcional: redactar resumen ejecutivo para jefatura de proyecto/TIC
      ↓
 PDF + HTML corregido validado
 ```
@@ -243,12 +243,12 @@ Solo si el equipo prioriza **velocidad narrativa** y acepta **revisión manual o
 
 | # | Acción | Responsable |
 | --- | --- | --- |
-| 1 | Validar con Bernarda reglas G1, E3 y alcance meta en home | UX |
+| 1 | Validar con Equipo UX reglas G1, E3 y alcance meta en home | UX |
 | 2 | Elegir proveedor para las **9 URLs restantes** del piloto de 10 | Grupo |
-| 3 | Aplicar sustituciones **aprobadas** solo tras revisión (no pesos PDF inventados) | Fernando + TIC |
-| 4 | Cerrar lista oficial de **10 URLs** vs inventario 22 | Fernando + Bernarda |
-| 5 | Documentar acta en DEVLOG y actualizar [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) | Fernando |
-| 6 | Segunda URL piloto con el proveedor elegido + mismo HTML backup | Fernando |
+| 3 | Aplicar sustituciones **aprobadas** solo tras revisión (no pesos PDF inventados) | equipo de desarrollo + TIC |
+| 4 | Cerrar lista oficial de **10 URLs** vs inventario 22 | desarrollo + Equipo UX |
+| 5 | Documentar acta en DEVLOG y actualizar [`Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) | equipo de desarrollo |
+| 6 | Segunda URL piloto con el proveedor elegido + mismo HTML backup | equipo de desarrollo |
 
 ---
 

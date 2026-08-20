@@ -15,7 +15,7 @@ Al replantear el stack en julio 2026, se evaluaron dos caminos:
 
 El monorepo ya corre íntegramente en TypeScript + Bun: frontend Next.js, esquemas Zod compartidos, scripts de validación. Agregar Python introduciría una segunda toolchain, un entorno virtual que gestionar, dependencias de sistema (librerías C para algunos modelos) y una frontera de tipos entre los dos lenguajes.
 
-Adicionalmente, el proyecto paralelo de Camila (buscador de anterioridades de marcas) ya usa Python + HuggingFace. Mezclar ambos stacks en este repositorio generaría fricción operativa sin beneficio claro.
+Adicionalmente, el proyecto paralelo de desarrollo backend (buscador de anterioridades de marcas) ya usa Python + HuggingFace. Mezclar ambos stacks en este repositorio generaría fricción operativa sin beneficio claro.
 
 ## Decisión
 

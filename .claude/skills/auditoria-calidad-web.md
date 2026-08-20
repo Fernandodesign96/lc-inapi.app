@@ -11,6 +11,9 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
 - Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
 - Cuando se requiera contexto normativo (citas `IEW`/`IESD`/`RLC`/`MEI` del checklist v2.1), o el UI Kit Gobierno.
+- Cuando se trace un hito/tarea del Checklist Editorial PTD (v2.0) hacia criterios A–H — ver `docs/checklist-ptd-v2-mapa.md`.
+
+**Nota de alcance 2026:** el motor §17 evalúa **Lenguaje claro / contenido editorial** (47 criterios). Las dimensiones Usabilidad y Seguridad del PTD editorial v2.0 **no** se evalúan aún en los sub-subagentes; el mapa documenta el puente para no confundir alcances.
 
 ---
 
@@ -111,7 +114,7 @@ El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-M
 - **Sección C** (redacción): párrafos de una idea, presente simple, oraciones simples — especialmente para instrucciones de formularios.
 - **Sección D** (mecánica): ortografía, tipografía — errores en contexto de trámites generan desconfianza institucional.
 
-**Criterios MEI que INAPI priorizó para la entrega jun 2026 (acuerdo con Bernarda/Álvaro):**
+**Criterios MEI que INAPI priorizó para la entrega jun 2026 (acuerdo con Equipo UX/jefatura de proyecto):**
 - B: lenguaje claro en instrucciones de tramitación
 - C: redacción concisa en pasos del proceso
 - D: ortografía y tipografía sin errores en interfaz de trámite

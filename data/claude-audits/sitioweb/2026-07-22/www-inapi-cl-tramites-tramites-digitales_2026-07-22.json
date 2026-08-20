@@ -2,7 +2,7 @@
   "id": "www-inapi-cl-tramites-tramites-digitales_2026-07-22",
   "url": "https://www.inapi.cl/tramites/tramites-digitales",
   "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "sitioweb",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Trámites • Trámites digitales",
     "ruta_etiqueta": "Trámites Digitales",
     "visitas_ref": "16.059",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Reevaluación (Fase 3, arquitectura sub-subagentes CLAUDE.md §17). Listado informativo de trámites digitalizados (RNT nivel 4): acordeones por trámite con enlace «Acceder» a ClaveÚnica. Confirmado por grep directo: la página no recibió ninguna corrección editorial desde la auditoría de junio, salvo una mejora parcial (4 de 6 instancias de «patentes invención» ya incluyen la preposición «de»)."
   },
   "texto_capturado": "T008: H1 «Trámites» (genérico, no describe el contenido específico) | T038: H2 «Trámites digitales» (más descriptivo que su propio H1) | T052: «El listado de trámite más abajo considera aquellos incluidos en el Registro Nacional de Trámites del Estado (RNT). Todos estos trámites están plenamente digitalizados (nivel 4) según lo indica el RNT\".» (comilla espuria final, sin cambios) | T056: «Para este trámite se requiere Claveunica.» (falta tilde en «Única»; 8 instancias confirmadas por grep, antes se habían contado 6-7) | T057: «Acceder» (CTA genérico, 9 instancias sin punto + 1 «Acceder.» con punto) | T061-T062: párrafo de marcas comerciales con «sólo» (tilde anacrónica) | T066: «...copia digital integra...» (sin tilde, debería ser «íntegra»); «sólo» anacrónico | T071: H3 «Solicitar títulos y certificados del registro de patentes invención» (falta preposición «de» — PARCIALMENTE CORREGIDO: 4 de 6 instancias en el resto de la página ya dicen «patentes de invención», mientras este título y su párrafo correspondiente siguen sin la preposición) | T077: «Permite a cualquier persona solicitar audiencia o con los sujetos pasivos de Lobby...» (error sintáctico, sin cambios) | T079: H2 «Utiliza el canal de comunicación que prefieras:» (widget flotante, interrumpe jerarquía) | Menú sticky: «BUSCAR Y TRAMITAR», H4 «MARCAS», H4 «PATENTES» (mayúsculas, fuera de cabecera global) | href con espacio inicial en CTA de certificados de marcas (confirmado por grep del agente raíz) | Footer: «Uso de los Contenidos de este Sitio» | «Política de privacidad» (→ PDF) | «©2026»",

@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-estadosdiariosmarcas_2026-06-11",
   "url": "https://tramites.inapi.cl/EstadosDiariosMarcas",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Estados diarios de marcas",
     "ruta_etiqueta": "Estados Diarios Marcas",
     "visitas_ref": "37.557",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Consulta pública de estados diarios de publicación de marcas; filtros de búsqueda, tablas de resultados y encabezados con terminología normativa o jurídica."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Estados Diarios de Marcas» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900) | T057 [HTML-L489]: «Documentación Mínima PCT» | T057b [HTML-L170]: «Home» | T058 [HTML-L999]: «Últimos Estados Diarios Disponibles» (card-header div, no H) | T059 [HTML-L1001]: tooltip «Si algun estado diario no está disponible se debe a que aún no ha sido publicada. Hora estimada: 11am.» (falta tilde; concordancia errónea; 11am sin espacio) | T060 [HTML-L1007]: «Estado Diario (Versión corta)» (card-header, mayúscula) | T061 [HTML-L1012]: «2026-06-16» (texto ancla descarga corta) | T062 [HTML-L1021]: «Estado Diario (Versión extendida)» | T063 [HTML-L1026]: «2026-06-16» (texto ancla descarga extendida) | T064 [HTML-L1036]: «Presentaciones» | T065 [HTML-L1041]: «2026-06-15» (texto ancla Presentaciones) | T066 [HTML-L1054]: «Estados Diarios Anteriores (últimos 30 días)» (card-header div, no H) | T067 [HTML-L1061]: «Fecha» (th tabla) | T068 [HTML-L1062]: «Estado Diario (versión corta)» (th, minúscula inconsistente con T060) | T069 [HTML-L1063]: «Estado Diario (versión extendida)» (th, minúscula) | T070 [HTML-L1064]: «Presentaciones» (th) | T071 [HTML-L1071]: «2024-07-17» (primera fila tabla) | T100 [HTML-L7941]: «Uso de los Contenidos de este Sitio» | T102 [HTML-L7943]: «Política de privacidad» (→ PDF) | T103 [HTML-L7958]: «©2026 INAPI. Todos los derechos reservados» | T104 [HTML-L7959]: «v 2.3.91.0» | T105 [HTML-L7837]: «OK» (modal alerta _Layout) | T106 [HTML-L7879]: «Aceptar» (modal confirm _Layout)",

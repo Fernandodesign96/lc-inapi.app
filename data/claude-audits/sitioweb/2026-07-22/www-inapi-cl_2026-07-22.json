@@ -2,7 +2,7 @@
   "id": "www-inapi-cl_2026-07-22",
   "url": "https://www.inapi.cl/",
   "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "sitioweb",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Home INAPI",
     "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
     "visitas_ref": "—",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "fuente_piloto_id": "www-inapi-cl_2026-06-02",
     "descripcion": "Reevaluación (Fase 3, arquitectura sub-subagentes CLAUDE.md §17) de la portada institucional. Corrige la calibración de G1 (RUT institucional) mal aplicada en la auditoría de junio y confirma correcciones de TIC (ACCESOS, Contraste de página, LINK EXTERNO) junto con contenido de noticias renovado."
   },

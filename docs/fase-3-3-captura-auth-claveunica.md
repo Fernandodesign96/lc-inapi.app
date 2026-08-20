@@ -48,7 +48,7 @@ JSON en data/claude-audits/tramites/{fecha}/ → validate → commit
 | --- | --- | --- |
 | **Auditadas** (JSON en repo) | 1–10, 12, 14, 16–17 | Mantener; ranks 5–7 re-auditados con sesión y DOM actualizado el 2026-07-27 (ver `data/claude-audits/tramites/2026-07-27/`) |
 | **Auditables con sesión** (Fase 3.3) | Futuras pantallas post-login accesibles por URL directa | WSL + `storageState` + flujo §12–§19 de `CLAUDE.md` |
-| **Pendiente TI / sin acceso** | **8**, **11**, **13**, **15** | No forzar auditoría; estado `Pendiente TI` en fichas mock; discusión con Octavio / equipo técnico |
+| **Pendiente TI / sin acceso** | **8**, **11**, **13**, **15** | No forzar auditoría; estado `Pendiente TI` en fichas mock; discusión con TI INAPI / equipo técnico |
 
 ### Motivo de bloqueo (ranks pendientes TI)
 
