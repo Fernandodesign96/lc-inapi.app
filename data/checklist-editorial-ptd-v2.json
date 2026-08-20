@@ -1,0 +1,946 @@
+{
+  "version": "2.0",
+  "fuente_docx": "docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx",
+  "descripcion": "Checklist Editorial INAPI v2.0 — Hitos PTD → Tareas → Preguntas IEW/IESD. Preguntas unicas: LC 51 · Usabilidad 18 · Seguridad 10 (total 79). Motor §17 META MEI 2026 = solo LC (51 filas LC-* en checklist-criteria-lc-ptd.json, version_checklist 3.0). US/SE catalogadas para cierre de año.",
+  "alcance_auditoria_actual": "lenguaje_claro",
+  "dimensiones": [
+    {
+      "id": "CL1",
+      "nombre": "Dimensión 1 · Contenido y Lenguaje Claro",
+      "proyecto_ptd": "PTD-D2.1-CL1",
+      "en_motor_meta_mei_2026": true,
+      "hitos": [
+        {
+          "id": 492,
+          "titulo": "La institución cuenta con un checklist editorial obligatorio implementado en su flujo de publicación.",
+          "tareas": [
+            {
+              "id": 491,
+              "descripcion": "Implementar un checklist editorial obligatorio para cada publicación que incluya autoría, completitud del contenido, fecha de publicación o actualización, uso de lenguaje claro, corrección ortográfica y gramatical, objetividad en la redacción y uso de lenguaje respetuoso.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.1 / 5.1.1",
+                  "nombre": "Fiabilidad",
+                  "preguntas": [
+                    "¿Es fácil reconocer la fuente o autoría de la información publicada?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.2 / 5.1.2",
+                  "nombre": "Completitud",
+                  "preguntas": [
+                    "¿Los contenidos representan de manera fiel lo enunciado en su título?",
+                    "¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o \"En construcción\"?",
+                    "¿El texto destaca los datos clave de la información?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.4 / 5.1.4",
+                  "nombre": "Actualización",
+                  "preguntas": [
+                    "¿Los contenidos están actualizados y muestran información vigente al año en curso? (por ejemplo, se indica expresamente la fecha de publicación o última actualización)"
+                  ]
+                },
+                {
+                  "codigo": "1.1.3 / 5.1.3",
+                  "nombre": "Lenguaje plano",
+                  "preguntas": [
+                    "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
+                    "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
+                    "¿La redacción prescinde de la jerga técnica o legal?",
+                    "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
+                    "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
+                    "¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.5 / 5.1.5",
+                  "nombre": "Redacción y ortografía",
+                  "preguntas": [
+                    "¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos?",
+                    "¿Los signos de puntuación empleados facilitan la lectura del documento?",
+                    "¿Las frases se relacionan entre sí por medio de conectores?"
+                  ]
+                },
+                {
+                  "codigo": "1.3.2 / 5.3.1",
+                  "nombre": "Objetividad",
+                  "preguntas": [
+                    "¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?",
+                    "¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 494,
+          "titulo": "El sitio publica contenidos redactados en lenguaje claro, sin errores ortográficos ni gramaticales, cumpliendo estándares de calidad en la redacción.",
+          "tareas": [
+            {
+              "id": 493,
+              "descripcion": "Corregir y prevenir errores de redacción y ortografía en los contenidos del sitio, aplicando criterios de lenguaje claro en la redacción, e implementar controles editoriales que aseguren la aplicación de estos criterios en las nuevas publicaciones.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.5 / 5.1.5",
+                  "nombre": "Redacción y ortografía",
+                  "preguntas": [
+                    "¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos?",
+                    "¿Los signos de puntuación empleados facilitan la lectura del documento?",
+                    "¿Las frases se relacionan entre sí por medio de conectores?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.3 / 5.1.3",
+                  "nombre": "Lenguaje plano",
+                  "preguntas": [
+                    "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
+                    "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
+                    "¿La redacción prescinde de la jerga técnica o legal?",
+                    "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
+                    "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
+                    "¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 496,
+          "titulo": "Los contenidos del sitio están redactados en lenguaje claro, positivo y cercano, libres de tecnicismos innecesarios y con siglas o acrónimos definidos.",
+          "tareas": [
+            {
+              "id": 495,
+              "descripcion": "Redactar y mantener los contenidos del sitio en lenguaje claro, positivo y cercano, evitando tecnicismos, abreviaturas o expresiones confusas, y definiendo las siglas y acrónimos cuando se utilicen.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.3 / 5.1.3",
+                  "nombre": "Lenguaje plano",
+                  "preguntas": [
+                    "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
+                    "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
+                    "¿La redacción prescinde de la jerga técnica o legal?",
+                    "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
+                    "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
+                    "¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 498,
+          "titulo": "El sitio publica contenidos presentados de manera clara y concisa, evitando redundancias y ambigüedades en la información.",
+          "tareas": [
+            {
+              "id": 497,
+              "descripcion": "Ajustar los contenidos del sitio para que transmitan la información de manera clara y concisa, eliminando redundancias o ambigüedades.",
+              "indicadores": [
+                {
+                  "codigo": "1.2.1 / 5.2.1",
+                  "nombre": "Claridad",
+                  "preguntas": [
+                    "¿La información del servicio digital está organizada de manera que responda claramente a las preguntas frecuentes que podrían tener las personas usuarias? (variante IESD 5.2.1 — trámites)",
+                    "¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?",
+                    "¿Las palabras, frases y conceptos utilizados tienen un lenguaje claro para las personas usuarias?",
+                    "¿Predomina el tiempo presente simple y la voz activa de los verbos?",
+                    "¿Las oraciones están ordenadas según la forma sujeto-verbo-predicado?"
+                  ]
+                },
+                {
+                  "codigo": "1.2.2 / 5.2.2",
+                  "nombre": "Concisión",
+                  "preguntas": [
+                    "¿Los textos, tanto de la página de inicio como del desarrollo del trámite, son breves y utilizan frases cortas en su redacción? (variante IESD 5.2.2 — trámites)",
+                    "¿Los textos son breves y utilizan frases cortas en su redacción (al menos 2 y como máximo 8 párrafos por página)?",
+                    "¿Se explica una idea por párrafo?",
+                    "¿Las oraciones son simples y directas, evitando el exceso de palabras?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 500,
+          "titulo": "Cada página del sitio muestra la fuente de autoría y la fecha de actualización de los contenidos.",
+          "tareas": [
+            {
+              "id": 499,
+              "descripcion": "Configurar en el CMS campos obligatorios de autoría y fecha de actualización y mostrar estos datos en el sitio.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.1 / 5.1.1",
+                  "nombre": "Fiabilidad",
+                  "preguntas": [
+                    "¿Es fácil reconocer la fuente o autoría de la información publicada?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.4 / 5.1.4",
+                  "nombre": "Actualización",
+                  "preguntas": [
+                    "¿Los contenidos están actualizados y muestran información vigente al año en curso? (por ejemplo, se indica expresamente la fecha de publicación o última actualización)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 502,
+          "titulo": "El sitio muestra de manera visible las condiciones de uso de sus contenidos.",
+          "tareas": [
+            {
+              "id": 501,
+              "descripcion": "Establecer y publicar en el sitio web las condiciones de uso de los contenidos, indicando permisos y restricciones de forma clara y accesible.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.6 / 5.1.6",
+                  "nombre": "Propiedad intelectual",
+                  "preguntas": [
+                    "¿El sitio cuenta con información de permisos de uso de sus contenidos en algún lugar del sitio (condiciones de uso, copyright o licencia tipo Creative Commons)?",
+                    "¿Se evita la redifusión de material protegido por derechos de autor sin autorización?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 505,
+          "titulo": "El sitio web evita la publicación de RUN, direcciones y teléfonos personales, e informa de manera clara cómo las personas pueden ejercer sus derechos sobre sus datos.",
+          "tareas": [
+            {
+              "id": 503,
+              "descripcion": "Eliminar y prevenir la publicación de RUN, direcciones y teléfonos personales mediante pauta editorial y control previo de contenidos.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.7 / 5.1.7",
+                  "nombre": "Privacidad y datos personales",
+                  "preguntas": [
+                    "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?",
+                    "¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 504,
+              "descripcion": "Incorporar una sección que informe cómo ejercer derechos sobre datos personales (acceso, rectificación, eliminación, oposición y bloqueo), conforme a la Ley sobre Protección de la Vida Privada.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.7 / 5.1.7",
+                  "nombre": "Privacidad y datos personales",
+                  "preguntas": [
+                    "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?",
+                    "¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 507,
+          "titulo": "El sitio web presenta textos alineados a la izquierda y párrafos con espaciado.",
+          "tareas": [
+            {
+              "id": 506,
+              "descripcion": "Asegurarse que los textos se publiquen alineados a la izquierda y con espaciado entre párrafos.",
+              "indicadores": [
+                {
+                  "codigo": "1.2.3 / 5.2.3",
+                  "nombre": "Legibilidad",
+                  "preguntas": [
+                    "¿Hay espacio entre los párrafos?",
+                    "¿El texto está alineado a la izquierda?",
+                    "¿Se utilizan listas numeradas, viñetas o tablas para presentar la información más ordenada?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 509,
+          "titulo": "Todos los documentos enlazados en el sitio web muestran título, formato, peso y una breve descripción.",
+          "tareas": [
+            {
+              "id": 508,
+              "descripcion": "Configurar en el CMS campos obligatorios para título, formato, peso y descripción de cada documento, y corregir los enlaces existentes que no incluyan esta información.",
+              "indicadores": [
+                {
+                  "codigo": "1.2.4 / 5.2.4",
+                  "nombre": "Escritura para la web",
+                  "preguntas": [
+                    "¿Los contenidos del sitio aplican el modelo de \"pirámide invertida\" (de lo más a lo menos importante)?",
+                    "¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?",
+                    "¿Es fácil escanear visualmente los contenidos?",
+                    "¿Se utilizan negritas para destacar palabras clave de cada párrafo?",
+                    "¿Se evitan las frases escritas únicamente en mayúsculas?",
+                    "¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»? (Ej.: «Consultar fecha de pago», «Solicitar certificado».) (pregunta exclusiva del instrumento de servicios digitales transaccionales, IESD 5.2.4)",
+                    "¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados? (pregunta exclusiva del instrumento de sitios web)",
+                    "¿Se entrega una breve descripción de los documentos enlazados para mejorar su búsqueda, usabilidad y accesibilidad?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 513,
+          "titulo": "El sitio no publica contenidos que expongan la identidad de menores de edad, incluyan expresiones inadecuadas para ellos ni exhiban información que vulnere la dignidad o vida privada de las personas.",
+          "tareas": [
+            {
+              "id": 510,
+              "descripcion": "Revisar y editar los contenidos del sitio para resguardar la identidad de menores de edad en textos e imágenes, e incorporar controles preventivos que impidan publicar información que los exponga.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.8 (exclusivo Sitios web)",
+                  "nombre": "Contenidos sensibles",
+                  "preguntas": [
+                    "¿El contenido es apto para ser leído por menores de edad?",
+                    "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 511,
+              "descripcion": "Revisar y ajustar los contenidos del sitio para eliminar expresiones inadecuadas o no aptas para menores de edad.",
+              "indicadores": [
+                {
+                  "codigo": "1.1.8 (exclusivo Sitios web)",
+                  "nombre": "Contenidos sensibles",
+                  "preguntas": [
+                    "¿El contenido es apto para ser leído por menores de edad?",
+                    "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 512,
+              "descripcion": "Revisar y eliminar del sitio los contenidos que exhiban información que pueda menoscabar a las personas (por ejemplo, datos sobre su salud, creencias religiosas, ideología política, vida sexual o características físicas).",
+              "indicadores": [
+                {
+                  "codigo": "1.1.8 (exclusivo Sitios web)",
+                  "nombre": "Contenidos sensibles",
+                  "preguntas": [
+                    "¿El contenido es apto para ser leído por menores de edad?",
+                    "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 515,
+          "titulo": "El sitio web presenta sus datos acompañados de apoyos visuales.",
+          "tareas": [
+            {
+              "id": 514,
+              "descripcion": "Incorporar apoyos visuales como íconos, imágenes, gráficos o infografías para presentar los datos publicados en el sitio web.",
+              "indicadores": [
+                {
+                  "codigo": "1.3.1 (exclusivo Sitios web)",
+                  "nombre": "Visualización de la información",
+                  "preguntas": [
+                    "¿Se utilizan apoyos visuales como íconos, imágenes, gráficos o infografías para presentar datos?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 517,
+          "titulo": "Los contenidos publicados del sitio web están redactados de forma objetiva y neutra.",
+          "tareas": [
+            {
+              "id": 516,
+              "descripcion": "Reescribir contenidos para asegurar redacción objetiva y neutra, privilegiando datos y hechos por sobre opiniones o adjetivos calificativos.",
+              "indicadores": [
+                {
+                  "codigo": "1.3.2 / 5.3.1",
+                  "nombre": "Objetividad",
+                  "preguntas": [
+                    "¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?",
+                    "¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 519,
+          "titulo": "El sitio web presenta las versiones anteriores de contenidos rotuladas como documentos de archivo no vigentes.",
+          "tareas": [
+            {
+              "id": 518,
+              "descripcion": "Rotular las versiones anteriores de contenidos como documentos de archivo no vigentes, indicando claramente el año o periodo al que corresponden.",
+              "indicadores": [
+                {
+                  "codigo": "1.3.3 / 5.3.2",
+                  "nombre": "Archivo",
+                  "preguntas": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "preguntas_unicas": 51
+    },
+    {
+      "id": "US2",
+      "nombre": "Dimensión 2 · Usabilidad",
+      "proyecto_ptd": "PTD-D2.1-US2",
+      "en_motor_meta_mei_2026": false,
+      "hitos": [
+        {
+          "id": 523,
+          "titulo": "El sitio mantiene consistencia en todas sus páginas y utiliza convenciones gráficas comprensibles.",
+          "tareas": [
+            {
+              "id": 521,
+              "descripcion": "Ajustar el sitio para mantener una organización y estructura consistentes en todas sus páginas.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.1 / 1.1.1",
+                  "nombre": "Coherencia y estandarización",
+                  "preguntas": [
+                    "¿Se respeta la organización del sitio web/servicio digital y se preserva su consistencia en todas las páginas?",
+                    "¿Los iconos son fácilmente comprensibles sin texto adicional y siguen convenciones o figuras reconocibles por cualquier persona?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 522,
+              "descripcion": "Sustituir íconos poco claros por íconos reconocibles internacionalmente (ej. lupa para búsqueda, \"X\" para cerrar), asegurando su comprensión sin necesidad de texto adicional.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.1 / 1.1.1",
+                  "nombre": "Coherencia y estandarización",
+                  "preguntas": [
+                    "¿Se respeta la organización del sitio web/servicio digital y se preserva su consistencia en todas las páginas?",
+                    "¿Los iconos son fácilmente comprensibles sin texto adicional y siguen convenciones o figuras reconocibles por cualquier persona?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 525,
+          "titulo": "El sitio, en el caso de gobierno central, aplica componentes del UI Kit de Gobierno Digital.",
+          "tareas": [
+            {
+              "id": 524,
+              "descripcion": "Implementar en sitios del gobierno central los componentes del UI Kit de Gobierno Digital para mantener consistencia visual y de interacción.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.1 / 1.1.1",
+                  "nombre": "Coherencia y estandarización",
+                  "preguntas": [
+                    "¿Se respeta la organización del sitio web/servicio digital y se preserva su consistencia en todas las páginas?",
+                    "¿Los iconos son fácilmente comprensibles sin texto adicional y siguen convenciones o figuras reconocibles por cualquier persona?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 527,
+          "titulo": "Los llamados a la acción y botones del sitio se destacan visualmente y se identifican con facilidad.",
+          "tareas": [
+            {
+              "id": 526,
+              "descripcion": "Diseñar los llamados a la acción y botones del sitio para que estén claramente destacados y se identifiquen fácilmente por su forma o color.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.2 / 1.1.2",
+                  "nombre": "Diseño estético y minimalista",
+                  "preguntas": [
+                    "¿Los llamados a la acción y botones están claramente destacados y se identifican fácilmente por su forma o color?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 530,
+          "titulo": "El sitio presenta mensajes de error claros, con soluciones efectivas, información comprensible en errores técnicos y opciones de navegación sin bloqueos.",
+          "tareas": [
+            {
+              "id": 528,
+              "descripcion": "Redactar mensajes de error en lenguaje claro que identifiquen el problema, ofrezcan soluciones específicas y efectivas para resolverlo, y entreguen información comprensible en caso de errores técnicos inesperados.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.3 / 1.1.3",
+                  "nombre": "Diagnóstico y corrección de errores",
+                  "preguntas": [
+                    "¿Los mensajes de alerta ante un error brindan información clara del problema y ofrecen una vía de solución?",
+                    "¿Se puede verificar que los mensajes de error no interfieren con la navegación en la página?"
+                  ]
+                },
+                {
+                  "codigo": "2.1.5 / 1.1.5",
+                  "nombre": "Mensajes de error",
+                  "preguntas": []
+                }
+              ]
+            },
+            {
+              "id": 529,
+              "descripcion": "Diseñar mensajes de error que permitan al usuario continuar, retroceder o abandonar procesos sin bloqueos en la navegación.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.3 / 1.1.3",
+                  "nombre": "Diagnóstico y corrección de errores",
+                  "preguntas": [
+                    "¿Los mensajes de alerta ante un error brindan información clara del problema y ofrecen una vía de solución?",
+                    "¿Se puede verificar que los mensajes de error no interfieren con la navegación en la página?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 532,
+          "titulo": "El sitio permite navegar sin interrupciones por ventanas modales o emergentes, las que se cierran fácilmente y no vuelven a aparecer durante la navegación.",
+          "tareas": [
+            {
+              "id": 531,
+              "descripcion": "Configurar ventanas modales y emergentes para que no interrumpan la navegación, se cierren fácilmente y no reaparezcan durante la sesión.",
+              "indicadores": [
+                {
+                  "codigo": "2.1.4 / 1.1.4",
+                  "nombre": "Ventanas modales o emergentes (pop-up)",
+                  "preguntas": [
+                    "¿El sitio permite navegar sin interrupciones de modales o ventanas emergentes que tapen el contenido?"
+                  ]
+                },
+                {
+                  "codigo": "2.2.2 / 1.2.2",
+                  "nombre": "Control y libertad para la persona usuaria",
+                  "preguntas": [
+                    "¿Las páginas permiten avanzar o retroceder sin quedar atrapadas, ofreciendo opciones claras para continuar o finalizar?",
+                    "¿Los videos cuentan con todos sus botones de reproducción disponibles y operativos? (pregunta exclusiva del instrumento de sitios web)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 534,
+          "titulo": "El servicio digital presenta la información en un orden lógico y con zonas claramente delimitadas.",
+          "tareas": [
+            {
+              "id": 533,
+              "descripcion": "Organizar el servicio digital para que la información se presente en un orden lógico y con zonas claramente delimitadas.",
+              "indicadores": [
+                {
+                  "codigo": "2.2.1 / 1.2.1",
+                  "nombre": "Similitud del sistema con el mundo real",
+                  "preguntas": [
+                    "¿El sitio web/servicio digital presenta información en un orden lógico y con zonas bien delimitadas (encabezado, menú, contenido, pie de página)?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 537,
+          "titulo": "El sitio permite avanzar o retroceder sin bloqueos y los videos cuentan con todos sus botones de reproducción operativos.",
+          "tareas": [
+            {
+              "id": 535,
+              "descripcion": "Configurar las páginas del sitio para que permitan avanzar o retroceder sin bloqueos, ofreciendo opciones claras para continuar o finalizar.",
+              "indicadores": [
+                {
+                  "codigo": "2.2.2 / 1.2.2",
+                  "nombre": "Control y libertad para la persona usuaria",
+                  "preguntas": [
+                    "¿Las páginas permiten avanzar o retroceder sin quedar atrapadas, ofreciendo opciones claras para continuar o finalizar?",
+                    "¿Los videos cuentan con todos sus botones de reproducción disponibles y operativos? (pregunta exclusiva del instrumento de sitios web)"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 536,
+              "descripcion": "Configurar los videos del sitio para que cuenten con todos sus botones de reproducción disponibles y operativos.",
+              "indicadores": [
+                {
+                  "codigo": "2.2.2 / 1.2.2",
+                  "nombre": "Control y libertad para la persona usuaria",
+                  "preguntas": [
+                    "¿Las páginas permiten avanzar o retroceder sin quedar atrapadas, ofreciendo opciones claras para continuar o finalizar?",
+                    "¿Los videos cuentan con todos sus botones de reproducción disponibles y operativos? (pregunta exclusiva del instrumento de sitios web)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 539,
+          "titulo": "El sitio muestra un ícono personalizado en la pestaña del navegador.",
+          "tareas": [
+            {
+              "id": 538,
+              "descripcion": "Configurar el sitio para que muestre un ícono personalizado (favicon) en la pestaña del navegador.",
+              "indicadores": [
+                {
+                  "codigo": "2.3.1 / 1.3.1",
+                  "nombre": "Reducción del esfuerzo cognitivo",
+                  "preguntas": [
+                    "¿Es visible el icono personalizado del sitio (favicon) en la pestaña del navegador?",
+                    "¿Se ofrece ayuda en contexto (definiciones, íconos de apoyo, indicaciones breves), en lugar de presentar un largo tutorial para memorizar?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 541,
+          "titulo": "El sitio cuenta con ayudas en contexto claras y visibles, como definiciones, íconos de apoyo o indicaciones breves junto a los contenidos.",
+          "tareas": [
+            {
+              "id": 540,
+              "descripcion": "Incorporar ayudas en contexto (como definiciones, íconos o indicaciones breves) junto a los contenidos para facilitar la comprensión sin memorizar instrucciones extensas.",
+              "indicadores": [
+                {
+                  "codigo": "2.3.1 / 1.3.1",
+                  "nombre": "Reducción del esfuerzo cognitivo",
+                  "preguntas": [
+                    "¿Es visible el icono personalizado del sitio (favicon) en la pestaña del navegador?",
+                    "¿Se ofrece ayuda en contexto (definiciones, íconos de apoyo, indicaciones breves), en lugar de presentar un largo tutorial para memorizar?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 543,
+          "titulo": "El sitio cuenta con buscadores, filtros y opciones de ordenamiento que funcionan correctamente en resultados y tablas de datos.",
+          "tareas": [
+            {
+              "id": 542,
+              "descripcion": "Implementar buscadores, filtros y opciones de ordenamiento en resultados y tablas de datos, asegurando su correcto funcionamiento.",
+              "indicadores": [
+                {
+                  "codigo": "2.3.2 / 1.3.2",
+                  "nombre": "Flexibilidad y eficiencia de uso",
+                  "preguntas": [
+                    "¿Las personas usuarias cuentan con opciones para ordenar y filtrar resultados y tablas de datos?"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "preguntas_unicas": 18
+    },
+    {
+      "id": "SE8",
+      "nombre": "Dimensión 8 · Seguridad",
+      "proyecto_ptd": "PTD-D2.1-SE8",
+      "en_motor_meta_mei_2026": false,
+      "hitos": [
+        {
+          "id": 548,
+          "titulo": "El sitio utiliza HTTPS con un certificado SSL/TLS válido y vigente, y redirige automáticamente todo acceso desde HTTP hacia la versión segura HTTPS.",
+          "tareas": [
+            {
+              "id": 546,
+              "descripcion": "Configurar el sitio para que utilice protocolo HTTPS en todas sus páginas, asegurando que el certificado SSL/TLS esté vigente y válido.",
+              "indicadores": [
+                {
+                  "codigo": "8.1.1 / 7.1.1",
+                  "nombre": "Certificado SSL válido y vigente",
+                  "preguntas": [
+                    "¿El sitio web utiliza el protocolo seguro HTTPS en su URL?",
+                    "¿El certificado SSL/TLS es válido? (se verifica que aparezca el texto \"La conexión es segura\")"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 547,
+              "descripcion": "Configurar el servidor para redirigir automáticamente todo acceso con protocolo HTTP hacia la versión HTTPS correspondiente.",
+              "indicadores": [
+                {
+                  "codigo": "8.1.2 / 7.1.2",
+                  "nombre": "Redirección de HTTP a HTTPS",
+                  "preguntas": [
+                    "¿Al acceder con el protocolo HTTP a las páginas del sitio se realiza la redirección automática a la versión con protocolo HTTPS?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 553,
+          "titulo": "El sitio protege los directorios internos y cuenta con cabeceras de seguridad configuradas para bloquear enmascarado, prevenir ataques MIME y limitar la información de referencia.",
+          "tareas": [
+            {
+              "id": 549,
+              "descripcion": "Configurar la cabecera X-Frame-Options con los valores DENY o SAMEORIGIN para bloquear el enmascarado del sitio dentro de páginas externas.",
+              "indicadores": [
+                {
+                  "codigo": "8.1.3 / 7.1.3",
+                  "nombre": "Bloqueo de enmascarado",
+                  "preguntas": [
+                    "¿El sitio web tiene configurada la cabecera \"X-Frame-Options\" con los valores \"DENY\" o \"SAMEORIGIN\"?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 550,
+              "descripcion": "Ajustar la configuración del servidor para inhabilitar la visualización de contenidos en directorios internos.",
+              "indicadores": [
+                {
+                  "codigo": "8.1.4 (exclusivo Sitios web)",
+                  "nombre": "Directorios desactivados",
+                  "preguntas": [
+                    "¿El servidor web está configurado de manera que no se muestra el contenido de los directorios (carpetas internas)? (indicador exclusivo del instrumento de sitios web)"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 551,
+              "descripcion": "Configurar la cabecera X-Content-Type-Options con el valor nosniff para prevenir ataques MIME.",
+              "indicadores": [
+                {
+                  "codigo": "8.3.1 / 7.3.1",
+                  "nombre": "Prevención de ataques MIME",
+                  "preguntas": [
+                    "¿El sitio tiene configurada la cabecera \"X-Content-Type-Options\" con el valor \"nosniff\"?"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 552,
+              "descripcion": "Implementar la cabecera Referrer-Policy con el valor strict-origin para limitar la información de referencia enviada por el sitio.",
+              "indicadores": [
+                {
+                  "codigo": "8.3.2 / 7.3.2",
+                  "nombre": "Límite de referencias Referrer-Policy",
+                  "preguntas": [
+                    "¿El sitio web tiene configurada la cabecera \"Referrer-Policy\" con el valor \"strict-origin\"?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 555,
+          "titulo": "El sitio cuenta con una política de privacidad clara, actualizada y accesible desde todas sus páginas.",
+          "tareas": [
+            {
+              "id": 554,
+              "descripcion": "Publicar en el sitio una política de privacidad redactada en lenguaje claro que describa cómo se recopila, utiliza, protege y comparte la información de las personas usuarias.",
+              "indicadores": [
+                {
+                  "codigo": "8.2.1 / 7.2.1",
+                  "nombre": "Política de privacidad",
+                  "preguntas": [
+                    "¿Se presenta un enlace a la política de privacidad en el sitio web?",
+                    "¿Este enlace está en el pie de cada página del sitio web?"
+                  ]
+                },
+                {
+                  "codigo": "1.1.3 / 5.1.3",
+                  "nombre": "Lenguaje plano",
+                  "preguntas": [
+                    "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
+                    "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
+                    "¿La redacción prescinde de la jerga técnica o legal?",
+                    "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
+                    "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
+                    "¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 557,
+          "titulo": "El sitio web informa de manera clara el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles.",
+          "tareas": [
+            {
+              "id": 556,
+              "descripcion": "Publicar en el sitio web información clara y comprensible sobre el tipo de cookies utilizadas, sus finalidades y las opciones de control disponibles.",
+              "indicadores": [
+                {
+                  "codigo": "8.3.3 / 7.3.3",
+                  "nombre": "Aviso de uso de cookies",
+                  "preguntas": [
+                    "¿Proporciona el sitio web información clara y comprensible sobre el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles para la persona usuaria?"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "preguntas_unicas": 10
+    }
+  ],
+  "mapeo_indicador_lc_a_motor_v21": {
+    "1.1.1 / 5.1.1": [
+      "E2"
+    ],
+    "1.1.2 / 5.1.2": [
+      "E4",
+      "A6",
+      "A7",
+      "A8",
+      "A5"
+    ],
+    "1.1.3 / 5.1.3": [
+      "B8",
+      "B6",
+      "B2",
+      "B7",
+      "B4",
+      "B3",
+      "B5"
+    ],
+    "1.1.4 / 5.1.4": [
+      "E3"
+    ],
+    "1.1.5 / 5.1.5": [
+      "D1",
+      "D2"
+    ],
+    "1.1.6 / 5.1.6": [
+      "G3"
+    ],
+    "1.1.7 / 5.1.7": [
+      "G1",
+      "G2"
+    ],
+    "1.1.8 (exclusivo Sitios web)": [],
+    "1.2.1 / 5.2.1": [
+      "C8",
+      "B2",
+      "B1",
+      "C2",
+      "C1",
+      "C7"
+    ],
+    "1.2.2 / 5.2.2": [
+      "C9",
+      "C5",
+      "C4",
+      "C3",
+      "C6"
+    ],
+    "1.2.3 / 5.2.3": [
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "1.2.4 / 5.2.4": [
+      "A2",
+      "A1",
+      "A3",
+      "A9",
+      "D6",
+      "D7",
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "1.3.1 (exclusivo Sitios web)": [],
+    "1.3.2 / 5.3.1": [
+      "E1"
+    ],
+    "1.3.3 / 5.3.2": [
+      "H1"
+    ]
+  },
+  "reglas_orquestacion": {
+    "meta_mei_2026": "Evaluar TODAS las preguntas de Dimensión 1 (CL1) por Hito→Tarea→Indicador→Pregunta. Consolidar evidencia en los 47 criterios A–H (data/checklist-criteria.json). El % y Excel MEI siguen siendo 47 filas.",
+    "usabilidad_seguridad": "Catalogadas en este JSON; NO puntuar en §17 ni mezclar en el % LC hasta decisión explícita post Excel META MEI LC.",
+    "preguntas_duplicadas": "La misma pregunta puede aparecer bajo varias tareas PTD; responderla una vez por URL y reutilizar la evidencia en todos los hitos/tareas que la citan.",
+    "entrega": "CLAUDE.md §22 — comentario en cada A–H; propuesto accionable; realismo A7/B3."
+  },
+  "conteos_preguntas_unicas": {
+    "nota": "Preguntas unicas sin duplicar entre IEW e IESD ni entre hitos/tareas del Word. Fuente: calibracion Equipo UX / checklist editorial v2.0 actualizado.",
+    "lenguaje_claro": {
+      "total": 51,
+      "ambos_iew_iesd": 38,
+      "solo_iew": 10,
+      "solo_iesd": 3,
+      "nota_conteo": "El listado UX «8 solo IEW» agrupa «Contenidos sensibles x3» como un tema; en filas JSON son 10 exclusivas IEW. 38+10+3=51.",
+      "desglose_orientativo_solo_iew": [
+        "Conectores (1.1.5)",
+        "Anti-redifusion PI (1.1.6)",
+        "RUN en listados (1.1.7)",
+        "Telefonos/direcciones particulares (1.1.7)",
+        "Contenidos sensibles x3 (1.1.8)",
+        "80% hechos vs adjetivos (1.3.2)",
+        "Enlaces relacionados (1.2.4)",
+        "Apoyos visuales / visualizacion 1.3.1"
+      ],
+      "desglose_orientativo_solo_iesd": [
+        "Variante Claridad servicio digital (5.2.1)",
+        "Variante Concision inicio+tramite (5.2.2)",
+        "Rotulos de enlace descriptivos (5.2.4)"
+      ],
+      "en_motor_meta_mei_2026": true,
+      "consolidacion_score": "51 criterios LC-* en checklist-criteria-lc-ptd.json (version_checklist 3.0); A-H solo historico"
+    },
+    "usabilidad": {
+      "total": 18,
+      "ambos_iew_iesd": 16,
+      "solo_iew": 1,
+      "solo_iesd": 1,
+      "solo_iew_detalle": "Videos con botones de reproduccion",
+      "solo_iesd_detalle": "Anclar/destacar interacciones si autenticado",
+      "en_motor_meta_mei_2026": false
+    },
+    "seguridad": {
+      "total": 10,
+      "ambos_iew_iesd": 9,
+      "solo_iew": 1,
+      "solo_iesd": 0,
+      "solo_iew_detalle": "Directorios internos no listables",
+      "en_motor_meta_mei_2026": false,
+      "solape_editorial": "G2 politica de privacidad (preguntas 06-07)"
+    },
+    "tres_dimensiones": {
+      "total": 79,
+      "ambos": 65,
+      "solo_iew": 10,
+      "solo_iesd": 4
+    }
+  }
+}

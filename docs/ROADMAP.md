@@ -1,11 +1,12 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-08-18
+**Última actualización:** 2026-08-21
 
 ### Checklist editorial (ago-2026)
 
-- [x] **Checklist v2.1 — 47 criterios** en rama `feat/checklist-v2.1-47-criterios` (`data/checklist-criteria.json` + Zod + skills Claude §17 + citas IEW/IESD/RLC/MEI). Auditorías JSON históricas v1.1 (39 filas) siguen válidas. **Merge/PR a `main`:** ver [Fase 4](#fase-4--mvp-on-demand-cuenta-claude-pro-institucional--worker-local--be-delgado) paso 1. **No** reauditar URLs hasta cuenta institucional + checklist en `main`.
+- [x] **Checklist v2.1 — 47 criterios A–H** (histórico) en `data/checklist-criteria.json` + Zod.
+- [x] **Checklist PTD-LC v3.0 — 51 criterios** por indicadores IEW (15) / IESD (13): `data/checklist-criteria-lc-ptd.json` + Word `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` (+ `.extracted.md` para RAG) + orquestación Claude §2/§17/§23 sin consolidar a A–H. Auditorías nuevas: `version_checklist: "3.0"`.
 
 ---
 
@@ -294,16 +295,18 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] **Entrega visible H1/47 filas** (rama `fix/entrega-visible-h1-47-criterios`): filtro metadata no oculta E4/H1; acordeón UI/PDF siempre 47 criterios v2.1; negaciones «no se evaluó title/meta» no disparan exclusión.
 - [x] **Excel por URL / completo: 47 criterios + 5 categorías de presentación MEI**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
 - [x] **Entrega legible humana (§22) + mapa PTD editorial v2.0**: CLAUDE.md §22, skills y `audit-una-url.md` (propuesto/motivo/ubicación para CMS); `docs/checklist-ptd-v2-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
-- [ ] **Reauditoría completa órdenes 1–10** con workflow 1-URL + §20/§21/§22 (fecha sugerida `2026-08-20`; una sesión Claude Code por URL). Órdenes **1–6** cerradas `…_2026-08-20`; órdenes **7–10** marcadas `reauditoriaEnProceso` en la UI META MEI hasta cablear.
-- [ ] Excel META MEI completo Equipo UX de las 10 URLs tras esa reauditoría
-- [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
+- [x] **Mapa IEW/IESD pregunta-a-pregunta** (LC · Usabilidad · Seguridad): inventario dual sitios §1/§2/§8 ↔ trámites §5/§1/§7 en `docs/checklist-ptd-v2-mapa.md`.
+- [x] **Checklist Editorial PTD v2.0 actualizado en repo** + `data/checklist-editorial-ptd-v2.json` + §23: preguntas únicas **LC 51 · US 18 · SE 10** (total **79**); META MEI 2026 solo LC → 47 A–H; US/SE tras Excel LC.
+- [x] **§22 reforzado (copy accionable CMS)** — rama `feat/orquestacion-s22-copy-accionable-cms`: §22.8–§22.12; skill + prompts; prompt oro.
+- [ ] **Muestra “estándar de oro”** (1–2 URLs) con §22+§23; luego reauditoría 10 URLs LC y Excel MEI coherente.
+- [ ] **Post-Excel LC:** incorporar Usabilidad y Seguridad (mismo Word/JSON) para cierre de año.
 
 ### Spike opcional (si sobra tiempo)
 
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a jefatura / Equipo UX
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026) + calibración §20 y UI resultado en `main` + Tanda A §20 en historial + **workflow 1-URL** documentado; queda pendiente **reauditoría 1–10** con ese workflow, Excel MEI institucional de las 10 URLs, y merges pendientes a `main`.
+**Éxito de la Fase 4:** … + Checklist Editorial PTD v2.0 en repo/JSON + §23 (LC 2026 vía Hito→Tarea→Pregunta → 47 A–H); queda **muestra oro §22+§23**, reauditorías LC + Excel MEI coherente, luego Usabilidad/Seguridad fin de año, y doc TI.
 
 ---
 

@@ -1,5 +1,8 @@
 import type { CriterionEvaluation, CriterionId } from "../../schemas/checklist"
-import { CRITERION_IDS } from "../../schemas/checklist"
+import {
+  CRITERION_IDS_V21,
+  criterionIdsForChecklistVersion,
+} from "../../schemas/checklist"
 
 import {
   isMetadataCriterionEvaluation,
@@ -67,12 +70,22 @@ export type MeiExcelRow = {
 
 const SESSION_G1_RANKS = new Set([4, 7, 14])
 
-const CMS_PROPUESTOS: Partial<Record<CriterionId, string>> = {
+const CMS_PROPUESTOS: Partial<Record<string, string>> = {
   E3: "Agregar fecha visible de última actualización en la página (pie o cabecera).",
+  "LC-1.1.4-01":
+    "Agregar fecha visible de última actualización en la página (bajo el título o pie de contenido).",
   G2: "Publicar sección visible sobre derechos ARCO (acceso, rectificación, eliminación, oposición, bloqueo).",
+  "LC-1.1.7-03":
+    "Publicar sección visible sobre derechos ARCO (acceso, rectificación, eliminación, oposición, bloqueo).",
   G3: "Publicar condiciones de uso / licencia de contenidos con enlace visible en el sitio.",
+  "LC-1.1.6-01":
+    "Publicar condiciones de uso / licencia de contenidos con enlace visible en el sitio.",
   E2: "Mostrar autoría institucional visible (INAPI) en la página.",
+  "LC-1.1.1-01":
+    "Mostrar autoría institucional visible (INAPI) en encabezado o pie de cada página.",
   H1: 'Rotular versiones anteriores como "archivo no vigente" con año o periodo.',
+  "LC-1.3.3-01":
+    'Rotular versiones anteriores como "archivo no vigente" con año o periodo.',
 }
 
 function actividadPrincipal(hitoId: string): number | null {
@@ -84,15 +97,23 @@ function requiereValidacionTic(
   criterioId: CriterionId,
   rank: number | null,
 ): "si" | "no" {
-  if (criterioId === "G1" && rank !== null && SESSION_G1_RANKS.has(rank)) {
+  if (
+    (criterioId === "G1" || criterioId === "LC-1.1.7-01") &&
+    rank !== null &&
+    SESSION_G1_RANKS.has(rank)
+  ) {
     return "si"
   }
-  if (criterioId === "B2") return "si"
+  if (criterioId === "B2" || criterioId === "LC-1.1.3-03") return "si"
   return "no"
 }
 
 function notasTicFor(criterioId: CriterionId, rank: number | null): string {
-  if (criterioId === "G1" && rank !== null && SESSION_G1_RANKS.has(rank)) {
+  if (
+    (criterioId === "G1" || criterioId === "LC-1.1.7-01") &&
+    rank !== null &&
+    SESSION_G1_RANKS.has(rank)
+  ) {
     return "Revisar con Equipo UX/TI: posible dato de sesión (§19), no PII de terceros."
   }
   return ""
@@ -112,17 +133,18 @@ function emptyDocumentaryRow(
     fechaHito: hito.fechaHito,
     rankClarity: null,
     url: "(evidencia repo)",
-    nombreUi: "Checklist Editorial INAPI v2.1",
+    nombreUi: "Checklist Editorial INAPI PTD-LC v3.0",
     tipoPagina: "—",
     criterioId: "N/A",
-    criterioEnunciado: "47 criterios A1–H1 en data/checklist-criteria.json",
+    criterioEnunciado:
+      "51 criterios LC por indicadores IEW/IESD en data/checklist-criteria-lc-ptd.json",
     estadoAuditoria: "n/a",
     categoriaPresentacion: "",
     severidad: "",
     tipoEntrega: "evidencia",
     textoOriginal: "",
     textoPropuesto:
-      "Checklist v2.1 operativo en repo + flujo auditoría Claude §17 + validate:claude-audits.",
+      "Checklist PTD-LC v3.0 (51) operativo + flujo auditoría Claude §17 + validate:claude-audits.",
     motivo: "Evidencia actividad 1 / hito H01 (ago-2026).",
     ubicacionPantalla: "",
     lineaRef: "",
@@ -138,11 +160,17 @@ function emptyDocumentaryRow(
 }
 
 /**
- * Entrega Excel (por URL y completo): siempre los **47** criterios A1–H1,
- * igual que la tabla del MVP y el PDF.
+ * Entrega Excel (por URL): filas según `version_checklist` de la auditoría
+ * (3.0 → 51 LC-*; 2.1 → 47 A–H; 1.1 → 39).
  */
-function criterioIdsParaDetalleUrl(_hitoId: string): readonly CriterionId[] {
-  return CRITERION_IDS
+function criterioIdsParaDetalleUrl(
+  _hitoId: string,
+  versionChecklist?: string,
+): readonly CriterionId[] {
+  if (versionChecklist) {
+    return criterionIdsForChecklistVersion(versionChecklist)
+  }
+  return CRITERION_IDS_V21 as readonly CriterionId[]
 }
 
 function sustitucionPrimariaPorCriterio(
@@ -284,8 +312,9 @@ export function buildUrlSummariesForHito(
   hitoId: string,
   audits: LoadedClarityAudit[],
 ): MeiUrlResumen[] {
-  const criterios = new Set(criterioIdsParaDetalleUrl(hitoId))
   return audits.map((audit) => {
+    const version = audit.bundle.audit.version_checklist
+    const criterios = new Set(criterioIdsParaDetalleUrl(hitoId, version))
     const evals = audit.bundle.audit.criterios_evaluados.filter((e) =>
       criterios.has(e.id),
     )
@@ -338,7 +367,7 @@ export function buildRowsForHito(
         tipoPagina: audit.tipoPagina,
         criterioId: "N/A",
         criterioEnunciado:
-          "Apoyos visuales (sin criterio directo en checklist A1–H1)",
+          "Apoyos visuales (LC-1.3.1-01 / indicador Visualización IEW 1.3.1)",
         estadoAuditoria: "n/a",
         categoriaPresentacion: "",
         severidad: "",
@@ -362,10 +391,12 @@ export function buildRowsForHito(
     return rows
   }
 
-  const idsAlcance = criterioIdsParaDetalleUrl(hitoId)
-  const orderIndex = new Map(idsAlcance.map((id, i) => [id, i]))
-
   for (const audit of audits) {
+    const idsAlcance = criterioIdsParaDetalleUrl(
+      hitoId,
+      audit.bundle.audit.version_checklist,
+    )
+    const orderIndex = new Map(idsAlcance.map((id, i) => [id, i]))
     const sustMap = sustitucionPrimariaPorCriterio(
       audit.bundle.pilot.sustituciones ?? [],
     )
