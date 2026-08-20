@@ -22,6 +22,8 @@ Este archivo es la **fuente de verdad** de los 47 criterios (v2.1). Tiene la def
 
 No usar solo el RAG para criterios — el JSON es la fuente de verdad.
 
+Al citar un criterio hacia Bernarda/TIC, preferir el texto de `criterion` + `verification` (la **pregunta**) y, en hallazgos, el formato de entrega §22 de CLAUDE.md (ubicación humana + propuesto accionable).
+
 ```json
 // Estructura de cada criterio en el JSON:
 {

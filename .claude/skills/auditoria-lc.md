@@ -2,7 +2,7 @@
 
 Fuente de verdad de criterios: `./data/checklist-criteria.json`
 Fuente de verdad de schemas: `./src/schemas/claude-audit-pilot.ts` y `./src/schemas/url-audit.ts`
-Referencia operativa: `.claude/CLAUDE.md` (especialmente §2, §5, §8, §12, §16, §17, §20, §21)
+Referencia operativa: `.claude/CLAUDE.md` (especialmente §2, §5, §8, §12, §16, §17, §20, §21, **§22**)
 Plantilla canónica: `.claude/prompts/audit-una-url.md`
 
 ---
@@ -73,8 +73,20 @@ Para pasada única (sin sub-subagentes): evaluar en orden A1 → H1. Preferir si
 4. Aplicar la definición al inventario R+U (y estilos/a11y si §21 lo pide).
 5. **Gate de evidencia (§20.6):** no emitir `cumple` sin evidencia positiva; `incumple` exige cita/Tnnn + sustitución; `no_aplica` exige `comentario`.
 6. Registrar UNA evidencia representativa por criterio (la más grave si hay varias). Preferir hallazgos **distintos** entre criterios; si es el mismo nodo → §20.3.
+7. **Entrega humana (§22):** al emitir `incumple`, completar `ubicacion_pantalla` (ruta en pantalla), `propuesto` (texto pegable o instrucción concreta) y `motivo` (responde la pregunta del criterio en 1–3 frases). En `cumple`/`no_aplica`, el `comentario` debe ser entendible sin conocer el orquestador.
 
 ---
+
+## Entrega legible (§22) — checklist rápido por sustitución
+
+Antes de devolver el grupo al agente raíz, verificar cada fila de `sustituciones[]`:
+
+- [ ] ¿Un editor CMS sabría **dónde** mirar solo con `ubicacion_pantalla`?
+- [ ] ¿`propuesto` se puede **pegar** o es una instrucción inequívoca (no “mejorar claridad”)?
+- [ ] ¿`motivo` explica la **pregunta del instrumento** + el fallo + (si aplica) patrón de layout?
+- [ ] ¿Sin jerga §17 / Tnnn como única ubicación / selectores CSS?
+
+Mapa PTD Bernarda (LC / Usabilidad / Seguridad) → criterios A–H: `docs/checklist-bernarda-v2-ptd-mapa.md`.
 
 ## Los 47 criterios — referencia completa con calibraciones
 
@@ -245,6 +257,8 @@ Verificar ANTES de escribir el JSON final:
 - [ ] ¿`severidad` solo existe en criterios con `estado = "incumple"`?
 - [ ] ¿No hay `null` en ningún campo del JSON?
 - [ ] Si `captura_con_sesion: true`: ¿ningún valor real del solicitante en `cita_textual`, `original` o `propuesto`?
+- [ ] ¿Cada `sustituciones[]` cumple §22 (ubicación humana, propuesto accionable, motivo claro)?
+- [ ] ¿`resumen_ejecutivo` y `nota_final_tic` son legibles para TIC/CMS sin jerga de orquestación?
 
 ---
 

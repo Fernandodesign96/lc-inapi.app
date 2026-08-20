@@ -293,7 +293,8 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica `.claude/prompts/audit-una-url.md`; `audit-lote.md` acotado (default 1 URL, máx. 2 hermanas; 5 solo smoke); CLAUDE.md §8 playbook herramientas, §12/§14/§17, §20.6 gate evidencia, §21 criterios A9/D3/D4/E3/F4; skill `auditoria-lc` inventario R+U. **Depreca** lote de 5 URLs en un prompt maestro para entregas Bernarda.
 - [x] **Entrega visible H1/47 filas** (rama `fix/entrega-visible-h1-47-criterios`): filtro metadata no oculta E4/H1; acordeón UI/PDF siempre 47 criterios v2.1; negaciones «no se evaluó title/meta» no disparan exclusión.
 - [x] **Excel por URL / completo: 47 criterios + 5 categorías Bernarda**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
-- [ ] **Reauditoría completa órdenes 1–10** con workflow 1-URL + §20/§21 (fecha sugerida `2026-08-20`; una sesión Claude Code por URL). Órdenes **1–6** cerradas `…_2026-08-20`; órdenes **7–10** marcadas `reauditoriaEnProceso` en la UI META MEI hasta cablear.
+- [x] **Entrega legible humana (§22) + mapa Bernarda PTD v2.0**: CLAUDE.md §22, skills y `audit-una-url.md` (propuesto/motivo/ubicación para CMS); `docs/checklist-bernarda-v2-ptd-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
+- [ ] **Reauditoría completa órdenes 1–10** con workflow 1-URL + §20/§21/§22 (fecha sugerida `2026-08-20`; una sesión Claude Code por URL). Órdenes **1–6** cerradas `…_2026-08-20`; órdenes **7–10** marcadas `reauditoriaEnProceso` en la UI META MEI hasta cablear.
 - [ ] Excel META MEI completo Bernarda de las 10 URLs tras esa reauditoría
 - [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
 

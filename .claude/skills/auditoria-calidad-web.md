@@ -11,6 +11,9 @@ Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
 - Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
 - Cuando se requiera contexto normativo (citas `IEW`/`IESD`/`RLC`/`MEI` del checklist v2.1), o el UI Kit Gobierno.
+- Cuando se trace un hito/tarea del Checklist Editorial Bernarda PTD (v2.0) hacia criterios A–H — ver `docs/checklist-bernarda-v2-ptd-mapa.md`.
+
+**Nota de alcance 2026:** el motor §17 evalúa **Lenguaje claro / contenido editorial** (47 criterios). Las dimensiones Usabilidad y Seguridad del PTD Bernarda v2.0 **no** se evalúan aún en los sub-subagentes; el mapa documenta el puente para no confundir alcances.
 
 ---
 

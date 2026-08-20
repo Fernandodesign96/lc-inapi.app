@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-20 | [Orquestación: §22 entrega legible + mapa Checklist Bernarda PTD v2.0](#devlog-2026-08-20-entrega-legible-bernarda) |
 | 2026-08-19 | [Frontend/MEI: Excel con 47 criterios y 5 categorías Bernarda](#devlog-2026-08-19-excel-47-categorias) |
 | 2026-08-19 | [Frontend: META MEI órdenes 7–10 en proceso en UI](#devlog-2026-08-19-meta-mei-en-proceso) |
 | 2026-08-19 | [Frontend: entrega visible — H1/E4 y 47 criterios en tabla](#devlog-2026-08-19-entrega-h1-47) |
@@ -79,6 +80,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-20-entrega-legible-bernarda"></a>
+## [2026-08-20] - Orquestación | §22 entrega legible + mapa Checklist Bernarda PTD v2.0
+
+### Contexto y objetivos:
+
+Tras la reunión con Álvaro y Bernarda: los textos propuestos, justificaciones y ubicaciones no se leían como acciones para CMS/TIC; hacía falta anclar el Word PTD de Bernarda (LC + Usabilidad + Seguridad) al motor de 47 criterios sin diluir META MEI 2026.
+
+### Implementación técnica:
+
+- `CLAUDE.md` **§22**: audiencia editor CMS; plantilla `ubicacion_pantalla` / `propuesto` / `motivo`; cada criterio responde la pregunta del instrumento; brief reforzado en §17.
+- Skills `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios` + plantilla `audit-una-url.md`: pase de legibilidad en subagentes y consolidación.
+- `docs/checklist-bernarda-v2-ptd-mapa.md`: Dimensión 1 → A–H; Usabilidad/Seguridad fuera del motor §17 en 2026.
+
+### Próximos pasos:
+
+- Reauditar 1–2 URLs muestra con §22 como estándar de oro para Bernarda.
+- Documento de requisitos técnicos entendible para TI (propuesta MVP) — conversación de producto pendiente.
+- Completar órdenes META MEI 7–10 / Excel completo si aún faltan en `main`.
 
 ---
 

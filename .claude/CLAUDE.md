@@ -500,6 +500,7 @@ Agente raíz (Claude Code — orquestador)
 - **Sin superposición de criterios:** un criterio → un grupo. E4 = Grupo 1; D1 = Grupo 3. METADATA fuera de alcance.
 - **`sustituciones[]`:** unir; si mismo `linea` y conflicto, retención por severidad + nota en `nota_final_tic`.
 - **Completitud:** 47 filas; cobertura 1:1 `incumple` ↔ sustituciones (salvo agrupados §20.3 documentados).
+- **Legibilidad §22:** reescribir filas con `propuesto` vago o `ubicacion_pantalla` solo técnica antes de validar.
 - **No consolidar** hasta que los 5 grupos entreguen output.
 
 ### Instrucción de contexto para cada sub-subagente
@@ -512,6 +513,7 @@ Al lanzar cada sub-subagente, incluir siempre:
 5. «Entrega SOLO criterios de tu sección + `sustituciones[]`. No calcules el % total.»
 6. Calibración §2, §19, §20, §21: **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
 7. Énfasis Grupo 1: A9, E3, E4=H1. Grupo 3: D3/D4 con estilo si dudoso. Grupo 4: F4 completo (4 elementos).
+8. **Entrega humana §22:** `ubicacion_pantalla` / `propuesto` / `motivo` / `comentario` legibles para editor CMS; cada criterio responde la pregunta del instrumento; `propuesto` pegable o instrucción concreta.
 
 ### Skill que carga cada sub-subagente
 
@@ -730,3 +732,68 @@ Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
 | **H1** | `alt` / archivo / versiones | a11y names + DOM |
 
 Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae precedentes; el skill fija el juicio editorial.
+
+---
+
+## 22. Entrega legible para quien implementa (editor CMS / TIC no IA)
+
+*Obligatorio en reauditorías 1-URL y en cualquier JSON nuevo v2.1. Complementa §17, §20.5 y `audit-una-url.md`.*
+
+### 22.1 Audiencia
+
+Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ejecutivo` y `nota_final_tic` **no** es el orquestador: es una persona que corrige textos en Sitefinity / CMS o en el layout compartido. Escribir para esa persona.
+
+**Prohibido en esos campos:** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma»), literales de código innecesarios (`getComputedStyle`, selectores CSS), y ubicaciones solo técnicas (`T042`, `HTML-L512`) sin descripción humana.
+
+### 22.2 Cada criterio = pregunta del instrumento
+
+Antes de fijar el estado, el subagente debe poder responder en una frase la **pregunta** del criterio (`criterion` / `verification` en `data/checklist-criteria.json`, alineada al Checklist Editorial Bernarda / IEW–IESD–RLC).
+
+| Estado | Qué debe quedar claro en `comentario` (o en `motivo` de la sustitución) |
+| --- | --- |
+| `cumple` | Qué se vio que demuestra el sí (ej. «Hay H1 visible “Marcas” alineado al contenido»). |
+| `incumple` | Qué falla respecto a la pregunta + qué hay que cambiar. |
+| `no_aplica` | Por qué la pregunta no tiene sentido en esta URL (ya exigido en §20.4). |
+
+La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la traduce a una acción editable.
+
+### 22.3 Plantilla obligatoria de cada fila en `sustituciones[]`
+
+| Campo | Regla |
+| --- | --- |
+| `ubicacion_pantalla` | Ruta humana: zona → bloque → elemento. Ej.: «Menú superior › Patentes › ítem PCT»; «Pie de página › bloque de contacto»; «Cuerpo › primer párrafo bajo el H1». **Nunca** solo `Tnnn` o solo línea HTML. |
+| `original` | Cita corta del texto **visible** a corregir (o descripción de ausencia: «(sin fecha de actualización visible)»). |
+| `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). Sin meta-comentarios («debería mejorarse la claridad»). |
+| `motivo` | 1–3 frases: (1) respuesta a la pregunta del criterio, (2) por qué el original no cumple, (3) si es patrón de sitio (`patron_sistema: true`), decir «corregir una vez en el layout / componente compartido». |
+| `linea` / `html_linea_aprox` | Secundarios para TIC; no sustituyen a `ubicacion_pantalla`. |
+
+### 22.4 Ejemplos (malo → bueno)
+
+**Ubicación**
+
+- Malo: `T015` / `HTML-L420` / `nav.navbar > li:nth-child(3)`
+- Bueno: `Menú superior › grupo Patentes › enlace «PCT»`
+
+**Propuesto**
+
+- Malo: `Mejorar la redacción con lenguaje claro y voz activa.`
+- Bueno: `Protege tu marca en Chile: revisa si ya existe y presenta la solicitud en línea.`
+
+**Motivo**
+
+- Malo: `Incumple B1 según skill; evidencia capa R.`
+- Bueno: `La pregunta pide voz activa y mensaje entendible. El texto actual usa voz pasiva y no dice qué puede hacer la persona. El propuesto dice la acción en presente.`
+
+### 22.5 Instrucción extra al lanzar cada sub-subagente (§17)
+
+Añadir siempre al brief del grupo:
+
+> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22). Cada criterio debe responder la pregunta del instrumento con evidencia. `propuesto` = texto pegable o instrucción concreta; ubicación = ruta en pantalla, no solo Tnnn.»
+
+### 22.6 Consolidación (agente raíz)
+
+Antes de `validate:claude-audits`, revisar una muestra de sustituciones: si `propuesto` es vago o `ubicacion_pantalla` es solo técnica, **reescribir** esas filas. `resumen_ejecutivo` / `nota_final_tic` siguen §20.5 + §22.1.
+
+### 22.7 Relación con Checklist Bernarda PTD (v2.0)
+
+El documento de Bernarda *Checklist Editorial INAPI v2.0* (local en `documentos/`, no versionado) organiza hitos PTD de **Lenguaje claro**, **Usabilidad** y **Seguridad**. El motor §17 y `checklist-criteria.json` v2.1 cubren la dimensión **Contenido y Lenguaje claro** (47 criterios A–H). Usabilidad y Seguridad quedan **fuera** de la evaluación automática actual; ver mapa en `docs/checklist-bernarda-v2-ptd-mapa.md`.

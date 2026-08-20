@@ -84,7 +84,7 @@ Cada uno recibe: inventario R+U, URL, tipo, fecha, sesión, §20/§21, skill de 
 
 **Instrucción obligatoria a cada subagente:**
 
-> Evalúa SOLO tus criterios. Para **cada** id: (1) estado, (2) evidencia concreta (Tnnn, atributo, estilo, ausencia) o `no_aplica` con `comentario`, (3) si `incumple` → fila(s) en `sustituciones[]` con `ubicacion_pantalla` (sitioweb) y `capa: "VISIBLE"`. Prohibido `cumple` por omisión o “parece bien”. No calcules el % total ni escribas el JSON completo.
+> Evalúa SOLO tus criterios. Para **cada** id: (1) estado que **responde la pregunta** del instrumento (`criterion`/`verification` en el checklist), (2) evidencia concreta (Tnnn, atributo, estilo, ausencia) o `no_aplica` con `comentario`, (3) si `incumple` → fila(s) en `sustituciones[]` con `ubicacion_pantalla` en ruta de pantalla (no solo Tnnn), `propuesto` listo para pegar o instrucción concreta, `motivo` en 1–3 frases para editor CMS, y `capa: "VISIBLE"` (CLAUDE.md §22). Prohibido `cumple` por omisión, “parece bien”, o `propuesto` vago del tipo “mejorar la claridad”. No calcules el % total ni escribas el JSON completo.
 
 ### Paso E — Consolidación (agente raíz)
 
@@ -92,8 +92,9 @@ Cada uno recibe: inventario R+U, URL, tipo, fecha, sesión, §20/§21, skill de 
 2. Aplicar §20.3 cruces solo si **toda** la evidencia del secundario es el mismo nodo/texto que el primario (`agrupado_en` / `criterios_relacionados`).
 3. `patron_sistema: true` en shell Layout (sigue descontando).
 4. Cobertura 1:1 `incumple` ↔ `sustituciones[]` (salvo agrupados documentados).
-5. Calcular % / `estado_aceptacion` con `summarizeEvaluations` (respetar agrupados).
-6. `resumen_ejecutivo` y `nota_final_tic` en lenguaje claro (§20.5).
+5. **Pase §22:** reescribir sustituciones ilegibles (ubicación solo técnica, propuesto genérico, motivo con jerga de orquestación).
+6. Calcular % / `estado_aceptacion` con `summarizeEvaluations` (respetar agrupados).
+7. `resumen_ejecutivo` y `nota_final_tic` en lenguaje claro (§20.5 + §22).
 
 ### Paso F — Guardado, cableado, validación, commit
 
