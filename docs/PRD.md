@@ -29,7 +29,7 @@ En **Fase 2**, el flujo técnico previsto es: **Next** → **Nest** → (REST/JS
 | Calidad de la evaluación asistida | Acuerdo con auditoría humana en muestra fija | ≥ 85 % en N URLs piloto |
 | Trazabilidad | % de auditorías con checklist versionado y criterios completos | 100 % |
 | Respuesta LLM | p95 latencia evaluación | \< 30 s por URL (según modelo y tamaño) |
-| Adopción interna | Usos semanales equipo UX | Definir con liderazgo (p. ej. Bernarda + responsable técnico) |
+| Adopción interna | Usos semanales equipo UX | Definir con liderazgo (p. ej. Equipo UX + responsable técnico) |
 
 ---
 

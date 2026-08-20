@@ -17,7 +17,7 @@ import {
   buildRowsForHito,
   type MeiExcelRow,
 } from "./mei-row-builder"
-import { MEI_CATEGORIA_BERNARDA } from "./mei-criterio-categoria"
+import { MEI_CATEGORIA_PRESENTACION } from "./mei-criterio-categoria"
 import {
   documentosLabelFromSource,
   sourceNotaMetaMei,
@@ -429,8 +429,8 @@ function addDetallePorTipoSheet(
         "(sin criterios evaluados en el alcance de este export)"
       rowIdx++
     } else {
-      for (const cat of MEI_CATEGORIA_BERNARDA) {
-        const catRows = auditRows.filter((r) => r.categoriaBernarda === cat)
+      for (const cat of MEI_CATEGORIA_PRESENTACION) {
+        const catRows = auditRows.filter((r) => r.categoriaPresentacion === cat)
         if (catRows.length === 0) continue
 
         const sep = sheet.getRow(rowIdx)
@@ -446,7 +446,7 @@ function addDetallePorTipoSheet(
           const r = sheet.getRow(rowIdx)
           r.getCell(1).value = data.nombreUi
           r.getCell(2).value = data.url
-          r.getCell(3).value = data.categoriaBernarda || "—"
+          r.getCell(3).value = data.categoriaPresentacion || "—"
           r.getCell(4).value = data.textoOriginal
           r.getCell(5).value = data.textoPropuesto
           r.getCell(6).value = ubicacionEntrega(data)

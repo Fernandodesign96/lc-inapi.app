@@ -86,7 +86,7 @@ Antes de devolver el grupo al agente raíz, verificar cada fila de `sustitucione
 - [ ] ¿`motivo` explica la **pregunta del instrumento** + el fallo + (si aplica) patrón de layout?
 - [ ] ¿Sin jerga §17 / Tnnn como única ubicación / selectores CSS?
 
-Mapa PTD Bernarda (LC / Usabilidad / Seguridad) → criterios A–H: `docs/checklist-bernarda-v2-ptd-mapa.md`.
+Mapa PTD editorial (LC / Usabilidad / Seguridad) → criterios A–H: `docs/checklist-ptd-v2-mapa.md`.
 
 ## Los 47 criterios — referencia completa con calibraciones
 

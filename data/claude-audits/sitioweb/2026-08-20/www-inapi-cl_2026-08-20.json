@@ -2,7 +2,7 @@
   "id": "www-inapi-cl_2026-08-20",
   "url": "https://www.inapi.cl/",
   "fecha_evaluacion": "2026-08-20T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "2.1",
   "tipo_pagina": "sitioweb",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Portada / inicio INAPI",
     "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
     "visitas_ref": "—",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "fuente_piloto_id": "www-inapi-cl_2026-08-19",
     "descripcion": "Reauditoría 1-URL con arquitectura de 5 sub-subagentes (CLAUDE.md §17) del lote META MEI orden 1 (Portada o página de inicio). Contenido de portada equivalente al 2026-08-19 salvo rotación de Novedades (nueva noticia del 18-ago-2026 sobre beca Belt and Road, que desplaza la noticia ASIPI del 30-jul fuera de las 3 tarjetas visibles)."
   },

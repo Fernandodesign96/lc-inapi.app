@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-trademark-trademarkuserdocument_2026-06-11",
   "url": "https://tramites.inapi.cl/Trademark/TrademarkUserDocument",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Presentación de escritos",
     "ruta_etiqueta": "Trademark User Document (Escritos)",
     "visitas_ref": "23.141",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Escritos Guardados de Marcas» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T017 [HTML-L207]: «PAGOS» | T022 [HTML-L237]: «SERVICIOS» | T034 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900) | T057 [HTML-L489]: «Documentación Mínima PCT» | T057b [HTML-L170]: «Home» (breadcrumb) | T058 [HTML-L1029]: «Escritos Guardados de Marcas» (card-header div, no H semántico) | T059 [HTML-L1033]: «Filtros de Búsqueda» (leyenda fieldset, capitalización tipo título) | T060 [HTML-L1039]: «N° de Atención» (label) | T061 [HTML-L1048]: «N° de Solicitud» (label) | T062 [HTML-L1057]: «N° de Escrito» (label) | T063 [HTML-L1066]: «Estado» (label select) | T064 [HTML-L1068]: «Borrador» (primera opción select — sin opción «Todos» por defecto) | T065 [HTML-L1069]: «Confirmada con Pago» | T066 [HTML-L1070]: «Confirmada sin Pago» | T067 [HTML-L1077]: «Buscar» | T068 [HTML-L1078]: «Limpiar» | T069 [HTML-L1085]: «Presentar Nuevo Escrito de Marca» (botón secundario) | T070 [HTML-L1097]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» | T071 [HTML-L1101]: «Resultados» (leyenda fieldset) | T072 [HTML-L1110]: «N° Atención» (th — inconsistente con label T060) | T073 [HTML-L1112]: «N° Solicitud Marca» (th — inconsistente con label T061) | T074 [HTML-L1113]: «Categoría» (th) | T075 [HTML-L1114]: «Tipo» (th) | T076 [HTML-L1115]: «Signo o Denominación» (th) | T077 [HTML-L1116]: «N° Escrito» (th — inconsistente con label T062) | T078 [HTML-L1117]: «Tipo Escrito» (th, capitalización tipo título) | T079 [HTML-L1118]: «Última Actualización» (th, capitalización tipo título) | T080 [HTML-L1119]: «Estado» (th) | T081 [HTML-L1120]: «Acciones» (th) | T082 [HTML-L1133]: «¿Está seguro de que desea eliminar el escrito?» (texto JS confirm, usted implícito) | T083 [HTML-L1151]: «Se ha eliminado el borrador del escrito guardado.» (mensaje JS, voz pasiva) | T084 [HTML-L1189]: «OK» (botón modal alerta local) | T085 [HTML-L1231]: «Aceptar» (botón modal confirm _Layout) | T086 [HTML-L1232]: «Cancelar» | T087 [HTML-L1259]: «RUT: 65.999.669-3» (footer, persona jurídica pública) | T103 [HTML-L1293]: «Uso de los Contenidos de este Sitio» | T107 [HTML-L1295]: «Política de privacidad» (→ PDF) | T108 [HTML-L1310]: «©2026 INAPI. Todos los derechos reservados» | T109 [HTML-L1311]: «v 2.3.91.0»",

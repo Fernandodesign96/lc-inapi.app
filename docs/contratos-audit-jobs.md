@@ -76,7 +76,7 @@ Crea un job desde la UI (Continuar).
 ```json
 {
   "url": "https://www.inapi.cl/",
-  "auditorNombre": "Fernando Arriagada"
+  "auditorNombre": "equipo de desarrollo"
 }
 ```
 
@@ -130,7 +130,7 @@ Poll de estado para `/auditar/procesando`.
   "id": "01J…",
   "status": "running",
   "url": "https://www.inapi.cl/",
-  "auditorNombre": "Fernando Arriagada",
+  "auditorNombre": "equipo de desarrollo",
   "createdAt": "…",
   "updatedAt": "…",
   "message": "Auditoría en curso…"
@@ -168,7 +168,7 @@ Disponible cuando `status === "done"`.
   "id": "01J…",
   "status": "done",
   "url": "https://www.inapi.cl/",
-  "auditorNombre": "Fernando Arriagada",
+  "auditorNombre": "equipo de desarrollo",
   "finishedAt": "…",
   "auditId": "www-inapi-cl_2026-08-18",
   "historial": {
@@ -176,7 +176,7 @@ Disponible cuando `status === "done"`.
     "entradas": [
       {
         "fecha": "2026-08-18",
-        "auditorNombre": "Fernando Arriagada",
+        "auditorNombre": "equipo de desarrollo",
         "auditId": "www-inapi-cl_2026-08-18",
         "porcentajeCumplimiento": 45.5,
         "estadoAceptacion": "rechazado"
@@ -225,7 +225,7 @@ Body opcional:
 {
   "id": "01J…",
   "url": "https://www.inapi.cl/",
-  "auditorNombre": "Fernando Arriagada",
+  "auditorNombre": "equipo de desarrollo",
   "status": "running",
   "claimedAt": "…"
 }

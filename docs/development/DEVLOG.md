@@ -8,8 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-08-20 | [Orquestación: §22 entrega legible + mapa Checklist Bernarda PTD v2.0](#devlog-2026-08-20-entrega-legible-bernarda) |
-| 2026-08-19 | [Frontend/MEI: Excel con 47 criterios y 5 categorías Bernarda](#devlog-2026-08-19-excel-47-categorias) |
+| 2026-08-20 | [Docs/código: roles institucionales sin nombres de personas](#devlog-2026-08-20-roles-institucionales) |
+| 2026-08-20 | [Orquestación: §22 entrega legible + mapa Checklist Editorial PTD v2.0](#devlog-2026-08-20-entrega-legible-ptd) |
+| 2026-08-19 | [Frontend/MEI: Excel con 47 criterios y 5 categorías de presentación MEI](#devlog-2026-08-19-excel-47-categorias) |
 | 2026-08-19 | [Frontend: META MEI órdenes 7–10 en proceso en UI](#devlog-2026-08-19-meta-mei-en-proceso) |
 | 2026-08-19 | [Frontend: entrega visible — H1/E4 y 47 criterios en tabla](#devlog-2026-08-19-entrega-h1-47) |
 | 2026-08-19 | [Documentación: workflow 1-URL profundidad (§20.6/§21, Playwright/Chroma)](#devlog-2026-08-19-workflow-1url) |
@@ -37,7 +38,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-08-17 | [Checklist: v2.1 — 47 criterios, citas IEW/IESD/RLC y orquestación Claude](#devlog-2026-08-17-checklist-v21-47) |
 | 2026-07-29 | [Infraestructura: Reauditoría §17 de 3 URLs META MEI + Excel regenerado](#devlog-2026-07-29-meta-mei-reauditoria-17) |
 | 2026-07-29 | [Frontend/MEI: 10 URLs META MEI + pestaña Fuentes en Excel](#devlog-2026-07-29-meta-mei-10-urls-fuentes) |
-| 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo Bernarda](#devlog-2026-07-29-mei-ui-excel-bernarda) |
+| 2026-07-29 | [Frontend: MEI — UI jerárquica y Excel estilo MEI institucional](#devlog-2026-07-29-mei-ui-excel-institucional) |
 | 2026-07-28 | [Frontend: MEI calidad web — catálogo PTD, export XLSX y UI por hito](#devlog-2026-07-28-mei-calidad-web-export-ui) |
 | 2026-07-27 | [Frontend: Historial versionado de auditorías por URL](#devlog-2026-07-27-frontend-historial-auditorias) |
 | 2026-07-27 | [Infraestructura: Fase 3.3 — lote WSL ranks 3, 4, 10, 12, 14 con sesión ClaveÚnica](#devlog-2026-07-27-fase-3-3-lote-ranks-3-4-10-12-14) |
@@ -83,33 +84,52 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
-<a id="devlog-2026-08-20-entrega-legible-bernarda"></a>
-## [2026-08-20] - Orquestación | §22 entrega legible + mapa Checklist Bernarda PTD v2.0
+<a id="devlog-2026-08-20-roles-institucionales"></a>
+## [2026-08-20] - Documentación | Roles institucionales sin nombres de personas
 
 ### Contexto y objetivos:
 
-Tras la reunión con Álvaro y Bernarda: los textos propuestos, justificaciones y ubicaciones no se leían como acciones para CMS/TIC; hacía falta anclar el Word PTD de Bernarda (LC + Usabilidad + Seguridad) al motor de 47 criterios sin diluir META MEI 2026.
+Las referencias nominales en docs, skills y código (y el nombre del archivo del mapa PTD) restaban profesionalismo frente a jefatura, Equipo UX y TI. Unificar a roles institucionales.
+
+### Implementación técnica:
+
+- Renombrar el mapa PTD a `docs/checklist-ptd-v2-mapa.md` (sin nombres propios en el path).
+- Símbolos MEI: `categoriaPresentacion*` / `MEI_CATEGORIA_PRESENTACION` (antes ligados a un nombre propio).
+- Docs, CLAUDE.md, skills y metadatos de auditorías: roles (jefatura de proyecto, Equipo UX, TI INAPI, desarrollo backend) en lugar de nombres propios; `evaluador_uid` / `encargado_ref` → `equipo-desarrollo`.
+
+### Próximos pasos:
+
+- Mantener la misma convención en commits/PR y en documentación nueva.
+
+---
+
+<a id="devlog-2026-08-20-entrega-legible-ptd"></a>
+## [2026-08-20] - Orquestación | §22 entrega legible + mapa Checklist Editorial PTD v2.0
+
+### Contexto y objetivos:
+
+Tras la reunión con jefatura de proyecto y Equipo UX: los textos propuestos, justificaciones y ubicaciones no se leían como acciones para CMS/TIC; hacía falta anclar el Checklist Editorial PTD (Word) (LC + Usabilidad + Seguridad) al motor de 47 criterios sin diluir META MEI 2026.
 
 ### Implementación técnica:
 
 - `CLAUDE.md` **§22**: audiencia editor CMS; plantilla `ubicacion_pantalla` / `propuesto` / `motivo`; cada criterio responde la pregunta del instrumento; brief reforzado en §17.
 - Skills `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios` + plantilla `audit-una-url.md`: pase de legibilidad en subagentes y consolidación.
-- `docs/checklist-bernarda-v2-ptd-mapa.md`: Dimensión 1 → A–H; Usabilidad/Seguridad fuera del motor §17 en 2026.
+- `docs/checklist-ptd-v2-mapa.md`: Dimensión 1 → A–H; Usabilidad/Seguridad fuera del motor §17 en 2026.
 
 ### Próximos pasos:
 
-- Reauditar 1–2 URLs muestra con §22 como estándar de oro para Bernarda.
+- Reauditar 1–2 URLs muestra con §22 como estándar de oro para revisión Equipo UX.
 - Documento de requisitos técnicos entendible para TI (propuesta MVP) — conversación de producto pendiente.
 - Completar órdenes META MEI 7–10 / Excel completo si aún faltan en `main`.
 
 ---
 
 <a id="devlog-2026-08-19-excel-47-categorias"></a>
-## [2026-08-19] - Frontend/MEI | Excel con 47 criterios y 5 categorías Bernarda
+## [2026-08-19] - Frontend/MEI | Excel con 47 criterios y 5 categorías de presentación MEI
 
 ### Contexto y objetivos:
 
-El Excel por URL (y el completo) solo listaba incumplimientos + no_aplica del alcance H02 (B+C+D), sin los «Cumple». Bernarda/Fernando necesitan revisar los **47** criterios como en MVP/PDF, agrupados en las cinco etiquetas de la UI.
+El Excel por URL (y el completo) solo listaba incumplimientos + no_aplica del alcance H02 (B+C+D), sin los «Cumple». Equipo UX / desarrollo necesitan revisar los **47** criterios como en MVP/PDF, agrupados en las cinco etiquetas de la UI.
 
 ### Implementación técnica:
 
@@ -135,7 +155,7 @@ Tras cerrar la reauditoría 1-URL de órdenes 1–6 (`…_2026-08-20`), las órd
 
 - Flag `reauditoriaEnProceso` en `mei-meta-mei-urls.ts` (órdenes 7–10).
 - `mei-meta-mei-launch.ts`: filas en proceso sin `resumenMvp` ni enlace a resultado; MVP «En proceso».
-- Excel completo Bernarda no se habilita mientras haya filas en proceso.
+- Excel MEI institucional completo no se habilita mientras haya filas en proceso.
 - Copy de la tarjeta META MEI actualizado.
 
 ### Próximos pasos:
@@ -182,14 +202,14 @@ Tras la Tanda A §20 se observó que lotes de varias URLs en un solo prompt maes
 - `.claude/prompts/audit-lote.md` reescrito: coordina multi-sesión; default 1 URL; máx. 2 hermanas; 5 solo smoke; sección de cableado (reemplaza el antiguo «Paso 6»).
 - `.claude/CLAUDE.md`: §8 playbook de herramientas; §12 apunta a `audit-una-url`; §14 política de tamaño; §17 flujo enriquecido; §20.6 gate de evidencia / hallazgos distintos; §21 playbook A9/D3/D4/E3/E4/F4/H1.
 - `.claude/skills/auditoria-lc.md`: inventario dos capas R/U; gate evidencia; D3/D4 evaluables con `getComputedStyle` (ya no `no_aplica` por defecto «es CSS»).
-- ROADMAP paso 6: workflow 1-URL marcado hecho; reauditoría órdenes 1–10 (fecha sugerida `2026-08-20`) sustituye Tanda B aislada; Excel Bernarda tras esa pasada.
+- ROADMAP paso 6: workflow 1-URL marcado hecho; reauditoría órdenes 1–10 (fecha sugerida `2026-08-20`) sustituye Tanda B aislada; Excel MEI institucional tras esa pasada.
 - Referencias actualizadas en `docs/ux/inventario-urls-clarity.md` y `docs/fase-3-3-captura-auth-claveunica.md`.
 
 ### Próximos pasos:
 
 - Merge de esta rama a `main` (lint / typecheck / build).
 - Reauditar META MEI órdenes **1→10** una URL por sesión con `audit-una-url.md` y fecha `2026-08-20` (confirmar al lanzar).
-- Generar Excel Bernarda completo cuando las 10 estén cerradas.
+- Generar Excel MEI institucional completo cuando las 10 estén cerradas.
 
 ---
 
@@ -224,7 +244,7 @@ La regla operativa que emergió al consolidar: un criterio secundario solo recib
 
 - Merge de `feat/meta-mei-reaudit-s20-lote-a` a `main` (si aún pendiente).
 - Tras merge del workflow 1-URL: reauditar órdenes **1–10** (no solo Tanda B) con `.claude/prompts/audit-una-url.md`.
-- Tras cerrar las 10 URLs: generar el Excel Bernarda completo.
+- Tras cerrar las 10 URLs: generar el Excel MEI institucional completo.
 
 ---
 
@@ -247,7 +267,7 @@ Tras cerrar las 10 URLs META MEI v2.1, jefatura observó: (1) criterios cruzados
 ### Próximos pasos:
 
 - Reauditar las 10 URLs con calibración §20.
-- Generar Excel Bernarda completo y merge a `main`.
+- Generar Excel MEI institucional completo y merge a `main`.
 
 ---
 
@@ -277,8 +297,8 @@ En dos URLs (8 y 9) el sub-subagente del Grupo 1 marcó `E2` como `incumple` exi
 ### Próximos pasos:
 
 - PR/merge de `feat/meta-mei-v21-lote-3` a `main`.
-- Generar el Excel Bernarda de las **10 URLs** META MEI ahora que todas están en v2.1 visible.
-- Revisión editorial con Bernarda de las filas nuevas (especialmente A1/A3 sin H1 en SIAC, y A8 de autonomía del trámite).
+- Generar el Excel MEI institucional de las **10 URLs** META MEI ahora que todas están en v2.1 visible.
+- Revisión editorial con Equipo UX de las filas nuevas (especialmente A1/A3 sin H1 en SIAC, y A8 de autonomía del trámite).
 
 ---
 
@@ -316,7 +336,7 @@ Continuar el lote 6–10 de reauditoría META MEI v2.1 cerrado con la orden 5 (b
 
 ### Contexto y objetivos:
 
-Cerrar las **cinco** URLs META MEI prioritarias con checklist v2.1 y alcance solo visible. Las órdenes 1–4 (portada, marcas, patentes, acerca-de) ya estaban en `main` (`…_2026-08-18`). Faltaba la orden 5: buscador de noticias, para poder pasar al lote 6–10 y, al final, al Excel Bernarda de 10 URLs.
+Cerrar las **cinco** URLs META MEI prioritarias con checklist v2.1 y alcance solo visible. Las órdenes 1–4 (portada, marcas, patentes, acerca-de) ya estaban en `main` (`…_2026-08-18`). Faltaba la orden 5: buscador de noticias, para poder pasar al lote 6–10 y, al final, al Excel MEI institucional de 10 URLs.
 
 ### Implementación técnica:
 
@@ -728,7 +748,7 @@ Un JSON válido por schema no equivale a auditoría §17. Para entregas META MEI
 
 ### Próximos pasos:
 
-- Revisar Excel con Bernarda en reunión 2026-07-30.
+- Revisar Excel con Equipo UX en reunión 2026-07-30.
 - Opcional: reauditar §17 las 7 URLs META MEI que aún apuntan a JSON de junio.
 
 ---
@@ -739,11 +759,11 @@ Un JSON válido por schema no equivale a auditoría §17. Para entregas META MEI
 
 ### Contexto y objetivos:
 
-Tras corrección con Bernarda (prep. reunión jefatura 2026-07-30), los Excel descargables de H02 y entrega completa deben (1) usar las **10 URLs compromiso META MEI** y (2) comunicar en qué documentos de Colección A se fundamentan los 39 criterios del checklist (cita `RLC`/`CW` → PDF).
+Tras corrección con Equipo UX (prep. reunión jefatura 2026-07-30), los Excel descargables de H02 y entrega completa deben (1) usar las **10 URLs compromiso META MEI** y (2) comunicar en qué documentos de Colección A se fundamentan los 39 criterios del checklist (cita `RLC`/`CW` → PDF).
 
 ### Implementación técnica:
 
-- Registro `mei-meta-mei-urls.ts` (orden Bernarda); loader `loadMetaMeiAudits()` por defecto en el writer.
+- Registro `mei-meta-mei-urls.ts` (orden META MEI); loader `loadMetaMeiAudits()` por defecto en el writer.
 - Pestaña **Fuentes**: Hito × Dimensión × Criterio × cita × documento(s); H02 ampliado a B+C+D1–D7.
 - 3 auditorías nuevas 2026-07-29: `/patentes`, noticia Cuenta Pública, noticia cifra patentes; registradas en `META_MEI_EXTRA_AUDITS` (`claude-audits-launch.ts`). **Actualización misma tarde:** reauditoría §17 oficial — ver [entrada reauditoría](#devlog-2026-07-29-meta-mei-reauditoria-17).
 - CLI: `--urls=clarity` conserva la muestra Clarity 13.
@@ -755,18 +775,18 @@ Las citas `CW` del checklist son marco conceptual; el PDF principal es `meta-mei
 ### Próximos pasos:
 
 - ~~Reauditar §17 las 3 URLs nuevas~~ (hecho — ver entrada reauditoría).
-- Revisar con Bernarda el Excel H02/completo antes de la reunión.
+- Revisar con Equipo UX el Excel H02/completo antes de la reunión.
 - Opcional: reauditar con §17 las 7 URLs que aún usan JSON de junio en la muestra META MEI.
 
 ---
 
-<a id="devlog-2026-07-29-mei-ui-excel-bernarda"></a>
+<a id="devlog-2026-07-29-mei-ui-excel-institucional"></a>
 
-## [2026-07-29] - Frontend | MEI — UI jerárquica y Excel estilo Bernarda
+## [2026-07-29] - Frontend | MEI — UI jerárquica y Excel estilo MEI institucional
 
 ### Contexto y objetivos:
 
-Incorporar el feedback de oficina (2026-07-28): error opaco al abrir dimensiones D2.1/D2.2 (típico si falta el catálogo en preview), tablero plano actividad/hito con alturas irregulares, y Excel técnico por hoja H0N en lugar de la plantilla Bernarda de 4 pestañas.
+Incorporar el feedback de oficina (2026-07-28): error opaco al abrir dimensiones D2.1/D2.2 (típico si falta el catálogo en preview), tablero plano actividad/hito con alturas irregulares, y Excel técnico por hoja H0N en lugar de la plantilla MEI institucional de 4 pestañas.
 
 ### Implementación técnica:
 
@@ -781,7 +801,7 @@ Una actividad puede figurar en «Trim 1–2» y su hito en «Trim 2». El tabler
 ### Próximos pasos:
 
 - Confirmar en Vercel `LC_REPO_ROOT` o inclusión de `data/` en el build.
-- Revisión Bernarda del XLSX H02 / completo frente a capturas de plantilla.
+- Revisión Equipo UX del XLSX H02 / completo frente a capturas de plantilla.
 - No cambiar estados H03+ ni auditar ranks Pendiente TI en esta línea.
 
 ---
@@ -810,7 +830,7 @@ El catálogo PTD gobierna **qué se puede descargar** (estado editorial); el mot
 ### Próximos pasos:
 
 - PR único `feat/mei-calidad-web-export-ui` → `main` (3 commits de código + docs).
-- Revisión editorial con Bernarda sobre filas H01–H02 antes de ampliar hitos completados.
+- Revisión editorial con Equipo UX sobre filas H01–H02 antes de ampliar hitos completados.
 - Opcional: sincronizar estados del catálogo cuando cierren hitos H03+ en el trimestre correspondiente.
 
 ---
@@ -975,7 +995,7 @@ Cierre de la **Fase 3** del AI Stack v2. Se implementó y validó el flujo compl
 
 - Fase 4: levantar servidor RAG en TI INAPI y distribuir acceso al equipo
 - URLs protegidas (ranks 5–7, 11–13, 15): pendientes de flujo de autenticación
-- Calibrar severidad G1, D7, E3 con Equipo UX (Bernarda)
+- Calibrar severidad G1, D7, E3 con Equipo UX
 
 ---
 
@@ -1109,7 +1129,7 @@ Sesión de documentación realizada en el PC de la empresa (sin acceso WSL) para
 ## [2026-06-28] - Documentación | Stack orquestación auditoría — DOM, DevTools, Excel MEI y hito 30-jun
 ### Contexto y objetivos:
 
-Tras conversación con equipo TI (implementación en Trámites) y alineación con Bernarda sobre entrega MEI (30-jun-2026), se documentó el problema **Ctrl+U vs DOM vs código fuente TI**, el rol complementario **DevTools IA vs Claude Proyecto**, y un flujo en 6 pasos con entregables duales: Excel B/C/D (humano) + JSON MVP (sistema).
+Tras conversación con equipo TI (implementación en Trámites) y alineación con Equipo UX sobre entrega MEI (30-jun-2026), se documentó el problema **Ctrl+U vs DOM vs código fuente TI**, el rol complementario **DevTools IA vs Claude Proyecto**, y un flujo en 6 pasos con entregables duales: Excel B/C/D (humano) + JSON MVP (sistema).
 
 ### Implementación técnica:
 
@@ -1126,7 +1146,7 @@ Tras conversación con equipo TI (implementación en Trámites) y alineación co
 
 ### Próximos pasos:
 
-- Ejecutar Prompt §3.6.1 en URLs Trámites prioritarias; llenar Excel con Bernarda.
+- Ejecutar Prompt §3.6.1 en URLs Trámites prioritarias; llenar Excel con Equipo UX.
 - Post-MEI: extender schema `claudeSustitucionSchema` con `fragmento_busqueda` opcional; script Playwright de captura DOM.
 
 ### Actualización 2026-06-27
@@ -1249,7 +1269,7 @@ Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto 
 
 ### Próximos pasos:
 
-- Cierre editorial Fase 1.5: revisión UX (Bernarda), entrega TIC, acta breve.
+- Cierre editorial Fase 1.5: revisión Equipo UX, entrega TIC, acta breve.
 - (Opcional código) `validate:claude-audits` + CI; copy UI «10 URLs» → «9 URLs».
 - Decisión 10.ª URL vs cierre piloto en 9.
 
@@ -1261,7 +1281,7 @@ Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto 
 
 Continuación del [bloque matinal del 7-jun (URLs 1–3)](#devlog-2026-06-07-piloto-json-claude): completar el **piloto operativo de 9 URLs** acordado con UX/TIC — auditorías LC v1.1 vía Proyecto Claude (§3.1 → revisión aritmética y cobertura 1:1 → §3.2), JSON canónico en `data/claude-audits/` y registro en `frontend/src/lib/claude-audits-launch.ts` para tabla `/auditar`, API `GET /api/claude-audits/[id]` y [PDF](#devlog-2026-06-04-fase-c-pdf).
 
-Objetivos de la tarde: auditar y cerrar **URLs 4–9**, unificar nomenclatura de `id` (slug desde URL canónica + fecha), y dejar las nueve filas del piloto con `claudeAuditId` y `resumenMvp`. Encargado: Fernando Arriagada Castillo.
+Objetivos de la tarde: auditar y cerrar **URLs 4–9**, unificar nomenclatura de `id` (slug desde URL canónica + fecha), y dejar las nueve filas del piloto con `claudeAuditId` y `resumenMvp`. Encargado: equipo de desarrollo.
 
 ### Implementación técnica:
 
@@ -1298,7 +1318,7 @@ Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resul
 
 ### Próximos pasos:
 
-- Revisión UX (Bernarda): sustituciones aprobadas, falsos positivos G1/D7.
+- Revisión Equipo UX: sustituciones aprobadas, falsos positivos G1/D7.
 - `bun run validate:claude-audits` antes de commit.
 - Commit + PR; actualizar §2 de `flujo-piloto-10-urls-claude-mvp.md`.
 - §3.3 HTML corregido opcional; demo/PDF a TIC.
@@ -1353,7 +1373,7 @@ Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 
 ### Próximos pasos:
 
 - URLs **4–9:** mismo flujo §3.1 → revisión → §3.2; plantilla obligatoria `www-inapi-cl_2026-06-02.json`.
-- Cerrar lista exacta de 9 URLs con Bernarda y alinear §2 de `flujo-piloto-10-urls-claude-mvp.md`.
+- Cerrar lista exacta de 9 URLs con Equipo UX y alinear §2 de `flujo-piloto-10-urls-claude-mvp.md`.
 - Commit + PR: docs sesión, JSON 1–3, `claude-audits-launch.ts`.
 - **C7 (opcional):** `validate:claude-audits` en `package.json` y CI.
 - Opción B nomenclatura o mantener convención `slug-url_YYYY-MM-DD`.
@@ -1423,7 +1443,7 @@ Objetivo: cerrar el ítem **2.3** del plan técnico (Fase B) — tabla/acordeón
 
 ### Próximos pasos:
 
-- Ampliar `CLAUDE_PILOT_URL_ROWS` (URLs exactas filas 6–10 con Bernarda) y JSON en `data/claude-audits/` al ritmo de reuniones Claude (URLs 2–10).
+- Ampliar `CLAUDE_PILOT_URL_ROWS` (URLs exactas filas 6–10 con Equipo UX) y JSON en `data/claude-audits/` al ritmo de reuniones Claude (URLs 2–10).
 - **Opcional:** `claudeAuditIdForUrl` al enviar el formulario de URL si coincide con una fila del launch.
 - Script `validate:claude-audits` en CI (flujo §1.6) — ver [Fase C PDF](#devlog-2026-06-04-fase-c-pdf).
 
@@ -1533,9 +1553,9 @@ Objetivo: fijar en `docs/` el orden definitivo de bloques, títulos de barra y q
 ## [2026-06-02] - Estrategia | Fase 1.5: piloto 10 URLs con Claude, reuniones UX y documentación operativa
 ### Contexto y objetivos:
 
-Tras cerrar en repo las Etapas **5b/5c** del inventario Calidad Web (22 URLs, `type_url`, filtros), el equipo UX (Bernarda, Camila) y liderazgo (Álvaro) priorizaron un **entregable concreto a TIC** antes de fin de año: auditar **10 páginas web** (no las 22 del inventario Clarity como cola única en esta oleada), con informe revisable, **PDF** descargable y **sustituciones de texto** en HTML para solicitudes accionables.
+Tras cerrar en repo las Etapas **5b/5c** del inventario Calidad Web (22 URLs, `type_url`, filtros), el equipo UX (Equipo UX) y jefatura de proyecto priorizaron un **entregable concreto a TIC** antes de fin de año: auditar **10 páginas web** (no las 22 del inventario Clarity como cola única en esta oleada), con informe revisable, **PDF** descargable y **sustituciones de texto** en HTML para solicitudes accionables.
 
-Reuniones **2026-06-01** (Álvaro: enfoque «medio, no fin», trazabilidad futura, cautela con KPI «Auditorías») y **2026-06-02** (Equipo UX: alcance piloto, proveedor IA, flujo sin backend productivo). Se definió **Fase 1.5** en [`docs/ROADMAP.md`](../ROADMAP.md) como etapa de gestión UX + MVP documental, sin sustituir aún Fase 2 (Supabase/Nest/Lambda).
+Reuniones **2026-06-01** (jefatura de proyecto: enfoque «medio, no fin», trazabilidad futura, cautela con KPI «Auditorías») y **2026-06-02** (Equipo UX: alcance piloto, proveedor IA, flujo sin backend productivo). Se definió **Fase 1.5** en [`docs/ROADMAP.md`](../ROADMAP.md) como etapa de gestión UX + MVP documental, sin sustituir aún Fase 2 (Supabase/Nest/Lambda).
 
 Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; (2) comparar **Gemini** vs **Claude** en home `www.inapi.cl`; (3) dejar plan técnico para integrar export JSON Claude → `strictAuditRecordSchema` → UI → PDF en servidor.
 
@@ -1565,7 +1585,7 @@ Fase **1.5** reutiliza el mock y `strictAuditRecordSchema` con datos **importado
 
 ### Próximos pasos:
 
-- Cerrar lista oficial de **10 URLs** con Bernarda (§2 del flujo operativo).
+- Cerrar lista oficial de **10 URLs** con Equipo UX (§2 del flujo operativo).
 - Implementar adaptador export Claude → Zod, carpeta `data/claude-audits/`, acordeón piloto en `/auditar`, pantalla resultado ampliada y API PDF.
 - Completar JSON home + auditorías restantes; entrega TIC: PDF + HTML corregido tras revisión UX.
 - Fase 2.0 (Supabase + contrato REST) cuando cierre el piloto 1.5 según [`docs/ROADMAP.md`](../ROADMAP.md).
@@ -1631,7 +1651,7 @@ Objetivo de esta entrada: **actualizar `docs/`** para reflejar **un solo** inven
 ## [2026-05-28] - Documentación | Consistencia de inventarios, tablas y pantallas mock en `/auditar`
 ### Contexto y objetivos:
 
-Tras el feedback UX (Bernarda/Álvaro, mayo 2026) y la implementación parcial de las **etapas 1–3** (tabla de criterios en resultado, **20 fichas** Clarity y ruta de detalle), el equipo detectó **inconsistencias** entre secciones del mismo mock: URLs distintas para el mismo concepto «home», conteos de auditorías desalineados entre tabla e historial de ficha, filas «No aplica» en Clarity que debían mostrarse como **rechazadas** con % LC, y leyendas de iconos distintas entre inventarios y el **estado de aceptación** del informe en `/auditar/resultado`.
+Tras el feedback UX (Equipo UX / jefatura de proyecto, mayo 2026) y la implementación parcial de las **etapas 1–3** (tabla de criterios en resultado, **20 fichas** Clarity y ruta de detalle), el equipo detectó **inconsistencias** entre secciones del mismo mock: URLs distintas para el mismo concepto «home», conteos de auditorías desalineados entre tabla e historial de ficha, filas «No aplica» en Clarity que debían mostrarse como **rechazadas** con % LC, y leyendas de iconos distintas entre inventarios y el **estado de aceptación** del informe en `/auditar/resultado`.
 
 Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo de pantallas y tablas (fuente única de datos, columnas, iconografía y colores de fila) para que la implementación en código quede alineada antes del siguiente commit de Etapa 3.
 
@@ -1640,7 +1660,7 @@ Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo d
 - **Fuente única (20 URLs Clarity):** [`data/ux/clarity-fichas-mock.json`](../../data/ux/clarity-fichas-mock.json) como maestro mock; la tabla resumida en UI deriva de ahí (no duplicar filas en varios `.ts` sin sincronía). Campos documentados: `encargadoRef`, `auditoriasRef`, `ultimaRevisionRef`, además de visitas, % LC, estado e `historialAuditorias` (longitud del historial = conteo de auditorías cuando es numérico).
 - **Fusión de secciones en `/auditar`:** se **retira** el acordeón independiente **«URLs más auditadas»**; sus columnas útiles (**Auditorías**, **Última revisión**) pasan a la tabla ampliada de **~20 URLs Clarity**. Permanecen **dos** bloques colapsables de inventario: (1) Clarity ampliado, (2) **Estados URLs** (antes «URLs con estados LC resueltos»).
 - **Tabla Clarity (columnas objetivo):** `#`, Ruta o etiqueta, **Encargado**, Visitas (ref.), **Auditorías (ref.)**, **Última revisión (ref.)**, % LC (ref.), Estado (ref.); enlaces a ficha `/auditar/inventario/clarity/[rank]`.
-- **Ficha por URL:** [`/auditar/inventario/clarity/[rank]`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) muestra resumen (incl. **Encargado: Fernando Arriagada** en mock), contexto editorial e historial con **N** fechas coherentes con `auditoriasRef` (p. ej. rank 1 → **5** auditorías y **5** filas de historial).
+- **Ficha por URL:** [`/auditar/inventario/clarity/[rank]`](../../frontend/src/app/auditar/inventario/clarity/[rank]/page.tsx) muestra resumen (incl. **Encargado: equipo de desarrollo** en mock), contexto editorial e historial con **N** fechas coherentes con `auditoriasRef` (p. ej. rank 1 → **5** auditorías y **5** filas de historial).
 - **Correcciones editoriales acordadas en tabla §2:** ranks **8, 15 y 18** con estado **Rechazado** y % **61,3 %**, **55,9 %** y **70,4 %** respectivamente (ya reflejados en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md)).
 - **Iconografía y color de fila unificados** con umbrales de negocio del checklist (≤80 % rechazado, 81–90 % aceptado con observaciones, ≥91 % aprobado): símbolos **!** (rojo), **✓** (azul), **✓✓** (verde), **—** (gris); bandas de fila en verde / naranja / rojo según franja. Misma regla en tabla Clarity, sección **Estados URLs** y celdas de historial en ficha. Detalle en [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) §13.1 y §15.
 - **Documentos actualizados:** [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) (estructura §2–§4), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md), [`docs/PRD.md`](../PRD.md), [`README.md`](../../README.md).
@@ -1659,7 +1679,7 @@ Objetivo de esta entrada: **fijar en `docs/` y README** la estructura objetivo d
 ## [2026-05-27] - Frontend | Sprint fase-1: Feedback UX — catálogo en resultado e inventario Clarity con fichas mock
 ### Contexto y objetivos:
 
-Avanzar las **dos primeras etapas** del plan de feedback UX post-demo (Bernarda/Álvaro, mayo 2026): (1) que la tabla de los 39 criterios en **`/auditar/resultado`** muestre la **sección** y el **enunciado oficial** del checklist editorial v1.1, no solo el código del criterio; (2) disponer de un **modelo mock de ~20 fichas** alineado al inventario ampliado Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) §2, como base para rutas de detalle por URL sin mezclar aún con `StrictAuditRecord`. Objetivo: mejorar legibilidad del informe mock y una **fuente única** de datos para la tabla de inventario en `/auditar` y las futuras páginas de ficha.
+Avanzar las **dos primeras etapas** del plan de feedback UX post-demo (Equipo UX / jefatura de proyecto, mayo 2026): (1) que la tabla de los 39 criterios en **`/auditar/resultado`** muestre la **sección** y el **enunciado oficial** del checklist editorial v1.1, no solo el código del criterio; (2) disponer de un **modelo mock de ~20 fichas** alineado al inventario ampliado Clarity en [`docs/ux/inventario-urls-clarity.md`](../ux/inventario-urls-clarity.md) §2, como base para rutas de detalle por URL sin mezclar aún con `StrictAuditRecord`. Objetivo: mejorar legibilidad del informe mock y una **fuente única** de datos para la tabla de inventario en `/auditar` y las futuras páginas de ficha.
 
 ### Implementación técnica:
 
@@ -1942,7 +1962,7 @@ Registrar en el repo los acuerdos de la última reunión (oficina / transferenci
 ### Próximos pasos:
 
 - **Fase 1 (código):** design system en UI; portal **`/`**; **`/auditar`** con URL, tres atajos, inventarios en barras colapsables (§15 design system); barra térmica y **fixtures** según [`docs/ROADMAP.md`](../ROADMAP.md) (implementados en [2026-05-21](#devlog-2026-05-21-fixtures-implementacion)).
-- **Fase 2:** cerrar con Camila/TI las preguntas abiertas del ADR 0006 (auth, Lambda vs ECS, Pydantic).
+- **Fase 2:** cerrar con desarrollo backend / TI las preguntas abiertas del ADR 0006 (auth, Lambda vs ECS, Pydantic).
 
 ---
 

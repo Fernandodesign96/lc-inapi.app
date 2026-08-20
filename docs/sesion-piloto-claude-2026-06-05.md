@@ -2,7 +2,7 @@
 
 > **Documento histórico.** Las tareas de esta sesión quedaron **cerradas en repo** (URLs 1–9, merge a `main` 2026-06-08). Estado actual: [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §2 y [`development/DEVLOG.md`](development/DEVLOG.md).
 
-**Autor:** Fernando Arriagada Castillo  
+**Autor:** equipo de desarrollo  
 **Contexto:** Piloto LC — 9 URLs (7 `sitioweb` + 2 `tramites` en lista final), distintas a la propuesta inicial de 10 URLs de la reunión 2026-06-02. Sin terminal ni git en este equipo; generación de JSON vía Proyecto Claude y revisión con Cursor (Composer).
 
 **Uso de este documento:** Bitácora del día en PC empresa; conservar como referencia de prompts §3.2 y decisiones editoriales. Para el estado vigente del piloto, usar el flujo operativo §2.
@@ -179,7 +179,7 @@ Metadatos de esta auditoría:
 - version_checklist: "1.1"
 - tipo_pagina: "sitioweb"
 - fecha_evaluacion: ISO 8601 UTC con Z (fecha real de esta auditoría)
-- evaluador_uid: "Fernando Arriagada Castillo"
+- evaluador_uid: "equipo de desarrollo"
 
 CORRECCIONES OBLIGATORIAS respecto a tu primera corrida:
 
@@ -274,7 +274,7 @@ Opcional / limpieza en casa:
 ## 10. Pendientes en casa (orden sugerido)
 
 1. **Cerrar URL 3:** §3.2 Claude → guardar JSON → revisión Composer.
-2. **URLs 4–9:** mismo flujo; lista real 8 sitioweb + 1 trámites (definir con Bernarda).
+2. **URLs 4–9:** mismo flujo; lista real 8 sitioweb + 1 trámites (definir con Equipo UX).
 3. **Git:** commit con docs + todos los JSON del piloto.
 4. **DEVLOG:** entrada sesión 2026-06-05.
 5. **PR** con resumen piloto JSON.

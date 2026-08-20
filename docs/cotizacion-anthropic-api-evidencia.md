@@ -1,7 +1,7 @@
 # Cotización Anthropic API — evidencia de costo (no operativa)
 
 **Estado:** borrador con placeholders — 2026-08-17  
-**Propósito:** entregar a Álvaro / Bernarda / TI un **orden de magnitud** del costo si se operara con Anthropic API en lugar de Claude Code Team (asiento institucional).  
+**Propósito:** entregar a jefatura de proyecto / Equipo UX / TI un **orden de magnitud** del costo si se operara con Anthropic API en lugar de Claude Code Team (asiento institucional).  
 **No** cablear esta API al MVP (ADR 0009 / ADR 0011).
 
 ---

@@ -1,11 +1,11 @@
 import type { CriterionEvaluation } from "../../schemas/checklist"
 
 /**
- * Etiquetas Bernarda / UI de resultado (mismas que
+ * Etiquetas de presentación MEI / UI de resultado (mismas que
  * `frontend/src/lib/criterio-evaluacion-visual.ts` → `presentacionCriterio`).
  * No son enums del schema: se derivan de `estado` + `severidad`.
  */
-export const MEI_CATEGORIA_BERNARDA = [
+export const MEI_CATEGORIA_PRESENTACION = [
   "Cumple",
   "Cumple con observaciones",
   "Medianamente cumple",
@@ -13,7 +13,7 @@ export const MEI_CATEGORIA_BERNARDA = [
   "No aplica",
 ] as const
 
-export type MeiCategoriaBernarda = (typeof MEI_CATEGORIA_BERNARDA)[number]
+export type MeiCategoriaPresentacion = (typeof MEI_CATEGORIA_PRESENTACION)[number]
 
 function severidadIncumple(
   ev: Pick<CriterionEvaluation, "severidad">,
@@ -22,14 +22,14 @@ function severidadIncumple(
 }
 
 /** Orden de secciones en Excel (Cumple → … → No aplica). */
-export function ordenCategoriaBernarda(cat: MeiCategoriaBernarda): number {
-  return MEI_CATEGORIA_BERNARDA.indexOf(cat)
+export function ordenCategoriaPresentacion(cat: MeiCategoriaPresentacion): number {
+  return MEI_CATEGORIA_PRESENTACION.indexOf(cat)
 }
 
-export function categoriaBernardaFromEvaluation(
+export function categoriaPresentacionFromEvaluation(
   ev: Pick<CriterionEvaluation, "estado"> &
     Partial<Pick<CriterionEvaluation, "severidad">>,
-): MeiCategoriaBernarda {
+): MeiCategoriaPresentacion {
   if (ev.estado === "no_aplica") return "No aplica"
   if (ev.estado === "cumple") return "Cumple"
   const sev = severidadIncumple(ev)

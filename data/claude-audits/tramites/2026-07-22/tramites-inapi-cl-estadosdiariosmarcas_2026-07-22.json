@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-estadosdiariosmarcas_2026-07-22",
   "url": "https://tramites.inapi.cl/EstadosDiariosMarcas",
   "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Estados diarios de marcas",
     "ruta_etiqueta": "Estados Diarios Marcas",
     "visitas_ref": "37.557",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Reevaluación (Fase 3, arquitectura sub-subagentes CLAUDE.md §17). Consulta pública de estados diarios de publicación de marcas; filtros de búsqueda, tablas de resultados y encabezados con terminología normativa o jurídica. Confirma correcciones parciales de TIC (tilde en «Titulos», tilde en «algún» del tooltip) y persistencia de la mayoría de los hallazgos previos."
   },
   "texto_capturado": "T002 [title]: «Estados Diarios de Marcas INAPI — Portal de Trámites: Marcas, Patentes y máss» (prefijo específico pegado sin separador al título genérico del sitio, con typo «máss») | T005 [menú]: «MI INAPI» | T010: «TRAMITACIÓN» | T017: «PAGOS» | T022: «SERVICIOS» | T047: «Pagar Tasas PCT Fase Internacional» | T055 [menú Patentes]: «Títulos y Certificados Patentes» (tilde ya corregida) | T057: «Documentación Mínima PCT» | T058 [card-header, div no H]: «Últimos Estados Diarios Disponibles» | T059 [tooltip]: «Si algún estado diario no está disponible se debe a que aún no ha sido publicada. Hora estimada: 11am.» (tilde de «algún» ya corregida; persiste concordancia de género «publicada»≠«Estado Diario» y formato «11am») | T060 [card-header]: «Estado Diario (Versión corta)» (V mayúscula) | T062: «Estado Diario (Versión extendida)» | T064: «Presentaciones» | T066 [card-header, div no H]: «Estados Diarios Anteriores (últimos 30 días)» | T068/T069 [th tabla]: «Estado Diario (versión corta)» / «(versión extendida)» (v minúscula — inconsistente con T060/T062) | Enlaces de descarga (cards y ≈482 filas de tabla histórica, paginada 10/pág, «Mostrando 1 a 10 de 482 registros»): texto ancla único es la fecha ISO, ej. «2026-07-22», sin describir tipo de documento ni formato | T100: «Uso de los Contenidos de este Sitio» | T102: «Política de privacidad» (→ PDF) | T103: «©2026 INAPI. Todos los derechos reservados» | T104: «v 2.3.96.0» | T105: «OK» (modal alerta) | T106: «Aceptar»/«Cancelar» (modal confirm) | RUT: 65.999.669-3 (footer)",

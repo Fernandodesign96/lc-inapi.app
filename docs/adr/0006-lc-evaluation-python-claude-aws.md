@@ -7,14 +7,14 @@
 > **Nota de supersesión:** Cada decisión central de este ADR fue reemplazada en julio 2026:
 > - **Python → TypeScript + Bun** para el motor de análisis y el RAG — ver [ADR 0008](0008-typescript-sobre-python-para-rag.md).
 > - **Claude API (de pago) → Claude Code Pro** (suscripción existente, sin costo adicional) como orquestador — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md).
-> - **AWS Lambda / API Gateway → servidor TI INAPI** (Octavio) en producción y WSL local en desarrollo.
+> - **AWS Lambda / API Gateway → servidor TI INAPI** (TI INAPI) en producción y WSL local en desarrollo.
 > - **HuggingFace Python → `@xenova/transformers`** (NPM) para embeddings offline — ver [ADR 0010](0010-rag-local-chroma-xenova-transformers.md).
 >
-> El contenido original del ADR se conserva como registro histórico. La ratificación con TI / Camila que estaba pendiente ya no aplica en los términos aquí descritos.
+> El contenido original del ADR se conserva como registro histórico. La ratificación con TI / desarrollo backend que estaba pendiente ya no aplica en los términos aquí descritos.
 
 ---
 
-Propuesto — 2026-05-13 (ratificación formal de topología AWS: pendiente cierre con TI / Camila; ver [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md))
+Propuesto — 2026-05-13 (ratificación formal de topología AWS: pendiente cierre con TI / desarrollo backend; ver [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md))
 
 ## Contexto
 
@@ -33,7 +33,7 @@ La [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md) documenta rol
 5. **Integración Nest ↔ AWS:** comunicación **REST/JSON** entre NestJS y API Gateway (autenticación de servicio a definir: API keys firmadas, IAM, mTLS o JWT interno; ver preguntas abiertas).
 6. **Frontend:** no cambia el principio contract-first: el cliente solo habla con **HTTPS** hacia Next y/o API pública de Nest; **nunca** embebe claves de Claude.
 
-## Preguntas abiertas (hasta cerrar con Camila / TI)
+## Preguntas abiertas (hasta cerrar con desarrollo backend / TI)
 
 Tomadas de la [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md) §5:
 

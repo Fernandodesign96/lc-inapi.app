@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl_2026-07-22",
   "url": "https://tramites.inapi.cl/",
   "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "texto_capturado": "T002 [HTML-L14]: «<title> INAPI — Portal de Trámites: Marcas, Patentes y máss</title>» (title corregido respecto a versión anterior, pero con typo «máss») | T006 [HTML-L32]: «MI INAPI» | T011 [HTML-L37]: «TRAMITACIÓN» | T019 [HTML-L45]: «PAGOS» | T024 [HTML-L50]: «SERVICIOS» | T048 [HTML-L77]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L86]: «Títulos y Certificados Patentes» (tilde ya corregida) | T058 [HTML-L89]: «Documentación Mínima PCT» | T061 [HTML-L169]: «Trámites INAPI» (H4) | T062 [HTML-L169]: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.» | T063 [HTML-L169]: «Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos.» | T067 [HTML-L170]: «Para consultas, favor enviar un correo a inapi@inapi.cl» | T069 [HTML-L171]: «ClaveÚnica» (sin espacio, sigue sin corregir) | T070 [HTML-L171]: «Registrarse» (H4) | T073 [HTML-L172]: «Opcionalmente, si el servicio para ingresar con Clave Única no está disponible, puede ingresar con su clave INAPI previamente registrada.» | T074 [HTML-L172]: «Iniciar Sesión Clave INAPI» | MODAL TGR: T075 [HTML-L173]: «Información» (H5) | T076 [HTML-L174]: «Información de la Tesorería General de la República (TGR)» (tildes ya corregidas) | T077 [HTML-L175]: «hoy lunes 19 de enero, entre las 16:00 y las 17:00 horas» (fecha desactualizada, sigue sin removerse) | T079 [HTML-L175]: «Aceptar» (botón modal TGR) | T078 [HTML-L213]: «OK» (botón modal alerta genérico) | FOOTER: T084 [HTML-L181]: «RUT: 65.999.669-3» | T085 [HTML-L181]: «Carabineros de Chile Nº 195, Santiago, Chile» | T101 [HTML-L212]: «Política de privacidad» (→ PDF, sin formato indicado) | T102 [HTML-L212]: «©2026 INAPI. Todos los derechos reservados» | T103 [HTML-L212]: «v 2.3.96.0» (versión técnica actualizada, sigue visible al usuario)",
@@ -465,7 +465,7 @@
     "nombre_ui": "Landing Sitio de Trámites",
     "ruta_etiqueta": "INAPI - Sitio de Trámites",
     "visitas_ref": "432.572",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "fuente_piloto_id": "tramites-inapi-cl-2026-06-11",
     "descripcion": "Reevaluación (smoke test Fase 3) de la landing del portal de trámites electrónicos INAPI. Confirma que TIC ya corrigió E4 (title) y dos errores D1 (Titulos, Tesoreria/Republica) detectados en la auditoría del 2026-06-11, pero introdujo un nuevo typo D1 («máss») en el title corregido."
   },

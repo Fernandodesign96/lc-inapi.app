@@ -129,9 +129,9 @@ Entorno: WSL con Claude Code Pro, Playwright MCP y RAG MCP configurados. Referen
 
 ## Etapa 4 — **Producción en servidor TI** (Chroma como servicio)
 
-Entorno: servidor interno INAPI (Octavio). Referencia: [PROPUESTA_TECNICA_INTEGRAL.md](../PROPUESTA_TECNICA_INTEGRAL.md) §6 Fase 4.
+Entorno: servidor interno INAPI (TI). Referencia: [PROPUESTA_TECNICA_INTEGRAL.md](../PROPUESTA_TECNICA_INTEGRAL.md) §6 Fase 4.
 
-- Coordinar con Álvaro / Octavio: viabilidad del servidor, puertos disponibles, OS, capacidad CPU (para `@xenova/transformers`).
+- Coordinar con jefatura de proyecto / TI INAPI: viabilidad del servidor, puertos disponibles, OS, capacidad CPU (para `@xenova/transformers`).
 - Copiar `rag/chroma_db/` al servidor (no hay que reingestar; los vectores son portables).
 - Levantar `rag/mcp-server.ts` como servicio persistente en el servidor TI.
 - Configurar Claude Code en cada equipo del equipo para apuntar al MCP server remoto (ajustar URL en `claude mcp add rag-auditoria`).

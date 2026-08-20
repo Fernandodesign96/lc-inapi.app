@@ -2,7 +2,7 @@ import type { CriterionId } from "../../schemas/checklist"
 
 /**
  * 10 URLs META MEI (compromiso INAPI / reunión jefatura).
- * Orden Bernarda 2026-07-29. Solo SIAC es trámites; el resto sitioweb.
+ * Orden META MEI 2026-07-29. Solo SIAC es trámites; el resto sitioweb.
  */
 export type MeiMetaMeiUrl = {
   orden: number

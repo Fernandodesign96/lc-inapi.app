@@ -86,7 +86,7 @@ Cada auditoría produce un archivo `{slug-url}_{YYYY-MM-DD}.json`. La fuente de 
   "id": "{slug-url}_{YYYY-MM-DD}",
   "url": "https://...",
   "fecha": "YYYY-MM-DD",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo de desarrollo",
   "clarity_meta": { "rank": 1, "nombre_ui": "Portal Trámites", "visitas_ref": 1200 },
   "criterios": [
     { "id": "A1", "estado": "cumple|incumple|no_aplica", "severidad": "baja|media|alta", "comentario": "...", "cita_textual": "..." }
@@ -298,7 +298,7 @@ Cada fila en `sustituciones[]` debe corresponder a **uno** de estos cinco tipos:
 - No inventar pesos en MB para documentos; usar solo `"(PDF)"` si no se conoce el peso exacto en el CMS.
 - Orden sugerido del array: por sección A→H o por `linea` (Tnnn) ascendente.
 
-**Regla para `no_aplica` con propuesta excepcional:** si un criterio es `no_aplica` por la estructura actual de la página, pero TI podría incorporar el elemento en una mejora futura, documentar la recomendación en el campo `comentario` del criterio — **no** crear fila en `sustituciones[]` salvo que sea una mejora explícitamente acordada con UX/Bernarda.
+**Regla para `no_aplica` con propuesta excepcional:** si un criterio es `no_aplica` por la estructura actual de la página, pero TI podría incorporar el elemento en una mejora futura, documentar la recomendación en el campo `comentario` del criterio — **no** crear fila en `sustituciones[]` salvo que sea una mejora explícitamente acordada con Equipo UX.
 
 ### Paso 4 — Validación y guardado
 ```bash
@@ -374,7 +374,7 @@ GET /api/claude-audits/{id}/export/pdf
 | Dos páginas hermanas | **Máx. 2** | Solo si la 1ª cerró `validate` + commit |
 | Smoke Clarity ligero | Hasta 5 (legacy) | Verificar tras cada URL; no apilar consolidaciones |
 
-**Prohibido** en entregas Bernarda / profundidad §20: un solo prompt maestro con 3–5 URLs.
+**Prohibido** en entregas MEI / profundidad §20: un solo prompt maestro con 3–5 URLs.
 
 ### Preparación del conjunto
 1. Definir la lista ordenada (p. ej. `mei-meta-mei-urls.ts` órdenes 1…N).
@@ -452,7 +452,7 @@ git push origin main                      # subir a remoto
 
 **Regla de oro:** `no_aplica` = el criterio no puede evaluarse porque el supuesto del criterio no existe en la página. No usar `no_aplica` para evitar marcar un incumplimiento evidente.
 
-**Regla de `no_aplica` con propuesta excepcional:** si el criterio no aplica por la estructura actual pero TI podría incorporarlo en una mejora futura (ej. C6 — la página hoy tiene 3 párrafos, pero al ampliar contenido necesitará resumen inicial), documentar la recomendación en `comentario`. No crear fila en `sustituciones[]` salvo que esté acordado explícitamente con UX/Bernarda.
+**Regla de `no_aplica` con propuesta excepcional:** si el criterio no aplica por la estructura actual pero TI podría incorporarlo en una mejora futura (ej. C6 — la página hoy tiene 3 párrafos, pero al ampliar contenido necesitará resumen inicial), documentar la recomendación en `comentario`. No crear fila en `sustituciones[]` salvo que esté acordado explícitamente con Equipo UX.
 
 ---
 
@@ -685,7 +685,7 @@ Hallazgos de header, footer, modal de contacto/login, buscador global:
 Si C1/C3/C4 (o B8/C3, etc.) apuntan al **mismo** `original`/`propuesto`:
 
 1. Una sola fila en `sustituciones[]` con `criterio_id` = **primario** y `criterios_relacionados: [...]`.
-2. Prioridad sugerida de primario: C7 > C4 > C3 > C1 > B8 (ajustar con Bernarda si hace falta).
+2. Prioridad sugerida de primario: C7 > C4 > C3 > C1 > B8 (ajustar con Equipo UX si hace falta).
 3. Primario → `incumple` (descuenta).
 4. Secundarios → `incumple` + `agrupado_en: "<primario>"` (mostrar justificación; **no** descuentan en `summarizeEvaluations`).
 5. En UI/PDF/Excel: mostrar «C1, C3, C4» y las justificaciones juntas.
@@ -747,7 +747,7 @@ Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ej
 
 ### 22.2 Cada criterio = pregunta del instrumento
 
-Antes de fijar el estado, el subagente debe poder responder en una frase la **pregunta** del criterio (`criterion` / `verification` en `data/checklist-criteria.json`, alineada al Checklist Editorial Bernarda / IEW–IESD–RLC).
+Antes de fijar el estado, el subagente debe poder responder en una frase la **pregunta** del criterio (`criterion` / `verification` en `data/checklist-criteria.json`, alineada al Checklist Editorial PTD / IEW–IESD–RLC).
 
 | Estado | Qué debe quedar claro en `comentario` (o en `motivo` de la sustitución) |
 | --- | --- |
@@ -794,6 +794,6 @@ Añadir siempre al brief del grupo:
 
 Antes de `validate:claude-audits`, revisar una muestra de sustituciones: si `propuesto` es vago o `ubicacion_pantalla` es solo técnica, **reescribir** esas filas. `resumen_ejecutivo` / `nota_final_tic` siguen §20.5 + §22.1.
 
-### 22.7 Relación con Checklist Bernarda PTD (v2.0)
+### 22.7 Relación con Checklist Editorial PTD (v2.0)
 
-El documento de Bernarda *Checklist Editorial INAPI v2.0* (local en `documentos/`, no versionado) organiza hitos PTD de **Lenguaje claro**, **Usabilidad** y **Seguridad**. El motor §17 y `checklist-criteria.json` v2.1 cubren la dimensión **Contenido y Lenguaje claro** (47 criterios A–H). Usabilidad y Seguridad quedan **fuera** de la evaluación automática actual; ver mapa en `docs/checklist-bernarda-v2-ptd-mapa.md`.
+El documento *Checklist Editorial INAPI v2.0* (local en `documentos/`, no versionado) organiza hitos PTD de **Lenguaje claro**, **Usabilidad** y **Seguridad**. El motor §17 y `checklist-criteria.json` v2.1 cubren la dimensión **Contenido y Lenguaje claro** (47 criterios A–H). Usabilidad y Seguridad quedan **fuera** de la evaluación automática actual; ver mapa en `docs/checklist-ptd-v2-mapa.md`.

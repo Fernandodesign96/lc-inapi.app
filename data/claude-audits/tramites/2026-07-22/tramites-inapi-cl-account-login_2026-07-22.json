@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-account-login_2026-07-22",
   "url": "https://tramites.inapi.cl/Account/Login",
   "fecha_evaluacion": "2026-07-22T00:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Inicio de sesión",
     "ruta_etiqueta": "Account / Login (Inicio de sesión)",
     "visitas_ref": "209.811",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Reevaluación (Fase 3, arquitectura sub-subagentes CLAUDE.md §17) del formulario de acceso con credenciales al sitio de trámites. Confirma correcciones de TIC en el <title> global y en «Titulos y Certificados Patentes», pero detecta un typo nuevo introducido en el title corregido."
   },
   "texto_capturado": "T002 [HTML-L16] <title>: «INAPI — Portal de Trámites: Marcas, Patentes y máss» (ya no tiene guion inicial vacío, pero es el title genérico y estático de todo el sitio, con typo «máss») | T006 [HTML-L34]: «MI INAPI» | T011 [HTML-L39]: «TRAMITACIÓN» | T019 [HTML-L47]: «PAGOS» | T024 [HTML-L52]: «SERVICIOS» | T048 [HTML-L79]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L88/154]: «Títulos y Certificados Patentes» (tilde ya corregida) | T058 [HTML-L91/157]: «Documentación Mínima PCT» | T061 [HTML-L170]: «Ingreso con Clave INAPI» (div.card-header, no H) | CAMPOS: HTML-L172 placeholder «RUN» (sin label visible), data-val-required «El campo RUN es obligatorio.» | HTML-L176 placeholder «Contraseña» (sin label visible), data-val-required «El campo Contraseña es obligatorio.» | HTML-L178-191: widget reCAPTCHA de Google (nuevo respecto a junio, no editorial) | HTML-L192: botón «Ingresar» | T062 [HTML-L192]: «¿Olvidó su contraseña INAPI?» | T063 [HTML-L192]: «Clave Única» | T064 [HTML-L194]: «OK» (modal alerta) | T065/T066 [HTML-L197]: «Aceptar» / «Cancelar» (modal confirm) | T070 [HTML-L198]: «RUT: 65.999.669-3» (footer) | T087 [HTML-L229]: «Política de privacidad» (→ PDF) | T088 [HTML-L230]: «©2026 INAPI. Todos los derechos reservados» | T089 [HTML-L230]: «v 2.3.96.0»",

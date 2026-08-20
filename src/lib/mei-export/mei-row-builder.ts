@@ -12,9 +12,9 @@ import {
   type LoadedClarityAudit,
 } from "./mei-audit-loader"
 import {
-  categoriaBernardaFromEvaluation,
-  ordenCategoriaBernarda,
-  type MeiCategoriaBernarda,
+  categoriaPresentacionFromEvaluation,
+  ordenCategoriaPresentacion,
+  type MeiCategoriaPresentacion,
 } from "./mei-criterio-categoria"
 import { hitoById } from "./mei-hitos"
 
@@ -45,8 +45,8 @@ export type MeiExcelRow = {
   criterioId: string
   criterioEnunciado: string
   estadoAuditoria: "cumple" | "incumple" | "no_aplica" | "n/a"
-  /** Etiqueta Bernarda (5 categorías) para secciones en Excel. */
-  categoriaBernarda: MeiCategoriaBernarda | ""
+  /** Etiqueta Equipo UX (5 categorías) para secciones en Excel. */
+  categoriaPresentacion: MeiCategoriaPresentacion | ""
   severidad: string
   tipoEntrega: "correccion_texto" | "config_cms" | "nuevo_contenido" | "evidencia"
   textoOriginal: string
@@ -93,7 +93,7 @@ function requiereValidacionTic(
 
 function notasTicFor(criterioId: CriterionId, rank: number | null): string {
   if (criterioId === "G1" && rank !== null && SESSION_G1_RANKS.has(rank)) {
-    return "Revisar con Bernarda/TI: posible dato de sesión (§19), no PII de terceros."
+    return "Revisar con Equipo UX/TI: posible dato de sesión (§19), no PII de terceros."
   }
   return ""
 }
@@ -117,7 +117,7 @@ function emptyDocumentaryRow(
     criterioId: "N/A",
     criterioEnunciado: "47 criterios A1–H1 en data/checklist-criteria.json",
     estadoAuditoria: "n/a",
-    categoriaBernarda: "",
+    categoriaPresentacion: "",
     severidad: "",
     tipoEntrega: "evidencia",
     textoOriginal: "",
@@ -169,7 +169,7 @@ function rowFromEvaluation(opts: {
 }): MeiExcelRow {
   const { num, hitoId, audit, ev, enunciados, sust } = opts
   const hito = hitoById(hitoId)!
-  const categoria = categoriaBernardaFromEvaluation(ev)
+  const categoria = categoriaPresentacionFromEvaluation(ev)
   const base = {
     num,
     actividadMei: actividadPrincipal(hitoId),
@@ -183,7 +183,7 @@ function rowFromEvaluation(opts: {
     tipoPagina: audit.tipoPagina,
     criterioId: ev.id,
     criterioEnunciado: enunciados.get(ev.id) ?? "",
-    categoriaBernarda: categoria,
+    categoriaPresentacion: categoria,
     fechaAuditoria: formatFechaDdMmYyyy(audit.fechaEvaluacionIso),
     auditor: audit.bundle.audit.evaluador_uid,
     auditId: audit.auditId,
@@ -340,7 +340,7 @@ export function buildRowsForHito(
         criterioEnunciado:
           "Apoyos visuales (sin criterio directo en checklist A1–H1)",
         estadoAuditoria: "n/a",
-        categoriaBernarda: "",
+        categoriaPresentacion: "",
         severidad: "",
         tipoEntrega: "evidencia",
         textoOriginal: "(revisión pendiente)",
@@ -399,8 +399,8 @@ export function buildRowsForHito(
     }
 
     evals.sort((a, b) => {
-      const ca = ordenCategoriaBernarda(categoriaBernardaFromEvaluation(a))
-      const cb = ordenCategoriaBernarda(categoriaBernardaFromEvaluation(b))
+      const ca = ordenCategoriaPresentacion(categoriaPresentacionFromEvaluation(a))
+      const cb = ordenCategoriaPresentacion(categoriaPresentacionFromEvaluation(b))
       if (ca !== cb) return ca - cb
       return (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0)
     })
@@ -437,7 +437,7 @@ export const MEI_EXCEL_COLUMNS: Array<keyof MeiExcelRow> = [
   "criterioId",
   "criterioEnunciado",
   "estadoAuditoria",
-  "categoriaBernarda",
+  "categoriaPresentacion",
   "severidad",
   "tipoEntrega",
   "textoOriginal",
@@ -469,7 +469,7 @@ export const MEI_EXCEL_HEADER_LABELS: Record<keyof MeiExcelRow, string> = {
   criterioId: "criterio_id",
   criterioEnunciado: "criterio_enunciado",
   estadoAuditoria: "estado_auditoria",
-  categoriaBernarda: "categoria_bernarda",
+  categoriaPresentacion: "categoria_presentacion",
   severidad: "severidad",
   tipoEntrega: "tipo_entrega",
   textoOriginal: "texto_original",

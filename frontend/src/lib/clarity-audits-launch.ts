@@ -45,7 +45,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 60.6,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -59,7 +59,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 51.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -73,7 +73,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 39.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -87,7 +87,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 36.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -101,7 +101,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 48.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -115,7 +115,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 28.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -129,7 +129,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 43.3,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -143,7 +143,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 50.0,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -157,7 +157,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 41.2,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -171,7 +171,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 48.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -185,7 +185,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 52.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-27T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -199,7 +199,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 54.5,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -213,7 +213,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
       porcentajeLc: 41.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       {
@@ -223,7 +223,7 @@ const CLARITY_AUDIT_BY_RANK: Record<
   },
 }
 
-const EVALUADOR = "Fernando Arriagada Castillo"
+const EVALUADOR = "equipo de desarrollo"
 
 /** Meta de cada id (vigente + history) para tablas sin fetch N+1. */
 const CLARITY_AUDIT_META_BY_ID: Record<string, ClarityAuditResumenMvp> = {

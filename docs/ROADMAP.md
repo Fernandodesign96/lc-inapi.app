@@ -80,11 +80,11 @@
 
 ### Pendiente — cierre editorial y entrega (sin código obligatorio)
 
-- [x] **Entrega MEI (motor en repo, jul-2026):** catálogo PTD [`data/mei-calidad-web/catalog.json`](../data/mei-calidad-web/catalog.json); export Bernarda (Índice, CheckList, Fuentes, web INAPI, sitio TRAMITES); muestra por defecto **10 URLs META MEI** (`mei-meta-mei-urls.ts`; 3 reauditadas §17 el 2026-07-29); flag `--urls=clarity` para Clarity 13; API/UI `/auditar/mei-calidad-web` con guard 403. Plantilla: [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Rama: `10-urls-meta-mei-excel` (sobre UI jerárquica Bernarda).
-- [ ] **Revisión editorial con Bernarda:** validar filas Excel H01–H02 (completados) y calibrar propuestas CMS antes de ampliar hitos en progreso — reunión jefatura 2026-07-30.
+- [x] **Entrega MEI (motor en repo, jul-2026):** catálogo PTD [`data/mei-calidad-web/catalog.json`](../data/mei-calidad-web/catalog.json); export MEI institucional (Índice, CheckList, Fuentes, web INAPI, sitio TRAMITES); muestra por defecto **10 URLs META MEI** (`mei-meta-mei-urls.ts`; 3 reauditadas §17 el 2026-07-29); flag `--urls=clarity` para Clarity 13; API/UI `/auditar/mei-calidad-web` con guard 403. Plantilla: [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Rama: `10-urls-meta-mei-excel` (sobre UI jerárquica MEI).
+- [ ] **Revisión editorial con Equipo UX:** validar filas Excel H01–H02 (completados) y calibrar propuestas CMS antes de ampliar hitos en progreso — reunión jefatura 2026-07-30.
 - [ ] **Consolidar** hallazgos DevTools del inventario extendido (~20 URLs) en un único Excel para TI (`fragmento_busqueda` como ancla principal).
-- [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Bernarda/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
-- [ ] **Revisión UX (Bernarda):** sustituciones aprobadas, falsos positivos (G1 RUT institucional, D7 mayúsculas en `tramites.inapi.cl`).
+- [ ] **Decisión de alcance:** cerrar piloto en **9 URLs** o añadir **10.ª URL** con Equipo UX/TIC (propuesta reunión 2026-06-02 en flujo §2 histórico).
+- [ ] **Revisión Equipo UX:** sustituciones aprobadas, falsos positivos (G1 RUT institucional, D7 mayúsculas en `tramites.inapi.cl`).
 - [ ] **Entrega TIC:** PDF por URL (+ HTML corregido §3.3 tras aprobación); ticket de control de cambios.
 - [ ] **Acta breve UX/TIC** con proveedor Claude y reglas de calibración (G1, E3, cobertura 1:1 sustituciones).
 
@@ -160,7 +160,7 @@
 - [x] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
 - [x] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
 - [x] Verificar que los Hooks validan JSONs automáticamente al guardarse
-- [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3) — seguimiento editorial con Bernarda
+- [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3) — seguimiento editorial con Equipo UX
 
 **Resultado:** auditoría completa automatizada de principio a fin, escalable a lotes. Detalle en devlog 2026-07-23.
 
@@ -200,7 +200,7 @@
 
 ## Fase 4 — MVP on-demand (cuenta Claude Pro institucional + worker local + BE delgado)
 
-**Contexto (oficina ago-2026, Álvaro / Bernarda):** MVP **sin login** (pegar URL → Continuar → auditoría → PDF + Excel → historial con fecha + nombre libre). TI **no** habilita servidor ni API Claude dedicada: operación con **asiento Enterprise/Pro institucional INAPI** + **worker en PC local 08:00–18:00**. Vercel = UI + API delgada; la auditoría real (10–40 min) corre en el PC con Claude Code §17 **sin reescribir** skills/MCP. Cotizar Anthropic API solo como evidencia de costo (no operar con ella). UX no técnica: sin JSON/HTML/ids en la UI.
+**Contexto (oficina ago-2026, jefatura de proyecto / Equipo UX):** MVP **sin login** (pegar URL → Continuar → auditoría → PDF + Excel → historial con fecha + nombre libre). TI **no** habilita servidor ni API Claude dedicada: operación con **asiento Enterprise/Pro institucional INAPI** + **worker en PC local 08:00–18:00**. Vercel = UI + API delgada; la auditoría real (10–40 min) corre en el PC con Claude Code §17 **sin reescribir** skills/MCP. Cotizar Anthropic API solo como evidencia de costo (no operar con ella). UX no técnica: sin JSON/HTML/ids en la UI.
 
 **Stack (ADR 0009):** no cambiar — Claude Code orquesta; Playwright MCP + Chroma RAG + skills + §17. **No** Nest/Supabase/Auth en el camino crítico de esta fase.
 
@@ -282,7 +282,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado; orden 6: `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18`, **47,1 %** rechazado — rama `feat/meta-mei-v21-lote-3`)
 - [x] **No** JSON provisorio Cursor
 - [x] Commits atómicos **por URL** (`feat(audits): …`) + cableado `claude-audits-launch.ts` / `mei-meta-mei-urls.ts`
-- [x] Órdenes **7–10** (Sala de Prensa, 2 noticias detalle, SIAC) — cerradas 2026-08-18 en `feat/meta-mei-v21-lote-3`: orden 7 `www-inapi-cl-sala-de-prensa-noticias_2026-08-18` (63,2 % rechazado); orden 8 `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18` (41,5 % rechazado); orden 9 `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18` (58,5 % rechazado); orden 10 `tramites-inapi-cl-siac_2026-08-18` (52,8 % rechazado, formulario sin sesión). Las **10 URLs META MEI** quedan en v2.1; Excel completo Bernarda pendiente de generar.
+- [x] Órdenes **7–10** (Sala de Prensa, 2 noticias detalle, SIAC) — cerradas 2026-08-18 en `feat/meta-mei-v21-lote-3`: orden 7 `www-inapi-cl-sala-de-prensa-noticias_2026-08-18` (63,2 % rechazado); orden 8 `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18` (41,5 % rechazado); orden 9 `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18` (58,5 % rechazado); orden 10 `tramites-inapi-cl-siac_2026-08-18` (52,8 % rechazado, formulario sin sesión). Las **10 URLs META MEI** quedan en v2.1; Excel MEI institucional completo pendiente de generar.
 
 ### Paso 6 — Optimizar entregables PDF/Excel (después del paso 5)
 
@@ -290,20 +290,20 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] UI `/auditar/resultado`: resumen y nota TI en lenguaje claro (párrafos); barra de criterios plegable; Excel MEI mismo estilo primary que PDF; botón fijo «volver arriba»
 - [x] PDF/Excel: comentario en `no_aplica`; criterios relacionados y `patron_sistema` en sustituciones
 - [x] Reauditoría §17 con calibración §20 (actualizar % y textos) — **Tanda A (órdenes 1–5)** cerrada 2026-08-19 en `feat/meta-mei-reaudit-s20-lote-a`: orden 1 `www-inapi-cl_2026-08-19` (70,0 % rechazado); orden 2 `www-inapi-cl-marcas_2026-08-19` (66,7 % rechazado); orden 3 `www-inapi-cl-patentes_2026-08-19` (61,0 % rechazado); orden 4 `www-inapi-cl-acerca-de-inapi_2026-08-19` (50,0 % rechazado); orden 5 `www-inapi-cl-buscador-noticias_2026-08-19` (43,8 % rechazado). JSON vigentes `…_2026-08-18` de estas 5 URLs pasan a `history[]`. Aplican `agrupado_en`/`criterios_relacionados`/`patron_sistema` reales (no solo notas en prosa) — % sube en las 5 URLs respecto al 2026-08-18 al no descontar dos veces el mismo hallazgo.
-- [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica `.claude/prompts/audit-una-url.md`; `audit-lote.md` acotado (default 1 URL, máx. 2 hermanas; 5 solo smoke); CLAUDE.md §8 playbook herramientas, §12/§14/§17, §20.6 gate evidencia, §21 criterios A9/D3/D4/E3/F4; skill `auditoria-lc` inventario R+U. **Depreca** lote de 5 URLs en un prompt maestro para entregas Bernarda.
+- [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica `.claude/prompts/audit-una-url.md`; `audit-lote.md` acotado (default 1 URL, máx. 2 hermanas; 5 solo smoke); CLAUDE.md §8 playbook herramientas, §12/§14/§17, §20.6 gate evidencia, §21 criterios A9/D3/D4/E3/F4; skill `auditoria-lc` inventario R+U. **Depreca** lote de 5 URLs en un prompt maestro para entregas MEI / Equipo UX.
 - [x] **Entrega visible H1/47 filas** (rama `fix/entrega-visible-h1-47-criterios`): filtro metadata no oculta E4/H1; acordeón UI/PDF siempre 47 criterios v2.1; negaciones «no se evaluó title/meta» no disparan exclusión.
-- [x] **Excel por URL / completo: 47 criterios + 5 categorías Bernarda**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
-- [x] **Entrega legible humana (§22) + mapa Bernarda PTD v2.0**: CLAUDE.md §22, skills y `audit-una-url.md` (propuesto/motivo/ubicación para CMS); `docs/checklist-bernarda-v2-ptd-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
+- [x] **Excel por URL / completo: 47 criterios + 5 categorías de presentación MEI**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
+- [x] **Entrega legible humana (§22) + mapa PTD editorial v2.0**: CLAUDE.md §22, skills y `audit-una-url.md` (propuesto/motivo/ubicación para CMS); `docs/checklist-ptd-v2-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
 - [ ] **Reauditoría completa órdenes 1–10** con workflow 1-URL + §20/§21/§22 (fecha sugerida `2026-08-20`; una sesión Claude Code por URL). Órdenes **1–6** cerradas `…_2026-08-20`; órdenes **7–10** marcadas `reauditoriaEnProceso` en la UI META MEI hasta cablear.
-- [ ] Excel META MEI completo Bernarda de las 10 URLs tras esa reauditoría
+- [ ] Excel META MEI completo Equipo UX de las 10 URLs tras esa reauditoría
 - [ ] Commits atómicos por entregable (`feat(pdf): …`, `feat(mei): …`)
 
 ### Spike opcional (si sobra tiempo)
 
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
-- [ ] Endurecer túnel y runbook 8–18 para demostración a Álvaro/Bernarda
+- [ ] Endurecer túnel y runbook 8–18 para demostración a jefatura / Equipo UX
 
-**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026) + calibración §20 y UI resultado en `main` + Tanda A §20 en historial + **workflow 1-URL** documentado; queda pendiente **reauditoría 1–10** con ese workflow, Excel Bernarda de las 10 URLs, y merges pendientes a `main`.
+**Éxito de la Fase 4:** cuenta Claude institucional operativa + checklist v2.1 en `main` + docs worker/BE + mini-backend cableado a Continuar (o plan cerrado si el código queda en PR) + **10 auditorías §17 v2.1** (órdenes META MEI 1–10, ago-2026) + calibración §20 y UI resultado en `main` + Tanda A §20 en historial + **workflow 1-URL** documentado; queda pendiente **reauditoría 1–10** con ese workflow, Excel MEI institucional de las 10 URLs, y merges pendientes a `main`.
 
 ---
 
@@ -311,7 +311,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 **Condición:** flujo completo validado en local (Fases 3 y 4) y coordinación con TI INAPI.
 
-- [ ] Coordinar con Álvaro / Bernarda / Octavio: viabilidad del servidor, puertos, OS, capacidad CPU
+- [ ] Coordinar con jefatura de proyecto / Equipo UX / TI INAPI: viabilidad del servidor, puertos, OS, capacidad CPU
 - [ ] Copiar `rag/chroma_db/` al servidor TI (no hay que reingestar)
 - [ ] Levantar `mcp-server.ts` como servicio en el servidor TI
 - [ ] Configurar Claude Code en los equipos del equipo para apuntar al servidor remoto
@@ -333,14 +333,14 @@ Estos ítems no bloquean las Fases 0–5. Se inician cuando el producto necesite
 - [ ] Roles (revisor vs editor)
 - [ ] Panel de métricas agregadas
 - [x] **Historial versionado por URL en UI** (`feat/frontend-audit-history`, jul-2026): `/auditar/historial` (índice + filtro Trámites/Sitio Web) y `/auditar/historial/[rank]` (fechas vigente + `history[]`); botón en ingreso de URL; ficha Clarity e inventario Clarity enlazan al historial; `CLARITY_AUDIT_ID_SET` incluye ids históricos para abrir informes en `/auditar/resultado`.
-- [x] **MEI Calidad Web PTD en UI** (`feat/mei-calidad-web-export-ui` + `10-urls-meta-mei-excel`, jul-2026): módulo `/auditar/mei-calidad-web` con tablero trimestral jerárquico (hito→actividad); export XLSX Bernarda + Fuentes; muestra META MEI 10 URLs (3 §17 el 2026-07-29).
+- [x] **MEI Calidad Web PTD en UI** (`feat/mei-calidad-web-export-ui` + `10-urls-meta-mei-excel`, jul-2026): módulo `/auditar/mei-calidad-web` con tablero trimestral jerárquico (hito→actividad); export XLSX MEI institucional + Fuentes; muestra META MEI 10 URLs (3 §17 el 2026-07-29).
 
 ---
 
 ## Dependencias externas
 
-- Alineación con TI INAPI (Octavio): asiento **Claude Pro/Enterprise institucional** (Fase 4 paso 0) y, más adelante, viabilidad del servidor interno (Fase 5).
-- Alineación con Álvaro / Bernarda: MVP on-demand 8–18, entrega TIC del piloto 1.5 (PDFs + HTML corregido).
+- Alineación con TI INAPI: asiento **Claude Pro/Enterprise institucional** (Fase 4 paso 0) y, más adelante, viabilidad del servidor interno (Fase 5).
+- Alineación con jefatura de proyecto / Equipo UX: MVP on-demand 8–18, entrega TIC del piloto 1.5 (PDFs + HTML corregido).
 - Prioridades CORFO / OpenProject (ajustar fechas con liderazgo).
 
 ---

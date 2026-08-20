@@ -16,7 +16,7 @@
       "descripcion": "Landing del portal de trámites electrónicos INAPI (marcas y patentes). Pantalla previa al inicio de sesión; al pulsar ClaveÚnica se abre el flujo de login.",
       "observaciones": "Mayor volumen Clarity en el extracto; Alta confusión con Account/Login: misma cabecera «Trámites y Servicios • INAPI», distinta función (bienvenida vs formulario).",
       "observacionesDetalle": "Seguimiento editorial (ref. 2026-05-28): priorizar copy de bienvenida, accesos Marcas/Patentes y claridad del paso previo a ClaveÚnica.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "5",
       "ultimaRevisionRef": "2026-05-28",
       "historialAuditorias": [
@@ -63,7 +63,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Formulario de acceso con credenciales al sitio de trámites.",
       "observaciones": "Flujo de alto tráfico; mensajes de error y ayuda contextual pendientes de afinar en LC.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "4",
       "ultimaRevisionRef": "2026-05-27",
       "historialAuditorias": [
@@ -104,7 +104,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Consulta del expediente y estado del trámite de marca del solicitante.",
       "observaciones": "Terminología técnica frecuente; conviene glosario en pantalla.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "3",
       "ultimaRevisionRef": "2026-05-26",
       "historialAuditorias": [
@@ -139,7 +139,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Pantalla de consulta de notificaciones electrónicas de marcas en el sitio de trámites.",
       "observaciones": "Prioridad demostrativa «peor» en atajos editoriales; fixture editorial de referencia en repo.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "2",
       "ultimaRevisionRef": "2026-05-25",
       "historialAuditorias": [
@@ -168,7 +168,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Listado de solicitudes de marca guardadas para continuar más tarde.",
       "observaciones": "Tabla densa; revisar encabezados y microcopy de acciones.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-24",
       "historialAuditorias": [
@@ -191,7 +191,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Punto de partida del flujo de presentación de solicitud de marca.",
       "observaciones": "Entrada a wizard largo; mensaje inicial debe ser claro y accionable.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-23",
       "historialAuditorias": [
@@ -214,7 +214,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Pantalla de carga/edición del formulario de solicitud de marca en el wizard de tramitación.",
       "observaciones": "Integración con identidad digital; copy debe explicar el paso siguiente.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-22",
       "historialAuditorias": [
@@ -236,8 +236,8 @@
       "porcentajeLcRef": "—",
       "estadoLcRef": "Pendiente TI",
       "descripcion": "Pantalla de vinculación ClaveÚnica en el flujo de registro; no accesible con cuenta ya registrada.",
-      "observaciones": "Pendiente TI — sin acceso operativo para captura (jul-2026). Requiere coordinación con Octavio / equipo técnico. Ver docs/fase-3-3-captura-auth-claveunica.md §3.",
-      "encargadoRef": "Fernando Arriagada",
+      "observaciones": "Pendiente TI — sin acceso operativo para captura (jul-2026). Requiere coordinación con TI INAPI / equipo técnico. Ver docs/fase-3-3-captura-auth-claveunica.md §3.",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "0",
       "ultimaRevisionRef": "—",
       "historialAuditorias": []
@@ -253,7 +253,7 @@
       "estadoLcRef": "Rechazado",
       "observaciones": "Lenguaje normativo; enlaces a instructivos deben ser explícitos.",
       "observacionesDetalle": "Revisar términos técnicos de patentes en cabeceras y celdas de la consulta; homologar criterios LC con Estados Diarios Marcas (rank 9) en la ronda mock (ref. 2026-05-11)",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-20",
       "historialAuditorias": [
@@ -277,7 +277,7 @@
       "descripcion": "Herramienta de búsqueda y selección de clases de la clasificación de Niza.",
       "observaciones": "Interacción compleja; priorizar instrucciones paso a paso.",
       "observacionesDetalle": "Cierre documental de referencia (2026-02-18); pendiente nueva ronda LC por complejidad de la herramienta.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-05-19",
       "historialAuditorias": [
@@ -300,7 +300,7 @@
       "estadoLcRef": "Pendiente TI",
       "descripcion": "Pantalla de confirmación tras presentar escritos en trámite de marca.",
       "observaciones": "Pendiente TI — pantalla SuccessConfirmation no accesible sin completar flujo de escritos (jul-2026). Ver docs/fase-3-3-captura-auth-claveunica.md §3.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "0",
       "ultimaRevisionRef": "—",
       "historialAuditorias": []
@@ -316,7 +316,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Formulario y flujo para adjuntar y enviar escritos en trámite de marca.",
       "observaciones": "Formularios extensos; revisar etiquetas de campos obligatorios.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-06-11",
       "historialAuditorias": [
@@ -339,7 +339,7 @@
       "estadoLcRef": "Pendiente TI",
       "descripcion": "Resumen y confirmación final antes de enviar la solicitud de marca (modal de pago).",
       "observaciones": "Pendiente TI — modal de confirmación de pago; no reproducible sin trámite activo (jul-2026). Ver docs/fase-3-3-captura-auth-claveunica.md §3.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "0",
       "ultimaRevisionRef": "—",
       "historialAuditorias": []
@@ -355,7 +355,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Trámite de anotaciones marginales sobre registros de marca comercial.",
       "observaciones": "Auditoría LC real (junio 2026); requiere sesión Clave INAPI; copy legal denso — simplificar sin perder precisión normativa.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-06-11",
       "historialAuditorias": [
@@ -378,7 +378,7 @@
       "estadoLcRef": "Pendiente TI",
       "descripcion": "Solicitud de renovación de registro de marca.",
       "observaciones": "Pendiente TI — sin acceso operativo documentado (jul-2026). Requiere sesión y coordinación con equipo técnico. Ver docs/fase-3-3-captura-auth-claveunica.md §3.",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "0",
       "ultimaRevisionRef": "—",
       "historialAuditorias": []
@@ -394,7 +394,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Portada institucional del sitio web INAPI: acceso a marcas, patentes, trámites y contenidos editoriales.",
       "observaciones": "Auditoría LC real (junio 2026); no confundir con la landing del portal tramites.inapi.cl (rank 1).",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-06-11",
       "historialAuditorias": [
@@ -417,7 +417,7 @@
       "estadoLcRef": "Rechazado",
       "descripcion": "Listado informativo de trámites digitalizados (RNT nivel 4) en el sitio institucional: acordeones por trámite con enlace «Acceder» a ClaveÚnica.",
       "observaciones": "Auditoría LC real (junio 2026); mayor volumen en extracto Clarity Sitio Web; no confundir con la landing del portal tramites.inapi.cl (rank 1).",
-      "encargadoRef": "Fernando Arriagada",
+      "encargadoRef": "equipo de desarrollo",
       "auditoriasRef": "1",
       "ultimaRevisionRef": "2026-06-11",
       "historialAuditorias": [

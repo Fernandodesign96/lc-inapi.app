@@ -6,7 +6,7 @@ Borrador — 2026-08-17
 
 ## Contexto
 
-El MVP acordado con Álvaro / Bernarda (ago-2026) pide: pegar URL → Continuar → auditoría automática → PDF + Excel → historial (fecha + nombre libre), **sin login**. TI no habilita servidor institucional ni API Claude dedicada. La operación usa el **asiento Claude Team / Pro institucional INAPI** y un **PC local encendido 08:00–18:00** (America/Santiago).
+El MVP acordado con jefatura de proyecto / Equipo UX (ago-2026) pide: pegar URL → Continuar → auditoría automática → PDF + Excel → historial (fecha + nombre libre), **sin login**. TI no habilita servidor institucional ni API Claude dedicada. La operación usa el **asiento Claude Team / Pro institucional INAPI** y un **PC local encendido 08:00–18:00** (America/Santiago).
 
 [ADR 0009](0009-claude-code-pro-como-orquestador.md) ya fija Claude Code + skills + MCP + §17 como orquestador. Falta el eslabón producto: la UI en Vercel debe **encolar un trabajo** y mostrar progreso/resultado, mientras la auditoría real (10–40 min) corre **fuera** de Vercel.
 

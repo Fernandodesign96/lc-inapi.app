@@ -32,7 +32,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 65.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl_2026-08-19" },
@@ -52,7 +52,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 39.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-06-05T15:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
   },
   {
@@ -66,7 +66,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-marcas_2026-08-19" },
@@ -85,7 +85,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 55.8,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-19" },
@@ -104,7 +104,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 69.0,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-buscador-noticias_2026-08-19" },
@@ -123,7 +123,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 62.5,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18" },
@@ -141,7 +141,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 64.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18" },
@@ -159,7 +159,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 51.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "tramites-inapi-cl-siac_2026-08-18" },
@@ -177,7 +177,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
       porcentajeLc: 60.6,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "tramites-inapi-cl_2026-06-11" },
@@ -217,7 +217,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
       porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-patentes_2026-08-19" },
@@ -235,7 +235,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
       porcentajeLc: 44.2,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18" },
@@ -252,7 +252,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
       porcentajeLc: 58.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "Fernando Arriagada Castillo",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18" },

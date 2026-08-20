@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-trademark-trademarkannotation_2026-06-11",
   "url": "https://tramites.inapi.cl/Trademark/TrademarkAnnotation",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Anotaciones de marca",
     "ruta_etiqueta": "Trademark / TrademarkAnnotation",
     "visitas_ref": "13.600",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Trámite de anotaciones marginales sobre registros de marca comercial."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Marcas» (navbar activo) | T004 [HTML-L31]: «Anotaciones Guardadas» (parte del title) | T005 [HTML-L129]: «MI INAPI» | T010 [HTML-L159]: «TRAMITACIÓN» | T018 [HTML-L207]: «PAGOS» | T023 [HTML-L237]: «SERVICIOS» | T035 [HTML-L313]: «Patentes» (navbar) | T047 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T055 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también L900 aprox.) | T057 [HTML-L489]: «Documentación Mínima PCT» | T058 [HTML-L170]: «Home» (breadcrumb) | T059 [HTML-L507]: «Perfil [Nombre usuario]» (anonimizado) | T060 [HTML-L511]: «Cerrar Sesión» | T061 [HTML-L507]: «[Nombre usuario]» (nombre de persona natural en HTML estático del body — anonimizado en repo) | T062 [HTML-L1047]: «Anotaciones Guardadas de Marcas» (card-header div, no H semántico) | T063 [HTML-L1051]: «Filtros de Búsqueda» (leyenda fieldset, capitalización tipo título) | T064 [HTML-L1057]: «N° de Atención» | T065 [HTML-L1066]: «N° de Registro de Marca» | T066 [HTML-L1075]: «N° de Anotación» | T067 [HTML-L1084]: «Estado» (label select) | T068 [HTML-L1085]: «Seleccione...» (opción por defecto con puntos suspensivos) | T069 [HTML-L1086]: «Borrador» | T070 [HTML-L1087]: «Confirmada con Pago» | T071 [HTML-L1088]: «Confirmada sin Pago» | T072 [HTML-L1112]: «Advertencia: Solicitudes en estado \"Borrador\" serán eliminadas automáticamente a los 60 días desde su última modificación.» | T073 [HTML-L1115]: «Resultados» (leyenda fieldset) | T074 [HTML-L1119]: «No hay Anotaciones agregadas aún.» (mayúscula errónea en Anotaciones) | HTML-L1095: «Buscar» | HTML-L1096: «Limpiar» | HTML-L1104: «Crear nueva anotación» | HTML-L991 y L1153: JS confirm «¿Está seguro de que desea eliminar la solicitud?» (usted implícito, dos instancias) | HTML-L1030: JS error «Error al buscar Annotatciones» (typo visible al usuario) | T075 [HTML-L1203]: «OK» (modal alerta local) | T076 [HTML-L1245]: «Aceptar» (modal confirm _Layout) | T077 [HTML-L1246]: «Cancelar» | HTML-L1271-1272: «Instituto Nacional de Propiedad» + salto de línea + «industrial (INAPI)» (nombre institucional fragmentado) | T081 [HTML-L1273]: «RUT: 65.999.669-3» (persona jurídica pública) | T096 [HTML-L1307]: «Uso de los Contenidos de este Sitio» | T098 [HTML-L1309]: «Política de privacidad» (→ PDF) | T099 [HTML-L1324]: «©2026 INAPI. Todos los derechos reservados» | T101 [HTML-L1325]: «v 2.3.91.0»",

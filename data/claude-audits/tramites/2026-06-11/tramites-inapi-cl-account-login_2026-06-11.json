@@ -2,7 +2,7 @@
   "id": "tramites-inapi-cl-account-login_2026-06-11",
   "url": "https://tramites.inapi.cl/Account/Login",
   "fecha_evaluacion": "2026-06-11T22:00:00.000Z",
-  "evaluador_uid": "Fernando Arriagada Castillo",
+  "evaluador_uid": "equipo-desarrollo",
   "version_checklist": "1.1",
   "tipo_pagina": "tramites",
   "clarity_meta": {
@@ -11,7 +11,7 @@
     "nombre_ui": "Inicio de sesión",
     "ruta_etiqueta": "Account / Login (Inicio de sesión)",
     "visitas_ref": "209.811",
-    "encargado_ref": "Fernando Arriagada",
+    "encargado_ref": "equipo-desarrollo",
     "descripcion": "Formulario de acceso con credenciales al sitio de trámites."
   },
   "texto_capturado": "T002 [HTML-L31]: «INAPI -» (banner) | T003 [HTML-L76]: «Trámites y Servicios» | T005 [HTML-L116]: «Marcas» (navbar) | T006 [HTML-L129]: «MI INAPI» | T011 [HTML-L159]: «TRAMITACIÓN» | T019 [HTML-L207]: «PAGOS» | T024 [HTML-L237]: «SERVICIOS» | T036 [HTML-L313]: «Patentes» (navbar) | T048 [HTML-L417]: «Pagar Tasas PCT Fase Internacional» | T056 [HTML-L471]: «Titulos y Certificados Patentes» (sin tilde; también en L900) | T058 [HTML-L489]: «Documentación Mínima PCT» | T059 [HTML-L170]: «Home» | T060 [HTML-L506]: «Iniciar Sesión» | T061 [HTML-L983]: «Ingreso con Clave INAPI» (card-header, no H semántico) | CAMPOS: HTML-L998: placeholder «RUN» (sin label visible), data-val-required «El campo RUN es obligatorio.» | HTML-L1007: placeholder «Contraseña» (sin label visible), data-val-required «El campo Contraseña es obligatorio.» | HTML-L1020: botón «Ingresar» | T062 [HTML-L1032]: «¿Olvidó su contraseña INAPI?» | T063 [HTML-L1035]: «Clave Única» | T064 [HTML-L1057]: «OK» (modal alerta) | T065 [HTML-L1099]: «Aceptar» (modal confirm) | T066 [HTML-L1100]: «Cancelar» | T070 [HTML-L1127]: «RUT: 65.999.669-3» (footer) | T087 [HTML-L1163]: «Política de privacidad» (→ PDF) | T088 [HTML-L1178]: «©2026 INAPI. Todos los derechos reservados» | T089 [HTML-L1179]: «v 2.3.90.0»",
