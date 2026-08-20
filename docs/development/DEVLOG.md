@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-21 | [Docs: CLAUDE.md — estados/severidad, CMS-first, nomenclatura LC-*, refs §N](#devlog-2026-08-21-claude-md-cms-estados) |
 | 2026-08-21 | [Orquestación: catálogo PTD-LC v3.0 — 51 criterios por indicadores](#devlog-2026-08-21-ptd-lc-v30) |
 | 2026-08-21 | [Orquestación: Checklist PTD v2.0 → §23 Hito/Tarea/Pregunta LC](#devlog-2026-08-21-ptd-s23) |
 | 2026-08-21 | [Docs: mapa IEW/IESD completo LC·Usabilidad·Seguridad](#devlog-2026-08-21-mapa-iew-iesd) |
@@ -85,6 +86,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-21-claude-md-cms-estados"></a>
+## [2026-08-21] - Documentación | CLAUDE.md: estados/severidad, lenguaje CMS, refs §N
+
+**Rama:** `feat/orquestacion-s22-copy-accionable-cms`
+
+### Contexto y objetivos:
+
+Alinear orquestación y docs a nomenclatura solo `LC-*`, explicar presentación MEI (cumple con observaciones / medianamente cumple vía `severidad`), priorizar copy CMS frente a jerga TI, y hacer legibles las referencias §N para cualquier lector del repo.
+
+### Implementación técnica:
+
+- `CLAUDE.md` §5–§6, §10, §12, §14, §16–§22: estados + severidad, patrones sistémicos CMS, stack (Zod/Xenova/hooks), workflow con glosas §N, `no_aplica` v3.0, §19 anonimización reforzada, §20.3/§20.6/§21 sin A–H.
+- Skills `auditoria-lc` y prompts `audit-una-url` / `audit-oro-s22` alineados.
+- Checklist push: `lint` + `build`; env vars `LC_REPO_ROOT` / `CHROMA_PORT` explicadas; ventajas 1-URL reforzadas.
+- RAG: Colección B ya incluye catálogo 51 + Word/mapa + JSON hitos (US 18 / SE 10 catalogados).
+
+### Próximos pasos:
+
+- Re-ingestar Colección B tras merge; reauditorías oro v3.0.
 
 ---
 

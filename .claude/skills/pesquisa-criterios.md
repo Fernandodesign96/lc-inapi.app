@@ -1,7 +1,38 @@
 # Skill: Pesquisa de Criterios
 
-Referencia operativa: `.claude/CLAUDE.md` §8 (MCP servers) y §5 (Reglas permanentes)
-ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
+## Qué es este documento
+
+Skill de **investigación puntual**: cómo leer el catálogo `LC-*`, cuándo abrir RAG Colección A (norma) o B (precedentes), y cómo armar un `comentario` sólido sin volcar PDFs enteros al chat.
+
+## Para qué se utiliza
+
+- Resolver dudas del tipo «qué dice el criterio X» o «¿incumple o `no_aplica`?».
+- Buscar cómo se evaluó el mismo `LC-*` en una URL ya auditada.
+- Guiar al agente raíz y a los sub-subagentes **antes** de fijar estado/severidad.
+
+## Objetivo
+
+Acelerar pesquisas correctas: JSON de catálogo primero, RAG después, lectura directa de auditorías cuando hace falta, siempre con nomenclatura v3.0.
+
+## Importancia en la orquestación Claude Code
+
+Es el puente entre **evaluación** (`auditoria-lc`) y **fundamento** (`auditoria-calidad-web` + Chroma). Sin pesquisa disciplinada, el RAG se usa mal (queries A–H obsoletas, lotes mezclados, PII en Colección B).
+
+## Cableado (conversa con)
+
+| Pieza | Relación |
+| --- | --- |
+| `../CLAUDE.md` | §5 reglas, §8 MCP, §16 `no_aplica`, §18–§19 seguridad/sesión, §23 alcance |
+| `auditoria-lc.md` | Consume el resultado de la pesquisa para puntuar |
+| `auditoria-calidad-web.md` | Mapa de PDFs / `source` que alimentan queries A |
+| `../prompts/audit-una-url.md` | Paso C obliga catálogo + RAG; subagentes pueden invocar esta skill |
+| `../prompts/audit-lote.md` / `audit-oro-s22.md` | Queries ancladas a **una** URL por sesión |
+| `../diagrams/workflow_diagram.md` | Etapa RAG |
+| `rag/ingest-b.ts` / `rag/README.md` | Qué indexa Colección B; re-ingestar tras cambios |
+
+**Reglas** = CLAUDE.md §5. **Sub-subagentes** = §17 (llaman pesquisa cuando dudan de su bloque).
+
+ADR: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
 
 ---
 
@@ -11,6 +42,7 @@ ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
 - Antes de evaluar un criterio específico en una nueva URL.
 - Cuando haya dudas sobre si un hallazgo incumple o es borde de `no_aplica`.
 - Cuando se quiera saber cómo se evaluó un criterio en una URL ya auditada.
+- Cuando el Paso C de `audit-una-url.md` pide fundamento o precedente.
 
 ---
 
@@ -24,7 +56,7 @@ Histórico A–H: `./data/checklist-criteria.json` (solo para interpretar JSON y
 
 No usar solo el RAG para criterios — el JSON es la fuente de verdad.
 
-Al citar un criterio hacia Equipo UX / TIC, preferir el `display_label` (Indicador + pregunta) y el formato de entrega §22 de CLAUDE.md.
+Al citar un criterio hacia Equipo UX / TIC, preferir el `display_label` y el formato de entrega §22 de CLAUDE.md.
 
 ```json
 // Estructura de cada criterio en el JSON v3.0:
@@ -43,6 +75,9 @@ El campo `source` indica los documentos normativos donde se puede ampliar la def
 - `IESD` = Instrumento de evaluación de servicios digitales transaccionales
 - `MEI` = Meta MEI (`meta-mei.pdf`) — compromiso institucional
 - `CW` = **legado v1.1** (si aparece en auditorías antiguas → meta-mei.pdf + IEW/IESD)
+
+**Estados al decidir tras la pesquisa:** solo `cumple` \| `incumple` \| `no_aplica` (nunca `null`). Si `incumple`, proponer `severidad` baja/media/alta (UI: Cumple con observaciones / Medianamente cumple / No cumple) y borrador de sustitución CMS-first para `auditoria-lc`.
+
 ---
 
 ## RAG Colección A — contexto normativo
@@ -50,27 +85,28 @@ El campo `source` indica los documentos normativos donde se puede ampliar la def
 **Propósito:** buscar en los documentos normativos que definen los criterios.
 
 **Documentos ingresados en Colección A** (fuente: `docs/adr/0010`):
-- `meta-mei.pdf` — compromiso MEI; complementar con IEW/IESD (v2.1 ya no usa `CW` como cita primaria)
+- `meta-mei.pdf` — compromiso MEI; complementar con IEW/IESD
 - `lenguaje-claro-recomendaciones.pdf` — guía de lenguaje claro Chile (`RLC`)
 - `instrumento-evaluacion-sitios-web.pdf` (`IEW`)
 - `instrumento-evaluacion-servicios-digitales-transaccionales.pdf` (`IESD`)
-- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno (`UI`, opcional recomendado)
+- `ui-kit-gobierno-3.0.1.pdf` — componentes de diseño del Gobierno (`UI`, opcional)
 
 **Cuándo usar Colección A:**
 - Para citar la fuente normativa exacta en el `comentario` del criterio.
-- Para justificar por qué algo es incumplimiento severo vs leve.
+- Para justificar por qué algo es incumplimiento severo vs leve (`severidad`).
 - Cuando el criterio tiene `source` con `IEW`/`IESD`/`RLC`/`MEI` y necesitamos la cita completa.
-- Para fundamentar una recomendación en `nota_final_tic`.
-**Query recomendada:** `"{código criterio} {concepto}"`
+- Para fundamentar una recomendación en `nota_final_tic` (lenguaje CMS + apoyo TI).
 
-Ejemplos de queries efectivas:
+**Query recomendada:** `"{código LC-*} {concepto}"`
+
+Ejemplos:
 ```
-"D7 encabezados mayúsculas accesibilidad"
-"B3 siglas acrónimos primera aparición"
-"E3 fecha actualización contenidos"
-"F4 documentos enlazados formato peso PDF"
-"G1 datos personales RUT publicación web"
-"A1 pirámide invertida propósito página"
+"LC-1.2.4-05 mayúsculas encabezados menú"
+"LC-1.1.3-05 siglas acrónimos primera aparición"
+"LC-1.1.4-01 fecha actualización contenidos"
+"LC-1.2.4-07 documentos enlazados formato peso PDF"
+"LC-1.1.7-01 datos personales RUN publicación web"
+"LC-1.2.4-01 pirámide invertida propósito página"
 ```
 
 **Cómo citar el resultado en el JSON:**
@@ -84,101 +120,82 @@ Ejemplos de queries efectivas:
 
 **Propósito:** buscar cómo se evaluó un criterio en URLs ya auditadas y detectar patrones recurrentes.
 
-**Contenido de Colección B** (fuente: `docs/adr/0010`):
-- `data/checklist-criteria-lc-ptd.json` — los **51** criterios LC v3.0 (vigente)
-- `data/checklist-editorial-ptd-v2.json` — Hitos → Tareas → Preguntas PTD (LC activa 2026; US/SE catalogadas)
-- `data/checklist-criteria.json` — histórico 47 A–H (solo JSON ya emitidos)
-- `data/claude-audits/**/*.json` — auditorías (v3.0 = 51; históricas v2.1 = 47; v1.1 = 39)
-- `data/claude-audits/urls-clarity/*.json` — serie Clarity (5 URLs disponibles jun 2026)
-- `docs/adr/*.md` — decisiones arquitectónicas del proyecto
-- `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx` (+ `.extracted.md`) — checklist editorial humano
-- `docs/checklist-ptd-v2-mapa.md` — inventario IEW↔IESD por indicador
-
-**URLs ya auditadas en Colección B (piloto jun 2026):**
-- `tramites-inapi-cl` (57.6% → rechazado)
-- `tramites-inapi-cl-siac` (57.6% → rechazado)
-- `tramites-inapi-cl-account-login` (serie Clarity)
-- `tramites-inapi-cl-estadosdiariosmarcas` (serie Clarity)
-- `tramites-inapi-cl-notificaciones` (serie Clarity)
-- `tramites-inapi-cl-trademark-trademarkannotation` (serie Clarity)
-- `tramites-inapi-cl-trademark-trademarkapplication-indextrademark` (serie Clarity)
-- `buscadormarcas-inapi-cl-marca-buscar-marca` (39.4% → rechazado)
+**Contenido de Colección B** (`rag/ingest-b.ts` — re-ejecutar tras actualizar catálogo/mapa/Word/auditorías):
+- `data/checklist-criteria-lc-ptd.json` — **51** LC v3.0
+- `data/checklist-editorial-ptd-v2.json` — Hitos → Tareas → Preguntas (LC activa; US/SE catalogadas)
+- `data/checklist-criteria.json` — histórico 47 A–H
+- `data/claude-audits/**/*.json` — auditorías (v3.0 = 51; históricas 47/39)
+- `docs/adr/*.md`
+- `docs/Checklist_Editorial_INAPI_v2_0_actualizado.extracted.md` + mapa `docs/checklist-ptd-v2-mapa.md`
 
 **Cuándo usar Colección B:**
-- Antes de evaluar una URL que comparte dominio con una ya auditada (patrones del `_Layout.cshtml`).
-- Cuando un criterio parece borde entre `incumple` y `no_aplica` y quiero ver cómo se decidió antes.
-- Para verificar la calibración de G1 (RUT institucional vs persona natural).
-- Para revisar cómo se formularon las `sustituciones[]` en un caso similar.
+- Antes de evaluar una URL que comparte dominio/layout con una ya auditada.
+- Borde `incumple` vs `no_aplica`.
+- Calibración `LC-1.1.7-01` (RUT institucional vs persona natural).
+- Formulación de `sustituciones[]` / `ubicacion_pantalla` CMS en un caso similar.
 
-**Query recomendada:** `"{código criterio} {url o contexto}"`
+**Query recomendada:** `"{código LC-*} {url o contexto}"`
 
-Ejemplos de queries efectivas:
 ```
-"F3 botones modal tramites.inapi.cl"
-"G1 RUT institucional persona jurídica cumple"
-"D7 mayúsculas navbar layout"
-"E3 ausencia fecha actualización"
-"B3 PCT patentes definicion primera vez"
-"D1 Titulos sin tilde menu Patentes"
+"LC-5.2.4-01 botones modal tramites.inapi.cl"
+"LC-1.1.7-01 RUT institucional persona jurídica cumple"
+"LC-1.2.4-05 mayúsculas navbar layout"
+"LC-1.1.4-01 ausencia fecha actualización"
+"LC-1.1.3-05 PCT patentes definición primera vez"
+"LC-1.1.5-01 Titulos sin tilde menú Patentes"
 ```
 
-**Lectura directa de JSONs canónicos** (más rápido que el RAG para casos específicos):
+**Lectura directa de JSONs canónicos:**
 ```bash
-# Ver criterios evaluados de una URL específica
-cat data/claude-audits/tramites-inapi-cl_2026-06-07.json | jq '.criterios_evaluados[] | select(.id == "G1")'
+# Nuevos LC-*; históricos pueden tener A–H
+cat data/claude-audits/sitioweb/.../www-inapi-cl_....json | jq '.criterios_evaluados[] | select(.id == "LC-1.1.7-01")'
 ```
 
 ---
 
 ## Flujo de pesquisa combinada (A + B)
 
-Para justificar una evaluación con máxima solidez:
-
 ```
-1. Leer la definición en `checklist-criteria-lc-ptd.json` → obtener el campo `source`
-2. RAG colección A: buscar "{code} {concept}" → cita normativa completa
-3. RAG colección B: buscar "{code} {url-similar}" → ver precedente de evaluación
-4. Comparar HTML actual con el precedente → decidir incumple / cumple / no_aplica
-5. Redactar `comentario` con la cita normativa + referencia al precedente
+1. Leer definición en checklist-criteria-lc-ptd.json → source
+2. RAG A: "{LC-*} {concepto}" → cita normativa
+3. RAG B: "{LC-*} {url-similar}" → precedente
+4. Comparar HTML actual → cumple / incumple / no_aplica (+ severidad si incumple)
+5. Redactar comentario + borrador de propuesta CMS para auditoria-lc / sub-subagente
 ```
 
 Ejemplo de comentario bien fundamentado:
 ```
-"D7: Según IEW/IESD 5.2.4, evitar palabras solo en mayúsculas excepto siglas reconocidas. 
-Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en mayúsculas 
-totales (T006, T011, T019, T024). Patrón ya documentado en tramites-inapi-cl_2026-06-07 
-(D7 media, 4 ocurrencias). Origen: _Layout.cshtml transversal a todas las páginas del 
-portal de tramites."
+"LC-1.2.4-05: Según IEW/IESD escritura para la web, evitar palabras solo en mayúsculas excepto
+siglas reconocidas. Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en
+mayúsculas totales. Patrón ya documentado en auditorías previas del portal. Comunicar a CMS:
+cambiar a mayúscula inicial; TI: suele venir del layout compartido."
 ```
 
 ---
 
 ## Cuándo NO necesitas el RAG
 
-- Para los **51** criterios LC v3.0: basta con `checklist-criteria-lc-ptd.json` + esta skill + Word/mapa PTD (§23).
-- Para los patrones sistémicos (D7, D1, F3, F4, E3, E4, B3, H1): están documentados en `auditoria-lc.md` con las calibraciones INAPI ya incorporadas.
-- Para decidir `no_aplica`: consultar primero la sección §16 de `CLAUDE.md` antes de abrir el RAG.
-- **Capturas con sesión autenticada:** el RAG no sustituye §19 de `CLAUDE.md`. No ingresar HTML con PII a Colección B; los precedentes deben ser JSON ya anonimizados del repo.
+- Para los **51** criterios LC v3.0: basta con `checklist-criteria-lc-ptd.json` + `auditoria-lc.md` + Word/mapa PTD (§23).
+- Patrones sistémicos: `auditoria-lc.md` y CLAUDE.md §6.
+- `no_aplica`: primero CLAUDE.md §16.
+- **Sesión autenticada:** RAG no sustituye §19. No ingresar HTML con PII a Colección B.
 
 ---
 
 ## Estado del RAG — verificación previa
 
-Antes de usar el RAG MCP, confirmar que Chroma está levantado:
-
 ```bash
-# Verificar que Chroma responde
 curl -s http://localhost:8000/api/v1/heartbeat
-
-# Si no responde, levantarlo:
+# Si no responde:
 chroma run --path ./rag/chroma_db --port 8000
+# Re-ingesta tras cambios de catálogo/docs/auditorías:
+cd rag && bun run ingest:b
 ```
 
-Si el RAG no está disponible, hacer la pesquisa directamente sobre los archivos del repo:
+Sin RAG:
 ```bash
-# Buscar en los JSONs canónicos
-grep -r '"id": "B3"' data/claude-audits/ | head -5
-
-# Buscar en docs
-rg "criterio D7" docs/
+rg '"id": "LC-1.1.3-05"' data/claude-audits/
+rg "LC-1.2.4-05|mayúsculas" docs/ .claude/
 ```
+
+Ver `../diagrams/workflow_diagram.md`.

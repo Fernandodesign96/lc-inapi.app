@@ -1,19 +1,49 @@
 ﻿# Skill: Auditoría Calidad Web — Marco Normativo INAPI
 
-Referencia operativa: `.claude/CLAUDE.md` §1 (dominio) y §2 (criterios)
-ADR de referencia: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
-Colección RAG A: fuentes normativas ingresadas en `rag/chroma_db/coleccion_a/`
+## Qué es este documento
+
+Skill de **fundamento normativo**: explica qué regulan IEW, IESD, RLC, Meta MEI y UI Kit, y cómo citarlos en comentarios / notas TIC sin confundir el alcance de la auditoría LC.
+
+## Para qué se utiliza
+
+- Justificar *por qué* un `LC-*` incumple según el instrumento (no solo describir el texto malo).
+- Redactar `nota_final_tic` y `resumen_ejecutivo` con citas de gobierno.
+- Orientar consultas a **RAG Colección A** (PDFs en `documentos/`).
+
+## Objetivo
+
+Que cada juicio editorial esté anclado al marco INAPI/PMG-MEI y a los campos `source` del catálogo v3.0.
+
+## Importancia en la orquestación Claude Code
+
+Complementa —no sustituye— a `auditoria-lc.md`. Los sub-subagentes y el raíz la cargan cuando necesitan cita normativa o distinguir sitioweb vs trámites vs sesión autenticada. Sin ella, los comentarios tienden a ser vagos o a usar `CW` deprecado.
+
+## Cableado (conversa con)
+
+| Pieza | Relación |
+| --- | --- |
+| `../CLAUDE.md` | §1 dominio, §2 criterios, §8 MCP/RAG, §16 `no_aplica`, §19 sesión, §23 alcance |
+| `auditoria-lc.md` | Evaluación y estados; esta skill aporta el *porqué* normativo |
+| `pesquisa-criterios.md` | Ejecuta las queries RAG A/B que esta skill recomienda |
+| `../prompts/audit-una-url.md` | Paso C (RAG) + instrucción a subagentes de cargar esta skill si hace falta |
+| `../prompts/audit-lote.md` / `audit-oro-s22.md` | Misma cadena vía prompt canónico |
+| `../diagrams/workflow_diagram.md` | Etapa RAG / fundamento |
+| RAG Colección A | PDFs normativos (`rag/README.md`, ADR 0010) |
+
+**Reglas** = CLAUDE.md §5. **Sub-subagentes** = §17 (Grupo 5 + todos cuando citan `source`).
+
+ADR: `docs/adr/0010-rag-local-chroma-xenova-transformers.md`
 
 ---
 
 ## Cuándo activar
 - Cuando se necesite fundamentar por qué un criterio incumple desde el marco normativo.
 - Cuando se redacte la `nota_final_tic` y se quieran citar estándares de gobierno.
-- Cuando se evalúe una página de servicio digital transaccional (portal `tramites.inapi.cl`) y aplique el instrumento MEI.
-- Cuando se requiera contexto normativo (citas `IEW`/`IESD`/`RLC`/`MEI` del checklist v2.1), o el UI Kit Gobierno.
-- Cuando se trace un hito/tarea del Checklist Editorial PTD v2.0 hacia criterios `LC-*` — ver `data/checklist-criteria-lc-ptd.json`, `data/checklist-editorial-ptd-v2.json` y `docs/checklist-ptd-v2-mapa.md`.
+- Cuando se evalúe una página de servicio digital transaccional (`tramites.inapi.cl`) y aplique el instrumento MEI/IESD.
+- Cuando se requiera contexto normativo (`IEW`/`IESD`/`RLC`/`MEI` del checklist v3.0) o UI Kit.
+- Cuando se trace un hito/tarea del Checklist Editorial PTD hacia criterios `LC-*` — ver `data/checklist-criteria-lc-ptd.json`, `data/checklist-editorial-ptd-v2.json` y `docs/checklist-ptd-v2-mapa.md`.
 
-**Nota de alcance META MEI 2026:** el motor §17 evalúa **Lenguaje claro** (**51** criterios v3.0 por indicadores IEW·IESD). Usabilidad (**18**) y Seguridad (**10**) del Word/JSON **no** se puntúan aún (CLAUDE.md §23).
+**Nota de alcance META MEI 2026:** el motor §17 evalúa **Lenguaje claro** (**51** criterios v3.0). Usabilidad (**18**) y Seguridad (**10**) del Word/JSON **no** se puntúan aún (CLAUDE.md §23).
 
 ---
 
@@ -85,9 +115,11 @@ El **Meta MEI** (`meta-mei.pdf`) documenta el **compromiso institucional** PMG-M
 
 **Relevancia del tipo para criterios:**
 - `tramites` **públicas:** aplicar Meta MEI con mayor peso en lenguaje plano / claridad / ortografía; RUN ajeno en HTML estático = incumple (`LC-1.1.7-01`).
-- `tramites` **con sesión (`captura_con_sesion: true`):** privacidad calibrada en `CLAUDE.md` §19 — datos del solicitante = esperados; evaluar claridad de etiquetas y ayudas.
+- `tramites` **con sesión (`captura_con_sesion: true`):** privacidad calibrada en `CLAUDE.md` §19 — datos del solicitante = esperados; evaluar claridad de etiquetas y ayudas; ARCO = `LC-1.1.7-03`.
 - `sitioweb`: aplicar IEW (15 indicadores LC); exclusivas IEW cuando correspondan.
 - `buscador`: herramienta interactiva; varios criterios de cuerpo editorial pueden ser `no_aplica`.
+
+**Estados / severidad (igual que auditoria-lc):** solo `cumple` \| `incumple` \| `no_aplica`; `severidad` baja/media/alta en incumple → UI Cumple con observaciones / Medianamente cumple / No cumple. Propuestas en lenguaje CMS (§22).
 
 ---
 
@@ -98,9 +130,9 @@ En el campo `comentario` del criterio:
 "comentario": "Según IEW/IESD 5.2.4, deben evitarse palabras escritas únicamente en mayúsculas excepto siglas reconocidas. Los grupos del menú MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS están en mayúsculas totales."
 ```
 
-En el campo `nota_final_tic` (para TI INAPI):
+En el campo `nota_final_tic` (para TI INAPI), preferir primero mensaje CMS y luego apoyo técnico:
 ```
-"Las correcciones de mayúsculas sostenidas (LC-1.2.4-05) aplican al _Layout.cshtml según IEW/IESD escritura para la web. Afectan a todas las páginas del portal que usan este layout compartido."
+"En el menú superior, pasar los grupos de MAYÚSCULAS a mayúscula inicial (LC-1.2.4-05, IEW/IESD escritura web). Suele estar en el layout compartido: al corregirlo una vez, mejora todas las páginas del portal."
 ```
 
 En el `resumen_ejecutivo`:
@@ -112,17 +144,19 @@ En el `resumen_ejecutivo`:
 
 ## 7. Consulta al RAG colección A — guía práctica
 
-Para obtener la cita normativa exacta antes de redactar el comentario:
+Para obtener la cita normativa exacta antes de redactar el comentario (detalle de queries: `pesquisa-criterios.md`):
 
 ```
 RAG colección A — query: "IEW 1.2.4 mayúsculas tipografía encabezados"
-→ Resultado esperado: fragmento de IEW/IESD (y/o RLC) que sustente la regla de mayúsculas.
+→ Fragmento IEW/IESD (y/o RLC) sobre mayúsculas.
 
 RAG colección A — query: "RLC siglas acrónimos primera vez"
-→ Resultado esperado: párrafo del PDF lenguaje-claro-recomendaciones.pdf
+→ Párrafo de lenguaje-claro-recomendaciones.pdf
 
 RAG colección A — query: "MEI criterio lenguaje claro trámite digital"
-→ Resultado esperado: fragmento del instrumento meta-mei.pdf sobre redacción en tramitación
+→ Fragmento de meta-mei.pdf sobre redacción en tramitación
 ```
 
-**Si el RAG no está disponible:** usar los campos `source` de `checklist-criteria-lc-ptd.json` como referencia bibliográfica y formular el comentario indicando la sección del estándar sin cita textual.
+**Si el RAG no está disponible:** usar los campos `source` de `checklist-criteria-lc-ptd.json` y formular el comentario indicando la sección del estándar sin cita textual.
+
+Ver `../diagrams/workflow_diagram.md` §5 (etapa RAG).
