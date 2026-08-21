@@ -63,6 +63,8 @@ const DETAIL_HEADERS = [
   "Criterio",
   "CheckList",
   "Línea / ref. técnica",
+  "Hito PTD",
+  "Tarea PTD",
 ] as const
 
 const CATEGORY_SECTION_FILL: ExcelJS.Fill = {
@@ -454,7 +456,9 @@ function addDetallePorTipoSheet(
           r.getCell(8).value = data.criterioId
           r.getCell(9).value = data.criterioEnunciado
           r.getCell(10).value = lineaId(data)
-          for (const c of [4, 5, 6, 7, 9, 10] as const) {
+          r.getCell(11).value = data.hitoPtd
+          r.getCell(12).value = data.tareaPtd
+          for (const c of [4, 5, 6, 7, 9, 10, 11, 12] as const) {
             r.getCell(c).alignment = { wrapText: true, vertical: "top" }
           }
           rowIdx++

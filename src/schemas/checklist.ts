@@ -345,6 +345,11 @@ export const criterionEvaluationSchema = z.object({
   id: criterionIdSchema,
   estado: criterionResultStateSchema,
   cita_textual: z.string().optional(),
+  /**
+   * Ubicación legible en pantalla (p. ej. «Pie de página › contacto»).
+   * Opcional; útil sobre todo en `cumple` cuando hay evidencia textual.
+   */
+  ubicacion_pantalla: z.string().optional(),
   severidad: severitySchema.optional(),
   /**
    * Obligatorio en auditorías nuevas v2.1 para `no_aplica` e `incumple`.
