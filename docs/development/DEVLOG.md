@@ -857,7 +857,7 @@ Cerrar el **paso 2** de la Fase 4: documentar la arquitectura MVP (Vercel UI + w
 
 - Rama `docs/mvp-worker-on-demand`.
 - Nuevo [ADR 0011](../adr/0011-worker-local-on-demand-vercel.md) (borrador): flujo job/poll/claim, sin auth, persistencia `data/jobs/` o SQLite, túnel pendiente de spike.
-- [`docs/cotizacion-anthropic-api-evidencia.md`](../cotizacion-anthropic-api-evidencia.md): método + placeholders.
+- `docs/cotizacion-anthropic-api-evidencia.md` *(retirado 2026-08)*: método + placeholders.
 - ROADMAP paso 2 marcado `[x]`.
 
 ### Próximos pasos:
@@ -1468,10 +1468,10 @@ Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto 
 
 - [`docs/ROADMAP.md`](../ROADMAP.md) — Fase 1.5: ítems de código marcados hechos; pendientes editoriales (UX/TIC, acta, 10.ª URL) y `validate:claude-audits` opcional.
 - [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — §2 tabla operativa 9 URLs; checklist §7 dividido implementación/entrega; ruta PDF `GET` real; propuesta reunión en `<details>` histórico.
-- [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) §1.2.1, [`docs/Propuesta Análisis LC URLs.md`](../Propuesta%20Análisis%20LC%20URLs.md) §2.3 — estado 2026-06-08.
+- [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) §1.2.1, `Propuesta Análisis LC URLs.md` *(retirado 2026-08)* §2.3 — estado 2026-06-08.
 - [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md) — Etapa 1.4 verificación piloto Vercel; APIs `claude-audits`.
-- [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md) — nota histórica al inicio.
-- [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — metadatos piloto 9 URLs.
+- `docs/sesion-piloto-claude-2026-06-05.md` *(retirado 2026-08)* — nota histórica al inicio.
+- `Comparación Auditoría…` *(retirado 2026-08)* — metadatos piloto 9 URLs.
 
 **Enlace corregido:** referencias `development/DEVLOG.md` → `docs/development/DEVLOG.md` en flujo operativo.
 
@@ -1539,7 +1539,7 @@ Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resul
 
 Tras cerrar la [exportación PDF (Fase C)](#devlog-2026-06-04-fase-c-pdf), el siguiente hito del piloto TIC es **contenido editorial real** en `data/claude-audits/`, no solo la home de junio. El viernes 5 (PC empresa, sin terminal ni git) se avanzó el **piloto operativo de 9 URLs** (8 `sitioweb` + 1 `tramites`), distinto de la tabla §2 inicial del flujo (10 URLs propuesta reunión 2-jun).
 
-Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md).
+Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: `docs/sesion-piloto-claude-2026-06-05.md` *(retirado 2026-08)*.
 
 ### Implementación técnica:
 
@@ -1769,8 +1769,8 @@ Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; 
 
 ### Implementación técnica:
 
-- **Comparación IA (home):** [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
-- **Propuesta reunión:** [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
+- **Comparación IA (home):** `Comparación Auditoría…` *(retirado 2026-08)* — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
+- **Propuesta reunión:** `Propuesta Análisis LC URLs.md` *(retirado 2026-08)* — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
 - **Flujo operativo piloto:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) — Proyecto Claude, mensajes §3.2/3.3, tabla 10 URLs, alcances UI (`/auditar` acordeón piloto debajo de ingreso URL; `/auditar/resultado` con 7 bloques §4 + PDF server-side).
 - **Roadmap:** nueva sección **Fase 1.5**; condición de entrada a Fase 2 actualizada; PDF adelantado en piloto (consolidación institucional en Fase 2/4).
 - **PRD / arquitectura / README / fase2 / diagramas:** alineados a Fase 1.5 y referencias cruzadas.

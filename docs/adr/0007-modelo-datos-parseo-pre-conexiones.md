@@ -1,192 +1,158 @@
-# ADR 0007 — Modelo lógico de datos, formato de entrada y parseo (pre-conexiones)
+# ADR 0007 — Parseo, embeddings (@xenova/transformers) y forma de los datos
 
 ## Estado
 
-**Borrador / propuesto** — 2026-05-20. Documento de **alineación previa a reunión** con responsable de datos / **Equipo UX**: consolida lo ya establecido en el repositorio y lista decisiones pendientes. **No** sustituye migraciones Prisma ni implementación Nest/Lambda hasta ratificación; tras la reunión se actualizarán [DATABASE.md](../DATABASE.md), [ARCHITECTURE.md](../ARCHITECTURE.md) y, si aplica, [ADR 0006](0006-lc-evaluation-python-claude-aws.md).
+**Aceptado en lo vigente — 2026-08-21**  
+(El borrador 2026-05 sobre Nest ↔ Lambda ↔ Postgres queda como **propuesta antigua**.)
 
-## Contexto
+## 1. Aviso al lector
 
-Requisito explícito de trabajo antes de abordar **conexiones** entre servicios: disponer de una **estructura** de cómo se conformará la base de datos — **formato de entrada**, **parseo** necesario, **campos** y **tipo de dato** de cada uno — y solo entonces pasar a cablear integraciones.
+Este ADR ya **no** describe cómo cablear Nest, AWS, API Gateway, Lambda ni Pydantic.  
+Eso fue una propuesta previa: **no se implementará** (ver tabla §5).
 
-En el proyecto ya existen: modelo orientativo en [DATABASE.md](../DATABASE.md), contratos Zod en [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts), decisión de evaluación LLM y versionado en [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md), API de dominio en [ADR 0005](0005-api-backend-nestjs-prisma.md), topología Python + Claude + AWS en [ADR 0006](0006-lc-evaluation-python-claude-aws.md) y flujo en [ARCHITECTURE.md](../ARCHITECTURE.md). Este ADR **reúne** en un solo lugar el panorama **lógico** (entidades, origen de datos, parseo) explícitamente **antes** del detalle de conexiones (auth Nest ↔ API Gateway, VPC, etc.).
+Aquí se explica, en lenguaje claro:
 
-## Lo ya establecido (no renegociar sin nueva ADR)
+1. Cómo el texto se **parte (parseo / chunking)** antes de indexar.  
+2. Cómo **@xenova/transformers** convierte ese texto en **embeddings** (vectores).  
+3. Cómo **LangChain.js** ordena ese pipeline en TypeScript.  
+4. Cómo el **JSON de auditoría** (51 `LC-*`) se parsea/valida con **Zod** (contrato de producto).
 
-1. **Escritura en Postgres:** por defecto **solo NestJS + Prisma** persisten auditorías y resultados; el servicio Python **entrega** JSON validado y **no** escribe en Supabase salvo decisión futura documentada ([DATABASE.md](../DATABASE.md) §1, [ADR 0006](0006-lc-evaluation-python-claude-aws.md)).
-2. **Contrato de salida de evaluación:** JSON compatible con los criterios del checklist; validación con **Zod** en TypeScript (`criterionEvaluationSchema` × 39, agregado con `strictAuditRecordSchema` cuando corresponda el registro completo) y política de **reintento** o degradación si falla el parseo ([ADR 0004](0004-llm-checklist-evaluation-and-versioning.md)).
-3. **Versionado:** `checklist_version` y `prompt_version` deben persistirse junto a cada ejecución de evaluación ([ADR 0004](0004-llm-checklist-evaluation-and-versioning.md), [DATABASE.md](../DATABASE.md) §2 `audits`).
-4. **39 filas lógicas** por auditoría en detalle de criterios, o equivalente validado en `jsonb` ([DATABASE.md](../DATABASE.md) §2 y alternativa `results` en el mismo §).
-5. **Topología objetivo:** Nest ↔ (REST/JSON) API Gateway ↔ Lambda (Python) ↔ Claude API ([ADR 0006](0006-lc-evaluation-python-claude-aws.md), [ARCHITECTURE.md](../ARCHITECTURE.md) §1.1).
+El diseño de **colecciones Chroma A/B y MCP** está en [ADR 0010](0010-rag-local-chroma-xenova-transformers.md); aquí no se repite el RAG completo.
 
-## 1. Diagrama lógico (entidades y cardinalidad)
+---
 
-Orientativo para discusión con BD; nombres de tabla alineados a [DATABASE.md](../DATABASE.md) §2.
+## 2. Dos “parseos” distintos (no confundir)
 
-```mermaid
-erDiagram
-  checklist_versions ||--o{ audits : "version_checklist"
-  audits ||--|{ audit_criterion_results : "39 criterios"
-  audits ||--o| url_index : "opcional last_audit_id"
+| Tipo | Qué es | Herramienta | Resultado |
+| --- | --- | --- | --- |
+| **A. Parseo / troceo para embeddings** | Cortar PDFs y markdown en fragmentos manejables | Scripts `rag/ingest-a.ts`, `rag/ingest-b.ts` + **LangChain.js** | Textos listos para vectorizar |
+| **B. Parseo del JSON de auditoría** | Comprobar que el informe cumple el contrato | **Zod** (`src/schemas/…`, `validate:claude-audits`) | JSON aceptado o rechazado |
 
-  checklist_versions {
-    uuid id PK
-    text version UK
-    text title
-    jsonb criteria_json
-    timestamptz created_at
-  }
+Claude Code **lee** HTML de Playwright y **escribe** JSON; Xenova **no** evalúa criterios LC — solo ayuda a buscar contexto semántico en el RAG.
 
-  audits {
-    uuid id PK
-    text url
-    text domain
-    timestamptz evaluated_at
-    uuid evaluator_user_id FK
-    text checklist_version
-    text prompt_version
-    text captured_text
-    jsonb summary
-    text observaciones_lc
-    text proposed_text
-    int duration_ms
-    timestamptz created_at
-  }
+---
 
-  audit_criterion_results {
-    uuid audit_id PK_FK
-    text criterion_id PK
-    text estado
-    text cita_textual
-    text severidad
-    text comentario
-  }
+## 3. Embeddings con @xenova/transformers (detalle)
 
-  url_index {
-    text url PK
-    text screen_name
-    uuid last_audit_id FK
-    int priority
-    text notes
-  }
-```
+### 3.1 ¿Qué es un embedding?
 
-**Nota:** En el contrato Zod actual (`auditRecordSchema`), los identificadores usan nombres en español en parte del agregado (`fecha_evaluacion`, `evaluador_uid`, `version_checklist`, `texto_capturado`, `texto_propuesto`, `observaciones_lc`). En Postgres se documentaron columnas en inglés (`evaluated_at`, `evaluator_user_id`, `captured_text`, `proposed_text`, …). La **tabla de mapeo** del §3 fija el puente parseo ↔ columnas.
+Un embedding es una **lista de números** (vector) que representa el “sentido” de un trozo de texto.  
+Dos frases parecidas quedan **cerca** en ese espacio; dos temas distintos quedan lejos.  
+Así Chroma puede responder: “¿qué fragmentos se parecen a esta pregunta sobre títulos en mayúsculas?”.
 
-## 2. Mapeo Zod (`strictAuditRecordSchema`) ↔ columnas `audits` + `summary`
+### 3.2 Modelo elegido
 
-| Campo lógico (Zod / JSON) | Tipo en Zod | Columna / destino SQL (orientativo) | Origen | Nullable / notas |
-| --- | --- | --- | --- | --- |
-| `id` | `string` min 1 | `audits.id` (uuid generado por Nest al crear) | Sistema (Nest) al insertar | PK; el string Zod de mocks puede mapearse a uuid en persistencia. |
-| `url` | `string` url | `audits.url` | Captura / usuario | Obligatorio; normalización acordada con TI. |
-| `fecha_evaluacion` | `string` datetime ISO | `audits.evaluated_at` | Sistema (Nest al cerrar evaluación) | Obligatorio en persistencia. |
-| `evaluador_uid` | email o string | `audits.evaluator_user_id` | Auth Supabase (`auth.users`) | Obligatorio cuando exista login. |
-| `version_checklist` | `string` | `audits.checklist_version` | Catálogo / request | Obligatorio; FK lógica a `checklist_versions.version` si se usa tabla. |
-| *(no en Zod hoy)* | — | `audits.prompt_version` | Servicio Python / configuración Nest | Obligatorio en Fase 2 según ADR 0004; hoy no está en `auditRecordSchema` — **reunión: añadir al contrato o solo a capa persistida.** |
-| `texto_capturado` | `string` | `audits.captured_text` | Captura (scraping o pegado) | Obligatorio; límites y retención en [DATABASE.md](../DATABASE.md) §6. |
-| `criterios_evaluados` | array length 39 | `audit_criterion_results` × 39 **o** `audits.results` jsonb | **Principalmente salida LLM** (tras prompt); validado con Zod | Obligatorio; decisión normalizado vs jsonb (§5). |
-| `criterios_aprobados` | `number` | `summary.criterios_aprobados` **y/o** derivado de hijos | **Calculado** (`summarizeEvaluations`) | En `strictAuditRecordSchema` debe coincidir con el array; en BD puede denormalizarse en `summary`. |
-| `criterios_aplicables` | `number` | idem | Calculado | idem |
-| `criterios_no_aplica` | `number` | idem | Calculado | idem |
-| `porcentaje_cumplimiento` | `number` 0–100 | idem | Calculado | Fórmula en `summarizeEvaluations` (N/A excluidos del denominador). |
-| `estado_aceptacion` | enum | idem | Calculado | `rechazado` / `aceptado_con_observaciones` / `aprobado`. |
-| `texto_propuesto` | `string` opcional | `audits.proposed_text` | LLM o editor | Nullable. |
-| `observaciones_lc` | `string` opcional | `audits.observaciones_lc` | LLM o editor | Nullable. |
-| `tiempo_evaluacion_segundos` | `number` opcional | `audits.duration_ms` / 1000 o columna dedicada | Sistema | Opcional; convención reunión: segundos vs ms. |
-
-## 3. Mapeo por criterio: `criterionEvaluationSchema` ↔ `audit_criterion_results`
-
-| Campo lógico (Zod) | Tipo en Zod | Columna SQL | Origen | Nullable / notas |
-| --- | --- | --- | --- | --- |
-| `id` | enum A1…H1 | `criterion_id` | Catálogo + fila LLM | PK compuesta con `audit_id`. |
-| `estado` | enum | `estado` | LLM | Obligatorio. |
-| `cita_textual` | `string` opcional | `cita_textual` | LLM | Nullable. |
-| `severidad` | enum baja/media/alta opcional | `severidad` | LLM / reglas post-proceso | Nullable; reglas de negocio con **Equipo UX**. |
-| `comentario` | `string` opcional | `comentario` | LLM | Nullable. |
-
-## 4. Flujo de parseo (viñetas, orden lógico)
-
-1. **Cliente → Nest:** solicitud de auditoría con URL (y/o texto ya capturado), identidad del evaluador y metadatos acordados (versión de checklist visible para el cliente o fijada por servidor).
-2. **Nest:** persiste o actualiza registro de auditoría en borrador con `captured_text` y estados intermedios si el producto lo requiere; invoca servicio de **captura** si aún no hay texto (fuera del alcance detallado de este ADR; ver ADR 0004 deuda Cheerio vs Playwright).
-3. **Nest → Lambda (Python):** cuerpo REST/JSON con texto a evaluar, `checklist_version`, `prompt_version`, y criterios o referencia al catálogo que deba embeber el prompt (formato exacto **pendiente** de anexo OpenAPI o ejemplo en reunión).
-4. **Lambda → Claude:** prompt con **formato de salida obligatorio** (JSON compatible con el contrato; [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md)).
-5. **Lambda → Nest:** respuesta JSON; Nest (o Lambda, según política acordada) valida estructura; en el camino feliz Nest usa **`parseStrictAuditRecord`** en TypeScript con el payload o lo traduce desde un DTO intermedio.
-6. **Nest:** si la validación falla, aplica **reintentos acotados** o marca fallo sin completar `audits` / borra borrador — **política exacta pendiente** (§6).
-7. **Nest → Postgres:** transacción Prisma: insert/upsert `audits` + 39 filas en `audit_criterion_results` **o** un solo update con `summary` + `results` jsonb según decisión §5.
-
-## 5. Ejemplos mínimos de JSON (ilustrativos, sujetos a reunión)
-
-**Salida esperada del servicio de evaluación hacia Nest** (debe poder validarse contra `strictAuditRecordSchema` tras mapeo de nombres si se usan alias en inglés en wire):
-
-```json
-{
-  "id": "uuid-audit-en-borrador",
-  "url": "https://tramites.inapi.cl/ejemplo",
-  "fecha_evaluacion": "2026-05-22T12:00:00.000Z",
-  "evaluador_uid": "usuario@inapi.cl",
-  "version_checklist": "1.1",
-  "texto_capturado": "Texto plano evaluado…",
-  "criterios_evaluados": [
-    { "id": "A1", "estado": "cumple" },
-    { "id": "A2", "estado": "incumple", "cita_textual": "…", "severidad": "media", "comentario": "…" }
-  ],
-  "criterios_aprobados": 0,
-  "criterios_aplicables": 0,
-  "criterios_no_aplica": 0,
-  "porcentaje_cumplimiento": 0,
-  "estado_aceptacion": "rechazado",
-  "observaciones_lc": null,
-  "texto_propuesto": null,
-  "tiempo_evaluacion_segundos": 12
-}
-```
-
-*(El ejemplo numérico anterior es incompleto a propósito: un registro real debe incluir las **39** entradas en `criterios_evaluados` y contadores coherentes; sirve solo como anclaje de forma.)*
-
-## 6. Fallos de validación y persistencia
-
-- [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md): si falla Zod, reintento acotado o degradación a “revisión manual requerida”.
-- **Pendiente reunión:** ¿se guarda registro de **intento fallido** (log, tabla `audit_failures`, solo observabilidad)? ¿Se deja fila `audits` en estado `failed` con `captured_text` pero sin resultados?
-
-## 7. Decisiones pendientes (checklist para la reunión)
-
-Marcar en la reunión cada ítem como **cerrado**, **cambio a documentar** o **nueva ADR**.
-
-### 7.1 Modelo físico ([DATABASE.md](../DATABASE.md))
-
-| Tema | Ya en doc | Pendiente |
-| --- | --- | --- |
-| Tabla hija `audit_criterion_results` vs columna `results jsonb` en `audits` | Trade-off descrito | Elección definitiva para MVP |
-| `prompt_version` en contrato Zod wire vs solo columna BD | Columna en `audits` | ¿Extender `auditRecordSchema`? |
-| Mapeo snake_case inglés en API pública vs campos español Zod | Este ADR §2 | Convención única wire JSON |
-| `domain` derivado de `url` | check constraint en DATABASE | ¿Trigger / aplicación? |
-
-### 7.2 Servicios y parseo ([ADR 0006](0006-lc-evaluation-python-claude-aws.md))
-
-| Tema | Ubicación ADR 0006 | Pendiente |
-| --- | --- | --- |
-| Lambda vs ECS (timeouts, payload) | Preguntas abiertas | Cierre con TI |
-| Pydantic en Python vs validación solo en Nest | Preguntas abiertas | Cierre |
-| Auth Nest → API Gateway | Preguntas abiertas | Cierre |
-| Confirmación “solo Nest escribe BD” | Decisión | Reconfirmar |
-
-### 7.3 Producto / Equipo UX
-
-- Reglas de **severidad** y **comentario** por criterio (obligatoriedad, solo en `incumple`, etc.).
-- Retención máxima y anonimización de fragmentos en `cita_textual` / `captured_text` ([DATABASE.md](../DATABASE.md) §6).
-
-## 8. Relación con otros ADR y documentos
-
-| Artefacto | Rol respecto a 0007 |
+| Dato | Valor |
 | --- | --- |
-| [0003](0003-contract-first-mocking-with-zod.md) | Contract-first y mocks; base del uso de Zod. |
-| [0004](0004-llm-checklist-evaluation-and-versioning.md) | Formato salida LLM, versionado prompt, reintentos. |
-| [0005](0005-api-backend-nestjs-prisma.md) | Nest + Prisma como dueño de persistencia. |
-| [0006](0006-lc-evaluation-python-claude-aws.md) | Conexiones AWS y frontera Python; **posterior** al cierre lógico de §7. |
-| [DATABASE.md](../DATABASE.md) | Tablas orientativas; 0007 propone matriz hasta alinear. |
-| [`src/schemas/checklist.ts`](../../src/schemas/checklist.ts) | Fuente de verdad actual del JSON estricto. |
+| Paquete | `@xenova/transformers` (NPM, corre en **Bun/Node**) |
+| Modelo | `Xenova/paraphrase-multilingual-MiniLM-L12-v2` |
+| Tamaño aprox. | ~400 MB (descarga **una vez**) |
+| Ejecución | **CPU local**, 100 % offline después de descargar |
+| Idiomas | Multilingüe (incluye español) |
+| APIs externas en runtime | **Ninguna** — no se envían PDFs a la nube para embeber |
+
+### 3.3 Flujo de un fragmento
+
+```text
+Texto del PDF o del repo
+    → troceo (tamaño/solape definidos en ingest)
+    → Xenova: texto → vector
+    → Chroma guarda vector + texto + metadatos (colección A o B)
+```
+
+En consulta (vía MCP RAG):
+
+```text
+Pregunta del subagente / skill
+    → Xenova: pregunta → vector
+    → Chroma: busca vecinos cercanos
+    → Devuelve fragmentos (no el PDF entero)
+```
+
+### 3.4 Por qué importa para INAPI
+
+- Los PDFs normativos **no** viajan a Anthropic ni a un servicio de embeddings cloud.  
+- El mismo runtime TypeScript del monorepo (ADR 0008) evita un microservicio Python solo para vectores.  
+- Claude Code recibe **citas cortas** útiles para fundamentar `comentario` / notas, no 600 páginas crudas.
+
+---
+
+## 4. LangChain.js en el parseo de ingesta
+
+**LangChain.js** no orquesta la auditoría LC (eso es Claude Code).  
+En este repo se usa como **utilidad del pipeline de ingesta**:
+
+| Paso | Rol típico de LangChain.js |
+| --- | --- |
+| Cargar / normalizar texto | Unificar entradas desde PDF extraído o markdown del repo |
+| Splitters | Dividir en chunks con tamaño y overlap coherentes |
+| Encadenar | Pasar cada chunk a la función de embedding (Xenova) y al writer de Chroma |
+
+Scripts:
+
+- `rag/ingest-a.ts` — Colección A (PDFs en `documentos/`, gitignore).  
+- `rag/ingest-b.ts` — Colección B (catálogo LC v3.0, mapa PTD, Word extraído, JSON de auditorías, ADRs, etc.).
+
+Detalle de colecciones y aislamiento: [ADR 0010](0010-rag-local-chroma-xenova-transformers.md).
+
+---
+
+## 5. Propuestas antiguas — qué eran y por qué no se implementan
+
+| Propuesta antigua | Qué se proponía | Por qué ya no se implementará |
+| --- | --- | --- |
+| **Python + HuggingFace** | Embeddings / motor en Python | Stack unificado TS/Bun; Xenova cubre embeddings offline ([ADR 0008](0008-typescript-sobre-python-para-rag.md)) |
+| **Pydantic** | Validar JSON en Lambda Python | Zod ya valida en el monorepo ([ADR 0003](0003-contract-first-mocking-with-zod.md)) |
+| **Nest + Prisma** | API de dominio y escritura SQL | MVP sin login; JSON en GitHub; Claude Code escribe el resultado |
+| **AWS API Gateway + Lambda** | Hosting del motor LC | Costo/TI; Claude Code local ([ADR 0006](0006-lc-evaluation-python-claude-aws.md), [0011](0011-worker-local-on-demand-vercel.md)) |
+| **Claude API** | Llamadas HTTP de pago por evaluación | Suscripción Claude Code institucional |
+| **Postgres / tablas `audits` × 39** | Modelo ER de mayo 2026 | Persistencia = archivos canónicos; catálogo ahora **51** `LC-*` |
+| **OpenAPI Nest ↔ Lambda** | Contrato entre servicios | Un solo proceso orquestador + Zod |
+
+---
+
+## 6. Forma lógica de los datos de auditoría (MVP)
+
+Sin tablas SQL productivas. La “fila” de negocio es un **archivo JSON**:
+
+| Concepto | Dónde vive | Notas 2026-08 |
+| --- | --- | --- |
+| Catálogo 51 criterios | `data/checklist-criteria-lc-ptd.json` | IDs `LC-*`, v3.0 |
+| Auditoría por URL | `data/claude-audits/{sitioweb\|tramites}/{fecha}/*.json` | Validado Zod |
+| Jobs on-demand | `data/jobs/*.json` | Cola worker ([contratos-audit-jobs.md](../contratos-audit-jobs.md)) |
+| Fixtures mock | `data/audit-fixtures/` | UI sin auditoría real |
+
+Campos clave del informe (parseo Zod): `version_checklist: "3.0"`, 51 evaluaciones, `%`, estado de aceptación, sustituciones, observaciones CMS.
+
+IDs históricos A1–H1 / 39 / 47 = **solo legado**; no usar en auditorías nuevas.
+
+---
+
+## 7. Flujo vigente (parseo + embeddings + auditoría)
+
+```text
+1. ingest:a / ingest:b  →  LangChain trocea  →  Xenova embebe  →  Chroma
+2. Claude Code + Playwright  →  HTML de la URL
+3. Claude Code + RAG MCP     →  fragmentos A/B (ya vectorizados)
+4. §17 sub-subagentes        →  51 filas LC-*
+5. Zod validate              →  JSON en data/claude-audits/
+6. Next / PDF / Excel        →  entrega
+```
+
+---
+
+## 8. Relación con otros documentos
+
+| Documento | Rol |
+| --- | --- |
+| [ADR 0010](0010-rag-local-chroma-xenova-transformers.md) | RAG, colecciones, MCP, qué entra/no entra |
+| [ADR 0003](0003-contract-first-mocking-with-zod.md) | Contrato Zod del JSON |
+| [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md) | LLM orquestador + Playwright |
+| [ADR 0006](0006-lc-evaluation-python-claude-aws.md) | Propuesta AWS/Nest **archivada** |
+| [DATABASE.md](../DATABASE.md) | Nota: Postgres = histórico / no operativo |
 
 ## Consecuencias
 
-- **Positivo:** un solo documento para reunión de alineación BD / parseo sin mezclar aún detalle de redes y claves.
-- **Negativo:** duplicación temporal con DATABASE/ARCHITECTURE hasta propagar cambios tras la reunión.
-- **Siguiente paso:** tras ratificación, actualizar migraciones Prisma, ampliar contrato Zod si se acuerda (`prompt_version` en wire, etc.) y marcar este ADR como **Aceptado** con fecha.
+- **Positivo:** parseo y embeddings explicables, locales y alineados al monorepo.  
+- **Negativo:** quien lea versiones viejas de este ADR verá ER Nest; usar siempre la cabecera 2026-08-21.  
+- **Siguiente paso documental:** no reabrir Prisma/migraciones; mantener catálogo LC v3.0 y scripts de ingesta.

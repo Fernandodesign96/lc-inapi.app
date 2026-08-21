@@ -1,165 +1,329 @@
-# Despliegue híbrido (Vercel + GitHub Actions + Supabase + Nest + AWS LC)
+# Despliegue híbrido — guía en lenguaje claro
 
-**Origen:** plan de trabajo alineado al acuerdo del equipo (referencia interna: plan Cursor `despliegue_híbrido_03b45f72`).
+**Para quién es este documento:** alguien que ve el proyecto por primera vez (Equipo UX, jefatura, TI o desarrollo) y necesita entender **qué piezas hay**, **para qué sirven** y **en qué orden se activan**.
 
-**Resumen:** despliegue por etapas — Next.js en Vercel (previews y producción del mock), GitHub Actions como CI u orquestación, Supabase al entrar Fase 2, API Nest en Railway o AWS según decisión, y pipeline LC en AWS según ADRs; incluye cuidados del monorepo Bun, fixtures (`LC_REPO_ROOT`) y documentación en repo.
+**Origen:** plan de trabajo alineado al acuerdo del equipo (referencia interna: plan Cursor `despliegue_híbrido_03b45f72`), actualizado al stack real: **Vercel + GitHub + Claude Code + Playwright + Chroma RAG** (sin Nest, Supabase Auth ni AWS LC).
 
-**Seguridad complementaria:** [`../SECURITY.md`](../SECURITY.md).
-
----
-
-## Checklist de etapas (seguimiento manual)
-
-- [x] **Etapa 0:** alineación inicial con TI (decisión **Nest en Railway vs AWS** cuando exista código; no bloquea el mock). Cuentas **GitHub** y **Vercel** activas para Etapa 1; **Supabase** y **AWS** al arrancar Fase 2 según política INAPI. *(Anotar la decisión Nest en [`../ROADMAP.md`](../ROADMAP.md) o ADR breve cuando se formalice por escrito.)*
-- [x] **Etapa 1.1:** proyecto Vercel con **Root Directory** `frontend`, **Install** `cd .. && bun install` y **Build** `cd .. && bun run build`; despliegue verificado en URL. **`LC_REPO_ROOT`** solo si `GET /api/audit-fixtures/...` no encontrara `data/` en runtime *(no requerido en el despliegue verificado a mayo 2026)*.
-- [x] **Etapa 1.2:** workflow [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml): `bun install --frozen-lockfile`, `bun run typecheck:all`, `bun run lint`; disparadores `push` a `main` y `feature/**`, `pull_request` a `main`, `workflow_dispatch`. Opción A (solo CI; deploy continúa en Vercel).
-- [x] **Etapa 1.3:** verificación manual en URL desplegada: `/`, `/auditar`, mock, fixture por API e **importación JSON** (pegar contenido o archivo; ejemplos válidos en `data/audit-fixtures/*.json`).
-- [x] **Etapa 1.4 (Fase 1.5 piloto):** verificación en Vercel de las **9 URLs** piloto: acordeón «URLs auditadas — piloto junio 2026» → `/auditar/resultado?claudeAudit=…` → **Descargar informe PDF** (`GET /api/claude-audits/[id]/export/pdf`). Misma dependencia de `data/claude-audits/` y `LC_REPO_ROOT` que fixtures *(verificado junio 2026)*.
-- [ ] **Etapa 2:** proyecto Supabase + env en Vercel/Nest según `DATABASE.md` y ADR 0005.
-- [ ] **Etapa 3:** desplegar Nest en Railway o AWS + CORS + variables a Supabase y AWS LC.
-- [ ] **Etapa 4:** pipeline LC en AWS según ADR 0006 e integración Nest ↔ API Gateway.
-- [x] **Etapa 5 (cierre Etapa 1):** README con sección despliegue y CI; ROADMAP y ARCHITECTURE actualizados; entrada en devlog *(2026-05-22)*.
+**Seguridad complementaria:** [`../SECURITY.md`](../SECURITY.md).  
+**Worker on-demand (Vercel ↔ PC):** [`tunel-vercel-worker-pc.md`](tunel-vercel-worker-pc.md) · [ADR 0011](../adr/0011-worker-local-on-demand-vercel.md).
 
 ---
 
-## Contexto del repo (relevante para el plan)
+## Resumen en una página
 
-- Monorepo **Bun** en raíz: [`package.json`](../../package.json) con `workspaces: ["frontend"]`, scripts `typecheck:all`, `build` → `bun run --cwd frontend build`.
-- Next **App Router** y APIs de lectura en servidor: fixtures (`GET /api/audit-fixtures/[fixtureId]`) y piloto Claude (`GET /api/claude-audits/[id]`, `GET …/export/pdf`) leen `data/audit-fixtures/` y `data/claude-audits/` con `LC_REPO_ROOT ?? join(process.cwd(), "..")` — en Vercel hay que garantizar que exista **`data/`** en el árbol de despliegue y, si el `cwd` no es `frontend/`, definir **`LC_REPO_ROOT`** (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
-- Arquitectura objetivo ya descrita en [`../ARCHITECTURE.md`](../ARCHITECTURE.md), [`../ROADMAP.md`](../ROADMAP.md) y ADRs (p. ej. [ADR 0006](../adr/0006-lc-evaluation-python-claude-aws.md), [ADR 0005](../adr/0005-api-backend-nestjs-prisma.md)): **Nest + Prisma + Supabase**; evaluación LC vía **AWS** (API Gateway + Lambda + Claude).
+Este proyecto tiene **dos mundos** que conviven:
+
+| Mundo | Qué es | Dónde corre hoy |
+| --- | --- | --- |
+| **Producto web** | Pantallas `/auditar`, PDF, Excel, historial | **Vercel** (UI) + código en **GitHub** |
+| **Auditoría profunda** | Captura de URL, 51 criterios LC, JSON canónico | **PC / WSL** con **Claude Code**, Playwright y Chroma (RAG) |
+
+**GitHub** guarda y valida el código. **Vercel** lo muestra en internet para que Equipo UX pruebe sin instalar nada.  
+**Ninguno de los dos ejecuta hoy la auditoría larga (10–40 min):** eso lo hace Claude Code en el PC (ADR 0009 / 0011).
+
+**MVP sin login:** cualquier persona de INAPI con la URL puede auditar. No hay Nest, Supabase Auth ni pipeline AWS: esas propuestas antiguas se **retiraron** del repo.
+
+---
+
+## 1. GitHub y Vercel — para qué sirven y por qué son indispensables
+
+### 1.1 GitHub — el lugar del código y de la calidad
+
+| Pregunta | Respuesta en lenguaje claro |
+| --- | --- |
+| **¿Para qué se ocupa?** | Guardar el historial del proyecto (commits, ramas, pull requests) y disparar **controles automáticos** cada vez que alguien sube cambios. |
+| **¿Qué función cumple?** | Es la **fuente de verdad del código**: Next.js (`frontend/`), datos de auditorías (`data/`), orquestación Claude (`.claude/`), scripts y documentación (`docs/`). |
+| **¿Por qué importa en este proyecto?** | Sin GitHub no hay colaboración segura ni rastro de qué versión de checklist o de auditoría se usó. Equipo UX y desarrollo miran el mismo repo. |
+| **¿Qué lo hace único / indispensable aquí?** | Aquí viven los **JSON canónicos** y el **CI** (GitHub Actions): si el código no pasa `typecheck`/`lint`, no debería llegar a producción. Vercel **despliega**; GitHub **decide qué merece desplegarse**. |
+
+**Pieza concreta en el repo:** [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml) — al hacer `push` o `pull_request`, instala Bun y corre `typecheck:all` + `lint`.
+
+### 1.2 Vercel — la vitrina en internet del aplicativo
+
+| Pregunta | Respuesta en lenguaje claro |
+| --- | --- |
+| **¿Para qué se ocupa?** | Publicar el aplicativo Next.js en una **URL pública** (preview por rama o producción) sin que Equipo UX instale Node ni Bun. |
+| **¿Qué función cumple?** | Sirve las pantallas (`/`, `/auditar`, resultado, PDF) y APIs delgadas de lectura (`/api/claude-audits/…`, fixtures, jobs). |
+| **¿Por qué importa en este proyecto?** | Es el canal de **demo y revisión** con jefatura / Equipo UX. Cada PR puede tener su propia preview. |
+| **¿Qué lo hace único / indispensable aquí?** | Conecta el monorepo a un **hosting listo para frontend serverless**. No sustituye a Claude Code: en Vercel el disco es **efímero** y no conviene correr auditorías de 10–40 min (Playwright + 5 sub-subagentes). Su valor único es **mostrar el producto** y, en el MVP on-demand, **encolar** trabajos para que un PC los ejecute (ADR 0011). |
+
+**Configuración habitual:** Root Directory `frontend`; Install `cd .. && bun install`; Build `cd .. && bun run build` (desde la raíz del monorepo).
+
+### 1.3 Diferencia clave (una frase)
+
+- **GitHub** = “¿el código es correcto y versionado?”  
+- **Vercel** = “¿puedo abrir el aplicativo en el navegador ahora?”  
+
+Ambos son indispensables: uno sin el otro deja el proyecto sin control de cambios o sin URL de demo.
+
+---
+
+## 2. Checklist por etapas (seguimiento)
+
+### Etapa 0 — Alineación (cuentas)
+
+- [x] **Cuentas GitHub y Vercel** activas para desplegar el mock / piloto.  
+  *Importancia MVP:* sin ellas no hay URL de demo ni CI.
+
+### Etapa 1 — Demo UX + CI (completada en lo esencial)
+
+- [x] **1.1** Proyecto Vercel (root `frontend`, Bun desde raíz); URL verificada. `LC_REPO_ROOT` solo si las APIs no encuentran `data/`.
+- [x] **1.2** GitHub Actions: `bun install --frozen-lockfile`, `typecheck:all`, `lint`.
+- [x] **1.3** Verificación manual: `/`, `/auditar`, fixtures, import JSON.
+- [x] **1.4** Piloto 9 URLs en Vercel: tabla → resultado → PDF.
+
+### Etapa 2 — RAG local (stack Claude; operativo en WSL)
+
+- [x] Chroma + Colecciones A/B + LangChain.js + Xenova + MCP `rag-auditoria` (ver §7).  
+  *Importancia MVP:* Claude Code **fundamenta** criterios con normativa y precedentes sin subir PDFs a Anthropic.
+
+### Etapa 3 — Flujo completo Claude Code + MCP (operativo)
+
+- [x] Playwright + RAG + §17 + validate + cable UI (ver §8).
+
+### Etapa 4 — Chroma compartido en red interna (opcional / coordinación TI)
+
+- [ ] Copiar `chroma_db` y servir MCP en red interna INAPI si varios PCs deben compartir el mismo RAG (ver §9).
+
+### Etapa 5 — Documentación
+
+- [x] README, ROADMAP, SECURITY, DEVLOG (cierre Etapa 1); mantener alineado a Claude Code / Vercel / RAG.
+
+---
+
+## 3. Contexto del repo — tres piezas y qué hace cada una
+
+### 3.1 Monorepo Bun (raíz del proyecto)
+
+| Elemento | Qué es | Qué hace |
+| --- | --- | --- |
+| [`package.json`](../../package.json) | Manifiesto del monorepo | Declara `workspaces: ["frontend"]` y scripts globales (`typecheck:all`, `build`, `validate:claude-audits`, `dev`). |
+| `bun install` / lockfile | Instalación de dependencias | Una sola instalación desde la **raíz** alimenta frontend y herramientas. |
+| `src/` | Código compartido (schemas Zod, scripts, export MEI) | Valida JSON de auditorías, genera Excel, worker de jobs. |
+| `data/` | Datos versionados o locales | `claude-audits/`, fixtures, catálogo checklist 51 LC-*, jobs. |
+| `rag/` | Workspace del RAG | Ingesta A/B, Chroma, MCP server; **LangChain.js** y `@xenova/transformers`. |
+| `.claude/` | Orquestación Claude Code | Constitución, skills, prompts, diagrama. |
+
+### 3.2 Next.js App Router y APIs de lectura en servidor
+
+| Elemento | Qué es | Qué hace |
+| --- | --- | --- |
+| `frontend/` | Aplicativo Next | Pantallas del flujo auditar y consumo de APIs. |
+| `GET /api/audit-fixtures/[id]` | API de fixtures | Lee JSON de ejemplo desde `data/audit-fixtures/`. |
+| `GET /api/claude-audits/[id]` (+ PDF) | API del piloto / informes | Lee `data/claude-audits/` y genera PDF. |
+| `LC_REPO_ROOT` | Variable de entorno | Dice dónde está la raíz del repo si en Vercel el `cwd` no encuentra `data/`. |
+| `/api/audit-jobs` (MVP) | API delgada de cola | Crea/consulta jobs; el worker en PC hace el trabajo pesado. |
+
+### 3.3 Stack que opera hoy (camino real)
+
+| Elemento | Función | ¿Opera hoy? |
+| --- | --- | --- |
+| Claude Code + Playwright + Chroma (ADR 0009/0010/0011) | Orquestar auditoría 51 criterios LC | **Sí** |
+| Vercel + GitHub Actions | UI/PDF + CI | **Sí** |
+| Nest / Prisma / Supabase Auth / AWS Lambda LC | Backend antiguo con login y nube | **No** — documentos y ADR Nest **retirados**; no forman parte del MVP |
+
+---
+
+## 4. Diagrama general — producto web + orquestación de auditoría
+
+```mermaid
+flowchart TB
+  subgraph producto["1 · Producto web — GitHub + Vercel"]
+    direction TB
+    UX[Equipo UX / jefatura]
+    GH[GitHub — código + PRs]
+    GHA[GitHub Actions — CI typecheck/lint]
+    V[Vercel — Next UI + APIs delgadas]
+    UX --> V
+    GH --> GHA
+    GH --> V
+  end
+
+  producto ~~~ orquestacion
+
+  subgraph orquestacion["2 · Orquestación Claude Code — PC / WSL"]
+    direction TB
+    USER[Desarrollo / auditor]
+    CC[Claude Code]
+    PR1[prompts — audit-una-url / lote / oro]
+    CM[CLAUDE.md — reglas §5 · §17 · §20–§23]
+    SK[skills — auditoria-lc · calidad-web · pesquisa]
+    DG[diagrams/workflow_diagram.md]
+    USER --> CC
+    CC --> PR1
+    PR1 --> CM
+    PR1 --> SK
+    PR1 --> DG
+    CC --> SA1[Sub-subagente 1]
+    SA1 --> SA2[Sub-subagente 2]
+    SA2 --> SA3[Sub-subagente 3]
+    SA3 --> SA4[Sub-subagente 4]
+    SA4 --> SA5[Sub-subagente 5]
+    SA5 --> SK
+  end
+
+  orquestacion ~~~ captura
+
+  subgraph captura["3 · Captura"]
+    direction TB
+    PW[Playwright MCP — navigate + HTML + a11y]
+  end
+
+  CC -->|captura URL| PW
+
+  captura ~~~ rag
+
+  subgraph rag["4 · RAG local"]
+    direction TB
+    INA[ingest:a — Colección A · PDFs]
+    INB[ingest:b — Colección B · repo]
+    LCJS[LangChain.js — pipeline de ingesta]
+    XE["@xenova/transformers — embeddings"]
+    CH[Chroma — puerto 8000]
+    RM[RAG MCP — rag-auditoria]
+    INA --> LCJS
+    INB --> LCJS
+    LCJS --> XE
+    XE --> CH
+    RM --> CH
+  end
+
+  CC -->|consultas puntuales| RM
+
+  rag ~~~ salida
+
+  subgraph salida["5 · Entrega"]
+    direction TB
+    JSON[data/claude-audits/*.json]
+    PDF[PDF / Excel / UI resultado]
+    JSON --> V
+    V --> PDF
+  end
+
+  CC -->|escribe JSON| JSON
+```
+
+### 4.1 Qué muestra este diagrama (por secciones)
+
+| Sección del diagrama | Función | Propósito | Qué problema resuelve |
+| --- | --- | --- | --- |
+| **Producto web** | Publicar y validar el código de la interfaz | Que UX abra una URL y CI frene regresiones | Demo sin instalar / builds rotos |
+| **Orquestación Claude Code** | Constitución, prompts, skills; 5 especialistas | Auditar **una URL** con 51 LC v3.0 | Evaluación manual o superficial |
+| **Reglas** | CLAUDE.md §5 (+ §16–§23); no hay carpeta `/rules` | Contrato único CMS-first | Cada sesión inventaba criterios |
+| **Captura Playwright** | HTML/a11y real | Evidencia ciudadana | Auditar de memoria |
+| **RAG A/B + LangChain + Xenova + Chroma** | Indexar normativa y precedentes | Fundamentar comentarios | Alucinaciones; PDFs fuera de internet |
+| **Sub-subagentes (§17)** | Cinco grupos por indicadores LC | Profundidad | Un solo agente se queda corto |
+| **Salida JSON → Vercel** | Guardar y mostrar PDF/Excel | Entrega institucional | Hallazgo solo en el chat |
+
+### 4.2 Diagrama del flujo de una auditoría (1 URL)
 
 ```mermaid
 flowchart LR
-  subgraph ux [Etapas_0-1_completadas]
-    GH[GitHub]
-    GHA[GitHub_Actions]
-    V[Vercel_Next]
-  end
-  subgraph rag [Etapa_2_RAG_local]
-    CH[Chroma_local]
-    XE[xenova_transformers]
-    RM[RAG_MCP_server]
-  end
-  subgraph cc [Etapa_3_Claude_Code]
-    PW[Playwright_MCP]
-    CCP[Claude_Code_Pro_WSL]
-  end
-  subgraph ti [Etapa_4_Servidor_TI]
-    TI[Chroma_servidor_INAPI]
-  end
-  GH --> GHA
-  GH --> V
-  CCP -->|captura HTML| PW
-  CCP -->|consulta RAG| RM
-  RM --> CH
-  CH --> XE
-  CH -.->|copia a produccion| TI
+  A[Preparación<br/>URL + fecha + tipo] --> B[Playwright<br/>HTML + a11y]
+  B --> C[Inventario R+U]
+  C --> D[Catálogo 51 + RAG A/B]
+  D --> E[5 sub-subagentes]
+  E --> F[Consolidación CMS<br/>gate §22]
+  F --> G[validate:claude-audits]
+  G --> H[Cable launch + MEI]
+  H --> I[Commit por URL]
+```
+
+Detalle: [`.claude/diagrams/workflow_diagram.md`](../../.claude/diagrams/workflow_diagram.md).
+
+---
+
+## 5. Etapa 0 — Alineación interna
+
+**Función:** tener cuentas GitHub y Vercel listas.  
+**Qué resuelve:** “¿hay login?”, “¿la auditoría corre en Vercel?” → **no** / **no**.
+
+---
+
+## 6. Etapa 1 — Demo UX y CI (Vercel + GitHub Actions)
+
+**Objetivo:** URL estable o preview; calidad reproducible.
+
+- **Opción A (usada):** Actions solo CI; Vercel despliega al push.  
+- Verificar `/`, fixtures, PDF; si 404 → `LC_REPO_ROOT` e inclusión de `data/`.
+
+---
+
+## 7. Etapa 2 — RAG local (Chroma + LangChain.js + Xenova)
+
+Referencia: [ADR 0010](../adr/0010-rag-local-chroma-xenova-transformers.md).
+
+| Pieza | Función |
+| --- | --- |
+| **Chroma** | Vectores locales `rag/chroma_db/` |
+| **Colección A** (`ingest:a`) | PDFs normativos en `documentos/` (gitignore) |
+| **Colección B** (`ingest:b`) | Catálogo LC, mapa, Word extraído, JSON, ADRs |
+| **LangChain.js** | Troceo / pipeline de ingesta |
+| **@xenova/transformers** | Embeddings offline en CPU |
+| **MCP rag-auditoria** | Puente Claude Code ↔ Chroma |
+
+```bash
+chroma run --path ./rag/chroma_db --port 8000
+cd rag && bun run ingest:b   # y ingest:a si hay PDFs
+claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts
 ```
 
 ---
 
-## Etapa 0 — Alineación interna (sin código obligatorio)
+## 8. Etapa 3 — Flujo completo (Claude Code + MCP)
 
-- **Decisión TI / liderazgo:** ¿Nest en **Railway** (simplicidad) o **AWS** (misma nube que Lambda LC) cuando exista código? El mock de UX **no la bloquea**; conviene anotarla en [`../ROADMAP.md`](../ROADMAP.md) o ADR corto cuando se cierre.
-- **Cuentas:** GitHub (repo), Vercel (equipo o proyecto), más adelante Supabase y AWS según política INAPI.
-- **Costes:** asumir **tiers gratuitos / prueba** para demo UX; producción revisar precios oficiales de Vercel, Supabase, Railway/AWS y uso de Claude.
+Referencias: [ADR 0009](../adr/0009-claude-code-pro-como-orquestador.md), [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md).
 
----
-
-## Etapa 1 — Demo UX y CI: **Next en Vercel** + **GitHub Actions**
-
-Objetivo: URL estable o preview por rama para Equipo UX; calidad reproducible en CI.
-
-### 1.1 Proyecto Vercel (Next)
-
-- Crear proyecto en **Vercel** importando el **mismo repo** de GitHub.
-- **Root Directory:** `frontend` (o raíz del repo si preferís un `vercel.json` en raíz que delegue; lo habitual con monorepo es **root = `frontend`**).
-- **Install:** debe ejecutar **`bun install` en la raíz del monorepo** (donde está el workspace), no solo dentro de `frontend` sin el lockfile raíz — en el panel de Vercel ajustar **Install Command** (p. ej. `cd .. && bun install` si el root del proyecto en Vercel es `frontend`, según cómo Vercel clone el repo; verificar en la primera build fallida y corregir).
-- **Build Command:** coherente con [`package.json`](../../package.json) raíz (`bun run build` desde raíz ya delega en `frontend`) o equivalente explícito.
-- **Variables de entorno en Vercel (Preview y Production):**
-  - **`LC_REPO_ROOT`:** apuntando a la raíz del checkout donde existan `data/` y `src/` si en runtime `process.cwd()` no deja leer fixtures (probar `/api/audit-fixtures/...` tras el primer deploy).
-- **Probar** en local el mismo comando que usará Vercel antes de confiar en el panel.
-
-### 1.2 GitHub Actions (orquestación)
-
-- Añadir workflow en **`.github/workflows/`** (p. ej. `ci.yml` o `frontend-ci.yml`):
-  - **Disparadores:** `push` y `pull_request` a ramas acordadas; opcional `workflow_dispatch`.
-  - **Pasos:** `checkout`, `setup-bun`, `bun install` (raíz), `bun run typecheck:all`, `bun run lint` (ya definido en raíz contra `frontend`).
-- **Opción A (solo CI):** el deploy lo hace **Vercel** al hacer push (integración GitHub–Vercel); Actions solo valida.
-- **Opción B (CI + deploy desde Actions):** tras el build, paso con **Vercel CLI** o acción oficial usando secretos `VERCEL_TOKEN` / IDs de proyecto en **GitHub → Settings → Secrets and variables → Actions** (todo el flujo “visible” desde la pestaña Actions).
-
-Elegir A o B según preferencia de equipo (menos secretos vs. un solo sitio para ver pipelines).
-
-### 1.3 Verificación funcional post-deploy
-
-- Abrir `/`, `/auditar`, flujo **mock**, **fixture JSON** y **import JSON** en la URL de preview.
-- Si fixtures devuelven 404: revisar logs del **route handler** y `LC_REPO_ROOT` / inclusión de `data/audit-fixtures/` en el artefacto desplegado.
+| Pieza | Función |
+| --- | --- |
+| **CLAUDE.md** | 51 criterios, §5, §17, §22, §23 |
+| **Prompts** | `audit-una-url` / lote / oro |
+| **Skills** | Inventario, evaluación, RAG |
+| **§17** | 5 sub-subagentes |
+| **Playwright MCP** | Captura DOM |
+| **validate:claude-audits** | Zod |
 
 ---
 
-## Etapa 2 — **RAG local** (Chroma + @xenova/transformers)
+## 9. Etapa 4 — Chroma compartido (opcional)
 
-Entorno: WSL con Bun y Chroma instalados. Referencia: [ADR 0010](../adr/0010-rag-local-chroma-xenova-transformers.md).
-
-- Crear workspace `rag/` con `package.json`, `tsconfig.json` y scripts `ingest:a`, `ingest:b`, `query`.
-- `bun install` en `rag/` (instala `chromadb`, `@xenova/transformers`, `langchain`).
-- Levantar Chroma local: `chroma run --path ./rag/chroma_db --port 8000`.
-- Poner los 6 PDFs normativos en `documentos/` (local; en `.gitignore`; nunca al repo).
-- `bun run ingest:b` → ingesta Colección B (material del repo; ya disponible).
-- `bun run ingest:a` → ingesta Colección A (PDFs normativos).
-- Verificar con `bun run query "criterio D7 encabezados mayúsculas"`.
-- Registrar el MCP server: `claude mcp add rag-auditoria bun /ruta/rag/mcp-server.ts`.
-
-**Verificación:** Claude Code responde preguntas sobre criterios usando el RAG MCP.
+Varios PCs consultan el mismo RAG sin depender del notebook de desarrollo. Copiar `rag/chroma_db/`, servir MCP en red interna.
 
 ---
 
-## Etapa 3 — **Flujo completo de auditoría** (Claude Code Pro + MCP)
+## 10. Etapa 5 — Documentación
 
-Entorno: WSL con Claude Code Pro, Playwright MCP y RAG MCP configurados. Referencia: [ADR 0009](../adr/0009-claude-code-pro-como-orquestador.md).
-
-- Probar flujo end-to-end con una URL: Playwright MCP captura HTML → RAG MCP provee contexto → Claude Code genera JSON canónico.
-- Verificar que el JSON pasa `validate-claude-audits.ts` y los Hooks se disparan automáticamente.
-- Probar lote de URLs con subagents en paralelo.
-- Calibrar con Equipo UX (G1, D7, E3) y documentar reglas en el devlog.
-
-**Verificación:** auditoría completa automatizada de principio a fin; JSON válido en `data/claude-audits/`; PDF descargable en el frontend.
+Mantener README, este archivo, ROADMAP, SECURITY y DEVLOG.
 
 ---
 
-## Etapa 4 — **Producción en servidor TI** (Chroma como servicio)
+## 11. Orden práctico (hoy)
 
-Entorno: servidor interno INAPI (TI). Referencia: [PROPUESTA_TECNICA_INTEGRAL.md](../PROPUESTA_TECNICA_INTEGRAL.md) §6 Fase 4.
-
-- Coordinar con jefatura de proyecto / TI INAPI: viabilidad del servidor, puertos disponibles, OS, capacidad CPU (para `@xenova/transformers`).
-- Copiar `rag/chroma_db/` al servidor (no hay que reingestar; los vectores son portables).
-- Levantar `rag/mcp-server.ts` como servicio persistente en el servidor TI.
-- Configurar Claude Code en cada equipo del equipo para apuntar al MCP server remoto (ajustar URL en `claude mcp add rag-auditoria`).
-- Verificar flujo completo desde al menos dos máquinas distintas del equipo.
-
-**Verificación:** el equipo completo puede auditar URLs sin depender del equipo de desarrollo encendido; `documentos/` y `chroma_db/` nunca salen al repo ni a internet.
+1. GitHub + Vercel + CI  
+2. Chroma + ingest + Claude Code + Playwright  
+3. Worker / túnel si demo on-demand  
+4. Chroma compartido solo si hace falta  
 
 ---
 
-## Etapa 5 — Documentación en el repo
+## 12. Riesgos
 
-**Estado (cierre Etapa 1, 2026-05-22):** completado en el sentido del mock y del CI — [`README.md`](../../README.md) (sección **Despliegue y CI**), [`docs/ROADMAP.md`](../ROADMAP.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md), [`docs/SECURITY.md`](../SECURITY.md) y [`docs/development/DEVLOG.md`](../development/DEVLOG.md) actualizados.
-
-Para **Fase 2 y siguientes**, seguir ampliando README, roadmap y arquitectura cuando exista Nest en el diagrama de despliegue (p. ej. **Vercel (Next) → Nest → Supabase / AWS**).
-
----
-
-## Orden recomendado de ejecución práctica
-
-1. Etapa 0 (decisión Nest: anotar; no bloquea UX).
-2. Etapa 1.1 → 1.3 (URL para UX + CI Actions).
-3. Tras aprobación mock: Etapa 2 + 3 + 4 según roadmap de producto.
-4. Etapa 5 en cada cierre relevante (commit/PR que ya comentasteis para documentación + devlog).
+| Riesgo | Mitigación |
+| --- | --- |
+| Monorepo Bun mal instalado | Install/build desde la **raíz** |
+| Fixtures 404 en Vercel | `LC_REPO_ROOT` + `data/` |
+| Creer que Vercel audita | Auditoría en PC |
+| PDFs en git | `documentos/` gitignore |
 
 ---
 
-## Riesgos / puntos de atención
+## 13. Documentos relacionados
 
-- **Monorepo Bun:** install/build en CI y en Vercel deben usar la **raíz** del workspace para no romper `@contracts/checklist`.
-- **Fixtures en serverless:** dependen del filesystem del deploy y de `LC_REPO_ROOT`; validar en preview antes de la demo.
-- **CORS y URLs:** cuando exista Nest, las previews de Vercel tienen dominios distintos a producción; hay que permitirlos explícitamente en Nest.
+| Documento | Qué aporta |
+| --- | --- |
+| [ARCHITECTURE.md](../ARCHITECTURE.md) | Vista de arquitectura |
+| [ROADMAP.md](../ROADMAP.md) | Fases |
+| [ADR 0009](../adr/0009-claude-code-pro-como-orquestador.md) | Claude Code orquesta |
+| [ADR 0010](../adr/0010-rag-local-chroma-xenova-transformers.md) | RAG local |
+| [ADR 0011](../adr/0011-worker-local-on-demand-vercel.md) | Worker PC |
+| [tunel-vercel-worker-pc.md](tunel-vercel-worker-pc.md) | Túnel demo |

@@ -1,60 +1,62 @@
-# ADR 0006 — Evaluación LC: Python, Claude API y despliegue AWS
+# ADR 0006 — Evaluación LC: Python, Claude API y AWS (propuesta antigua)
 
 ## Estado
 
-**Supersedido — 2026-07-21**
+**Supersedido — 2026-07-21 · Aclarado como archivo histórico — 2026-08-21**
 
-> **Nota de supersesión:** Cada decisión central de este ADR fue reemplazada en julio 2026:
-> - **Python → TypeScript + Bun** para el motor de análisis y el RAG — ver [ADR 0008](0008-typescript-sobre-python-para-rag.md).
-> - **Claude API (de pago) → Claude Code Pro** (suscripción existente, sin costo adicional) como orquestador — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md).
-> - **AWS Lambda / API Gateway → servidor TI INAPI** (TI INAPI) en producción y WSL local en desarrollo.
-> - **HuggingFace Python → `@xenova/transformers`** (NPM) para embeddings offline — ver [ADR 0010](0010-rag-local-chroma-xenova-transformers.md).
->
-> El contenido original del ADR se conserva como registro histórico. La ratificación con TI / desarrollo backend que estaba pendiente ya no aplica en los términos aquí descritos.
+> Este documento **no** es el plan del MVP.  
+> Describe una propuesta de mayo 2026 (Python + Nest + AWS + Claude API) que **no se implementará**.  
+> El camino vigente es Claude Code + Playwright + Chroma + Xenova + LangChain.js ([ADR 0009](0009-claude-code-pro-como-orquestador.md), [ADR 0008](0008-typescript-sobre-python-para-rag.md), [ADR 0010](0010-rag-local-chroma-xenova-transformers.md)).
 
----
+## 1. Distinción rápida: qué se propuso vs qué quedó
 
-Propuesto — 2026-05-13 (ratificación formal de topología AWS: pendiente cierre con TI / desarrollo backend; ver [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md))
+| Tema | Propuesta antigua (este ADR) | MVP vigente (2026-08-21) | ¿Se implementará a futuro según este plan? |
+| --- | --- | --- | --- |
+| Proveedor LLM | **Claude API** (pago, API key) | **Claude Code** (suscripción institucional) | **No** la API operativa |
+| Runtime del motor | **Python** + prompts | **TypeScript / Bun** + Claude Code | **No** Python como motor LC |
+| Validación en servicio | **Pydantic** (Python) | **Zod** en el monorepo | **No** Pydantic |
+| API de dominio | **NestJS** + Prisma | Next route handlers + JSON en repo | **No** Nest |
+| Persistencia | **Supabase / Postgres** | Archivos `data/claude-audits/`, `data/jobs/` | **No** Postgres en MVP |
+| Hosting evaluación | **AWS** API Gateway + **Lambda** (o ECS/EC2) | PC/WSL local (+ worker 8–18) | **No** AWS LC |
+| Captura | (ajena a este ADR; Cheerio pendiente) | **Playwright MCP** | Playwright sí |
+| Criterios | 39 A–H | **51 `LC-*` v3.0** | Catálogo PTD actual |
+| Login | Implícito vía Nest/Auth | **Acceso libre** INAPI | **No** login MVP |
+| Embeddings / RAG | HuggingFace Python / nube | **@xenova/transformers** + Chroma + LangChain.js | Xenova/Chroma sí |
 
-## Contexto
+## 2. Por qué el backend Nest / AWS / Claude API queda supersedido
 
-El [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md) fija que la salida del LLM debe validarse contra los contratos Zod (39 criterios, `strictAuditRecordSchema` cuando aplique el agregado completo) y que las claves no se expongan al cliente. El [ADR 0005](0005-api-backend-nestjs-prisma.md) sitúa la **API de dominio** en **NestJS** con **Prisma** hacia **Supabase**.
+| Pieza | Por qué se descartó para este proyecto |
+| --- | --- |
+| **NestJS** | Añadía un tercer servicio (Next + Nest + Lambda) antes de poder auditar. Claude Code ya orquesta captura, RAG y JSON. El MVP **no** necesita API de dominio ni login. |
+| **AWS Lambda + API Gateway** | Costo, secretos, timeouts y operación TI. TI no habilitó API Claude dedicada; se opera con asiento Claude Code institucional ([ADR 0011](0011-worker-local-on-demand-vercel.md)). |
+| **Claude API de pago** | Cada auditoría larga multiplicaría costo; la suscripción Code ya cubre el trabajo. La API solo se cotizó como evidencia histórica (documento de cotización **retirado**). |
+| **Python + Pydantic** | Duplicaba contratos frente a Zod/TS del monorepo ([ADR 0008](0008-typescript-sobre-python-para-rag.md)). |
+| **Prisma + Supabase Auth** | El MVP debe ser usable **sin inicio de sesión**; la trazabilidad va en GitHub. |
 
-El equipo acordó, para la capa de **análisis de lenguaje claro**, usar **Claude API (Anthropic)** con implementación en **Python** (prompts robustos y reglas estrictas) y disponer de un **entorno compartido en AWS** para desarrollo o staging, de modo que el sistema no dependa de máquinas locales encendidas.
+## 3. Registro histórico (qué decía la decisión original)
 
-La [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md) documenta roles, diagrama **Nest ↔ API Gateway ↔ Lambda (Python) ↔ Claude** y cuestiones abiertas de colaboración. Este ADR acota la decisión arquitectónica y la deuda explícita.
+Se conserva solo para auditoría de decisiones. **No usar como guía de implementación.**
 
-## Decisión
+1. Proveedor: Claude API.  
+2. Motor: Python.  
+3. Nest como única escritura a Postgres.  
+4. Exponer Python detrás de API Gateway → Lambda.  
+5. Frontend sin claves; hablaría con Nest.
 
-1. **Proveedor LLM:** **Claude API** para la evaluación asistida del checklist, manteniendo los requisitos del ADR 0004 (JSON contractual, reintentos acotados, `prompt_version` persistido junto a `checklist_version`).
-2. **Implementación del motor de prompts:** **Python** como lenguaje acordado para el servicio que arma el prompt, llama a Claude y devuelve JSON validado (en la frontera: esquemas compartidos o **Pydantic** en Python alineado a los mismos contratos; ver preguntas abiertas).
-3. **NestJS** continúa como **API de dominio** y **única capa responsable de escritura en Postgres** vía Prisma (crear auditoría, captura, solicitar evaluación, guardar resultado validado). El servicio Python **entrega** JSON; **no** escribe en Supabase salvo decisión explícita futura documentada en ADR.
-4. **AWS — preferencia de equipo (propuesta técnica integral):** exponer el servicio Python detrás de **Amazon API Gateway** invocando **AWS Lambda** (función Python). **Alternativas** si no encajan límites de tiempo, tamaño de payload o operación: **Amazon ECS** (Fargate) o **EC2** con el mismo contrato HTTP/JSON hacia Nest.
-5. **Integración Nest ↔ AWS:** comunicación **REST/JSON** entre NestJS y API Gateway (autenticación de servicio a definir: API keys firmadas, IAM, mTLS o JWT interno; ver preguntas abiertas).
-6. **Frontend:** no cambia el principio contract-first: el cliente solo habla con **HTTPS** hacia Next y/o API pública de Nest; **nunca** embebe claves de Claude.
+Preguntas abiertas de entonces (Lambda vs ECS, Pydantic vs Nest, auth Nest→Gateway) **ya no aplican**: el diseño completo fue reemplazado.
 
-## Preguntas abiertas (hasta cerrar con desarrollo backend / TI)
+## 4. Camino MVP (referencia)
 
-Tomadas de la [propuesta técnica integral](../PROPUESTA_TECNICA_INTEGRAL.md) §5:
+```text
+Usuario / auditor → (opcional) UI Vercel
+                 → Claude Code en PC
+                 → Playwright MCP + RAG (Chroma/Xenova/LangChain)
+                 → JSON 51 LC-* → Zod → PDF/Excel
+```
 
-- **Lambda vs ECS:** límites de tiempo, costo y tamaño de respuesta para el JSON completo de 39 criterios.
-- **Contratos en Python:** ¿**Pydantic** generado o mantenido a mano alineado a Zod, o validación solo en Nest tras recibir JSON opaco?
-- **Seguridad:** mecanismo concreto de autenticación **Nest → API Gateway** y rotación de secretos.
-- **Persistencia:** confirmar que **solo Nest + Prisma** escriben en `audits` / resultados (por defecto en este ADR).
+Detalle: [ARCHITECTURE.md](../ARCHITECTURE.md) · [despliegue-hibrido.md](../despliegue/despliegue-hibrido.md).
 
-## Consecuencias
+## Relación
 
-- **Positivo:** separación clara entre “dominio Nest + datos” y “motor de evaluación en Python”; escalado bajo demanda en AWS; diagrama unificado en [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md).
-- **Negativo:** dos runtimes (Node y Python) y frontera cloud a operar, desplegar y observar; contratos deben mantenerse alineados entre servicios.
-- **Deuda / siguiente paso:** definir auth Nest ↔ API Gateway; pipelines CI que incluyan contratos y, cuando exista código Python, tests y despliegue; **Docker** local para el servicio Python según propuesta técnica.
-
-## Alternativas
-
-- **Orquestar Claude solo desde NestJS (TypeScript):** un solo runtime; el equipo priorizó Python para prompts y reglas.
-- **Edge / Serverless único sin Nest:** simplificaría despliegue pero choca con ADR 0005 y con la necesidad de Prisma y políticas de datos en servidor de aplicación.
-
-## Relación con otros ADR
-
-- **0004:** sigue mandando el **contrato** y la **validación** de la respuesta LLM.
-- **0005:** NestJS + Prisma siguen siendo la **API y persistencia**; este ADR **añade** el rol del servicio Python + Claude y del hosting AWS (API Gateway + Lambda por defecto).
-- **0007:** [Modelo lógico, formato de entrada y parseo (pre-conexiones)](0007-modelo-datos-parseo-pre-conexiones.md) — matriz de campos, flujo de validación y preguntas abiertas de persistencia **antes** de cerrar detalle operativo de esta topología.
+- Supersedido por: [0008](0008-typescript-sobre-python-para-rag.md), [0009](0009-claude-code-pro-como-orquestador.md), [0010](0010-rag-local-chroma-xenova-transformers.md), [0011](0011-worker-local-on-demand-vercel.md).  
+- Contrato JSON: [0003](0003-contract-first-mocking-with-zod.md), [0004](0004-llm-checklist-evaluation-and-versioning.md).

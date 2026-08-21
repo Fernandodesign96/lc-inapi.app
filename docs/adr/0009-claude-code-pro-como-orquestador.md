@@ -6,7 +6,7 @@ Aceptado — 2026-07-21
 
 ## Contexto
 
-El [ADR 0005](0005-api-backend-nestjs-prisma.md) establecía NestJS como la capa de orquestación: recibía solicitudes del frontend, invocaba el servicio Python en AWS, validaba la respuesta y persistía en Supabase. Esa arquitectura requería mantener y desplegar tres servicios (Next, Nest, Lambda Python) antes de poder realizar una sola auditoría completa.
+Una propuesta anterior situaba **NestJS** como capa de orquestación (frontend → Nest → Python/AWS → Supabase). Esa arquitectura exigía mantener tres servicios antes de una sola auditoría completa y **ya no forma parte del repo** (documento ADR Nest/Prisma retirado).
 
 En paralelo, el equipo ya usa **Claude** como asistente de auditoría en el piloto Fase 1.5 (9 JSONs canónicos en `data/claude-audits/`). El flujo manual demostró que Claude tiene capacidad suficiente para analizar HTML, aplicar el checklist de 39 criterios y producir el JSON canónico directamente, sin necesidad de un servicio de backend adicional.
 
@@ -35,7 +35,7 @@ Esto permite reemplazar toda la capa Nest + Lambda + API Gateway por un único p
    - **Playwright MCP** (`npx @playwright/mcp@latest`): navega URLs, extrae HTML completo. Registrado con `claude mcp add playwright`.
    - **RAG MCP** (`bun /ruta/rag/mcp-server.ts`): expone las colecciones Chroma A y B como herramientas de búsqueda semántica. Registrado con `claude mcp add rag-auditoria`.
 
-7. **NestJS queda fuera del camino crítico en todas las fases actuales.** El concepto de un backend de dominio en Railway (tier gratuito) sigue siendo válido para una fase futura si el producto necesita persistencia multiusuario, autenticación institucional o un API pública. Esa decisión se documenta en un ADR separado cuando se inicie.
+7. **Sin NestJS ni login en el MVP.** Cualquier persona de INAPI con acceso a la URL puede auditar; no hay inicio de sesión ni API Nest. Persistencia = JSON en el repo / `data/jobs/` + worker local ([ADR 0011](0011-worker-local-on-demand-vercel.md)).
 
 8. **La Anthropic API de pago no se usa en esta fase.** Se evalúa únicamente si el chatbot del sitio web de INAPI la requiere (decisión de producto futura, no de arquitectura actual).
 
@@ -50,7 +50,7 @@ Esto permite reemplazar toda la capa Nest + Lambda + API Gateway por un único p
 
 ## Relación con otros ADR
 
-- **Supersede a (capa orquestación):** [ADR 0005](0005-api-backend-nestjs-prisma.md) — NestJS como orquestador. El concepto de backend persistente en Railway queda abierto para una fase futura.
+- **Reemplaza (retirado del repo):** la propuesta NestJS/Prisma como orquestador y backend de dominio.
 - **Supersede a (junto con ADR 0008):** [ADR 0006](0006-lc-evaluation-python-claude-aws.md) — servicio Python + AWS + Claude API.
 - **Complementa a:** [ADR 0008](0008-typescript-sobre-python-para-rag.md) (TypeScript para RAG) y [ADR 0010](0010-rag-local-chroma-xenova-transformers.md) (especificación del RAG local).
 - **Sigue vigente:** [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md) — contrato JSON, validación Zod, `checklist_version` y `prompt_version`.

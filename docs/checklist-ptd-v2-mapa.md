@@ -1,5 +1,7 @@
 # Mapa: instrumentos IEW/IESD (LC · Usabilidad · Seguridad) → catálogo LC v3.0
 
+**Última actualización:** 2026-08-21
+
 ## Fuentes canónicas (orden de autoridad)
 
 | Prioridad | Artefacto | Rol |

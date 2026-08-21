@@ -1,9 +1,10 @@
 # Fase 3.3 — Captura autenticada (ClaveÚnica) y calibración de datos de sesión
 
-**Última actualización:** 2026-07-27  
+**Última actualización:** 2026-08-21  
 **Estado:** lote ranks **5–7** completado (captura con sesión + JSON + HTML versionado). Pendiente TI: ranks **8, 11, 13, 15**.  
 **Rama del lote WSL:** `feat/audit-wsl-session-captures` (mergeado a `main`)  
-**Entorno objetivo:** PC casa — WSL2 + Chroma + Playwright + Claude Code Pro
+**Entorno:** PC/WSL + Chroma + Playwright + Claude Code
+**Checklist auditorías nuevas:** **51** `LC-*` · `version_checklist: "3.0"`
 
 ---
 
@@ -35,7 +36,7 @@ Login manual (una vez) → storageState en auditorias/.auth/
         ↓
 Script o Playwright MCP → HTML en auditorias/htmls/
         ↓
-Claude Code + RAG MCP (Chroma :8000) → 39 criterios con calibración §19 CLAUDE.md
+Claude Code + RAG MCP (Chroma :8000) → **51 criterios `LC-*`** (v3.0) con calibración §19 CLAUDE.md
         ↓
 JSON en data/claude-audits/tramites/{fecha}/ → validate → commit
 ```

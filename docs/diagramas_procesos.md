@@ -1,11 +1,11 @@
 # Diagramas de procesos — LC INAPI MVP
 
-**Última actualización:** 2026-06-02  
-**Propósito:** guía visual para estudiar e implementar Fase 2 (BE, BD, integraciones). Complementa [`fase2-implementacion.md`](fase2-implementacion.md), [`ARCHITECTURE.md`](ARCHITECTURE.md) y [`adr/0007-modelo-datos-parseo-pre-conexiones.md`](adr/0007-modelo-datos-parseo-pre-conexiones.md).
+**Última actualización:** 2026-08-21  
 
-**Fase 1.5 (piloto UX, junio 2026):** flujo manual Claude → JSON en repo → MVP → PDF sin Nest/Lambda; ver [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md). El diagrama §11 (PDF) aplica al piloto con generación en **Next Route Handler**; la persistencia en Postgres queda en Fase 2.
+> **Estado:** **archivo histórico / propuesta antigua.** Nest, Supabase Auth, Railway, Lambda **no** son el plan del MVP.  
+> **Vigente:** Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel — [`ARCHITECTURE.md`](ARCHITECTURE.md), [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
 
-**Decisiones de referencia (MVP 2026):** Vercel (Next) · Railway (Nest) · Supabase (Postgres + Auth) · Prisma · API Gateway + Lambda (Python) · Claude API.
+**Checklist actual:** 51 `LC-*` v3.0 · **10 URLs** META MEI.
 
 ---
 
@@ -527,16 +527,18 @@ flowchart LR
 
 ---
 
-## Uso sugerido al estudiar Fase 2
+## Uso sugerido (solo lectura histórica)
 
-| Sub-fase [`fase2-implementacion.md`](fase2-implementacion.md) | Diagramas de este doc |
+> El documento `fase2-implementacion.md` fue **retirado**. Nest/Supabase/Lambda **no** son el plan del MVP. Para el flujo vigente: [`ARCHITECTURE.md`](ARCHITECTURE.md) y [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
+
+| Tema (histórico) | Diagramas de este doc |
 | --- | --- |
-| 2.0 Preparación | §1, §10, §13 |
-| 2.1 BD + Prisma | §3, §4, §9 |
-| 2.2 API Nest mínima | §2, §7.1, §8 (sin Lambda) |
-| 2.3 Auth + FE | §7, §8 |
-| 2.4 Lambda + Claude | §5, §6, §7.2, §8, §10, §12 |
-| 2.5 Seguridad / cierre | §13 |
+| Preparación / cuentas | §1, §10, §13 |
+| BD + Prisma (antigua) | §3, §4, §9 |
+| API Nest (antigua) | §2, §7.1, §8 |
+| Auth + FE (antigua) | §7, §8 |
+| Lambda + Claude API (antigua) | §5, §6, §7.2, §8, §10, §12 |
+| Seguridad | §13 |
 | Fase 4 PDF | §11 |
 
 ---
