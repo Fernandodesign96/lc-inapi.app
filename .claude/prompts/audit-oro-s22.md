@@ -82,7 +82,10 @@ Lee antes de capturar:
 8. **Severidad:** en todo `incumple` usar `baja`/`media`/`alta` + fila en `sustituciones[]` (también «cumple con observaciones» / «medianamente cumple»).
 9. Cruces §20.3 solo con necesidad real (mismo nodo/texto); justificación propia por criterio; sin forzar defectos.
 10. **§23:** cubrir las **51** preguntas LC; **no** puntuar Usabilidad (18) ni Seguridad (10).
-11. Patrones sistémicos (modales OK/Aceptar, alts, H1 genérico, mayúsculas de menú): explicarlos en lenguaje CMS en `motivo` / `nota_final_tic`.
+11. Patrones sistémicos (modales OK/Aceptar, H1 genérico, mayúsculas de menú): explicarlos en lenguaje CMS en `motivo` / `nota_final_tic`. **LC-1.3.1-01:** si hay banners/íconos/imágenes → `cumple`; no incumplir por texto alternativo (fuera del %; nota CMS opcional).
+12. **Lenguaje CMS (§22):** en `original`/`propuesto`/`motivo` no abrir con `alt=`, `<img`, `href=` ni selectores CSS; describir lo que se ve en pantalla.
+13. **Títulos/secciones:** revisar jerga legal en encabezados (ej. «Observancia») aunque exista subtítulo explicativo (LC-1.1.3-03 + LC-1.2.4-02). Igual en menú, tooltips y otras URLs.
+14. **Apoyos visuales + texto:** LC-1.3.1-01 = presencia; jerarquía/escaneo = LC-1.2.4-01/03. No puntuar arquitectura de información fina (Usabilidad).
 
 Flujo: captura Playwright (HTML + a11y) → inventario R+U (§ Paso B) → RAG A/B (§ Paso C) → 5 sub-subagentes (§17) → consolidación + **gate §22.12** →  
 `data/claude-audits/sitioweb/2026-08-21/www-inapi-cl_2026-08-21.json` → `bun run validate:claude-audits` → cablear `claude-audits-launch.ts` + `mei-meta-mei-urls.ts` → commit atómico.

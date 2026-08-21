@@ -58,7 +58,7 @@ T002 [R|U] [HTML-L{n}]: «texto literal» (contexto: ...)
 | Capa | Qué inventariar | Sirve sobre todo a |
 | --- | --- | --- |
 | **R** Redacción | H1–H3, párrafos, CTAs, menús, footer, modales, glosas | Lenguaje plano, Claridad, Concisión, Completitud |
-| **U** Chrome UI / formato | Fechas visibles, listas/viñetas, alineación, espacios, enlaces PDF (título/formato/peso/desc), `alt`, encabezados de escaneo | Legibilidad, Escritura web, Actualización, Archivo |
+| **U** Chrome UI / formato | Fechas visibles, listas/viñetas, alineación, espacios, enlaces PDF (título/formato/peso/desc), **presencia** de imágenes/íconos/gráficos (no calidad de `alt`), encabezados de escaneo | Legibilidad, Escritura web, Actualización, Archivo, Visualización (LC-1.3.1-01 = ¿hay apoyos?) |
 
 **Reglas del inventario:**
 - **Alcance = solo contenido visible en pantalla** para el ciudadano. **No** inventariar ni evaluar `<title>`, `<meta description>`, `<meta keywords>`, Open Graph ni otros nodos de capa METADATA del `<head>`.
@@ -145,7 +145,7 @@ Catálogo Hito→Tarea→Pregunta: `data/checklist-editorial-ptd-v2.json` · cri
 | --- | --- | --- | --- |
 | Fiabilidad | 1.1.1 / 5.1.1 | LC-1.1.1-01 | Autoría INAPI visible en encabezado/pie |
 | Completitud | 1.1.2 / 5.1.2 | LC-1.1.2-01…04 | Título↔contenido; sin «en construcción»; datos clave en cuerpo (no menú); autonomía trámites |
-| Lenguaje plano | 1.1.3 / 5.1.3 | LC-1.1.3-01…06 | Legible; tono; jerga; abreviaturas; siglas (tooltip en menú); tono positivo |
+| Lenguaje plano | 1.1.3 / 5.1.3 | LC-1.1.3-01…06 | Legible; tono; **jerga también en H2/menú/tooltip** (ej. «Observancia»); abreviaturas; siglas (tooltip en menú); tono positivo |
 | Actualización | 1.1.4 / 5.1.4 | LC-1.1.4-01 | Fecha visible; nunca © del pie |
 | Redacción y ortografía | 1.1.5 / 5.1.5 | LC-1.1.5-01…03 | Ortografía; puntuación; conectores (solo IEW) |
 | Propiedad intelectual | 1.1.6 / 5.1.6 | LC-1.1.6-01…02 | Licencia/condiciones; anti-redifusión (solo IEW) |
@@ -154,7 +154,7 @@ Catálogo Hito→Tarea→Pregunta: `data/checklist-editorial-ptd-v2.json` · cri
 | Claridad | 1.2.1 / 5.2.1 | LC-1.2.1-01…05 + LC-5.2.1-01 | FAQ; voz activa; SVP; infinitivo; variante IESD en trámites |
 | Concisión | 1.2.2 / 5.2.2 | LC-1.2.2-01…05 + LC-5.2.2-01 | Brevedad; ≤8 líneas; una idea; resumen; variante IESD |
 | Legibilidad | 1.2.3 / 5.2.3 | LC-1.2.3-01…03 | Espacio; alineación izq.; listas/tablas |
-| Escritura para la web | 1.2.4 / 5.2.4 | LC-1.2.4-01…08 + LC-5.2.4-01 | Pirámide; títulos; escaneo; negritas; mayúsculas; enlaces rel. (IEW); rótulos (IESD); PDF título+formato+peso+desc |
+| Escritura para la web | 1.2.4 / 5.2.4 | LC-1.2.4-01…08 + LC-5.2.4-01 | Pirámide; **títulos claros** (rótulo escaneable, no solo subtítulo); escaneo texto+tarjetas; negritas; mayúsculas; enlaces rel. (IEW); rótulos (IESD); PDF |
 | Visualización | 1.3.1 | LC-1.3.1-01 | Solo IEW; apoyos visuales |
 | Objetividad | 1.3.2 / 5.3.1 | LC-1.3.2-01…02 | Neutro; 80 % hechos (solo IEW) |
 | Archivo | 1.3.3 / 5.3.2 | LC-1.3.3-01 | Versiones no vigentes rotuladas |
@@ -213,8 +213,51 @@ Estos patrones aparecen en la mayoría de URLs del inventario INAPI (componentes
 | LC-1.2.4-07/08 | PDFs incompletos | «Junto al enlace: título + formato + peso + breve descripción.» |
 | LC-1.1.4-01 | Sin fecha visible | «Bajo el título, añadir «Actualizado: DD de mes de AAAA». El © del pie no basta.» |
 | LC-1.1.2-01 | H1 genérico | «El título grande de la página debe describir el contenido; no usar el de la pestaña.» |
-| LC-1.1.3-05 | PCT sin definición | «Definir PCT la primera vez (tooltip, glosa o página destino).» |
-| LC-1.3.1-01 | Imagen sin descripción | «Añadir una descripción breve de lo que muestra la imagen (texto alternativo).» |
+| LC-1.1.3-03 | Jerga en título de sección / menú | «Cambiar el título «Observancia» por un rótulo cotidiano, o añadir en el mismo bloque: «Observancia: cómo proteger tu propiedad industrial». Un subtítulo abajo no basta si el título solo no se entiende.» |
+| LC-1.2.4-02 | Título opaco aunque haya subtítulo | «El título de sección debe ser claro por sí mismo al escanear la página.» |
+| LC-1.3.1-01 | Faltan apoyos visuales donde hay datos | «Añadir íconos, imágenes, gráficos o infografías que ayuden a entender los datos (no confundir con texto alternativo de accesibilidad).» |
+
+### Calibración LC-1.3.1-01 (Visualización — IEW 1.3.1)
+
+**Pregunta exacta:** ¿Se utilizan apoyos visuales (íconos, imágenes, gráficos, infografías) para presentar datos?
+
+| Evidencia en pantalla | Estado |
+| --- | --- |
+| Hay banners, tarjetas con imagen, íconos de guía, gráficos, infografías | **`cumple`** — listar en `comentario` qué se vio |
+| Página con datos/cifras/servicios **sin** ningún apoyo visual | **`incumple`** — `propuesto` en lenguaje CMS: «faltan imágenes/íconos/gráficos…» |
+| No hay datos que ilustrar (texto narrativo puro) | **`no_aplica`** |
+
+**Prohibido bajo este id:** incumplir por `alt` vacío/ausente, `alt` genérico («Login»), enlace de logo sin nombre accesible, o WCAG. Eso **no** responde la pregunta. Si conviene, una nota breve en `nota_final_tic` en lenguaje de pantalla («en el pie, el logo del organismo X no tiene nombre legible»), **fuera del %**.
+
+**Herramientas:** si Playwright no “ve” un banner que sí está visible, **no** incumplir: reintentar captura o anotar duda. Nunca castigar al sitio por límite de la herramienta.
+
+### Calibración — títulos, subtítulos, tooltips y jerga (LC-1.1.3-03 · LC-1.2.4-02)
+
+**Alcance del inventario R:** además de párrafos, inventariar **siempre** H1–H3 / títulos de tarjeta / ítems de menú visibles / tooltips o textos de ayuda visibles al abrir un control.
+
+| Situación | Criterio | Estado típico |
+| --- | --- | --- |
+| Encabezado solo con término legal/técnico (ej. «Observancia») y la explicación está **solo** en un subtítulo o párrafo aparte | LC-1.1.3-03 (jerga) + LC-1.2.4-02 (título no claro) | `incumple` — mismo nodo → §20.3 (primario jerga o títulos claros) |
+| Título en lenguaje cotidiano + subtítulo que amplía | Ambos | `cumple` |
+| Menú con «Observancia», «Dominio Público», «Sistema de Madrid» sin glosa en primera aparición | LC-1.1.3-03 / a veces LC-1.1.3-05 si es sigla | Evaluar; propuesta CMS en el ítem o destino |
+| Tooltip o texto de ícono con jerga | LC-1.1.3-03 | Igual que un párrafo |
+| Falta subtítulo/H2 donde hay muro de bloques sin jerarquía | LC-1.2.4-02 / LC-1.2.4-03 | `incumple` si no se puede escanear |
+
+**Propuesta CMS (ejemplo Observancia):**  
+`ubicacion_pantalla`: «Portada — bloque Observancia, título de la sección».  
+`original`: «Observancia».  
+`propuesto`: «Protege tu propiedad industrial» **o** «Observancia: herramientas para proteger tu propiedad industrial en Chile».  
+`motivo`: «Quien solo lee el título ve un término legal; el subtítulo ayuda, pero el rótulo principal debe entenderse al escanear.»
+
+### Texto + apoyos visuales vs arquitectura de información
+
+| En el motor LC (puntúa) | Fuera del % (nota Usabilidad / `nota_final_tic`) |
+| --- | --- |
+| LC-1.3.1-01: ¿existen apoyos visuales? | Peso tipográfico, grilla, “equilibrio” visual fino |
+| LC-1.2.4-01 / 03: lo importante arriba; se puede escanear con títulos + tarjetas/íconos | Rediseño completo de layout / UI Kit |
+| LC-1.1.3-* / 1.2.4-02: textos de títulos y de apoyo en claro | — |
+
+Si imagen e ícono **acompañan** un título claro → refuerza escaneo (`cumple` en 1.2.4-03). Si hay muchas imágenes pero el título sigue siendo jerga → el problema es **lenguaje del título**, no “falta de imagen”.
 
 **Nota:** cuando el hallazgo es sistémico (layout), `motivo` / `patron_sistema: true` debe indicar que el cambio en `_Layout.cshtml` afecta a todas las páginas del sitio.
 

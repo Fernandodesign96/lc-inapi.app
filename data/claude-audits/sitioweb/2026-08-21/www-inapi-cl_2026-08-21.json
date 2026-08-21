@@ -59,8 +59,10 @@
     },
     {
       "id": "LC-1.1.3-03",
-      "estado": "cumple",
-      "comentario": "No se detecta jerga técnica o legal sin explicar en los bloques de texto evaluados (hero, tarjetas de Patentes/Marcas, Novedades, footer)."
+      "estado": "incumple",
+      "comentario": "El título de sección «Observancia» es un término legal/técnico que la persona usuaria no entiende al escanear la portada. Existe el subtítulo «Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile», pero quien solo lee el encabezado sigue viendo jerga. El menú global también muestra «Observancia» sin glosa.",
+      "severidad": "media",
+      "cita_textual": "Observancia"
     },
     {
       "id": "LC-1.1.3-04",
@@ -231,8 +233,11 @@
     },
     {
       "id": "LC-1.2.4-02",
-      "estado": "cumple",
-      "comentario": "Todas las secciones de la portada tienen encabezado propio (h3/h4) que facilita la lectura: Patentes, Marcas, Novedades, Plataforma de Datos, Guías para usuarios, Cuenta Pública 2026, Observancia."
+      "estado": "incumple",
+      "comentario": "Hay encabezados de sección, pero «Observancia» no es un título claro por sí mismo: no facilita la búsqueda de información al escanear. El subtítulo explica el bloque, pero el criterio pide títulos claros (el rótulo principal), no solo subtítulos buenos. Se agrupa con LC-1.1.3-03 porque es el mismo nodo y la misma corrección de copy.",
+      "severidad": "media",
+      "cita_textual": "Observancia",
+      "agrupado_en": "LC-1.1.3-03"
     },
     {
       "id": "LC-1.2.4-03",
@@ -278,10 +283,9 @@
     },
     {
       "id": "LC-1.3.1-01",
-      "estado": "incumple",
-      "severidad": "alta",
-      "comentario": "Se usan apoyos visuales (banners, íconos, imágenes) pero varios no cumplen su función informativa de forma accesible: el banner de «Cuenta Pública 2026» no tiene atributo alt; el banner de «Plataforma de Datos» tiene alt vacío; el enlace del pie a cchrgm.cl no tiene imagen con alt ni texto visible (carece de nombre accesible); y los dos íconos del panel de acceso/registro comparten el mismo alt=\"Login\" pese a apuntar a acciones distintas (usuario frecuente vs registro con ClaveÚnica).",
-      "cita_textual": "alt=\"\" (banner Plataforma de Datos); alt=\"Login\" (x2, panel de acceso/registro); enlace a cchrgm.cl sin alt/texto"
+      "estado": "cumple",
+      "comentario": "Sí: la portada presenta apoyos visuales para presentar información (banner Cuenta Pública 2026, banner Plataforma de Datos, tarjetas de Novedades con imagen, íconos de sección y logos institucionales en el pie). La pregunta del instrumento IEW 1.3.1 es si se utilizan esos apoyos, no la calidad del texto alternativo.",
+      "cita_textual": "Banner Cuenta Pública 2026; banner Plataforma de Datos; imágenes en tarjetas de Novedades; íconos de acceso y logos del pie"
     },
     {
       "id": "LC-1.3.2-01",
@@ -304,19 +308,19 @@
   "criterios_no_aplica": 11,
   "porcentaje_cumplimiento": 72.5,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue auditada el 2026-08-21 aplicando el Checklist PTD-LC v3.0 (51 criterios LC-* de los indicadores IEW/IESD de Lenguaje claro) con arquitectura de 5 sub-subagentes especializados (CLAUDE.md §17) y la calibración de alcance visible acordada con el Equipo UX: solo se evalúa lo que la ciudadanía ve en pantalla o en una ventana emergente accesible con un clic.\n\nDe los 51 criterios, 11 no aplican a esta página (por ejemplo, la suficiencia para autonomía en trámites, que solo rige para páginas de trámites, o las variantes exclusivas de servicios digitales). De los 40 criterios aplicables, 28 se cumplen directamente y 1 hallazgo queda agrupado bajo un criterio principal por compartir el mismo texto y la misma corrección (documentos sin formato, peso ni descripción), lo que da un 72,5 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación exige más de 80 %).\n\nLos hallazgos de mayor prioridad (severidad alta) son: ausencia de fecha de actualización visible en la portada; la sigla PCT sin expandir en el menú principal; los documentos descargables (guías de marcas/patentes y documentos institucionales del pie) sin indicar título completo, formato, peso ni descripción; y apoyos visuales (banners e íconos) que no cumplen su función informativa de forma accesible, incluido un enlace de pie de página sin ningún nombre accesible. También se detectaron mayúsculas sostenidas fuera del menú principal (buscadores, modal de búsqueda y banner de datos), errores de ortografía/estilo (capitalización del nombre institucional y fechas de noticias sin la preposición «de»), una oración de casi 40 palabras en una bajada de noticia, ausencia de un resumen que sintetice la oferta del sitio, redacción de Novedades desde la perspectiva institucional en vez de responder una necesidad de la persona usuaria, y falta de una medición de legibilidad documentada.\n\nEl contenido de portada evaluado es equivalente al de la auditoría del 2026-08-20 (mismas tarjetas de Novedades, mismos bloques secundarios), por lo que los hallazgos se mantienen en su mayoría; se incorporan además hallazgos de accesibilidad de imágenes (alt ausente o no descriptivo) y de documentos (pesos reales verificados vía cabecera HTTP) que no se habían cuantificado en la auditoría anterior. Serie META MEI — orden 1 (Portada o página de inicio); misma URL de la serie Clarity rank 16.",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue auditada el 2026-08-21 aplicando el Checklist PTD-LC v3.0 (51 criterios LC-*) con 5 sub-subagentes y alcance solo visible.\n\nDe los 51 criterios, 11 no aplican. De los 40 aplicables, 29 se cuentan como cumplidos (incluye 1 agrupado bajo el mismo hallazgo de documentos), lo que da un 72,5 % de cumplimiento y calificación RECHAZADO (umbral de aprobación > 80 %).\n\nHallazgos de severidad alta: ausencia de fecha de actualización visible; sigla PCT sin expandir en el menú; documentos descargables sin formato, peso ni descripción (LC-1.2.4-07, agrupado con LC-1.2.4-08).\n\nLC-1.3.1-01 (apoyos visuales) se cumple: la portada ya usa banners, imágenes e íconos para presentar información. Observaciones de accesibilidad de imágenes (descripciones para quien no ve la imagen) no descuentan este criterio y quedan fuera del porcentaje de Lenguaje claro.\n\nTambién: mayúsculas sostenidas fuera del menú principal excluido, errores de ortografía/estilo, oración larga en una bajada, falta de resumen consolidado de la oferta del sitio, Novedades desde perspectiva institucional, y falta de medición de legibilidad documentada.\n\nSerie META MEI — orden 1 (Portada).\n\nAdemás: el título de sección «Observancia» se marca como jerga / título poco claro (LC-1.1.3-03, con LC-1.2.4-02 agrupado): el subtítulo explica, pero el rótulo principal debe entenderse al escanear.",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "(LC-1.1.3-05) Sigla PCT sin definir en su primera aparición en el menú global.",
       "(LC-1.1.4-01) Sin fecha de publicación ni de última actualización visible en el home; el ©2026 del pie es solo copyright y no la reemplaza.",
-      "(LC-1.2.4-07, agrupado con LC-1.2.4-08) Guías de marcas/patentes y documentos institucionales del pie (Plan de Acción de Cumplimiento 2025, Teletrabajo, Código de Ética 2026) sin título completo, formato, peso ni descripción.",
-      "(LC-1.3.1-01) Apoyos visuales sin función informativa accesible: banners de Cuenta Pública 2026 y Plataforma de Datos con alt ausente/vacío, enlace de pie a cchrgm.cl sin nombre accesible, e íconos de acceso/registro con el mismo alt genérico."
+      "(LC-1.2.4-07, agrupado con LC-1.2.4-08) Guías de marcas/patentes y documentos institucionales del pie (Plan de Acción de Cumplimiento 2025, Teletrabajo, Código de Ética 2026) sin título completo, formato, peso ni descripción."
     ],
     "hallazgos_prioridad_media": [
       "(LC-1.1.2-01) El H1 es una frase de bienvenida genérica que no identifica el contenido específico de la portada.",
       "(LC-1.1.5-01) Error de capitalización en el nombre institucional del pie y fechas de noticias sin la preposición «de» entre día y mes.",
       "(LC-1.2.2-04) Una bajada de noticia supera las 30 palabras en una sola oración, afectando la legibilidad.",
-      "(LC-1.2.4-05) Mayúsculas sostenidas en «BUSCADOR DE PATENTES»/«BUSCADOR DE marcas», el modal «Buscar y tramitar» y el banner Plataforma de Datos."
+      "(LC-1.2.4-05) Mayúsculas sostenidas en «BUSCADOR DE PATENTES»/«BUSCADOR DE marcas», el modal «Buscar y tramitar» y el banner Plataforma de Datos.",
+      "(LC-1.1.3-03, agrupado LC-1.2.4-02) Título de sección «Observancia»: término legal poco claro al escanear pese al subtítulo explicativo."
     ],
     "hallazgos_prioridad_baja": [
       "(LC-1.1.2-03) Falta un resumen o recuadro que integre qué, cómo, dónde, cuándo y para quién de los trámites principales.",
@@ -550,49 +554,19 @@
       ]
     },
     {
-      "linea": "T-banner-cuenta-publica-alt",
-      "html_linea_aprox": "section.section-banner-cuenta-publica img",
-      "ubicacion_pantalla": "Sección «Cuenta Pública 2026», portada",
-      "original": "<img src=\"banner-cuenta-publica-2026-pc.png\"> (sin atributo alt)",
-      "propuesto": "Añadir alt=\"Cuenta Pública 2026 de INAPI\" a la imagen del banner, o incorporar el mismo texto como encabezado visible fuera de la imagen.",
-      "criterio_id": "LC-1.3.1-01",
-      "motivo": "El banner «Cuenta Pública 2026» comunica información mediante una imagen sin texto alternativo, por lo que su contenido no es accesible para quienes no pueden ver la imagen.",
+      "linea": "T-observancia-titulo",
+      "html_linea_aprox": "bloque Observancia (título de sección en portada)",
+      "ubicacion_pantalla": "Portada — sección Observancia, título del bloque (bajo Guías / Cuenta Pública)",
+      "original": "Observancia",
+      "propuesto": "Observancia: herramientas para proteger tu propiedad industrial en Chile",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "El título que se ve primero es un término legal. El subtítulo ayuda, pero al escanear la página el rótulo principal debe entenderse solo. Misma corrección sirve para el criterio de títulos claros (LC-1.2.4-02).",
       "capa": "VISIBLE",
-      "patron_sistema": false
-    },
-    {
-      "linea": "T-banner-plataforma-datos-alt",
-      "html_linea_aprox": "section.sello-origen-plataforma-home img/picture",
-      "ubicacion_pantalla": "Sección «Plataforma de Datos», portada",
-      "original": "alt=\"\" en la imagen del banner de la Plataforma de Datos",
-      "propuesto": "Añadir un alt descriptivo, por ejemplo alt=\"Plataforma de información tecnológica de patentes — programa de desarrollo productivo sostenible\".",
-      "criterio_id": "LC-1.3.1-01",
-      "motivo": "El banner «Plataforma de Datos» usa una imagen con texto alternativo vacío pese a comunicar información (nombre de la plataforma y su propósito).",
-      "capa": "VISIBLE",
-      "patron_sistema": false
-    },
-    {
-      "linea": "T-footer-cchrgm-sin-nombre",
-      "html_linea_aprox": "HTML-footer-logos (carrusel de organismos)",
-      "ubicacion_pantalla": "Pie de página, fila de logos institucionales",
-      "original": "<a href=\"https://www.cchrgm.cl/depositos/deposito_ida/\"><img alt=\"\"></a> (enlace sin texto ni alt)",
-      "propuesto": "Añadir un alt descriptivo a la imagen del enlace, por ejemplo alt=\"Depósito de Recursos Genéticos (CCHRGM)\", o agregar texto visible junto al ícono.",
-      "criterio_id": "LC-1.3.1-01",
-      "motivo": "El enlace del pie a cchrgm.cl no tiene imagen con texto alternativo ni texto visible: carece por completo de nombre accesible para personas que usan lector de pantalla. Patrón de sitio: fila del carrusel de logos institucionales.",
-      "capa": "VISIBLE",
-      "patron_sistema": true
-    },
-    {
-      "linea": "T-login-alt-duplicado",
-      "html_linea_aprox": "panel de acceso/registro, cabecera",
-      "ubicacion_pantalla": "Cabecera, panel de acceso/registro (abrible con un clic desde el ícono de usuario)",
-      "original": "alt=\"Login\" (idéntico en el ícono junto a «Usuario Frecuente» y en el ícono junto a «Registro»)",
-      "propuesto": "alt=\"Iniciar sesión como usuario frecuente\" / alt=\"Registrarse con ClaveÚnica\"",
-      "criterio_id": "LC-1.3.1-01",
-      "motivo": "Ambos íconos comparten el mismo texto alternativo genérico pese a apuntar a acciones distintas (acceso a ion.inapi.cl vs registro en claveunica.gob.cl); diferenciar el texto alternativo ayuda a distinguir la acción con tecnología de asistencia. Patrón de sitio: panel compartido del layout.",
-      "capa": "VISIBLE",
-      "patron_sistema": true
+      "patron_sistema": false,
+      "criterios_relacionados": [
+        "LC-1.2.4-02"
+      ]
     }
   ],
-  "nota_final_tic": "Este informe aplica la calibración de alcance visible acordada con el Equipo UX (CLAUDE.md §20): solo se evaluaron textos y controles que la persona usuaria ve en pantalla o puede abrir con un clic (por ejemplo, la ventana de contacto, el panel de acceso o el modal de búsqueda). El título de la pestaña del navegador y los metadatos del head no se usaron como evidencia en ningún criterio.\n\nLa sigla PCT del menú, las mayúsculas sostenidas del modal «Buscar y tramitar», el enlace sin nombre accesible del carrusel de logos del pie y el alt duplicado del panel de acceso/registro son componentes compartidos del layout global de www.inapi.cl; al corregirlos en su origen, el cambio se replica automáticamente en todas las páginas que usan esos mismos componentes.\n\nLos documentos descargables (guías de marcas/patentes y documentos institucionales del pie) responden a dos preguntas del instrumento (formato/peso y descripción); se dejó LC-1.2.4-07 como criterio principal para el cálculo del porcentaje y LC-1.2.4-08 queda documentado como relacionado sobre la misma corrección. Los pesos propuestos en las sustituciones se verificaron directamente contra los archivos publicados (cabecera HTTP Content-Length); si el CMS reemplaza alguno de estos archivos, debe actualizar el peso mostrado junto al enlace.\n\nTodos los criterios marcados como «no aplica» incluyen una breve justificación de por qué no corresponden a esta página en particular. Ningún criterio de Usabilidad (18) ni de Seguridad (10) del checklist editorial PTD se incluyó en este cálculo de porcentaje, conforme a CLAUDE.md §23.\n\nSe recomienda priorizar primero los cuatro hallazgos de severidad alta: fecha de actualización ausente, sigla PCT sin definir, documentos descargables sin formato/peso/descripción, y los apoyos visuales sin función informativa accesible (en especial el enlace de pie sin ningún nombre accesible); por su impacto directo en la confianza, la usabilidad y la accesibilidad del sitio."
+  "nota_final_tic": "Alcance visible (CLAUDE.md §20): solo lo que se ve en pantalla o se abre con un clic. Sin usar el título de pestaña ni metadatos del head como evidencia.\n\nLC-1.3.1-01 cumple porque hay apoyos visuales visibles (banners, tarjetas con imagen, íconos, logos). La pregunta del instrumento no evalúa texto alternativo ni WCAG. Si el Equipo UX quiere mejorar descripciones de imagen o nombres de logos del pie para quien no ve la pantalla, tratarlo aparte (Usabilidad/accesibilidad), con instrucciones en lenguaje de CMS («en el pie, el logo del organismo X debe tener un nombre legible»), sin sintaxis HTML en el mensaje al editor, y sin bajar el % de Lenguaje claro.\n\nPatrones de layout (PCT, mayúsculas del modal de búsqueda, etc.): corregir en el origen compartido.\n\nDocumentos del pie/guías: LC-1.2.4-07 principal + LC-1.2.4-08 relacionado. Pesos verificados contra archivos publicados.\n\nUsabilidad (18) y Seguridad (10) fuera del % (§23).\n\nPriorizar: fecha de actualización, sigla PCT y documentos sin formato/peso/descripción.\n\nTítulos con jerga (ej. Observancia): corregir el rótulo visible o añadir glosa en el mismo bloque de título. No basta un subtítulo aparte para quien solo escanea encabezados. Misma lógica en menú, tooltips y otras URLs. La arquitectura visual fina (grilla, peso tipográfico) sigue fuera del % LC (§23 Usabilidad)."
 }

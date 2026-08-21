@@ -111,6 +111,9 @@ JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen vá
 - **Sesión autenticada (`captura_con_sesion: true`):** datos del solicitante logueado en formularios **no** son incumplimiento de privacidad — son esperables. Evaluar etiquetas, ayudas y claridad del trámite. Ver §19.
 - **LC-1.2.4-05 — mayúsculas:** ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** (plantilla). Aplicar en el resto y en `tramites.inapi.cl`.
 - **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer.
+- **LC-1.3.1-01 — visualización / apoyos visuales:** responde **solo** «¿hay íconos, imágenes, gráficos o infografías para presentar datos?». Si la portada (u otra URL) ya muestra banners, tarjetas con foto, íconos de sección, gráficos → **`cumple`**, citando en `comentario` qué apoyos se vieron. **`incumple`** solo si faltan apoyos donde los datos lo requieren («faltan gráficos/íconos/imágenes…»). **Prohibido** incumplir este id por `alt` vacío, `alt` genérico, enlace solo-ícono o WCAG: eso **no** es la pregunta del instrumento; anotar en `nota_final_tic` (lenguaje CMS) si conviene, **sin** fila de `sustituciones[]` bajo `LC-1.3.1-01` y **sin** bajar el %. No marcar `incumple` porque Playwright “no encontró” un apoyo que sí es visible: reintentar captura o declarar duda, no inventar fallo.
+- **Títulos, subtítulos, tooltips y jerga visible (LC-1.1.3-03 + LC-1.2.4-02):** el lenguaje plano y los «títulos claros» aplican al **rótulo que se escanea primero** (H1–H3, títulos de tarjeta/sección, ítems de menú, tooltips, textos de íconos), no solo a párrafos largos. Un término legal o técnico como único encabezado (**ej. «Observancia»**) **incumple** jerga / título claro aunque debajo haya un subtítulo explicativo: el subtítulo ayuda, pero quien solo lee el título sigue sin entender. Propuesta CMS: cambiar el título a lenguaje cotidiano **o** dejar el término + glosa breve en el mismo bloque de título (no solo en un párrafo lejano). Revisar también «Dominio Público», «Sistema de Madrid», «Sello de Origen», etc. en menú y secciones. Mismo nodo título → un primario (§20.3); no duplicar el mismo `propuesto` en filas independientes.
+- **Texto + apoyos visuales (escaneo / pirámide, no “diseño UI”):** LC-1.2.4-01/03 evalúan si lo importante se ve primero y si se puede escanear (títulos + tarjetas + íconos que guían). **No** convertir el % LC en auditoría de arquitectura de información completa (peso tipográfico, grilla, jerarquía visual fina): eso es **Usabilidad** (§23); si hay desorden grave que impide entender el mensaje, anotar en `nota_final_tic` en lenguaje CMS y, si aplica, amarrar solo a escaneo/pirámide con evidencia de muro de texto o bloques sin encabezado.
 - **LC-1.1.2-01 vs título visible:** fidelidad título↔contenido sobre el **H1 visible**, no `<title>`/`<meta>` (fuera de entrega).
 - **LC-1.1.2-02 vs LC-1.1.2-04:** páginas vacías / «En construcción» vs suficiencia para autonomía en trámites (`applicability`).
 - **LC-1.2.2-02 vs LC-1.2.2-01:** longitud por párrafo vs cantidad de párrafos del cuerpo.
@@ -221,7 +224,7 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | Sin fecha de actualización | LC-1.1.4-01 | «Bajo el título de la página, añadir una línea visible: «Actualizado: DD de mes de AAAA». El © del pie no cuenta como fecha de contenido.» |
 | H1 genérico o desalineado | LC-1.1.2-01 | «El título grande de la página (H1) debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
 | PCT en menú sin expansión | LC-1.1.3-05 | «La primera vez que aparece PCT en el menú, definirla (tooltip, glosa o página destino), sin convertir el ítem en un párrafo largo.» |
-| Imágenes sin texto alternativo útil | LC-1.3.1-01 / accesibilidad editorial | «Cada imagen informativa debe tener una descripción breve de lo que muestra (texto alternativo), para quien no ve la imagen.» |
+| ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
 ---
 
@@ -535,7 +538,7 @@ git push origin main                      # subir a remoto
 | LC-1.2.4-06 | No aplica enlaces relacionados (p. ej. solo trámite IESD sin sitio informativo) | Según `applicability` |
 | LC-5.2.1-01 / LC-5.2.2-01 / LC-5.2.4-01 | Variantes solo IESD en página `sitioweb` informativa pura | Noticia institucional |
 | LC-1.2.4-07 / 08 | No hay documentos descargables | Página sin PDFs |
-| LC-1.3.1-01 | No hay datos que requieran apoyos visuales | Texto puramente narrativo |
+| LC-1.3.1-01 | No hay datos que requieran apoyos visuales (página solo narrativa) | Nota sin cifras/datos a ilustrar. **No** marcar `no_aplica` ni `incumple` por problemas de `alt` |
 | LC-1.3.3-01 | No hay versiones anteriores / archivo publicado | Mayoría de URLs |
 
 **ARCO** = derechos de **A**cceso, **R**ectificación, **C**ancelación/eliminación, **O**posición (y bloqueo) de datos personales (Ley de protección de la vida privada). Criterio máquina: `LC-1.1.7-03`.
@@ -842,7 +845,7 @@ Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
 | **LC-1.1.4-01** (fecha) | Fecha de publicación o última modificación **visible** | Inventario U; ©año footer ≠ fecha |
 | **LC-1.1.2-01** (título↔contenido) | H1 visible vs contenido | Inventario R; nunca `<title>` |
 | **LC-1.2.4-07 / 08** (documentos) | Título + formato + peso + descripción | DOM enlaces; no inventar KB/MB |
-| **LC-1.3.1-01 / alt** | Apoyos visuales / texto alternativo útil | a11y names + DOM |
+| **LC-1.3.1-01** (apoyos visuales) | ¿Hay íconos/imágenes/gráficos/infografías **visibles** que presenten o acompañen datos? | Inventario U + vista Playwright: contar apoyos visibles. **Sí hay** → `cumple`. **No** confundir con calidad de `alt` (fuera del % LC). Si la herramienta “no ve” un banner que sí está en pantalla, **no** incumplir: reintentar captura o anotar duda en `comentario`, no castigar por ceguera de herramienta. |
 | **LC-1.1.3-05** (siglas) | Primera aparición definida (tooltip/glosa/destino) | Inventario R; propuesta sutil en menú |
 
 Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae precedentes; el skill fija el juicio editorial.
@@ -858,7 +861,9 @@ Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae preced
 
 Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ejecutivo` y `nota_final_tic` **no** es el orquestador: es una persona que corrige textos en Sitefinity / CMS o en el layout compartido. Escribir para esa persona.
 
-**Prohibido en esos campos:** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma»), literales de código innecesarios (`getComputedStyle`, selectores CSS), y ubicaciones solo técnicas (`T042`, `HTML-L512`) sin descripción humana.
+**Prohibido en esos campos (mensaje principal):** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma»); sintaxis HTML/DOM como si fuera el hallazgo (`alt=""`, `<img src=…>`, `<a href=…>`, selectores `section.… img`); literales de código (`getComputedStyle`); ubicaciones solo técnicas (`T042`, `HTML-L512`) sin ruta humana.
+
+Escribir lo que la persona **ve** y **debe cambiar** en el CMS («falta una imagen que acompañe el dato», «el banner de Cuenta Pública ya está; el criterio se cumple»). La ancla HTML queda en `html_linea_aprox` / `linea` para TI, **después** del mensaje CMS.
 
 ### 22.2 Cada criterio = pregunta del instrumento
 

@@ -173,11 +173,11 @@ El Excel MEI usa **5 categorías de presentación** derivadas de `estado` + `sev
 
 ## A.3 Deseables
 
-### Visualización de la información — IEW `1.3.1` → fuera del alcance editorial estricto (UI Kit)
+### Visualización de la información — IEW `1.3.1` → **LC-1.3.1-01**
 
-| # | Pregunta de chequeo | Instrumento |
-| --- | --- | --- |
-| 1 | ¿Se utilizan apoyos visuales (íconos, imágenes, gráficos, infografías) para presentar datos? («No aplica» si no hay datos que los requieran) | **Solo IEW** |
+| # | Pregunta de chequeo | Instrumento | Motor |
+| --- | --- | --- | --- |
+| 1 | ¿Se utilizan apoyos visuales (íconos, imágenes, gráficos, infografías) para presentar datos? («No aplica» si no hay datos que los requieran) | **Solo IEW** | **LC-1.3.1-01** — evalúa **presencia** de apoyos. Texto alternativo / WCAG ≠ esta pregunta (Usabilidad; fuera del % §23). |
 
 ### Objetividad — IEW `1.3.2` / IESD `5.3.1` → **E1**
 

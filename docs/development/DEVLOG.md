@@ -8,7 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
-| 2026-08-21 | [Infraestructura: Portada www.inapi.cl — reauditoría oro v3.0 (51 LC-*), rechazado 72,5 %](#devlog-2026-08-21-portada-oro-v30) |
+| 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
+| 2026-08-21 | [Orquestación: calibrar LC-1.3.1-01 = presencia de apoyos (no alt)](#devlog-2026-08-21-lc-131-apoyos) |
+| 2026-08-21 | [Infraestructura: Portada www.inapi.cl — reauditoría oro v3.0 (51 LC-*), 75 % tras calibrar LC-1.3.1-01](#devlog-2026-08-21-portada-oro-v30) |
 | 2026-08-21 | [Docs: CLAUDE.md — estados/severidad, CMS-first, nomenclatura LC-*, refs §N](#devlog-2026-08-21-claude-md-cms-estados) |
 | 2026-08-21 | [Orquestación: catálogo PTD-LC v3.0 — 51 criterios por indicadores](#devlog-2026-08-21-ptd-lc-v30) |
 | 2026-08-21 | [Orquestación: Checklist PTD v2.0 → §23 Hito/Tarea/Pregunta LC](#devlog-2026-08-21-ptd-s23) |
@@ -87,6 +89,45 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-21-titulos-jerga-ia"></a>
+## [2026-08-21] - Orquestación | Títulos/jerga (Observancia) + texto con apoyos vs IA
+
+### Contexto y objetivos:
+
+Un subtítulo claro no salva un título de sección legal («Observancia»). Hay que auditar H2/menú/tooltips con lenguaje plano y títulos claros, y acotar arquitectura de información fina a Usabilidad.
+
+### Implementación técnica:
+
+- Calibración CLAUDE.md §2 + skill `auditoria-lc` (LC-1.1.3-03 / LC-1.2.4-02) + prompts oro / una-url.
+- Portada: «Observancia» → `incumple` LC-1.1.3-03 (primario) + LC-1.2.4-02 agrupado; propuesta CMS sin HTML. % **72,5 %** rechazado.
+
+### Próximos pasos:
+
+- Misma regla en menú y URLs siguientes (Dominio Público, Sistema de Madrid, etc.).
+- Commit con el lote de calibraciones cuando el usuario lo pida.
+
+---
+
+<a id="devlog-2026-08-21-lc-131-apoyos"></a>
+## [2026-08-21] - Orquestación | Calibrar LC-1.3.1-01 = presencia de apoyos (no alt)
+
+### Contexto y objetivos:
+
+La Portada oro v3.0 marcó `LC-1.3.1-01` como incumple por `alt` vacío/genérico y sintaxis HTML (`img`, `href`), pese a que la pregunta del instrumento es si **hay** íconos/imágenes/gráficos para presentar datos. Eso confunde a editores CMS y desvirtúa el %.
+
+### Implementación técnica:
+
+- Calibración en `CLAUDE.md` §2 / §6 / §16 / §21 / §22.1; skill `auditoria-lc`; prompts `audit-una-url` / `audit-oro-s22`; mapa PTD; diagrama §6.
+- Regla: hay banners/tarjetas/íconos → `cumple`; `alt`/WCAG → nota Usabilidad fuera del %; sin HTML como mensaje principal; no castigar por “ceguera” de Playwright.
+- JSON Portada `www-inapi-cl_2026-08-21`: `LC-1.3.1-01` → `cumple`; se quitaron 4 sustituciones de alt; **75 %** rechazado (antes 72,5 %).
+
+### Próximos pasos:
+
+- Aplicar la misma calibración en las siguientes URLs META MEI v3.0.
+- Commit cuando el usuario lo pida.
 
 ---
 

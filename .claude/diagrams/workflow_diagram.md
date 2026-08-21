@@ -221,10 +221,10 @@ flowchart TB
 
 | Grupo | Qué evalúa | Qué resuelve |
 | --- | --- | --- |
-| 1 | `LC-1.1.1/2/4`, `LC-1.3.*` | Completitud, fecha, objetividad, archivo, visualización |
-| 2 | `LC-1.1.3-01…06` | Legible, jerga, siglas, tono |
+| 1 | `LC-1.1.1/2/4`, `LC-1.3.*` | Completitud, fecha, objetividad, archivo; **visualización = ¿hay apoyos visibles?** (no `alt`) |
+| 2 | `LC-1.1.3-01…06` | Legible, **jerga en títulos/menú/tooltip**, siglas, tono |
 | 3 | Redacción / claridad / concisión | Ortografía, oraciones, párrafos |
-| 4 | Legibilidad / escritura web | Espacios, PDF 4 elementos, rótulos, mayúsculas |
+| 4 | Legibilidad / escritura web | Espacios, **títulos claros**, PDF, escaneo texto+tarjetas (no grilla UI) |
 | 5 | PI / privacidad / sensibles | RUN, ARCO, licencias; crítico con sesión |
 
 **Reglas que aplican aquí (§5 + §20.6):** estados solo `cumple` \| `incumple` \| `no_aplica`; `severidad` solo en incumple (UI: Cumple con observaciones / Medianamente cumple / No cumple); cobertura 1:1 → `sustituciones[]`; CMS primero.

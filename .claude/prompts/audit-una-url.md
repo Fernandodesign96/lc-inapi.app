@@ -130,14 +130,14 @@ T002 [R|U] [HTML-L{n}]: «texto literal» (contexto: ...)
 | Capa | Qué inventariar | Sirve sobre todo a (indicadores `LC-*`) |
 | --- | --- | --- |
 | **R** Redacción | H1–H3, párrafos, CTAs, menús, footer, modales, glosas de siglas, textos de ayuda | Lenguaje plano (`LC-1.1.3-*`), Claridad/Concisión (`LC-1.2.1-*`, `LC-1.2.2-*`), Completitud (`LC-1.1.2-*`), Redacción (`LC-1.1.5-*`) |
-| **U** Chrome UI / formato | Fechas **visibles**, listas/viñetas, alineación, espacios, enlaces a documentos (título / formato / peso / descripción), `alt`, encabezados útiles para escaneo, rótulos de botones | Legibilidad (`LC-1.2.3-*`), Escritura web (`LC-1.2.4-*`, `LC-5.2.4-01`), Actualización (`LC-1.1.4-01`), Archivo / Visualización (`LC-1.3.*`) |
+| **U** Chrome UI / formato | Fechas **visibles**, listas/viñetas, alineación, espacios, enlaces a documentos (título / formato / peso / descripción), **presencia** de imágenes/íconos/gráficos (LC-1.3.1-01), encabezados útiles para escaneo, rótulos de botones | Legibilidad (`LC-1.2.3-*`), Escritura web (`LC-1.2.4-*`, `LC-5.2.4-01`), Actualización (`LC-1.1.4-01`), Archivo / Visualización (`LC-1.3.*` — visualización = ¿hay apoyos?, **no** calidad de `alt`) |
 
 **Reglas del inventario (obligatorias):**
 
 1. **Alcance = solo VISIBLE** para el ciudadano. **No** inventariar ni usar como evidencia `<title>`, `<meta description>`, keywords, Open Graph ni otros nodos METADATA del `<head>`.
 2. Numerar ocurrencias de texto visible en orden de aparición. Incluir siempre: H1–H3, primer párrafo del cuerpo, botones/CTAs, menú, footer, fecha si existe, enlaces a documentos, modales abribles con un clic (§20.1).
 3. Fidelidad de título = **H1 visible**, nunca el título de pestaña.
-4. Si falta un elemento esperado: marcar ausencia explícita — `(ausencia de H1)`, `(ausencia de fecha)`, `(PDF sin peso)`, `(imagen sin alt descriptivo)`, etc.
+4. Si falta un elemento esperado: marcar ausencia explícita — `(ausencia de H1)`, `(ausencia de fecha)`, `(PDF sin peso)`, `(sin apoyos visuales para datos)`, etc. **No** inventariar «sin alt» como evidencia de LC-1.3.1-01.
 5. Cada `Tnnn` anclado a `html_linea_aprox` del HTML (apoyo TI). La entrega CMS usará `ubicacion_pantalla` humana en Pasos E / §22.
 6. Hallazgos solo METADATA = fuera de alcance.
 7. **Calibración (§20):** patrones de layout compartido — listar la ocurrencia visible con contexto claro (luego `patron_sistema: true`). Series Clarity: encabezado del servicio **visible**.
@@ -171,10 +171,10 @@ Diagrama de esta etapa: `../diagrams/workflow_diagram.md` §6.
 
 | Grupo | Indicadores | Criterios | Énfasis de evidencia |
 | --- | --- | --- | --- |
-| 1 | Fiabilidad, Completitud, Actualización, Objetividad, Archivo, Visualización | LC-1.1.1-*, LC-1.1.2-*, LC-1.1.4-*, LC-1.3.* | Completitud; fecha visible (§21); objetividad; archivo; apoyos visuales |
-| 2 | Lenguaje plano | LC-1.1.3-01…06 | Legible; tono; jerga; abreviaturas; siglas; tono positivo |
+| 1 | Fiabilidad, Completitud, Actualización, Objetividad, Archivo, Visualización | LC-1.1.1-*, LC-1.1.2-*, LC-1.1.4-*, LC-1.3.* | Completitud; fecha visible (§21); objetividad; archivo; **LC-1.3.1-01 = ¿hay apoyos visuales visibles?** (no `alt`/WCAG) |
+| 2 | Lenguaje plano | LC-1.1.3-01…06 | Legible; tono; **jerga en H2/menú/tooltip** (ej. Observancia); siglas |
 | 3 | Redacción, Claridad, Concisión | LC-1.1.5-*, LC-1.2.1-*, LC-5.2.1-01, LC-1.2.2-*, LC-5.2.2-01 | Ortografía; conectores; FAQ; concisión |
-| 4 | Legibilidad, Escritura web | LC-1.2.3-*, LC-1.2.4-*, LC-5.2.4-01 | Espaciado/alineación; PDF 4 elementos; pirámide; rótulos IESD |
+| 4 | Legibilidad, Escritura web | LC-1.2.3-*, LC-1.2.4-*, LC-5.2.4-01 | Espaciado; **títulos claros** (rótulo escaneable); PDF 4 elementos; pirámide; escaneo texto+tarjetas (no grilla UI = Usabilidad) |
 | 5 | PI, Privacidad, Sensibles | LC-1.1.6-*, LC-1.1.7-*, LC-1.1.8-* | §19 si sesión; PI; **ARCO** (`LC-1.1.7-03`); sensibles |
 
 **Instrucción obligatoria a cada subagente:**
