@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
 | 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
 | 2026-08-21 | [Orquestación: calibrar LC-1.3.1-01 = presencia de apoyos (no alt)](#devlog-2026-08-21-lc-131-apoyos) |
 | 2026-08-21 | [Infraestructura: Portada www.inapi.cl — reauditoría oro v3.0 (51 LC-*), 75 % tras calibrar LC-1.3.1-01](#devlog-2026-08-21-portada-oro-v30) |
@@ -89,6 +90,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-22-portada-reaudit-v30"></a>
+## [2026-08-22] - Infraestructura | Portada www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 78,9 %
+
+**Rama:** `main`
+
+### Contexto y objetivos:
+
+Reauditar de nuevo la Portada / inicio INAPI (META MEI orden 1, muestra oro v3.0) para confirmar los hallazgos con evaluación independiente por 5 sub-subagentes (CLAUDE.md §17), verificar pesos reales de documentos y aplicar las calibraciones vigentes de LC-1.3.1-01 (apoyos visuales) y jerga legal en títulos de sección.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/`; contenido de portada equivalente a la auditoría del 2026-08-21 (mismo menú, hero, tarjetas y noticias).
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length`: la guía de marcas cambió de tamaño respecto al 2026-08-21 (17.156.031 bytes ≈ 16,4 MB); los 3 documentos institucionales del pie y la guía de patentes se mantienen iguales.
+- 5 sub-subagentes en paralelo (Fiabilidad/Completitud/Actualización/Objetividad/Archivo/Visualización · Lenguaje plano · Redacción/Claridad/Concisión · Legibilidad/Escritura web · PI/Privacidad/Sensibles), consolidados con gate §22.12.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: `LC-1.2.4-02`→`LC-1.1.3-03`, `LC-1.2.1-02`→`LC-1.2.2-04`, `LC-1.2.4-08`→`LC-1.2.4-07`), 13 no aplica → 38 aplicables, 78,9 % de cumplimiento → `rechazado` (sube desde 72,5 % del 2026-08-21, principalmente porque el H1 y `LC-1.1.2-03` se reevaluaron como `cumple`/`no_aplica` con evidencia propia). Hallazgos de severidad alta: documentos sin formato/peso/descripción (`LC-1.2.4-07`/`08`).
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-22/www-inapi-cl_2026-08-22.json`; validado con `bun run validate:claude-audits` y `bun run typecheck:all`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) apuntan al nuevo id; `www-inapi-cl_2026-08-21` pasa a `history[]`.
 
 ---
 
@@ -836,7 +857,7 @@ Cerrar el **paso 2** de la Fase 4: documentar la arquitectura MVP (Vercel UI + w
 
 - Rama `docs/mvp-worker-on-demand`.
 - Nuevo [ADR 0011](../adr/0011-worker-local-on-demand-vercel.md) (borrador): flujo job/poll/claim, sin auth, persistencia `data/jobs/` o SQLite, túnel pendiente de spike.
-- [`docs/cotizacion-anthropic-api-evidencia.md`](../cotizacion-anthropic-api-evidencia.md): método + placeholders.
+- `docs/cotizacion-anthropic-api-evidencia.md` *(retirado 2026-08)*: método + placeholders.
 - ROADMAP paso 2 marcado `[x]`.
 
 ### Próximos pasos:
@@ -1447,10 +1468,10 @@ Tras verificar en **local y Vercel** el flujo completo de las **9 URLs** piloto 
 
 - [`docs/ROADMAP.md`](../ROADMAP.md) — Fase 1.5: ítems de código marcados hechos; pendientes editoriales (UX/TIC, acta, 10.ª URL) y `validate:claude-audits` opcional.
 - [`docs/flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) — §2 tabla operativa 9 URLs; checklist §7 dividido implementación/entrega; ruta PDF `GET` real; propuesta reunión en `<details>` histórico.
-- [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) §1.2.1, [`docs/Propuesta Análisis LC URLs.md`](../Propuesta%20Análisis%20LC%20URLs.md) §2.3 — estado 2026-06-08.
+- [`docs/PRD.md`](../PRD.md), [`docs/ARCHITECTURE.md`](../ARCHITECTURE.md) §1.2.1, `Propuesta Análisis LC URLs.md` *(retirado 2026-08)* §2.3 — estado 2026-06-08.
 - [`docs/despliegue/despliegue-hibrido.md`](../despliegue/despliegue-hibrido.md) — Etapa 1.4 verificación piloto Vercel; APIs `claude-audits`.
-- [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md) — nota histórica al inicio.
-- [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — metadatos piloto 9 URLs.
+- `docs/sesion-piloto-claude-2026-06-05.md` *(retirado 2026-08)* — nota histórica al inicio.
+- `Comparación Auditoría…` *(retirado 2026-08)* — metadatos piloto 9 URLs.
 
 **Enlace corregido:** referencias `development/DEVLOG.md` → `docs/development/DEVLOG.md` en flujo operativo.
 
@@ -1518,7 +1539,7 @@ Todas las URLs del piloto (1–9) quedan **rechazadas** (≤80 %). Mejores resul
 
 Tras cerrar la [exportación PDF (Fase C)](#devlog-2026-06-04-fase-c-pdf), el siguiente hito del piloto TIC es **contenido editorial real** en `data/claude-audits/`, no solo la home de junio. El viernes 5 (PC empresa, sin terminal ni git) se avanzó el **piloto operativo de 9 URLs** (8 `sitioweb` + 1 `tramites`), distinto de la tabla §2 inicial del flujo (10 URLs propuesta reunión 2-jun).
 
-Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: [`docs/sesion-piloto-claude-2026-06-05.md`](../sesion-piloto-claude-2026-06-05.md).
+Objetivos de la sesión: (1) **Fase A** — reforzar el prompt §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un `criterio_id` por fila); (2) completar o revisar JSON canónicos de **URLs 1–3** vía Proyecto Claude; (3) en casa, **registrar URLs 2 y 3** en el MVP para que `/auditar`, la API y el PDF las expongan como «Disponible». Bitácora detallada: `docs/sesion-piloto-claude-2026-06-05.md` *(retirado 2026-08)*.
 
 ### Implementación técnica:
 
@@ -1748,8 +1769,8 @@ Objetivos de la jornada documental: (1) registrar decisiones y flujo operativo; 
 
 ### Implementación técnica:
 
-- **Comparación IA (home):** [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](../Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
-- **Propuesta reunión:** [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
+- **Comparación IA (home):** `Comparación Auditoría…` *(retirado 2026-08)* — Gemini 88,6 % / 4 incumplimientos vs Claude 45,5 % / 18 incumplimientos; recomendación **Claude** para rigor editorial y volumen de sustituciones útiles a TIC.
+- **Propuesta reunión:** `Propuesta Análisis LC URLs.md` *(retirado 2026-08)* — insumo pre-reunión; acta post-reunión en §11 (decisiones D1–D8).
 - **Flujo operativo piloto:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) — Proyecto Claude, mensajes §3.2/3.3, tabla 10 URLs, alcances UI (`/auditar` acordeón piloto debajo de ingreso URL; `/auditar/resultado` con 7 bloques §4 + PDF server-side).
 - **Roadmap:** nueva sección **Fase 1.5**; condición de entrada a Fase 2 actualizada; PDF adelantado en piloto (consolidación institucional en Fase 2/4).
 - **PRD / arquitectura / README / fase2 / diagramas:** alineados a Fase 1.5 y referencias cruzadas.

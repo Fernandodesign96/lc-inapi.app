@@ -18,7 +18,7 @@ El MVP acordado con jefatura de proyecto / Equipo UX (ago-2026) pide: pegar URL 
 
 3. **Sin Anthropic API operativa** — la suscripción Claude Team/Code es el camino de ejecución. La API Anthropic solo se **cotiza** como evidencia de costo (documento aparte), no se cablea al MVP.
 
-4. **Sin auth en MVP** — no Nest, Prisma, Supabase Auth ni login institucional. Identidad del auditor = texto libre (`auditorNombre`) + fecha.
+4. **Sin auth en MVP** — acceso libre para usuarios INAPI; no Nest, Prisma, Supabase Auth ni login. Identidad del auditor = texto libre (`auditorNombre`) + fecha.
 
 5. **Persistencia inicial** — `data/jobs/` (JSON por job) **o** SQLite local; suficiente para un único worker. El historial por URL reutiliza el patrón de launch/JSON ya existente donde aplique.
 
@@ -48,5 +48,5 @@ Worker PC → claim job → Claude Code §17 → JSON + PDF/Excel refs
 ## Relación con otros ADR
 
 - **Complementa:** [ADR 0009](0009-claude-code-pro-como-orquestador.md) (orquestación Claude Code).
-- **No reabre:** Nest/Prisma ([ADR 0005](0005-api-backend-nestjs-prisma.md) supersedido) ni Anthropic API operativa ([ADR 0006](0006-lc-evaluation-python-claude-aws.md) supersedido).
-- **Contrato JSON:** sigue [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md) + checklist v2.1.
+- **No reabre:** Nest/Prisma/login (retirados del camino MVP) ni Anthropic API operativa ([ADR 0006](0006-lc-evaluation-python-claude-aws.md) supersedido).
+- **Contrato JSON:** sigue [ADR 0004](0004-llm-checklist-evaluation-and-versioning.md) + checklist PTD-LC **v3.0** (51 `LC-*`).

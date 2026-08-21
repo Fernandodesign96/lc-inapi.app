@@ -2,12 +2,12 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-06-27 — prompt home) |
-| **Autores** | equipo de desarrollo (con Equipo UX — entrega MEI) |
-| **Objetivo** | Unificar captura DOM, checklist LC, localización para TI y entregables duales (Excel MEI + JSON MVP) |
-| **Referencias** | [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`ROADMAP.md`](ROADMAP.md) (Fase 1.5 MEI) · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [Guía LC Chile (PDF)](https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf) |
+| **Fecha** | 2026-08-21 |
+| **Objetivo** | Captura, checklist LC v3.0 (51 `LC-*`), localización TIC y entregables (Excel MEI + JSON) |
+| **Orquestación vigente** | Claude Code §17 + Playwright MCP + Chroma/Xenova/LangChain + Zod |
+| **Referencias** | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md) |
 
-> **Nota de alineación (jul 2026):** este documento describe el **flujo operativo manual** acordado para la entrega MEI (jun 2026): DevTools IA sobre DOM + Excel B/C/D. La **automatización objetivo** del repositorio está en el AI Stack v2 ([`ARCHITECTURE.md`](ARCHITECTURE.md), [`PROPUESTA_TECNICA_INTEGRAL.md`](PROPUESTA_TECNICA_INTEGRAL.md)): **Claude Code Pro** como orquestador ([ADR 0009](adr/0009-claude-code-pro-como-orquestador.md)), **Playwright MCP** para captura y **Chroma RAG** local ([ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md)) — ver Fases 0–3 en [`ROADMAP.md`](ROADMAP.md).
+> **Nota (2026-08-21):** automatización productiva = **Claude Code + Playwright + RAG**. Secciones DevTools/39 A–H = **histórico** del piloto. Nest/AWS/Claude API = propuestas antiguas (**no** se implementan).
 
 ---
 

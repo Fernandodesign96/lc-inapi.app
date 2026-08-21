@@ -1,6 +1,6 @@
 # MVP — Aplicativo de auditoría de lenguaje claro INAPI
 
-Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial INAPI** v2.1 (47 criterios) sobre URLs de `inapi.cl` y `tramites.inapi.cl`.
+Plataforma web con apoyo de IA para evaluar el **Checklist editorial INAPI PTD-LC v3.0** (**51** criterios `LC-*`) sobre URLs de `inapi.cl` y `tramites.inapi.cl` (muestra META MEI: **10 URLs**). Orquestación: **Claude Code** + Playwright MCP + Chroma/Xenova/LangChain; UI en **Vercel**.
 
 ---
 
@@ -9,18 +9,16 @@ Plataforma web (futuro) con apoyo de IA para evaluar el **Checklist editorial IN
 | Documento | Descripción |
 | --- | --- |
 | [docs/PRD.md](docs/PRD.md) | Requisitos de producto y alcance del MVP |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Arquitectura objetivo (frontend, backend, IA) |
-| [docs/DATABASE.md](docs/DATABASE.md) | Modelo de datos Supabase y PostgreSQL |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Arquitectura vigente (Claude Code + Vercel + RAG) |
+| [docs/DATABASE.md](docs/DATABASE.md) | Persistencia MVP = JSON en repo (Postgres histórico) |
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog (**Fase 1.5:** piloto 10 URLs + Claude + PDF) |
-| [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Flujo operativo piloto UX → JSON → MVP → entrega TIC |
-| [docs/stack-orquestación.md](docs/stack-orquestación.md) | Flujo operativo MEI: DevTools DOM, `fragmento_busqueda`, Excel B/C/D |
-| [docs/plantilla-excel-mei-bcd.md](docs/plantilla-excel-mei-bcd.md) | Plantilla Excel MEI (manual B/C/D + export automatizado H01–H13) |
-| [docs/Propuesta Análisis LC URLs.md](docs/Propuesta%20Análisis%20LC%20URLs.md) | Propuesta y acta reunión junio 2026 |
-| [docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md](docs/Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md) | Comparación proveedores IA (home piloto) |
-| [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo, datos en fixtures y checklist post-despliegue |
-| [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Plan por etapas: Vercel, GitHub Actions, Supabase, Nest, AWS LC |
-| [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Propuesta técnica v2.0: AI Stack de 5 capas, procedimiento de implementación (Fases 0–4), decisiones técnicas clave |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog |
+| [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Flujo META MEI 10 / histórico 27 / piloto 9 |
+| [docs/stack-orquestación.md](docs/stack-orquestación.md) | Flujo operativo MEI (histórico + Claude Code) |
+| [docs/plantilla-excel-mei-bcd.md](docs/plantilla-excel-mei-bcd.md) | Plantilla Excel MEI |
+| [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo y stack IA local |
+| [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Despliegue híbrido: Vercel + GitHub + Claude Code / RAG |
+| [docs/PROPUESTA_TECNICA_INTEGRAL.md](docs/PROPUESTA_TECNICA_INTEGRAL.md) | Propuesta técnica v3.0 — AI Stack vigente |
 | [docs/development/DEVLOG.md](docs/development/DEVLOG.md) | Bitácora de desarrollo |
 
 ---
@@ -32,12 +30,11 @@ Convención de archivos: `docs/adr/NNNN-titulo-en-kebab-case.md`.
 | # | Título | Estado |
 | --- | --- | --- |
 | 0001 | [Plantilla y propósito de los ADR](docs/adr/0001-record-architecture-decisions.md) | Aceptado |
-| 0002 | [Stack: Next.js, Bun y Supabase](docs/adr/0002-stack-next-bun-supabase.md) | Aceptado |
-| 0003 | [Contract-first: mocks con Zod](docs/adr/0003-contract-first-mocking-with-zod.md) | Aceptado |
-| 0004 | [Evaluación con LLM y versionado de prompts](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) | Aceptado |
-| 0005 | [API de dominio: NestJS y Prisma](docs/adr/0005-api-backend-nestjs-prisma.md) | **Supersedido** por ADR 0009 |
-| 0006 | [Evaluación LC: Python, Claude API y AWS](docs/adr/0006-lc-evaluation-python-claude-aws.md) | **Supersedido** por ADR 0008 y ADR 0009 |
-| 0007 | [Modelo lógico de datos, formato de entrada y parseo (pre-conexiones)](docs/adr/0007-modelo-datos-parseo-pre-conexiones.md) | Borrador |
+| 0002 | [Stack: Next.js, Bun y (hist.) Supabase](docs/adr/0002-stack-next-bun-supabase.md) | **Obsoleto** en Firebase/Postgres; Next+Bun vigente |
+| 0003 | [Contract-first: Zod](docs/adr/0003-contract-first-mocking-with-zod.md) | Aceptado (act. 2026-08-21) |
+| 0004 | [LLM, Playwright y versionado](docs/adr/0004-llm-checklist-evaluation-and-versioning.md) | Aceptado (act. 2026-08-21) |
+| 0006 | [Evaluación LC: Python/AWS — histórico](docs/adr/0006-lc-evaluation-python-claude-aws.md) | **Supersedido** (clarificado 2026-08-21) |
+| 0007 | [Parseo y embeddings Xenova](docs/adr/0007-modelo-datos-parseo-pre-conexiones.md) | Aceptado (reescrito 2026-08-21) |
 | 0008 | [TypeScript sobre Python para RAG y orquestación](docs/adr/0008-typescript-sobre-python-para-rag.md) | Aceptado |
 | 0009 | [Claude Code Pro como orquestador principal](docs/adr/0009-claude-code-pro-como-orquestador.md) | Aceptado |
 | 0010 | [RAG local con Chroma y @xenova/transformers](docs/adr/0010-rag-local-chroma-xenova-transformers.md) | Aceptado |

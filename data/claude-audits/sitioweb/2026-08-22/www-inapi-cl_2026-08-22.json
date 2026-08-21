@@ -1,0 +1,441 @@
+{
+  "id": "www-inapi-cl_2026-08-22",
+  "url": "https://www.inapi.cl/",
+  "fecha_evaluacion": "2026-08-22T00:00:00.000Z",
+  "evaluador_uid": "equipo-desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 16,
+    "nombre_ui": "Portada / inicio INAPI",
+    "ruta_etiqueta": "Inapi - Instituto Nacional de Propiedad Industrial",
+    "visitas_ref": "—",
+    "encargado_ref": "equipo-desarrollo",
+    "fuente_piloto_id": "www-inapi-cl_2026-08-21",
+    "descripcion": "Reauditoría 1-URL con arquitectura de 5 sub-subagentes (CLAUDE.md §17) del lote META MEI orden 1 (Portada o página de inicio), checklist PTD-LC v3.0 (51 criterios LC-* por indicadores IEW/IESD). Contenido de portada equivalente al 2026-08-21 (mismo menú, hero, tarjetas y noticias); se reverifican pesos reales de documentos vía cabecera HTTP (la guía de marcas cambió de peso: 17.156.031 bytes ≈ 16,4 MB) y se re-evalúan con criterio propio los 51 ids, incorporando la calibración de esta sesión sobre LC-1.3.1-01 (apoyos visuales) y jerga legal en títulos de sección (Observancia)."
+  },
+  "texto_capturado": "T001 [nav global]: Nosotros | Conoce más | Marcas | Patentes | PCT | Sistema de Madrid | Sello de Origen | Aprende | Conecta | Trámites | Estadísticas | Dominio Público | Mercado de Origen | Gasto Presupuestario | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Observancia | Datos Abiertos (PCT sin definir en su primera aparición) | T002 [cabecera global, EXCLUIDOS de LC-1.2.4-05 por calibración CLAUDE.md §2]: «ACCESOS», «BUSCADOR» | T003 [footer nav, heading]: «Accesos» | T004 [panel de acceso/registro, abrible con un clic desde el ícono de usuario en cabecera]: <img alt=\"Login\"> junto a «Usuario Frecuente» (enlace a ion.inapi.cl) y <img alt=\"Login\"> junto a «Registro» (enlace a claveunica.gob.cl) | T005/T006 [modal de contacto, abrible con un clic desde el botón «¿Quieres contactarnos?»]: «Utiliza el canal de comunicación que prefieras:» + columnas de teléfono, correo (inapi@inapi.cl) y dirección, con horarios de atención | T007 [H1]: «Te queremos ayudar a utilizar la propiedad industrial» | T008 [sección Patentes, h3]: «Patentes» | «BUSCADOR DE PATENTES» (enlace en mayúscula sostenida) | «Cómo registrar una patente» | «Ingresa tu solicitud» | T009 [sección Marcas, h3]: «Marcas» | «BUSCADOR DE marcas» (enlace, mezcla mayúscula/minúscula inconsistente con T008) | «Cómo registrar una marca» | «Ingresa tu solicitud» | T010 [accesos rápidos]: «Estadísticas» | «Notificaciones diarias» | «Preguntas frecuentes» | «Datos abiertos» | T011 [Novedades #1, martes 18-ago-2026]: «Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China» + bajada: «Constanza Vargas García, bioquímica especializada en patentes biotecnológicas y químicas, fue admitida por la Universidad de Economía y Derecho de Zhongnan tras un riguroso proceso de evaluación patrocinado por INAPI.» | T012 [Novedades #2, miércoles 12-ago-2026]: «INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible» + bajada: «La herramienta de acceso público reúne 148 productos en áreas estratégicas para el país, como manufactura sostenible, litio, hidrógeno verde, cambio climático y recursos hídricos.» | T013 [Novedades #3, martes 11-ago-2026]: «INAPI amplía plazos administrativos para usuarios con residencia en Japón debido a la emergencia provocada por los recientes sismos» + bajada de una sola oración (~38 palabras): «La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.» | T014: enlace «Ver todas las noticias» | T015 [banner Plataforma de Datos, h3]: «Plataforma de Datos» + h4 «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE» (mayúscula sostenida) + CTA «Acceder» → dps.inapi.cl; imagen del banner con alt vacío | T016 [Guías para usuarios]: banner con alt vacío + «Descargar guía de marcas» (PDF real: 17.156.031 bytes ≈ 16,4 MB, verificado hoy vía cabecera HTTP) / «Descargar guía de patentes» (PDF real: 13.133.207 bytes ≈ 12,5 MB, verificado hoy), sin formato/peso/descripción visibles en el texto del enlace | T017 [Cuenta Pública 2026]: banner sin atributo alt + CTA «Acceder» → /cuenta-publica-2026 | T018 [Observancia, h3]: h4 «Conoce y utiliza» + h5 «las herramientas de protección de la Propiedad Intelectual en Chile» + enlace «Conoce más» → /protege-tu-idea/pirateria-y-falsificacion | T019 [footer institucional, «Dónde estamos»]: «Instituto Nacional de Propiedad<br>industrial (INAPI)<br>RUT: 65.999.669-3» (RUT institucional, persona jurídica pública) — 'industrial' con minúscula inicial rompe el nombre propio | T020 [footer nav]: «Conversemos» | «Contacto» | «Accesos» | «Atajos del Teclado» | «Descarga de Visualizadores» | «Glosario» | «Mapa del Sitio» | «Uso de los Contenidos de este Sitio» | «Accesibilidad» | «Política de privacidad» | T021 [footer copyright]: «©2026 INAPI. Todos los derechos reservados» | T022: enlace nav «Observancia» → href /protege-tu-idea (destino más amplio que la etiqueta del menú) | T023: sin fecha de publicación/actualización visible del home en general (solo fechas de noticias individuales) | T024: sin placeholders «en construcción» ni «próximamente» visibles | T025 [modal «Buscar y tramitar», abrible con un clic desde el ícono de lupa en cabecera]: h3 «BUSCAR Y TRAMITAR» + h4 «MARCAS» / «PATENTES» (mayúscula sostenida) | T026 [footer, fila de logos de organismos externos, carrusel]: 14 enlaces; verificados hoy vía HTTP: «Plan de Acción de Cumplimiento 2025 (PDF)» = 299.818 bytes ≈ 293 KB, «Teletrabajo» = 3.422.711 bytes ≈ 3,3 MB, «Código de Ética INAPI 2026» = 604.793 bytes ≈ 590 KB; el resto con alt descriptivo (Ley de Transparencia, Medición de Satisfacción Usuaria, Ley del Lobby, Propiedad Industrial, Trámites Digitales, Derechos Intelectuales, Empleos Públicos, Nuestras Licitaciones, Gobierno Transparente Histórico) salvo el enlace a cchrgm.cl/depositos/deposito_ida/, cuya imagen tiene alt vacío y sin texto visible | T027 [meta head, NO USADO como evidencia visible]: <title>, <meta name=\"description\">, <meta name=\"keywords\"> — descartados por calibración CLAUDE.md §20.1.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica claramente a la institución responsable del contenido: «Instituto Nacional de Propiedad industrial (INAPI)» con su RUT institucional, y el logo INAPI está presente en toda la cabecera global."
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "cumple",
+      "comentario": "El H1 visible «Te queremos ayudar a utilizar la propiedad industrial» es coherente con el contenido desplegado: bloques de Marcas, Patentes, guías de usuario y noticias institucionales, todos relacionados con el uso de la propiedad industrial. Evaluación hecha sobre el título visible, no sobre la pestaña del navegador."
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "No se observan textos de tipo «en construcción», «próximamente» ni secciones vacías en la portada; todos los bloques (noticias, guías, accesos, banners) muestran contenido completo."
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "no_aplica",
+      "comentario": "La portada funciona como un hub de accesos y tarjetas cortas (Marcas, Patentes, guías, noticias) que enlazan a páginas de detalle donde corresponde exponer qué/cómo/dónde/cuándo/para quién; no contiene un párrafo o recuadro informativo propio que amerite ese resumen consolidado en esta vista."
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es la portada institucional, no un texto de trámite específico; la autonomía para completar un trámite se evalúa en las páginas de detalle de Marcas/Patentes/PCT, no en el home."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "cumple",
+      "comentario": "El H1 y las bajadas de las tarjetas de novedades (T011–T013) usan oraciones cortas, vocabulario cotidiano y estructura sujeto-verbo-predicado sin tecnicismos sin explicar. No se detectó léxico especializado sin apoyo que dificulte la comprensión de una persona sin conocimientos previos del tema."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El H1 usa segunda persona y tono cercano: «Te queremos ayudar a utilizar la propiedad industrial». No se observó lenguaje distante ni trato impersonal en los bloques visibles evaluados."
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El título principal de la sección (h3 «Observancia», T018) es un término legal/técnico que no se entiende por sí solo al escanear la página. El subtítulo (h4/h5 «Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile») aclara el contenido, pero eso no basta: el rótulo principal —lo primero que se lee— sigue siendo jerga sin explicación en el mismo bloque de título. El menú global repite «Observancia» sin glosa.",
+      "cita_textual": "Observancia"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "En el texto visible evaluado (H1, tarjetas de novedades, banner de datos) no se detectaron abreviaturas, extranjerismos, eufemismos ni modismos. Los nombres propios de programas («Plataforma de Datos», «Sistema de Madrid») son denominaciones institucionales, no términos especializados evitables."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla «PCT» aparece en el menú superior e inferior (desktop y móvil, T001) sin definirse en su primera aparición ni mediante ayuda accesible con un clic.",
+      "cita_textual": "PCT"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "El H1 y las tarjetas de novedades comunican en tono positivo lo que la institución hace o permite hacer (becas, plataformas de apoyo, ampliación de plazos ante contingencias), sin enfoque en prohibiciones o restricciones."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La portada no muestra una fecha de publicación o actualización visible para el contenido general de la página; solo las tarjetas de noticias individuales llevan fecha propia. No hay línea de «Actualizado: DD de mes de AAAA» visible bajo el H1 ni en otra zona del cuerpo. El ©2026 del pie es solo aviso de copyright y no reemplaza esta fecha.",
+      "cita_textual": "(ausencia de fecha de actualización visible en el cuerpo general de la página)"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "En el pie de página el nombre institucional aparece con un error de mayúscula: «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería ir con mayúscula inicial al ser parte del nombre propio de la institución. El resto del texto visible no presenta errores ortográficos evidentes.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI)"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "Las bajadas de noticias usan comas para separar aposiciones y cláusulas explicativas (ej. «Constanza Vargas García, bioquímica especializada..., fue admitida...»), lo que facilita la lectura; no se observan bloques con puntuación que entorpezca la comprensión."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "Cada bloque de noticia (T011, T012, T013) está redactado como una sola oración por bajada; no hay dos o más frases dentro del mismo bloque que requieran conectores para relacionarse entre sí."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde la portada sin necesidad de sesión."
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible de la portada (noticias, banners de trámites y datos abiertos) corresponde a producción institucional propia; no se observa redifusión de material protegido de terceros sin atribución."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "El único RUT visible en la portada es el de la institución (RUT: 65.999.669-3, persona jurídica pública) en el bloque «Dónde estamos» del pie. La mención a «Constanza Vargas García» en Novedades es difusión de un logro profesional en contexto de prensa institucional y no incluye su RUN ni forma parte de un listado de personas con datos identificatorios sensibles.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de contacto visibles (modal «¿Quieres contactarnos?» y bloque «Dónde estamos» del pie) son teléfono, correo y dirección institucionales de INAPI; no se publican direcciones ni teléfonos particulares de personas naturales."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde la portada, como canal para informarse sobre el ejercicio de los derechos ARCO (acceso, rectificación, cancelación/eliminación y oposición)."
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "La portada no publica información sobre menores de edad; los bloques visibles son de alcance institucional general (trámites, datos abiertos, novedades de adultos)."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible (noticias institucionales, accesos a trámites y datos abiertos) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "cumple",
+      "comentario": "No se identifica en la portada material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a información institucional, trámites y novedades de prensa neutras."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "La portada es un punto de entrada/portal (H1 de bienvenida, tarjetas de acceso a Marcas/Patentes, listado de noticias y accesos rápidos), no un contenido redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas internas de trámite, fuera de esta URL."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es la portada del sitio informativo (sitioweb), no un servicio digital ni un trámite; la variante de claridad para servicio digital no aplica."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "agrupado_en": "LC-1.2.2-04",
+      "comentario": "En la bajada de la noticia sobre Japón (T013) se usa la frase «titulares de solicitudes cuya residencia informada corresponda a Japón», un giro más cercano al lenguaje administrativo/legal que al lenguaje claro cotidiano. El resto de titulares y bajadas (T011, T012) usan palabras y conceptos comprensibles. Se agrupa con LC-1.2.2-04 porque es el mismo nodo y la misma corrección de copy.",
+      "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El titular de la primera noticia usa voz pasiva: «Profesional chilena es seleccionada para la beca...» y su bajada repite la pasiva («fue admitida por la Universidad...»). Los otros dos titulares (T012, T013) sí usan presente simple y voz activa, por lo que el problema es puntual, no generalizado.",
+      "cita_textual": "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Los titulares y bajadas visibles siguen el orden sujeto-verbo-predicado: «INAPI amplía plazos administrativos...», «INAPI y Ministerio de Economía presentan plataforma...». No se detectan inversiones que dificulten la comprensión."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "La portada no presenta listados de requisitos de servicios a la ciudadanía; ese contenido, cuando existe, está en las páginas internas de Marcas/Patentes, fuera de esta URL."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "El cuerpo visible de la portada se compone de bloques breves: tres tarjetas de noticia de un párrafo cada una y tarjetas de acceso a Marcas/Patentes con frases cortas; no hay muros de texto extensos."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es la portada del sitio informativo (sitioweb), no un servicio digital/trámite; la variante de concisión para servicio digital no aplica."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Las bajadas de las tres noticias (T011, T012, T013) ocupan cada una entre 1 y 2 líneas visuales en escritorio; ninguna se acerca a las 8 líneas de alto."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "cumple",
+      "comentario": "Cada tarjeta de noticia desarrolla un solo tema en su párrafo (T011: beca de maestría; T012: plataforma de información de patentes; T013: ampliación de plazos por sismos en Japón), sin mezclar temas distintos entre bloques."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La bajada de la noticia sobre Japón (T013) es una sola oración de cerca de 38 palabras que une dos ideas con «y» (a quién beneficia y qué busca facilitar), lo que la hace más difícil de leer de un vistazo. Las otras dos bajadas (T011, T012) son más directas y de una sola idea.",
+      "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026."
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "no_aplica",
+      "comentario": "No existe en la portada un bloque de texto corrido de 4 o más párrafos continuos (las noticias son tarjetas independientes de un párrafo cada una), por lo que no corresponde exigir un resumen inicial."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Los bloques de la portada (tarjetas de Patentes/Marcas, Novedades, banners de Plataforma de Datos, Guías, Cuenta Pública y Observancia) se presentan como módulos separados con espacio visual entre ellos; no hay párrafos apretados unos contra otros."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "cumple",
+      "comentario": "El texto de cuerpo visible (títulos de tarjetas, accesos rápidos, banners) se lee alineado a la izquierda, sin bloques centrados ni justificados que dificulten el barrido visual."
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "La portada no presenta conjuntos de datos, pasos secuenciales ni listas de requisitos que requieran formato de lista numerada, viñetas o tabla; es un panel de accesos y novedades, no contenido tabular."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "cumple",
+      "comentario": "La página ordena el contenido de mayor a menor urgencia: primero el H1 y las tarjetas transaccionales de Patentes/Marcas con sus CTA (T008/T009), luego Novedades (T011-T014) y al final banners informativos secundarios (Plataforma de Datos, Guías, Cuenta Pública, Observancia), siguiendo el modelo de pirámide invertida."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "LC-1.1.3-03",
+      "comentario": "El banner de Observancia (T018) usa como rótulo principal «Observancia», una palabra que por sí sola no dice qué puede hacer la persona ahí. Aunque el subtítulo aclara el contenido, el título no es autoexplicativo al escanear rápidamente la página. Se agrupa con LC-1.1.3-03 porque es el mismo nodo y la misma corrección de copy.",
+      "cita_textual": "Observancia"
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "La portada usa tarjetas con íconos, encabezados cortos y bloques separados (Patentes, Marcas, Novedades, accesos rápidos, banners) que permiten identificar de un vistazo las secciones principales sin necesidad de leer párrafos completos."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "no_aplica",
+      "comentario": "Los textos visibles de la portada son títulos de tarjetas, enlaces cortos y frases de una sola línea (no párrafos de varias oraciones); no hay cuerpo de texto extenso donde destacar palabras clave con negrita tenga sentido editorial."
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de los ítems excluidos por calibración (ACCESOS/BUSCADOR de la cabecera global), hay mayúscula sostenida en «BUSCADOR DE PATENTES»/«BUSCADOR DE marcas» (con mezcla inconsistente entre tarjetas gemelas), en el modal de búsqueda («BUSCAR Y TRAMITAR», «MARCAS», «PATENTES») y en los encabezados del banner Plataforma de Datos («INFORMACIÓN TECNOLÓGICA DE PATENTES», «PROGRAMA DE DESARROLLO», «PRODUCTIVO SOSTENIBLE»).",
+      "cita_textual": "BUSCADOR DE PATENTES / BUSCADOR DE marcas; BUSCAR Y TRAMITAR; INFORMACIÓN TECNOLÓGICA DE PATENTES"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "El bloque de accesos rápidos (T010) enlaza contenidos del mismo sitio distintos del menú principal: «Estadísticas», «Notificaciones diarias», «Preguntas frecuentes» y «Datos abiertos», además de «Ver todas las noticias» y «Cómo registrar una marca/patente»."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es sitioweb informativo, no un servicio digital/trámite; la variante de rótulos descriptivos para IESD no aplica."
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Ninguno de los documentos enlazados en la portada indica formato y peso junto al título en el texto visible: «Descargar guía de marcas» y «Descargar guía de patentes» (T016) no muestran formato ni peso; en el pie (T026), «Teletrabajo» y «Código de Ética INAPI 2026» tampoco los indican, y «Plan de Acción de Cumplimiento 2025 (PDF)» solo indica el formato, sin el peso.",
+      "cita_textual": "Descargar guía de marcas / Descargar guía de patentes; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026"
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.4-07",
+      "comentario": "Ninguno de los enlaces a documentos (guía de marcas, guía de patentes; Plan de Acción de Cumplimiento 2025, Teletrabajo, Código de Ética INAPI 2026) trae una breve descripción de su contenido junto al título del enlace. Se agrupa con LC-1.2.4-07 porque comparte exactamente los mismos nodos y la misma corrección.",
+      "cita_textual": "Descargar guía de marcas / Descargar guía de patentes; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026"
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "La portada usa numerosos apoyos visuales para presentar información: banners de la Plataforma de Datos y la Guía de Usuarios, imagen de Cuenta Pública 2026, íconos de sección y un carrusel de logos de organismos externos en el pie. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo (fuera del % LC)."
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Las noticias y bloques institucionales usan redacción neutra y descriptiva (ej. «INAPI y Ministerio de Economía presentan plataforma...»), sin adjetivos de opinión ni juicios de valor de quien escribe."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "cumple",
+      "comentario": "Las tres bajadas de noticias visibles se centran en hechos y datos concretos (beca en universidad china, 148 productos de la plataforma tecnológica, ampliación de plazos por sismos en Japón), privilegiando datos y hechos por sobre adjetivos calificativos."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "La portada no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista. El enlace a «Gobierno Transparente Histórico» del pie ya está rotulado como histórico en su propio texto."
+    }
+  ],
+  "criterios_aprobados": 30,
+  "criterios_aplicables": 38,
+  "criterios_no_aplica": 13,
+  "porcentaje_cumplimiento": 78.9,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 2026-08-22 aplicando el Checklist PTD-LC v3.0 (51 criterios LC-*) con 5 sub-subagentes y alcance solo visible.\n\nDe los 51 criterios, 13 no aplican a esta portada (variantes exclusivas de servicio digital/trámite y preguntas sin supuesto en esta vista). De los 38 aplicables, 30 se cuentan como cumplidos (27 cumplen directamente y 3 quedan agrupados bajo el mismo hallazgo de un criterio primario), lo que da un 78,9 % de cumplimiento y calificación RECHAZADO (umbral de aprobación > 80 %).\n\nHallazgos de severidad alta: los documentos descargables (guías de marcas/patentes y documentos institucionales del pie) no indican título completo, formato, peso ni descripción en el texto visible del enlace (LC-1.2.4-07, agrupado con LC-1.2.4-08).\n\nHallazgos de severidad media: el título de sección «Observancia» usa jerga legal que no se entiende al escanear, aunque exista un subtítulo explicativo aparte (LC-1.1.3-03, agrupado con LC-1.2.4-02); ausencia de fecha de actualización visible en el home (LC-1.1.4-01); mayúsculas sostenidas fuera del menú principal excluido, en buscadores, banner de datos y modal de búsqueda (LC-1.2.4-05).\n\nHallazgos de severidad baja: sigla PCT sin definir en el menú (LC-1.1.3-05); error de mayúscula en el nombre institucional del pie (LC-1.1.5-01); voz pasiva en el titular y bajada de la noticia sobre la beca en China (LC-1.2.1-03); oración larga con giro administrativo en la bajada de la noticia sobre Japón (LC-1.2.2-04, agrupado con LC-1.2.1-02).\n\nLC-1.3.1-01 (apoyos visuales) se cumple: la portada ya usa banners, imágenes e íconos para presentar información; la calidad del texto alternativo queda fuera del % de Lenguaje claro (Usabilidad/accesibilidad).\n\nSerie META MEI — orden 1 (Portada). Reauditoría con contenido de página equivalente al 2026-08-21 (mismo menú, hero y noticias), con verificación de pesos reales de documentos vía cabecera HTTP hoy y evaluación independiente de los 51 criterios por 5 sub-subagentes.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(LC-1.2.4-07, agrupado con LC-1.2.4-08) Guías de marcas/patentes y documentos institucionales del pie (Plan de Acción de Cumplimiento 2025, Teletrabajo, Código de Ética 2026) sin título completo, formato, peso ni descripción."
+    ],
+    "hallazgos_prioridad_media": [
+      "(LC-1.1.3-03, agrupado con LC-1.2.4-02) Título de sección «Observancia»: término legal poco claro al escanear, pese al subtítulo explicativo.",
+      "(LC-1.1.4-01) Sin fecha de publicación ni de última actualización visible en el home; el ©2026 del pie es solo copyright y no la reemplaza.",
+      "(LC-1.2.4-05) Mayúsculas sostenidas en «BUSCADOR DE PATENTES»/«BUSCADOR DE marcas», el modal «Buscar y tramitar» y el banner Plataforma de Datos."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(LC-1.1.3-05) Sigla PCT sin definir en su primera aparición en el menú global.",
+      "(LC-1.1.5-01) Error de capitalización en el nombre institucional del pie.",
+      "(LC-1.2.1-03) Titular y bajada de la noticia sobre la beca en China redactados en voz pasiva.",
+      "(LC-1.2.2-04, agrupado con LC-1.2.1-02) Bajada de la noticia sobre Japón: oración larga (~38 palabras) con giro administrativo."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "T-fecha-home",
+      "html_linea_aprox": "HTML-aprox (sección hero / bloque superior del home)",
+      "ubicacion_pantalla": "Portada www.inapi.cl — bajo el hero, antes de Novedades",
+      "original": "(ausencia)",
+      "propuesto": "Añadir texto visible bajo el hero: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión de la portada).",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "La pregunta pide verificar que los contenidos muestren información vigente al año en curso mediante una fecha visible. La portada carece de esa fecha general (solo las noticias individuales la tienen); el ©2026 del pie es solo aviso de copyright y no cumple esta función. Patrón de sitio: corregir en el layout/componente compartido de la portada.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "T018",
+      "html_linea_aprox": "HTML-h3-observancia",
+      "ubicacion_pantalla": "Cuerpo de portada › banners secundarios › bloque «Observancia» › título principal (h3)",
+      "original": "Observancia",
+      "propuesto": "Cambiar el título del bloque de «Observancia» a un rótulo cotidiano, por ejemplo: «Observancia: protege tu marca o patente de copias». El subtítulo actual («Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile») puede mantenerse igual debajo.",
+      "criterio_id": "LC-1.1.3-03",
+      "criterios_relacionados": ["LC-1.2.4-02"],
+      "motivo": "La redacción debe prescindir de jerga técnica o legal y los títulos deben entenderse al escanear la página. «Observancia» es un término legal que una persona sin formación jurídica no reconoce; el subtítulo aclara el contenido, pero el rótulo principal —lo primero que se lee— debe explicarse por sí mismo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T-nav-pct",
+      "html_linea_aprox": "HTML-nav-global",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»",
+      "original": "PCT",
+      "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Cada sigla debe definirse en su primera aparición. «PCT» se repite en el menú global sin definición ni ayuda accesible con un clic, obligando a adivinar su significado.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "T-footer-nombre",
+      "html_linea_aprox": "HTML footer, bloque «Dónde estamos»",
+      "ubicacion_pantalla": "Pie de página — bloque «Dónde estamos»",
+      "original": "Instituto Nacional de Propiedad<br>industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» aparece en minúscula, lo que se lee como un error de digitación en un dato que se repite en todo el sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "T011",
+      "html_linea_aprox": "HTML-noticia-1",
+      "ubicacion_pantalla": "Cuerpo › sección Novedades › primera tarjeta (martes 18 agosto 2026) › titular y bajada",
+      "original": "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China / ...fue admitida por la Universidad de Economía y Derecho de Zhongnan...",
+      "propuesto": "La Universidad de Economía y Derecho de Zhongnan seleccionó a una profesional chilena para la beca de maestría en propiedad intelectual Belt and Road 2026 en China. La universidad admitió a Constanza Vargas García, bioquímica especializada en patentes biotecnológicas y químicas, tras un riguroso proceso de evaluación patrocinado por INAPI.",
+      "criterio_id": "LC-1.2.1-03",
+      "motivo": "Debe predominar el tiempo presente y la voz activa. El titular y la bajada actuales usan voz pasiva («es seleccionada», «fue admitida»), lo que hace menos directa la lectura; la propuesta nombra primero a quien realiza la acción.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T013",
+      "html_linea_aprox": "HTML-noticia-3",
+      "ubicacion_pantalla": "Cuerpo › sección Novedades › tercera tarjeta (martes 11 agosto 2026) › bajada",
+      "original": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
+      "propuesto": "La medida beneficia a las personas con solicitudes que tengan residencia informada en Japón. Busca facilitar el cumplimiento de los plazos administrativos que estaban en curso al 10 de agosto de 2026.",
+      "criterio_id": "LC-1.2.2-04",
+      "criterios_relacionados": ["LC-1.2.1-02"],
+      "motivo": "Las oraciones deben ser simples y directas. El texto actual junta dos ideas en una sola oración larga con lenguaje administrativo («cuya residencia informada corresponda a»); la propuesta separa la oración en dos y usa una expresión más cercana al habla cotidiana.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T-buscadores-mayus",
+      "html_linea_aprox": "a.buscar-patentes / a.buscar-marcas",
+      "ubicacion_pantalla": "Portada — tarjeta «Patentes» y tarjeta «Marcas» › enlaces de búsqueda",
+      "original": "BUSCADOR DE PATENTES / BUSCADOR DE marcas",
+      "propuesto": "Buscador de patentes / Buscador de marcas",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Se deben evitar frases solo en mayúsculas. Además de la mayúscula sostenida, hay una inconsistencia entre tarjetas gemelas (una en mayúscula total, la otra mezclada), lo que da una sensación de descuido editorial.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T-plataforma-datos-mayus",
+      "html_linea_aprox": "section banner Plataforma de Datos",
+      "ubicacion_pantalla": "Sección «Plataforma de Datos» › subtítulos",
+      "original": "INFORMACIÓN TECNOLÓGICA DE PATENTES / PROGRAMA DE DESARROLLO / PRODUCTIVO SOSTENIBLE",
+      "propuesto": "Información tecnológica de patentes / Programa de desarrollo productivo sostenible",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Los tres subtítulos del banner están en mayúscula sostenida, dificultando la lectura.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T-modal-buscar-mayus",
+      "html_linea_aprox": "div.box-buscar h3 / h4",
+      "ubicacion_pantalla": "Modal «Buscar y tramitar» (se abre con el ícono de lupa, 1 clic) › título y opciones",
+      "original": "BUSCAR Y TRAMITAR / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Marcas / Patentes",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Mayúscula sostenida en el título y las opciones del modal de búsqueda, componente compartido de la cabecera; conviene corregirlo en origen.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "T-guias-usuarios",
+      "html_linea_aprox": "a.btn2 (sección «Guías para usuarios»)",
+      "ubicacion_pantalla": "Sección «Guías para usuarios», portada › enlaces «Descargar guía de marcas» y «Descargar guía de patentes»",
+      "original": "Descargar guía de marcas / Descargar guía de patentes",
+      "propuesto": "Guía de marcas (PDF, 16,4 MB) — Guía práctica para solicitar el registro de una marca en Chile. / Guía de patentes (PDF, 12,5 MB) — Guía práctica para solicitar una patente en Chile.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": ["LC-1.2.4-08"],
+      "motivo": "Los enlaces a documentos deben indicar título, formato y peso, y traer una breve descripción del contenido. Ninguno de los dos enlaces muestra esta información; los pesos (16,4 MB y 12,5 MB) fueron verificados hoy vía cabecera HTTP y deben mantenerse actualizados si el archivo cambia.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "T-footer-documentos",
+      "html_linea_aprox": "HTML-footer-logos (carrusel de organismos)",
+      "ubicacion_pantalla": "Pie de página › fila de logos institucionales, bloque de documentos («Plan de Acción de Cumplimiento 2025», «Teletrabajo», «Código de Ética INAPI 2026»)",
+      "original": "Plan de Acción de Cumplimiento 2025 (PDF) / Teletrabajo / Código de Ética INAPI 2026",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025. / Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional. / Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": ["LC-1.2.4-08"],
+      "motivo": "Los tres documentos del carrusel del pie carecen de descripción breve, y dos de ellos («Teletrabajo», «Código de Ética INAPI 2026») tampoco indican formato ni peso. Pesos verificados hoy vía cabecera HTTP (293 KB, 3,3 MB, 590 KB). Patrón de sitio: fila del carrusel de logos institucionales del pie, compartida entre páginas.",
+      "patron_sistema": true
+    }
+  ],
+  "nota_final_tic": "Alcance visible (CLAUDE.md §20): solo lo que se ve en pantalla o se abre con un clic. Sin usar el título de pestaña ni metadatos del head como evidencia.\n\nLC-1.3.1-01 cumple porque hay apoyos visuales visibles (banners, tarjetas con imagen, íconos, logos). La pregunta del instrumento no evalúa texto alternativo ni WCAG; si el Equipo UX quiere mejorar descripciones de imagen para quien no ve la pantalla, tratarlo aparte (Usabilidad/accesibilidad), sin bajar el % de Lenguaje claro.\n\nPatrones de layout (PCT en menú, mayúsculas del modal de búsqueda y del banner Plataforma de Datos, footer institucional): corregir en el origen compartido; al publicar se corrige en todas las URLs que usan esos componentes.\n\nDocumentos del pie/guías: LC-1.2.4-07 principal + LC-1.2.4-08 relacionado. Pesos verificados hoy contra los archivos publicados; la guía de marcas cambió de tamaño respecto a la auditoría anterior (17.156.031 bytes ≈ 16,4 MB) — mantener actualizado si el archivo vuelve a cambiar.\n\nUsabilidad (18) y Seguridad (10) fuera del % (§23).\n\nPriorizar: documentos sin formato/peso/descripción (severidad alta); título «Observancia» con jerga legal, fecha de actualización y mayúsculas sostenidas (severidad media).\n\nTítulos con jerga (ej. Observancia): corregir el rótulo visible o añadir la glosa en el mismo bloque de título, no solo en un subtítulo aparte. Misma lógica aplica en menú, tooltips y otras URLs del sitio."
+}

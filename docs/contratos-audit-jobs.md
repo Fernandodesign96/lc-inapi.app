@@ -1,6 +1,6 @@
 # Contratos API — `audit-jobs` y claim del worker local
 
-**Estado:** especificación (Fase 4 paso 3) — 2026-08-17  
+**Estado:** especificación — actualizado **2026-08-21**  
 **Arquitectura:** [ADR 0011](adr/0011-worker-local-on-demand-vercel.md)  
 **Orquestación:** [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) — Claude Code §17 **sin** cambiar skills/MCP  
 **Implementación:** Fase 4 paso 4 (`feat/mvp-audit-jobs-worker`)
@@ -17,7 +17,8 @@
 | Auth MVP | Sin login. Mitigación opcional: secreto compartido worker ↔ API (`X-Worker-Secret`). |
 | UX | La UI **no** muestra JSON/HTML crudo ni obliga al funcionario a copiar ids. El `id` del job puede vivir en query/poll interno. |
 | Dominios URL | Solo `inapi.cl` / `tramites.inapi.cl` (misma regla que el formulario actual). |
-| Checklist | Nuevas auditorías: `version_checklist: "2.1"`, **47** criterios. |
+| Checklist | **`version_checklist: "3.0"`**, **51** `LC-*` (no 47 A–H). |
+| Backend Nest/AWS | Propuesta antigua — **fuera de alcance**. |
 
 ---
 
@@ -261,7 +262,7 @@ o
 
 ### Qué **no** hace el worker vía API
 
-- No recibe el HTML completo ni el JSON de 47 criterios en el claim (los genera Claude Code en el PC).
+- No recibe el HTML completo ni el JSON de **51** criterios en el claim (los genera Claude Code en el PC).
 - No modifica `.claude/skills/*` ni `CLAUDE.md` §17.
 - No llama Anthropic API HTTP operativa.
 

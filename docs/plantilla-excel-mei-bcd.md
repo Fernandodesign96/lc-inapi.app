@@ -1,8 +1,8 @@
-# Plantilla Excel — Entrega MEI (criterios B, C, D)
+# Plantilla Excel — Entrega MEI (sustituciones / evidencia)
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-06-28 (actualizado 2026-07-29 — META MEI 10 URLs + Fuentes + reauditoría §17) |
+| **Fecha** | 2026-08-21 (META MEI 10 URLs; criterio_id preferir `LC-*` v3.0) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
 | **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
@@ -20,7 +20,7 @@
 | E | `capa` | `VISIBLE` \| `METADATA` \| `SISTEMA` |
 | F | `texto_original` | Texto literal visible o en `<title>` |
 | G | `texto_propuesto` | Redacción en lenguaje claro |
-| H | `criterio_id` | Un solo id: B1–B7, C1–C7, D1, D7, etc. |
+| H | `criterio_id` | Preferir **`LC-*`** (v3.0). Legado B/C/D solo histórico. |
 | I | `motivo` | Una frase: por qué corrige el criterio |
 | J | `fragmento_busqueda` | Snippet HTML único para «Buscar en todo el proyecto» (con `class`/`id`/`href`) |
 | K | `html_linea_aprox` | Opcional — línea Ctrl+U aproximada |

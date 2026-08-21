@@ -3,183 +3,146 @@
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Versión** | 1.0.0 |
-| **Tipo** | Web app — Next.js (Vercel) + Claude Code Pro (orquestador local, WSL) + Chroma RAG (local / servidor TI) + Playwright MCP + @xenova/transformers |
+| **Versión** | 2.0.0 |
+| **Última actualización** | 2026-08-21 |
+| **Tipo** | Web app — Next.js (Vercel) + Claude Code (orquestador PC/WSL) + Chroma RAG + Playwright MCP + @xenova/transformers + LangChain.js |
 | **Gestor de paquetes** | Bun |
-| **Última actualización** | 2026-07-21 |
+| **Checklist vigente** | PTD-LC **v3.0** — **51** criterios `LC-*` |
+| **Muestra META MEI** | **10 URLs** (`mei-meta-mei-urls.ts`) |
 
-Propuesta técnica y acuerdos: [PROPUESTA_TECNICA_INTEGRAL.md](PROPUESTA_TECNICA_INTEGRAL.md).
-Decisiones clave: [ADR 0008](adr/0008-typescript-sobre-python-para-rag.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md).
+Propuesta técnica: [PROPUESTA_TECNICA_INTEGRAL.md](PROPUESTA_TECNICA_INTEGRAL.md).  
+ADR clave: [0008](adr/0008-typescript-sobre-python-para-rag.md) · [0009](adr/0009-claude-code-pro-como-orquestador.md) · [0010](adr/0010-rag-local-chroma-xenova-transformers.md) · [0011](adr/0011-worker-local-on-demand-vercel.md).  
+Despliegue: [despliegue/despliegue-hibrido.md](despliegue/despliegue-hibrido.md).
+
+**Propuestas antiguas (no se implementan):** NestJS, Prisma, Supabase Auth/Postgres, AWS Lambda/API Gateway, Claude API de pago, Firebase — ver [ADR 0002](adr/0002-stack-next-bun-supabase.md) (obsoleto en datos), [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md).
 
 ---
 
-## 1. AI Stack — 5 capas
+## 1. AI Stack — 5 capas (vigente)
 
 ### Capa 1 — Infraestructura
 
 | Entorno | Tecnología |
 | --- | --- |
-| Desarrollo | WSL local (Ubuntu, Bun, Node 20) |
-| Frontend | Vercel (tier gratuito) |
-| Backend futuro | Railway (tier gratuito) — fase posterior, no bloqueante |
-| BD futura | Supabase (PostgreSQL 16, tier gratuito) — fase posterior |
-| Producción IA | Servidor interno TI de INAPI (TI INAPI) — fase final |
-
-Chroma corre como proceso local en desarrollo (`chroma run --path ./rag/chroma_db --port 8000`) y se copia al servidor TI en producción. **Ningún documento interno sale a internet.**
+| Desarrollo / auditoría | WSL o PC INAPI (Bun, Claude Code, Chroma `:8000`) |
+| Frontend | **Vercel** (Next.js App Router) |
+| Código y CI | **GitHub** + GitHub Actions |
+| Persistencia MVP | Archivos JSON en el repo (`data/claude-audits/`, `data/jobs/`) |
+| Login | **Ninguno** — acceso libre personal INAPI |
 
 ### Capa 2 — Modelo
 
 | Componente | Tecnología |
 | --- | --- |
-| Embeddings | `@xenova/transformers` (NPM) — modelo `Xenova/paraphrase-multilingual-MiniLM-L12-v2` (~400 MB, offline en CPU) |
-| Análisis LC | Claude Code Pro (suscripción existente, sin API key, sin costo adicional) |
+| Orquestación / análisis LC | **Claude Code** (cuenta institucional) |
+| Embeddings | **`@xenova/transformers`** — `Xenova/paraphrase-multilingual-MiniLM-L12-v2` (CPU, offline) |
 
-### Capa 3 — Data (dos colecciones Chroma, completamente aisladas)
+### Capa 3 — Data (RAG + catálogo)
 
-**Colección A — documentos normativos** (fuente: `documentos/`, en `.gitignore`):
-- `meta-mei.pdf` (**principal** — marco de calidad web / servicios digitales; las citas `CW` del checklist no son un PDF aparte)
-- `lenguaje-claro-recomendaciones.pdf`, `instrumento-evaluacion-sitios-web.pdf`, `instrumento-evaluacion-servicios-digitales-transaccionales.pdf`
-- `ui-kit-gobierno-3.0.1.pdf` (opcional recomendado)
+**Colección A** (`ingest:a`): PDFs en `documentos/` (gitignore) — Meta MEI, RLC, IEW, IESD, UI Kit.  
+**Colección B** (`ingest:b`): catálogo `checklist-criteria-lc-ptd.json`, mapa PTD, Word extraído, JSON de auditorías, ADRs, skills/prompts relevantes.
 
-**Colección B — material de trabajo del repo**:
-- `data/checklist-criteria.json` (fuente de verdad de los 39 criterios)
-- `data/claude-audits/**/*.json` (JSONs canónicos históricos)
-- `prompts/claude-code/*.md` y `prompts/devtools/*.md` (cuando existan)
-- `docs/adr/*.md`
-
-**Nunca entran al RAG:** datos de usuarios INAPI, RUT/RUN de personas, solicitudes de marca, resultados del buscador de anterioridades, credenciales.
+**Catálogo máquina:** 51 preguntas `LC-*` · `version_checklist: "3.0"`.  
+Históricos 39/47 A–H = solo legado.
 
 ### Capa 4 — Orquestación
 
 ```mermaid
 flowchart TD
-  subgraph wsl [Entorno WSL — Desarrollo]
-    CC[Claude Code Pro\nTerminal WSL]
-    CLAUDE_MD[.claude/CLAUDE.md\nContexto permanente]
-    SKILLS[.claude/skills/\nConocimiento especializado]
-    HOOKS[Hooks\nvalidate-claude-audits.ts]
-  end
+  CC[Claude Code]
+  CM[CLAUDE.md + prompts + skills]
+  SA[5 sub-subagentes §17]
+  PW[Playwright MCP]
+  RAG[RAG MCP]
+  CH[(Chroma A/B)]
+  XE[Xenova embeddings]
+  LC[LangChain.js ingest]
+  Z[Zod validate]
+  JSON[data/claude-audits]
+  V[Vercel UI/PDF/Excel]
 
-  subgraph mcp [MCP Servers]
-    PW[Playwright MCP\nnpx @playwright/mcp]
-    RAG[RAG MCP\nbun rag/mcp-server.ts]
-  end
-
-  subgraph chroma [Chroma Local]
-    CA[(Colección A\nnormativos)]
-    CB[(Colección B\nmaterial repo)]
-  end
-
-  subgraph output [Salida]
-    JSON[JSON canónico\ndata/claude-audits/]
-  end
-
-  CC -->|lee contexto| CLAUDE_MD
-  CC -->|carga bajo demanda| SKILLS
-  CC -->|captura HTML| PW
-  CC -->|consulta criterios y precedentes| RAG
-  RAG --> CA
-  RAG --> CB
-  CC -->|genera JSON| JSON
-  JSON -->|valida automáticamente| HOOKS
+  CC --> CM
+  CC --> SA
+  CC --> PW
+  CC --> RAG
+  RAG --> CH
+  LC --> XE --> CH
+  CC --> JSON --> Z --> V
 ```
-
-Componentes:
 
 | Componente | Descripción |
 | --- | --- |
-| **Claude Code Pro** | Orquestador principal; corre en terminal WSL |
-| **CLAUDE.md** | Contexto permanente del proyecto en cada sesión |
-| **Skills** | `.claude/skills/auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md` |
-| **Subagents** | Un subagente por URL para auditorías en paralelo; dentro de cada URL, 5 sub-subagentes por grupo temático (A+E, B+C, D, F, G+H) |
-| **Hooks** | Validación automática de JSONs al guardarse |
-| **Playwright MCP** | Navega URLs, extrae HTML completo |
-| **RAG MCP** | Expone colecciones A y B a Claude Code como herramientas de búsqueda semántica |
-| **LangChain.js** | Orquesta los pipelines RAG (TypeScript, no Python) |
+| Claude Code | Orquesta captura, RAG, evaluación 51 criterios, JSON |
+| CLAUDE.md / prompts / skills | Contrato editorial y operativo |
+| §17 | Cinco sub-subagentes por bloques de indicadores LC |
+| Playwright MCP | HTML/DOM real (y sesión ClaveÚnica si aplica) |
+| LangChain.js | Pipeline de **ingesta** (troceo → embed → Chroma) |
+| Xenova | Embeddings locales |
+| Chroma + MCP | Búsqueda semántica A/B |
+| Zod / Hooks | `validate:claude-audits` |
 
 ### Capa 5 — Aplicación
 
 | Componente | Estado |
 | --- | --- |
-| `/auditar` en Next.js | Operativo en Vercel |
-| JSONs canónicos | 9 URLs operativas en `data/claude-audits/` (piloto junio 2026) |
-| Informes PDF | `GET /api/claude-audits/[id]/export/pdf` operativo |
-| Excel consolidado MEI INAPI | Operativo: `bun run export:mei-xlsx`, API `/api/mei-calidad-web/export/*`, UI `/auditar/mei-calidad-web`; plantilla y columnas en [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md); flujo DevTools complementario en [`stack-orquestación.md`](stack-orquestación.md) |
+| `/auditar`, historial, MEI | Operativo |
+| 10 URLs META MEI | Cable en `mei-meta-mei-urls.ts` |
+| PDF / Excel | APIs + `export:mei-xlsx` |
+| Worker on-demand | `audit-jobs` + worker PC (ADR 0011) |
 
 ---
 
-## 2. Historial de fases completadas
+## 2. Historial breve
 
-### 2.1 Fase 1 — Mock UX (completada)
-
-- No hay llamadas productivas a Supabase ni a Claude desde la app.
-- Contratos: `data/checklist-criteria.json`, `data/audit-fixtures/*.json`, `src/schemas/checklist.ts`.
-- Next en `frontend/` sirve flujo: portal `/` → ingreso URL `/auditar` → resultado `/auditar/resultado`.
-- Inventario mock 22 URLs Clarity con `type_url` y filtros en `/auditar`.
-
-### 2.2 Fase 1.5 — Piloto auditoría con Claude (completada, 2026-06-08)
-
-- **Evaluación:** Proyecto Claude en interfaz web; el operador exporta JSON y lo versiona en `data/claude-audits/`.
-- **Adaptador:** `src/schemas/claude-audit-pilot.ts` (`parseClaudeAuditFile` → `strictAuditRecordSchema`).
-- **API:** `GET /api/claude-audits/[id]` y `GET /api/claude-audits/[id]/export/pdf`.
-- **UI:** acordeón piloto en `/auditar`; resultado con siete bloques y PDF descargable.
-- **9 URLs operativas** (7 `sitioweb` + 2 `tramites`).
-
-### 2.3 CI y despliegue (operativo)
-
-- **Vercel:** root `frontend`, install/build desde raíz del monorepo con Bun.
-- **GitHub Actions:** `typecheck:all` + `lint` en cada push/PR.
+| Fase | Qué quedó |
+| --- | --- |
+| Mock UX | Fixtures Zod, inventario Clarity |
+| Piloto 1.5 | JSON + PDF (9 URLs junio); evolucionó a META MEI 10 |
+| Claude Code + RAG | Stack actual §17 + Chroma + Playwright |
+| Nest/AWS/Supabase | **Retirados** como plan de producto |
 
 ---
 
 ## 3. Contratos de datos
 
-- **Catálogo:** `checklistCriteriaFileSchema` ↔ `data/checklist-criteria.json` (fuente de verdad de los 39 criterios).
-- **Evaluación por criterio:** `criterionEvaluationSchema` × 39 (incluye `severidad` y `comentario` opcionales).
-- **Auditoría completa:** `strictAuditRecordSchema` — 7 secciones (datos, resumen, pasos, criterios, observaciones por severidad, sustituciones 1:1, nota TIC).
-- **Validación:** Zod en `src/schemas/checklist.ts`; script `validate:claude-audits`; Hooks automáticos al guardar.
-- **Modelo lógico de datos y parseo:** [ADR 0007](adr/0007-modelo-datos-parseo-pre-conexiones.md) (diagrama ER, mapeo Zod ↔ columnas Postgres, pendiente actualización de flujo).
+- Catálogo: `data/checklist-criteria-lc-ptd.json` + Zod en `src/schemas/checklist.ts` (**51** `LC-*`).  
+- Auditoría: JSON canónico en `data/claude-audits/` + `claude-audit-pilot.ts`.  
+- Validación: `bun run validate:claude-audits`.  
+- Parseo/embeddings: [ADR 0007](adr/0007-modelo-datos-parseo-pre-conexiones.md).
 
 ---
 
-## 4. Flujo principal (pipeline de auditoría automatizado)
+## 4. Flujo de una auditoría (1 URL)
 
-1. Claude Code Pro recibe la URL a auditar.
-2. **Playwright MCP** navega la URL y extrae el HTML completo.
-3. **RAG MCP** consulta la Colección B (criterios, precedentes) y la Colección A (fuentes normativas) para proveer contexto semántico relevante.
-4. Claude Code Pro analiza el HTML contra los 39 criterios del checklist v1.1, apoyado en el contexto del `CLAUDE.md` y las Skills cargadas.
-5. Claude Code Pro genera el JSON canónico (`strictAuditRecordSchema`) y lo guarda en `data/claude-audits/`.
-6. El Hook valida automáticamente el JSON con `validate-claude-audits.ts`; si falla, Claude Code Pro corrige antes de finalizar.
-7. El operador verifica en `/auditar/resultado` y descarga el informe PDF.
+1. Prompt `audit-una-url` (una sola URL).  
+2. Playwright captura HTML (+ a11y).  
+3. Inventario visible + catálogo 51 + consultas RAG A/B.  
+4. Cinco sub-subagentes §17.  
+5. Consolidación CMS (§22) → JSON → Zod.  
+6. Cable UI / PDF / Excel / commit.
 
-Para lotes de URLs, los pasos 1–6 corren en paralelo con subagents (un subagente por URL).
+Lotes: `audit-lote.md`. Worker: claim job → mismo §17.
 
 ---
 
 ## 5. Seguridad
 
-Ver [SECURITY.md](SECURITY.md) para el detalle completo. Resumen:
-
-- Todo el procesamiento de IA corre localmente en WSL; ningún documento interno sale a internet.
-- `documentos/` y `rag/chroma_db/` están en `.gitignore`; los PDFs y vectores no se versionan.
-- Los embeddings se generan con `@xenova/transformers` en CPU local, sin llamadas a APIs externas.
-- Claude Code Pro lee los documentos como texto en el contexto local de la sesión; no los envía a Anthropic.
-- Datos que nunca entran al RAG: RUT/RUN, solicitudes de marca, credenciales.
+Ver [SECURITY.md](SECURITY.md). Resumen: procesamiento local; `documentos/` y `chroma_db/` fuera de git; Xenova offline; sin PII en RAG; sin login MVP.
 
 ---
 
-## 6. Layout del repo (estado actual vs. objetivo)
+## 6. Layout del repo
 
-| Directorio | Estado | Descripción |
-| --- | --- | --- |
-| `frontend/` | Operativo | Next.js App Router, workspace Bun |
-| `src/schemas/` | Operativo | Esquemas Zod compartidos (equivalente a `packages/contracts`) |
-| `data/` | Operativo | Checklist, fixtures, JSONs canónicos |
-| `docs/` | Operativo | ADRs, ARCHITECTURE, ROADMAP, etc. |
-| `.claude/` | **Por crear — Fase 0** | `CLAUDE.md` y Skills |
-| `rag/` | **Por crear — Fase 2** | Workspace TypeScript: ingesta, query, MCP server |
-| `documentos/` | **Por crear localmente** | PDFs normativos (gitignored, nunca al repo) |
+| Directorio | Estado |
+| --- | --- |
+| `frontend/` | Next operativo |
+| `src/schemas/`, `src/lib/` | Zod, MEI, worker helpers |
+| `data/` | Catálogo, auditorías, jobs, fixtures |
+| `.claude/` | CLAUDE.md, prompts, skills, diagramas |
+| `rag/` | ingest A/B, MCP, Chroma path |
+| `documentos/` | PDFs locales (gitignore) |
+| `docs/` | ADR, PRD, roadmap, despliegue |
 
 ---
 
-*Ver también [DATABASE.md](DATABASE.md) · [ROADMAP.md](ROADMAP.md) · [SECURITY.md](SECURITY.md). El índice de ADR está en el [README.md](../README.md).*
+*Ver [DATABASE.md](DATABASE.md) · [ROADMAP.md](ROADMAP.md) · [README.md](../README.md).*

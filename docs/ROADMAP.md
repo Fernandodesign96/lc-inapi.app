@@ -3,6 +3,8 @@
 
 **Última actualización:** 2026-08-21
 
+**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*`**. Muestra META MEI: **10 URLs**. **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
+
 ### Checklist editorial (ago-2026)
 
 - [x] **Checklist v2.1 — 47 criterios A–H** (histórico) en `data/checklist-criteria.json` + Zod.
@@ -55,15 +57,15 @@
 
 **Contexto (reuniones 2026-06-01 y 2026-06-02):** priorizar **valor entregable** (informe PDF + sustituciones de texto en HTML) sobre infraestructura completa (sin Supabase/Nest obligatorio en esta etapa). Objetivo de negocio original: **10 páginas web** auditadas antes de fin de año; en repo operan **9 URLs** del piloto junio 2026 (7 `sitioweb` + 2 `tramites`). El inventario de **22 URLs** (Clarity + editorial) sigue como referencia editorial.
 
-**Proveedor IA del piloto:** **Claude** (Proyecto «Auditor Lenguaje Claro URLs INAPI») — comparación con Gemini en home [`www.inapi.cl`](https://www.inapi.cl/) documentada en [`docs/Comparación Auditoría URL Home INAPI Gemini-Claude.md`](Comparación%20Auditoría%20URL%20Home%20INAPI%20Gemini-Claude.md). **No** hay sincronización automática Proyecto Claude ↔ app; flujo: export JSON → repo → MVP → PDF.
+**Proveedor IA del piloto:** **Claude** / **Claude Code**. **No** hay sync automática chat ↔ app; flujo: JSON → repo → MVP → PDF.
 
-**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/stack-orquestación.md`](stack-orquestación.md) · [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`docs/Propuesta Análisis LC URLs.md`](Propuesta%20Análisis%20LC%20URLs.md) (acuerdos reunión).
+**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/stack-orquestación.md`](stack-orquestación.md) · [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
 
 ### Hecho en repo (código + datos, merge a `main` 2026-06-08)
 
 - [x] Gema Gemini y Proyecto Claude configurados (checklist v1.1 en conocimiento del agente).
 - [x] Auditoría piloto **home** con ambos agentes; decisión **Claude** por robustez editorial.
-- [x] Documentos operativos: comparación Gemini/Claude, propuesta reunión, flujo piloto, sesión 2026-06-05.
+- [x] Documentos operativos del piloto (flujo, stack MEI); comparación/actas sueltas **retiradas** (higiene 2026-08).
 - [x] **9 JSON canónicos** en [`data/claude-audits/`](../data/claude-audits/) (URLs 1–9; ver tabla en [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §2).
 - [x] Esquema y adaptador: [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) (`parseClaudeAuditFile` → `strictAuditRecordSchema` + metadatos piloto).
 - [x] **UI `/auditar`:** tarjeta + acordeón piloto debajo del ingreso de URL ([`frontend/src/components/auditar-claude-pilot-section.tsx`](../frontend/src/components/auditar-claude-pilot-section.tsx); fuente [`frontend/src/lib/claude-audits-launch.ts`](../frontend/src/lib/claude-audits-launch.ts)).
@@ -96,8 +98,8 @@
 
 ### Fuera de alcance Fase 1.5 (explícito)
 
-- Login institucional y persistencia en Supabase (→ Fase 2).
-- Evaluación automática vía API Anthropic desde la app (→ Fase 2; piloto es manual + JSON en repo).
+- Login / Supabase / Nest (propuestas antiguas **retiradas**; MVP = acceso libre INAPI).
+- Evaluación vía API Anthropic (piloto = Claude Code + JSON en repo).
 - Inventario completo de 22 URLs con evaluación real en esta oleada (solo subconjunto piloto).
 - Producto paralelo de «control de cambios» / diff automático entre auditorías (backlog).
 - Captura automática Cheerio/Playwright (→ Fase 3).
@@ -236,10 +238,8 @@ Rama: `docs/mvp-worker-on-demand` (desde `main` con checklist v2.1).
 
 - [x] One-pager o borrador ADR: worker local + Claude Code, **sin** API Anthropic operativa; horario 8–18; Vercel orquesta/muestra → [`docs/adr/0011-worker-local-on-demand-vercel.md`](adr/0011-worker-local-on-demand-vercel.md).
 - [x] ROADMAP/DEVLOG: historial (fecha + nombre libre), sin auth, persistencia inicial SQLite o `data/jobs/`.
-- [x] Borrador cotización API Anthropic (método + placeholders) → [`docs/cotizacion-anthropic-api-evidencia.md`](cotizacion-anthropic-api-evidencia.md) — solo evidencia de costo.
-- [x] Commits atómicos:
-  1. `docs(adr): borrador worker local on-demand sin API operativa`
-  2. `docs: cotización Anthropic API como evidencia de costo (placeholders)`
+- [x] Cotización API Anthropic — **documento retirado** (higiene 2026-08); decisión: **no** operar con Anthropic API ([ADR 0011](adr/0011-worker-local-on-demand-vercel.md)).
+- [x] Commits atómicos (ADR 0011; cotización retirada del repo).
 
 **Nota:** este paso **no** requiere vincular Cursor ni cuenta Vercel. El túnel y el cableado Continuar→job son pasos 3–4.
 
@@ -324,16 +324,12 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 ---
 
-## Backlog — persistencia y backend (fase posterior)
+## Backlog — producto (sin Nest / Supabase Auth / AWS LC)
 
-Estos ítems no bloquean las Fases 0–5. Se inician cuando el producto necesite persistencia multiusuario o autenticación institucional.
+Las propuestas Nest, Railway, Supabase Auth y AWS Lambda LC fueron **retiradas** (higiene 2026-08). MVP = Claude Code + JSON + Vercel, **sin login**.
 
-- [ ] Proyecto **Supabase** (PostgreSQL 16, Auth, RLS) según [`docs/DATABASE.md`](DATABASE.md)
-- [ ] API de dominio en **Railway** (tier gratuito) — decisión de tecnología pendiente de ADR específico cuando se inicie
-- [ ] Autenticación institucional con TI INAPI (magic link, Google Workspace u otro)
-- [ ] Histórico por URL en UI con persistencia real (BD; distinto del historial versionado MVP ya en frontend)
-- [ ] Auditorías programadas (cron)
-- [ ] Roles (revisor vs editor)
+- [ ] Auditorías programadas (cron) — sobre worker local / jobs si el producto lo pide
+- [ ] Roles (revisor vs editor) — solo si jefatura lo exige; hoy acceso libre
 - [ ] Panel de métricas agregadas
 - [x] **Historial versionado por URL en UI** (`feat/frontend-audit-history`, jul-2026): `/auditar/historial` (índice + filtro Trámites/Sitio Web) y `/auditar/historial/[rank]` (fechas vigente + `history[]`); botón en ingreso de URL; ficha Clarity e inventario Clarity enlazan al historial; `CLARITY_AUDIT_ID_SET` incluye ids históricos para abrir informes en `/auditar/resultado`.
 - [x] **MEI Calidad Web PTD en UI** (`feat/mei-calidad-web-export-ui` + `10-urls-meta-mei-excel`, jul-2026): módulo `/auditar/mei-calidad-web` con tablero trimestral jerárquico (hito→actividad); export XLSX MEI institucional + Fuentes; muestra META MEI 10 URLs (3 §17 el 2026-07-29).

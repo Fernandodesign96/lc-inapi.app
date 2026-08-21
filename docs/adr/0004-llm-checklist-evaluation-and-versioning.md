@@ -1,32 +1,86 @@
-# ADR 0004 — Evaluación con LLM y versionado de prompts
+# ADR 0004 — Evaluación con LLM, captura Playwright y versionado
 
 ## Estado
 
-Aceptado — 2026-05-13 · Nota de actualización: 2026-07-21
+**Aceptado — 2026-05-13 · Actualizado — 2026-08-21**
 
-> **Actualización (2026-07-21):**
-> - **LLM en uso:** en las fases actuales (Fases 0–4 del procedimiento de implementación), el LLM es **Claude Code Pro** (suscripción existente, sin API key, sin costo adicional) — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md). La Anthropic API de pago se re-evalúa en fases futuras si el chatbot del sitio web la requiere.
-> - **Captura HTML:** la decisión pendiente sobre Cheerio vs Playwright fue resuelta: **Playwright MCP** fue elegido como herramienta de captura — ver [ADR 0009](0009-claude-code-pro-como-orquestador.md).
-> - El **contrato JSON** (`criterionEvaluationSchema` × 39, `strictAuditRecordSchema`), la **validación Zod**, los **reintentos** y el **versionado** de `checklist_version` / `prompt_version` siguen siendo la fuente de verdad independientemente del proveedor LLM.
+## Resumen en lenguaje claro
+
+| Pregunta | Respuesta hoy |
+| --- | --- |
+| **¿Qué es el LLM en este proyecto?** | **Claude Code** (suscripción institucional): no solo “responde un prompt”, sino que **orquesta** captura, RAG, skills, sub-subagentes y escritura del JSON. |
+| **¿Cómo se captura la página?** | **Playwright MCP** — abre el navegador real y entrega el HTML/DOM que ve la ciudadanía. |
+| **¿Cheerio?** | Propuesta antigua de scrapeo liviano. **No se usa** como camino principal. |
+| **¿API Anthropic de pago?** | **No operativa** en el MVP ([ADR 0011](0011-worker-local-on-demand-vercel.md)). |
+| **¿Cuántos criterios?** | **51** códigos `LC-*`, checklist **v3.0**. |
 
 ## Contexto
 
-Los 39 criterios requieren interpretación lingüística. Un LLM puede acelerar la evaluación, pero introduce **variabilidad**, **costo** y riesgos de **alucinación**. El checklist y las fuentes (RLC, CW) deben permanecer **trazables**.
+Auditar lenguaje claro exige juicio lingüístico. Un LLM acelera, pero puede alucinar o variar. Por eso:
 
-## Decisión
+1. El instrumento (51 preguntas PTD) es la verdad editorial.  
+2. Playwright aporta **evidencia** de la página.  
+3. El RAG (Chroma + Xenova) aporta **fundamento** normativo/precedentes.  
+4. Zod valida la **salida**.  
+5. Un humano / Equipo UX revisa la entrega CMS (§22).
 
-1. El prompt incluye: rol, **criterios completos** (id, texto, verificación, fuente), texto a auditar, y **formato de salida obligatorio** (JSON compatible con `criterionEvaluationSchema` × 39).
-2. Cada ejecución persiste `prompt_version` junto a `checklist_version`.
-3. La respuesta del LLM se valida con **Zod**; si falla, política de **reintento** acotado o degradación a “revisión manual requerida”.
-4. La **exportación** y el uso oficial requieren **validación humana** (requisito de producto del MVP conceptual).
+## Decisión 1 — El LLM orquesta todo el pipeline
+
+**Claude Code** (Pro/Team institucional) es el orquestador ([ADR 0009](0009-claude-code-pro-como-orquestador.md)):
+
+| Pieza | Función |
+| --- | --- |
+| `.claude/CLAUDE.md` | Constitución: reglas §5, §17, §20–§23, nomenclatura LC |
+| Prompts | `audit-una-url.md`, `audit-lote.md`, `audit-oro-s22.md` |
+| Skills | `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios` |
+| Sub-subagentes §17 | Cinco especialistas por bloques de indicadores LC |
+| MCP Playwright | Captura |
+| MCP RAG | Consultas a Colecciones A/B |
+| Hooks / `validate:claude-audits` | Cierre con Zod |
+
+No hay un servicio Python intermedio ni Nest que “llame al LLM”: **Claude Code es el proceso**.
+
+## Decisión 2 — Captura con Playwright MCP (no Cheerio)
+
+| Opción | Qué era | Estado |
+| --- | --- | --- |
+| **Cheerio** | Parsear HTML estático sin navegador | **Descartado** como captura principal (no ejecuta JS ni menús dinámicos) |
+| **Playwright MCP** | Navegador automatizado vía MCP | **Decisión final** — evidencia = DOM real |
+| Pegado manual | Fallback UX | Solo si la página bloquea o falta sesión |
+
+**Por qué Playwright:** en `inapi.cl` / `tramites.inapi.cl` el contenido crítico aparece tras JS, menús y a veces login (ClaveÚnica + `storageState`). Cheerio vería plantillas incompletas.
+
+Detalle sesión autenticada: [`fase-3-3-captura-auth-claveunica.md`](../fase-3-3-captura-auth-claveunica.md).
+
+## Decisión 3 — Versionado de checklist y de “prompt”
+
+1. Cada JSON persiste `version_checklist` (hoy **`"3.0"`**).  
+2. Se documenta la versión de orquestación / prompts en metadatos o DEVLOG cuando cambia el contrato (§5 / skills).  
+3. La salida se valida con Zod ([ADR 0003](0003-contract-first-mocking-with-zod.md)): si falla → corregir y revalidar (no mergear JSON roto).  
+4. Exportación oficial (PDF/Excel) asume JSON ya validado; la **validación humana** sigue siendo requisito de producto para publicación en CMS.
+
+## Decisión 4 — Formato de salida
+
+- **51** filas `LC-*` (no A1–H1).  
+- Estados: `cumple` | `incumple` | `no_aplica`.  
+- Entrega CMS-first (§22): comentarios entendibles para editor, no “solo `alt=`”).  
+- Alcance §23: Usabilidad/Seguridad catalogadas; **no** entran al % LC 2026 salvo solapes explícitos.
 
 ## Consecuencias
 
-- **Positivo:** reproducibilidad parcial por versiones; defensa ante cambios de modelo.
-- **Negativo:** mantenimiento de prompts y pruebas de regresión por URL de referencia.
-- **Pendiente:** ADR hijo sobre elección **Cheerio vs Playwright** para captura y su impacto en tokens.
+- **Positivo:** un solo orquestador; captura real; contrato versionado; sin costo de API Claude por URL en el MVP.  
+- **Negativo:** depende del PC/WSL y de la cuenta institucional; auditorías largas (10–40 min).  
+- **Pendiente histórico “Cheerio vs Playwright”:** **cerrado** a favor de Playwright MCP.
 
-## Alternativas
+## Alternativas (no adoptadas)
 
-- **Solo reglas determinísticas:** baratas y estables, insuficientes para matices de lenguaje.
-- **Fine-tuning propio:** fuera de alcance MVP.
+| Alternativa | Motivo de no uso |
+| --- | --- |
+| Solo reglas determinísticas | Insuficientes para matices de lenguaje claro |
+| Fine-tuning propio | Fuera de alcance |
+| Claude API + Lambda | Propuesta antigua ([ADR 0006](0006-lc-evaluation-python-claude-aws.md)) — no se implementará |
+| Cheerio como captura principal | Pierde DOM dinámico |
+
+## Relación
+
+- [ADR 0003](0003-contract-first-mocking-with-zod.md) · [ADR 0009](0009-claude-code-pro-como-orquestador.md) · [ADR 0010](0010-rag-local-chroma-xenova-transformers.md) · [ADR 0011](0011-worker-local-on-demand-vercel.md)

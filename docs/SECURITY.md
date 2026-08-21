@@ -1,74 +1,75 @@
-# Seguridad y datos — LC INAPI (Fase 1 mock → Fase 2+)
+# Seguridad y datos — LC INAPI MVP
 
-**Última actualización:** 2026-07-23
+**Última actualización:** 2026-08-21
 
-Este documento resume **qué ya se cuida en el repo**, **qué se endureció en la Fase 1 mock**, y **qué falta afinar** cuando exista despliegue público, backend (Nest), Supabase y el pipeline de evaluación.
+Resumen de **qué se cuida hoy** con el stack Claude Code + Vercel (sin Nest, sin Supabase Auth, sin Claude API operativa).
+
+**Propuestas antiguas** (Nest, RLS Supabase, auth de servicio hacia Lambda): **no contempladas** en el MVP — ver [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md).
 
 ---
 
 ## 1. Política de datos en el repositorio
 
-- **Fixtures y documentación UX:** no incluir **RUN, nombres propios, correos ni volcados** que identifiquen a personas reales. Usar **personas y documentos ficticios** o material **anonimizado** acordado con TI/legal.
-- **Secretos:** nunca en `NEXT_PUBLIC_*` ni en commits. Service role de Supabase, claves Anthropic y similares solo en **entorno servidor** (ver [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)).
+- Fixtures y docs UX: **sin** RUN, nombres, correos ni volcados de personas reales (ficticios o anonimizados).  
+- Secretos: nunca en `NEXT_PUBLIC_*` ni en commits.  
+- No hay service role Supabase ni API key Anthropic en el camino productivo del MVP.  
+- Worker: `AUDIT_JOBS_WORKER_SECRET` solo en entorno local / servidor del PC (no commitear).
 
 ---
 
-## 2. Ya aplicado en Fase 1 (higiene)
+## 2. Higiene ya aplicada
 
 | Tema | Detalle |
 | --- | --- |
-| `.gitignore` | Patrones ampliados: `.env*`, excepción `!.env.example`, `.vercel/`, credenciales típicas (`*.pem`, `service-account*.json`, …), artefactos de cobertura y Playwright. |
-| Cliente | Sin `console.log` de URLs ingresadas en `/auditar` (evita fugas a consola y logs agregados). |
-| Fixture Notificaciones | JSON y doc UX alineados a **identidades ficticias**; `evaluador_uid` coherente con otros fixtures (`fixture@inapi.cl`). |
-| API fixtures | Allowlist de `fixtureId` en `GET /api/audit-fixtures/[fixtureId]` (mitiga path traversal); revisar auth y límites al exponer datos sensibles en producción. |
-| CI (GitHub Actions) | Workflow `CI` en `.github/workflows/ci.yml`: instalación con lock congelado, `typecheck:all` y `lint` en cada `push`/`pull_request` acordado (ver [README](../README.md) § despliegue). |
+| `.gitignore` | `.env*`, `.vercel/`, credenciales, cobertura, Playwright, `documentos/`, `rag/chroma_db/`, `auditorias/.auth/` |
+| Cliente | Sin loguear URLs ingresadas en consola |
+| API fixtures | Allowlist de `fixtureId` |
+| CI | `typecheck:all` + `lint` + install frozen |
+| JSON canónico | Anonimizar PII en citas/sustituciones; auditor = texto libre |
 
 ---
 
-## 3. Garantías del stack local IA (Fases 0–4)
-
-El stack de orquestación IA corre íntegramente en local (WSL). Las siguientes garantías son **arquitectónicas**, no solo reglas de configuración.
+## 3. Garantías del stack IA local
 
 | Garantía | Mecanismo |
 | --- | --- |
-| Ningún documento interno sale a internet | Todo el procesamiento corre en WSL; Chroma es un proceso local en el puerto 8000 |
-| Los PDFs normativos no se versionan | `documentos/` está en `.gitignore`; solo existe localmente y en el servidor TI |
-| Los vectores no se versionan | `rag/chroma_db/` está en `.gitignore` |
-| Los embeddings no llaman a APIs externas | `@xenova/transformers` corre 100 % offline en CPU tras la descarga inicial del modelo |
-| Claude Code no envía los PDFs a Anthropic | Los documentos se leen como texto en el contexto local de la sesión de WSL |
-| Colecciones A y B completamente aisladas | Scripts de ingesta separados (`ingest-a.ts` / `ingest-b.ts`); colecciones Chroma distintas; barrera arquitectónica, no solo configuración |
-| Datos sensibles INAPI fuera del RAG | RUT/RUN, solicitudes de marca, resultados del buscador de anterioridades, credenciales y tokens nunca se ingresan en las colecciones |
-| `storageState` Playwright | `auditorias/.auth/*.json` en `.gitignore`; cookies de sesión ClaveÚnica solo en disco local del auditor |
-| Caso G1 — HTML público | RUN/nombre en HTML estático público → incumplimiento editorial |
-| Caso G1 — pantalla autenticada | Datos del solicitante en su formulario → **no** es incumplimiento; evaluar claridad de etiquetas (ver `CLAUDE.md` §19) |
-| JSON canónico | Anonimizar PII del solicitante en citas y sustituciones; solo `evaluador_uid` del auditor puede ser nombre real |
+| Normativa no “sube” a la nube como PDF | Chroma + contexto local; ingest en WSL/PC |
+| PDFs fuera de git | `documentos/` gitignore |
+| Vectores fuera de git | `rag/chroma_db/` gitignore |
+| Embeddings offline | `@xenova/transformers` en CPU |
+| Colecciones A/B aisladas | `ingest:a` / `ingest:b` separados |
+| Sensibles fuera del RAG | RUT, marcas, anterioridades, credenciales |
+| Sesión ClaveÚnica | `storageState` solo en disco local gitignore |
+| Criterios LC públicos vs post-login | Reglas §19 CLAUDE.md (datos del solicitante ≠ incumplimiento G1-equivalente) |
+
+Checklist vigente: **51** `LC-*` v3.0. Calibraciones CMS (§22) evitan jerga HTML como mensaje principal.
 
 ---
 
-## 4. Pendiente — frontend y backend (fases posteriores no iniciadas)
+## 4. MVP sin login — riesgos aceptados y mitigaciones
 
-La **Etapa 1** del plan (Vercel + CI + piloto) quedó operativa. Los ítems siguientes aplican cuando exista un **backend de dominio** (Railway), **Supabase** y exposición pública más exigente. En las **Fases 0–4 actuales** (orquestación local con Claude Code Pro) no hay backend desplegado que los requiera.
+| Riesgo | Mitigación |
+| --- | --- |
+| URL pública de demo encolable | Secreto worker; horario 8–18; uso interno INAPI |
+| Disco Vercel efímero | Jobs/auditorías largas en PC ([ADR 0011](adr/0011-worker-local-on-demand-vercel.md)) |
+| Import JSON abusivo | Validación Zod; tamaño razonable en UI |
 
-Plan operativo por etapas: [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
+### Endurecimiento opcional (UI), no “backend Nest”
 
-- [ ] **Cabeceras HTTP** en Next (CSP, `frame-ancestors` / anti-clickjacking, HSTS en dominio definitivo).
-- [ ] **CORS** explícito en el backend; orígenes solo front y herramientas acordadas.
-- [ ] **Autenticación** en rutas que sirvan datos de auditoría o fixtures no públicos.
-- [ ] **Rate limiting** en API pública.
-- [ ] **Tamaño máximo** de cuerpos JSON (importación en UI) para reducir abuso DoS.
-- [ ] **Variables de entorno** en panel de deploy: mínimo privilegio, rotación.
-- [ ] **Supabase RLS** y políticas según [`docs/DATABASE.md`](DATABASE.md) — cuando exista Supabase.
-- [ ] **Autenticación de servicio** entre el backend y el servidor TI / MCP server — cuando exista backend.
-- [ ] **Revisión de dependencias** (CI con auditoría opcional) y secret scanning en GitHub.
+- Cabeceras HTTP (CSP, etc.) en Next cuando el dominio sea estable.  
+- Rate limit / tamaño máximo en import JSON.  
+- Revisión de dependencias y secret scanning en GitHub.
+
+**No** planificar Supabase RLS ni auth Nest como siguiente paso obligatorio.
 
 ---
 
 ## 5. Referencias
 
-| Documento | Contenido relacionado |
+| Documento | Contenido |
 | --- | --- |
-| [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) | Capas, secretos en servidor |
-| [`docs/despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) | Plan de despliegue por etapas y checklist |
-| [`docs/DATABASE.md`](DATABASE.md) | RLS, roles |
-| [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) | Captura autenticada, `storageState`, anonimización |
-| [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md) | Regeneración de fixtures y privacidad |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Capas del stack |
+| [despliegue/despliegue-hibrido.md](despliegue/despliegue-hibrido.md) | Vercel + GitHub + Claude |
+| [DATABASE.md](DATABASE.md) | Persistencia JSON |
+| [fase-3-3-captura-auth-claveunica.md](fase-3-3-captura-auth-claveunica.md) | Sesión Playwright |
+| [contratos-audit-jobs.md](contratos-audit-jobs.md) | Secreto worker |

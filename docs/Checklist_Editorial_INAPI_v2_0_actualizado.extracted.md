@@ -1,6 +1,7 @@
 # Checklist Editorial INAPI v2.0 (extraído del .docx)
 
 Fuente: docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx
+**Nota (2026-08-21):** motor = `data/checklist-criteria-lc-ptd.json` (**51** `LC-*`, v3.0). Mapa: [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md).
 
 Checklist Editorial INAPI v2.0
 Preguntas de chequeo del Instrumento de Calidad Web asociadas a cada tarea del Plan de Transformación Digital (PTD)
