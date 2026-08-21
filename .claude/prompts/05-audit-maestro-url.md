@@ -98,8 +98,9 @@ Solo VISIBLE. H1 visible (no `<title>`). Ausencias explícitas. Salida: inventar
 
 1. Cargar `checklist-criteria-lc-ptd.json` (51) y `checklist-editorial-ptd-v2.json` (hitos).
 2. Leer **`06-calibracion-hallazgos.md`** completo + skill `05`.
-3. RAG A/B puntual (skills `01` y `04`) si hay duda normativa o precedente.
+3. RAG A/B puntual (skills `01` y `04`) si hay duda normativa o precedente — **solo apoyo**; no copiar estados de JSON antiguos (Prompt 6: reauditoría completa).
 4. Skills de apoyo: `02` (tono), `03` (cómo lanzar subagentes).
+5. Si hay id previo: usarlo para `history[]` y contrastar patrones; **reevaluar todo el DOM actual** (modales, hero, secciones).
 
 ### Paso D — Subagentes por indicador (SECUENCIAL)
 

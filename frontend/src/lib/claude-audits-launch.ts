@@ -29,9 +29,11 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Misma URL que Clarity rank 16 — reauditoría §20 (15 subagentes + 5 sub-subagentes §17, meta-mei orden 1)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22 (fecha
     // corregida: la vigente vuelve a ser 2026-08-21, con captura Playwright propia; 2026-08-22 pasa a history[]).
+    // Segunda pasada 2026-08-21 (Prompt 6 C-2026-08-21): modal de contacto abierto/capturado, hero y
+    // recuadro de datos clave reevaluados con más rigor; % baja de 78,9 a 76,9 (resultado correcto).
     claudeAuditId: "www-inapi-cl_2026-08-21",
     resumenMvp: {
-      porcentajeLc: 78.9,
+      porcentajeLc: 76.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-21T00:00:00.000Z",
       evaluadorUid: "equipo-desarrollo",

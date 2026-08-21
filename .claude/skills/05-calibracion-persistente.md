@@ -23,9 +23,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 1. **Leer** todas las entradas `estado: vigente` del Prompt 6.  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
-3. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-4. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
+3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21).  
+4. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+5. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
 
 ## Efecto deseado
 
-Misma rigurosidad en META MEI 1…10: less “olvido” entre Portada y SIAC; más coherencia en Excel/UI/PDF.
+Misma rigurosidad en META MEI 1…10: less “olvido” entre Portada y SIAC; más coherencia en Excel/UI/PDF; % puede bajar si se recuperan hallazgos omitidos por atajo.
