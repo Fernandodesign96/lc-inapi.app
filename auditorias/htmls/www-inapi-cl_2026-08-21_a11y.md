@@ -1,0 +1,325 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - img "Cerrar menu" [ref=e5] [cursor=pointer]
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Nosotros" [ref=e8] [cursor=pointer]:
+            - /url: /acerca-de
+        - listitem [ref=e9]:
+          - link "Conoce más" [ref=e10] [cursor=pointer]:
+            - /url: /propiedad-intelectual-e-industrial
+        - listitem [ref=e11]:
+          - link "Marcas" [ref=e12] [cursor=pointer]:
+            - /url: /marcas
+        - listitem [ref=e13]:
+          - link "Patentes" [ref=e14] [cursor=pointer]:
+            - /url: /patentes
+        - listitem [ref=e15]:
+          - link "PCT" [ref=e16] [cursor=pointer]:
+            - /url: /pct
+        - listitem [ref=e17]:
+          - link "Sistema de Madrid" [ref=e18] [cursor=pointer]:
+            - /url: /sistema-de-madrid
+        - listitem [ref=e19]:
+          - link "Sello de Origen" [ref=e20] [cursor=pointer]:
+            - /url: /sello-de-origen
+        - listitem [ref=e21]:
+          - link "Aprende" [ref=e22] [cursor=pointer]:
+            - /url: /aprende-de-propiedad-industrial
+        - listitem [ref=e23]:
+          - link "Conecta" [ref=e24] [cursor=pointer]:
+            - /url: /conecta
+        - listitem [ref=e25]:
+          - link "Trámites" [ref=e26] [cursor=pointer]:
+            - /url: /tramites
+        - listitem [ref=e27]:
+          - link "Estadísticas" [ref=e28] [cursor=pointer]:
+            - /url: /centro-de-documentacion/estadisticas
+        - listitem [ref=e29]:
+          - link "Dominio Público" [ref=e30] [cursor=pointer]:
+            - /url: /dominio-publico
+        - listitem [ref=e31]:
+          - link "Mercado de Origen" [ref=e32] [cursor=pointer]:
+            - /url: /mercado-de-origen
+        - listitem [ref=e33]:
+          - link "Gasto Presupuestario" [ref=e34] [cursor=pointer]:
+            - /url: /gasto-presupuestario
+        - listitem [ref=e35]:
+          - link "Contacto" [ref=e36] [cursor=pointer]:
+            - /url: /contacto
+        - listitem [ref=e37]:
+          - link "Centro de Documentación" [ref=e38] [cursor=pointer]:
+            - /url: /centro-de-documentacion
+        - listitem [ref=e39]:
+          - link "Preguntas Frecuentes" [ref=e40] [cursor=pointer]:
+            - /url: /preguntas-frecuentes
+        - listitem [ref=e41]:
+          - link "Sala de Prensa" [ref=e42] [cursor=pointer]:
+            - /url: /sala-de-prensa
+        - listitem [ref=e43]:
+          - link "Observancia" [ref=e44] [cursor=pointer]:
+            - /url: /protege-tu-idea
+        - listitem [ref=e45]:
+          - link "Datos Abiertos" [ref=e46] [cursor=pointer]:
+            - /url: /datos-abiertos
+  - generic [ref=e47]:
+    - text: 
+    - banner [ref=e48]:
+      - generic [ref=e49]:
+        - link [ref=e51] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e52]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - link "A+" [ref=e55] [cursor=pointer]:
+              - /url: "#"
+            - link "A-" [ref=e56] [cursor=pointer]:
+              - /url: "#"
+          - link "Contraste de página" [ref=e57] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e58]:
+            - link [ref=e59] [cursor=pointer]:
+              - /url: https://www.facebook.com/pages/category/Government-Building/Inapi-Chile-558741104230651/
+            - link [ref=e61] [cursor=pointer]:
+              - /url: https://twitter.com/inapichile
+            - link [ref=e63] [cursor=pointer]:
+              - /url: https://cl.linkedin.com/company/inapi-chile
+            - link [ref=e65] [cursor=pointer]:
+              - /url: https://www.instagram.com/inapi_chile/
+          - generic [ref=e68] [cursor=pointer]:
+            - generic [ref=e69]: BUSCADOR
+            - text: 
+          - link "ACCESOS" [ref=e70] [cursor=pointer]:
+            - /url: https://tramites.inapi.cl
+          - generic [ref=e71] [cursor=pointer]
+        - navigation [ref=e74]:
+          - list [ref=e75]:
+            - listitem [ref=e76]:
+              - link "Nosotros" [ref=e77] [cursor=pointer]:
+                - /url: /acerca-de
+            - listitem [ref=e78]:
+              - link "Conoce más" [ref=e79] [cursor=pointer]:
+                - /url: /propiedad-intelectual-e-industrial
+            - listitem [ref=e80]:
+              - link "Marcas" [ref=e81] [cursor=pointer]:
+                - /url: /marcas
+            - listitem [ref=e82]:
+              - link "Patentes" [ref=e83] [cursor=pointer]:
+                - /url: /patentes
+            - listitem [ref=e84]:
+              - link "PCT" [ref=e85] [cursor=pointer]:
+                - /url: /pct
+            - listitem [ref=e86]:
+              - link "Sistema de Madrid" [ref=e87] [cursor=pointer]:
+                - /url: /sistema-de-madrid
+            - listitem [ref=e88]:
+              - link "Sello de Origen" [ref=e89] [cursor=pointer]:
+                - /url: /sello-de-origen
+            - listitem [ref=e90]:
+              - link "Aprende" [ref=e91] [cursor=pointer]:
+                - /url: /aprende-de-propiedad-industrial
+            - listitem [ref=e92]:
+              - link "Conecta" [ref=e93] [cursor=pointer]:
+                - /url: /conecta
+            - listitem [ref=e94]:
+              - link "Trámites" [ref=e95] [cursor=pointer]:
+                - /url: /tramites
+    - text:  
+    - generic [ref=e96]:
+      - button [ref=e97] [cursor=pointer]:
+        - heading "¿Quieres contactarnos?" [level=5] [ref=e98]:
+          - emphasis [ref=e99]
+          - text: ¿Quieres contactarnos?
+      - generic [ref=e102]:
+        - heading "Te queremos ayudar a utilizar la propiedad industrial" [level=1] [ref=e103]
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - heading [level=3] [ref=e106]:
+              - link "Patentes" [ref=e107] [cursor=pointer]:
+                - /url: /patentes
+            - link "BUSCADOR DE PATENTES" [ref=e108] [cursor=pointer]:
+              - /url: https://buscadorpatentes.inapi.cl/
+              - text: BUSCADOR DE PATENTES
+              - emphasis [ref=e109]
+            - generic [ref=e110]:
+              - link "Cómo registrar una patente" [ref=e111] [cursor=pointer]:
+                - /url: /patentes/para-informarse?acordeon=13
+                - emphasis [ref=e112]
+                - text: Cómo registrar una patente
+              - link "Ingresa tu solicitud" [ref=e113] [cursor=pointer]:
+                - /url: https://tramites.inapi.cl/Account/Login?ReturnUrl=%2FPatent%2FPatentApplication%2FIndexUtilityModelOrPatent
+                - emphasis [ref=e114]
+                - text: Ingresa tu solicitud
+          - generic [ref=e115]:
+            - heading [level=3] [ref=e116]:
+              - link "Marcas" [ref=e117] [cursor=pointer]:
+                - /url: /marcas
+            - link "BUSCADOR DE marcas" [ref=e118] [cursor=pointer]:
+              - /url: https://buscadormarcas.inapi.cl/Marca/BuscarMarca.aspx
+              - text: BUSCADOR DE marcas
+              - emphasis [ref=e119]
+            - generic [ref=e120]:
+              - link "Cómo registrar una marca" [ref=e121] [cursor=pointer]:
+                - /url: /marcas/para-informarse?acordeon=3
+                - emphasis [ref=e122]
+                - text: Cómo registrar una marca
+              - link "Ingresa tu solicitud" [ref=e123] [cursor=pointer]:
+                - /url: https://tramites.inapi.cl/Account/Login?ReturnUrl=%2FTrademark%2FTrademarkApplication%2FIndexTrademark
+                - emphasis [ref=e124]
+                - text: Ingresa tu solicitud
+          - generic [ref=e125]:
+            - link "Estadísticas" [ref=e126] [cursor=pointer]:
+              - /url: /centro-de-documentacion/estadisticas
+              - emphasis [ref=e127]
+              - text: Estadísticas
+            - link "Notificaciones diarias" [ref=e128] [cursor=pointer]:
+              - /url: /notificaciones-diarias
+              - emphasis [ref=e129]
+              - text: Notificaciones diarias
+            - link "Preguntas frecuentes" [ref=e130] [cursor=pointer]:
+              - /url: /preguntas-frecuentes/propiedad-industrial
+              - emphasis [ref=e131]
+              - text: Preguntas frecuentes
+            - link "Datos abiertos" [ref=e132] [cursor=pointer]:
+              - /url: /datos-abiertos
+              - emphasis [ref=e133]
+              - text: Datos abiertos
+      - generic [ref=e135]:
+        - heading "Novedades" [level=3] [ref=e136]
+        - generic [ref=e138]:
+          - generic [ref=e140]:
+            - link [ref=e142] [cursor=pointer]:
+              - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/profesional-chilena-es-seleccionada-para-la-beca-de-maestria-en-propiedad-intelectual-belt-and-road-2026-en-china
+            - generic [ref=e143]:
+              - heading [level=4] [ref=e144]:
+                - link "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China" [ref=e145] [cursor=pointer]:
+                  - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/profesional-chilena-es-seleccionada-para-la-beca-de-maestria-en-propiedad-intelectual-belt-and-road-2026-en-china
+              - generic [ref=e146]: Martes 18 agosto de 2026
+              - paragraph [ref=e147]: Constanza Vargas García, bioquímica especializada en patentes biotecnológicas y químicas, fue admitida por la Universidad de Economía y Derecho de Zhongnan tras un riguroso proceso de evaluación patrocinado por INAPI.
+          - generic [ref=e149]:
+            - link [ref=e151] [cursor=pointer]:
+              - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-y-ministerio-de-economia-presentan-plataforma-de-informacion-tecnologica-de-patentes-para-apoyar-el-desarrollo-productivo-sostenible
+            - generic [ref=e152]:
+              - heading [level=4] [ref=e153]:
+                - link "INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible" [ref=e154] [cursor=pointer]:
+                  - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-y-ministerio-de-economia-presentan-plataforma-de-informacion-tecnologica-de-patentes-para-apoyar-el-desarrollo-productivo-sostenible
+              - generic [ref=e155]: Miércoles 12 agosto de 2026
+              - paragraph [ref=e156]: La herramienta de acceso público reúne 148 productos en áreas estratégicas para el país, como manufactura sostenible, litio, hidrógeno verde, cambio climático y recursos hídricos.
+          - generic [ref=e158]:
+            - link [ref=e160] [cursor=pointer]:
+              - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-amplia-plazos-administrativos-para-usuarios-con-residencia-en-japon-debido-a-la-emergencia-provocada-por-los-recientes-sismos
+            - generic [ref=e161]:
+              - heading [level=4] [ref=e162]:
+                - link "INAPI amplía plazos administrativos para usuarios con residencia en Japón debido a la emergencia provocada por los recientes sismos" [ref=e163] [cursor=pointer]:
+                  - /url: https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-amplia-plazos-administrativos-para-usuarios-con-residencia-en-japon-debido-a-la-emergencia-provocada-por-los-recientes-sismos
+              - generic [ref=e164]: Martes 11 agosto de 2026
+              - paragraph [ref=e165]: La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.
+      - heading "Plataforma de Datos" [level=3] [ref=e170]
+      - heading "Guías para usuarios" [level=3] [ref=e179]
+      - heading "Cuenta Pública 2026" [level=3] [ref=e187]
+      - heading "Observancia" [level=3] [ref=e195]
+      - generic [ref=e197]:
+        - generic [ref=e199]:
+          - heading "Conoce y utiliza" [level=4] [ref=e200]
+          - heading "las herramientas de protección de la Propiedad Intelectual en Chile" [level=5] [ref=e201]
+        - link "Conoce más" [ref=e202] [cursor=pointer]:
+          - /url: /protege-tu-idea/pirateria-y-falsificacion
+      - generic [ref=e204]:
+        - generic [ref=e206]:
+          - link [ref=e209] [cursor=pointer]:
+            - /url: https://www.portaltransparencia.cl/PortalPdT/pdtta?codOrganismo=AY001
+            - img "Ley de Transparencia" [ref=e210]
+          - link [ref=e213] [cursor=pointer]:
+            - /url: https://www.inapi.cl/docs/default-source/2025-doc/home/footer/res-pac-2025.pdf
+            - img "Plan de Acción de Cumplimiento 2025 (PDF)" [ref=e214]
+          - link [ref=e217] [cursor=pointer]:
+            - /url: https://satisfaccion.gob.cl/medicion-de-satisfaccion-usuaria/proceso-2025
+            - img "Medición de Satisfacción Usuaria INAPI 2025" [ref=e218]
+          - link [ref=e221] [cursor=pointer]:
+            - /url: https://www.inapi.cl/docs/default-source/2023/home/footer/inapi_informes_teletrabajo.pdf
+            - img "Teletrabajo" [ref=e222]
+          - link [ref=e225] [cursor=pointer]:
+            - /url: https://www.leylobby.gob.cl/instituciones/AY001
+            - img "Ley del Lobby" [ref=e226]
+          - link [ref=e229] [cursor=pointer]:
+            - /url: https://inapi.cl/docs/default-source/2026-doc/footer/codigo-de-etica_inapi-2026.pdf
+            - img "Código de Ética INAPI 2026" [ref=e230]
+          - link [ref=e233] [cursor=pointer]:
+            - /url: http://www.tdpi.gob.cl/
+            - img "Propiedad Industrial" [ref=e234]
+          - link [ref=e237] [cursor=pointer]:
+            - /url: https://www.inapi.cl/tramites/tramites-digitales
+            - img "Trámites Digitales" [ref=e238]
+          - link [ref=e241] [cursor=pointer]:
+            - /url: https://www.cchrgm.cl/depositos/deposito_ida/
+          - link [ref=e244] [cursor=pointer]:
+            - /url: http://www.propiedadintelectual.cl/623/w3-channel.html
+            - img "Derechos Intelectuales" [ref=e245]
+          - link [ref=e248] [cursor=pointer]:
+            - /url: http://www.empleospublicos.cl/
+            - img "Empleos Públicos" [ref=e249]
+          - link [ref=e252] [cursor=pointer]:
+            - /url: http://www.mercadopublico.cl/Portal/FeedOrg.aspx?qs=lzKAE36ktKRtGr8VOYwf6w==
+            - img "Nuestras Licitaciones" [ref=e253]
+          - link [ref=e256] [cursor=pointer]:
+            - /url: https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados?p_p_id=pdtorganismos_WAR_pdtorganismosportlet&orgcode=f165622f6b44eb212dd83942a6e02ddf
+            - img "Ley de Transparencia" [ref=e257]
+          - link [ref=e260] [cursor=pointer]:
+            - /url: http://www.inapi.cl/transparencia/index.html
+            - img "Gobierno Transparente Histórico" [ref=e261]
+        - generic:
+          - generic:
+            - generic [ref=e262] [cursor=pointer]
+            - generic [ref=e264] [cursor=pointer]
+    - contentinfo [ref=e266]:
+      - generic [ref=e268]:
+        - img "Logo" [ref=e271]
+        - generic [ref=e275]:
+          - heading "Dónde estamos" [level=4] [ref=e276]
+          - paragraph [ref=e277]: "Instituto Nacional de Propiedadindustrial (INAPI)RUT: 65.999.669-3"
+          - paragraph [ref=e279]: Av. Libertador Bernardo O'Higgins 194, Santiago.
+          - paragraph [ref=e281]: "Teléfono: (56 2) 2 887 0400"
+          - paragraph [ref=e283]: "Correo electrónico: inapi@inapi.cl"
+        - generic [ref=e286]:
+          - heading "Conversemos" [level=4] [ref=e289]
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - text: +
+              - link "Contacto" [ref=e292] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e294]:
+          - heading "Accesos" [level=4] [ref=e297]
+          - list [ref=e298]:
+            - listitem [ref=e299]:
+              - text: +
+              - link "Atajos del Teclado" [ref=e300] [cursor=pointer]:
+                - /url: /atajos-del-teclado
+            - listitem [ref=e301]:
+              - text: +
+              - link "Descarga de Visualizadores" [ref=e302] [cursor=pointer]:
+                - /url: /descarga-de-visualizadores
+            - listitem [ref=e303]:
+              - text: +
+              - link "Glosario" [ref=e304] [cursor=pointer]:
+                - /url: /glosario
+            - listitem [ref=e305]:
+              - text: +
+              - link "Mapa del Sitio" [ref=e306] [cursor=pointer]:
+                - /url: /mapa-del-sitio
+            - listitem [ref=e307]:
+              - text: +
+              - link "Uso de los Contenidos de este Sitio" [ref=e308] [cursor=pointer]:
+                - /url: /uso-de-los-contenidos-de-este-sitio
+            - listitem [ref=e309]:
+              - text: +
+              - link "Accesibilidad" [ref=e310] [cursor=pointer]:
+                - /url: /accesibilidad
+            - listitem [ref=e311]:
+              - text: +
+              - link "Política de privacidad" [ref=e312] [cursor=pointer]:
+                - /url: /polItica-de-privacidad
+    - paragraph [ref=e317]:
+      - text: ©2026
+      - strong [ref=e318]: INAPI
+      - text: . Todos los derechos reservados
