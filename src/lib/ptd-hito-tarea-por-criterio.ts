@@ -2,7 +2,13 @@
  * Mapa LC-* → hito(s) y tarea(s) PTD (OpenProject) desde el checklist editorial.
  * Fuente: data/checklist-editorial-ptd-v2.json (= Word PTD v2.0).
  *
- * Varias preguntas se repiten bajo más de un hito/tarea: se listan todas.
+ * Varias preguntas se repiten bajo más de un hito/tarea: se listan todas
+ * **excepto** el hito/tarea meta del checklist (492 / 491): ese par solo declara
+ * «implementar el checklist» — ya operativo con los 51 `LC-*` — y no se muestra
+ * en UI / PDF / Excel. Las mismas preguntas se muestran bajo los otros hitos
+ * operativos donde también aparecen (p. ej. Fiabilidad → 500, Lenguaje plano → 494/496).
+ *
+ * Completitud (1.1.2) solo está bajo 492 en el Word: tras filtrar, Hito/Tarea = "—".
  * Si no hay match textual de la pregunta, se usa el indicador IEW/IESD.
  */
 import ptdFile from "../../data/checklist-editorial-ptd-v2.json"
@@ -57,6 +63,19 @@ type LcCriterion = {
 
 const DASH = "—"
 const TITLE_MAX = 72
+
+/** Hito PTD «checklist editorial implementado» — no mostrar en entregables. */
+const META_CHECKLIST_HITO_IDS = new Set([492])
+/** Tarea PTD «Implementar un checklist editorial…» — no mostrar en entregables. */
+const META_CHECKLIST_TAREA_IDS = new Set([491])
+
+function isMetaChecklistRef(ref: PtdHitoTareaRef): boolean {
+  return META_CHECKLIST_HITO_IDS.has(ref.hitoId) || META_CHECKLIST_TAREA_IDS.has(ref.tareaId)
+}
+
+function withoutMetaChecklist(refs: PtdHitoTareaRef[]): PtdHitoTareaRef[] {
+  return refs.filter((r) => !isMetaChecklistRef(r))
+}
 
 function truncate(text: string, max = TITLE_MAX): string {
   const t = text.trim()
@@ -204,12 +223,12 @@ export function ptdHitoTareaPorCriterio(criterioId: string): PtdHitoTareaLabels 
   }
 
   const core = stripQuestionCore(lc.criterion || lc.verification)
-  let refs = matchByQuestion(core)
+  let refs = withoutMetaChecklist(matchByQuestion(core))
   if (refs.length === 0) {
     const codes = [lc.indicator_code_iew, lc.indicator_code_iesd].filter(
       (c): c is string => Boolean(c),
     )
-    refs = matchByIndicatorCodes(codes)
+    refs = withoutMetaChecklist(matchByIndicatorCodes(codes))
   }
   return formatRefs(refs)
 }

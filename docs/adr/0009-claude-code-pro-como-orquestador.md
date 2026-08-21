@@ -8,7 +8,7 @@ Aceptado — 2026-07-21
 
 Una propuesta anterior situaba **NestJS** como capa de orquestación (frontend → Nest → Python/AWS → Supabase). Esa arquitectura exigía mantener tres servicios antes de una sola auditoría completa y **ya no forma parte del repo** (documento ADR Nest/Prisma retirado).
 
-En paralelo, el equipo ya usa **Claude** como asistente de auditoría en el piloto Fase 1.5 (9 JSONs canónicos en `data/claude-audits/`). El flujo manual demostró que Claude tiene capacidad suficiente para analizar HTML, aplicar el checklist de 39 criterios y producir el JSON canónico directamente, sin necesidad de un servicio de backend adicional.
+En paralelo, el equipo ya usaba **Claude** como asistente de auditoría en el piloto Fase 1.5 (JSONs en `data/claude-audits/`). El flujo demostró capacidad suficiente para analizar HTML, aplicar el checklist LC y producir el JSON canónico sin un backend Nest/AWS. Hoy el catálogo vigente es PTD-LC **v3.0** (**51** `LC-*`); los 39 A–H son solo legado.
 
 **Claude Code Pro** (suscripción existente del equipo) introduce dos capacidades clave sobre la interfaz web de Claude:
 - Ejecución en terminal con acceso al filesystem y al repo.
@@ -20,14 +20,16 @@ Esto permite reemplazar toda la capa Nest + Lambda + API Gateway por un único p
 
 1. **Claude Code Pro** (terminal WSL, suscripción existente) es el **orquestador principal** del pipeline de auditoría. Cero costo adicional en esta fase.
 
-2. **`CLAUDE.md`** en la raíz del directorio de trabajo actúa como contexto permanente del proyecto en cada sesión: describe el dominio, el checklist v1.1, los contratos JSON canónicos y las convenciones del repo.
+2. **`.claude/CLAUDE.md`** actúa como contexto permanente: dominio, checklist PTD-LC **v3.0** (51 `LC-*`), contratos JSON, §17 (15+5) y convenciones del repo. Prompts numerados `01`…`06` (maestro = `05`).
 
-3. **Skills** — conocimiento especializado cargado bajo demanda, almacenadas en `.claude/skills/`:
-   - `auditoria-lc.md` — criterios de lenguaje claro, checklist v1.1, patrones de incumplimiento frecuentes.
-   - `auditoria-calidad-web.md` — Calidad Web 2.0, Meta MEI, instrumentos de evaluación.
-   - `pesquisa-criterios.md` — cómo consultar el RAG MCP para buscar precedentes y fuentes normativas.
+3. **Skills** — conocimiento especializado cargado bajo demanda, en `.claude/skills/01`…`05`:
+   - `01-documentos-rag-ingest.md` — documentos, instrumentos, RAG e ingestas A/B.
+   - `02-lenguaje-entrega-cms.md` — lenguaje ciudadano para entrega CMS.
+   - `03-instrucciones-subagentes-instrumentos.md` — 15 subagentes por indicador LC.
+   - `04-xenova-langchain-rendimiento.md` — vectores, chunks y consultas eficientes.
+   - `05-calibracion-persistente.md` — aplicar y actualizar calibraciones (Prompt 6).
 
-4. **Subagents** — un subagente por URL para auditorías en paralelo; sincronización mediante el sistema de archivos del repo.
+4. **§17** — por URL: **15** subagentes (un indicador LC cada uno, en serie) + **5** sub-subagentes de calidad de entrega; una URL = una sesión (Prompt 5). Multi-URL = repetir Prompt 5.
 
 5. **Hooks** — validación automática de los JSONs generados al guardarse, usando `validate-claude-audits.ts`.
 

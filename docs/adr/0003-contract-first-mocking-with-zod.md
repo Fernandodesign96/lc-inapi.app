@@ -56,7 +56,7 @@ El agregado (`strictAuditRecordSchema`) exige, entre otros: URL, fecha, versión
 ```text
 Playwright MCP (HTML)
         ↓
-Claude Code + CLAUDE.md + skills + prompts + 5 sub-subagentes (§17)
+Claude Code + CLAUDE.md + prompts 01–06 + skills 01–05 + §17 (15 subagentes + 5 sub-subagentes)
         ↓
 JSON canónico en data/claude-audits/.../*.json
         ↓

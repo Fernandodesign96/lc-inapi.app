@@ -5,7 +5,7 @@
 | **Fecha** | 2026-08-21 (META MEI 10 URLs; criterio_id preferir `LC-*` v3.0) |
 | **Uso** | Entrega MEI: manual (TSV §2) o **automatizada** (`bun run export:mei-xlsx` / API / UI) |
 | **Alcance** | Hitos H01–H13 (actividades MEI 1–16); filas desde auditorías Clarity vigentes + evidencia H01/H11 |
-| **Stack** | [`stack-orquestación.md`](stack-orquestación.md) |
+| **Runbook** | [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) (§3–§4 orquestación y captura) |
 
 ---
 

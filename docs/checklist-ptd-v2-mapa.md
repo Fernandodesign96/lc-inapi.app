@@ -13,7 +13,7 @@
 | 3 | `data/checklist-criteria-lc-ptd.json` | **51** criterios LC v3.0 = score, UI, PDF, Excel MEI |
 | — | `data/checklist-criteria.json` | Histórico 47 A–H (no usar en auditorías nuevas) |
 
-**Orquestación:** `.claude/CLAUDE.md` §17 + §20 + §22 + **§23** · `.claude/prompts/audit-una-url.md` · skill `auditoria-lc.md`.
+**Orquestación:** `.claude/CLAUDE.md` §17 + §20 + §22 + **§23** · `.claude/prompts/05-audit-maestro-url.md` · skills `01`…`05`.
 
 **META MEI 2026:** auditar solo **Lenguaje claro** — **51 preguntas únicas** (38 ambos · 10 solo IEW · 3 solo IESD) → JSON canónico con **51** filas `LC-*` (`version_checklist: "3.0"`).  
 **Catalogadas (fuera del % ahora):** Usabilidad **18** · Seguridad **10** · total tres dimensiones **79**.
@@ -371,7 +371,7 @@ Regla operativa de entrega: §22.8–§22.12 (ninguna casilla vacía; realismo A
 
 # Próximos pasos
 
-1. Reauditorías META MEI con §22 + **§23** (51 criterios `LC-*`, `version_checklist: "3.0"`); muestra oro: `.claude/prompts/audit-oro-s22.md`.
+1. Reauditorías META MEI con §22 + **§23** (51 criterios `LC-*`, `version_checklist: "3.0"`); muestra oro: Prompt `05` + Prompt `06` (énfasis §22).
 2. Generar Excel MEI coherente de las 10 URLs tras esas auditorías LC.
 3. **Después:** incorporar Usabilidad y Seguridad (mismas fuentes Word/JSON) para cierre de año — skills/catálogo separados, sin contaminar el % LC hasta decisión explícita.
 4. Doc requisitos TI entendible (flujo MVP) — pendiente de producto.

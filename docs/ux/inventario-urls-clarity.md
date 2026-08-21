@@ -15,7 +15,7 @@
 
 **Alcance analítico:** el inventario mock agrupa **17 URLs** en **una sola tabla** (§2.1): **15** filas **Trámites** (`tramites.inapi.cl`) y **2** **Sitio Web** (`www.inapi.cl`: ranks **16** home y **17** trámites digitales). Cada fila lleva **`type_url`**: `tramites` | `sitioweb` (ver §2.0). **No** se mantiene un segundo acordeón por tipo; la distinción se resuelve con **filtro** en la misma tabla.
 
-**Serie Clarity (extensión Fase 1.5):** cuando existe JSON bajo `data/claude-audits/tramites/` o `sitioweb/`, la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). **Historial versionado (jul-2026):** desde `/auditar` (botón «Historial de auditorías»), `/auditar/historial` lista URLs con informe; `/auditar/historial/[rank]` lista fechas (vigente + anteriores) y abre cada informe. La ficha `/auditar/inventario/clarity/[rank]` y la columna Historial del inventario Clarity usan los mismos datos (`clarity-audits-launch.ts`). Las tablas piloto y Clarity muestran siempre la **última** auditoría cableada en el launch (URLs compartidas — p. ej. home y landing trámites — deben coincidir). **Importante:** guardar JSON + `ingest:b` no actualiza la UI; hay que editar el launch (ver `audit-una-url.md` Paso F / `audit-lote.md` cableado). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §3.5. Preferir **una URL por sesión** (`.claude/prompts/audit-una-url.md`).
+**Serie Clarity (extensión Fase 1.5):** cuando existe JSON bajo `data/claude-audits/tramites/` o `sitioweb/`, la tabla Historial enlaza a `/auditar/resultado?claudeAudit={id}` y PDF (misma UX que el piloto de 9 URLs). **Historial versionado (jul-2026):** desde `/auditar` (botón «Historial de auditorías»), `/auditar/historial` lista URLs con informe; `/auditar/historial/[rank]` lista fechas (vigente + anteriores) y abre cada informe. La ficha `/auditar/inventario/clarity/[rank]` y la columna Historial del inventario Clarity usan los mismos datos (`clarity-audits-launch.ts`). Las tablas piloto y Clarity muestran siempre la **última** auditoría cableada en el launch (URLs compartidas — p. ej. home y landing trámites — deben coincidir). **Importante:** guardar JSON + `ingest:b` no actualiza la UI; hay que editar el launch (ver Prompt `05-audit-maestro-url.md` Paso F). Flujo operativo: [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) (§2.2 Clarity · §3 Prompt 5). Preferir **una URL por sesión** (`.claude/prompts/05-audit-maestro-url.md`).
 
 **Paradoja Clarity (mayo 2026):** el proyecto Microsoft Clarity está asociado al **Sitio Web** INAPI, pero el extracto de páginas populares (365 días) muestra **mayormente URLs de `tramites.inapi.cl`**. La página con **más visitas** en ese extracto es **`www.inapi.cl/tramites/tramites-digitales`** (~16.059 visitas) — contenido **informativo** con acordeones RNT, **no** el portal de login. La **home** `https://www.inapi.cl/` **no aparece** en el top Clarity revisado, aunque es la portada institucional; se incluye igual en inventario por criterio editorial. Detalle en §2.0.
 
@@ -37,7 +37,7 @@ Estas tres direcciones son las **prioridades demostrativas** acordadas: represen
 
 **Nota:** la **home institucional** (`https://www.inapi.cl/`) es atajo editorial §1 (perfil **mejor** LC) y **fila de inventario** `type_url: sitioweb` (rank **16**, §2.1) — **no** coincide con el **rank 1** del inventario, que es la **landing del portal de trámites** `https://tramites.inapi.cl/` (`type_url: tramites`). La página informativa **Trámites digitales** es rank **17** (`www.inapi.cl/tramites/tramites-digitales`).
 
-**Informe completo → fixture (ejemplo):** el caso **Notificaciones Marcas** (55,2 %; rechazado) está volcado como referencia humana en [`audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](audit-fixture-ejemplo-notificaciones-marcas-rechazado.md). Las franjas **81–90 %** y **≥91 %** se cubren con JSON generado y validado (ver [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md)).
+**Informe completo → fixture (ejemplo):** Notificaciones Marcas (55,2 %; rechazado) resumido en [`../flujo-piloto-10-urls-claude-mvp.md`](../flujo-piloto-10-urls-claude-mvp.md) §7. Franjas **81–90 %** y **≥91 %**: JSON en [`data/audit-fixtures/README.md`](../../data/audit-fixtures/README.md).
 
 ---
 
@@ -174,7 +174,7 @@ Ruta: **`/auditar/inventario/clarity/[rank]`** (`rank` entero **1–22**).
 | Historial (mock) | Tabla: fecha, % LC, estado, nota — **N filas = N auditorías** |
 | Acciones | «Auditar esta URL (mock)» → `/auditar/procesando?url=…` |
 
-La ficha **no** es un `StrictAuditRecord`; el informe con 39 criterios sigue en **`/auditar/resultado`**.
+La ficha **no** es un `StrictAuditRecord`; el informe completo (51 `LC-*` en auditorías v3.0; legado A–H en JSON antiguos) sigue en **`/auditar/resultado`**.
 
 ### 2.3 Iconografía y color de fila (estado LC de aceptación)
 
@@ -226,7 +226,7 @@ flowchart TB
 
 | Pantalla | Tablas / bloques relevantes |
 | --- | --- |
-| `/auditar/resultado` | 39 criterios: Sección, Criterio, Estado, Severidad, Comentario |
+| `/auditar/resultado` | Criterios LC (v3.0 = 51 `LC-*`): Instrumento, Estado, Texto, Corrección, Ubicación, Justificación, Criterio (+ Hito/Tarea PTD en Excel) |
 | `/auditar` | Tabla única — **17 URLs** Calidad Web (§2.1), filtro `type_url` + filtros LC/orden |
 | `/auditar/inventario/clarity/[rank]` | Resumen + contexto (observaciones) + historial mock (§2.2); ranks 1–17 |
 

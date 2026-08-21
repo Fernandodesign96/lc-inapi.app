@@ -4,7 +4,7 @@ Eres el asistente técnico del proyecto **lc-inapi-app**: aplicativo de auditor�
 
 ## Qué es este documento
 
-Constitución operativa de Claude Code en este repo: dominio, checklist **51** `LC-*`, **reglas permanentes**, workflows, arquitectura de **sub-subagentes**, sesión autenticada, calibración, entrega CMS y alcance META MEI.
+Constitución operativa de Claude Code en este repo: dominio, checklist **51** `LC-*`, **reglas permanentes**, workflows, arquitectura de **subagentes (15 indicadores)** + **sub-subagentes (5 de entrega)**, sesión autenticada, calibración y entrega CMS/META MEI.
 
 ## Para qué se utiliza
 
@@ -16,25 +16,32 @@ Que toda auditoría nueva sea v3.0 (solo `LC-*`), con estados cerrados, severida
 
 ## Importancia en la orquestación Claude Code
 
-Sin este archivo no hay contrato compartido. Los prompts ejecutan; las skills especializan; **este archivo regula**. Las «Reglas» del proyecto son las secciones permanentes aquí (§5 y calibraciones §16–§23), no una carpeta `/rules` separada. Los «Sub-subagentes» se definen en **§17**.
+Sin este archivo no hay contrato compartido. Los prompts ejecutan; las skills especializan; **este archivo regula**. Las «Reglas» son §5 y calibraciones §16–§23 (no hay carpeta `/rules`). **Subagentes** y **sub-subagentes** se definen en **§17**.
 
 ## Mapa de cableado `.claude/` (conversan entre sí)
 
 | Pieza | Rol |
 | --- | --- |
-| **Este `CLAUDE.md`** | Reglas §5 · Sub-subagentes §17 · Workflows §12–§14 · §19–§23 |
-| `prompts/audit-una-url.md` | Prompt maestro canónico (1 URL = Pasos A–F) |
-| `prompts/audit-lote.md` | Cola multi-sesión (META MEI 1…10) |
-| `prompts/audit-oro-s22.md` | Muestra oro UX (Portada + noticia orden 9) |
-| `skills/auditoria-lc.md` | Evaluación 51 criterios + inventario (obligatoria en grupos 1–5) |
-| `skills/auditoria-calidad-web.md` | Fundamento normativo IEW/IESD/RLC/MEI |
-| `skills/pesquisa-criterios.md` | Catálogo + RAG A/B |
-| `diagrams/workflow_diagram.md` | Diagramas del workflow completo y por etapas |
-| **Frontend** | Consumidor del JSON tras cableado launch/MEI (`/auditar`, Excel, PDF) |
+| **Este `CLAUDE.md`** | Reglas §5 · **§17** · Workflows §12–§14 · §19–§23 |
+| `prompts/01-orquestacion-stack.md` | Playwright, Chroma, Xenova, LangChain, ingest A/B |
+| `prompts/02-criterios-hitos-correcciones.md` | 51 criterios, hitos/tareas, severidad, captura |
+| `prompts/03-entrega-resultados.md` | Textos CMS, validación, UI/PDF/Excel |
+| `prompts/04-cableado-claude-md.md` | Cómo leer este archivo y cablear el grafo |
+| `prompts/05-audit-maestro-url.md` | **Maestro** (1 URL = Pasos A–F; también cola META MEI y muestra oro) |
+| `prompts/06-calibracion-hallazgos.md` | Calibración persistente (leer siempre) |
+| `skills/01-documentos-rag-ingest.md` | Documentos, RAG, ingestas |
+| `skills/02-lenguaje-entrega-cms.md` | Lenguaje no técnico |
+| `skills/03-instrucciones-subagentes-instrumentos.md` | 15 subagentes por indicador |
+| `skills/04-xenova-langchain-rendimiento.md` | Vectores y chunks |
+| `skills/05-calibracion-persistente.md` | Aplicar Prompt 6 en todas las URLs |
+| `diagrams/workflow_diagram.md` | Diagrama del workflow |
+| **Frontend / MEI** | Consumen JSON (`/auditar`, Excel, PDF) |
 
-Flujo mental: **Prompt → lee CLAUDE.md → carga skills → lanza sub-subagentes §17 → RAG → JSON → frontend**.
+**Prompts y skills antiguos** (`audit-una-url` / `audit-lote` / `audit-oro-s22`, `auditoria-lc` / `auditoria-calidad-web` / `pesquisa-criterios`) fueron **retirados**: usar solo `prompts/01`…`06` y `skills/01`…`05`.
 
-Carga este archivo al inicio de cada sesión. Para conocimiento especializado, carga las Skills en `.claude/skills/`. Para la vista gráfica: `.claude/diagrams/workflow_diagram.md`.
+Flujo mental: **Prompt 5 → CLAUDE.md + Prompt 6 → skills → 15 subagentes (orden) → 5 sub-subagentes (entrega) → JSON → UI/PDF/Excel**.
+
+Carga este archivo al inicio de cada sesión. Skills en `.claude/skills/`. Diagrama: `.claude/diagrams/workflow_diagram.md`.
 
 ---
 
@@ -42,7 +49,7 @@ Carga este archivo al inicio de cada sesión. Para conocimiento especializado, c
 
 - **Qué hace:** automatiza la auditoría de **Lenguaje claro** del Checklist Editorial INAPI PTD v2.0 / catálogo máquina **v3.0** — **51 preguntas únicas** (criterios) agrupadas en **15 indicadores IEW** (sitios web) y **13 indicadores IESD** (servicios digitales), sobre URLs de `inapi.cl` y `tramites.inapi.cl`. Fuentes: `docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx`, `data/checklist-criteria-lc-ptd.json`, `data/checklist-editorial-ptd-v2.json` (§23). Usabilidad (18) y Seguridad (10) catalogadas para después del Excel LC.
 - **Resultado de cada auditoría:** un JSON canónico con 7 secciones (ver §4) que alimenta el frontend en `/auditar/resultado` y genera un informe PDF institucional.
-- **Estado actual (ago 2026):** Fases 0–3 completadas en WSL (Playwright + RAG + flujo sub-subagentes). Nomenclatura vigente = indicadores + pregunta (`LC-*`); A1–H1 queda solo en JSON históricos v2.1. Fase 3.3: captura autenticada ClaveÚnica (`docs/fase-3-3-captura-auth-claveunica.md`).
+- **Estado actual (ago 2026):** Fases 0–3 en WSL (Playwright + RAG + **15 subagentes + 5 sub-subagentes**). Nomenclatura vigente = `LC-*`. Fase 3.3: captura autenticada (`docs/fase-3-3-captura-auth-claveunica.md`).
 
 ---
 
@@ -144,7 +151,7 @@ JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen vá
 | `docs/adr/` | ADRs 0001–0010 — decisiones arquitectónicas |
 | `docs/ARCHITECTURE.md` | AI Stack de 5 capas y flujo principal |
 | `docs/PROPUESTA_TECNICA_INTEGRAL.md` | v2.0 — procedimiento de implementación Fases 0–4 |
-| `docs/flujo-piloto-10-urls-claude-mvp.md` | Flujo operativo: prompts §3.1–§3.6, calibraciones, JSON canónico |
+| `docs/flujo-piloto-10-urls-claude-mvp.md` | Runbook META MEI / Clarity / Prompt 5 / fixture histórico |
 | `.agents/workflows/git-commit-convention.md` | Convención de commits en español |
 | `.agents/workflows/devlog-standard.md` | Formato obligatorio de entradas DEVLOG |
 
@@ -261,7 +268,7 @@ El PDF se genera bajo demanda desde `GET /api/claude-audits/[id]/export/pdf`.
 | **Claude Code (agente raíz)** | Orquestador único | Lanza 5 sub-subagentes §17, consolida §20, escribe JSON, valida, cablea. **No** evaluar los 51 criterios solo en el raíz. |
 | **Playwright MCP** | Captura una vez | `navigate` → HTML a disco → snapshot a11y → `evaluate` estilos si legibilidad (`LC-1.2.3-*`) es dudosa → abrir modales de 1 clic. **No** re-navegar por cada grupo. |
 | **Chroma / RAG MCP** | Fundamento + precedentes | Colección A por `source` del criterio; Colección B = checklist v3.0 + Word/mapa PTD + auditorías/ADRs. Consultas puntuales; **no** volcar PDFs enteros al chat. |
-| **Skills** | Especialización | Cada subagente carga `auditoria-lc` de su sección (+ `auditoria-calidad-web` / `pesquisa-criterios` si hace falta). |
+| **Skills** | Especialización | `01`–`05` (documentos/RAG, lenguaje CMS, subagentes, Xenova, calibración). |
 
 **Estado actual:** Playwright MCP y RAG MCP activos en el flujo de producción local. Sin MCP: degradado con `CLAUDE.md` + skills (anotar en DEVLOG).
 
@@ -328,7 +335,7 @@ El MCP de Playwright **no reutiliza** la sesión de tu Chrome ni de Ctrl+U. Usar
 
 Si el MCP no acepta `storageState`, el script local es la vía obligatoria para URLs autenticadas.
 
-**Diferencia DOM renderizado vs Ctrl+U:** en URLs Trámites el JS inyectado desde BE modifica el DOM; la línea 1000 de Ctrl+U puede no coincidir con el código fuente TI. Usar siempre DOM como fuente de verdad editorial y `fragmento_busqueda` como ancla para TI (ver `docs/stack-orquestación.md` §3).
+**Diferencia DOM renderizado vs Ctrl+U:** en URLs Trámites el JS inyectado desde BE modifica el DOM; la línea 1000 de Ctrl+U puede no coincidir con el código fuente TI. Usar siempre DOM como fuente de verdad editorial y `fragmento_busqueda` como ancla para TI (ver `docs/flujo-piloto-10-urls-claude-mvp.md` §4).
 
 **Ranks pendientes TI (sin forzar auditoría):** 8, 11, 13, 15 — ver `docs/fase-3-3-captura-auth-claveunica.md` §3.
 
@@ -336,34 +343,33 @@ Si el MCP no acepta `storageState`, el script local es la vía obligatoria para 
 
 ## 12. Workflow — Auditoría completa de una URL
 
-*Flujo canónico de producción: **`.claude/prompts/audit-una-url.md`** (1 URL = 1 sesión Claude Code).*  
-*Referencia legacy piloto: `docs/flujo-piloto-10-urls-claude-mvp.md` §3.1–§3.2. Multi-sesión: `audit-lote.md`.*
+*Flujo canónico: **`.claude/prompts/05-audit-maestro-url.md`** (1 URL = 1 sesión).*  
+*Multi-sesión META MEI: repetir Prompt 5 (una URL por sesión). Calibración viva: `06-calibracion-hallazgos.md`.*
 
-**Cómo leer las referencias «§N» en este archivo:** cada «§N» apunta a una **sección numerada de este mismo `CLAUDE.md`**. Ejemplo: «§19» = sección **19. Auditorías con sesión autenticada**; «§17» = sección **17. Arquitectura de sub-subagentes**; «§20» = calibración VISIBLE/patrones/cruces; «§21» = playbook de herramientas por criterio crítico; «§22» = entrega legible para CMS.
+**Cómo leer «§N»:** sección de este `CLAUDE.md`. §17 = subagentes + sub-subagentes; §20 = evidencia; §22 = entrega CMS.
 
 ### Paso 1 — Preparación
-- Identificar **una** URL objetivo y `tipo_pagina` (`sitioweb` | `tramites`).
-- Obtener HTML (Playwright: sección **§11**; playbook MCP: **§8**; script `capture:tramites-html` si post-login; o Ctrl+U solo en Fase 0).
-- Si la captura fue con sesión autenticada: marcar `captura_con_sesion: true` y aplicar la sección **§19** (reglas de privacidad/anonimización en pantallas post-login) en todos los sub-subagentes.
-- Para serie Clarity: leer metadatos en `data/ux/clarity-fichas-mock.json` (rank, `nombre_ui`, `visitas_ref`).
-- ¿Existe JSON previo para la misma URL? → Reauditar con evidencia nueva; id previo a `history[]` tras cablear el vigente.
+- Identificar **una** URL y `tipo_pagina` (`sitioweb` | `tramites`).
+- Confirmar stack (Prompt 1): Playwright MCP, Chroma, ingestas al día.
+- Obtener HTML (Playwright §11 / §8).
+- Si sesión autenticada: `captura_con_sesion: true` y §19.
+- Leer **Prompt 6** + skill `05` (calibraciones vigentes).
+- ¿JSON previo? → reauditar; id anterior a `history[]`.
 
-### Paso 2 — Inventario en dos capas + evaluación (sección **§17**)
-Plantilla `audit-una-url.md`. La sección **§17** define la arquitectura de **5 sub-subagentes por grupos de indicadores** (no una sola pasada de 51 criterios). Entregar:
-- Inventario `T001…` en capas **R** (redacción) y **U** (chrome UI / formato) — ver skill `auditoria-lc.md`.
-- 5 sub-subagentes en paralelo (**§17**) con gate de evidencia (**§20.6**) y playbook de herramientas (**§21**).
-- Tabla de **51** criterios v3.0 + `sustituciones[]` consolidadas por el agente raíz.
+### Paso 2 — Inventario + evaluación (§17)
+Plantilla Prompt 5. Entregar:
+- Inventario `T001…` capas **R** y **U** (skill `01` / inventario visible).
+- **15 subagentes en orden** (un indicador tras otro) — §17.1 + skill `03`.
+- Luego **5 sub-subagentes de entrega** — §17.2 + skills `02`/`05`.
+- Tabla de **51** criterios + `sustituciones[]` consolidadas por el agente raíz.
 
 ### Paso 3 — Segunda pasada (JSON canónico)
-Prompt §3.2 del flujo piloto (o equivalente en `audit-una-url.md`). Reglas de contrato:
-- Exactamente **51 objetos** en `criterios_evaluados[]` (v3.0), orden del catálogo LC-PTD. Históricos: 47 (v2.1) o 39 (v1.1).
-- **Estado JSON:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`. Sin otros valores ni `null`.
-- **`severidad`:** SOLO si `estado = "incumple"` (`baja` = cumple con observaciones · `media` = medianamente cumple · `alta` = no cumple en UI). Omitir la clave en `cumple`/`no_aplica`. Nunca `null`.
-- `cita_textual`: omitir la clave si no hay cita (nunca `null`).
-- **Cobertura 1:1:** cada `incumple` → al menos una fila en `sustituciones[]`, con propuesta **entendible para CMS** (ver tipos abajo) y, en segundo plano, ancla técnica (`linea` / `html_linea_aprox`) para TI.
-- Todo hallazgo en `observaciones_lc_por_severidad` DEBE tener fila equivalente en `sustituciones[]`.
-- Resumen numérico coherente: `criterios_aprobados` incluye `cumple` + agrupados; el % usa aplicables (excluye `no_aplica`).
-- Para serie Clarity: añadir bloque `clarity_meta` con `serie`, `rank`, `nombre_ui`, `ruta_etiqueta`, `visitas_ref`, `encargado_ref`.
+Reglas de contrato (Prompt 3 + §22):
+- Exactamente **51 objetos** en `criterios_evaluados[]` (v3.0), orden del catálogo LC-PTD.
+- **Estado JSON:** SOLO `"cumple"` | `"incumple"` | `"no_aplica"`.
+- **`severidad`:** SOLO si `incumple` (`baja` / `media` / `alta`). Omitir en cumple/no_aplica.
+- **Cobertura 1:1:** cada `incumple` → ≥1 fila en `sustituciones[]`, CMS-first.
+- Resumen numérico coherente; Clarity: bloque `clarity_meta` si aplica.
 
 ### Tipos de propuesta en `sustituciones[]`
 
@@ -402,7 +408,7 @@ El JSON en disco y `bun run ingest:b` **no** bastan para la UI. Actualizar:
 - `frontend/src/lib/clarity-audits-launch.ts` (serie Clarity / historial `/auditar/historial`)
 - `frontend/src/lib/claude-audits-launch.ts` si la URL está en el piloto 9
 
-Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver `audit-una-url.md` Paso F / `audit-lote.md` (cableado).
+Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver Prompt 5 Paso F.
 
 ### Paso 5 — Commit y DEVLOG
 ```bash
@@ -450,13 +456,13 @@ GET /api/claude-audits/{id}/export/pdf
 
 ## 14. Workflow — Conjunto de URLs (multi-sesión)
 
-*Aplica desde Fase 3. Plantilla: `.claude/prompts/audit-lote.md`. Canónico por URL: `audit-una-url.md`.*
+*Aplica desde Fase 3. **Sin archivo aparte de lote:** repetir Prompt `05-audit-maestro-url.md` (una URL por sesión). Orden META MEI: `src/lib/mei-export/mei-meta-mei-urls.ts`.*
 
 ### Política de tamaño (obligatoria)
 
 | Caso | Tamaño | Cómo |
 | --- | --- | --- |
-| META MEI / reauditoría con calibración **§20** (sección 20 de este archivo: puntaje, VISIBLE, patrones, cruces) | **1 URL por sesión** | Pegar `audit-una-url.md` |
+| META MEI / reauditoría con calibración **§20** | **1 URL por sesión** | Pegar Prompt `05-audit-maestro-url.md` (+ leer Prompt 6) |
 | Dos páginas hermanas | **Máx. 2** | Solo si la 1ª cerró `validate` + commit |
 | Smoke Clarity ligero | Hasta 5 (legacy) | Verificar tras cada URL; no apilar consolidaciones |
 
@@ -470,7 +476,7 @@ GET /api/claude-audits/{id}/export/pdf
 ### Ejecución
 - Por cada URL ejecutar el ciclo completo:
   - **§12** — workflow de una URL (preparación → inventario → JSON → validate → cable → commit)
-  - **§17** — 5 sub-subagentes por grupos de indicadores
+  - **§17** — 15 subagentes (indicadores) + 5 sub-subagentes (entrega)
   - **§20** — calibración VISIBLE / patrones / cruces / gate de evidencia
   - **§21** — playbook de herramientas para criterios críticos (fecha, documentos, H1, etc.)
 - **No** abrir la siguiente URL hasta cerrar la actual.
@@ -549,99 +555,83 @@ git push origin main                      # subir a remoto
 
 ---
 
-## 17. Arquitectura de sub-subagentes por grupo de secciones
+## 17. Arquitectura: subagentes (indicadores) + sub-subagentes (entrega)
 
-*Aplica desde Fase 3 (flujo completo automatizado). Requiere Playwright MCP + RAG MCP activos.*  
-*Prompt canónico: `prompts/audit-una-url.md` Paso D. Skills: `skills/auditoria-lc.md` (obligatoria) + `auditoria-calidad-web.md` / `pesquisa-criterios.md`. Diagrama: `diagrams/workflow_diagram.md` §6.*
+*Fase 3+. Requiere Playwright MCP + RAG MCP.*  
+*Prompt canónico: `prompts/05-audit-maestro-url.md`. Skills `01`–`05`. Diagrama: `diagrams/workflow_diagram.md`.*
 
 ### Motivación
 
-Evaluar los **51** criterios en una sola pasada puede sacrificar profundidad. Esta arquitectura delega grupos de **indicadores** a sub-subagentes especializados.
+1. **Evaluar** los 51 criterios con la misma granularidad que los **instrumentos** IEW/IESD (un indicador a la vez, en orden).  
+2. **Entregar** resultados pulidos para CMS/UX/Excel con cinco especialistas de calidad de salida.  
+3. No mezclar “quién puntúa el indicador” con “quién redacta la fila para humanos”.
 
-### 5 grupos temáticos (por indicadores LC)
+### 17.1 Subagentes — 15 indicadores únicos (evaluación, SECUENCIAL)
 
-| Grupo | Indicadores | IDs (orientativo) | Foco |
-| --- | --- | --- | --- |
-| **1 — Fiabilidad / Completitud / Actualización / Objetividad / Archivo / Visualización** | 1.1.1, 1.1.2, 1.1.4, 1.3.1–1.3.3 (+ IESD 5.1.1/5.1.2/5.1.4/5.3.x) | LC-1.1.1-*, LC-1.1.2-*, LC-1.1.4-*, LC-1.3.* | Fuente, completitud, fechas, objetividad, archivo, apoyos visuales |
-| **2 — Lenguaje plano** | 1.1.3 / 5.1.3 | LC-1.1.3-01…06 | Legible, tono, jerga, abreviaturas, siglas, tono positivo |
-| **3 — Redacción / Claridad / Concisión** | 1.1.5, 1.2.1, 1.2.2 (+ variantes IESD) | LC-1.1.5-*, LC-1.2.1-*, LC-5.2.1-01, LC-1.2.2-*, LC-5.2.2-01 | Ortografía, conectores, FAQ, concisión |
-| **4 — Legibilidad / Escritura web** | 1.2.3, 1.2.4 / 5.2.3, 5.2.4 | LC-1.2.3-*, LC-1.2.4-*, LC-5.2.4-01 | Espaciado, alineación, listas, pirámide, negritas, enlaces/PDF/rótulos |
-| **5 — PI / Privacidad / Sensibles** | 1.1.6–1.1.8 / 5.1.6–5.1.7 | LC-1.1.6-*, LC-1.1.7-*, LC-1.1.8-* | Licencias, ARCO, RUN/teléfonos, contenidos sensibles |
+| # | Nombre | IEW | IESD | Notas |
+| --- | --- | --- | --- | --- |
+| 1 | Fiabilidad | 1.1.1 | 5.1.1 | Dual |
+| 2 | Completitud | 1.1.2 | 5.1.2 | Dual |
+| 3 | Lenguaje plano | 1.1.3 | 5.1.3 | Dual |
+| 4 | Actualización | 1.1.4 | 5.1.4 | Dual |
+| 5 | Redacción y ortografía | 1.1.5 | 5.1.5 | Dual |
+| 6 | Propiedad intelectual | 1.1.6 | 5.1.6 | Dual |
+| 7 | Privacidad y datos personales | 1.1.7 | 5.1.7 | Dual |
+| 8 | Contenidos sensibles | 1.1.8 | — | **Solo IEW** |
+| 9 | Claridad | 1.2.1 | 5.2.1 | Dual (+ variante IESD) |
+| 10 | Concisión | 1.2.2 | 5.2.2 | Dual (+ variante IESD) |
+| 11 | Legibilidad | 1.2.3 | 5.2.3 | Dual |
+| 12 | Escritura para la web | 1.2.4 | 5.2.4 | Dual (+ rótulos IESD) |
+| 13 | Visualización de la información | 1.3.1 | — | **Solo IEW** |
+| 14 | Objetividad | 1.3.2 | 5.3.1 | Dual |
+| 15 | Archivo | 1.3.3 | 5.3.2 | Dual |
+
+- **15** indicadores únicos · **13** también en IESD · **2** exclusivos IEW (1.1.8, 1.3.1).  
+- Cada subagente responde **todas** las preguntas `LC-*` de su indicador (catálogo v3.0).  
+- **Orden estricto 1→15.** No iniciar el siguiente hasta cerrar el actual.  
+- Plantilla de instrucción: skill `03-instrucciones-subagentes-instrumentos.md`.
+
+### 17.2 Sub-subagentes — 5 de calidad de entrega (después de los 15)
+
+Trabajan sobre el borrador de 51 filas (+ `sustituciones[]`). Pueden correr en paralelo entre sí.
+
+| # | Responsabilidad |
+| --- | --- |
+| **1 — Campos de evidencia** | Completar y alinear texto en pantalla, corrección propuesta, ubicación, justificación |
+| **2 — Lenguaje ciudadano** | Reescribir sin jerga TI/desarrollo (skill `02`) |
+| **3 — Veracidad y realismo** | Preciso, claro, humano; sin inventar defectos (§20.6 / §22.9); aplica Prompt 6 |
+| **4 — Estructura Excel/tablas** | Filas ordenadas, jerarquía, casillas no vacías, coherencia con columnas UI/PDF/Excel (Prompt 3) |
+| **5 — Higiene y datos sensibles** | Condiciones de uso, privacidad/ARCO, contenidos sensibles, §18–§19 |
 
 ### Flujo completo (por URL)
 
 ```
-Agente raíz (Claude Code — orquestador)
+Agente raíz (Claude Code)
 │
-├── [1] Playwright MCP (una vez): navigate → HTML → a11y → evaluate estilos si hace falta
-│       → inventario capas R + U (texto_capturado compartido)
-├── [1b] RAG MCP: consultas A/B puntuales (fundamento + precedentes de la URL)
+├── [A] Prompt 1 — stack (Playwright, Chroma, Xenova, LangChain, ingest)
+├── [B] Captura UNA vez + inventario R+U
+├── [C] Prompt 6 + skills 01/04/05 — catálogo + RAG + calibración
 │
-├── [2–6] Cinco sub-subagentes EN PARALELO (cada uno SOLO su grupo)
-│       + skill de sección + gate evidencia §20.6 / §21
+├── [D] 15 SUBAGENTES en orden (indicador 1 → 15)     ← evaluación
 │
-├── [7] Agente raíz consolida:
-│       - 51 criterios orden catálogo LC-PTD; cruces §20.3; patron_sistema §20.2
-│       - resumen con summarizeEvaluations; resumen_ejecutivo / nota_final_tic §20.5
-│       - JSON canónico + cable launch si aplica
+├── [E] 5 SUB-SUBAGENTES de entrega (1–5)             ← calidad de resultado
 │
-└── [8] bun run validate:claude-audits → commit atómico de esta URL
+├── [F] Consolidar 51 filas · validate · cable UI/PDF/Excel · commit
+└── Si hay hallazgo nuevo de calibración → actualizar Prompt 6
 ```
 
-### Reglas de consolidación (agente raíz — paso 7)
+### Reglas de consolidación (agente raíz)
 
-- **Captura UNA SOLA VEZ** (Playwright); inventario R+U compartido. No re-navegar por grupo.
-- **Sin superposición de criterios:** un criterio → un grupo. METADATA fuera de alcance.
-- **`sustituciones[]`:** unir; si mismo `linea` y conflicto, retención por severidad + nota en `nota_final_tic`.
-- **Completitud:** 51 filas; cobertura 1:1 `incumple` ↔ sustituciones (salvo agrupados §20.3 documentados).
-- **Legibilidad §22:** reescribir filas con `propuesto` vago o `ubicacion_pantalla` solo técnica antes de validar.
-- **No consolidar** hasta que los 5 grupos entreguen output.
+- Captura **una** vez; inventario compartido.  
+- Sin solapar criterios entre subagentes.  
+- Unir `sustituciones[]`; conflictos mismo nodo → §20.3.  
+- Completitud: 51 filas; cobertura 1:1 incumple↔sustituciones.  
+- Gate §22 / sub-subagentes 1–4 antes de validar.  
+- No cerrar hasta terminar los 15 subagentes **y** los 5 sub-subagentes.
 
-### Instrucción de contexto para cada sub-subagente
+### Por qué 1 URL por Prompt 5
 
-Al lanzar cada sub-subagente, incluir siempre:
-1. Inventario R+U completo (`T001…`).
-2. URL, `tipo_pagina`, `fecha`.
-3. `captura_con_sesion: true|false` — si `true`, aplicar **§19** (sesión autenticada): el Grupo 5 es crítico en privacidad y **ARCO** (derechos acceso/rectificación/cancelación/oposición — criterio `LC-1.1.7-03`).
-4. Indicadores a evaluar (ej. «SOLO Fiabilidad/Completitud/Actualización/Objetividad/Archivo/Visualización»).
-5. «Entrega SOLO criterios de tu sección + `sustituciones[]`. No calcules el % total.»
-6. Calibración **§2** (checklist e indicadores), **§19** (sesión), **§20** (VISIBLE/evidencia), **§21** (playbook herramientas): **prohibido `cumple` por omisión**; cada estado con evidencia o `comentario` en `no_aplica`.
-7. Énfasis Grupo 1: fecha (`LC-1.1.4-01`), completitud. Grupo 4: documentos (título+formato+peso+desc). Grupo 2: Legible.
-8. **Entrega humana §22** (sección 22 — copy accionable para CMS): `ubicacion_pantalla` / `propuesto` / `motivo` / `comentario` legibles; `propuesto` pegable o instrucción concreta.
-
-### Skill que carga cada sub-subagente
-
-| Grupo | Skill principal | Skills de apoyo | Indicadores |
-| --- | --- | --- | --- |
-| Grupo 1 | `auditoria-lc.md` (Fiabilidad…Visualización) | calidad-web / pesquisa si duda | 1.1.1, 1.1.2, 1.1.4, 1.3.x |
-| Grupo 2 | `auditoria-lc.md` (Lenguaje plano) | idem | 1.1.3 / 5.1.3 |
-| Grupo 3 | `auditoria-lc.md` (Redacción/Claridad/Concisión) | idem | 1.1.5, 1.2.1, 1.2.2 |
-| Grupo 4 | `auditoria-lc.md` (Legibilidad/Escritura web) | idem | 1.2.3, 1.2.4 |
-| Grupo 5 | `auditoria-lc.md` (PI/Privacidad/Sensibles) | §19 + pesquisa ARCO | 1.1.6–1.1.8 |
-
-Para fundamentos normativos de cualquier sección, cargar también `auditoria-calidad-web.md`.
-Para precedentes históricos, cargar `pesquisa-criterios.md` y consultar RAG MCP Colección B.
-Prompts que lanzan estos grupos: `audit-una-url.md` (canónico), `audit-oro-s22.md`, `audit-lote.md` (por URL).
-
-### Ventajas vs una sola pasada
-
-| Aspecto | Pasada única (51 de golpe) | Sub-subagentes (5 grupos) + **1 URL por prompt maestro** |
-| --- | --- | --- |
-| Profundidad lingüística | Media — el contexto se diluye entre 51 preguntas | Alta — cada agente se concentra en un bloque de indicadores |
-| Consistencia ortográfica / formato | Puede perder ocurrencias | Grupo dedicado revisa el HTML con foco |
-| Trazabilidad | Difícil saber qué indicador falló | Error acotado al grupo |
-| Tiempo | Más rápido en reloj | Más lento en paralelo, más preciso |
-| Conflicto entre criterios | Alto (misma evidencia repartida mal) | Bajo — un criterio → un grupo |
-
-**Por qué aspirar a 1 URL por prompt maestro (`audit-una-url.md`):**
-
-1. **Contexto útil, no saturado:** una sola página cabe entera (HTML + inventario + RAG puntual) sin empujar fuera del contexto los criterios del final de la lista.
-2. **Mejor análisis:** los 5 grupos pueden razonar con la misma evidencia fresca; no hay “promedio” entre home y un trámite distinto.
-3. **Mejor ejecución del contrato:** consolidar 51 filas + `sustituciones[]` + §22 es un gate duro; mezclar varias URLs en un prompt aumenta omisiones, `cumple` por fatiga y propuestas genéricas.
-4. **Mejor resultado entregable:** un JSON validable, cableado y commiteado por URL; la UI/Excel/PDF reflejan una auditoría completa, no un lote a medias.
-5. **RAG más preciso:** las consultas a Colección B se anclan a *esa* URL/patrón, no a un promedio de lotes.
-
-La arquitectura de 5 grupos **dentro** de esa 1 URL es el complemento: profundidad por indicador sin abandonar la disciplina de una sola página por sesión.
+Contexto no saturado, evaluación por indicador sin mezclar páginas, entrega CMS coherente, RAG anclado a esa URL. El lote solo encadena Prompt 5.
 
 ---
 
@@ -835,7 +825,7 @@ Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
 
 ## 21. Playbook por criterio crítico (herramientas)
 
-*Complementa §8 (MCP) y §17 (sub-subagentes). Usar en reauditorías 1-URL (`audit-una-url.md`).*
+*Complementa §8 (MCP) y §17. Usar en reauditorías 1-URL (Prompt 5).*
 
 | Criterio | Evidencia preferida | Herramienta |
 | --- | --- | --- |
@@ -854,7 +844,7 @@ Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae preced
 
 ## 22. Entrega legible para quien implementa (editor CMS / TIC no IA)
 
-*Obligatorio en reauditorías 1-URL y en cualquier JSON nuevo v3.0. Complementa §17, §20.5 y `audit-una-url.md`.*
+*Obligatorio en reauditorías 1-URL y JSON nuevo v3.0. Complementa §17, §20.5 y Prompt 5.*
 
 
 ### 22.1 Audiencia

@@ -202,7 +202,7 @@ Disponible cuando `status === "done"`.
 El worker **no** reimplementa §17. Solo:
 
 1. Reclama un job `queued`.
-2. Invoca Claude Code con el flujo ya documentado (Playwright + 5 sub-subagentes + `validate:claude-audits` + cableado launch + `ingest:b` según runbook).
+2. Invoca Claude Code con el flujo canónico (Prompt `05-audit-maestro-url.md`: Playwright + §17 = 15 subagentes + 5 sub-subagentes + `validate:claude-audits` + cableado launch + `ingest:b` según runbook).
 3. Escribe el JSON canónico en la ruta habitual.
 4. Actualiza el job a `done` (`auditId`) o `failed`.
 
