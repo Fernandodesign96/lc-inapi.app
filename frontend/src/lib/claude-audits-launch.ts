@@ -27,15 +27,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Home INAPI",
     tipoPagina: "sitioweb",
     // Misma URL que Clarity rank 16 — reauditoría §20 (5 sub-subagentes §17, meta-mei orden 1)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21.
-    claudeAuditId: "www-inapi-cl_2026-08-21",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22.
+    claudeAuditId: "www-inapi-cl_2026-08-22",
     resumenMvp: {
-      porcentajeLc: 72.5,
+      porcentajeLc: 78.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-21T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
       evaluadorUid: "equipo-desarrollo",
     },
     history: [
+      { id: "www-inapi-cl_2026-08-21" },
       { id: "www-inapi-cl_2026-08-20" },
       { id: "www-inapi-cl_2026-08-19" },
       { id: "www-inapi-cl_2026-08-18" },
