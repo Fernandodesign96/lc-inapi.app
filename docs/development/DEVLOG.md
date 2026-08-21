@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
 | 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
 | 2026-08-21 | [Orquestación: calibrar LC-1.3.1-01 = presencia de apoyos (no alt)](#devlog-2026-08-21-lc-131-apoyos) |
 | 2026-08-21 | [Infraestructura: Portada www.inapi.cl — reauditoría oro v3.0 (51 LC-*), 75 % tras calibrar LC-1.3.1-01](#devlog-2026-08-21-portada-oro-v30) |
@@ -89,6 +90,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-22-portada-reaudit-v30"></a>
+## [2026-08-22] - Infraestructura | Portada www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 78,9 %
+
+**Rama:** `main`
+
+### Contexto y objetivos:
+
+Reauditar de nuevo la Portada / inicio INAPI (META MEI orden 1, muestra oro v3.0) para confirmar los hallazgos con evaluación independiente por 5 sub-subagentes (CLAUDE.md §17), verificar pesos reales de documentos y aplicar las calibraciones vigentes de LC-1.3.1-01 (apoyos visuales) y jerga legal en títulos de sección.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/`; contenido de portada equivalente a la auditoría del 2026-08-21 (mismo menú, hero, tarjetas y noticias).
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length`: la guía de marcas cambió de tamaño respecto al 2026-08-21 (17.156.031 bytes ≈ 16,4 MB); los 3 documentos institucionales del pie y la guía de patentes se mantienen iguales.
+- 5 sub-subagentes en paralelo (Fiabilidad/Completitud/Actualización/Objetividad/Archivo/Visualización · Lenguaje plano · Redacción/Claridad/Concisión · Legibilidad/Escritura web · PI/Privacidad/Sensibles), consolidados con gate §22.12.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: `LC-1.2.4-02`→`LC-1.1.3-03`, `LC-1.2.1-02`→`LC-1.2.2-04`, `LC-1.2.4-08`→`LC-1.2.4-07`), 13 no aplica → 38 aplicables, 78,9 % de cumplimiento → `rechazado` (sube desde 72,5 % del 2026-08-21, principalmente porque el H1 y `LC-1.1.2-03` se reevaluaron como `cumple`/`no_aplica` con evidencia propia). Hallazgos de severidad alta: documentos sin formato/peso/descripción (`LC-1.2.4-07`/`08`).
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-22/www-inapi-cl_2026-08-22.json`; validado con `bun run validate:claude-audits` y `bun run typecheck:all`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) apuntan al nuevo id; `www-inapi-cl_2026-08-21` pasa a `history[]`.
 
 ---
 
