@@ -19,5 +19,5 @@
     }
   },
   "include": ["src/scripts/**/*.ts", "src/schemas/**/*.ts", "src/lib/**/*.ts"],
-  "exclude": ["node_modules", "frontend"]
+  "exclude": ["node_modules", "frontend", "**/*.test.ts"]
 }

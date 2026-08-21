@@ -4,10 +4,12 @@ import {
   criterionIdsForChecklistVersion,
 } from "../../schemas/checklist"
 
+import { isMetadataCriterionEvaluation } from "../audit-visible-content"
 import {
-  isMetadataCriterionEvaluation,
-  isMetadataSustitucion,
-} from "../audit-visible-content"
+  buildSustitucionPrimariaPorCriterio,
+  criterioEntregaCampos,
+} from "../criterio-entrega-campos"
+import { ptdHitoTareaPorCriterio } from "../ptd-hito-tarea-por-criterio"
 import type { ClaudeSustitucion } from "../../schemas/claude-audit-pilot"
 import { loadChecklistEnunciados } from "./mei-checklist-catalog"
 import {
@@ -57,6 +59,10 @@ export type MeiExcelRow = {
   motivo: string
   /** Ubicación legible en pantalla (jefe no TI). */
   ubicacionPantalla: string
+  /** Hito(s) OpenProject PTD (ids + título). */
+  hitoPtd: string
+  /** Tarea(s) OpenProject PTD (ids + descripción). */
+  tareaPtd: string
   lineaRef: string
   htmlLineaAprox: string
   fragmentoBusqueda: string
@@ -69,24 +75,6 @@ export type MeiExcelRow = {
 }
 
 const SESSION_G1_RANKS = new Set([4, 7, 14])
-
-const CMS_PROPUESTOS: Partial<Record<string, string>> = {
-  E3: "Agregar fecha visible de última actualización en la página (pie o cabecera).",
-  "LC-1.1.4-01":
-    "Agregar fecha visible de última actualización en la página (bajo el título o pie de contenido).",
-  G2: "Publicar sección visible sobre derechos ARCO (acceso, rectificación, eliminación, oposición, bloqueo).",
-  "LC-1.1.7-03":
-    "Publicar sección visible sobre derechos ARCO (acceso, rectificación, eliminación, oposición, bloqueo).",
-  G3: "Publicar condiciones de uso / licencia de contenidos con enlace visible en el sitio.",
-  "LC-1.1.6-01":
-    "Publicar condiciones de uso / licencia de contenidos con enlace visible en el sitio.",
-  E2: "Mostrar autoría institucional visible (INAPI) en la página.",
-  "LC-1.1.1-01":
-    "Mostrar autoría institucional visible (INAPI) en encabezado o pie de cada página.",
-  H1: 'Rotular versiones anteriores como "archivo no vigente" con año o periodo.',
-  "LC-1.3.3-01":
-    'Rotular versiones anteriores como "archivo no vigente" con año o periodo.',
-}
 
 function actividadPrincipal(hitoId: string): number | null {
   const hito = hitoById(hitoId)
@@ -147,6 +135,8 @@ function emptyDocumentaryRow(
       "Checklist PTD-LC v3.0 (51) operativo + flujo auditoría Claude §17 + validate:claude-audits.",
     motivo: "Evidencia actividad 1 / hito H01 (ago-2026).",
     ubicacionPantalla: "",
+    hitoPtd: "—",
+    tareaPtd: "—",
     lineaRef: "",
     htmlLineaAprox: "",
     fragmentoBusqueda: "",
@@ -176,15 +166,10 @@ function criterioIdsParaDetalleUrl(
 function sustitucionPrimariaPorCriterio(
   sustituciones: readonly ClaudeSustitucion[],
 ): Map<CriterionId, ClaudeSustitucion> {
-  const map = new Map<CriterionId, ClaudeSustitucion>()
-  for (const s of sustituciones) {
-    if (isMetadataSustitucion(s)) continue
-    if (!map.has(s.criterio_id)) map.set(s.criterio_id, s)
-    for (const rel of s.criterios_relacionados ?? []) {
-      if (!map.has(rel)) map.set(rel, s)
-    }
-  }
-  return map
+  return buildSustitucionPrimariaPorCriterio(sustituciones) as Map<
+    CriterionId,
+    ClaudeSustitucion
+  >
 }
 
 function rowFromEvaluation(opts: {
@@ -198,6 +183,8 @@ function rowFromEvaluation(opts: {
   const { num, hitoId, audit, ev, enunciados, sust } = opts
   const hito = hitoById(hitoId)!
   const categoria = categoriaPresentacionFromEvaluation(ev)
+  const campos = criterioEntregaCampos(ev, sust)
+  const ptd = ptdHitoTareaPorCriterio(ev.id)
   const base = {
     num,
     actividadMei: actividadPrincipal(hitoId),
@@ -217,6 +204,8 @@ function rowFromEvaluation(opts: {
     auditId: audit.auditId,
     estado: "pendiente" as const,
     fragmentoBusqueda: "",
+    hitoPtd: ptd.hitoPtd,
+    tareaPtd: ptd.tareaPtd,
   }
 
   if (ev.estado === "no_aplica") {
@@ -225,12 +214,11 @@ function rowFromEvaluation(opts: {
       estadoAuditoria: "no_aplica",
       severidad: "",
       tipoEntrega: "nuevo_contenido",
-      textoOriginal: "—",
-      textoPropuesto: "—",
-      motivo:
-        ev.comentario?.trim() ||
-        "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
-      ubicacionPantalla: "",
+      textoOriginal: campos.textoEnPantalla,
+      textoPropuesto: campos.correccionPropuesta,
+      motivo: campos.justificacion,
+      ubicacionPantalla:
+        campos.ubicacionEnPantalla === "—" ? "" : campos.ubicacionEnPantalla,
       lineaRef: "",
       htmlLineaAprox: "",
       requiereValidacionTic: "no",
@@ -244,10 +232,10 @@ function rowFromEvaluation(opts: {
       estadoAuditoria: "cumple",
       severidad: "",
       tipoEntrega: "nuevo_contenido",
-      textoOriginal: ev.cita_textual?.trim() || "—",
-      textoPropuesto: "—",
-      motivo: ev.comentario?.trim() || "Cumple según evidencia visible en la página.",
-      ubicacionPantalla: "",
+      textoOriginal: campos.textoEnPantalla,
+      textoPropuesto: campos.correccionPropuesta,
+      motivo: campos.justificacion,
+      ubicacionPantalla: campos.ubicacionEnPantalla,
       lineaRef: "",
       htmlLineaAprox: "",
       requiereValidacionTic: "no",
@@ -255,52 +243,35 @@ function rowFromEvaluation(opts: {
     }
   }
 
-  // incumple (incl. agrupado_en): enriquecer con sustitución si existe
-  if (sust) {
+  // incumple
+  if (campos.tieneSustitucion) {
     return {
       ...base,
       estadoAuditoria: "incumple",
       severidad: ev.severidad ?? "",
       tipoEntrega: "correccion_texto",
-      textoOriginal: sust.original,
-      textoPropuesto: sust.propuesto,
-      motivo: [
-        ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
-        sust.patron_sistema
-          ? "Patrón de sitio (corregir en Layout/header/footer/modal compartido)."
-          : null,
-        sust.criterios_relacionados?.length
-          ? `Criterios: ${sust.criterio_id}, ${sust.criterios_relacionados.join(", ")}.`
-          : null,
-        sust.motivo,
-        ev.comentario,
-      ]
-        .filter(Boolean)
-        .join(" "),
-      ubicacionPantalla: sust.ubicacion_pantalla ?? "",
-      lineaRef: sust.linea,
-      htmlLineaAprox: sust.html_linea_aprox ?? "",
+      textoOriginal: campos.textoEnPantalla,
+      textoPropuesto: campos.correccionPropuesta,
+      motivo: campos.justificacion,
+      ubicacionPantalla:
+        campos.ubicacionEnPantalla === "—" ? "" : campos.ubicacionEnPantalla,
+      lineaRef: campos.lineaRef,
+      htmlLineaAprox: campos.htmlLineaAprox,
       requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
       notasTic: notasTicFor(ev.id, audit.rank),
     }
   }
 
-  const propuesto =
-    CMS_PROPUESTOS[ev.id] ?? `Corregir incumplimiento de ${ev.id}.`
   return {
     ...base,
     estadoAuditoria: "incumple",
     severidad: ev.severidad ?? "",
-    tipoEntrega: CMS_PROPUESTOS[ev.id] ? "config_cms" : "nuevo_contenido",
-    textoOriginal: ev.cita_textual ?? "(ausencia)",
-    textoPropuesto: propuesto,
-    motivo: [
-      ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
-      ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
-    ]
-      .filter(Boolean)
-      .join(" "),
-    ubicacionPantalla: "",
+    tipoEntrega: campos.tipoEntregaSinSust,
+    textoOriginal: campos.textoEnPantalla,
+    textoPropuesto: campos.correccionPropuesta,
+    motivo: campos.justificacion,
+    ubicacionPantalla:
+      campos.ubicacionEnPantalla === "—" ? "" : campos.ubicacionEnPantalla,
     lineaRef: "",
     htmlLineaAprox: "",
     requiereValidacionTic: requiereValidacionTic(ev.id, audit.rank),
@@ -377,6 +348,8 @@ export function buildRowsForHito(
           "Incorporar íconos, gráficos o infografías para datos publicados en la URL.",
         motivo: "Actividad MEI 14 — ticket diseño/TI.",
         ubicacionPantalla: "En la página (revisión visual pendiente)",
+        hitoPtd: ptdHitoTareaPorCriterio("LC-1.3.1-01").hitoPtd,
+        tareaPtd: ptdHitoTareaPorCriterio("LC-1.3.1-01").tareaPtd,
         lineaRef: "",
         htmlLineaAprox: "",
         fragmentoBusqueda: "",
@@ -475,6 +448,8 @@ export const MEI_EXCEL_COLUMNS: Array<keyof MeiExcelRow> = [
   "textoPropuesto",
   "motivo",
   "ubicacionPantalla",
+  "hitoPtd",
+  "tareaPtd",
   "lineaRef",
   "htmlLineaAprox",
   "fragmentoBusqueda",
@@ -507,6 +482,8 @@ export const MEI_EXCEL_HEADER_LABELS: Record<keyof MeiExcelRow, string> = {
   textoPropuesto: "texto_propuesto",
   motivo: "motivo",
   ubicacionPantalla: "ubicacion_pantalla",
+  hitoPtd: "hito_ptd",
+  tareaPtd: "tarea_ptd",
   lineaRef: "linea_ref",
   htmlLineaAprox: "html_linea_aprox",
   fragmentoBusqueda: "fragmento_busqueda",

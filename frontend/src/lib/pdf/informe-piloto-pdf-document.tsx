@@ -4,18 +4,17 @@ import {
     Text,
     View,
   } from "@react-pdf/renderer"
-  import type { ClaudeAuditBundle } from "@contracts/claude-audit-pilot"
+  import type {
+    ClaudeAuditBundle,
+    ClaudeSustitucion,
+  } from "@contracts/claude-audit-pilot"
   import type { CriterionEvaluation } from "@contracts/checklist"
   
   import {
     formatCriterioEnunciado,
     formatSeccionTitulo,
   } from "@/lib/checklist-criterion-catalog"
-  import {
-    pastillaSeveridadLabel,
-    pastillaSeveridadTexto,
-    presentacionCriterio,
-  } from "@/lib/criterio-evaluacion-visual"
+  import { presentacionCriterio } from "@/lib/criterio-evaluacion-visual"
   import {
     formatFechaEvaluacion,
     labelTipoPagina,
@@ -30,6 +29,11 @@ import {
     PASOS_SEGUN_ESTADO,
   } from "@/lib/resultado-mock-copy"
   import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
+  import {
+    buildSustitucionPrimariaPorCriterio,
+    criterioEntregaCampos,
+  } from "@repo/lib/criterio-entrega-campos"
+  import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
   import {
     etiquetaCriteriosSustitucion,
     parrafosInformeLegible,
@@ -137,59 +141,92 @@ import {
     )
   }
   
-  function CriterioFilaPdf({ row }: { row: CriterionEvaluation }) {
+  function CriterioFilaPdf({
+    row,
+    sust,
+  }: {
+    row: CriterionEvaluation
+    sust?: ClaudeSustitucion
+  }) {
     const pres = presentacionCriterio(row)
-    const pastilla = pastillaSeveridadTexto(pastillaSeveridadLabel(row))
-    const comentario = row.comentario
-      ? trunc(
-          row.agrupado_en
-            ? `Agrupado con ${row.agrupado_en}. ${row.comentario}`
-            : row.comentario,
-          160,
-        )
-      : row.estado === "no_aplica"
-        ? "Sin justificación registrada"
-        : "—"
-  
+    const campos = criterioEntregaCampos(row, sust)
+    const ptd = ptdHitoTareaPorCriterio(row.id)
+
     return (
       <View style={styles.tableRow} wrap={false}>
-        <Text style={[styles.tableCell, { width: "14%" }]}>
-          {trunc(formatSeccionTitulo(row.id), 28)}
+        <Text style={[styles.tableCell, { width: "9%" }]}>
+          {trunc(formatSeccionTitulo(row.id), 18)}
         </Text>
-        <Text style={[styles.tableCell, { width: "28%" }]}>
-          {trunc(formatCriterioEnunciado(row.id), 72)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "16%" }]}>
+        <Text style={[styles.tableCell, { width: "8%" }]}>
           {pres.etiqueta}
         </Text>
-        <Text style={[styles.tableCell, { width: "12%" }]}>{pastilla}</Text>
-        <Text style={[styles.tableCell, { width: "30%" }]}>{comentario}</Text>
+        <Text style={[styles.tableCell, { width: "11%" }]}>
+          {trunc(campos.textoEnPantalla, 36)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "11%" }]}>
+          {trunc(campos.correccionPropuesta, 36)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "9%" }]}>
+          {trunc(campos.ubicacionEnPantalla, 28)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "12%" }]}>
+          {trunc(campos.justificacion, 56)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "14%" }]}>
+          {trunc(formatCriterioEnunciado(row.id), 48)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "13%" }]}>
+          {trunc(ptd.hitoPtd, 52)}
+        </Text>
+        <Text style={[styles.tableCell, { width: "13%" }]}>
+          {trunc(ptd.tareaPtd, 52)}
+        </Text>
       </View>
     )
   }
-  
+
   function BloqueCriterios({ bundle }: { bundle: ClaudeAuditBundle }) {
     const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
-    const titulo =
-      bundle.audit.version_checklist === "2.1"
-        ? `${rows.length} criterios evaluados`
-        : `${rows.length} criterios evaluados`
+    const sustMap = buildSustitucionPrimariaPorCriterio(
+      bundle.pilot.sustituciones ?? [],
+    )
+    const titulo = `${rows.length} criterios evaluados`
     return (
       <View style={styles.sectionWrap}>
         <PdfSectionBar title={titulo} />
         <View style={styles.tableHeaderRow}>
-          <Text style={[styles.tableHeaderCell, { width: "14%" }]}>Sección</Text>
-          <Text style={[styles.tableHeaderCell, { width: "28%" }]}>Criterio</Text>
-          <Text style={[styles.tableHeaderCell, { width: "16%" }]}>Estado</Text>
-          <Text style={[styles.tableHeaderCell, { width: "12%" }]}>
-            Severidad
+          <Text style={[styles.tableHeaderCell, { width: "9%" }]}>
+            Instrumento
           </Text>
-          <Text style={[styles.tableHeaderCell, { width: "30%" }]}>
-            Comentario / justificación
+          <Text style={[styles.tableHeaderCell, { width: "8%" }]}>Estado</Text>
+          <Text style={[styles.tableHeaderCell, { width: "11%" }]}>
+            Texto
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "11%" }]}>
+            Corrección
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "9%" }]}>
+            Ubicación
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "12%" }]}>
+            Justificación
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "14%" }]}>
+            Criterio
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "13%" }]}>
+            Hito PTD
+          </Text>
+          <Text style={[styles.tableHeaderCell, { width: "13%" }]}>
+            Tarea PTD
           </Text>
         </View>
         {rows.map((row) => (
-          <CriterioFilaPdf key={row.id} row={row} />
+          <CriterioFilaPdf
+            key={row.id}
+            row={row}
+            sust={sustMap.get(row.id)}
+          />
         ))}
       </View>
     )

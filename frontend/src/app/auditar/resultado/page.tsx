@@ -23,6 +23,11 @@ import {
   criteriosVisiblesParaEntrega,
 } from "@repo/lib/audit-visible-content"
 import {
+  buildSustitucionPrimariaPorCriterio,
+  criterioEntregaCampos,
+} from "@repo/lib/criterio-entrega-campos"
+import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -66,9 +71,6 @@ import {
 } from "@/lib/resultado-mock-copy"
 import {
   filaCriterioClassName,
-  pastillaSeveridadClass,
-  pastillaSeveridadLabel,
-  pastillaSeveridadTexto,
   presentacionCriterio,
 } from "@/lib/criterio-evaluacion-visual"
 import {
@@ -281,6 +283,12 @@ function ResultadoInner() {
   const pilotMeta: ClaudeAuditPilotMeta | null = deliveryBundle?.pilot ?? null
 
   const clarityMeta = deliveryBundle?.clarity ?? null
+
+  const sustitucionPorCriterio = useMemo(
+    () =>
+      buildSustitucionPrimariaPorCriterio(pilotMeta?.sustituciones ?? []),
+    [pilotMeta?.sustituciones],
+  )
 
   const criteriosFiltrados = useMemo(() => {
     if (!auditoria) return []
@@ -954,24 +962,39 @@ function ResultadoInner() {
                   </Button>
                 </div>
               </div>
-              <Table className="min-w-[48rem]">
+              <Table className="min-w-[76rem]">
                 <TableCaption className="sr-only">
-                  Criterios del checklist editorial v1.1: columnas Sección del criterio,
-                  Criterio con código e enunciado oficial, Estado de evaluación, Severidad
-                  y Comentario.
+                  Criterios del checklist editorial: Instrumento de evaluación,
+                  Estado, Texto en pantalla, Corrección propuesta, Ubicación en
+                  pantalla, Comentario o justificación, Criterio, Hito PTD y
+                  Tarea PTD.
                 </TableCaption>
                 <TableHeader>
                   <TableRow className="border-b border-border bg-muted/50 hover:bg-muted/50">
-                    <TableHead className="min-w-[10rem] max-w-[14rem] text-card-foreground">
-                      Sección
-                    </TableHead>
-                    <TableHead className="min-w-[12rem] text-card-foreground">
-                      Criterio
+                    <TableHead className="min-w-[9rem] max-w-[12rem] text-card-foreground">
+                      Instrumento de evaluación
                     </TableHead>
                     <TableHead className="text-card-foreground">Estado</TableHead>
-                    <TableHead className="text-card-foreground">Severidad</TableHead>
-                    <TableHead className="text-card-foreground">
+                    <TableHead className="min-w-[10rem] text-card-foreground">
+                      Texto en pantalla
+                    </TableHead>
+                    <TableHead className="min-w-[10rem] text-card-foreground">
+                      Corrección propuesta
+                    </TableHead>
+                    <TableHead className="min-w-[9rem] text-card-foreground">
+                      Ubicación en pantalla
+                    </TableHead>
+                    <TableHead className="min-w-[12rem] text-card-foreground">
                       Comentario / justificación
+                    </TableHead>
+                    <TableHead className="min-w-[14rem] text-card-foreground">
+                      Criterio
+                    </TableHead>
+                    <TableHead className="min-w-[12rem] text-card-foreground">
+                      Hito PTD
+                    </TableHead>
+                    <TableHead className="min-w-[12rem] text-card-foreground">
+                      Tarea PTD
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -979,7 +1002,7 @@ function ResultadoInner() {
                   {criteriosFiltrados.length === 0 ? (
                     <TableRow>
                       <TableCell
-                        colSpan={5}
+                        colSpan={9}
                         className="p-6 text-center text-muted-foreground"
                       >
                         <p className="mb-3 text-sm">
@@ -998,17 +1021,18 @@ function ResultadoInner() {
                   ) : null}
                   {criteriosFiltrados.map((row) => {
                     const pres = presentacionCriterio(row)
-                    const pastilla = pastillaSeveridadLabel(row)
+                    const campos = criterioEntregaCampos(
+                      row,
+                      sustitucionPorCriterio.get(row.id),
+                    )
+                    const ptd = ptdHitoTareaPorCriterio(row.id)
                     return (
                       <TableRow
                         key={row.id}
                         className={filaCriterioClassName(row)}
                       >
-                        <TableCell className="max-w-[14rem] text-sm leading-snug text-muted-foreground">
+                        <TableCell className="max-w-[12rem] text-sm leading-snug text-muted-foreground">
                           {formatSeccionTitulo(row.id)}
-                        </TableCell>
-                        <TableCell className="max-w-[min(100vw,32rem)] text-sm leading-snug text-foreground">
-                          {formatCriterioEnunciado(row.id)}
                         </TableCell>
                         <TableCell>
                           <span className="flex items-center gap-2">
@@ -1037,28 +1061,52 @@ function ResultadoInner() {
                             </span>
                           </span>
                         </TableCell>
-                        <TableCell>
-                          <span className={pastillaSeveridadClass(pastilla)}>
-                            {pastillaSeveridadTexto(pastilla)}
+                        <TableCell
+                          className="max-w-[min(100vw,16rem)] text-sm leading-snug text-foreground"
+                          title={campos.textoEnPantalla}
+                        >
+                          <span className="line-clamp-3">
+                            {campos.textoEnPantalla}
                           </span>
                         </TableCell>
                         <TableCell
-                          className="max-w-[min(100vw,24rem)] text-sm leading-snug text-foreground"
-                          title={row.comentario ?? undefined}
+                          className="max-w-[min(100vw,16rem)] text-sm leading-snug text-foreground"
+                          title={campos.correccionPropuesta}
                         >
-                          {row.comentario ? (
-                            <span className="line-clamp-3">
-                              {row.agrupado_en
-                                ? `Agrupado con ${row.agrupado_en}. ${row.comentario}`
-                                : row.comentario}
-                            </span>
-                          ) : row.estado === "no_aplica" ? (
-                            <span className="text-muted-foreground">
-                              Sin justificación registrada
-                            </span>
-                          ) : (
-                            <span className="text-muted-foreground">—</span>
-                          )}
+                          <span className="line-clamp-3">
+                            {campos.correccionPropuesta}
+                          </span>
+                        </TableCell>
+                        <TableCell
+                          className="max-w-[12rem] text-sm leading-snug text-muted-foreground"
+                          title={campos.ubicacionEnPantalla}
+                        >
+                          <span className="line-clamp-3">
+                            {campos.ubicacionEnPantalla}
+                          </span>
+                        </TableCell>
+                        <TableCell
+                          className="max-w-[min(100vw,20rem)] text-sm leading-snug text-foreground"
+                          title={campos.justificacion}
+                        >
+                          <span className="line-clamp-3">
+                            {campos.justificacion}
+                          </span>
+                        </TableCell>
+                        <TableCell className="max-w-[min(100vw,28rem)] text-sm leading-snug text-foreground">
+                          {formatCriterioEnunciado(row.id)}
+                        </TableCell>
+                        <TableCell
+                          className="max-w-[14rem] text-sm leading-snug text-muted-foreground"
+                          title={ptd.hitoPtd}
+                        >
+                          <span className="line-clamp-4">{ptd.hitoPtd}</span>
+                        </TableCell>
+                        <TableCell
+                          className="max-w-[14rem] text-sm leading-snug text-muted-foreground"
+                          title={ptd.tareaPtd}
+                        >
+                          <span className="line-clamp-4">{ptd.tareaPtd}</span>
                         </TableCell>
                       </TableRow>
                     )
