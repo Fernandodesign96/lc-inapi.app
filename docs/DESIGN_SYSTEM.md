@@ -356,7 +356,7 @@ Implementación sugerida en stack: primitiva **Accordion** o **Collapsible** de 
 
 ### 15.1 Patrón UI: informe piloto en `/auditar/resultado` (Fase 1.5)
 
-**Uso:** pantalla de informe cuando la auditoría proviene de `data/claude-audits/` (`?claudeAudit=` o import con metadatos `pilot`). Orden y títulos de barra: [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §4.
+**Uso:** pantalla de informe cuando la auditoría proviene de `data/claude-audits/` (`?claudeAudit=` o import con metadatos `pilot`). Orden y títulos de barra: [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §5.
 
 | Bloque | Acordeón | Cabecera de barra (texto exacto) |
 | --- | --- | --- |

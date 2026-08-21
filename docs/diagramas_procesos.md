@@ -2,34 +2,80 @@
 
 **Última actualización:** 2026-08-21  
 
-> **Estado:** **archivo histórico / propuesta antigua.** Nest, Supabase Auth, Railway, Lambda **no** son el plan del MVP.  
-> **Vigente:** Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel — [`ARCHITECTURE.md`](ARCHITECTURE.md), [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md).
-
-**Checklist actual:** 51 `LC-*` v3.0 · **10 URLs** META MEI.
+**Checklist:** 51 `LC-*` v3.0 · **10 URLs** META MEI.  
+**Vigente:** Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel — [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) · [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md).
 
 ---
 
 ## Índice
 
-1. [Arquitectura general](#1-arquitectura-general)
-2. [REST: capas y endpoints](#2-rest-capas-y-endpoints)
-3. [PostgreSQL (Supabase)](#3-postgresql-supabase)
-4. [Prisma](#4-prisma)
-5. [API Gateway (AWS)](#5-api-gateway-aws)
-6. [AWS Lambda](#6-aws-lambda)
-7. [Autenticación (Supabase Auth)](#7-autenticación-supabase-auth)
-8. [Flujo completo de auditoría LC](#8-flujo-completo-de-auditoría-lc)
-9. [Persistencia final (transacción Nest → Postgres)](#9-persistencia-final-transacción-nest--postgres)
-10. [Parseo: dónde ocurre y por qué importa](#10-parseo-dónde-ocurre-y-por-qué-importa)
-11. [Export PDF (Fase 4)](#11-export-pdf-fase-4)
-12. [Docker local (servicio Python)](#12-docker-local-servicio-python)
-13. [Tabla rápida: quién conecta con quién](#13-tabla-rápida-quién-conecta-con-quién)
+0. [Flujo vigente (Claude Code)](#0-flujo-vigente-claude-code)
+1. [Archivo histórico — Arquitectura Nest/Supabase/AWS](#1-archivo-histórico--arquitectura-nestsupabaseaws)
+2. [REST: capas y endpoints (histórico)](#2-rest-capas-y-endpoints-histórico)
+3. [PostgreSQL / Supabase (histórico)](#3-postgresql-supabase-histórico)
+4. [Prisma (histórico)](#4-prisma-histórico)
+5. [API Gateway AWS (histórico)](#5-api-gateway-aws-histórico)
+6. [AWS Lambda (histórico)](#6-aws-lambda-histórico)
+7. [Autenticación Supabase (histórico)](#7-autenticación-supabase-auth-histórico)
+8. [Flujo auditoría Nest→Postgres (histórico)](#8-flujo-completo-de-auditoría-lc-histórico)
+9. [Persistencia Nest→Postgres (histórico)](#9-persistencia-final-transacción-nest--postgres-histórico)
+10. [Parseo (notas; parcialmente vigente)](#10-parseo-dónde-ocurre-y-por-qué-importa)
+11. [Export PDF (histórico + nota Fase 1.5)](#11-export-pdf-fase-4)
+12. [Docker Python (histórico)](#12-docker-local-servicio-python-histórico)
+13. [Tabla quién conecta con quién (histórico)](#13-tabla-rápida-quién-conecta-con-quién-histórico)
 
 ---
 
-## 1. Arquitectura general
+## 0. Flujo vigente (Claude Code)
 
-Vista de todas las piezas y conexiones principales.
+Orquestación productiva actual (sin Nest, sin Postgres, sin Claude API de pago).
+
+```mermaid
+flowchart TD
+  CC[Claude Code]
+  CM[CLAUDE.md + prompts 01-06 + skills 01-05]
+  SA[15 subagentes + 5 sub-subagentes §17]
+  PW[Playwright MCP]
+  RAG[RAG MCP]
+  CH[(Chroma A/B)]
+  XE[Xenova embeddings]
+  LC[LangChain.js ingest]
+  Z[Zod validate]
+  JSON[data/claude-audits]
+  V[Vercel UI / PDF / Excel]
+  Jobs[data/jobs + worker PC]
+
+  CC --> CM
+  CC --> SA
+  CC --> PW
+  CC --> RAG
+  RAG --> CH
+  LC --> XE --> CH
+  CC --> JSON --> Z --> V
+  Jobs -.-> CC
+```
+
+| Pieza | Rol |
+| --- | --- |
+| Claude Code | Orquesta captura, RAG, 51 criterios, JSON |
+| Prompt `05` | Contrato ejecutable 1 URL |
+| Playwright MCP | DOM real |
+| Chroma + Xenova + LangChain | RAG Colecciones A/B |
+| Zod | `validate:claude-audits` |
+| Vercel | UI, PDF, Excel, cola jobs |
+| Worker PC | Claim job → mismo §17 (ADR 0011) |
+
+Detalle: [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`.claude/diagrams/workflow_diagram.md`](../.claude/diagrams/workflow_diagram.md).
+
+---
+
+## Archivo histórico (propuesta antigua)
+
+> Las secciones siguientes documentan Nest / Railway / Supabase Auth / Lambda / 39 criterios. **No** son el plan del MVP. Se conservan como contexto de decisión (ver [ADR 0002](adr/0002-stack-next-bun-supabase.md), [ADR 0006](adr/0006-lc-evaluation-python-claude-aws.md)).
+
+## 1. Archivo histórico — Arquitectura Nest/Supabase/AWS
+
+Vista de la propuesta antigua (Nest + Railway + Supabase + Lambda).
 
 ```mermaid
 flowchart TB
@@ -79,7 +125,7 @@ flowchart TB
 
 ---
 
-## 2. REST: capas y endpoints
+## 2. REST: capas y endpoints (histórico)
 
 REST = HTTP + recursos nombrados + JSON.
 
@@ -107,7 +153,7 @@ flowchart LR
 
 ---
 
-## 3. PostgreSQL (Supabase)
+## 3. PostgreSQL (Supabase) (histórico)
 
 ### Qué es
 
@@ -139,7 +185,7 @@ flowchart LR
 
 ---
 
-## 4. Prisma
+## 4. Prisma (histórico)
 
 ### Qué es
 
@@ -176,7 +222,7 @@ Nest: "crear audit + 39 criterion_results"
 
 ---
 
-## 5. API Gateway (AWS)
+## 5. API Gateway (AWS) (histórico)
 
 ### Qué es
 
@@ -206,7 +252,7 @@ flowchart LR
 
 ---
 
-## 6. AWS Lambda
+## 6. AWS Lambda (histórico)
 
 ### Qué es
 
@@ -256,7 +302,7 @@ flowchart TB
 
 ---
 
-## 7. Autenticación (Supabase Auth)
+## 7. Autenticación (Supabase Auth) (histórico)
 
 Dos capas de auth distintas en el MVP.
 
@@ -299,7 +345,7 @@ sequenceDiagram
 
 ---
 
-## 8. Flujo completo de auditoría LC
+## 8. Flujo completo de auditoría LC (histórico)
 
 De ingreso URL a resultado en pantalla.
 
@@ -348,7 +394,7 @@ sequenceDiagram
 
 ---
 
-## 9. Persistencia final (transacción Nest → Postgres)
+## 9. Persistencia final (transacción Nest → Postgres) (histórico)
 
 Qué ocurre cuando Lambda devuelve JSON válido.
 
@@ -492,7 +538,7 @@ sequenceDiagram
 
 ---
 
-## 12. Docker local (servicio Python)
+## 12. Docker local (servicio Python) (histórico)
 
 Paridad local ↔ Lambda (coordinación con desarrollo backend).
 
@@ -511,7 +557,7 @@ flowchart LR
 
 ---
 
-## 13. Tabla rápida: quién conecta con quién
+## 13. Tabla rápida: quién conecta con quién (histórico)
 
 | Desde | Hacia | Protocolo | Auth | Persiste en BD |
 | --- | --- | --- | --- | --- |

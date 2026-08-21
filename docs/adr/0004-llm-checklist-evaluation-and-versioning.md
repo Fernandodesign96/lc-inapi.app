@@ -31,9 +31,9 @@ Auditar lenguaje claro exige juicio lingüístico. Un LLM acelera, pero puede al
 | Pieza | Función |
 | --- | --- |
 | `.claude/CLAUDE.md` | Constitución: reglas §5, §17, §20–§23, nomenclatura LC |
-| Prompts | `audit-una-url.md`, `audit-lote.md`, `audit-oro-s22.md` |
-| Skills | `auditoria-lc`, `auditoria-calidad-web`, `pesquisa-criterios` |
-| Sub-subagentes §17 | Cinco especialistas por bloques de indicadores LC |
+| Prompts | `01`…`06` (maestro = `05-audit-maestro-url.md`) |
+| Skills | `01`…`05` (documentos/RAG, CMS, subagentes, Xenova, calibración) |
+| §17 | **15** subagentes (1 indicador) + **5** sub-subagentes de entrega |
 | MCP Playwright | Captura |
 | MCP RAG | Consultas a Colecciones A/B |
 | Hooks / `validate:claude-audits` | Cierre con Zod |

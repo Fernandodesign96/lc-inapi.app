@@ -51,7 +51,7 @@ Históricos 39/47 A–H = solo legado.
 flowchart TD
   CC[Claude Code]
   CM[CLAUDE.md + prompts + skills]
-  SA[5 sub-subagentes §17]
+  SA[15 subagentes + 5 sub-subagentes §17]
   PW[Playwright MCP]
   RAG[RAG MCP]
   CH[(Chroma A/B)]
@@ -74,7 +74,7 @@ flowchart TD
 | --- | --- |
 | Claude Code | Orquesta captura, RAG, evaluación 51 criterios, JSON |
 | CLAUDE.md / prompts / skills | Contrato editorial y operativo |
-| §17 | Cinco sub-subagentes por bloques de indicadores LC |
+| §17 | **15** subagentes (1 indicador LC) + **5** sub-subagentes de entrega CMS |
 | Playwright MCP | HTML/DOM real (y sesión ClaveÚnica si aplica) |
 | LangChain.js | Pipeline de **ingesta** (troceo → embed → Chroma) |
 | Xenova | Embeddings locales |
@@ -114,14 +114,14 @@ flowchart TD
 
 ## 4. Flujo de una auditoría (1 URL)
 
-1. Prompt `audit-una-url` (una sola URL).  
+1. Prompt `05-audit-maestro-url` (una sola URL; leer Prompt 6).
 2. Playwright captura HTML (+ a11y).  
 3. Inventario visible + catálogo 51 + consultas RAG A/B.  
 4. Cinco sub-subagentes §17.  
 5. Consolidación CMS (§22) → JSON → Zod.  
 6. Cable UI / PDF / Excel / commit.
 
-Lotes: `audit-lote.md`. Worker: claim job → mismo §17.
+Lotes META MEI: repetir Prompt `05-audit-maestro-url`. Worker: claim job → mismo §17.
 
 ---
 

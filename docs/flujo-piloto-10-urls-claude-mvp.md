@@ -1,16 +1,17 @@
-# Flujo operativo — Piloto / META MEI → MVP → PDF
+# Flujo operativo — META MEI / Clarity / MVP
 
 | Metadatos | Detalle |
 | --- | --- |
-| **Fecha** | 2026-08-21 (origen piloto 2026-06-02) |
-| **Proveedor IA** | **Claude Code** (orquestador) + Playwright MCP + RAG Chroma/Xenova |
+| **Fecha** | 2026-08-21 (origen piloto 2026-06-02; fusión stack + fixture 2026-08-21) |
+| **Proveedor IA** | **Claude Code** + Playwright MCP + RAG Chroma/Xenova/LangChain |
 | **Checklist** | PTD-LC **v3.0** — **51** criterios `LC-*` |
-| **Objetivo actual** | Muestra **META MEI 10 URLs** (compromiso jefatura) con JSON + PDF + Excel |
-| **Histórico en repo** | **27 URLs** distintas auditadas o inventariadas (Clarity INAPI + extras META MEI + buscador marcas) |
-| **Registro antiguo** | Piloto junio 2026 — **9 URLs** (cable UI inicial; ver §2.3) |
-| **Referencias** | [`ROADMAP.md`](ROADMAP.md) · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`stack-orquestación.md`](stack-orquestación.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [`mei-meta-mei-urls.ts`](../src/lib/mei-export/mei-meta-mei-urls.ts) |
+| **Objetivo** | Muestra **META MEI 10 URLs** con JSON + PDF + Excel |
+| **Histórico** | 27 URLs Clarity/extras · piloto junio **9 URLs** · fixture mock Notificaciones |
+| **Orquestación** | Prompt `05-audit-maestro-url.md` · skills `01`…`05` · `.claude/CLAUDE.md` §17 |
+| **Referencias** | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`ROADMAP.md`](ROADMAP.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [`mei-meta-mei-urls.ts`](../src/lib/mei-export/mei-meta-mei-urls.ts) |
 
-> **Nota:** Nest / AWS / Claude API / login = **propuestas antiguas** (no implementar). Persistencia = JSON en repo.
+> Nest / AWS / Claude API / login = **propuestas antiguas** (no implementar). Persistencia = JSON en repo.  
+> Este documento **absorbe** el antiguo `stack-orquestación.md` (simplificado) y el ejemplo fixture Notificaciones Marcas.
 
 ---
 
@@ -32,13 +33,14 @@
 
 ### 1.2 Pantalla de resultado ampliada
 
-Al abrir una URL META MEI (u otra con `claudeAudit`), `/auditar/resultado` muestra **solo lectura** las secciones de la §4.
+Al abrir una URL META MEI (u otra con `claudeAudit`), `/auditar/resultado` muestra **solo lectura** las secciones del informe (§5).
 
 ### 1.3 Límite conocido: export JSON → repo → MVP
 
 No hay sincronización automática chat ↔ app. Flujo: **Claude Code / JSON** → **commit** → **MVP lee y muestra** → **PDF**. Sin Claude API operativa.
 
 ---
+
 ## 2. URLs — orden de lectura (META MEI → histórico 27 → piloto 9)
 
 ### 2.1 Muestra vigente — **10 URLs META MEI** (compromiso jefatura)
@@ -117,647 +119,117 @@ Detalle Clarity: [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md
 | 9 | Trámites y Servicios | `https://tramites.inapi.cl/` | `tramites` | `tramites-inapi-cl_2026-06-07` | Clarity C1; no es fila META MEI |
 
 ---
-## 3. Qué pedir en el Proyecto Claude (mensajes listos para copiar)
 
-### 3.0 Archivos JSON en el repositorio (home)
+## 3. Orquestación vigente (Claude Code)
 
-| Archivo | Uso |
+**Una URL = una sesión.** Pegar [`.claude/prompts/05-audit-maestro-url.md`](../.claude/prompts/05-audit-maestro-url.md). Leer Prompt `06` + skill `05` en cada corrida.
+
+```mermaid
+flowchart LR
+  A[Playwright MCP] --> B[Inventario R+U]
+  B --> C[15 subagentes §17.1]
+  C --> D[5 sub-subagentes §17.2]
+  D --> E[validate + JSON]
+  E --> F[Cable launch + ingest:b]
+  F --> G[UI / PDF / Excel]
+```
+
+| Paso | Qué |
 | --- | --- |
-| [`data/claude-audits/www-inapi-cl_2026-06-02.export.json`](../data/claude-audits/www-inapi-cl_2026-06-02.export.json) | Export **crudo** tal como lo entregó Claude (con `evaluador`, `seccion`, `severidad: null`, etc.). Solo archivo histórico / referencia. |
-| [`data/claude-audits/www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) | JSON **canónico** (pasa `strictAuditRecordSchema` + extensiones piloto). **Plantilla** para adjuntar al Proyecto Claude y para importar en `/auditar/resultado`. |
+| Captura | DOM real (Playwright); sesión ClaveÚnica si aplica — [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
+| Evaluación | 51 `LC-*` · `version_checklist: "3.0"` |
+| Entrega CMS | §22 — propuesto / motivo / ubicación legible |
+| Cableado | `clarity-audits-launch.ts` / `claude-audits-launch.ts` / META MEI (JSON solo **no** actualiza UI) |
+| Multi-URL | Repetir Prompt 5 (orden `mei-meta-mei-urls.ts`) |
 
-Regenerar canónico desde export (si Claude entrega otro `.export.json`):
+Cola META MEI y muestra oro = **mismo Prompt 5** (no hay prompts `audit-lote` / `audit-oro`).
 
-```bash
-bun data/claude-audits/normalize-export.mjs data/claude-audits/<archivo>.export.json
-```
+---
 
-### 3.1 Primera corrida (auditoría completa) — ya realizada para la home
+## 4. Contexto de captura (del antiguo stack — resumido)
 
-Mensaje tipo (HTML adjunto):
+### 4.1 Tres capas de «HTML»
 
-```text
-Audita con checklist v1.1 (39 criterios A1–H1).
-
-URL: https://www.inapi.cl/
-tipo_pagina: sitioweb
-
-Adjunto: [nombre].html (vista código fuente Ctrl+U).
-
-Ejecuta Fase 0 (texto T001…), tabla de 39 criterios, resumen, sustituciones y JSON según tus instrucciones del proyecto.
-
-Al cerrar con el mensaje §3.2, verifica cobertura 1:1: cada criterio "incumple" debe tener al menos una fila en sustituciones[] (reglas del contrato).
-```
-
-### 3.2 Entrega JSON canónico para el MVP (mensaje único — usar en cada URL)
-
-**Plantilla de referencia en el repo:** adjunta o pega en el chat el archivo  
-[`data/claude-audits/www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json)  
-y pide que las **próximas auditorías** sigan **exactamente** esa forma (mismas claves, mismas reglas).
-
-Usar **en el mismo hilo** tras la auditoría (o en mensaje nuevo con HTML + plantilla). Copiar y pegar:
-
-```text
-Necesito UN solo bloque JSON válido para integrar en nuestro MVP (Next.js) y entrega a TIC.
-NO repitas la tabla de 39 criterios en prosa.
-NO uses el campo "evaluador" — usa "evaluador_uid".
-NO uses null en ningún campo: omite la clave si no aplica.
-
-Adjunto como REFERENCIA OBLIGATORIA el JSON canónico de la home INAPI ya validado en nuestro repo (misma estructura, mismas reglas).
-
-Para esta auditoría, sustituye solo los valores según la URL y el HTML adjunto:
-
-- id: "<slug>_<AAAA-MM-DD>" (ej. tramites-inapi-cl_2026-06-10; home = www-inapi-cl_2026-06-02)
-- url: [URL canónica]
-- version_checklist: "1.1"
-- tipo_pagina: "sitioweb" | "tramites"
-- fecha_evaluacion: ISO 8601 en UTC terminado en Z (ej. 2026-06-03T04:00:00.000Z). Convierte desde hora Chile si hace falta.
-- evaluador_uid: "equipo de desarrollo"
-
-CONTRATO OBLIGATORIO (strictAuditRecordSchema — núcleo importable en la app):
-
-1) criterios_evaluados: exactamente 39 objetos, orden A1…H1. Cada objeto SOLO puede incluir:
-   - id (A1…H1)
-   - estado: "cumple" | "incumple" | "no_aplica"
-   - severidad: "baja" | "media" | "alta" — SOLO si estado es "incumple" (si no, omite la clave)
-   - comentario: string — opcional pero recomendado
-   - cita_textual: string — opcional; omite la clave si no hay cita (nunca null)
-   PROHIBIDO en cada fila: seccion, criterio_enunciado, severidad null, cita_textual null.
-
-   Ejemplo cumple:
-   { "id": "B7", "estado": "cumple", "comentario": "..." }
-
-   Ejemplo incumple:
-   { "id": "B1", "estado": "incumple", "severidad": "alta", "comentario": "...", "cita_textual": "T372: ..." }
-
-   Ejemplo no_aplica:
-   { "id": "C6", "estado": "no_aplica", "comentario": "..." }
-
-2) Resumen numérico coherente con las 39 filas:
-   - criterios_no_aplica, criterios_aplicables, criterios_aprobados (solo "cumple")
-   - porcentaje_cumplimiento (un decimal, ej. 45.5)
-   - estado_aceptacion: "rechazado" | "aceptado_con_observaciones" | "aprobado"
-     Umbrales INAPI: ≤80 rechazado; 81–90,9 aceptado_con_observaciones; ≥91 aprobado
-
-3) texto_capturado: string (extracto T001… resumido si hace falta)
-
-4) texto_propuesto: string (párrafo resumen opcional para TIC). La fuente de verdad accionable es sustituciones[] (ítem 8), no este párrafo. El MVP muestra la tabla de sustituciones en «Texto propuesto».
-
-5) observaciones_lc: string (párrafo consolidado de hallazgos)
-
-EXTENSIONES PILOTO (mantener en el mismo JSON, después del núcleo):
-
-6) resumen_ejecutivo: párrafo único
-
-7) observaciones_lc_por_severidad: {
-     "hallazgos_prioridad_alta": ["(B1) ...", ...],
-     "hallazgos_prioridad_media": [...],
-     "hallazgos_prioridad_baja": [...]
-   }
-   (arrays de strings; puede ser [] si no hay hallazgos en esa severidad)
-   Cada hallazgo listado aquí DEBE tener al menos una fila equivalente en sustituciones[] (ítem 8). No dejes hallazgos solo en esta lista.
-
-8) sustituciones: [ { "linea", "original", "propuesto", "criterio_id", "motivo", "html_linea_aprox" } ]
-   — Entregable principal para TIC (tabla «Texto propuesto» en el MVP).
-   — NO inventes pesos en MB; para documentos usa solo "(PDF)" si no conoces el peso en el CMS.
-
-   COBERTURA 1:1 (OBLIGATORIA):
-   - Por CADA criterio con estado "incumple" en criterios_evaluados[], incluye AL MENOS UNA fila en sustituciones[] con el mismo criterio_id.
-   - Puede haber varias filas para un mismo criterio_id (ej. D7: ACCESOS, BUSCADOR, MARCAS… cada uno en su fila).
-   - PROHIBIDO: dejar un incumplimiento solo en observaciones_lc_por_severidad sin propuesta en sustituciones[].
-   - Antes de entregar el JSON, verifica: cantidad de criterio_id distintos en sustituciones (solo incumplimientos) ≥ cantidad de filas "incumple" en criterios_evaluados. Si falta alguno, complétalo.
-
-   CAMPOS POR FILA:
-   - linea: identificador Tnnn del fragmento (o del punto de anclaje si es inserción).
-   - criterio_id: A1…H1 del incumplimiento que corrige esta fila.
-   - original: texto literal del HTML (con entidades &#243;, &aacute;, etc. si el fuente las usa) O "(ausencia)" / "(no existe en HTML)" si el problema es falta de contenido.
-   - propuesto: texto que TIC debe dejar en la página (sustitución, inserción o "(eliminar nodo)" si corresponde quitar un fragmento).
-   - motivo: por qué corrige el criterio (una frase clara).
-   - html_linea_aprox: referencia aproximada en el HTML (ej. "HTML-L780"). OBLIGATORIO en inserciones, eliminaciones y cambios en <head>/<meta>; recomendado en todas las filas.
-   - **Nota jun 2026 (Trámites / MEI):** en URLs con JS inyectado en BE, `html_linea_aprox` desde Ctrl+U puede no coincidir con la línea en código TI. Para implementación, documentar en `nota_final_tic` el **fragmento único buscable** (ver [`stack-orquestación.md`](stack-orquestación.md) §3 y [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md)). Evolución futura del schema: campos `fragmento_busqueda` y `ubicacion_contextual`.
-
-   CONTENIDO AUSENTE O INEXISTENTE (ej. E3 — fecha de publicación/última modificación de la PÁGINA):
-   - Si el incumplimiento es que NO EXISTE un elemento (fecha de actualización de la página, párrafo introductorio bajo un banner, glosa de sigla), igual debes crear una fila en sustituciones[]:
-     * original: "(ausencia)" o "(no existe en HTML)" (alineado con cita_textual del criterio).
-     * propuesto: el texto literal que TIC debe INSERTAR (ej. "Última actualización: 3 de junio de 2026").
-     * linea: Tnnn del punto de anclaje más cercano (ej. tras el H1 o en el footer).
-     * html_linea_aprox: línea o bloque donde insertar (<footer>, tras T384, etc.).
-   - E3 en home: exige fecha visible de la página principal, no basta con fechas de noticias individuales.
-
-   CALIBRACIÓN G1 (RUT, teléfonos, direcciones):
-   - El criterio G1 del checklist apunta a personas NATURALES (no exponer RUT/teléfono/dirección de ciudadanos).
-   - RUT, teléfono y dirección del INAPI como persona jurídica pública en pie de página NO son violación de privacidad de usuarios.
-   - Si G1 (o A5) queda "incumple" porque el RUT/dato institucional NO aporta valor a la tarea del usuario en esa URL, SÍ incluye fila en sustituciones[]:
-     * propuesto: quitar la línea del RUT del footer, o moverla a «Quiénes somos» / transparencia.
-     * motivo: aclarar que no es dato de persona natural, pero no aporta a la tarea en esta página.
-   - En comentario del criterio G1 puedes anotar: «RUT institucional; revisión editorial A5».
-
-   TIPOS DE PROPUESTA (usa el que corresponda):
-   | Tipo | Cuándo | original / propuesto |
-   | Sustitución | El texto existe y debe cambiar | original = literal HTML; propuesto = nuevo texto |
-   | Inserción | Falta fecha, intro bajo banner, glosa de sigla | original = "(ausencia)"; propuesto = bloque a insertar |
-   | Eliminación | Texto de desarrollo, RUT redundante (LINK EXTERNO) | original = fragmento; propuesto = "(eliminar nodo)" + motivo operativo |
-   | Reorden / estructura | A2 pirámide invertida | propuesto = párrafo de propósito ANTES del titular técnico; html_linea_aprox del bloque |
-   | Enlace / slug | F1, F3 | propuesto = texto visible que describe el destino; si el slug no puede cambiarse, motivo = «slug /ruta-actual; coordinar con TIC si se renombra» |
-
-   ESTILO DE LAS PROPUESTAS:
-   - Lenguaje claro, voz activa, sin mayúsculas en toda la palabra salvo siglas (PCT, INAPI).
-   - Una fila por cambio localizable; no agrupar criterios distintos en una sola fila salvo párrafo continuo (ej. T432–T435).
-
-   Orden sugerido del array: por sección A→H o por linea (Tnnn) ascendente.
-
-9) nota_final_tic: párrafo breve (backup HTML, entidades &#243;, búsqueda literal)
-
-Entrega SOLO el JSON, sin texto antes ni después:
-
-```json
-{
-  "id": "...",
-  ...
-}
-```
-
-Si un campo opcional no aplica, omite la clave o usa [] en arrays. Nunca uses null.
-```
-
-### 3.3 Tercera corrida — HTML corregido (entrega TIC, **después** de revisión UX)
-
-Solo tras **aprobar** sustituciones con Equipo UX:
-
-```text
-Aplica ÚNICAMENTE las sustituciones aprobadas de la lista [pegar números o JSON de sustituciones].
-
-Sobre el MISMO HTML original adjunto:
-- Mismo marcado, mismas etiquetas, scripts y clases intactos.
-- Solo reemplazo de subcadenas de texto.
-- Al inicio: changelog línea por línea (original → propuesto).
-- Entrega el HTML completo en un bloque descargable.
-
-Sustituciones aprobadas:
-1. …
-2. …
-```
-
-### 3.4 Estado home INAPI (junio 2026)
-
-| Entregable | Estado |
-| --- | --- |
-| Export crudo Claude | Guardado: [`www-inapi-cl_2026-06-02.export.json`](../data/claude-audits/www-inapi-cl_2026-06-02.export.json) |
-| JSON canónico (import + plantilla Claude) | [`www-inapi-cl_2026-06-02.json`](../data/claude-audits/www-inapi-cl_2026-06-02.json) — validado con `strictAuditRecordSchema` |
-| Prompt alineado al contrato (1:1 sustituciones, E3, G1) | §3.2 (este documento) |
-
-Para **URLs adicionales** (p. ej. 10.ª URL), usar §3.1 + §3.2 adjuntando la plantilla canónica de la home. Las **9 URLs operativas** ya están en repo (junio 2026).
-
-### 3.6 Auditoría con DevTools IA (DOM + entrega MEI)
-
-**Contexto (jun 2026):** conversación con equipo TI y Equipo UX confirmó que **Ctrl+U no coincide** con la línea de implementación en código (JS inyectado en BE, DOM dinámico). Para hitos MEI (30-jun-2026) el flujo complementario usa **DevTools IA** sobre el **DOM renderizado**, con **fragmento único buscable** para TI (no `HTML-Lnnn` como identificador principal). Checklist de referencia en prompt: **v2.0**.
-
-**Documentación completa:** [`stack-orquestación.md`](stack-orquestación.md) (6 pasos, arquitectura, herramientas). **Excel MEI (solo B/C/D):** [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
-
-| Paso | Acción |
-| --- | --- |
-| 1 | Inspeccionar DOM (Elements); clasificar `VISIBLE` / `METADATA` / `SISTEMA` |
-| 2 | Aplicar checklist con prioridad D1 → C → B → D7 (MEI); 39 criterios completos en segunda pasada Claude §3.2 |
-| 3 | Localizar con `fragmento_busqueda` (etiqueta + atributos + texto) |
-| 4 | Proponer reescritura LC (B2, B5, B6) |
-| 5 | Entregable A: Excel B/C/D; Entregable B: JSON MVP §3.2 |
-| 6 | Validar que el cambio no rompe `id`/`class`/`onclick` ni layout mobile |
-
-**Limitaciones DevTools IA:** el chat se borra al cerrar Chrome; puede persistir si cambias de URL en la **misma pestaña**. Exportar resultados a Excel/JSON antes de cerrar.
-
-#### 3.6.1 Prompt maestro v2 (copiar en DevTools IA)
-
-**Ejemplo canónico:** home INAPI (`https://www.inapi.cl/`, auditoría 27-jun-2026). Para **otras URLs**, cambiar en `<contexto>` solo `url`, `tipo_pagina` y `fecha_auditoria`. No adjuntar el checklist completo de 39 puntos — el prompt embebe prioridades MEI.
-
-```text
-<rol>
-Eres el auditor de campo INAPI para entrega MEI (30-jun-2026).
-Analizas el DOM RENDERIZADO (Elements), no el código fuente estático Ctrl+U.
-</rol>
-
-<contexto>
-Institución: INAPI (Instituto Nacional de Propiedad Industrial), Chile.
-Checklist: Lenguaje Claro v2.0 (39 criterios A1–H1) — en esta sesión PRIORIZA entrega MEI.
-URL: https://www.inapi.cl/
-tipo_pagina: sitioweb
-fecha_auditoria: 27-06-2026
-auditor: equipo de desarrollo
-Guía de referencia: https://www.lenguajeclarochile.cl/wp-content/uploads/2019/10/recomendaciones-lenguaje-claro-para-la-web-.pdf
-</contexto>
-
-<prioridad_mei>
-Orden de análisis (implementación inmediata primero):
-1) D1 — ortografía y gramática
-2) C1–C7 — redacción, claridad, estructura textual
-3) B1–B7 — lenguaje claro (voz activa, tuteo, tono positivo)
-4) D7 — mayúsculas sostenidas
-No omitas hallazgos B/C/D visibles aunque no evalúes aún A/E/F/G/H en detalle.
-</prioridad_mei>
-
-<capas>
-Clasifica cada hallazgo:
-- VISIBLE: texto/enlace/botón que ve el ciudadano
-- METADATA: <title>, meta
-- SISTEMA: overlays Ajax, nodos técnicos no orientados al ciudadano
-- DUPLICADO: misma cadena en menú desktop y mobile → DOS filas separadas
-Para Excel MEI exporta principalmente VISIBLE + METADATA.
-</capas>
-
-<localizacion_tecnica>
-PROHIBIDO usar número de línea HTML como identificador principal.
-Por cada hallazgo incluye fragmento_busqueda: snippet HTML único con etiqueta de apertura, atributos estables (id, class, href, onclick si aplica) y texto original.
-html_linea_aprox (Ctrl+U) es OPCIONAL y secundario.
-Si el texto no aparece en Ctrl+U, indica origen_probable: backend-i18n | vista-razor | bundle-js.
-</localizacion_tecnica>
-
-<reglas_lc>
-- Voz activa; evitar jerga jurídica/burocrática (ej. «Escritos» → «Borradores»).
-- Tuteo y tono cercano (ej. «MI INAPI» → «Mi INAPI»).
-- Botones descriptivos (ej. «Ok» → «Aceptar selección»).
-- Un solo criterio_id por fila (B*, C*, D*).
-- Si el término legal debe mantenerse, marca requiere_validacion_tic = si.
-- Entidades HTML en original (&#8230;, &#243;); propuesto en texto legible + nota si aplica.
-</reglas_lc>
-
-<tarea>
-PASO 1 — Recorre el DOM visible: título, menús (desktop Y mobile por separado), breadcrumbs, botones, modales, overlays de carga.
-PASO 2 — Lista hallazgos B/C/D en tabla con columnas EXACTAS:
-| num | ubicacion_contextual | capa | texto_original | texto_propuesto | criterio_id | motivo | fragmento_busqueda | html_linea_aprox | duplicado_de | origen_probable | requiere_validacion_tic |
-PASO 3 — Traduce términos técnicos/jurídicos según B2, B5, B6.
-PASO 4 — Al final, resumen: total hallazgos, desglose por criterio, URLs de menú revisadas.
-PASO 5 — Pregunta de cierre: para cada cambio, ¿rompe JS, layout mobile o hay segunda ocurrencia?
-</tarea>
-
-<salida>
-Entregable A: tabla lista para copiar a Excel (TSV si es posible).
-Entregable B (opcional): bloque JSON reducido con url, fecha, auditor y array hallazgos[]
-(sin repetir checklist completo).
-NO entregues JSON canónico MVP de 39 criterios aquí — eso es Claude §3.2.
-</salida>
-```
-
-**Después de DevTools:** revisión con Equipo UX → Excel [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md). Para informe institucional completo y MVP/PDF, segunda pasada **Claude §3.1 + §3.2** (o consolidar hallazgos DevTools en `sustituciones[]` del JSON).
-
-### 3.5 Serie Clarity — 17 URLs (inventario Calidad Web)
-
-**Contexto:** las **17 URLs** del acordeón **Historial de Auditorías URLs - INAPI** en `/auditar` (ranks 1–17; inventario comprimido desde las 22 filas históricas) usan el **mismo contrato JSON** y las **mismas siete secciones** en `/auditar/resultado` que el piloto de 9 URLs (§4). La diferencia operativa es la ruta Meta MEI por fecha, el bloque `clarity_meta` y la tabla de lanzamiento en [`clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts).
-
-| Aspecto | Piloto (9 URLs) | Serie Clarity (17 URLs) |
+| Capa | Qué es | Uso |
 | --- | --- | --- |
-| **Fuente inventario** | Instrumento evaluación calidad (7+2) | Extracto Clarity + criterio editorial (ranks 16–17 Sitio Web) |
-| **Carpeta JSON** | `data/claude-audits/{tramites\|sitioweb}/` (raíz legacy piloto) | `data/claude-audits/{tramites\|sitioweb}/{YYYY-MM-DD}/{id}.json` |
-| **Plantilla JSON** | [`sitioweb/2026-06-02/www-inapi-cl_2026-06-02.json`](../data/claude-audits/sitioweb/2026-06-02/www-inapi-cl_2026-06-02.json) | [`tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json) (con `clarity_meta`) |
-| **Maestro rank / visitas** | Tabla §2 (piloto) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
-| **Metadatos extra** | Solo `tipo_pagina` + extensiones piloto | **`clarity_meta` obligatorio** (rank, visitas, etiquetas UI) |
-| **MVP `/auditar`** | Acordeón piloto (implementado) | Tabla 17 URLs con enlace a resultado/PDF cuando hay JSON |
+| **Ctrl+U** | HTML inicial del servidor | Referencia aproximada; **no** ancla primaria para TI |
+| **DOM renderizado** | Lo que ve el ciudadano tras JS | **Fuente de verdad editorial** |
+| **Código TI** | `.cshtml`, i18n, bundles | Donde se implementa el cambio |
 
-**Estado jul-2026:** **13/17** con informe en repo; ranks **8, 11, 13, 15** en **Pendiente TI** (sin acceso operativo). Captura post-login: [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
+En Trámites el JS puede venir del backend: la línea de Ctrl+U **no** coincide con el IDE. Ancla para TI = **fragmento único buscable** (`fragmento_busqueda` / texto en `ubicacion_pantalla`), no solo `html_linea_aprox`.
 
-**URLs que se repiten** con el piloto (misma URL canónica, dos fuentes válidas): p. ej. rank **1** = `https://tramites.inapi.cl/` (piloto #9); rank **16** = `https://www.inapi.cl/` (piloto #1). Si el HTML no cambió, se puede **copiar** el JSON del piloto, actualizar `id`/`fecha_evaluacion`/`clarity_meta` y conservar criterios y sustituciones.
+### 4.2 Capas de hallazgo (Excel / JSON)
 
-**Convención `id`:** `slug-desde-url_YYYY-MM-DD` — debe coincidir con el nombre de archivo; la carpeta `{YYYY-MM-DD}` debe coincidir con el sufijo del `id`.
-
-**Rama de trabajo histórica:** `feature/clarity-22-urls-auditorias-claude-json`. **Rama Fase 3.3:** `feat/audit-remaining-urls`.
-
-#### 3.5.1 Primera corrida Clarity (§3.1 adaptado)
-
-Mensaje tipo (HTML adjunto + metadatos de la ficha Clarity):
-
-```text
-Audita con checklist v1.1 (39 criterios A1–H1).
-
-CONTEXTO — Serie Clarity (17 URLs INAPI):
-Esta auditoría alimenta el inventario Clarity en /auditar (priorización por visitas). El JSON final irá a data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json con el mismo contrato del piloto (§3.2) más el bloque clarity_meta (§3.5.2). En /auditar/resultado se muestran las mismas siete secciones que el piloto: Datos de Auditoría, Resumen, Pasos a seguir, 39 criterios, Observaciones por severidad, Texto propuesto (sustituciones), Nota para TI.
-
-METADATOS CLARITY (tomar de data/ux/clarity-fichas-mock.json — rank [N]):
-- rank: [1–17]
-- nombre_ui: [campo nombre de la ficha]
-- ruta_etiqueta: [campo rutaEtiqueta]
-- url canónica: [campo url]
-- tipo_pagina: "tramites" | "sitioweb" (campo type_url de la ficha)
-- visitas_ref: [campo visitasRef — usar "—" si la ficha lo indica]
-- encargado_ref: [campo encargadoRef]
-- descripcion: [campo descripcion de la ficha, opcional en clarity_meta]
-- fecha evaluación: [AAAA-MM-DD]
-- evaluador_uid (JSON final): equipo de desarrollo
-- id objetivo (§3.5.2): [slug]_YYYY-MM-DD
-
-Adjunto: [nombre].html (vista código fuente Ctrl+U).
-
-INSTRUCCIONES:
-1. Fase 0: inventario T001, T002… con html_linea_aprox (ej. HTML-L990).
-2. Evalúa los 39 criterios A1–H1 contra el HTML adjunto.
-3. Entrega en prosa (esta pasada):
-   - Tabla 39 criterios (id, estado, severidad si incumple, comentario, cita_textual).
-   - Resumen numérico (N/A, aplicables, aprobados, % LC, estado_aceptacion).
-   - resumen_ejecutivo, observaciones_lc_por_severidad, lista preliminar sustituciones[], nota_final_tic.
-4. Aplica calibración §3.2 (cobertura 1:1 incumple→sustitución, E3 ausencias, G1 institucional, un criterio_id por fila).
-
-NO entregues aún el JSON canónico; eso se pide con §3.5.2.
-
-Al terminar, indica: incumplimientos, % LC y si cada incumple tiene al menos una sustitución propuesta.
-```
-
-#### 3.5.2 Entrega JSON canónico Clarity (§3.2 adaptado)
-
-**Plantilla de referencia:** adjunta  
-[`data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json`](../data/claude-audits/tramites/2026-06-11/tramites-inapi-cl_2026-06-11.json)  
-(o cualquier JSON ya cerrado bajo `tramites/` o `sitioweb/` con `clarity_meta`).
-
-Usar **en el mismo hilo** tras §3.5.1 (o mensaje nuevo con HTML + plantilla). Copiar y pegar:
-
-```text
-Necesito UN solo bloque JSON válido para integrar en nuestro MVP (Next.js) — serie Clarity (17 URLs).
-NO repitas la tabla de 39 criterios en prosa.
-NO uses el campo "evaluador" — usa "evaluador_uid".
-NO uses null en ningún campo: omite la clave si no aplica.
-
-Adjunto como REFERENCIA OBLIGATORIA un JSON canónico de tramites/ o sitioweb/ ya validado (misma estructura, mismas reglas que piloto §3.2 + clarity_meta §3.5.2).
-
-Para esta auditoría, sustituye solo los valores según la URL, el HTML adjunto y la ficha Clarity (rank [N]):
-
-- id: "<slug>_<AAAA-MM-DD>" (ej. tramites-inapi-cl-account-login_2026-06-11)
-- url: [URL canónica de la ficha]
-- version_checklist: "1.1"
-- tipo_pagina: "sitioweb" | "tramites" (debe coincidir con type_url de la ficha)
-- fecha_evaluacion: ISO 8601 UTC terminado en Z (ej. 2026-06-11T22:00:00.000Z)
-- evaluador_uid: "equipo de desarrollo"
-
-CONTRATO OBLIGATORIO — núcleo LC (idéntico a §3.2 ítems 1–5 y extensiones piloto 6–9):
-- criterios_evaluados: exactamente 39 objetos A1…H1 (mismas reglas §3.2).
-- Resumen numérico coherente (criterios_no_aplica, criterios_aplicables, criterios_aprobados, porcentaje_cumplimiento, estado_aceptacion).
-- texto_capturado, texto_propuesto, observaciones_lc.
-- resumen_ejecutivo, observaciones_lc_por_severidad, sustituciones[] (cobertura 1:1 obligatoria), nota_final_tic.
-- Mismas reglas E3, G1, tipos de propuesta y estilo §3.2 ítem 8.
-
-EXTENSIÓN CLARITY — clarity_meta (OBLIGATORIO en tramites/ o sitioweb/):
-
-10) clarity_meta: {
-      "serie": "clarity",
-      "rank": [entero 1–17, de clarity-fichas-mock.json],
-      "nombre_ui": "[ficha.nombre]",
-      "ruta_etiqueta": "[ficha.rutaEtiqueta]",
-      "visitas_ref": "[ficha.visitasRef — string, ej. \"432.572\" o \"—\"]",
-      "encargado_ref": "[ficha.encargadoRef]",
-      "fuente_piloto_id": "[opcional — id del JSON piloto si reutilizaste auditoría, ej. tramites-inapi-cl_2026-06-07]",
-      "descripcion": "[opcional — ficha.descripcion]"
-    }
-
-- El rank y visitas_ref DEBEN coincidir con data/ux/clarity-fichas-mock.json para esa URL.
-- porcentaje_cumplimiento y estado_aceptacion del JSON son la fuente de verdad LC (pueden diferir del mock editorial previo en la ficha).
-- resumen_ejecutivo: puede mencionar rank y visitas; no sustituye clarity_meta.
-
-Guardar en repo como: data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json
-
-Entrega SOLO el JSON, sin texto antes ni después:
-
-```json
-{
-  "id": "...",
-  "url": "...",
-  "clarity_meta": { "serie": "clarity", "rank": 1, ... },
-  ...
-}
-```
-
-Si un campo opcional no aplica, omite la clave o usa [] en arrays. Nunca uses null.
-```
-
-#### 3.5.3 Flujo por URL Clarity (resumen)
-
-| Paso | Acción |
+| Etiqueta | Descripción |
 | --- | --- |
-| 1 | Consultar rank y metadatos en [`clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json). |
-| 2 | ¿Existe JSON piloto para la misma URL y mismo HTML? → Copiar, nuevo `id`/fecha, rellenar `clarity_meta`; si no → §3.5.1 + §3.5.2. |
-| 3 | Guardar en `data/claude-audits/{tramites|sitioweb}/{YYYY-MM-DD}/{id}.json`. |
-| 4 | Revisión Cursor: aritmética, cobertura 1:1, `clarity_meta` vs ficha. |
-| 5 | (En casa) Registrar en tabla launch Clarity + enlace fila inventario → `/auditar/resultado?claudeAudit={id}`. |
+| `VISIBLE` | Texto/enlace/botón ciudadano |
+| `METADATA` | `<title>`, meta |
+| `SISTEMA` | Overlays Ajax, nodos ocultos recurrentes |
+| `DUPLICADO` | Misma cadena desktop + mobile → filas distintas si hace falta |
 
-**Estado jul-2026 (serie Clarity):** **13/17** JSON en `tramites/` y `sitioweb/`; ranks **8, 11, 13, 15** en **Pendiente TI**. Re-auditoría DOM con sesión: [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md).
+### 4.3 Histórico (no usar como runbook)
+
+Antes del stack Claude Code: **Claude Proyecto** (Ctrl+U + 39 A–H), **DevTools IA** (DOM puntual) y plantillas MEI B/C/D. Esos prompts y el plan «hasta 30-jun-2026» quedaron **supersedidos**. Excel MEI vigente: [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
 
 ---
 
-## 4. Estructura de `/auditar/resultado` (piloto Claude)
+## 5. Pantalla `/auditar/resultado` y PDF
 
-**Acuerdo UX (junio 2026):** orquestación en **siete bloques** con títulos de barra fijos. Solo **Datos de Auditoría** y **39 Criterios Evaluados** permanecen **siempre visibles** (sin acordeón). El resto usa el patrón de **barra colapsable** del design system (§15 en [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md); implementación sugerida: Accordion/Collapsible shadcn + cabecera institucional `#0F69C4`).
+Modo `?claudeAudit=`: bloques de informe (Datos, Resumen, Pasos, **Criterios**, Observaciones, Texto propuesto / sustituciones, Nota TI) + PDF (`GET /api/claude-audits/[id]/export/pdf`).
 
-**Modo piloto** (`?claudeAudit=` o import con metadatos `pilot`): aplicar orden y reglas de esta §4. **Modo mock/fixture** sin `pilot`: puede conservar bloques legacy (import JSON, narrativa `observaciones_lc` suelta) hasta unificar en fase posterior.
+Auditorías **v3.0:** tabla de **51** `LC-*` (Instrumento → Estado → Texto → Corrección → Ubicación → Justificación → Criterio; Excel añade Hito/Tarea PTD). JSON **legado** A–H (39/47) siguen legibles según `version_checklist`.
 
-### Orden en pantalla (y referencia para PDF — §8)
-
-| # | Título de barra / bloque | Desplegable | Contenido (fuente JSON / código) |
-| --- | --- | --- | --- |
-| 1 | **Datos de Auditoría** | No (siempre visible) | Fusión del resumen operativo + metadatos piloto: `url`, `version_checklist`, barra y etiqueta de `estado_aceptacion` + `porcentaje_cumplimiento`, conteos de criterios; `fecha_evaluacion`, `evaluador_uid`, `tipo_pagina` (`pilot`), `id` de auditoría. |
-| 2 | **Resumen Auditoría** | Sí (colapsable) | Párrafo `resumen_ejecutivo` (`pilot`) — sin reescribir. |
-| 3 | **Pasos a seguir** | Sí (colapsable) | Lista `PASOS_SEGUN_ESTADO[estado_aceptacion]` (copy mock por estado del informe). |
-| 4 | **39 Criterios Evaluados** | No (siempre visible) | Tabla `criterios_evaluados` con Sección, Criterio, Estado, Severidad, Comentario; filtros en [`criterios-evaluados-filters.ts`](../frontend/src/lib/criterios-evaluados-filters.ts). |
-| 5 | **Observaciones finales por severidad** | Sí (colapsable) | `observaciones_lc_por_severidad` (`pilot`): listas alta / media / baja. **No** duplicar en UI el párrafo `observaciones_lc` del núcleo si ya existen estas listas. |
-| 6 | **Texto propuesto** | Sí (colapsable) | Tabla `sustituciones[]` (`pilot`): `linea`, `criterio_id`, `original`, `propuesto`, `motivo`, `html_linea_aprox` opcional. Es el entregable accionable para TIC; el campo `texto_propuesto` del JSON puede omitirse en pantalla piloto si hay sustituciones. |
-| 7 | **Nota para el equipo TI** | Sí (colapsable) | `nota_final_tic` (`pilot`) — instrucciones operativas (p. ej. entidades HTML en búsqueda literal). |
-| 8 | **Descargar informe PDF** | — (acción, Fase C) | Botón «Descargar informe PDF»; documento server-side con bloques 1–7. Ver §8 abajo. |
-
-**Estado por defecto de acordeones (recomendación UX):** cerrados en bloques 2, 3, 5, 6 y 7 al abrir la URL; el usuario expande según necesidad. Bloques 1 y 4 siempre expandidos.
-
-**Bloques que no forman barra propia en piloto (evitar redundancia):**
-
-| Antes (mock / implementación intermedia B4) | Decisión piloto |
-| --- | --- |
-| Tarjeta aparte «Datos del informe piloto» | Fusionar en **Datos de Auditoría** (fila 1). |
-| Sección «Observaciones» con `observaciones_lc` narrativo | Omitir si existe **Observaciones finales por severidad** (fila 5). |
-| Sección «Texto propuesto» con párrafo `texto_propuesto` | Sustituida por **Texto propuesto** = tabla de **sustituciones** (fila 6). |
-| Bloque JSON completo en pantalla | Opcional para desarrolladores; no obligatorio en demo UX. Incluir en PDF si se requiere trazabilidad. |
-
-### Detalle — bloque 1 (Datos de Auditoría)
-
-| Campo en UI | Fuente |
-| --- | --- |
-| URL canónica | `audit.url` |
-| Checklist | `audit.version_checklist` |
-| Cumplimiento + barra | `audit.porcentaje_cumplimiento`, `audit.estado_aceptacion` |
-| Aprobados / aplicables / N/A | `audit.criterios_aprobados`, `criterios_aplicables`, `criterios_no_aplica` |
-| Fecha de evaluación | `audit.fecha_evaluacion` (formato legible Chile) |
-| Encargado | `audit.evaluador_uid` |
-| Tipo de página | `pilot.tipo_pagina` → etiqueta «Trámites» \| «Sitio web» |
-| Id auditoría | `audit.id` (p. ej. `www-inapi-cl_2026-06-02`) |
-
-### Detalle — bloque 4 (39 Criterios Evaluados)
-
-| Columna | Contenido |
-| --- | --- |
-| Sección | `formatSeccionTitulo(id)` |
-| Criterio | `formatCriterioEnunciado(id)` |
-| Estado | Iconografía LC (`cumple` / incumple / `no_aplica`) |
-| Severidad | Pastilla baja \| media \| alta |
-| Comentario | `comentario` por fila |
-
-### §8 — Descargar PDF (Fase C — implementado)
-
-Botón primario: **«Descargar informe PDF»** (visible cuando `?claudeAudit=` en la URL).
-
-- Ruta implementada: **`GET /api/claude-audits/[claudeAuditId]/export/pdf`** (`@react-pdf/renderer`, `runtime = nodejs`).
-- Misma allowlist que `GET /api/claude-audits/[id]`; bloques 1–7 en el mismo orden de esta §4.
-- Nombre de archivo: `informe-lc-[slug-url]-[fecha].pdf` (ver `frontend/src/lib/informe-piloto-filename.ts`).
+Design system: [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §15–§16.
 
 ---
 
-## 5. Flujo paso a paso (Claude → PDF en MVP)
+## 6. Flujo repo → UI (resumen)
 
 ```mermaid
 flowchart TB
-  subgraph prep [Preparación]
-    A1[Lista piloto cerrada con Equipo UX]
-    A2[Backup HTML Ctrl+U por URL]
-  end
-
-  subgraph claude [Proyecto Claude]
-    B1[Mensaje auditoría + HTML adjunto]
-    B2[Mensaje 3.2 cierre JSON MVP]
-    B3[Revisión Equipo UX]
-    B4[Mensaje 3.3 HTML corregido opcional]
-  end
-
-  subgraph repo [Repositorio]
-    C1[Guardar JSON en data/claude-audits/]
-    C2[Adaptador a StrictAuditRecord + metadatos]
-    C3[Commit y CI validate-claude-audits]
-  end
-
-  subgraph mvp [MVP Next]
-    D1[Tabla piloto en /auditar]
-    D2[Clic fila a /auditar/resultado]
-    D3[Pantalla 7 bloques + PDF]
-    D4[Descargar PDF]
-  end
-
-  subgraph tic [Entrega TIC]
-    E1[PDF + HTML corregido aprobado]
-    E2[Control de cambios Equipo UX]
-  end
-
-  A1 --> A2 --> B1 --> B2 --> C1 --> C2 --> C3
-  C3 --> D1 --> D2 --> D3 --> D4
-  B2 --> B3
-  B3 --> B4 --> E1
-  D4 --> E1 --> E2
+  PW[Playwright + Prompt 5] --> JSON[data/claude-audits/...]
+  JSON --> V[validate:claude-audits]
+  V --> L[Cable launch]
+  L --> UI[/auditar/resultado PDF Excel]
+  JSON --> RAG[ingest:b]
 ```
 
-### Paso 0 — Alineación (una vez)
-
-1. Validar alcance final del piloto (**9 URLs en repo** vs **10.ª URL** pendiente) con Equipo UX y TIC.
-2. Usar reglas de calibración en **§3.2** (cobertura 1:1 sustituciones, E3 ausencias, G1 institucional) y `.claude/CLAUDE.md` §5 / §22.
-3. Confirmar proveedor: **Claude** (hecho).
-
-### Paso 1 — Por cada URL del piloto
-
-| Paso | Acción | Responsable |
-| --- | --- | --- |
-| 1.1 | Guardar HTML: `{slug}-original.html` en carpeta segura (backup). | equipo de desarrollo |
-| 1.2 | Proyecto Claude: mensaje **§3.1** + adjunto HTML. | equipo de desarrollo |
-| 1.3 | Proyecto Claude: mensaje **§3.2** (cierre JSON MVP). | equipo de desarrollo |
-| 1.4 | Copiar bloque JSON del chat. | equipo de desarrollo |
-| 1.5 | Guardar en repo: `data/claude-audits/{claudeAudit-id}.json`. | equipo de desarrollo |
-| 1.6 | Ejecutar local: `bun run validate:claude-audits` (cuando exista script). | equipo de desarrollo / CI |
-| 1.7 | Revisión UX: filtrar falsos positivos (ej. G1 RUT); marcar sustituciones **aprobadas**. | Equipo UX + desarrollo |
-| 1.8 | (Opcional) Mensaje **§3.3** → HTML corregido para TIC. | equipo de desarrollo |
-
-### Paso 2 — Implementación en MVP (desarrollo) — **completado 2026-06-08**
-
-| Paso | Entregable código | Estado |
-| --- | --- | --- |
-| 2.1 | Esquema `claude-audit-pilot.ts` + `parseClaudeAuditFile` → `StrictAuditRecord` | Hecho |
-| 2.2 | Carpeta `data/claude-audits/` + 9 JSON canónicos | Hecho |
-| 2.3 | Componente tabla piloto debajo ingreso URL | Hecho |
-| 2.4 | API `GET /api/claude-audits/[id]` + query en resultado | Hecho |
-| 2.5 | Pantalla resultado **7 bloques** §4 (+ acordeones) | Hecho |
-| 2.6 | `GET …/export/pdf` + botón descarga | Hecho |
-| 2.7 | `validate:claude-audits` en CI | Hecho (`typecheck:all`) |
-
-### Paso 3 — Uso en demo / entrega TIC
-
-1. Abrir **`/auditar`** → expandir **«URLs auditadas — piloto junio 2026»**.
-2. Clic en fila **Home INAPI** (u otra con JSON en repo).
-3. Revisar bloques 1–7 en `/auditar/resultado` (§4).
-4. Clic **«Descargar informe PDF»**.
-5. Enviar PDF (+ HTML corregido si aplica) a TIC con ticket de control de cambios (Equipo UX).
-
-### Paso 4 — URLs 2–9 (completado) y 10.ª URL (opcional)
-
-URLs **1–9:** flujo §5 Paso 1–3 ejecutado; todas «Disponible» en MVP (verificado local y Vercel, junio 2026).
-
-**10.ª URL:** repetir Paso 1 si Equipo UX / TIC confirman alcance; la tabla mostrará «Pendiente» hasta existir JSON en `data/claude-audits/`.
+1. Guardar JSON canónico (`id` = `slug_YYYY-MM-DD`).  
+2. `bun run validate:claude-audits` (o hook).  
+3. Actualizar launch (Clarity / piloto / META MEI).  
+4. Commit atómico por URL + entrada DEVLOG si aplica.  
+5. `bun run ingest:b` en PC con Chroma.
 
 ---
 
-## 6. Mapeo JSON Claude → pantalla y PDF
+## 7. Fixture histórico — Notificaciones Marcas (mock)
 
-| Clave JSON (objetivo) | Bloque UI/PDF (§4) |
+> Referencia humana del primer fixture Fase 1. JSON máquina: `data/audit-fixtures/` ([README](../data/audit-fixtures/README.md)). Checklist del ejemplo: **v1.1 / 39 A–H** (legado).
+
+| Campo | Valor |
 | --- | --- |
-| `url`, `fecha_evaluacion`, `evaluador_uid`, `version_checklist`, conteos, `porcentaje_cumplimiento`, `estado_aceptacion` | 1 — Datos de Auditoría |
-| `tipo_pagina` | 1 — Datos de Auditoría (`pilot`) |
-| `resumen_ejecutivo` | 2 — Resumen Auditoría |
-| (copy por `estado_aceptacion`) | 3 — Pasos a seguir |
-| `criterios_evaluados[]` + catálogo checklist | 4 — 39 Criterios Evaluados |
-| `observaciones_lc_por_severidad` | 5 — Observaciones finales por severidad |
-| `sustituciones[]` | 6 — Texto propuesto |
-| `nota_final_tic` | 7 — Nota para el equipo TI |
-| `clarity_meta` (serie Clarity) | 1 — Datos de Auditoría (futuro: rank, visitas, etiqueta UI); enlace rank ↔ `claudeAuditId` en launch Clarity |
-| `observaciones_lc` (narrativa) | No mostrar en piloto si hay bloque 5 |
-| `texto_propuesto` (párrafo resumen) | No mostrar en piloto si hay `sustituciones` |
-| (generado server-side) | 8 — PDF |
+| Página | Notificaciones Marcas — `https://tramites.inapi.cl/Notificaciones` |
+| Fecha informe | 2026-05-11 |
+| Evaluador (ficticio) | `fixture@inapi.cl` |
+| Métricas | 16/29 aplicables · **55,2 %** · **rechazado** |
+| Fixture id | `audit_fixture_notificaciones_marcas_rechazado` |
+| Query UI | `?fixture=audit_fixture_notificaciones_marcas_rechazado` |
 
-El adaptador en código completará `id` de auditoría, `evaluador_uid`, y recalculará resumen con `summarizeEvaluations()` si hace falta para pasar `strictAuditRecordSchema`.
+**Idea del texto capturado (resumen):** modal de advertencia (notificación electrónica ≠ notificación legal; Art. 13 Ley 19.039); vista con filtros de solicitud/fechas/titular; RUN/nombre de ejemplo ficticios; pie institucional. El volcado largo de criterios A–H del informe editorial original ya no se mantiene aquí — el contrato vigente de nuevas auditorías es **51 `LC-*`**.
+
+Otros fixtures (81–90 % / ≥91 %): solo JSON validado en `data/audit-fixtures/`.
 
 ---
 
-## 7. Checklist de cierre Fase 1.5
+## 8. Checklist de cierre / enlaces
 
-### Implementación (repo + despliegue)
-
-- [x] Lista operativa §2: **9 URLs** con JSON, informe y PDF en MVP.
-- [x] JSON home export crudo: `data/claude-audits/www-inapi-cl_2026-06-02.export.json`.
-- [x] JSON canónicos URLs 1–9 en `data/claude-audits/`.
-- [x] Plantilla §3.2 usada en Proyecto Claude para URLs 1–9.
-- [x] Alcance §1.1 implementado (`auditar-claude-pilot-section.tsx`).
-- [x] Orquestación §4 en código (`/auditar/resultado` modo piloto).
-- [x] Fases A–C del plan técnico (adaptador, API, PDF).
-- [x] Merge a `main`, CI y Vercel verificados (tabla → resultado → PDF).
-- [x] Script `validate:claude-audits` en `package.json` y `typecheck:all` / CI.
-
-### Entrega editorial (pendiente)
-
-- [ ] Decisión documentada: cierre en **9 URLs** o incorporación de **10.ª URL**.
-- [ ] Revisión Equipo UX: sustituciones aprobadas por URL.
-- [ ] Entrega TIC: PDF (+ HTML §3.3 donde aplique) y control de cambios.
-- [ ] Acta breve UX/TIC (proveedor Claude, reglas G1/E3/cobertura 1:1).
-
-### Serie Clarity — 17 URLs (jul-2026)
-
-- [x] Prompts §3.5.1 y §3.5.2 documentados (entrada + JSON con `clarity_meta`).
-- [x] Esquema `clarity_meta` en [`claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts).
-- [x] **13/17** ranks con JSON bajo `data/claude-audits/{tramites|sitioweb}/{fecha}/`.
-- [ ] Ranks **8, 11, 13, 15** — Pendiente TI (coordinación acceso).
-- [x] Tabla launch Clarity + cableado inventario `/auditar` → resultado/PDF (misma lógica piloto).
-- [x] `validate:claude-audits` ampliado a `tramites/` y `sitioweb/` (Meta MEI + fecha).
-- [ ] Sincronizar `porcentajeLcRef` / `estadoLcRef` en fichas mock con % real del JSON (donde aplique).
-
----
-
-## 8. Enlaces útiles en el repo
-
-| Recurso | Ruta |
+| Tema | Dónde |
 | --- | --- |
-| Checklist 51 LC v3.0 | [`data/checklist-criteria-lc-ptd.json`](../data/checklist-criteria-lc-ptd.json) |
-| Contrato auditoría | [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) |
-| Inventario 17 URLs (referencia) | [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json) |
-| JSON serie Clarity / META MEI | [`data/claude-audits/tramites/`](../data/claude-audits/tramites/) · [`data/claude-audits/sitioweb/`](../data/claude-audits/sitioweb/) |
-| Fase 3.3 captura autenticada | [`docs/fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
-| Esquema piloto + clarity_meta | [`src/schemas/claude-audit-pilot.ts`](../src/schemas/claude-audit-pilot.ts) |
-| Launch META MEI (10 URLs) | [`frontend/src/lib/mei-meta-mei-launch.ts`](../frontend/src/lib/mei-meta-mei-launch.ts) |
-| Launch Clarity (17 URLs) | [`frontend/src/lib/clarity-audits-launch.ts`](../frontend/src/lib/clarity-audits-launch.ts) |
-| Página auditar | [`frontend/src/app/auditar/page.tsx`](../frontend/src/app/auditar/page.tsx) |
-| Página resultado | [`frontend/src/app/auditar/resultado/page.tsx`](../frontend/src/app/auditar/resultado/page.tsx) |
-| Arquitectura vigente | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) |
+| 10 URLs META MEI | §2.1 · `mei-meta-mei-urls.ts` |
+| Clarity 17 | §2.2 · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
+| Auth ClaveÚnica | [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
+| Excel MEI | [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) |
+| Despliegue | [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) |
+| Jobs worker | [`contratos-audit-jobs.md`](contratos-audit-jobs.md) |
+| Bitácora | [`development/DEVLOG.md`](development/DEVLOG.md) |
 
----
-
-*Última actualización: **2026-08-21** — §2: **10 META MEI** → histórico **27** → piloto **9** (archivo).*

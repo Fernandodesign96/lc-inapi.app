@@ -38,7 +38,7 @@
 - [x] **`/auditar` — ingreso de URL, atajos, inventarios en barras colapsables:** **barra principal** de ingreso de URL (mismos dominios y validación que hoy). **Debajo** del bloque de ingreso, sección de **tres atajos** editoriales (peor / intermedio / mejor LC) hacia **`/auditar/procesando?url=…`** y resultado. Las **listas seccionadas** de apoyo conviven en **barras colapsables** (§15 design system). **Objetivo documentado (2026-05-28):** tarjeta **Tabla de Auditorías URLs - Calidad Web: Sitio Web y Trámites - INAPI** con acordeón **Historial de Auditorías URLs - INAPI** (**22 URLs** objetivo: ranks 1–20 `tramites.inapi.cl`, rank 1 = landing portal; ranks **21–22** `sitioweb`: home + Trámites digitales; campo **`type_url`**; filtro Trámites/Sitio Web implementado; Encargado, Auditorías, Última revisión, % LC, Estado; filtros LC/orden implementados; fuente [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json)) — más ficha `/auditar/inventario/clarity/[rank]`. Referencia: [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md).
 - [x] **Actualización de documentación con Equipo UX y tabla de criterios completa:** (1) Volcar en `docs/` (p. ej. [`DATABASE.md`](DATABASE.md), [`ARCHITECTURE.md`](ARCHITECTURE.md), [`docs/development/DEVLOG.md`](development/DEVLOG.md)) los **acuerdos, aclaraciones y feedback** del **Equipo UX** sobre **modelo de datos**, **parseo** del registro de auditoría mock y coherencia entre contrato Zod y persistencia futura. (2) En **`/auditar/resultado`**, completar la **tabla de los 39 criterios** con columnas **severidad** (`baja` \| `media` \| `alta`) y **comentario** (texto breve por fila cuando aplique), pobladas en **mock** de forma creíble y alineadas a `criterionEvaluationSchema` en [`src/schemas/checklist.ts`](../src/schemas/checklist.ts) y a las columnas `severidad` / `comentario` de `audit_criterion_results` en [`DATABASE.md`](DATABASE.md) §2.
 - [x] **Resultado mock:** **barra térmica** (o equivalente visual) del `porcentaje_cumplimiento` alineada al design system; bloque de **pasos a seguir** según `estado_aceptacion` (`rechazado` / `aceptado_con_observaciones` / `aprobado`); mostrar **texto propuesto** desde datos mock (hasta integrar LLM en Fase 2). *Las columnas **severidad** y **comentario** de la tabla de criterios quedan cubiertas por el ítem **Actualización de documentación con Equipo UX y tabla de criterios completa** anterior.*
-- [x] **Fixtures de auditoría:** 2–3 archivos JSON en `data/audit-fixtures/` (u otra convención documentada), cada uno validado con `strictAuditRecordSchema`; script `validate:audit-fixtures` en raíz; la UI debe poder **importar** o seleccionar fixture por identificador (coherente con las tres franjas de aceptación: ≤80 %, 81–90 %, ≥91 % sobre criterios aplicables). **Convención, regeneración y API:** [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md). **Ejemplo editorial (rechazado):** [`docs/ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`](ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md).
+- [x] **Fixtures de auditoría:** 2–3 archivos JSON en `data/audit-fixtures/` (u otra convención documentada), cada uno validado con `strictAuditRecordSchema`; script `validate:audit-fixtures` en raíz; la UI debe poder **importar** o seleccionar fixture por identificador (coherente con las tres franjas de aceptación: ≤80 %, 81–90 %, ≥91 % sobre criterios aplicables). **Convención, regeneración y API:** [`data/audit-fixtures/README.md`](../data/audit-fixtures/README.md). **Ejemplo editorial (rechazado, resumido):** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) §7 (antes `ux/audit-fixture-ejemplo-notificaciones-marcas-rechazado.md`).
 - [x] **Pulido UI y accesibilidad (pre-demo UX):** contraste **WCAG** en tema claro y **oscuro** (sin mezclar superficies hex fijas claras con tokens `foreground` / `muted-foreground` pensados para el tema); alinear tablas de **`/auditar/resultado`** al patrón de lectura de inventarios (`bg-card`, bandas de fila); **una sola** sección de navegación para las **tres URLs** de demostración (mock por URL vs fixture del repo) y bloque aparte para **importación JSON**; **filtros** en la tabla de criterios evaluados (tipo A/B/C…, estado visual, severidad/pastilla). **Criterios de cierre:** revisión manual en ambos temas; sin regresiones de lint/tsc en `frontend/`.
 - [x] **Feedback UX post-demo (mayo 2026) — inventarios consistentes:** unificar mock bajo [`data/ux/clarity-fichas-mock.json`](../data/ux/clarity-fichas-mock.json); **fusionar** columnas de «URLs más auditadas» en la tabla **20 URLs Calidad Web** (Encargado, Auditorías, Última revisión); **eliminar** acordeón «URLs con estados LC resueltos» / «Estados URLs» (observaciones en ficha); iconografía LC **! / ✓ / ✓✓ / —** y color de fila por umbrales ≤80 / 81–90 / ≥91 %; historial de ficha alineado a conteo de auditorías (p. ej. rank 1 → 5); **filtros y orden** en tabla única (Etapa 5). **Documentación:** [`docs/ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md), [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) §13.1, devlog 2026-05-28.
 - [x] **Feedback UX — Etapa 1:** columnas **Sección** y **Criterio** (enunciado checklist v1.1) en tabla de `/auditar/resultado`.
@@ -59,7 +59,7 @@
 
 **Proveedor IA del piloto:** **Claude** / **Claude Code**. **No** hay sync automática chat ↔ app; flujo: JSON → repo → MVP → PDF.
 
-**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/stack-orquestación.md`](stack-orquestación.md) · [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
+**Documentación operativa:** [`docs/flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md) · [`docs/plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md).
 
 ### Hecho en repo (código + datos, merge a `main` 2026-06-08)
 
@@ -116,8 +116,8 @@
 
 **Condición:** cierre editorial de **Fase 1.5** (entrega TIC) y actualización de documentación ([ADR 0008](adr/0008-typescript-sobre-python-para-rag.md), [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md), [ADR 0010](adr/0010-rag-local-chroma-xenova-transformers.md)).
 
-- [x] Crear **`.claude/CLAUDE.md`** con contexto permanente del proyecto (dominio, checklist v1.1, contratos JSON, convenciones del repo)
-- [x] Crear las 3 **Skills** en `.claude/skills/`: `auditoria-lc.md`, `auditoria-calidad-web.md`, `pesquisa-criterios.md`
+- [x] Crear **`.claude/CLAUDE.md`** con contexto permanente (hoy: checklist PTD-LC **v3.0**, 51 `LC-*`, §17)
+- [x] Crear **Skills** `01`…`05` y **Prompts** `01`…`06` (maestro = `05-audit-maestro-url.md`)
 - [x] Verificar `.gitignore` — `rag/chroma_db/` y `documentos/` ya incluidos ✓
 
 **Resultado:** Claude Code ya tiene contexto completo del proyecto desde la primera sesión, sin infraestructura adicional.
@@ -159,9 +159,9 @@
 
 - [x] Probar flujo end-to-end con una URL: Playwright MCP → RAG MCP → análisis → JSON canónico
 - [x] Verificar que el JSON generado pasa `validate-claude-audits.ts`
-- [x] Implementar arquitectura de **sub-subagentes por grupo temático** (5 grupos: A+E, B+C, D, F, G+H) — ver [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17
-- [x] Verificar consolidación correcta de los 5 outputs en un único JSON canónico con 39 criterios
-- [x] Escalar a lote de URLs con subagents en paralelo (un agente raíz por URL)
+- [x] Arquitectura §17 (histórico: 5 grupos A–H; **vigente:** 15 subagentes por indicador + 5 sub-subagentes de entrega) — [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §17 · Prompt `05`
+- [x] Verificar consolidación en un único JSON canónico (hoy **51** `LC-*` v3.0; legado 39/47 A–H)
+- [x] Multi-URL: una sesión = Prompt 5 por URL (no lote 5 en un solo pegado)
 - [x] Verificar que los Hooks validan JSONs automáticamente al guardarse
 - [ ] Calibrar severidad y prompts con el Equipo UX (G1, D7, E3) — seguimiento editorial con Equipo UX
 
@@ -279,7 +279,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 
 **Muestra acordada (órdenes 1–5 de `mei-meta-mei-urls.ts`):** Portada, Marcas, Patentes, Acerca de INAPI, Buscador de noticias. Alcance **solo visible**; `version_checklist: "2.1"` (47 criterios).
 
-- [x] Flujo oficial: Playwright + 5 sub-subagentes + `validate:claude-audits` + cable launch (+ `ingest:b` en PC oficina)
+- [x] Flujo oficial: Playwright + §17 + `validate:claude-audits` + cable launch (+ `ingest:b` en PC oficina); plantilla vigente = Prompt `05`
 - [x] JSON con `version_checklist: "2.1"` y **47** criterios (órdenes 1–4: `…_2026-08-18` en `main`; orden 5: `www-inapi-cl-buscador-noticias_2026-08-18`, **40,6 %** rechazado; orden 6: `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18`, **47,1 %** rechazado — rama `feat/meta-mei-v21-lote-3`)
 - [x] **No** JSON provisorio Cursor
 - [x] Commits atómicos **por URL** (`feat(audits): …`) + cableado `claude-audits-launch.ts` / `mei-meta-mei-urls.ts`
@@ -291,10 +291,10 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] UI `/auditar/resultado`: resumen y nota TI en lenguaje claro (párrafos); barra de criterios plegable; Excel MEI mismo estilo primary que PDF; botón fijo «volver arriba»
 - [x] PDF/Excel: comentario en `no_aplica`; criterios relacionados y `patron_sistema` en sustituciones
 - [x] Reauditoría §17 con calibración §20 (actualizar % y textos) — **Tanda A (órdenes 1–5)** cerrada 2026-08-19 en `feat/meta-mei-reaudit-s20-lote-a`: orden 1 `www-inapi-cl_2026-08-19` (70,0 % rechazado); orden 2 `www-inapi-cl-marcas_2026-08-19` (66,7 % rechazado); orden 3 `www-inapi-cl-patentes_2026-08-19` (61,0 % rechazado); orden 4 `www-inapi-cl-acerca-de-inapi_2026-08-19` (50,0 % rechazado); orden 5 `www-inapi-cl-buscador-noticias_2026-08-19` (43,8 % rechazado). JSON vigentes `…_2026-08-18` de estas 5 URLs pasan a `history[]`. Aplican `agrupado_en`/`criterios_relacionados`/`patron_sistema` reales (no solo notas en prosa) — % sube en las 5 URLs respecto al 2026-08-18 al no descontar dos veces el mismo hallazgo.
-- [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica `.claude/prompts/audit-una-url.md`; `audit-lote.md` acotado (default 1 URL, máx. 2 hermanas; 5 solo smoke); CLAUDE.md §8 playbook herramientas, §12/§14/§17, §20.6 gate evidencia, §21 criterios A9/D3/D4/E3/F4; skill `auditoria-lc` inventario R+U. **Depreca** lote de 5 URLs en un prompt maestro para entregas MEI / Equipo UX.
+- [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica hoy = `.claude/prompts/05-audit-maestro-url.md` (antes `audit-una-url.md`); cola META MEI = repetir Prompt 5; CLAUDE.md §17 (15 subagentes + 5 sub-subagentes). **Depreca** lote de 5 URLs en un prompt maestro.
 - [x] **Entrega visible H1/47 filas** (rama `fix/entrega-visible-h1-47-criterios`): filtro metadata no oculta E4/H1; acordeón UI/PDF siempre 47 criterios v2.1; negaciones «no se evaluó title/meta» no disparan exclusión.
 - [x] **Excel por URL / completo: 47 criterios + 5 categorías de presentación MEI**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
-- [x] **Entrega legible humana (§22) + mapa PTD editorial v2.0**: CLAUDE.md §22, skills y `audit-una-url.md` (propuesto/motivo/ubicación para CMS); `docs/checklist-ptd-v2-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
+- [x] **Entrega legible humana (§22) + mapa PTD editorial v2.0**: CLAUDE.md §22, skills `01`…`05` y Prompt `05` (propuesto/motivo/ubicación para CMS); `docs/checklist-ptd-v2-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
 - [x] **Mapa IEW/IESD pregunta-a-pregunta** (LC · Usabilidad · Seguridad): inventario dual sitios §1/§2/§8 ↔ trámites §5/§1/§7 en `docs/checklist-ptd-v2-mapa.md`.
 - [x] **Checklist Editorial PTD v2.0 actualizado en repo** + `data/checklist-editorial-ptd-v2.json` + §23: preguntas únicas **LC 51 · US 18 · SE 10** (total **79**); META MEI 2026 solo LC → 47 A–H; US/SE tras Excel LC.
 - [x] **§22 reforzado (copy accionable CMS)** — rama `feat/orquestacion-s22-copy-accionable-cms`: §22.8–§22.12; skill + prompts; prompt oro.

@@ -13,8 +13,7 @@ Plataforma web con apoyo de IA para evaluar el **Checklist editorial INAPI PTD-L
 | [docs/DATABASE.md](docs/DATABASE.md) | Persistencia MVP = JSON en repo (Postgres histórico) |
 | [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Tokens y patrones de interfaz |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Hitos, fases y backlog |
-| [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Flujo META MEI 10 / histórico 27 / piloto 9 |
-| [docs/stack-orquestación.md](docs/stack-orquestación.md) | Flujo operativo MEI (histórico + Claude Code) |
+| [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md) | Runbook META MEI 10 / Clarity / orquestación / fixture histórico |
 | [docs/plantilla-excel-mei-bcd.md](docs/plantilla-excel-mei-bcd.md) | Plantilla Excel MEI |
 | [docs/SECURITY.md](docs/SECURITY.md) | Higiene del repo y stack IA local |
 | [docs/despliegue/despliegue-hibrido.md](docs/despliegue/despliegue-hibrido.md) | Despliegue híbrido: Vercel + GitHub + Claude Code / RAG |
@@ -102,8 +101,9 @@ El sistema de auditoría automatizada se organiza en 5 capas. Detalle completo e
 
 ---
 
-## Próximo paso
+## Estado y próximo paso
 
-**Fase 1.5 operativa** (9 URLs con JSON, resultado y PDF en Vercel). Pendiente: entrega formal TIC (PDF + HTML aprobado). Detalle: [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md).
+**Operativo:** muestra META MEI (**10 URLs**), checklist PTD-LC **v3.0** (51 `LC-*`), UI/PDF/Excel en Vercel, orquestación Claude Code (`.claude/prompts/01`…`06` + `skills/01`…`05`).
 
-**Siguiente fase:** [docs/ROADMAP.md](docs/ROADMAP.md) **Fase 0** — crear `.claude/CLAUDE.md` y las 3 Skills para que Claude Code Pro tenga contexto completo del proyecto desde la primera sesión.
+**Runbook de URLs y cableado:** [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md).  
+**Roadmap:** [docs/ROADMAP.md](docs/ROADMAP.md) — reauditorías v3.0, worker on-demand (ADR 0011), calibración con Equipo UX.

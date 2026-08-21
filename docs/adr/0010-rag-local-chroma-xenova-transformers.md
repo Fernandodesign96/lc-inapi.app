@@ -49,9 +49,9 @@ El aislamiento es **arquitectónico** (scripts de ingesta separados, colecciones
 
 **Colección B — material de trabajo del repo** (`coleccion_b`):
 - Fuente: archivos versionados en el propio repo.
-- Contenido: `data/checklist-criteria.json`, `data/claude-audits/**/*.json`, `data/claude-audits/urls-clarity/*.json`, `prompts/claude-code/*.md` (cuando existan), `prompts/devtools/*.md` (cuando existan), `docs/adr/*.md`.
-- Script de ingesta: `rag/ingest-b.ts`.
-- Propósito: permitir que Claude Code consulte el checklist v1.1, busque precedentes de auditorías previas y recupere decisiones arquitectónicas.
+- Contenido: `data/checklist-criteria-lc-ptd.json` (51 `LC-*` v3.0), mapa PTD, JSON de auditorías, ADRs, `.claude/prompts` y `.claude/skills` relevantes.
+- Script de ingesta: `rag/ingest-b.ts` (`bun run ingest:b`).
+- Propósito: consultar el catálogo vigente, precedentes de auditorías y decisiones arquitectónicas (legado A–H solo como histórico en JSON antiguos).
 
 ### Datos que NUNCA entran al RAG
 

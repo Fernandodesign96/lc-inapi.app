@@ -100,9 +100,9 @@ Si el MCP de Playwright no acepta `storageState`, usar **siempre** este script p
 
 ### 4.4 Auditar con Claude Code
 
-1. Cargar skills `auditoria-lc.md` y `pesquisa-criterios.md`.
-2. Indicar explícitamente: `captura_con_sesion: true` (ver `CLAUDE.md` §19).
-3. Ejecutar arquitectura de sub-subagentes (§17) con plantilla `.claude/prompts/audit-una-url.md` (preferida) o coordinar con `audit-lote.md`.
+1. Cargar skills `01-documentos-rag-ingest.md`, `03-instrucciones-subagentes-instrumentos.md` y `05-calibracion-persistente.md`.
+2. Indicar explícitamente: `captura_con_sesion: true` (ver `CLAUDE.md` §19) y leer Prompt `06-calibracion-hallazgos.md`.
+3. Ejecutar arquitectura §17 con plantilla `.claude/prompts/05-audit-maestro-url.md`.
 4. Guardar JSON en `data/claude-audits/tramites/{YYYY-MM-DD}/{id}.json`.
 5. `bun run validate:claude-audits`.
 
@@ -118,7 +118,7 @@ bun run rag/ingest-b.ts    # reindexar precedentes si hay JSON nuevos
 2. Si la URL está también en el piloto 9 URLs: `frontend/src/lib/claude-audits-launch.ts` (mismo criterio: vigente = última; anteriores en `history`).
 3. `bun run validate:claude-audits`.
 
-Detalle: `.claude/prompts/audit-una-url.md` Paso F / `audit-lote.md` § Cableado frontend.
+Detalle: `.claude/prompts/05-audit-maestro-url.md` Paso F.
 
 ---
 
@@ -134,7 +134,7 @@ Cuando el HTML incluye **datos del usuario logueado** (RUT, nombre, correo, nomb
 | **Anonimizar salidas** | En `cita_textual`, `original`, `propuesto` y `texto_capturado` del JSON: usar placeholders (`[RUT del solicitante]`, `[nombre de marca en trámite]`) |
 | **No ingestar al RAG** | HTML con sesión activa no se ingesta en Colección B; solo JSON anonimizado validado |
 
-Referencia normativa completa: `.claude/CLAUDE.md` §19 y `.claude/skills/auditoria-lc.md` § «Pantallas con sesión autenticada».
+Referencia normativa completa: `.claude/CLAUDE.md` §19 y Prompt `06` / skill `05` (calibración sesión).
 
 ---
 
@@ -168,8 +168,8 @@ Hasta entonces: mantener ranks en **Pendiente TI** sin JSON forzado en el MVP.
 | Documento | Contenido |
 | --- | --- |
 | [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §11, §19 | Workflow captura auth y calibración sesión |
-| [`.claude/prompts/audit-una-url.md`](../.claude/prompts/audit-una-url.md) | Plantilla canónica 1 URL |
-| [`.claude/prompts/audit-lote.md`](../.claude/prompts/audit-lote.md) | Coordinación multi-sesión (máx. 2) |
+| [`.claude/prompts/05-audit-maestro-url.md`](../.claude/prompts/05-audit-maestro-url.md) | Plantilla canónica 1 URL (también cola META MEI) |
+| [`.claude/prompts/06-calibracion-hallazgos.md`](../.claude/prompts/06-calibracion-hallazgos.md) | Calibración persistente |
 | [`docs/ROADMAP.md`](ROADMAP.md) | Fases 2–3 completadas; Fase 3.3 — lote ranks 5–7 hecho; pendiente TI 8/11/13/15 |
 | [`docs/SECURITY.md`](SECURITY.md) §3 | `storageState`, anonimización, RAG |
 | [`src/scripts/capture-tramites-html.ts`](../src/scripts/capture-tramites-html.ts) | Script de captura con sesión |
