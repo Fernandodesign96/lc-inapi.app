@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-21 | [Infraestructura: Portada www.inapi.cl — reauditoría oro v3.0 (51 LC-*), rechazado 72,5 %](#devlog-2026-08-21-portada-oro-v30) |
 | 2026-08-21 | [Docs: CLAUDE.md — estados/severidad, CMS-first, nomenclatura LC-*, refs §N](#devlog-2026-08-21-claude-md-cms-estados) |
 | 2026-08-21 | [Orquestación: catálogo PTD-LC v3.0 — 51 criterios por indicadores](#devlog-2026-08-21-ptd-lc-v30) |
 | 2026-08-21 | [Orquestación: Checklist PTD v2.0 → §23 Hito/Tarea/Pregunta LC](#devlog-2026-08-21-ptd-s23) |
@@ -86,6 +87,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-21-portada-oro-v30"></a>
+## [2026-08-21] - Infraestructura | Portada www.inapi.cl: reauditoría oro v3.0 (51 LC-*), rechazado 72,5 %
+
+**Rama:** `main`
+
+### Contexto y objetivos:
+
+Reauditar la Portada / inicio INAPI (META MEI orden 1, misma URL de la serie Clarity rank 16) migrando del checklist histórico v2.1 (47 A–H) al catálogo vigente PTD-LC v3.0 (51 criterios `LC-*`), siguiendo el flujo canónico `audit-una-url.md` con arquitectura de 5 sub-subagentes (CLAUDE.md §17), calibración de alcance visible (§20) y entrega legible para CMS (§22.8–§22.12).
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/`; contenido de portada equivalente a la auditoría del 2026-08-20 (mismas tarjetas de Novedades y bloques secundarios).
+- Verificación de pesos reales de los 5 documentos descargables vía cabecera HTTP `Content-Length` (guías de marcas/patentes y 3 documentos institucionales del pie), evitando inventar KB/MB (§22.11).
+- Medición `getComputedStyle` de espaciado y alineación de párrafos para sustentar `LC-1.2.3-01`/`LC-1.2.3-02` con evidencia, no por omisión.
+- 51 criterios evaluados: 28 cumple, 11 incumple (1 agrupado en `LC-1.2.4-07`), 11 no aplica → 40 aplicables, 72,5 % de cumplimiento → `rechazado`. Hallazgos de severidad alta: sigla PCT sin definir, sin fecha de actualización visible, documentos sin formato/peso/descripción, y apoyos visuales sin función informativa accesible (banners con `alt` ausente/vacío, enlace de pie sin nombre accesible, íconos de acceso/registro con `alt` duplicado).
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-21/www-inapi-cl_2026-08-21.json`; validado con `bun run validate:claude-audits` y `bun run typecheck:all`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) apuntan al nuevo id; `www-inapi-cl_2026-08-20` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Continuar la reauditoría oro v3.0 con la siguiente URL del lote META MEI (orden 2, Marcas) sin abrir en paralelo, según política de tamaño de `.claude/CLAUDE.md` §14.
 
 ---
 
