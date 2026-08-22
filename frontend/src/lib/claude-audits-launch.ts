@@ -66,16 +66,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas",
     label: "Marcas",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (15 subagentes + 5 sub-subagentes §17, meta-mei orden 2)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-marcas_2026-08-21",
+    // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 2)
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21 (antes v2.1, 47 A–H);
+    // profundizada el 2026-08-22 con análisis textual ascendente (Prompt 7 + skill 06).
+    claudeAuditId: "www-inapi-cl-marcas_2026-08-22",
     resumenMvp: {
       porcentajeLc: 73.2,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-21T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
       evaluadorUid: "equipo-desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas_2026-08-21" },
       { id: "www-inapi-cl-marcas_2026-08-20" },
       { id: "www-inapi-cl-marcas_2026-08-19" },
       { id: "www-inapi-cl-marcas_2026-08-18" },
