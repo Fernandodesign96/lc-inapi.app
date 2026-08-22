@@ -17,8 +17,10 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 | Pieza | Relación |
 | --- | --- |
 | `05-audit-maestro-url.md` | Lectura obligatoria en Paso C |
+| `07-analisis-texto-ascendente.md` | Método palabra→párrafo (Paso D0 / §17.1bis) |
 | `../skills/05-calibracion-persistente.md` | Cómo aplicar y actualizar este archivo |
-| `../CLAUDE.md` | §2 calibraciones UX, §20–§22 |
+| `../skills/06-analisis-texto-ascendente.md` | Cómo lanzar el subagente de texto |
+| `../CLAUDE.md` | §2 calibraciones UX, §17.1bis, §20–§22 |
 | `02-criterios-hitos-correcciones.md` | Juicio por criterio |
 | DEVLOG / PRs | Origen humano de cada entrada |
 
@@ -34,10 +36,26 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-08-21 — Reauditoría completa: precedentes ≠ atajo
 
-- **Origen:** revisión manual Portada (META MEI orden 1) tras orquestación §17 / prompts 01–06.
-- **Regla:** JSON previos, `history[]`, Colección B / RAG de precedentes y calibraciones son **solo contexto de apoyo** (tono, patrones, umbrales). **Prohibido** copiar estados `cumple`/`incumple`/`no_aplica` de una auditoría anterior sin re-evaluar la captura **actual**. Cada reauditoría exige: Playwright (HTML + DOM visible) de nuevo → inventario R+U completo → 15 subagentes → 5 sub-subagentes. No «acelerar» omitiendo bloques (modal, hero, secciones, footer) porque «ya se evaluaron antes».
+- **Origen:** revisión manual Portada (META MEI orden 1) tras orquestación §17 / prompts 01–07.
+- **Regla:** JSON previos, `history[]`, Colección B / RAG de precedentes y calibraciones son **solo contexto de apoyo** (tono, patrones, umbrales). **Prohibido** copiar estados `cumple`/`incumple`/`no_aplica` de una auditoría anterior sin re-evaluar la captura **actual**. Cada reauditoría exige: Playwright (HTML + DOM visible) de nuevo → inventario R+U completo → **Paso D0 (texto ascendente §17.1bis)** → 15 subagentes → 5 sub-subagentes. No «acelerar» omitiendo bloques (modal, hero, secciones, footer) porque «ya se evaluaron antes».
 - **Efecto esperado:** el % puede **bajar** si se recuperan incumplimientos antes omitidos; eso es correcto.
 - **Aplica a:** todas las URLs (reauditorías y nuevas).
+- **estado:** vigente
+
+### C-2026-08-22 — Análisis textual ascendente obligatorio (palabra → párrafo)
+
+- **Origen:** omisiones recurrentes en Marcas/Portada (Observancia, cobertura, tasas/derechos, etapas del registro) pese a calibraciones puntuales.
+- **Regla:** en cada URL, **antes** de los 15 subagentes, ejecutar Prompt **7** + skill **06** (§17.1bis): analizar de menor a mayor granularidad; proponer reemplazo **o** definición/descripción; no «pulir» jerga sin explicar; si un párrafo lista etapas, describir qué ocurre en cada una. El mapa D0 alimenta a los 15 indicadores.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-22 — Entrega multi-corrección: N textos que incumplen el mismo LC-* → N filas
+
+- **Origen:** Patentes (`/patentes`) — el mismo criterio (p. ej. `LC-1.1.3-03` jerga, `LC-1.2.4-05` mayúsculas, `LC-1.2.4-07` documentos) fallaba en varios textos distintos de la misma página (varios términos técnicos, varios títulos en mayúscula sostenida, varios PDF sin formato/peso).
+- **Regla:** cuando un mismo `criterio_id` incumple en **varios textos/nodos distintos** de la URL, crear **una fila de `sustituciones[]` por texto** (no fusionar varios defectos en una sola fila «para ahorrar»). Solo se agrupa (`agrupado_en`) cuando la fila **comparte exactamente el mismo nodo y la misma corrección** con otro criterio (§20.3); si el criterio tiene evidencia independiente en otro nodo, permanece **primario** aunque una de sus instancias también aparezca agrupada. UI/PDF/Excel deben poder mostrar todas las filas de un mismo `criterio_id`.
+- **Ejemplo bueno:** `LC-1.2.4-05` con 5 filas de sustitución (modal de búsqueda, botón de panel, 3 encabezados de sección) en vez de una sola fila que diga «varias mayúsculas en la página».
+- **Ejemplo malo:** resumir 3 documentos sin formato/peso en una sola fila de `sustituciones[]` cuando cada uno tiene una ubicación en pantalla distinta.
+- **Aplica a:** todas.
 - **estado:** vigente
 
 ### C-2026-08-21 — Rigor UX: no degradar a `no_aplica` / cumple débil por «detalle»
@@ -71,6 +89,53 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** Portada y bloques homólogos en sitioweb.
 - **estado:** vigente
 
+### C-2026-08-21 — Términos técnicos/jurídicos: no basta «pulir» la frase (`LC-1.1.3-*`, claridad, completitud)
+
+- **Origen:** revisión Marcas (`/marcas`) — tasas/derechos y etapas del procedimiento.
+- **Regla:** si el texto usa conceptos INAPI/jurídicos (**tasas**, **derechos**, **examen de forma**, **examen de fondo**, **extracto**, **Diario Oficial**, etc.), **no** alcanza con reordenar o acortar la oración dejando la misma jerga. La propuesta CMS debe:
+  1. Preferir **reemplazo** por lenguaje cotidiano cuando el término no sea indispensable; **o**
+  2. Si el concepto debe conservarse: **definir o describir en breve** qué es y para qué sirve (1–2 frases claras), en el mismo bloque o como glosa visible.
+- **Ejemplo malo:** «pagos de tasas o derechos…» → «pagos de tasas…» (sigue sin explicar qué es una tasa).
+- **Ejemplo bueno:** explicar qué pagos existen, cuándo se pagan y qué cubren (p. ej. presentación, publicación, registro), en lenguaje ciudadano.
+- **Aplica a:** todas (esp. páginas de trámites/información de marcas y patentes).
+- **estado:** vigente
+
+### C-2026-08-21 — Marcas: «Tasas nacionales» y etapas del procedimiento (completitud + lenguaje plano)
+
+- **Origen:** revisión Marcas — bloque de pagos y «tres etapas» del registro.
+- **Regla:**
+  1. Si se habla de **pagos/tasas**, el contenido debe hacer **visibles todos los pagos relevantes del ciclo** de solicitud de marca (incl. p. ej. publicación en el Diario Oficial), no solo «inicio» y «final», si en la misma página o flujo existen otros cobros. Si faltan → `incumple` completitud / datos clave + propuesta que liste y explique cada pago.
+  2. Cada etapa del procedimiento (**ingreso y examen de forma**, **publicación del extracto en el Diario Oficial**, **examen de fondo**) debe llevar **descripción breve** entendible a quien lee por primera vez (qué ocurre, qué entrega el ciudadano, qué revisa INAPI). No dejar solo el rótulo técnico, aunque la lista numerada esté «bien redactada».
+- **Aplica a:** `/marcas` y páginas homólogas de procedimiento/tasas.
+- **estado:** vigente
+
+### C-2026-08-21 — Títulos de sección que no anticipan el contenido
+
+- **Origen:** revisión Marcas — «Para Informarse», «Buscadores».
+- **Regla:** el título visible debe **anticipar el contenido** que sigue. Si es genérico o corto:
+  - «Para Informarse» → proponer título que diga *qué* se informa (guías, requisitos, tipos de marca, etc.).
+  - «Buscadores» → proponer algo más específico (p. ej. «Herramientas de búsqueda» o equivalente que diga *qué* se busca).
+  Criterios típicos: escritura web / claridad / pirámide o fidelidad título↔contenido según encaje.
+- **Aplica a:** todas las sitioweb.
+- **estado:** vigente
+
+### C-2026-08-21 — Enlaces/rótulos ambiguos (ej. «Anotación»)
+
+- **Origen:** revisión Marcas — «Anotación» / «Anotación (registrar cambios en una marca ya inscrita)».
+- **Regla:** si el rótulo o la glosa entre paréntesis **no deja claro** la acción o el destino, `incumple`. La corrección debe ser **realista**: no inventar jerga; usar **conector o frase de acción** que especifique qué ocurre al hacer clic (quién, qué cambio, sobre qué marca). Evitar propuestas genéricas que solo reformulan la misma ambigüedad.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-21 — Bloques «tipos / cobertura» sin subtítulo ni descripciones (Marcas)
+
+- **Origen:** revisión Marcas — bloque naranja «MARCAS SEGÚN SU TIPO» (atajos: marca comercial, colectiva, certificación, frase de propaganda; «Tipo de Marca» / «Tipo de Cobertura» con +).
+- **Regla:**
+  1. Título de bloque amplio (p. ej. «Marcas según su tipo») → proponer **subtítulo breve** que profundice el propósito del bloque.
+  2. Atajos solo con nombre del tipo → cada uno debe tener **descripción corta** (qué es / para quién).
+  3. «Tipo de Cobertura» (u homólogos) → el ciudadano no sabe qué es; proponer **descripción** de la subsección: qué es la cobertura, para qué sirve y por qué importa en una solicitud de marca.
+- **Aplica a:** `/marcas` y bloques UI similares (tipos + expandibles sin texto).
+- **estado:** vigente
+
 ### C-2026-08 — RUN institucional vs persona natural (`LC-1.1.7-01`)
 
 - **Regla:** RUT de persona jurídica pública (ej. INAPI en footer) → `cumple`. RUN de persona natural en HTML público → `incumple`, severidad `alta`.
@@ -102,6 +167,13 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ---
 
+### C-2026-08-22 — Entrega: todas las correcciones por criterio (UI/PDF/Excel)
+
+- **Origen:** revisión Excel Marcas — faltaban títulos («Para Informarse», «Buscadores»), cobertura, atajos de tipos; solo se veía la 1ª sustitución del `criterio_id`.
+- **Regla:** un `LC-*` puede tener **N** filas en `sustituciones[]` (un texto localizable = una corrección), sin límite a «la primera». Entrega (`criterio-entrega-campos` + Excel/UI/PDF) muestra **todas**. No fusionar títulos/conceptos distintos en una sola propuesta. El % cuenta el criterio una vez; más incumplimientos reales en textos distintos → más filas de entrega (y el % puede bajar si aparecen más `incumple`).
+- **Aplica a:** todas.
+- **estado:** vigente
+
 ## Plantilla para nuevas entradas
 
 ```markdown
@@ -116,4 +188,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (incluida **reauditoría completa** y bloques Portada si aplica); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

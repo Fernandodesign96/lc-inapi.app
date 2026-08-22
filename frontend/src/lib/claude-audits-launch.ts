@@ -218,18 +218,20 @@ export const META_MEI_EXTRA_AUDITS: Array<{
   history?: { id: string }[]
 }> = [
   {
-    id: "www-inapi-cl-patentes_2026-08-20",
+    id: "www-inapi-cl-patentes_2026-08-22",
     url: "https://www.inapi.cl/patentes",
     label: "Patentes",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (5 sub-subagentes §17, meta-mei orden 3)
+    // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 3)
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
     resumenMvp: {
-      porcentajeLc: 65.1,
+      porcentajeLc: 71.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "equipo de desarrollo",
+      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
+      evaluadorUid: "equipo-desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-patentes_2026-08-20" },
       { id: "www-inapi-cl-patentes_2026-08-19" },
       { id: "www-inapi-cl-patentes_2026-08-18" },
       { id: "www-inapi-cl-patentes_2026-07-29" },
