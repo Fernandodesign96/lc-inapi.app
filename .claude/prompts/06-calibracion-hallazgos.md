@@ -34,6 +34,15 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Entradas vigentes (actualizar en cada hallazgo)
 
+### C-2026-08-22 — Aplicabilidad IEW/IESD en URLs `tramites`
+
+- **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
+- **Regla:** el campo `applicability` de cada criterio en `data/checklist-criteria-lc-ptd.json` es normativo, no orientativo:
+  - `applicability: "sitioweb"` (10 exclusivas IEW: LC-1.1.5-03, LC-1.1.6-02, LC-1.1.7-01, LC-1.1.7-02, LC-1.1.8-01/02/03, LC-1.2.4-06, LC-1.3.1-01, LC-1.3.2-02) → **`no_aplica`** en toda URL `tipo_pagina: "tramites"`, con `comentario`: «Este criterio es exclusivo del instrumento IEW (sitioweb) según el catálogo v3.0; esta URL es tramites (instrumento IESD), por lo que no corresponde evaluarlo aquí.» No es un `no_aplica` para evadir un incumplimiento (§16): es exclusión estructural del catálogo, documentada y simétrica en ambos sentidos.
+  - `applicability: "tramites"` (3 exclusivas IESD: LC-5.2.1-01, LC-5.2.2-01, LC-5.2.4-01) → **evaluar normalmente** (cumple/incumple/no_aplica según evidencia) en toda URL `tramites`; en `sitioweb` siguen siendo `no_aplica` (ya vigente, ver tabla §16).
+  - `applicability: "ambos"` → evaluar igual en los dos tipos de página.
+- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 3 exclusivos IESD como evaluables antes de lanzar los 15 subagentes, para no arrastrar el hábito «sitioweb-first» de las auditorías anteriores de esta serie.
+
 ### C-2026-08-21 — Reauditoría completa: precedentes ≠ atajo
 
 - **Origen:** revisión manual Portada (META MEI orden 1) tras orquestación §17 / prompts 01–07.
