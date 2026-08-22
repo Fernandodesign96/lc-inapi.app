@@ -131,15 +131,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
     label: "Solicitud Nueva",
     tipoPagina: "sitioweb",
-    // Reauditoría v2.1 (5 sub-subagentes §17, meta-mei orden 6)
-    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20",
+    // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 6)
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
+    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22",
     resumenMvp: {
-      porcentajeLc: 62.5,
+      porcentajeLc: 73.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-20T00:00:00.000Z",
-      evaluadorUid: "equipo de desarrollo",
+      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
+      evaluadorUid: "equipo-desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" },
     ],
