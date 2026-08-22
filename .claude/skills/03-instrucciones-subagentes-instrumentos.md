@@ -6,16 +6,18 @@ Skill para que Claude Code dé **instrucciones correctas a los subagentes**: un 
 
 ## Cuándo activar
 
-- Prompt 5, Paso D (evaluación secuencial).  
+- Prompt 5, Paso D (evaluación secuencial), **después** del Paso D0 (§17.1bis).  
 - Al armar el mensaje de contexto de cada subagente.
 
 ## Cableado
 
 | Pieza | Relación |
 | --- | --- |
-| `../CLAUDE.md` | §2 tabla indicadores, **§17.1** |
+| `../CLAUDE.md` | §2 tabla indicadores, **§17.1** · **§17.1bis** |
 | `../prompts/02-criterios-hitos-correcciones.md` | Contrato de criterios |
-| `../prompts/05-audit-maestro-url.md` | Paso D |
+| `../prompts/05-audit-maestro-url.md` | Paso D (después de D0) |
+| `../prompts/07-analisis-texto-ascendente.md` | Mapa que este subagente debe consumir |
+| `06-analisis-texto-ascendente.md` | Cómo se generó el mapa D0 |
 | `data/checklist-criteria-lc-ptd.json` | Preguntas por indicador |
 
 ## Los 15 subagentes (orden fijo)
@@ -47,12 +49,14 @@ Eres el subagente del indicador «{nombre}» (IEW {código}[/ IESD {código}]).
 URL: … | tipo_pagina: … | captura_con_sesion: …
 
 Inventario R+U (completo): …
+Mapa de análisis textual ascendente (Paso D0 / §17.1bis): …
 Calibraciones vigentes (Prompt 06): …
 
 Evalúa SOLO los criterios LC-* de este indicador listados en checklist-criteria-lc-ptd.json.
 Incluye variantes IESD si applicability lo pide.
+Usa el mapa D0: si una unidad candidata toca este indicador, no la ignores.
 Para cada uno: cumple | incumple | no_aplica con evidencia VISIBLE de Playwright.
-Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta).
+Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta; reemplazo o definición según Prompt 06/07).
 No evalúes otros indicadores. No calcules el % global.
 Aplica Prompt 06. Entrega filas listas para consolidar.
 ```

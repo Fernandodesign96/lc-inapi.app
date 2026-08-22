@@ -80,22 +80,72 @@ export function justificacionCumple(
   return `Cumple: no hay texto literal en pantalla; el criterio se validó por revisión visual de la página (registrar en auditorías nuevas una justificación precisa o cita_textual / ubicacion_pantalla).`
 }
 
-export function buildSustitucionPrimariaPorCriterio(
+function sustKey(s: ClaudeSustitucion): string {
+  return [
+    s.criterio_id,
+    s.original,
+    s.propuesto,
+    s.ubicacion_pantalla ?? "",
+    s.linea,
+  ].join("\u0001")
+}
+
+function pushSustUnique(
+  map: Map<string, ClaudeSustitucion[]>,
+  criterioId: string,
+  s: ClaudeSustitucion,
+): void {
+  const list = map.get(criterioId) ?? []
+  const key = sustKey(s)
+  if (list.some((x) => sustKey(x) === key)) {
+    map.set(criterioId, list)
+    return
+  }
+  list.push(s)
+  map.set(criterioId, list)
+}
+
+/**
+ * Todas las correcciones visibles por criterio (no solo la primera).
+ * Incluye filas cuyo `criterio_id` es el id y también las que lo listan en
+ * `criterios_relacionados` (p. ej. agrupados §20.3).
+ *
+ * Un mismo `LC-*` puede tener N textos distintos (títulos, cobertura, atajos…)
+ * → N entradas. UI / PDF / Excel deben entregarlas todas.
+ */
+export function buildSustitucionesPorCriterio(
   sustituciones: readonly ClaudeSustitucion[],
-): Map<string, ClaudeSustitucion> {
-  const map = new Map<string, ClaudeSustitucion>()
+): Map<string, ClaudeSustitucion[]> {
+  const map = new Map<string, ClaudeSustitucion[]>()
   for (const s of sustituciones) {
     if (isMetadataSustitucion(s)) continue
-    if (!map.has(s.criterio_id)) map.set(s.criterio_id, s)
+    pushSustUnique(map, s.criterio_id, s)
     for (const rel of s.criterios_relacionados ?? []) {
-      if (!map.has(rel)) map.set(rel, s)
+      pushSustUnique(map, rel, s)
     }
   }
   return map
 }
 
 /**
+ * @deprecated Preferir `buildSustitucionesPorCriterio` + todas las filas.
+ * Conservada por compatibilidad: primera corrección por criterio.
+ */
+export function buildSustitucionPrimariaPorCriterio(
+  sustituciones: readonly ClaudeSustitucion[],
+): Map<string, ClaudeSustitucion> {
+  const multi = buildSustitucionesPorCriterio(sustituciones)
+  const map = new Map<string, ClaudeSustitucion>()
+  for (const [id, list] of multi) {
+    if (list[0]) map.set(id, list[0])
+  }
+  return map
+}
+
+/**
  * Campos de evidencia alineados al detalle MEI (Texto / Corrección / Ubicación / Justificación).
+ * Una llamada = una corrección. Si hay N sustituciones, llamar N veces (Excel/UI/PDF
+ * emiten N filas con el mismo `criterio_id`).
  */
 export function criterioEntregaCampos(
   ev: CriterionEvaluation,

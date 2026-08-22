@@ -34,7 +34,7 @@ Orquestación productiva actual (sin Nest, sin Postgres, sin Claude API de pago)
 flowchart TD
   CC[Claude Code]
   CM[CLAUDE.md + prompts 01-06 + skills 01-05]
-  SA[15 subagentes + 5 sub-subagentes §17]
+  SA[§17.1bis + 15 subagentes + 5 sub-subagentes §17]
   PW[Playwright MCP]
   RAG[RAG MCP]
   CH[(Chroma A/B)]

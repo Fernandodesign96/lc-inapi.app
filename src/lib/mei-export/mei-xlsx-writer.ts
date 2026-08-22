@@ -1,27 +1,24 @@
 import ExcelJS from "exceljs"
 
-import type { CriterionId } from "../../schemas/checklist"
-
 import type { LoadedClarityAudit } from "./mei-audit-loader"
 import {
   loadMetaMeiAudits,
   loadVigenteClarityAudits,
 } from "./mei-audit-loader"
 import {
+  checklistInstrumentosLabel,
+  checklistSectionInstrumentTitle,
   loadChecklistCriteriaList,
   type ChecklistCriterionEntry,
 } from "./mei-checklist-catalog"
-import { MEI_EXPORT_HITOS, hitoById, hitoIdForCriterio, type MeiExportHito } from "./mei-hitos"
+import { MEI_EXPORT_HITOS, hitoById, type MeiExportHito } from "./mei-hitos"
 import { MEI_META_MEI_URLS } from "./mei-meta-mei-urls"
 import {
   buildRowsForHito,
   type MeiExcelRow,
 } from "./mei-row-builder"
 import { MEI_CATEGORIA_PRESENTACION } from "./mei-criterio-categoria"
-import {
-  documentosLabelFromSource,
-  sourceNotaMetaMei,
-} from "./mei-source-labels"
+import { ptdHitoTareaPorCriterio } from "../ptd-hito-tarea-por-criterio"
 
 const HEADER_BLUE: ExcelJS.Fill = {
   type: "pattern",
@@ -103,19 +100,6 @@ function isDocumentaryOnly(hitos: MeiExportHito[]): boolean {
   return hitos.length > 0 && hitos.every((h) => !h.incluyeAuditoriasUrl)
 }
 
-function includesFullChecklist(hitos: MeiExportHito[]): boolean {
-  return hitos.some((h) => h.id === "H01" || h.criterios.length === 0)
-}
-
-function criterioIdsForExport(hitos: MeiExportHito[]): Set<CriterionId> | "all" {
-  if (includesFullChecklist(hitos)) return "all"
-  const set = new Set<CriterionId>()
-  for (const h of hitos) {
-    for (const c of h.criterios) set.add(c)
-  }
-  return set
-}
-
 function collectRows(
   hitos: MeiExportHito[],
   audits: LoadedClarityAudit[],
@@ -144,7 +128,7 @@ function addIndiceSheet(
   urlSet: "meta-mei" | "clarity",
 ) {
   const sheet = workbook.addWorksheet("Índice")
-  const colCount = 7
+  const colCount = 8
   sheet.mergeCells(1, 1, 1, colCount)
   sheet.getCell(1, 1).value = "Auditoría Lenguaje Claro — INAPI"
   sheet.getCell(1, 1).font = { bold: true, size: 14 }
@@ -168,6 +152,7 @@ function addIndiceSheet(
     "Rol META MEI",
     "Fecha auditoría",
     "N° incumplimientos",
+    "Porcentaje LC",
   ].forEach((label, i) => {
     headerRow.getCell(i + 1).value = label
   })
@@ -177,18 +162,32 @@ function addIndiceSheet(
     const note = sheet.getRow(5)
     note.getCell(1).value = "—"
     note.getCell(2).value = "Evidencia"
-    note.getCell(3).value = "Checklist Editorial INAPI v2.1"
+    note.getCell(3).value = "Checklist Editorial INAPI PTD-LC v3.0 (51 LC-*)"
     note.getCell(4).value =
-      "N/A — evidencia documental (actividad 1 / H01); ver pestañas CheckList y Fuentes"
+      "N/A — evidencia documental (actividad 1 / H01); ver pestaña CheckList"
     note.getCell(7).value = 0
+    note.getCell(8).value = "—"
 
     const total = sheet.getRow(6)
     total.getCell(1).value = "TOTAL"
     total.getCell(7).value = 0
+    total.getCell(8).value = "—"
     for (let c = 1; c <= colCount; c++) {
       total.getCell(c).fill = TOTAL_CYAN
       total.getCell(c).font = { bold: true }
     }
+
+    const pctHeader = sheet.getRow(8)
+    sheet.mergeCells(8, 1, 8, colCount)
+    pctHeader.getCell(1).value = "Porcentaje final"
+    pctHeader.getCell(1).font = { bold: true }
+    pctHeader.getCell(1).fill = SECTION_FILL
+
+    const pctRow = sheet.getRow(9)
+    sheet.mergeCells(9, 1, 9, colCount)
+    pctRow.getCell(1).value =
+      "N/A — evidencia documental (sin % LC por URL en este export)."
+
     autoWidth(sheet, colCount)
     return
   }
@@ -200,10 +199,12 @@ function addIndiceSheet(
   }
 
   let totalInc = 0
+  let sumPct = 0
   audits.forEach((audit, idx) => {
     const r = sheet.getRow(5 + idx)
     const n = countByUrl.get(audit.url) ?? 0
     totalInc += n
+    sumPct += audit.porcentajeLc
     r.getCell(1).value = audit.rank
     r.getCell(2).value = seccionLabel(audit.tipoPagina)
     r.getCell(3).value = audit.nombreUi
@@ -211,6 +212,7 @@ function addIndiceSheet(
     r.getCell(5).value = audit.rolMetaMei ?? ""
     r.getCell(6).value = audit.fechaEvaluacionIso.slice(0, 10)
     r.getCell(7).value = n
+    r.getCell(8).value = `${formatPorcentajeLc(audit.porcentajeLc)} %`
   })
 
   // Filas pendientes META MEI (sin JSON aún)
@@ -225,38 +227,77 @@ function addIndiceSheet(
       r.getCell(5).value = pendingUrl.rolMetaMei
       r.getCell(6).value = "(pendiente auditoría)"
       r.getCell(7).value = "—"
+      r.getCell(8).value = "—"
       extra++
     }
   }
 
-  const totalRow = sheet.getRow(5 + audits.length + extra)
+  const totalRowIdx = 5 + audits.length + extra
+  const totalRow = sheet.getRow(totalRowIdx)
   totalRow.getCell(1).value = "TOTAL"
   totalRow.getCell(7).value = totalInc
+  totalRow.getCell(8).value =
+    audits.length > 0
+      ? `${formatPorcentajeLc(sumPct / audits.length)} % (promedio)`
+      : "—"
   for (let c = 1; c <= colCount; c++) {
     totalRow.getCell(c).fill = TOTAL_CYAN
     totalRow.getCell(c).font = { bold: true }
+  }
+
+  const pctHeaderIdx = totalRowIdx + 2
+  const pctHeader = sheet.getRow(pctHeaderIdx)
+  sheet.mergeCells(pctHeaderIdx, 1, pctHeaderIdx, colCount)
+  pctHeader.getCell(1).value = "Porcentaje final"
+  pctHeader.getCell(1).font = { bold: true }
+  pctHeader.getCell(1).fill = SECTION_FILL
+
+  const pctValueIdx = pctHeaderIdx + 1
+  const pctValue = sheet.getRow(pctValueIdx)
+  sheet.mergeCells(pctValueIdx, 1, pctValueIdx, colCount)
+  if (audits.length === 0) {
+    pctValue.getCell(1).value = "Sin auditorías en la muestra — sin porcentaje final."
+  } else {
+    const promedio = sumPct / audits.length
+    pctValue.getCell(1).value =
+      `Promedio LC de la muestra (${audits.length} URL${audits.length === 1 ? "" : "s"} con informe): ${formatPorcentajeLc(promedio)} %. ` +
+      `Cada fila incluye su porcentaje LC en la columna «Porcentaje LC» (checklist PTD-LC v3.0).`
+    pctValue.getCell(1).alignment = { wrapText: true }
+    pctValue.height = 36
   }
 
   sheet.views = [{ state: "frozen", ySplit: 4 }]
   autoWidth(sheet, colCount)
 }
 
+function formatPorcentajeLc(value: number): string {
+  const rounded = Math.round(value * 10) / 10
+  return Number.isInteger(rounded)
+    ? String(rounded)
+    : rounded.toFixed(1).replace(".", ",")
+}
+
 function addCheckListSheet(
   workbook: ExcelJS.Workbook,
   root: string,
-  hitos: MeiExportHito[],
+  _hitos: MeiExportHito[],
 ) {
   const sheet = workbook.addWorksheet("CheckList")
-  const all = loadChecklistCriteriaList(root)
-  const filter = criterioIdsForExport(hitos)
-  const entries: ChecklistCriterionEntry[] =
-    filter === "all" ? all : all.filter((c) => filter.has(c.id))
+  const entries: ChecklistCriterionEntry[] = loadChecklistCriteriaList(root)
+  const colCount = 6
 
   const header = sheet.getRow(1)
-  header.getCell(1).value = "Criterio"
-  header.getCell(2).value = "CheckList"
-  header.getCell(3).value = "Cita fuente"
-  styleHeaderRow(header, 3)
+  ;[
+    "Hitos",
+    "Tareas",
+    "Instrumentos",
+    "Criterios",
+    "Nombre del Criterio",
+    "Cita fuente",
+  ].forEach((label, i) => {
+    header.getCell(i + 1).value = label
+  })
+  styleHeaderRow(header, colCount)
 
   let rowIdx = 2
   let lastSection = ""
@@ -264,109 +305,45 @@ function addCheckListSheet(
     if (entry.sectionId !== lastSection) {
       lastSection = entry.sectionId
       const sep = sheet.getRow(rowIdx)
+      const sectionTitle = checklistSectionInstrumentTitle(
+        entry.sectionId,
+        entry.sectionTitle,
+      )
       sep.getCell(1).value = entry.sectionId
-      sep.getCell(2).value = entry.sectionTitle
-      sep.getCell(1).fill = SECTION_FILL
-      sep.getCell(2).fill = SECTION_FILL
-      sep.getCell(3).fill = SECTION_FILL
-      sep.getCell(1).font = { bold: true }
-      sep.getCell(2).font = { bold: true }
-      rowIdx++
-    }
-    const r = sheet.getRow(rowIdx)
-    r.getCell(1).value = entry.id
-    r.getCell(2).value = entry.criterion
-    r.getCell(3).value = entry.source
-    r.getCell(2).alignment = { wrapText: true }
-    rowIdx++
-  }
-
-  sheet.getColumn(1).width = 12
-  sheet.getColumn(2).width = 64
-  sheet.getColumn(3).width = 28
-  sheet.views = [{ state: "frozen", ySplit: 1 }]
-}
-
-/**
- * Pestaña Fuentes: Hito × Dimensión × Criterio × documentos PDF (Colección A).
- */
-function addFuentesSheet(
-  workbook: ExcelJS.Workbook,
-  root: string,
-  hitos: MeiExportHito[],
-) {
-  const sheet = workbook.addWorksheet("Fuentes")
-  sheet.mergeCells(1, 1, 1, 6)
-  sheet.getCell(1, 1).value =
-    "Fuentes normativas del Checklist Editorial INAPI v2.1 (47 criterios)"
-  sheet.getCell(1, 1).font = { bold: true, size: 12 }
-
-  sheet.mergeCells(2, 1, 2, 6)
-  sheet.getCell(2, 1).value = sourceNotaMetaMei()
-  sheet.getCell(2, 1).alignment = { wrapText: true }
-  sheet.getRow(2).height = 36
-
-  const header = sheet.getRow(4)
-  ;[
-    "Hito",
-    "Dimensión",
-    "Criterio",
-    "Enunciado",
-    "Cita (checklist)",
-    "Documento(s) Colección A",
-  ].forEach((label, i) => {
-    header.getCell(i + 1).value = label
-  })
-  styleHeaderRow(header, 6)
-
-  const all = loadChecklistCriteriaList(root)
-  const filter = criterioIdsForExport(hitos)
-  const entries =
-    filter === "all" ? all : all.filter((c) => filter.has(c.id))
-
-  const hitoIdsInExport = new Set(hitos.map((h) => h.id))
-
-  let rowIdx = 5
-  let lastSection = ""
-  for (const entry of entries) {
-    if (entry.sectionId !== lastSection) {
-      lastSection = entry.sectionId
-      const sep = sheet.getRow(rowIdx)
-      sep.getCell(1).value = ""
-      sep.getCell(2).value = `${entry.sectionId} — ${entry.sectionTitle}`
-      for (let c = 1; c <= 6; c++) {
+      sep.getCell(2).value = ""
+      sep.getCell(3).value = sectionTitle
+      sep.getCell(4).value = ""
+      sep.getCell(5).value = ""
+      sep.getCell(6).value = ""
+      for (let c = 1; c <= colCount; c++) {
         sep.getCell(c).fill = SECTION_FILL
         sep.getCell(c).font = { bold: true }
       }
+      sep.getCell(3).alignment = { wrapText: true }
       rowIdx++
     }
 
-    const mappedHito = hitoIdForCriterio(entry.id) ?? "—"
-    // Si el export es solo H02, anclar hito a H02 para criterios del alcance
-    const hitoLabel =
-      hitoIdsInExport.size === 1 && hitoIdsInExport.has("H02")
-        ? "H02"
-        : mappedHito
-
+    const ptd = ptdHitoTareaPorCriterio(entry.id)
     const r = sheet.getRow(rowIdx)
-    r.getCell(1).value = hitoLabel
-    r.getCell(2).value = entry.sectionTitle
-    r.getCell(3).value = entry.id
-    r.getCell(4).value = entry.criterion
-    r.getCell(5).value = entry.source
-    r.getCell(6).value = documentosLabelFromSource(entry.source)
-    r.getCell(4).alignment = { wrapText: true }
-    r.getCell(6).alignment = { wrapText: true }
+    r.getCell(1).value = ptd.hitoPtd
+    r.getCell(2).value = ptd.tareaPtd
+    r.getCell(3).value = checklistInstrumentosLabel(entry)
+    r.getCell(4).value = entry.id
+    r.getCell(5).value = entry.displayLabel ?? entry.criterion
+    r.getCell(6).value = entry.source
+    for (const c of [1, 2, 3, 5] as const) {
+      r.getCell(c).alignment = { wrapText: true, vertical: "top" }
+    }
     rowIdx++
   }
 
-  sheet.getColumn(1).width = 10
+  sheet.getColumn(1).width = 36
   sheet.getColumn(2).width = 36
-  sheet.getColumn(3).width = 10
-  sheet.getColumn(4).width = 48
-  sheet.getColumn(5).width = 22
-  sheet.getColumn(6).width = 56
-  sheet.views = [{ state: "frozen", ySplit: 4 }]
+  sheet.getColumn(3).width = 40
+  sheet.getColumn(4).width = 16
+  sheet.getColumn(5).width = 56
+  sheet.getColumn(6).width = 28
+  sheet.views = [{ state: "frozen", ySplit: 1 }]
 }
 
 function lineaId(row: MeiExcelRow): string {
@@ -394,7 +371,7 @@ function addDetallePorTipoSheet(
   if (documentary) {
     sheet.mergeCells(1, 1, 1, DETAIL_HEADERS.length)
     sheet.getCell(1, 1).value =
-      "N/A — evidencia documental (sin filas por URL). Ver Índice, CheckList y Fuentes."
+      "N/A — evidencia documental (sin filas por URL). Ver Índice y CheckList."
     sheet.getCell(1, 1).font = { italic: true }
     autoWidth(sheet, 2)
     return
@@ -511,7 +488,6 @@ export async function buildMeiWorkbook(
 
   addIndiceSheet(workbook, audits, rows, hitos, documentary, urlSet)
   addCheckListSheet(workbook, root, hitos)
-  addFuentesSheet(workbook, root, hitos)
   addDetallePorTipoSheet(
     workbook,
     "web INAPI",

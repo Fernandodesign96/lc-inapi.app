@@ -102,7 +102,7 @@ Si el MCP de Playwright no acepta `storageState`, usar **siempre** este script p
 
 1. Cargar skills `01-documentos-rag-ingest.md`, `03-instrucciones-subagentes-instrumentos.md` y `05-calibracion-persistente.md`.
 2. Indicar explícitamente: `captura_con_sesion: true` (ver `CLAUDE.md` §19) y leer Prompt `06-calibracion-hallazgos.md`.
-3. Ejecutar arquitectura §17 con plantilla `.claude/prompts/05-audit-maestro-url.md`.
+3. Ejecutar arquitectura §17 (D0 texto ascendente + 15 + 5) con plantilla `.claude/prompts/05-audit-maestro-url.md` (Prompt 7 + skill 06 obligatorios).
 4. Guardar JSON en `data/claude-audits/tramites/{YYYY-MM-DD}/{id}.json`.
 5. `bun run validate:claude-audits`.
 
@@ -170,6 +170,8 @@ Hasta entonces: mantener ranks en **Pendiente TI** sin JSON forzado en el MVP.
 | [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) §11, §19 | Workflow captura auth y calibración sesión |
 | [`.claude/prompts/05-audit-maestro-url.md`](../.claude/prompts/05-audit-maestro-url.md) | Plantilla canónica 1 URL (también cola META MEI) |
 | [`.claude/prompts/06-calibracion-hallazgos.md`](../.claude/prompts/06-calibracion-hallazgos.md) | Calibración persistente |
+| [`.claude/prompts/07-analisis-texto-ascendente.md`](../.claude/prompts/07-analisis-texto-ascendente.md) | Paso D0 · palabra→párrafo |
+| [`.claude/skills/06-analisis-texto-ascendente.md`](../.claude/skills/06-analisis-texto-ascendente.md) | Instrucciones al subagente §17.1bis |
 | [`docs/ROADMAP.md`](ROADMAP.md) | Fases 2–3 completadas; Fase 3.3 — lote ranks 5–7 hecho; pendiente TI 8/11/13/15 |
 | [`docs/SECURITY.md`](SECURITY.md) §3 | `storageState`, anonimización, RAG |
 | [`src/scripts/capture-tramites-html.ts`](../src/scripts/capture-tramites-html.ts) | Script de captura con sesión |

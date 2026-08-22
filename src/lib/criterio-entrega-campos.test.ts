@@ -3,6 +3,7 @@ import { describe, expect, test } from "bun:test"
 import type { CriterionEvaluation } from "../schemas/checklist"
 import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
 import {
+  buildSustitucionesPorCriterio,
   criterioEntregaCampos,
   justificacionCumple,
 } from "./criterio-entrega-campos"
@@ -125,5 +126,57 @@ describe("criterioEntregaCampos", () => {
     expect(campos.textoEnPantalla).toBe("—")
     expect(campos.correccionPropuesta).toBe("—")
     expect(campos.justificacion).toContain("versiones anteriores")
+  })
+})
+
+describe("buildSustitucionesPorCriterio", () => {
+  test("conserva todas las correcciones del mismo criterio_id", () => {
+    const susts: ClaudeSustitucion[] = [
+      {
+        original: "Para Informarse",
+        propuesto: "Todo sobre las marcas",
+        criterio_id: "LC-1.2.4-02",
+        motivo: "Título genérico",
+        linea: "T07",
+        ubicacion_pantalla: "Sección informativa",
+      },
+      {
+        original: "Buscadores",
+        propuesto: "Herramientas de búsqueda de marcas",
+        criterio_id: "LC-1.2.4-02",
+        motivo: "Título genérico",
+        linea: "T12",
+        ubicacion_pantalla: "Sección búsqueda",
+      },
+      {
+        original: "Tipo de Cobertura",
+        propuesto: "Tipo de cobertura: define…",
+        criterio_id: "LC-1.1.3-03",
+        motivo: "Concepto opaco",
+        linea: "T17",
+        ubicacion_pantalla: "Bloque tipos",
+      },
+    ]
+    const map = buildSustitucionesPorCriterio(susts)
+    expect(map.get("LC-1.2.4-02")?.map((s) => s.original)).toEqual([
+      "Para Informarse",
+      "Buscadores",
+    ])
+    expect(map.get("LC-1.1.3-03")).toHaveLength(1)
+  })
+
+  test("incluye criterios_relacionados sin duplicar la misma fila", () => {
+    const sust: ClaudeSustitucion = {
+      original: "tres etapas…",
+      propuesto: "1. … 2. … 3. …",
+      criterio_id: "LC-1.1.3-03",
+      criterios_relacionados: ["LC-1.2.2-04", "LC-1.2.3-03"],
+      motivo: "Jerga + extensión",
+      linea: "T10",
+    }
+    const map = buildSustitucionesPorCriterio([sust, sust])
+    expect(map.get("LC-1.1.3-03")).toHaveLength(1)
+    expect(map.get("LC-1.2.2-04")).toHaveLength(1)
+    expect(map.get("LC-1.2.3-03")?.[0]?.original).toBe("tres etapas…")
   })
 })

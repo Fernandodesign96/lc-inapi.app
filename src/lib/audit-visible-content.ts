@@ -145,12 +145,16 @@ export function bundleForVisibleDelivery(
 
 /**
  * Filas de criterios para tablas UI/PDF/Excel.
- * Siempre las 47 (o 39 v1.1): metadata real aparece como `no_aplica` con marca,
- * no se oculta la pregunta del instrumento.
+ * Si el informe ya trae `LC-*` (v3.0), se omiten ids A–H legacy mezclados.
+ * Informes solo A–H históricos se muestran completos hasta reauditar.
  */
 export function criteriosVisiblesParaEntrega(
   evaluations: readonly CriterionEvaluation[],
 ): CriterionEvaluation[] {
+  const hasLc = evaluations.some((e) => String(e.id).startsWith("LC-"))
+  if (hasLc) {
+    return evaluations.filter((e) => String(e.id).startsWith("LC-"))
+  }
   return [...evaluations]
 }
 

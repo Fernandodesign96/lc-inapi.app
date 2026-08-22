@@ -19,6 +19,7 @@ Usuario / Equipo UX
         ├── lee CLAUDE.md (reglas §5, §12, §17, §19–§23)
         ├── aplica 06-calibracion-hallazgos.md (siempre)
         ├── usa Prompt 1 (stack) + Skill 01/04 (RAG)
+        ├── usa Prompt 7 + Skill 06 (§17.1bis texto ascendente, Paso D0)
         ├── usa Prompt 2 (criterios/hitos) + Skill 03 (subagentes)
         ├── usa Prompt 3 (entrega) + Skill 02/05
         ├── diagrama: diagrams/workflow_diagram.md
@@ -29,8 +30,8 @@ Usuario / Equipo UX
 | Archivo | Rol |
 | --- | --- |
 | `../CLAUDE.md` | **Regula** — qué está permitido y cómo se puntúa |
-| `01`…`06` prompts | **Disparan** etapas (orquestación → maestro → calibración) |
-| `skills/01`…`05` | **Especializan** (documentos, lenguaje, subagentes, vectores, persistencia) |
+| `01`…`07` prompts | **Disparan** etapas (orquestación → maestro → calibración → texto ascendente) |
+| `skills/01`…`06` | **Especializan** (documentos, lenguaje, subagentes, vectores, persistencia, texto ascendente) |
 | `diagrams/workflow_diagram.md` | Vista gráfica del mismo contrato |
 | `data/*` + `src/schemas/*` | Verdad de criterios y validación Zod |
 | Frontend / MEI export | **Muestran**; no auditan |
@@ -39,9 +40,10 @@ Usuario / Equipo UX
 
 1. Al inicio de sesión: cargar `CLAUDE.md` completo (o §1–§5 + §12 + §17 + §20–§23 como mínimo).
 2. **Antes** de marcar estados: leer `06-calibracion-hallazgos.md` + skill `05-calibracion-persistente.md`.
-3. No inventar rutas: si un archivo no existe, no “simularlo”; reportar y usar el canónico.
-4. Preferir siempre los nombres numerados `prompts/01`…`06` y `skills/01`…`05` (no hay prompts `audit-*` ni skills `auditoria-*` / `pesquisa-*` legacy).
-5. Multi-URL META MEI: una sesión = Prompt 5 por URL (orden en `mei-meta-mei-urls.ts`); leer Prompt 6 en cada una.
+3. **Antes** de los 15 indicadores: ejecutar Paso D0 con Prompt `07` + skill `06` (§17.1bis).
+4. No inventar rutas: si un archivo no existe, no “simularlo”; reportar y usar el canónico.
+5. Preferir siempre los nombres numerados `prompts/01`…`07` y `skills/01`…`06` (no hay prompts `audit-*` ni skills `auditoria-*` / `pesquisa-*` legacy).
+6. Multi-URL META MEI: una sesión = Prompt 5 por URL (orden en `mei-meta-mei-urls.ts`); leer Prompt 6 y ejecutar D0 en cada una.
 
 ## Salida
 

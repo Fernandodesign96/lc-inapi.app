@@ -99,13 +99,12 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ### Pestañas del libro (por hito y entrega completa)
 
-Cada export genera **5 pestañas**:
+Cada export genera **4 pestañas**:
 
 | Pestaña | Contenido |
 | --- | --- |
-| **Índice** | Título «Auditoría Lenguaje Claro — INAPI»; columnas URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos; fila TOTAL |
-| **CheckList** | Criterio \| enunciado \| cita fuente; filtrado por hito; H01 o alcance con H01 → A1–H1 completo |
-| **Fuentes** | Hito \| Dimensión \| Criterio \| Enunciado \| Cita checklist \| Documento(s) Colección A (`RLC`→lenguaje-claro-recomendaciones.pdf, `CW`→meta-mei.pdf) |
+| **Índice** | URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos, **Porcentaje LC**; fila TOTAL + sección **Porcentaje final** (promedio de la muestra) |
+| **CheckList** | Hitos \| Tareas \| Instrumentos \| Criterios (`LC-*`) \| Nombre del Criterio \| Cita fuente (51 filas v3.0; sin A–H; sin pestaña Fuentes) |
 | **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
 | **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
 
@@ -128,7 +127,7 @@ Por defecto el export usa las **10 URLs compromiso jefatura** (`src/lib/mei-expo
 
 **H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre esas 10 URLs. Export regenerado 2026-07-29 tras §17: ~173 filas de incumplimiento en alcance H02.
 
-**Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña Fuentes con los **39 criterios** y documentos de origen.
+**Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña CheckList con los **51** `LC-*` v3.0.
 
 **Regenerar localmente (gitignored):**
 
@@ -141,7 +140,7 @@ Columnas de detalle (web / trámites): Página \| Dirección \| **Categoría** (
 
 Las hojas de detalle listan los **47** criterios por URL (como MVP/PDF), agrupados en secciones por categoría de presentación MEI.
 
-**H01:** evidencia documental — Índice con nota N/A; CheckList + Fuentes completos; hojas URL con mensaje N/A.
+**H01:** evidencia documental — Índice con nota N/A; CheckList completo (51 LC-*); hojas URL con mensaje N/A.
 
 **Reglas de descarga en UI/API:** botón Excel habilitado solo si el ítem hito en catálogo tiene `estado: completado` y `excelHitoId` no nulo.
 

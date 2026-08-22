@@ -122,12 +122,13 @@ Detalle Clarity: [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md
 
 ## 3. Orquestación vigente (Claude Code)
 
-**Una URL = una sesión.** Pegar [`.claude/prompts/05-audit-maestro-url.md`](../.claude/prompts/05-audit-maestro-url.md). Leer Prompt `06` + skill `05` en cada corrida.
+**Una URL = una sesión.** Pegar [`.claude/prompts/05-audit-maestro-url.md`](../.claude/prompts/05-audit-maestro-url.md). Leer Prompt `06` + skill `05` y Prompt `07` + skill `06` (texto ascendente) en cada corrida.
 
 ```mermaid
 flowchart LR
   A[Playwright MCP] --> B[Inventario R+U]
-  B --> C[15 subagentes §17.1]
+  B --> C0[Texto ascendente §17.1bis]
+  C0 --> C[15 subagentes §17.1]
   C --> D[5 sub-subagentes §17.2]
   D --> E[validate + JSON]
   E --> F[Cable launch + ingest:b]
@@ -137,6 +138,7 @@ flowchart LR
 | Paso | Qué |
 | --- | --- |
 | Captura | DOM real (Playwright); sesión ClaveÚnica si aplica — [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
+| Texto ascendente | Paso D0 — palabra→párrafo (`07` + skill `06`) |
 | Evaluación | 51 `LC-*` · `version_checklist: "3.0"` |
 | Entrega CMS | §22 — propuesto / motivo / ubicación legible |
 | Cableado | `clarity-audits-launch.ts` / `claude-audits-launch.ts` / META MEI (JSON solo **no** actualiza UI) |

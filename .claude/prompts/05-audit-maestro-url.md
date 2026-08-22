@@ -6,11 +6,11 @@ Prompt **maestro** que se pega/ejecuta en Claude Code para auditar **exactamente
 
 ## Para qué
 
-Orquestar de punta a punta: stack → captura → inventario → **15 subagentes** (un indicador tras otro) → **5 sub-subagentes** de entrega → validación → UI/PDF/Excel → commit.
+Orquestar de punta a punta: stack → captura → inventario → **análisis textual ascendente (D0)** → **15 subagentes** (un indicador tras otro) → **5 sub-subagentes** de entrega → validación → UI/PDF/Excel → commit.
 
 ## Importancia
 
-Es el **único contrato ejecutable por URL**. Los prompts 1–4 y 6 lo alimentan. Para cola META MEI o muestra oro, se reutiliza **este mismo Prompt 5** (no hay prompts aparte de lote/oro).
+Es el **único contrato ejecutable por URL**. Los prompts 1–4, 6 y 7 lo alimentan. Para cola META MEI o muestra oro, se reutiliza **este mismo Prompt 5** (no hay prompts aparte de lote/oro).
 
 ## Cableado profundo
 
@@ -22,11 +22,13 @@ Es el **único contrato ejecutable por URL**. Los prompts 1–4 y 6 lo alimentan
 | `03-entrega-resultados.md` | Textos, validación, UI/PDF/Excel |
 | `04-cableado-claude-md.md` | Cómo leer y cablear el grafo |
 | `06-calibracion-hallazgos.md` | **Leer siempre** antes de puntuar |
+| `07-analisis-texto-ascendente.md` | Contrato del Paso **D0** (palabra→párrafo) |
 | `../skills/01-documentos-rag-ingest.md` | Documentos e instrumentos |
 | `../skills/02-lenguaje-entrega-cms.md` | Lenguaje ciudadano |
 | `../skills/03-instrucciones-subagentes-instrumentos.md` | Lotes por indicador |
 | `../skills/04-xenova-langchain-rendimiento.md` | Vectores/chunks |
 | `../skills/05-calibracion-persistente.md` | Persistencia de hallazgos |
+| `../skills/06-analisis-texto-ascendente.md` | Instrucciones al subagente §17.1bis |
 | `../diagrams/workflow_diagram.md` | Diagrama |
 | Datos | `data/checklist-criteria-lc-ptd.json` · `checklist-editorial-ptd-v2.json` · mapa |
 | Salida | `data/claude-audits/…` · launch TS · MEI |
@@ -46,14 +48,14 @@ bun run validate:claude-audits
 # Re-ingestar B (y A) si cambió el contenido fuente — ver Prompt 1
 ```
 
-Leer **Prompt 4** (cableado) + **Prompt 6** + skill **05** (calibración) **antes** del Paso D.
+Leer **Prompt 4** (cableado) + **Prompt 6** + skill **05** (calibración) + **Prompt 7** + skill **06** (texto ascendente) **antes** del Paso D.
 
 ---
 
 ## Prompt a pegar en Claude Code
 
 Audita **exactamente UNA URL** con máxima profundidad (CLAUDE.md §12 + §17 + §20 + §21 + §22 + §23; §19 si sesión).
-Aplica prompts `01`…`04` y `06`, y skills `01`…`05`.
+Aplica prompts `01`…`04`, `06` y `07`, y skills `01`…`06`.
 No abras una segunda URL hasta `validate:claude-audits` + commit de esta.
 
 ### URL objetivo
@@ -98,15 +100,25 @@ Solo VISIBLE. H1 visible (no `<title>`). Ausencias explícitas. Salida: inventar
 
 1. Cargar `checklist-criteria-lc-ptd.json` (51) y `checklist-editorial-ptd-v2.json` (hitos).
 2. Leer **`06-calibracion-hallazgos.md`** completo + skill `05`.
-3. RAG A/B puntual (skills `01` y `04`) si hay duda normativa o precedente.
-4. Skills de apoyo: `02` (tono), `03` (cómo lanzar subagentes).
+3. RAG A/B puntual (skills `01` y `04`) si hay duda normativa o precedente — **solo apoyo**; no copiar estados de JSON antiguos (Prompt 6: reauditoría completa).
+4. Skills de apoyo: `02` (tono), `03` (cómo lanzar subagentes), `06` (texto ascendente).
+5. Si hay id previo: usarlo para `history[]` y contrastar patrones; **reevaluar todo el DOM actual** (modales, hero, secciones).
+
+### Paso D0 — Análisis textual ascendente (OBLIGATORIO)
+
+Antes de los 15 indicadores: lanzar el **subagente §17.1bis** (Prompt **7** + skill **06**).
+
+1. Recorrer el inventario de **menor a mayor** granularidad: palabra/concepto → frase breve → frase larga/oración → párrafo/etapas → criterios de forma sobre esas unidades.
+2. Detectar jerga técnico-jurídica INAPI y bloques «entendibles pero incompletos» (Observancia, cobertura, tasas/derechos, tres etapas, etc.).
+3. Por cada unidad: criterios candidatos `LC-*`, diagnóstico, `propuesta_cms` (reemplazo **o** definición/descripción; etapas descritas).
+4. Salida: **mapa** compartido para el Paso D. **Prohibido** saltar D0 o empezar los 15 sin ese mapa.
 
 ### Paso D — Subagentes por indicador (SECUENCIAL)
 
 Ejecutar **en orden 1→15** un **subagente = un indicador** (CLAUDE.md §17.1 + skill `03`).
 Cada subagente:
 
-- Recibe el inventario completo + URL + calibraciones.
+- Recibe el inventario completo + **mapa D0** + URL + calibraciones.
 - Evalúa **todas** las preguntas `LC-*` de su indicador (IEW + IESD aplicable).
 - Distingue códigos duales (`1.x.x` / `5.x.x`), exclusivos IEW (`1.1.8`, `1.3.1`) y variantes solo IESD.
 - Entrega solo sus filas + borrador de sustituciones. **No** calcula el % total.
@@ -140,5 +152,5 @@ Si hubo hallazgo nuevo de calibración: **actualizar Prompt 6** en el mismo PR o
 ## Multi-URL / muestra oro
 
 - **Cola META MEI (1…10):** una sesión Claude Code = este Prompt 5 con una sola URL del orden en `src/lib/mei-export/mei-meta-mei-urls.ts`. Tras `validate` + commit, abrir la siguiente.
-- **Muestra oro UX:** mismo Prompt 5 (p. ej. Portada orden 1 o noticia detalle) con énfasis §22 y lectura obligatoria de Prompt 6 + skill `05`.
+- **Muestra oro UX:** mismo Prompt 5 (p. ej. Portada orden 1 o noticia detalle) con énfasis §22 y lectura obligatoria de Prompt 6 + skill `05` + Prompt 7 + skill `06`.
 - **Prohibido:** mezclar varias URLs en un solo pegado del maestro.

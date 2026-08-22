@@ -13,7 +13,7 @@
 | 3 | `data/checklist-criteria-lc-ptd.json` | **51** criterios LC v3.0 = score, UI, PDF, Excel MEI |
 | — | `data/checklist-criteria.json` | Histórico 47 A–H (no usar en auditorías nuevas) |
 
-**Orquestación:** `.claude/CLAUDE.md` §17 + §20 + §22 + **§23** · `.claude/prompts/05-audit-maestro-url.md` · skills `01`…`05`.
+**Orquestación:** `.claude/CLAUDE.md` §17 + §20 + §22 + **§23** · `.claude/prompts/05-audit-maestro-url.md` · prompts `01`…`07` · skills `01`…`06`.
 
 **META MEI 2026:** auditar solo **Lenguaje claro** — **51 preguntas únicas** (38 ambos · 10 solo IEW · 3 solo IESD) → JSON canónico con **51** filas `LC-*` (`version_checklist: "3.0"`).  
 **Catalogadas (fuera del % ahora):** Usabilidad **18** · Seguridad **10** · total tres dimensiones **79**.
