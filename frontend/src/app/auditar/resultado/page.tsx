@@ -23,7 +23,7 @@ import {
   criteriosVisiblesParaEntrega,
 } from "@repo/lib/audit-visible-content"
 import {
-  buildSustitucionPrimariaPorCriterio,
+  buildSustitucionesPorCriterio,
   criterioEntregaCampos,
 } from "@repo/lib/criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
@@ -284,9 +284,8 @@ function ResultadoInner() {
 
   const clarityMeta = deliveryBundle?.clarity ?? null
 
-  const sustitucionPorCriterio = useMemo(
-    () =>
-      buildSustitucionPrimariaPorCriterio(pilotMeta?.sustituciones ?? []),
+  const sustitucionesPorCriterio = useMemo(
+    () => buildSustitucionesPorCriterio(pilotMeta?.sustituciones ?? []),
     [pilotMeta?.sustituciones],
   )
 
@@ -1019,16 +1018,20 @@ function ResultadoInner() {
                       </TableCell>
                     </TableRow>
                   ) : null}
-                  {criteriosFiltrados.map((row) => {
+                  {criteriosFiltrados.flatMap((row) => {
+                    const sustList =
+                      row.estado === "incumple"
+                        ? (sustitucionesPorCriterio.get(row.id) ?? [])
+                        : []
+                    const slots =
+                      sustList.length > 0 ? sustList : [undefined]
                     const pres = presentacionCriterio(row)
-                    const campos = criterioEntregaCampos(
-                      row,
-                      sustitucionPorCriterio.get(row.id),
-                    )
                     const ptd = ptdHitoTareaPorCriterio(row.id)
-                    return (
+                    return slots.map((sust, sustIdx) => {
+                      const campos = criterioEntregaCampos(row, sust)
+                      return (
                       <TableRow
-                        key={row.id}
+                        key={`${row.id}-${sustIdx}`}
                         className={filaCriterioClassName(row)}
                       >
                         <TableCell className="max-w-[12rem] text-sm leading-snug text-muted-foreground">
@@ -1109,7 +1112,8 @@ function ResultadoInner() {
                           <span className="line-clamp-4">{ptd.tareaPtd}</span>
                         </TableCell>
                       </TableRow>
-                    )
+                      )
+                    })
                   })}
                 </TableBody>
               </Table>

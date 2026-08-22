@@ -30,7 +30,7 @@ import {
   } from "@/lib/resultado-mock-copy"
   import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
   import {
-    buildSustitucionPrimariaPorCriterio,
+    buildSustitucionesPorCriterio,
     criterioEntregaCampos,
   } from "@repo/lib/criterio-entrega-campos"
   import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
@@ -187,10 +187,29 @@ import {
 
   function BloqueCriterios({ bundle }: { bundle: ClaudeAuditBundle }) {
     const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
-    const sustMap = buildSustitucionPrimariaPorCriterio(
+    const sustMap = buildSustitucionesPorCriterio(
       bundle.pilot.sustituciones ?? [],
     )
-    const titulo = `${rows.length} criterios evaluados`
+    type FilaEntregaPdf = {
+      row: CriterionEvaluation
+      sust: ClaudeSustitucion | undefined
+      key: string
+    }
+    const filasEntrega: FilaEntregaPdf[] = rows.flatMap(
+      (row): FilaEntregaPdf[] => {
+        const sustList =
+          row.estado === "incumple" ? (sustMap.get(row.id) ?? []) : []
+        if (sustList.length > 0) {
+          return sustList.map((sust, i) => ({
+            row,
+            sust,
+            key: `${row.id}-${i}`,
+          }))
+        }
+        return [{ row, sust: undefined, key: row.id }]
+      },
+    )
+    const titulo = `${rows.length} criterios evaluados · ${filasEntrega.length} filas de entrega`
     return (
       <View style={styles.sectionWrap}>
         <PdfSectionBar title={titulo} />
@@ -221,12 +240,8 @@ import {
             Tarea PTD
           </Text>
         </View>
-        {rows.map((row) => (
-          <CriterioFilaPdf
-            key={row.id}
-            row={row}
-            sust={sustMap.get(row.id)}
-          />
+        {filasEntrega.map(({ row, sust, key }) => (
+          <CriterioFilaPdf key={key} row={row} sust={sust} />
         ))}
       </View>
     )

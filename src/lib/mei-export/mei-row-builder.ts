@@ -1,12 +1,12 @@
 import type { CriterionEvaluation, CriterionId } from "../../schemas/checklist"
 import {
-  CRITERION_IDS_V21,
+  CRITERION_IDS_V30,
   criterionIdsForChecklistVersion,
 } from "../../schemas/checklist"
 
 import { isMetadataCriterionEvaluation } from "../audit-visible-content"
 import {
-  buildSustitucionPrimariaPorCriterio,
+  buildSustitucionesPorCriterio,
   criterioEntregaCampos,
 } from "../criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "../ptd-hito-tarea-por-criterio"
@@ -151,7 +151,7 @@ function emptyDocumentaryRow(
 
 /**
  * Entrega Excel (por URL): filas según `version_checklist` de la auditoría
- * (3.0 → 51 LC-*; 2.1 → 47 A–H; 1.1 → 39).
+ * (3.0 → 51 LC-*; 2.1 → 47 A–H solo en JSON histórico; sin versión → 51 LC-*).
  */
 function criterioIdsParaDetalleUrl(
   _hitoId: string,
@@ -160,15 +160,15 @@ function criterioIdsParaDetalleUrl(
   if (versionChecklist) {
     return criterionIdsForChecklistVersion(versionChecklist)
   }
-  return CRITERION_IDS_V21 as readonly CriterionId[]
+  return CRITERION_IDS_V30 as readonly CriterionId[]
 }
 
-function sustitucionPrimariaPorCriterio(
+function sustitucionesPorCriterio(
   sustituciones: readonly ClaudeSustitucion[],
-): Map<CriterionId, ClaudeSustitucion> {
-  return buildSustitucionPrimariaPorCriterio(sustituciones) as Map<
+): Map<CriterionId, ClaudeSustitucion[]> {
+  return buildSustitucionesPorCriterio(sustituciones) as Map<
     CriterionId,
-    ClaudeSustitucion
+    ClaudeSustitucion[]
   >
 }
 
@@ -370,7 +370,7 @@ export function buildRowsForHito(
       audit.bundle.audit.version_checklist,
     )
     const orderIndex = new Map(idsAlcance.map((id, i) => [id, i]))
-    const sustMap = sustitucionPrimariaPorCriterio(
+    const sustMap = sustitucionesPorCriterio(
       audit.bundle.pilot.sustituciones ?? [],
     )
     const byId = new Map(
@@ -410,6 +410,24 @@ export function buildRowsForHito(
     })
 
     for (const ev of evals) {
+      const sustList =
+        ev.estado === "incumple" ? (sustMap.get(ev.id) ?? []) : []
+      if (sustList.length > 0) {
+        for (const sust of sustList) {
+          num++
+          rows.push(
+            rowFromEvaluation({
+              num,
+              hitoId,
+              audit,
+              ev,
+              enunciados,
+              sust,
+            }),
+          )
+        }
+        continue
+      }
       num++
       rows.push(
         rowFromEvaluation({
@@ -418,7 +436,6 @@ export function buildRowsForHito(
           audit,
           ev,
           enunciados,
-          sust: sustMap.get(ev.id),
         }),
       )
     }

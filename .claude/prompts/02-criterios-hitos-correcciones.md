@@ -63,8 +63,10 @@ Tipos: Sustitución · Inserción · Eliminación · Reorden · Enlace/rótulo (
 
 ## Subagentes (evaluación)
 
-Claude ejecuta **en orden** un **subagente por indicador** (15 únicos). Cada uno responde **todas** las preguntas `LC-*` de ese indicador (IEW + variantes IESD aplicables). Detalle: CLAUDE.md §17.1 y skill `03-…`.
+**Antes:** Paso D0 — análisis textual ascendente (CLAUDE.md §17.1bis + Prompt 7 + skill `06`).
+
+Luego Claude ejecuta **en orden** un **subagente por indicador** (15 únicos), cada uno con el mapa D0. Cada uno responde **todas** las preguntas `LC-*` de ese indicador (IEW + variantes IESD aplicables). Detalle: CLAUDE.md §17.1 y skill `03-…`.
 
 ## Salida
 
-Tabla mental de 51 evaluaciones + borrador de `sustituciones[]` por indicador, listo para consolidar y pasar por los **sub-subagentes de entrega** (§17.2).
+Mapa D0 + tabla mental de 51 evaluaciones + borrador de `sustituciones[]` por indicador, listo para consolidar y pasar por los **sub-subagentes de entrega** (§17.2).

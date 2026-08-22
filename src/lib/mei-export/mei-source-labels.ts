@@ -67,9 +67,9 @@ export function documentosLabelFromSource(sourceCita: string): string {
 
 export function sourceNotaMetaMei(): string {
   return (
-    "Checklist Editorial INAPI v2.1 cita IEW, IESD, RLC y MEI (sin sigla genérica CW). " +
+    "Checklist Editorial INAPI PTD-LC v3.0 (51 LC-*) cita IEW, IESD, RLC y MEI (sin sigla genérica CW). " +
     "IEW = instrumento-evaluacion-sitios-web.pdf; IESD = instrumento-evaluacion-servicios-digitales-transaccionales.pdf; " +
     "RLC = lenguaje-claro-recomendaciones.pdf; MEI = meta-mei.pdf. " +
-    "Auditorías v1.1 pueden conservar citas CW (legado → meta-mei.pdf)."
+    "JSON históricos A–H pueden conservar citas CW (legado → meta-mei.pdf); la pestaña CheckList lista solo LC-*."
   )
 }

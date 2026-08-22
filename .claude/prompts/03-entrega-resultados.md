@@ -16,6 +16,7 @@ Que jefatura / Equipo UX lean el mismo mensaje en los tres canales, sin jerga de
 | `05-audit-maestro-url.md` | Pasos E–F |
 | `../skills/02-lenguaje-entrega-cms.md` | Redacción no técnica |
 | `../skills/03-…` + §17.2 | Sub-subagentes 1–5 de calidad de entrega |
+| `../prompts/07-…` + skill `06` + §17.1bis | Mapa textual que alimenta las propuestas |
 | `src/lib/criterio-entrega-campos.ts` | Campos compartidos UI/PDF/Excel |
 | `src/lib/ptd-hito-tarea-por-criterio.ts` | Hito/Tarea PTD al final de cada fila |
 | `src/lib/mei-export/*` | Excel detalle |
@@ -53,7 +54,9 @@ Excel detalle añade Página, Dirección, Categoría y Línea/ref. técnica; las
 bun run validate:claude-audits
 ```
 
-Requisitos v3.0: exactamente **51** filas `LC-*`, estados cerrados, severidad solo en `incumple`, cobertura 1:1 incumple→sustituciones.
+Requisitos v3.0: exactamente **51** filas `LC-*` en `criterios_evaluados`, estados cerrados, severidad solo en `incumple`, cobertura ≥1 sustitución por cada `incumple`.
+
+**Varias correcciones por criterio:** si un mismo `LC-*` incumple en textos distintos, el JSON lleva **N** entradas en `sustituciones[]` con el mismo `criterio_id`. UI, PDF y Excel (`buildSustitucionesPorCriterio` + `mei-row-builder`) emiten **N filas de entrega** — no solo la primera. El % sigue contando el criterio una sola vez.
 
 ## Cableado UI
 

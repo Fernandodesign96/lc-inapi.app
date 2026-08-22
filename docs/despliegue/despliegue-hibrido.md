@@ -45,7 +45,7 @@ Este proyecto tiene **dos mundos** que conviven:
 | **¿Para qué se ocupa?** | Publicar el aplicativo Next.js en una **URL pública** (preview por rama o producción) sin que Equipo UX instale Node ni Bun. |
 | **¿Qué función cumple?** | Sirve las pantallas (`/`, `/auditar`, resultado, PDF) y APIs delgadas de lectura (`/api/claude-audits/…`, fixtures, jobs). |
 | **¿Por qué importa en este proyecto?** | Es el canal de **demo y revisión** con jefatura / Equipo UX. Cada PR puede tener su propia preview. |
-| **¿Qué lo hace único / indispensable aquí?** | Conecta el monorepo a un **hosting listo para frontend serverless**. No sustituye a Claude Code: en Vercel el disco es **efímero** y no conviene correr auditorías de 10–40 min (Playwright + §17: 15 subagentes + 5 sub-subagentes). Su valor único es **mostrar el producto** y, en el MVP on-demand, **encolar** trabajos para que un PC los ejecute (ADR 0011). |
+| **¿Qué lo hace único / indispensable aquí?** | Conecta el monorepo a un **hosting listo para frontend serverless**. No sustituye a Claude Code: en Vercel el disco es **efímero** y no conviene correr auditorías de 10–40 min (Playwright + §17: texto ascendente + 15 subagentes + 5 sub-subagentes). Su valor único es **mostrar el producto** y, en el MVP on-demand, **encolar** trabajos para que un PC los ejecute (ADR 0011). |
 
 **Configuración habitual:** Root Directory `frontend`; Install `cd .. && bun install`; Build `cd .. && bun run build` (desde la raíz del monorepo).
 
@@ -212,7 +212,7 @@ flowchart TB
 | **Reglas** | CLAUDE.md §5 (+ §16–§23); no hay carpeta `/rules` | Contrato único CMS-first | Cada sesión inventaba criterios |
 | **Captura Playwright** | HTML/a11y real | Evidencia ciudadana | Auditar de memoria |
 | **RAG A/B + LangChain + Xenova + Chroma** | Indexar normativa y precedentes | Fundamentar comentarios | Alucinaciones; PDFs fuera de internet |
-| **Subagentes + sub-subagentes (§17)** | 15 indicadores en orden + 5 de entrega | Profundidad y calidad CMS | Un solo agente se queda corto |
+| **Subagentes + sub-subagentes (§17)** | D0 texto ascendente + 15 indicadores + 5 de entrega | Profundidad y calidad CMS | Un solo agente se queda corto |
 | **Salida JSON → Vercel** | Guardar y mostrar PDF/Excel | Entrega institucional | Hallazgo solo en el chat |
 
 ### 4.2 Diagrama del flujo de una auditoría (1 URL)
@@ -279,7 +279,7 @@ Referencias: [ADR 0009](../adr/0009-claude-code-pro-como-orquestador.md), [`.cla
 | **CLAUDE.md** | 51 criterios, §5, §17, §22, §23 |
 | **Prompts** | `01`…`06` (maestro = `05`) |
 | **Skills** | `01`…`05` |
-| **§17** | 15 subagentes + 5 sub-subagentes |
+| **§17** | §17.1bis + 15 subagentes + 5 sub-subagentes |
 | **Playwright MCP** | Captura DOM |
 | **validate:claude-audits** | Zod |
 

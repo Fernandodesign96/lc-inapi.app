@@ -16,16 +16,20 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 | --- | --- |
 | `../prompts/06-calibracion-hallazgos.md` | **Fuente de verdad** de reglas vigentes |
 | `../prompts/05-audit-maestro-url.md` | Lectura obligatoria |
-| `../CLAUDE.md` | §2 calibraciones de producto |
+| `../prompts/07-analisis-texto-ascendente.md` | Método D0 que evita omitir jerga |
+| `../skills/06-analisis-texto-ascendente.md` | Cómo ejecutar D0 |
+| `../CLAUDE.md` | §2 calibraciones de producto · §17.1bis |
 | Sub-subagente 3 | Refuerza veracidad alineada a calibraciones |
 
 ## Procedimiento
 
 1. **Leer** todas las entradas `estado: vigente` del Prompt 6.  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
-3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21).  
-4. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-5. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
+3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
+4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir o reemplazar (Prompt 6 Marcas); usar el mapa D0 (Prompt 7).  
+5. **Varias correcciones por criterio:** si el mismo `LC-*` falla en varios textos, el JSON debe tener N filas en `sustituciones[]`; UI/PDF/Excel las muestran todas (Prompt 6 C-2026-08-22 entrega).  
+6. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+7. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
 
 ## Efecto deseado
 

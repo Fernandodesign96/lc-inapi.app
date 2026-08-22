@@ -32,7 +32,7 @@ const criteria = [
   ...(checklistCriteriaV21.criteria as ChecklistCriterionCatalogRow[]),
 ]
 
-/** Mapa id → fila (v3.0 primero; v2.1 rellena históricos A–H). */
+/** Mapa id → fila (v3.0 primero). v2.1 A–H solo para informes históricos; UI/PDF filtran LC-* si el JSON ya es v3.0. */
 export const CRITERION_CATALOG_BY_ID = new Map<
   string,
   ChecklistCriterionCatalogRow
