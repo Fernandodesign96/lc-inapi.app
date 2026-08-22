@@ -90,7 +90,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     nombreUi: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20",
+    auditId: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-22",
     rolMetaMei: "Últimas noticias (detalle 2/2)",
   },
   {
