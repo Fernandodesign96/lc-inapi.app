@@ -6,6 +6,7 @@ import {
   buildSustitucionesPorCriterio,
   criterioEntregaCampos,
   justificacionCumple,
+  resolverTextoEnPantalla,
 } from "./criterio-entrega-campos"
 
 function ev(
@@ -90,6 +91,121 @@ describe("criterioEntregaCampos", () => {
     expect(campos.justificacion).toBe("OK visual.")
   })
 
+  test("normaliza tipografía CMS en justificación y ubicación", () => {
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.2.4-03",
+        estado: "cumple",
+        ubicacion_pantalla: "Cuerpo › bajo el H1 «Marcas»",
+        comentario:
+          "Hay título H1 «Marcas» y texto en negrita «INAPI»; el bloque está alineado a la izquierda.",
+      }),
+    )
+    expect(campos.ubicacionEnPantalla).toBe(
+      "Cuerpo › bajo el título H1 'Marcas'",
+    )
+    expect(campos.justificacion).toContain("título H1 'Marcas'")
+    expect(campos.justificacion).toContain("el texto en negrita (bold) 'INAPI'")
+    expect(campos.justificacion).toContain(
+      "Alineado a la izquierda (align left)",
+    )
+  })
+
+  test("cumple: citas en comentario → Texto en pantalla", () => {
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.3-02",
+        estado: "cumple",
+        comentario:
+          "El H1 usa segunda persona: «Te queremos ayudar a utilizar la propiedad industrial».",
+      }),
+    )
+    expect(campos.textoEnPantalla).toBe(
+      "Te queremos ayudar a utilizar la propiedad industrial",
+    )
+    expect(campos.ubicacionEnPantalla).toMatch(/H1|Portada|hero/i)
+    expect(campos.ubicacionEnPantalla).not.toMatch(/ubicación exacta no registrada/i)
+  })
+
+  test("con texto infiere ubicación desde narración o usa explícita", () => {
+    const conNarracion = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.3-02",
+        estado: "cumple",
+        cita_textual: "INAPI",
+        comentario: "Autoría visible en el pie de página del sitio.",
+      }),
+    )
+    expect(conNarracion.ubicacionEnPantalla).toMatch(/Pie de página/i)
+
+    const explicita = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.3-02",
+        estado: "cumple",
+        cita_textual: "INAPI",
+        ubicacion_pantalla: "Pie › bloque contacto › nombre institucional",
+        comentario: "en el menú superior también hay logo.",
+      }),
+    )
+    expect(explicita.ubicacionEnPantalla).toBe(
+      "Pie › bloque contacto › nombre institucional",
+    )
+  })
+
+  test("sin texto en pantalla deja ubicación en —", () => {
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.2.1-01",
+        estado: "cumple",
+        comentario: "Cumple por revisión visual de la estructura.",
+      }),
+    )
+    expect(campos.textoEnPantalla).toBe("—")
+    expect(campos.ubicacionEnPantalla).toBe("—")
+  })
+
+  test("incumple sin texto muestra mensaje de ausencia legible", () => {
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.4-01",
+        estado: "incumple",
+        severidad: "alta",
+        cita_textual: "(ausencia)",
+        comentario:
+          "No se observó fecha de actualización visible bajo el título ni en el pie de página.",
+      }),
+    )
+    expect(campos.textoEnPantalla).toBe(
+      "No hay texto que cumpla con este requisito",
+    )
+    expect(campos.ubicacionEnPantalla).toMatch(/Pie de página|título/i)
+  })
+
+  test("cumple: justificación de ausencia no vuelca citas a Texto en pantalla", () => {
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.3-04",
+        estado: "cumple",
+        comentario:
+          "No se observaron abreviaturas ni extranjerismos como «etc.» o «status» en el cuerpo evaluado.",
+      }),
+    )
+    expect(campos.textoEnPantalla).toBe("—")
+  })
+
+  test("no_aplica con cita en comentario la muestra en Texto en pantalla", () => {
+    expect(
+      resolverTextoEnPantalla(
+        ev({
+          id: "LC-5.2.1-01",
+          estado: "no_aplica",
+          comentario:
+            "Variante de trámite; no aplica en sitioweb. Se revisó el bloque «Marcas».",
+        }),
+      ),
+    ).toBe("Marcas")
+  })
+
   test("incumple con sustitución", () => {
     const sust: ClaudeSustitucion = {
       original: "Titulos",
@@ -110,7 +226,9 @@ describe("criterioEntregaCampos", () => {
     )
     expect(campos.textoEnPantalla).toBe("Titulos")
     expect(campos.correccionPropuesta).toBe("Títulos")
-    expect(campos.ubicacionEnPantalla).toBe("Menú principal")
+    expect(campos.ubicacionEnPantalla).toBe(
+      "Menú principal › texto «Titulos»",
+    )
     expect(campos.tieneSustitucion).toBe(true)
     expect(campos.justificacion).toContain("Falta tilde")
   })

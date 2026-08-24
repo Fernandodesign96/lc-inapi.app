@@ -1,7 +1,8 @@
 # Checklist Editorial INAPI v2.0 (extraído del .docx)
 
 Fuente: docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx
-**Nota (2026-08-21):** motor = `data/checklist-criteria-lc-ptd.json` (**51** `LC-*`, v3.0). Mapa: [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md).
+**Nota (2026-08-24):** motor = `data/checklist-criteria-lc-ptd.json` (**51** `LC-*`, v3.0). Mapa: [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md).
+**Entrega Hito/Tarea:** Hito **494**/Tarea **493** = solo Redacción `1.1.5`; Hito **496**/Tarea **495** = solo Lenguaje plano `1.1.3`. Fiabilidad → **500/499**. Completitud → **492/491**. Privacidad: RUN/tel → **503**; ARCO → **504**. Sensibles: **510** / **511** / **512** (una pregunta cada una).
 
 Checklist Editorial INAPI v2.0
 Preguntas de chequeo del Instrumento de Calidad Web asociadas a cada tarea del Plan de Transformación Digital (PTD)
@@ -52,13 +53,6 @@ Indicador 1.1.5 / 5.1.5 — Redacción y ortografía
 ¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos?
 ¿Los signos de puntuación empleados facilitan la lectura del documento?
 ¿Las frases se relacionan entre sí por medio de conectores?
-Indicador 1.1.3 / 5.1.3 — Lenguaje plano
-¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?
-¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?
-¿La redacción prescinde de la jerga técnica o legal?
-¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?
-¿Se define cada sigla y acrónimo y se emplean solo si es necesario?
-¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el &quot;no se puede&quot;?
 Hito 496
 Los contenidos del sitio están redactados en lenguaje claro, positivo y cercano, libres de tecnicismos innecesarios y con siglas o acrónimos definidos.
 Tarea 495
@@ -110,12 +104,9 @@ Eliminar y prevenir la publicación de RUN, direcciones y teléfonos personales 
 Indicador 1.1.7 / 5.1.7 — Privacidad y datos personales
 Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?
 ¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?
-¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?
 Tarea 504
 Incorporar una sección que informe cómo ejercer derechos sobre datos personales (acceso, rectificación, eliminación, oposición y bloqueo), conforme a la Ley sobre Protección de la Vida Privada.
 Indicador 1.1.7 / 5.1.7 — Privacidad y datos personales
-Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?
-¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?
 ¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?
 Hito 507
 El sitio web presenta textos alineados a la izquierda y párrafos con espaciado.
@@ -145,19 +136,13 @@ Tarea 510
 Revisar y editar los contenidos del sitio para resguardar la identidad de menores de edad en textos e imágenes, e incorporar controles preventivos que impidan publicar información que los exponga.
 Indicador 1.1.8 (exclusivo Sitios web) — Contenidos sensibles
 Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?
-¿El contenido es apto para ser leído por menores de edad?
-¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?
 Tarea 511
 Revisar y ajustar los contenidos del sitio para eliminar expresiones inadecuadas o no aptas para menores de edad.
 Indicador 1.1.8 (exclusivo Sitios web) — Contenidos sensibles
-Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?
 ¿El contenido es apto para ser leído por menores de edad?
-¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?
 Tarea 512
 Revisar y eliminar del sitio los contenidos que exhiban información que pueda menoscabar a las personas (por ejemplo, datos sobre su salud, creencias religiosas, ideología política, vida sexual o características físicas).
 Indicador 1.1.8 (exclusivo Sitios web) — Contenidos sensibles
-Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?
-¿El contenido es apto para ser leído por menores de edad?
 ¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?
 Hito 515
 El sitio web presenta sus datos acompañados de apoyos visuales.

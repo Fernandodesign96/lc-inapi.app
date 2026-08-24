@@ -22,7 +22,21 @@ Que la evaluación sea completa (51 filas), trazable a hito/tarea PTD, y acciona
 | `docs/checklist-ptd-v2-mapa.md` | Mapa IEW ↔ IESD |
 | `src/lib/ptd-hito-tarea-por-criterio.ts` | Columnas Hito/Tarea PTD en UI/Excel/PDF |
 
-**Entrega (UI/PDF/Excel):** no mostrar **Hito 492** / **Tarea 491** (meta «implementar el checklist» — ya cubierto por los 51 `LC-*`). Las preguntas de ese bloque se anclan a los **otros** hitos/tareas donde también figuran. Completitud (`1.1.2`) solo está bajo 492 en el Word → Hito/Tarea = "—" hasta que se asocie a un hito operativo.
+**Entrega (UI/PDF/Excel):** columnas **Hito PTD** / **Tarea PTD** desde `ptd-hito-tarea-por-criterio.ts` + `checklist-editorial-ptd-v2.json`.
+
+| Criterios | Hito | Tarea |
+| --- | --- | --- |
+| Fiabilidad `LC-1.1.1-*` | **500** | **499** |
+| Completitud `LC-1.1.2-*` | **492** | **491** (única ancla PTD; sí se muestra) |
+| Lenguaje plano `LC-1.1.3-*` | **496** | **495** |
+| Redacción `LC-1.1.5-*` | **494** | **493** |
+| Privacidad RUN/teléfonos `LC-1.1.7-01/02` | **505** | **503** |
+| Privacidad ARCO `LC-1.1.7-03` | **505** | **504** (solo esta pregunta) |
+| Sensibles identidad menores `LC-1.1.8-01` | **513** | **510** |
+| Sensibles aptitud menores `LC-1.1.8-02` | **513** | **511** |
+| Sensibles susceptibilidad `LC-1.1.8-03` | **513** | **512** |
+
+**Sin solape:** el Hito **494** solo lleva Redacción (`1.1.5`); el Hito **496** solo lleva Lenguaje plano (`1.1.3`); Tarea **504** solo ARCO; tareas **510/511/512** una pregunta cada una. El resto de preguntas del bloque meta **492/491** se anclan a hitos operativos donde también figuran (p. ej. Fiabilidad/Actualización → 500). No mostrar 492/491 salvo Completitud.
 
 ## Los 51 criterios y los instrumentos
 

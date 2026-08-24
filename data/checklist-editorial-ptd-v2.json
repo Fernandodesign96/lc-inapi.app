@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "fuente_docx": "docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx",
-  "descripcion": "Checklist Editorial INAPI v2.0 — Hitos PTD → Tareas → Preguntas IEW/IESD. Preguntas unicas: LC 51 · Usabilidad 18 · Seguridad 10 (total 79). Motor §17 META MEI 2026 = solo LC (51 filas LC-* en checklist-criteria-lc-ptd.json, version_checklist 3.0). US/SE catalogadas para cierre de año.",
+  "descripcion": "Checklist Editorial INAPI v2.0 — Hitos PTD → Tareas → Preguntas IEW/IESD. Preguntas unicas: LC 51 · Usabilidad 18 · Seguridad 10 (total 79). Motor §17 META MEI 2026 = solo LC (51 filas LC-* en checklist-criteria-lc-ptd.json, version_checklist 3.0). Entrega UI/Excel/PDF (2026-08-24): Hito 494/Tarea 493 solo Redacción 1.1.5; Hito 496/Tarea 495 solo Lenguaje plano 1.1.3; Completitud 1.1.2 bajo 492/491; Tarea 504 solo ARCO; tareas 510/511/512 una pregunta cada una de Contenidos sensibles.",
   "alcance_auditoria_actual": "lenguaje_claro",
   "dimensiones": [
     {
@@ -31,7 +31,8 @@
                   "preguntas": [
                     "¿Los contenidos representan de manera fiel lo enunciado en su título?",
                     "¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o \"En construcción\"?",
-                    "¿El texto destaca los datos clave de la información?"
+                    "¿El texto destaca los datos clave de la información?",
+                    "En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?"
                   ]
                 },
                 {
@@ -89,18 +90,6 @@
                     "¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos?",
                     "¿Los signos de puntuación empleados facilitan la lectura del documento?",
                     "¿Las frases se relacionan entre sí por medio de conectores?"
-                  ]
-                },
-                {
-                  "codigo": "1.1.3 / 5.1.3",
-                  "nombre": "Lenguaje plano",
-                  "preguntas": [
-                    "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
-                    "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
-                    "¿La redacción prescinde de la jerga técnica o legal?",
-                    "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
-                    "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
-                    "¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?"
                   ]
                 }
               ]
@@ -222,8 +211,8 @@
                   "codigo": "1.1.7 / 5.1.7",
                   "nombre": "Privacidad y datos personales",
                   "preguntas": [
-                    "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?",
-                    "¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?"
+                    "Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?",
+                    "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?"
                   ]
                 }
               ]
@@ -236,7 +225,6 @@
                   "codigo": "1.1.7 / 5.1.7",
                   "nombre": "Privacidad y datos personales",
                   "preguntas": [
-                    "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?",
                     "¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación/eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?"
                   ]
                 }
@@ -303,8 +291,7 @@
                   "codigo": "1.1.8 (exclusivo Sitios web)",
                   "nombre": "Contenidos sensibles",
                   "preguntas": [
-                    "¿El contenido es apto para ser leído por menores de edad?",
-                    "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
+                    "Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?"
                   ]
                 }
               ]
@@ -317,8 +304,7 @@
                   "codigo": "1.1.8 (exclusivo Sitios web)",
                   "nombre": "Contenidos sensibles",
                   "preguntas": [
-                    "¿El contenido es apto para ser leído por menores de edad?",
-                    "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
+                    "¿El contenido es apto para ser leído por menores de edad?"
                   ]
                 }
               ]
@@ -331,7 +317,6 @@
                   "codigo": "1.1.8 (exclusivo Sitios web)",
                   "nombre": "Contenidos sensibles",
                   "preguntas": [
-                    "¿El contenido es apto para ser leído por menores de edad?",
                     "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?"
                   ]
                 }

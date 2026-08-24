@@ -23,11 +23,25 @@ Skill para escribir **resultados entendibles** para personas que no son de desar
 
 | Campo | Cómo escribirlo |
 | --- | --- |
-| **Texto en pantalla** | Literal que ve el ciudadano, o `(ausencia)` / `—` si no hay |
+| **Texto en pantalla** | Literal que ve el ciudadano, o `No hay texto que cumpla con este requisito` (JSON interno: `(ausencia)`) / `—` si no hay evidencia que citar |
 | **Corrección propuesta** | Texto listo para pegar en el CMS, o instrucción «Añadir / Quitar / Mover…» |
-| **Ubicación en pantalla** | «Cabecera › menú Marcas › ítem …» — nunca solo `T042` o un selector CSS |
+| **Ubicación en pantalla** | Ruta humana **zona › elemento › «rótulo»** (ej. `Pie de página › enlace «Política de privacidad»`). **Nunca** solo `T042`, un selector CSS, ni palabras sueltas (`el enlace`, `el bloque`). Obligatoria y específica si hay Texto en pantalla. |
 | **Justificación / motivo** | Una o dos frases: por qué incumple o por qué cumple el criterio |
 | **Resumen / nota TIC** | Problema + qué hacer; TI al final si hace falta ancla técnica |
+
+## Tipografía, pesos y formato (obligatorio al mencionarlos)
+
+Si se habla de títulos, alineación, negrita, cursiva u otros estilos, usar el rol + literal + término CMS (ES + EN):
+
+| Concepto | Forma canónica |
+| --- | --- |
+| Título principal | `título H1 'x'` |
+| Subtítulo | `subtítulo h2 'y'` · `subtítulo h3 '…'` |
+| Alineación | `Alineado a la izquierda (align left)` · `Justificado (justify)` |
+| Estilos | `el texto en negrita (bold) 'x'` · `el texto en cursiva (italic) 'y'` · `el texto sin negrita 'x'` |
+
+Ejemplo bueno: «Cambiar el título H1 'Observancia' a lenguaje cotidiano; dejar el texto en negrita (bold) 'INAPI' en el pie.»  
+La entrega (UI/PDF/Excel) pasa por `normalizarLenguajeTipografiaCms` para unificar frases frecuentes.
 
 ## Prohibido
 

@@ -176,6 +176,20 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ---
 
+### C-2026-08-24 — Ubicación en pantalla detallada + ausencia legible (PDF/Excel)
+
+- **Origen:** revisión manual Portada (PDF/Excel): ubicaciones vagas («el enlace», «el bloque», «En la página (ubicación exacta no registrada…)») y «Texto en pantalla: (ausencia)».
+- **Regla (entrega CMS):**
+  1. **`ubicacion_pantalla` obligatoria y específica** siempre que haya texto (o ausencia de requisito). Formato: `Zona › elemento › «rótulo o literal»` (ej. `Pie de página › enlace «Política de privacidad»`; `Portada › zona superior (hero) › título H1 «…»`; `Pie de página › bloque «Dónde estamos»`). **Prohibido:** una sola palabra (`enlace`, `bloque`), frases cortas sin zona (`el enlace`, `El bloque de accesos`), o «en la página» sin ruta.
+  2. En `comentario` / `motivo` nombrar **zona + tipo de control + rótulo** para que la capa de entrega (`ubicacion-pantalla-cms.ts`) no tenga que adivinar.
+  3. **Texto en pantalla** si no hay literal que cumpla: en JSON puede seguir `(ausencia)`; en **UI/PDF/Excel** se muestra `No hay texto que cumpla con este requisito`.
+  4. **PDF:** no incluir la sección «Nota para el equipo TI» (`nota_final_tic` puede existir en JSON/UI, pero no en el PDF de entrega editorial).
+- **Ejemplo malo → bueno:**
+  - Malo: `Ubicación: el enlace` / `Texto: (ausencia)`
+  - Bueno: `Ubicación: Pie de página › enlace «Uso de los Contenidos de este Sitio»` / `Texto: No hay texto que cumpla con este requisito`
+- **Aplica a:** todas (UI, PDF, Excel).
+- **estado:** vigente
+
 ### C-2026-08-22 — Entrega: todas las correcciones por criterio (UI/PDF/Excel)
 
 - **Origen:** revisión Excel Marcas — faltaban títulos («Para Informarse», «Buscadores»), cobertura, atajos de tipos; solo se veía la 1ª sustitución del `criterio_id`.
