@@ -3,12 +3,14 @@ import { NextResponse } from "next/server"
 import { loadAuditByIdForMeiExport } from "@repo/lib/mei-export/mei-audit-loader"
 import { buildMeiWorkbook } from "@repo/lib/mei-export/mei-xlsx-writer"
 import { CLAUDE_AUDIT_ID_SET } from "@/lib/claude-audits-launch"
-import { contentDispositionAttachment } from "@/lib/informe-piloto-filename"
+import {
+  auditoriaDescargaFilename,
+  contentDispositionAttachment,
+} from "@/lib/informe-piloto-filename"
 import {
   getExportableHitoIdsFromCatalog,
   loadMeiCatalogFromRepo,
 } from "@/lib/mei-calidad-web/mei-export-server"
-import { meiUrlXlsxFilename } from "@/lib/mei-calidad-web/export-href"
 import { repoRoot } from "@/lib/repo-root"
 
 export const runtime = "nodejs"
@@ -47,7 +49,13 @@ export async function GET(_req: Request, { params }: RouteParams) {
       audits: [audit],
     })
     const buffer = await workbook.xlsx.writeBuffer()
-    const filename = meiUrlXlsxFilename(auditId)
+    const filename = auditoriaDescargaFilename(
+      {
+        url: audit.url,
+        fecha_evaluacion: audit.fechaEvaluacionIso,
+      },
+      "xlsx",
+    )
 
     return new Response(Buffer.from(buffer), {
       status: 200,

@@ -184,7 +184,7 @@ Cada auditoría produce un archivo `{slug-url}_{YYYY-MM-DD}.json`. La fuente de 
     "baja": []
   },
   "sustituciones": [
-    { "linea": "T007", "html_linea_aprox": "HTML-L10", "ubicacion_pantalla": "Cuerpo › bajo el H1 › primer párrafo", "original": "...", "propuesto": "...", "criterio_id": "LC-1.1.2-01", "motivo": "..." }
+    { "linea": "T007", "html_linea_aprox": "HTML-L10", "ubicacion_pantalla": "Cuerpo › bajo el título principal › primer párrafo", "original": "...", "propuesto": "...", "criterio_id": "LC-1.1.2-01", "motivo": "..." }
   ],
   "nota_final_tic": "Instrucciones para TI al implementar las sustituciones..."
 }
@@ -231,7 +231,7 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | Botones `OK` / `Aceptar` en modales | LC-5.2.4-01 (trámites) / rótulos | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. |
 | PDF sin formato/peso/descripción | LC-1.2.4-07 / LC-1.2.4-08 | «Junto al enlace del documento, mostrar título + formato + peso + breve descripción (ej. «Guía de marcas (PDF, 245 KB) — …»).» |
 | Sin fecha de actualización | LC-1.1.4-01 | «Bajo el título de la página, añadir una línea visible: «Actualizado: DD de mes de AAAA». El © del pie no cuenta como fecha de contenido.» |
-| H1 genérico o desalineado | LC-1.1.2-01 | «El título grande de la página (H1) debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
+| Título principal genérico o desalineado | LC-1.1.2-01 | «El título principal de la página debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
 | PCT en menú sin expansión | LC-1.1.3-05 | «La primera vez que aparece PCT en el menú, definirla (tooltip, glosa o página destino), sin convertir el ítem en un párrafo largo.» |
 | ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
@@ -888,7 +888,7 @@ Antes de fijar el estado, el subagente debe poder responder en una frase la **pr
 
 | Estado | Qué debe quedar claro en `comentario` (o en `motivo` de la sustitución) |
 | --- | --- |
-| `cumple` | Qué se vio que demuestra el sí (ej. «Hay H1 visible “Marcas” alineado al contenido»). |
+| `cumple` | Qué se vio que demuestra el sí (ej. «Hay título principal “Marcas” alineado al contenido»). |
 | `incumple` + `severidad` | Qué falla + qué cambiar. En UI: `baja`→Cumple con observaciones · `media`→Medianamente cumple · `alta`→No cumple. |
 | `no_aplica` | Por qué la pregunta no tiene sentido en esta URL (ya exigido en §20.4). |
 
@@ -898,7 +898,7 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 
 | Campo | Regla |
 | --- | --- |
-| `ubicacion_pantalla` | Ruta humana **obligatoria y específica**: `Zona › elemento › «rótulo»`. Ej.: `Pie de página › enlace «Política de privacidad»`; `Portada › zona superior (hero) › título H1 '…'`; `Pie de página › bloque «Dónde estamos»`. **Prohibido:** solo `Tnnn`, solo HTML, o vaguedades (`el enlace`, `el bloque`, `En la página…`). Ver calibración C-2026-08-24. |
+| `ubicacion_pantalla` | Ruta humana **obligatoria y específica**: `Zona › elemento › «rótulo»`. Ej.: `Pie de página › enlace «Política de privacidad»`; `Portada › zona superior destacada › título principal '…'`; `Pie de página › bloque «Dónde estamos»`. **Prohibido:** solo `Tnnn`, solo HTML, o vaguedades (`el enlace`, `el bloque`, `En la página…`). Ver calibración C-2026-08-24. |
 | `original` | Cita corta del texto **visible** a corregir (o descripción de ausencia: «(sin fecha de actualización visible)»). |
 | `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). Sin meta-comentarios («debería mejorarse la claridad»). Si habla de formato tipográfico, usar §22.3bis. |
 | `motivo` | 1–3 frases: (1) respuesta a la pregunta del criterio, (2) por qué el original no cumple, (3) si es patrón de sitio (`patron_sistema: true`), decir «corregir una vez en el layout / componente compartido». |
@@ -906,15 +906,17 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 
 ### 22.3bis Tipografía, pesos y formato (UI · PDF · Excel)
 
-Cuando el hallazgo o la corrección hable de títulos, alineación, negrita, cursiva u otros estilos, **nombrar el rol tipográfico + el literal entre comillas simples**, y el término CMS en español con el inglés entre paréntesis:
+Cuando el hallazgo o la corrección hable de títulos, alineación, negrita, cursiva u otros estilos, **usar palabras claras** (sin H1/H2/H3, CSS ni inglés técnico) y el literal entre comillas simples:
 
 | Hablar de… | Forma canónica (ejemplos) |
 | --- | --- |
-| Título principal | `título H1 'Marcas'` |
-| Subtítulo / sección | `subtítulo h2 'Cómo solicitar'` · `subtítulo h3 '…'` |
-| Alineación | `Alineado a la izquierda (align left)` · `Justificado (justify)` |
-| Peso / estilo | `el texto en negrita (bold) '…'` · `el texto en cursiva (italic) '…'` · `el texto sin negrita '…'` |
+| Título principal | `título principal 'Marcas'` |
+| Subtítulo / sección | `subtítulo 'Cómo solicitar'` · `título de apartado '…'` |
+| Alineación | `Alineado a la izquierda` · `Justificado` |
+| Peso / estilo | `el texto en negrita '…'` · `el texto en cursiva '…'` · `el texto sin negrita '…'` |
+| Zonas frecuentes | `zona superior destacada` · `ventana emergente` · `pie de página` · `cabecera` |
 
+**Prohibido en entrega:** `H1`/`H2`/`H3`, `hero`, `modal`, `footer`, `(bold)`, `(align left)`, etc.  
 Aplicar en `comentario`, `motivo`, `propuesto`, `ubicacion_pantalla` y campos derivados. La capa de entrega (`normalizarLenguajeTipografiaCms` en `criterio-entrega-campos`) normaliza frases frecuentes al exportar; las auditorías nuevas deben redactar ya en este formato.
 
 ### 22.4 Ejemplos (malo → bueno)

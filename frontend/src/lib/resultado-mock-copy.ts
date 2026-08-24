@@ -53,28 +53,28 @@ export const PASOS_SEGUN_ESTADO: Record<AcceptanceStatus, PasosSeguir> = {
   rechazado: {
     titulo: "Pasos a seguir",
     pasos: [
-      "Revise la tabla de criterios y priorice los incumplimientos con mayor severidad.",
-      "Corrija el contenido publicado en la URL y documente los cambios según el procedimiento interno.",
-      "Cuando las correcciones estén aplicadas, solicite una nueva auditoría de lenguaje claro.",
-      "Si requiere apoyo normativo o de estilo, coordine con el área responsable antes de republicar.",
+      "Revise la tabla de criterios y corrija aquellos que: incumplen, que medianamente incumplen, y que cumplen pero con observaciones.",
+      "Utilice las correcciones propuestas, los textos en pantalla y las ubicaciones en pantalla, de cada criterio para implementar los cambios en la URL.",
+      "Cada Criterio (pregunta) pertenece a alguna Tarea de algún Hito PTD - Meta MEI Calidad Web. Son 51 criterios en total.",
+      "Si existe algún Criterio que no logra entender o corregir, comuníquese con el Departamento de Experiencia Usuaria.",
     ],
   },
   aceptado_con_observaciones: {
     titulo: "Pasos a seguir",
     pasos: [
-      "Atienda las observaciones señaladas en el resumen y en los criterios marcados como no cumple.",
-      "Ajuste microcopy, titulares o enlaces según la severidad indicada en cada fila.",
-      "Valide contraste, enlaces y consistencia terminológica con el glosario institucional.",
-      "Vuelva a auditar la URL para confirmar que el porcentaje de cumplimiento supera el umbral acordado.",
+      "Revise la tabla de criterios y corrija aquellos que: incumplen, que medianamente incumplen, y que cumplen pero con observaciones.",
+      "Utilice las correcciones propuestas, los textos en pantalla y las ubicaciones en pantalla, de cada criterio para implementar los cambios en la URL.",
+      "Cada Criterio (pregunta) pertenece a alguna Tarea de algún Hito PTD - Meta MEI Calidad Web. Son 51 criterios en total.",
+      "Si existe algún Criterio que no logra entender o corregir, comuníquese con el Departamento de Experiencia Usuaria.",
     ],
   },
   aprobado: {
     titulo: "Pasos a seguir",
     pasos: [
-      "Conserve evidencia de esta auditoría para trazabilidad interna.",
-      "Programe revisiones periódicas si la página recibe actualizaciones frecuentes.",
-      "Mantenga alineación con criterios de titulares, enlaces y mensajes de sistema ya cumplidos.",
-      "Ante cambios editoriales mayores, considere una nueva evaluación preventiva.",
+      "Revise la tabla de criterios y corrija aquellos que: incumplen, que medianamente incumplen, y que cumplen pero con observaciones.",
+      "Utilice las correcciones propuestas, los textos en pantalla y las ubicaciones en pantalla, de cada criterio para implementar los cambios en la URL.",
+      "Cada Criterio (pregunta) pertenece a alguna Tarea de algún Hito PTD - Meta MEI Calidad Web. Son 51 criterios en total.",
+      "Si existe algún Criterio que no logra entender o corregir, comuníquese con el Departamento de Experiencia Usuaria.",
     ],
   },
 }

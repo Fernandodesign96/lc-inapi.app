@@ -12,12 +12,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2022"],
-    "types": ["node"],
+    "types": ["node", "bun-types"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
   "include": ["src/scripts/**/*.ts", "src/schemas/**/*.ts", "src/lib/**/*.ts"],
-  "exclude": ["node_modules", "frontend", "**/*.test.ts"]
+  "exclude": ["node_modules", "frontend"]
 }

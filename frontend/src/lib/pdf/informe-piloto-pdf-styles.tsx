@@ -186,6 +186,47 @@ export const styles = StyleSheet.create({
     fontSize: 9,
     color: "#374151",
   },
+  hitoResumenTable: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#9ca3af",
+  },
+  hitoResumenHeaderRow: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#9ca3af",
+  },
+  hitoResumenDataRow: {
+    flexDirection: "row",
+  },
+  hitoResumenCell: {
+    borderRightWidth: 1,
+    borderRightColor: "#9ca3af",
+    paddingVertical: 4,
+    paddingHorizontal: 3,
+    justifyContent: "flex-end",
+  },
+  hitoResumenCellLast: {
+    paddingVertical: 4,
+    paddingHorizontal: 3,
+    justifyContent: "flex-end",
+  },
+  hitoResumenHeaderText: {
+    fontSize: 7,
+    fontWeight: 700,
+    color: "#111827",
+    textAlign: "right",
+  },
+  hitoResumenNum: {
+    fontSize: 9,
+    color: "#111827",
+    textAlign: "right",
+  },
+  hitoResumenDesc: {
+    fontSize: 8,
+    color: "#111827",
+    textAlign: "left",
+  },
 })
 
 const PROGRESS_FILL: Record<string, string> = {

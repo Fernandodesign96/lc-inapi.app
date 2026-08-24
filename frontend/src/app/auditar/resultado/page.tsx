@@ -28,6 +28,10 @@ import {
 } from "@repo/lib/criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
 import {
+  buildResumenHitosAuditoria,
+  CHECKLIST_DATOS_AUDITORIA_VALOR,
+} from "@repo/lib/resumen-hitos-auditoria"
+import {
   Card,
   CardContent,
   CardDescription,
@@ -48,11 +52,9 @@ import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
 import { ResultadoScrollTopButton } from "@/components/resultado-scroll-top-button"
 import {
-  formatFechaEvaluacion,
+  formatFechaEvaluacionDatosUi,
+  formatUsuarioQueAudita,
   labelTipoPagina,
-  NotaEquipoTiContent,
-  ObservacionesSeveridadContent,
-  ResumenAuditoriaContent,
   SustitucionesTextoContent,
 } from "@/components/resultado-claude-pilot-sections"
 import {
@@ -75,11 +77,15 @@ import {
 } from "@/lib/criterio-evaluacion-visual"
 import {
   type FiltroEstadoCriterioVisual,
-  type FiltroSeveridadPastilla,
-  letrasTipoDisponibles,
+  matchesCriterioId,
   matchesEstadoCriterioVisual,
-  matchesLetraTipo,
-  matchesSeveridadPastilla,
+  matchesHitoId,
+  matchesInstrumento,
+  matchesTareaId,
+  opcionesCriterioIds,
+  opcionesHitoDisponibles,
+  opcionesInstrumentoDisponibles,
+  opcionesTareaDisponibles,
 } from "@/lib/criterios-evaluados-filters"
 import {
   formatCriterioEnunciado,
@@ -142,11 +148,14 @@ function ResultadoInner() {
   const [importDraft, setImportDraft] = useState("")
   const [importError, setImportError] = useState<string | null>(null)
 
-  const [filtroLetra, setFiltroLetra] = useState<"todas" | string>("todas")
+  const [filtroHito, setFiltroHito] = useState<"todos" | number>("todos")
+  const [filtroTarea, setFiltroTarea] = useState<"todos" | number>("todos")
+  const [filtroCriterio, setFiltroCriterio] = useState<"todos" | string>("todos")
+  const [filtroInstrumento, setFiltroInstrumento] = useState<"todos" | string>(
+    "todos",
+  )
   const [filtroEstado, setFiltroEstado] =
     useState<FiltroEstadoCriterioVisual>("todos")
-  const [filtroSeveridad, setFiltroSeveridad] =
-    useState<FiltroSeveridadPastilla>("todos")
 
   useEffect(() => {
     if (!fixtureId) return
@@ -169,9 +178,11 @@ function ResultadoInner() {
           setImportedAudit(null)
           setImportError(null)
           setFixtureFetchError(null)
-          setFiltroLetra("todas")
+          setFiltroHito("todos")
+          setFiltroTarea("todos")
+          setFiltroCriterio("todos")
+          setFiltroInstrumento("todos")
           setFiltroEstado("todos")
-          setFiltroSeveridad("todos")
         }
       })
       .catch((e: unknown) => {
@@ -219,9 +230,11 @@ function ResultadoInner() {
           setImportedAudit(null)
           setImportError(null)
           setClaudeFetchError(null)
-          setFiltroLetra("todas")
+          setFiltroHito("todos")
+          setFiltroTarea("todos")
+          setFiltroCriterio("todos")
+          setFiltroInstrumento("todos")
           setFiltroEstado("todos")
-          setFiltroSeveridad("todos")
         }
       })
       .catch((e: unknown) => {
@@ -282,41 +295,62 @@ function ResultadoInner() {
 
   const pilotMeta: ClaudeAuditPilotMeta | null = deliveryBundle?.pilot ?? null
 
-  const clarityMeta = deliveryBundle?.clarity ?? null
-
   const sustitucionesPorCriterio = useMemo(
     () => buildSustitucionesPorCriterio(pilotMeta?.sustituciones ?? []),
     [pilotMeta?.sustituciones],
   )
 
-  const criteriosFiltrados = useMemo(() => {
-    if (!auditoria) return []
-    return criteriosVisiblesParaEntrega(auditoria.criterios_evaluados).filter(
-      (row) =>
-        matchesLetraTipo(row, filtroLetra) &&
-        matchesEstadoCriterioVisual(row, filtroEstado) &&
-        matchesSeveridadPastilla(row, filtroSeveridad),
-    )
-  }, [auditoria, filtroLetra, filtroEstado, filtroSeveridad])
-
-  const criteriosEntregaCount = auditoria
-    ? criteriosVisiblesParaEntrega(auditoria.criterios_evaluados).length
-    : 0
-
-  const letrasDisponibles = useMemo(
+  const criteriosEntregaRows = useMemo(
     () =>
       auditoria
-        ? letrasTipoDisponibles(
-            criteriosVisiblesParaEntrega(auditoria.criterios_evaluados),
-          )
+        ? criteriosVisiblesParaEntrega(auditoria.criterios_evaluados)
         : [],
     [auditoria],
   )
 
+  const criteriosFiltrados = useMemo(() => {
+    return criteriosEntregaRows.filter(
+      (row) =>
+        matchesHitoId(row, filtroHito) &&
+        matchesTareaId(row, filtroTarea) &&
+        matchesCriterioId(row, filtroCriterio) &&
+        matchesInstrumento(row, filtroInstrumento) &&
+        matchesEstadoCriterioVisual(row, filtroEstado),
+    )
+  }, [
+    criteriosEntregaRows,
+    filtroHito,
+    filtroTarea,
+    filtroCriterio,
+    filtroInstrumento,
+    filtroEstado,
+  ])
+
+  const criteriosEntregaCount = criteriosEntregaRows.length
+
+  const hitosFiltroOpts = useMemo(
+    () => opcionesHitoDisponibles(criteriosEntregaRows),
+    [criteriosEntregaRows],
+  )
+  const tareasFiltroOpts = useMemo(
+    () => opcionesTareaDisponibles(criteriosEntregaRows, filtroHito),
+    [criteriosEntregaRows, filtroHito],
+  )
+  const criteriosFiltroOpts = useMemo(
+    () => opcionesCriterioIds(criteriosEntregaRows),
+    [criteriosEntregaRows],
+  )
+  const instrumentosFiltroOpts = useMemo(
+    () => opcionesInstrumentoDisponibles(criteriosEntregaRows),
+    [criteriosEntregaRows],
+  )
+
   function resetFiltrosCriterios() {
-    setFiltroLetra("todas")
+    setFiltroHito("todos")
+    setFiltroTarea("todos")
+    setFiltroCriterio("todos")
+    setFiltroInstrumento("todos")
     setFiltroEstado("todos")
-    setFiltroSeveridad("todos")
   }
 
   function aplicarImportacion() {
@@ -334,9 +368,11 @@ function ResultadoInner() {
         setClaudeBundle(null)
         setFixtureAudit(null)
       }
-      setFiltroLetra("todas")
+      setFiltroHito("todos")
+      setFiltroTarea("todos")
+      setFiltroCriterio("todos")
+      setFiltroInstrumento("todos")
       setFiltroEstado("todos")
-      setFiltroSeveridad("todos")
     } catch (e) {
       if (e instanceof ZodError) {
         setImportError("El JSON no cumple el esquema de auditoría.")
@@ -410,21 +446,14 @@ function ResultadoInner() {
   const esInformePiloto = Boolean(pilotMeta)
 
   const sustitucionesPiloto = pilotMeta?.sustituciones ?? []
-  const severidadPiloto = pilotMeta?.observaciones_lc_por_severidad
-  const tieneSeveridadPiloto = Boolean(
-    severidadPiloto &&
-      (severidadPiloto.hallazgos_prioridad_alta.length > 0 ||
-        severidadPiloto.hallazgos_prioridad_media.length > 0 ||
-        severidadPiloto.hallazgos_prioridad_baja.length > 0),
-  )
 
   
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
-  const tituloCriteriosEvaluados =
-    auditoria.version_checklist === "2.1"
-      ? `${criteriosEntregaCount} criterios evaluados`
-      : `${criteriosEntregaCount} criterios evaluados`
+  const tituloCriteriosEvaluados = `${criteriosEntregaCount} Criterios evaluados`
+  const resumenHitos = buildResumenHitosAuditoria(
+    criteriosVisiblesParaEntrega(auditoria.criterios_evaluados),
+  )
 
   return (
     <div className="flex w-full flex-col gap-6">
@@ -527,6 +556,7 @@ function ResultadoInner() {
         </CardHeader>
         <CardContent className="space-y-4">
         {esInformePiloto ? (
+          <>
             <ResultadoInformePanel
               title="Datos de Auditoría"
               id="resultado-datos-auditoria"
@@ -537,9 +567,9 @@ function ResultadoInner() {
                   <span className="font-medium break-all">{auditoria.url}</span>
                 </p>
                 <p>
-                  <span className="text-muted-foreground">Checklist:</span>{" "}
+                  <span className="text-muted-foreground">Checklist 3.0:</span>{" "}
                   <span className="font-medium">
-                    {auditoria.version_checklist}
+                    {CHECKLIST_DATOS_AUDITORIA_VALOR}
                   </span>
                 </p>
                 <div className="sm:col-span-2 space-y-2">
@@ -548,7 +578,7 @@ function ResultadoInner() {
                       className="text-muted-foreground"
                       id="resultado-cumplimiento-label"
                     >
-                      Cumplimiento (criterios aplicables)
+                      Porcentaje
                     </span>
                     <span
                       className="font-medium tabular-nums text-foreground"
@@ -584,7 +614,7 @@ function ResultadoInner() {
                   {auditoria.criterios_aplicables}
                 </p>
                 <p>
-                  <span className="text-muted-foreground">N/A:</span>{" "}
+                  <span className="text-muted-foreground">No aplica:</span>{" "}
                   {auditoria.criterios_no_aplica}
                 </p>
                 <p>
@@ -592,12 +622,16 @@ function ResultadoInner() {
                     Fecha de evaluación:
                   </span>{" "}
                   <span className="font-medium">
-                    {formatFechaEvaluacion(auditoria.fecha_evaluacion)}
+                    {formatFechaEvaluacionDatosUi(auditoria.fecha_evaluacion, auditoria.url)}
                   </span>
                 </p>
                 <p>
-                  <span className="text-muted-foreground">Encargado:</span>{" "}
-                  <span className="font-medium">{auditoria.evaluador_uid}</span>
+                  <span className="text-muted-foreground">
+                    Usuario que audita:
+                  </span>{" "}
+                  <span className="font-medium">
+                    {formatUsuarioQueAudita(auditoria.evaluador_uid)}
+                  </span>
                 </p>
                 {pilotMeta?.tipo_pagina ? (
                   <p>
@@ -609,48 +643,85 @@ function ResultadoInner() {
                     </span>
                   </p>
                 ) : null}
-                {clarityMeta ? (
-                  <>
-                    <p>
-                      <span className="text-muted-foreground">
-                        Rank Clarity:
-                      </span>{" "}
-                      <span className="font-medium tabular-nums">
-                        {clarityMeta.rank}
-                      </span>
-                    </p>
-                    <p>
-                      <span className="text-muted-foreground">
-                        Nombre UI:
-                      </span>{" "}
-                      <span className="font-medium">
-                        {clarityMeta.nombre_ui}
-                      </span>
-                    </p>
-                    <p>
-                      <span className="text-muted-foreground">
-                        Ruta / etiqueta:
-                      </span>{" "}
-                      <span className="font-medium">
-                        {clarityMeta.ruta_etiqueta}
-                      </span>
-                    </p>
-                    <p>
-                      <span className="text-muted-foreground">
-                        Visitas (ref.):
-                      </span>{" "}
-                      <span className="font-medium tabular-nums">
-                        {clarityMeta.visitas_ref}
-                      </span>
-                    </p>
-                  </>
-                ) : null}
-                <p className="sm:col-span-2">
-                  <span className="text-muted-foreground">Id auditoría:</span>{" "}
-                  <span className="font-mono text-xs">{auditoria.id}</span>
-                </p>
               </div>
             </ResultadoInformePanel>
+            {resumenHitos.length > 0 ? (
+              <ResultadoInformeCollapsibleGroup>
+              <ResultadoInformeCollapsible
+                value="resumen-hitos"
+                title="Resumen por hito"
+              >
+                <div className="space-y-4 p-4">
+                  {resumenHitos.map((hito) => (
+                    <div
+                      key={hito.hitoId}
+                      className="overflow-x-auto rounded-md border border-border"
+                    >
+                      <Table className="min-w-[48rem] border-collapse text-sm">
+                        <TableHeader>
+                          <TableRow className="border-b border-border hover:bg-transparent">
+                            <TableHead className="w-[34%] min-w-[12rem] border-r border-border bg-muted/40 text-left font-semibold text-foreground">
+                              Hito
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              Checklist
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              Cumple
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              Cumple con Observaciones
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              Medianamente cumple
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              No cumple
+                            </TableHead>
+                            <TableHead className="border-r border-border bg-muted/40 text-right font-semibold text-foreground">
+                              No aplica
+                            </TableHead>
+                            <TableHead className="bg-muted/40 text-right font-semibold text-foreground">
+                              % Cumple
+                            </TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow className="hover:bg-transparent">
+                            <TableCell className="align-bottom border-r border-border text-left text-sm leading-snug text-foreground">
+                              {hito.hitoTitulo}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.checklist}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.cumple}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.cumpleConObservaciones}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.medianamenteCumple}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.noCumple}
+                            </TableCell>
+                            <TableCell className="align-bottom border-r border-border text-right tabular-nums">
+                              {hito.noAplica}
+                            </TableCell>
+                            <TableCell className="align-bottom text-right tabular-nums font-medium">
+                              {hito.pctCumple}%
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </div>
+                  ))}
+                </div>
+              </ResultadoInformeCollapsible>
+              </ResultadoInformeCollapsibleGroup>
+            ) : null}
+          </>
           ) : (
             <section
               className="overflow-hidden rounded-lg border border-border shadow-sm"
@@ -669,9 +740,9 @@ function ResultadoInner() {
                     <span className="font-medium break-all">{auditoria.url}</span>
                   </p>
                   <p>
-                    <span className="text-muted-foreground">Checklist:</span>{" "}
+                    <span className="text-muted-foreground">Checklist 3.0:</span>{" "}
                     <span className="font-medium">
-                      {auditoria.version_checklist}
+                      {CHECKLIST_DATOS_AUDITORIA_VALOR}
                     </span>
                   </p>
                   <div className="sm:col-span-2 space-y-2">
@@ -680,7 +751,7 @@ function ResultadoInner() {
                         className="text-muted-foreground"
                         id="resultado-cumplimiento-label"
                       >
-                        Cumplimiento (criterios aplicables)
+                        Porcentaje
                       </span>
                       <span
                         className="font-medium tabular-nums text-foreground"
@@ -716,7 +787,7 @@ function ResultadoInner() {
                     {auditoria.criterios_aplicables}
                   </p>
                   <p>
-                    <span className="text-muted-foreground">N/A:</span>{" "}
+                    <span className="text-muted-foreground">No aplica:</span>{" "}
                     {auditoria.criterios_no_aplica}
                   </p>
                 </div>
@@ -725,16 +796,6 @@ function ResultadoInner() {
           )}
           {esInformePiloto ? (
             <ResultadoInformeCollapsibleGroup>
-              {pilotMeta?.resumen_ejecutivo ? (
-                <ResultadoInformeCollapsible
-                  value="resumen-auditoria"
-                  title="Resumen Auditoría"
-                >
-                  <ResumenAuditoriaContent
-                    texto={pilotMeta.resumen_ejecutivo}
-                  />
-                </ResultadoInformeCollapsible>
-              ) : null}
               <ResultadoInformeCollapsible
                 value="pasos-seguir"
                 title="Pasos a seguir"
@@ -886,66 +947,109 @@ function ResultadoInner() {
                 </span>
               </div>
               <div
-                className="grid gap-3 border-b border-border px-4 py-3 sm:grid-cols-2 lg:grid-cols-4"
+                className="flex flex-col gap-3 border-b border-border px-4 py-3"
                 role="group"
-                aria-label="Filtros de la tabla de criterios (tipo, estado en tabla, severidad)"
+                aria-label="Filtros de la tabla de criterios"
               >
-                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
-                  Tipo (prefijo)
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                <label className="flex min-w-0 flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Por Hitos
                   <select
                     className={CRITERIOS_FILTER_SELECT_CLASS}
-                    value={filtroLetra}
-                    onChange={(e) =>
-                      setFiltroLetra(
-                        e.target.value === "todas" ? "todas" : e.target.value,
-                      )
-                    }
+                    value={filtroHito === "todos" ? "todos" : String(filtroHito)}
+                    onChange={(e) => {
+                      const v = e.target.value
+                      setFiltroHito(v === "todos" ? "todos" : Number(v))
+                      setFiltroTarea("todos")
+                    }}
                   >
-                    <option value="todas">Todas las letras</option>
-                    {letrasDisponibles.map((L) => (
-                      <option key={L} value={L}>
-                        Solo {L}
+                    <option value="todos">Todos los hitos</option>
+                    {hitosFiltroOpts.map((h) => (
+                      <option key={h.id} value={h.id}>
+                        {h.label}
                       </option>
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
-                  Estado en tabla
+                <label className="flex min-w-0 flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Por Tareas
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={
+                      filtroTarea === "todos" ? "todos" : String(filtroTarea)
+                    }
+                    onChange={(e) => {
+                      const v = e.target.value
+                      setFiltroTarea(v === "todos" ? "todos" : Number(v))
+                    }}
+                  >
+                    <option value="todos">Todas las tareas</option>
+                    {tareasFiltroOpts.map((t) => (
+                      <option key={t.id} value={t.id}>
+                        {t.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex min-w-0 flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Por Criterios
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={filtroCriterio}
+                    onChange={(e) => {
+                      const v = e.target.value
+                      setFiltroCriterio(v === "todos" ? "todos" : v)
+                    }}
+                  >
+                    <option value="todos">Todos los criterios</option>
+                    {criteriosFiltroOpts.map((id) => (
+                      <option key={id} value={id}>
+                        {id}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex min-w-0 flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Por Instrumento
+                  <select
+                    className={CRITERIOS_FILTER_SELECT_CLASS}
+                    value={filtroInstrumento}
+                    onChange={(e) => {
+                      const v = e.target.value
+                      setFiltroInstrumento(v === "todos" ? "todos" : v)
+                    }}
+                  >
+                    <option value="todos">Todos los instrumentos</option>
+                    {instrumentosFiltroOpts.map((nombre) => (
+                      <option key={nombre} value={nombre}>
+                        {nombre}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex min-w-0 flex-col gap-0.5 text-xs font-medium text-foreground">
+                  Por estados
                   <select
                     className={CRITERIOS_FILTER_SELECT_CLASS}
                     value={filtroEstado}
                     onChange={(e) =>
-                      setFiltroEstado(e.target.value as FiltroEstadoCriterioVisual)
+                      setFiltroEstado(
+                        e.target.value as FiltroEstadoCriterioVisual,
+                      )
                     }
                   >
-                    <option value="todos">Todos</option>
-                    <option value="cumple">Cumple (✓✓)</option>
+                    <option value="todos">Todos los estados</option>
+                    <option value="cumple">Cumple</option>
                     <option value="cumple_observaciones">
-                      Cumple con observaciones (✓)
+                      Cumple con observaciones
                     </option>
-                    <option value="medianamente">Medianamente cumple (?)</option>
-                    <option value="no_cumple">No cumple (!)</option>
-                    <option value="no_aplica">No aplica (—)</option>
+                    <option value="medianamente">Medianamente cumple</option>
+                    <option value="no_cumple">No cumple</option>
+                    <option value="no_aplica">No aplica</option>
                   </select>
                 </label>
-                <label className="flex flex-col gap-0.5 text-xs font-medium text-foreground">
-                  Severidad (pastilla)
-                  <select
-                    className={CRITERIOS_FILTER_SELECT_CLASS}
-                    value={filtroSeveridad}
-                    onChange={(e) =>
-                      setFiltroSeveridad(e.target.value as FiltroSeveridadPastilla)
-                    }
-                  >
-                    <option value="todos">Todas</option>
-                    <option value="correcta">correcta</option>
-                    <option value="alta">alta</option>
-                    <option value="media">media</option>
-                    <option value="baja">baja</option>
-                    <option value="na">— (N/A)</option>
-                  </select>
-                </label>
-                <div className="flex flex-col justify-end gap-2 sm:col-span-2 lg:col-span-1">
+                </div>
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <span className="text-xs text-muted-foreground tabular-nums">
                     Mostrando {criteriosFiltrados.length} de{" "}
                     {criteriosEntregaCount}
@@ -957,7 +1061,7 @@ function ResultadoInner() {
                     className="w-full sm:w-auto"
                     onClick={resetFiltrosCriterios}
                   >
-                    Restablecer filtros
+                    Limpiar Filtros
                   </Button>
                 </div>
               </div>
@@ -1118,14 +1222,6 @@ function ResultadoInner() {
                 </TableBody>
               </Table>
               </ResultadoInformeCollapsible>
-              {esInformePiloto && tieneSeveridadPiloto && severidadPiloto ? (
-                <ResultadoInformeCollapsible
-                  value="observaciones-severidad"
-                  title="Observaciones finales por severidad"
-                >
-                  <ObservacionesSeveridadContent severidad={severidadPiloto} />
-                </ResultadoInformeCollapsible>
-              ) : null}
               {esInformePiloto && sustitucionesPiloto.length > 0 ? (
                 <ResultadoInformeCollapsible
                   value="texto-propuesto"
@@ -1134,14 +1230,6 @@ function ResultadoInner() {
                   <SustitucionesTextoContent
                     sustituciones={sustitucionesPiloto}
                   />
-                </ResultadoInformeCollapsible>
-              ) : null}
-              {esInformePiloto && pilotMeta?.nota_final_tic ? (
-                <ResultadoInformeCollapsible
-                  value="nota-equipo-ti"
-                  title="Nota para el equipo TI"
-                >
-                  <NotaEquipoTiContent texto={pilotMeta.nota_final_tic} />
                 </ResultadoInformeCollapsible>
               ) : null}
             </ResultadoInformeCollapsibleGroup>
@@ -1153,7 +1241,7 @@ function ResultadoInner() {
                 href={`/api/claude-audits/${encodeURIComponent(claudeAuditId)}/export/pdf`}
                 download
               >
-                Descargar informe PDF
+                Descargar PDF auditoría
               </a>
             </Button>
           ) : null}
@@ -1164,7 +1252,7 @@ function ResultadoInner() {
                 return (
                   <Button type="button" asChild>
                     <a href={excelHref} download>
-                      Descargar Excel MEI (esta URL)
+                      Descargar Excel auditoría
                     </a>
                   </Button>
                 )

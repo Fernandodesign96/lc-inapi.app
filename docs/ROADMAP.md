@@ -1,9 +1,9 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-08-21
+**Última actualización:** 2026-08-24
 
-**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*`**. Muestra META MEI: **10 URLs**. **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
+**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **10 URLs**. **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
 
 ### Checklist editorial (ago-2026)
 
@@ -294,6 +294,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] **Workflow 1-URL profundidad** (rama `feat/audit-workflow-1url-profundidad`): plantilla canónica hoy = `.claude/prompts/05-audit-maestro-url.md` (antes `audit-una-url.md`); cola META MEI = repetir Prompt 5; CLAUDE.md §17 (15 subagentes + 5 sub-subagentes). **Depreca** lote de 5 URLs en un prompt maestro.
 - [x] **Entrega visible H1/47 filas** (rama `fix/entrega-visible-h1-47-criterios`): filtro metadata no oculta E4/H1; acordeón UI/PDF siempre 47 criterios v2.1; negaciones «no se evaluó title/meta» no disparan exclusión.
 - [x] **Excel por URL / completo: 47 criterios + 5 categorías de presentación MEI**: filas A1–H1 en web INAPI / TRAMITES; secciones Cumple → No aplica; alineado a UI/PDF.
+- [x] **Entrega resultado v3.0 (UI + PDF)** — rama `feat/resultado-criterios-excel-alineado`: Datos de Auditoría alineados (Checklist 3.0 · 51 criterios · 12 hitos CL1); resumen por hito (Cumple / observaciones / medianamente / No cumple / No aplica / %); filtros por hito/tarea/criterio/instrumento/estado; tipografía y ubicación en lenguaje claro; nombres de descarga `auditoria-{slug}-{dd-mm-yyyy}`; anclaje PTD sin hito 492.
 - [x] **Entrega legible humana (§22) + mapa PTD editorial v2.0**: CLAUDE.md §22, skills `01`…`05` y Prompt `05` (propuesto/motivo/ubicación para CMS); `docs/checklist-ptd-v2-mapa.md` (LC 2026 en motor; Usabilidad/Seguridad fuera de §17).
 - [x] **Mapa IEW/IESD pregunta-a-pregunta** (LC · Usabilidad · Seguridad): inventario dual sitios §1/§2/§8 ↔ trámites §5/§1/§7 en `docs/checklist-ptd-v2-mapa.md`.
 - [x] **Checklist Editorial PTD v2.0 actualizado en repo** + `data/checklist-editorial-ptd-v2.json` + §23: preguntas únicas **LC 51 · US 18 · SE 10** (total **79**); META MEI 2026 solo LC → 47 A–H; US/SE tras Excel LC.

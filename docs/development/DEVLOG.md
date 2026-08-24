@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-24 | [Frontend: entrega resultado v3.0 — resumen por hito, filtros y PDF alineados](#devlog-2026-08-24-entrega-resultado-v30) |
 | 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
 | 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
 | 2026-08-21 | [Orquestación: calibrar LC-1.3.1-01 = presencia de apoyos (no alt)](#devlog-2026-08-21-lc-131-apoyos) |
@@ -90,6 +91,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-24-entrega-resultado-v30"></a>
+## [2026-08-24] - Frontend | Entrega resultado v3.0: resumen por hito, filtros y PDF alineados
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Alinear la pantalla `/auditar/resultado` y el PDF de auditoría al checklist PTD-LC v3.0 (51 criterios, 12 hitos CL1 sin el meta 492) para Equipo UX / jefatura: datos de auditoría legibles, resumen por hito tipo planilla MEI, filtros útiles y nombres de descarga predecibles.
+
+### Implementación técnica:
+
+- Datos de Auditoría: etiqueta `Checklist 3.0: 51 Criterios - 12 Hitos`, porcentaje, No aplica, usuario Fernando Arriagada, fecha corta (home → 24 de agosto); sin Id auditoría ni campos Clarity en la entrega.
+- Resumen por hito (UI colapsable + PDF): columnas Checklist, Cumple, Cumple con observaciones, Medianamente cumple, No cumple, No aplica, % Cumple; cabecera «Hito» + título sin prefijo.
+- Filtros de criterios: por hito, tarea, criterio (`LC-*`), instrumento y estado MEI; tipografía/ubicación CMS en lenguaje claro (`lenguaje-tipografia-cms`, `ubicacion-pantalla-cms`).
+- Anclaje PTD: Completitud → 498/497; sin 492/491 en entrega; tipografía y calibración C-2026-08-24 en prompts/skills.
+- Descargas: `auditoria-{slug}-{dd-mm-yyyy}.pdf|.xlsx`; botones «Descargar PDF/Excel auditoría».
+
+### Próximos pasos:
+
+- Revisar con Equipo UX el resumen por hito frente al Word PTD.
+- Regenerar Excel MEI institucional completo con las 10 URLs ya en v3.0 cuando se cierre la muestra oro.
 
 ---
 
