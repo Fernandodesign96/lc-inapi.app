@@ -28,8 +28,9 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
 4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir o reemplazar (Prompt 6 Marcas); usar el mapa D0 (Prompt 7).  
 5. **Varias correcciones por criterio:** si el mismo `LC-*` falla en varios textos, el JSON debe tener N filas en `sustituciones[]`; UI/PDF/Excel las muestran todas (Prompt 6 C-2026-08-22 entrega).  
-6. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-7. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
+6. **Ubicación CMS (C-2026-08-24):** `ubicacion_pantalla` = `Zona › elemento › «rótulo»`; prohibido «el enlace» / «el bloque». Entrega: ausencia → «No hay texto que cumpla con este requisito». PDF editorial **sin** «Nota para el equipo TI».  
+7. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+8. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
 
 ## Efecto deseado
 

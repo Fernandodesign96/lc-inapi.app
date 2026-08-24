@@ -37,6 +37,10 @@ Que jefatura / Equipo UX lean el mismo mensaje en los tres canales, sin jerga de
 8. **Hito PTD**  
 9. **Tarea PTD**  
 
+En el **PDF**, Texto y Ubicación van juntos (Texto → Ubicación → Corrección → Justificación) para que cada literal tenga zona. En Excel el orden de columnas se mantiene; si hay Texto y falta Ubicación, la entrega completa la zona (explícita, inferida del comentario o fallback CMS).
+
+Anclaje (sin solape 494↔496; 504=solo ARCO; 510/511/512=una pregunta c/u): Fiabilidad → 500/499 · Completitud → 492/491 · Lenguaje plano → 496/495 · Redacción → 494/493. Detalle: Prompt 2 + `ptd-hito-tarea-por-criterio.ts`.
+
 Excel detalle añade Página, Dirección, Categoría y Línea/ref. técnica; las columnas de evidencia y PTD siguen la misma lógica.
 
 ## Lenguaje de entrega (obligatorio)
@@ -44,6 +48,8 @@ Excel detalle añade Página, Dirección, Categoría y Línea/ref. técnica; las
 - Audiencia: editor CMS / UX / jefatura — **no** desarrollador.
 - Prohibido en `propuesto` / `motivo` / `comentario` / `ubicacion_pantalla`: «subagente», «§17», selectores CSS como único mensaje, HTML crudo como hallazgo.
 - Casillas no vacías (§22.8). Realismo (§22.9): no forzar defectos donde el criterio no cabe.
+- **Tipografía / formato** (§22.3bis + skill 02): si se menciona título, alineación o estilo → `título H1 '…'`, `subtítulo h2 '…'`, `Alineado a la izquierda (align left)`, `Justificado (justify)`, `el texto en negrita (bold) '…'`, `el texto en cursiva (italic) '…'`, `el texto sin negrita '…'`. UI/PDF/Excel normalizan vía `lenguaje-tipografia-cms.ts`.
+- **Ubicación detallada** (C-2026-08-24): `Zona › elemento › «rótulo»`; nunca «el enlace» / «el bloque». Ausencia en entrega: `No hay texto que cumpla con este requisito`. **PDF sin** sección «Nota para el equipo TI».
 
 ## Validación JSON
 

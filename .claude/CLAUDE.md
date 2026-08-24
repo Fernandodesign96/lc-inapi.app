@@ -898,18 +898,38 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 
 | Campo | Regla |
 | --- | --- |
-| `ubicacion_pantalla` | Ruta humana: zona → bloque → elemento. Ej.: «Menú superior › Patentes › ítem PCT»; «Pie de página › bloque de contacto»; «Cuerpo › primer párrafo bajo el H1». **Nunca** solo `Tnnn` o solo línea HTML. |
+| `ubicacion_pantalla` | Ruta humana **obligatoria y específica**: `Zona › elemento › «rótulo»`. Ej.: `Pie de página › enlace «Política de privacidad»`; `Portada › zona superior (hero) › título H1 '…'`; `Pie de página › bloque «Dónde estamos»`. **Prohibido:** solo `Tnnn`, solo HTML, o vaguedades (`el enlace`, `el bloque`, `En la página…`). Ver calibración C-2026-08-24. |
 | `original` | Cita corta del texto **visible** a corregir (o descripción de ausencia: «(sin fecha de actualización visible)»). |
-| `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). Sin meta-comentarios («debería mejorarse la claridad»). |
+| `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). Sin meta-comentarios («debería mejorarse la claridad»). Si habla de formato tipográfico, usar §22.3bis. |
 | `motivo` | 1–3 frases: (1) respuesta a la pregunta del criterio, (2) por qué el original no cumple, (3) si es patrón de sitio (`patron_sistema: true`), decir «corregir una vez en el layout / componente compartido». |
 | `linea` / `html_linea_aprox` | Secundarios para TIC; no sustituyen a `ubicacion_pantalla`. |
+
+### 22.3bis Tipografía, pesos y formato (UI · PDF · Excel)
+
+Cuando el hallazgo o la corrección hable de títulos, alineación, negrita, cursiva u otros estilos, **nombrar el rol tipográfico + el literal entre comillas simples**, y el término CMS en español con el inglés entre paréntesis:
+
+| Hablar de… | Forma canónica (ejemplos) |
+| --- | --- |
+| Título principal | `título H1 'Marcas'` |
+| Subtítulo / sección | `subtítulo h2 'Cómo solicitar'` · `subtítulo h3 '…'` |
+| Alineación | `Alineado a la izquierda (align left)` · `Justificado (justify)` |
+| Peso / estilo | `el texto en negrita (bold) '…'` · `el texto en cursiva (italic) '…'` · `el texto sin negrita '…'` |
+
+Aplicar en `comentario`, `motivo`, `propuesto`, `ubicacion_pantalla` y campos derivados. La capa de entrega (`normalizarLenguajeTipografiaCms` en `criterio-entrega-campos`) normaliza frases frecuentes al exportar; las auditorías nuevas deben redactar ya en este formato.
 
 ### 22.4 Ejemplos (malo → bueno)
 
 **Ubicación**
 
-- Malo: `T015` / `HTML-L420` / `nav.navbar > li:nth-child(3)`
+- Malo: `T015` / `HTML-L420` / `el enlace` / `El bloque` / `En la página (ubicación exacta no registrada…)`
 - Bueno: `Menú superior › grupo Patentes › enlace «PCT»`
+- Bueno: `Pie de página › enlace «Uso de los Contenidos de este Sitio»`
+- Bueno: `Portada › bloque de accesos rápidos (Estadísticas, Notificaciones diarias, …)`
+
+**Texto en pantalla (entrega)**
+
+- Malo en PDF/Excel: `(ausencia)`
+- Bueno: `No hay texto que cumpla con este requisito` (en JSON puede quedar `(ausencia)`)
 
 **Propuesto**
 
@@ -1059,9 +1079,9 @@ Al auditar LC, cubrir las **51** preguntas únicas aplicables a la URL. La misma
 
 | Hitos PTD (LC) | Énfasis (indicadores) | Grupos |
 | --- | --- | --- |
-| 492, 500, 509, 515*, 517, 519 | Completitud, Actualización, Escritura web, Archivo, Visualización | 1, 4 |
-| 494, 496, 498 | Lenguaje plano, Claridad, Concisión, Redacción | 2, 3 |
-| 502, 505, 513* | PI, Privacidad, Sensibles | 5 |
+| 492 (Completitud), 500, 509, 515*, 517, 519 | Completitud, Actualización, Escritura web, Archivo, Visualización | 1, 4 |
+| 494 (solo Redacción), 496 (solo Lenguaje plano), 498 | Redacción `1.1.5`, Lenguaje plano `1.1.3`, Claridad, Concisión | 2, 3 |
+| 502, 505 (503 RUN/tel · 504 ARCO), 513 (510/511/512) | PI, Privacidad, Sensibles | 5 |
 | 507 | Legibilidad | 4 |
 
 \*Visualización y sensibles: `no_aplica` / nota si no hay datos/menores — no forzar `incumple` vacío.

@@ -354,7 +354,8 @@ function lineaId(row: MeiExcelRow): string {
 
 function ubicacionEntrega(row: MeiExcelRow): string {
   if (row.ubicacionPantalla.trim()) return row.ubicacionPantalla
-  // Fallback: no inventar; dejar vacío si falta (Claude debe completar)
+  // Si hay texto, la fila debió salir de criterioEntregaCampos con ubicación;
+  // no rellenar con mensajes vagos aquí.
   return ""
 }
 

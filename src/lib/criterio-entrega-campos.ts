@@ -4,6 +4,19 @@
 import type { CriterionEvaluation } from "../schemas/checklist"
 import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
 import { isMetadataSustitucion } from "./audit-visible-content"
+import { normalizarLenguajeTipografiaCms } from "./lenguaje-tipografia-cms"
+import {
+  presentarTextoEnPantallaEntrega,
+  resolverUbicacionEnPantalla,
+} from "./ubicacion-pantalla-cms"
+
+export {
+  construirUbicacionDetallada,
+  esUbicacionPantallaVaga,
+  presentarTextoEnPantallaEntrega,
+  resolverUbicacionEnPantalla,
+  TEXTO_SIN_REQUISITO,
+} from "./ubicacion-pantalla-cms"
 
 const DASH = "—"
 
@@ -41,6 +54,77 @@ export type CriterioEntregaCampos = {
 }
 
 const MOTIVO_CUMPLE_GENERICO = "Cumple según evidencia visible en la página."
+
+/** Justificación que niega haber visto textos citados (no volcar esas citas a Texto en pantalla). */
+function justificacionDeclaraAusenciaDeTextos(text: string): boolean {
+  const lower = text.toLowerCase()
+  // «No se observó lenguaje distante…» niega un defecto; las citas previas (p. ej. H1) son evidencia positiva.
+  if (
+    /no se observ(?:ó|aron|a|e)?\s+(?:lenguaje\s+distante|tono\s+(?:distante|impersonal)|trato\s+impersonal|voz\s+(?:distante|impersonal))/i.test(
+      text,
+    )
+  ) {
+    return false
+  }
+  return (
+    /no se observ/.test(lower) ||
+    /no se detect/.test(lower) ||
+    /no se encontr/.test(lower) ||
+    /no aparecen/.test(lower) ||
+    /no se vio/.test(lower) ||
+    /no se identific/.test(lower) ||
+    /sin textos?/.test(lower) ||
+    /no hay texto/.test(lower) ||
+    /no se hall/.test(lower) ||
+    /\(ausencia\)/.test(lower)
+  )
+}
+
+/** Extrae fragmentos entre «…», "…" o '…' mencionados en comentarios/motivos. */
+export function extraerCitasEntreComillas(text: string): string[] {
+  const out: string[] = []
+  const seen = new Set<string>()
+  for (const m of text.matchAll(/«([^»]+)»|"([^"]{2,80})"|'([^']{2,80})'/g)) {
+    const q = (m[1] ?? m[2] ?? m[3] ?? "").trim()
+    if (!q || seen.has(q)) continue
+    seen.add(q)
+    out.push(q)
+  }
+  return out
+}
+
+/**
+ * Texto literal que debe ir en «Texto en pantalla»:
+ * 1) original de sustitución / cita_textual
+ * 2) citas entre comillas en comentario/motivo (también en cumple / no_aplica)
+ * 3) no volcar citas si la justificación dice que esos textos no se observaron
+ */
+export function resolverTextoEnPantalla(
+  ev: CriterionEvaluation,
+  sust?: ClaudeSustitucion,
+): string {
+  const fromSust = sust?.original?.trim() ?? ""
+  if (fromSust) return fromSust
+
+  const cita = ev.cita_textual?.trim() ?? ""
+  if (cita && cita !== "(ausencia)") return cita
+
+  const narracion = [ev.comentario, sust?.motivo].filter(Boolean).join(" ").trim()
+  if (!narracion) {
+    if (ev.estado === "incumple" && !sust) return cita || "(ausencia)"
+    return DASH
+  }
+
+  if (justificacionDeclaraAusenciaDeTextos(narracion)) {
+    return cita === "(ausencia)" ? "(ausencia)" : DASH
+  }
+
+  const quotes = extraerCitasEntreComillas(narracion)
+  if (quotes.length > 0) return quotes.join(" · ")
+
+  if (ev.estado === "incumple" && !sust) return cita || "(ausencia)"
+  return DASH
+}
 
 function esMotivoCumpleDebil(comentario: string | undefined): boolean {
   const t = comentario?.trim() ?? ""
@@ -142,6 +226,25 @@ export function buildSustitucionPrimariaPorCriterio(
   return map
 }
 
+/** Aplica convenciones tipográficas CMS a los campos narrativos de entrega. */
+function conLenguajeTipografiaCms(
+  campos: CriterioEntregaCampos,
+): CriterioEntregaCampos {
+  return {
+    ...campos,
+    textoEnPantalla: normalizarLenguajeTipografiaCms(
+      presentarTextoEnPantallaEntrega(campos.textoEnPantalla),
+    ),
+    correccionPropuesta: normalizarLenguajeTipografiaCms(
+      campos.correccionPropuesta,
+    ),
+    ubicacionEnPantalla: normalizarLenguajeTipografiaCms(
+      campos.ubicacionEnPantalla,
+    ),
+    justificacion: normalizarLenguajeTipografiaCms(campos.justificacion),
+  }
+}
+
 /**
  * Campos de evidencia alineados al detalle MEI (Texto / Corrección / Ubicación / Justificación).
  * Una llamada = una corrección. Si hay N sustituciones, llamar N veces (Excel/UI/PDF
@@ -151,11 +254,21 @@ export function criterioEntregaCampos(
   ev: CriterionEvaluation,
   sust?: ClaudeSustitucion,
 ): CriterioEntregaCampos {
+  const narracion = [ev.comentario, sust?.motivo].filter(Boolean).join(" ")
+  const textoEnPantalla = resolverTextoEnPantalla(ev, sust)
+  const ubicacionExplicita =
+    sust?.ubicacion_pantalla?.trim() || ev.ubicacion_pantalla?.trim() || ""
+  const ubicacionEnPantalla = resolverUbicacionEnPantalla(
+    textoEnPantalla,
+    ubicacionExplicita,
+    narracion,
+  )
+
   if (ev.estado === "no_aplica") {
-    return {
-      textoEnPantalla: DASH,
+    return conLenguajeTipografiaCms({
+      textoEnPantalla,
       correccionPropuesta: DASH,
-      ubicacionEnPantalla: DASH,
+      ubicacionEnPantalla,
       justificacion:
         ev.comentario?.trim() ||
         "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
@@ -163,30 +276,28 @@ export function criterioEntregaCampos(
       lineaRef: "",
       htmlLineaAprox: "",
       tieneSustitucion: false,
-    }
+    })
   }
 
   if (ev.estado === "cumple") {
-    const cita = ev.cita_textual?.trim() ?? ""
-    const ubicacion = ev.ubicacion_pantalla?.trim() ?? ""
-    return {
-      textoEnPantalla: cita || DASH,
+    return conLenguajeTipografiaCms({
+      textoEnPantalla,
       correccionPropuesta: DASH,
-      ubicacionEnPantalla: ubicacion || DASH,
+      ubicacionEnPantalla,
       justificacion: justificacionCumple(ev),
       tipoEntregaSinSust: "nuevo_contenido",
       lineaRef: "",
       htmlLineaAprox: "",
       tieneSustitucion: false,
-    }
+    })
   }
 
   // incumple
   if (sust) {
-    return {
-      textoEnPantalla: sust.original,
+    return conLenguajeTipografiaCms({
+      textoEnPantalla,
       correccionPropuesta: sust.propuesto,
-      ubicacionEnPantalla: sust.ubicacion_pantalla?.trim() || DASH,
+      ubicacionEnPantalla,
       justificacion: [
         ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
         sust.patron_sistema
@@ -204,15 +315,15 @@ export function criterioEntregaCampos(
       lineaRef: sust.linea,
       htmlLineaAprox: sust.html_linea_aprox ?? "",
       tieneSustitucion: true,
-    }
+    })
   }
 
   const cms = CMS_PROPUESTOS[ev.id]
   const propuesto = cms ?? `Corregir incumplimiento de ${ev.id}.`
-  return {
-    textoEnPantalla: ev.cita_textual?.trim() || "(ausencia)",
+  return conLenguajeTipografiaCms({
+    textoEnPantalla,
     correccionPropuesta: propuesto,
-    ubicacionEnPantalla: ev.ubicacion_pantalla?.trim() || DASH,
+    ubicacionEnPantalla,
     justificacion: [
       ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
       ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
@@ -223,7 +334,7 @@ export function criterioEntregaCampos(
     lineaRef: "",
     htmlLineaAprox: "",
     tieneSustitucion: false,
-  }
+  })
 }
 
 /** Propuestas CMS conocidas (exportadas para Excel tipoEntrega). */

@@ -1,411 +1,371 @@
+import { Document, Page, Text, View } from "@react-pdf/renderer"
+import type {
+  ClaudeAuditBundle,
+  ClaudeSustitucion,
+} from "@contracts/claude-audit-pilot"
+import type { CriterionEvaluation } from "@contracts/checklist"
+import { CRITERION_IDS_V30 } from "@contracts/checklist"
+
 import {
-    Document,
-    Page,
-    Text,
-    View,
-  } from "@react-pdf/renderer"
-  import type {
-    ClaudeAuditBundle,
-    ClaudeSustitucion,
-  } from "@contracts/claude-audit-pilot"
-  import type { CriterionEvaluation } from "@contracts/checklist"
-  
-  import {
-    formatCriterioEnunciado,
-    formatSeccionTitulo,
-  } from "@/lib/checklist-criterion-catalog"
-  import { presentacionCriterio } from "@/lib/criterio-evaluacion-visual"
-  import {
-    formatFechaEvaluacion,
-    labelTipoPagina,
-  } from "@/lib/informe-piloto-format"
-  import {
-    PdfSectionBar,
-    progressFillColor,
-    styles,
-  } from "@/lib/pdf/informe-piloto-pdf-styles"
-  import {
-    ETIQUETA_ESTADO_ACEPTACION,
-    PASOS_SEGUN_ESTADO,
-  } from "@/lib/resultado-mock-copy"
-  import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
-  import {
-    buildSustitucionesPorCriterio,
-    criterioEntregaCampos,
-  } from "@repo/lib/criterio-entrega-campos"
-  import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
-  import {
-    etiquetaCriteriosSustitucion,
-    parrafosInformeLegible,
-  } from "@repo/lib/informe-texto-legible"
-  
-  function trunc(text: string, max: number): string {
-    if (text.length <= max) return text
-    return `${text.slice(0, max - 1)}…`
-  }
-  
-  function FieldRow({ label, value }: { label: string; value: string }) {
-    return (
-      <View style={styles.fieldRow}>
-        <Text style={styles.fieldLabel}>{label}: </Text>
-        <Text style={styles.fieldValue}>{value}</Text>
-      </View>
-    )
-  }
-  
-  function BulletList({ items }: { items: string[] }) {
-    if (items.length === 0) return null
-    return (
-      <View>
-        {items.map((item, i) => (
-          <View key={`b-${i}`} style={styles.listItem}>
-            <Text style={styles.listBullet}>•</Text>
-            <Text style={styles.listText}>{item}</Text>
-          </View>
-        ))}
-      </View>
-    )
-  }
-  
-  function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
-    const { audit, pilot } = bundle
-    const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[audit.estado_aceptacion]
-    const pct = audit.porcentaje_cumplimiento
-  
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Datos de Auditoría" />
-        <FieldRow label="URL" value={audit.url} />
-        <FieldRow label="Checklist" value={audit.version_checklist} />
-        <Text style={styles.fieldLabel}>
-          Cumplimiento (criterios aplicables): {pct} %
-        </Text>
-        <View style={styles.progressTrack}>
-          <View
-            style={[
-              styles.progressFill,
-              {
-                width: `${Math.min(100, Math.max(0, pct))}%`,
-                backgroundColor: progressFillColor(audit.estado_aceptacion),
-              },
-            ]}
-          />
+  formatCriterioEnunciado,
+  formatSeccionTitulo,
+} from "@/lib/checklist-criterion-catalog"
+import { presentacionCriterio } from "@/lib/criterio-evaluacion-visual"
+import {
+  formatFechaEvaluacion,
+  labelTipoPagina,
+} from "@/lib/informe-piloto-format"
+import {
+  PdfSectionBar,
+  progressFillColor,
+  styles,
+} from "@/lib/pdf/informe-piloto-pdf-styles"
+import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
+import { criteriosVisiblesParaEntrega } from "@repo/lib/audit-visible-content"
+import {
+  buildSustitucionesPorCriterio,
+  criterioEntregaCampos,
+} from "@repo/lib/criterio-entrega-campos"
+import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
+
+const CATALOG_ORDER = new Map(
+  (CRITERION_IDS_V30 as readonly string[]).map((id, i) => [id, i]),
+)
+
+function FieldRow({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.fieldRow}>
+      <Text style={styles.fieldLabel}>{label}: </Text>
+      <Text style={styles.fieldValue}>{value}</Text>
+    </View>
+  )
+}
+
+function BulletList({ items }: { items: string[] }) {
+  if (items.length === 0) return null
+  return (
+    <View>
+      {items.map((item, i) => (
+        <View key={`b-${i}`} style={styles.listItem}>
+          <Text style={styles.listBullet}>•</Text>
+          <Text style={styles.listText}>{item}</Text>
         </View>
-        <FieldRow label="Estado" value={etiquetaEstado} />
-        <FieldRow
-          label="Aprobados"
-          value={`${audit.criterios_aprobados} / aplicables ${audit.criterios_aplicables}`}
+      ))}
+    </View>
+  )
+}
+
+function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
+  const { audit, pilot } = bundle
+  const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[audit.estado_aceptacion]
+  const pct = audit.porcentaje_cumplimiento
+
+  return (
+    <View style={styles.sectionWrap}>
+      <PdfSectionBar title="Datos de Auditoría" />
+      <FieldRow label="URL" value={audit.url} />
+      <FieldRow label="Checklist" value={audit.version_checklist} />
+      <Text style={styles.fieldLabel}>
+        Cumplimiento (criterios aplicables): {pct} %
+      </Text>
+      <View style={styles.progressTrack}>
+        <View
+          style={[
+            styles.progressFill,
+            {
+              width: `${Math.min(100, Math.max(0, pct))}%`,
+              backgroundColor: progressFillColor(audit.estado_aceptacion),
+            },
+          ]}
         />
-        <FieldRow label="N/A" value={String(audit.criterios_no_aplica)} />
+      </View>
+      <FieldRow label="Estado" value={etiquetaEstado} />
+      <FieldRow
+        label="Aprobados"
+        value={`${audit.criterios_aprobados} / aplicables ${audit.criterios_aplicables}`}
+      />
+      <FieldRow label="N/A" value={String(audit.criterios_no_aplica)} />
+      <FieldRow
+        label="Fecha de evaluación"
+        value={formatFechaEvaluacion(audit.fecha_evaluacion)}
+      />
+      <FieldRow label="Encargado" value={audit.evaluador_uid} />
+      {pilot.tipo_pagina ? (
         <FieldRow
-          label="Fecha de evaluación"
-          value={formatFechaEvaluacion(audit.fecha_evaluacion)}
+          label="Tipo de página"
+          value={labelTipoPagina(pilot.tipo_pagina)}
         />
-        <FieldRow label="Encargado" value={audit.evaluador_uid} />
-        {pilot.tipo_pagina ? (
-          <FieldRow
-            label="Tipo de página"
-            value={labelTipoPagina(pilot.tipo_pagina)}
-          />
-        ) : null}
-        <FieldRow label="Id auditoría" value={audit.id} />
-      </View>
-    )
-  }
-  
-  function BloqueResumen({ texto }: { texto: string }) {
-    const parrafos = parrafosInformeLegible(texto)
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Resumen de la auditoría" />
-        {parrafos.map((p, i) => (
-          <Text key={`resumen-${i}`} style={[styles.body, { marginBottom: 6 }]}>
-            {p}
-          </Text>
-        ))}
-      </View>
-    )
-  }
-  
-  function BloquePasos({ bundle }: { bundle: ClaudeAuditBundle }) {
-    const bloque = PASOS_SEGUN_ESTADO[bundle.audit.estado_aceptacion]
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Pasos a seguir" />
-        {bloque.pasos.map((paso, i) => (
-          <Text key={`paso-${i}`} style={styles.orderedItem}>
-            {i + 1}. {paso}
-          </Text>
-        ))}
-      </View>
-    )
-  }
-  
-  function CriterioFilaPdf({
-    row,
-    sust,
-  }: {
-    row: CriterionEvaluation
-    sust?: ClaudeSustitucion
-  }) {
-    const pres = presentacionCriterio(row)
-    const campos = criterioEntregaCampos(row, sust)
+      ) : null}
+      <FieldRow label="Id auditoría" value={audit.id} />
+    </View>
+  )
+}
+
+type EntregaItem = {
+  row: CriterionEvaluation
+  sustList: ClaudeSustitucion[]
+}
+
+type TareaGrupo = {
+  tareaId: number
+  tareaDescripcion: string
+  items: EntregaItem[]
+}
+
+type HitoGrupo = {
+  hitoId: number
+  hitoTitulo: string
+  tareas: TareaGrupo[]
+}
+
+function buildArbolHitoTarea(bundle: ClaudeAuditBundle): HitoGrupo[] {
+  const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
+  const sustMap = buildSustitucionesPorCriterio(
+    bundle.pilot.sustituciones ?? [],
+  )
+  const hitoMap = new Map<number, HitoGrupo>()
+
+  for (const row of rows) {
     const ptd = ptdHitoTareaPorCriterio(row.id)
+    const ref = ptd.refs[0]
+    if (!ref) continue
 
-    return (
-      <View style={styles.tableRow} wrap={false}>
-        <Text style={[styles.tableCell, { width: "9%" }]}>
-          {trunc(formatSeccionTitulo(row.id), 18)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "8%" }]}>
-          {pres.etiqueta}
-        </Text>
-        <Text style={[styles.tableCell, { width: "11%" }]}>
-          {trunc(campos.textoEnPantalla, 36)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "11%" }]}>
-          {trunc(campos.correccionPropuesta, 36)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "9%" }]}>
-          {trunc(campos.ubicacionEnPantalla, 28)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "12%" }]}>
-          {trunc(campos.justificacion, 56)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "14%" }]}>
-          {trunc(formatCriterioEnunciado(row.id), 48)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "13%" }]}>
-          {trunc(ptd.hitoPtd, 52)}
-        </Text>
-        <Text style={[styles.tableCell, { width: "13%" }]}>
-          {trunc(ptd.tareaPtd, 52)}
-        </Text>
-      </View>
-    )
-  }
-
-  function BloqueCriterios({ bundle }: { bundle: ClaudeAuditBundle }) {
-    const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
-    const sustMap = buildSustitucionesPorCriterio(
-      bundle.pilot.sustituciones ?? [],
-    )
-    type FilaEntregaPdf = {
-      row: CriterionEvaluation
-      sust: ClaudeSustitucion | undefined
-      key: string
+    let hito = hitoMap.get(ref.hitoId)
+    if (!hito) {
+      hito = {
+        hitoId: ref.hitoId,
+        hitoTitulo: ref.hitoTitulo,
+        tareas: [],
+      }
+      hitoMap.set(ref.hitoId, hito)
     }
-    const filasEntrega: FilaEntregaPdf[] = rows.flatMap(
-      (row): FilaEntregaPdf[] => {
-        const sustList =
-          row.estado === "incumple" ? (sustMap.get(row.id) ?? []) : []
-        if (sustList.length > 0) {
-          return sustList.map((sust, i) => ({
-            row,
-            sust,
-            key: `${row.id}-${i}`,
-          }))
-        }
-        return [{ row, sust: undefined, key: row.id }]
-      },
-    )
-    const titulo = `${rows.length} criterios evaluados · ${filasEntrega.length} filas de entrega`
+
+    let tarea = hito.tareas.find((t) => t.tareaId === ref.tareaId)
+    if (!tarea) {
+      tarea = {
+        tareaId: ref.tareaId,
+        tareaDescripcion: ref.tareaDescripcion,
+        items: [],
+      }
+      hito.tareas.push(tarea)
+    }
+
+    const sustList =
+      row.estado === "incumple" ? (sustMap.get(row.id) ?? []) : []
+    tarea.items.push({ row, sustList })
+  }
+
+  const hitos = [...hitoMap.values()].sort((a, b) => a.hitoId - b.hitoId)
+  for (const h of hitos) {
+    h.tareas.sort((a, b) => a.tareaId - b.tareaId)
+    for (const t of h.tareas) {
+      t.items.sort(
+        (a, b) =>
+          (CATALOG_ORDER.get(a.row.id) ?? 999) -
+          (CATALOG_ORDER.get(b.row.id) ?? 999),
+      )
+    }
+  }
+  return hitos
+}
+
+function estadoStyle(estado: CriterionEvaluation["estado"]) {
+  if (estado === "cumple") return styles.estadoCumple
+  if (estado === "no_aplica") return styles.estadoNoAplica
+  return styles.estadoIncumple
+}
+
+function EntregaCamposPdf({
+  row,
+  sust,
+}: {
+  row: CriterionEvaluation
+  sust?: ClaudeSustitucion
+}) {
+  const campos = criterioEntregaCampos(row, sust)
+  return (
+    <View>
+      <View style={styles.entregaField}>
+        <Text>
+          <Text style={styles.entregaLabel}>Texto en pantalla: </Text>
+          <Text style={styles.entregaValue}>{campos.textoEnPantalla}</Text>
+        </Text>
+      </View>
+      <View style={styles.entregaField}>
+        <Text>
+          <Text style={styles.entregaLabel}>Ubicación en pantalla: </Text>
+          <Text style={styles.entregaValue}>{campos.ubicacionEnPantalla}</Text>
+        </Text>
+      </View>
+      <View style={styles.entregaField}>
+        <Text>
+          <Text style={styles.entregaLabel}>Corrección propuesta: </Text>
+          <Text style={styles.entregaValue}>{campos.correccionPropuesta}</Text>
+        </Text>
+      </View>
+      <View style={styles.entregaField}>
+        <Text>
+          <Text style={styles.entregaLabel}>Justificación: </Text>
+          <Text style={styles.entregaValue}>{campos.justificacion}</Text>
+        </Text>
+      </View>
+    </View>
+  )
+}
+
+function PreguntaEntregaPdf({ item }: { item: EntregaItem }) {
+  const { row, sustList } = item
+  const pres = presentacionCriterio(row)
+  const instrumento = formatSeccionTitulo(row.id)
+  const pregunta = formatCriterioEnunciado(row.id)
+  const estadoLine = `${row.id} · ${pres.etiqueta}`
+
+  if (sustList.length === 0) {
     return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title={titulo} />
-        <View style={styles.tableHeaderRow}>
-          <Text style={[styles.tableHeaderCell, { width: "9%" }]}>
-            Instrumento
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "8%" }]}>Estado</Text>
-          <Text style={[styles.tableHeaderCell, { width: "11%" }]}>
-            Texto
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "11%" }]}>
-            Corrección
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "9%" }]}>
-            Ubicación
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "12%" }]}>
-            Justificación
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "14%" }]}>
-            Criterio
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "13%" }]}>
-            Hito PTD
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "13%" }]}>
-            Tarea PTD
-          </Text>
-        </View>
-        {filasEntrega.map(({ row, sust, key }) => (
-          <CriterioFilaPdf key={key} row={row} sust={sust} />
-        ))}
+      <View style={styles.preguntaBlock} wrap={false}>
+        <Text style={styles.preguntaText}>
+          {instrumento} — {pregunta}
+        </Text>
+        <Text style={[styles.estadoLine, estadoStyle(row.estado)]}>
+          {estadoLine}
+        </Text>
+        <EntregaCamposPdf row={row} />
       </View>
     )
   }
-  
-  function BloqueObservacionesSeveridad({
-    severidad,
-  }: {
-    severidad: NonNullable<
-      ClaudeAuditBundle["pilot"]["observaciones_lc_por_severidad"]
+
+  return (
+    <View style={styles.preguntaBlock}>
+      <Text style={styles.preguntaText}>
+        {instrumento} — {pregunta}
+      </Text>
+      <Text style={[styles.estadoLine, estadoStyle(row.estado)]}>
+        {estadoLine}
+        {sustList.length > 1 ? ` · ${sustList.length} correcciones` : ""}
+      </Text>
+      {sustList.map((sust, i) => (
+        <View key={`${row.id}-s-${i}`} style={{ marginBottom: 6 }}>
+          {sustList.length > 1 ? (
+            <Text style={styles.preguntaMeta}>Corrección {i + 1}</Text>
+          ) : null}
+          <EntregaCamposPdf row={row} sust={sust} />
+        </View>
+      ))}
+    </View>
+  )
+}
+
+/**
+ * Estructura tipo Checklist Editorial Word: Hito → Tarea → instrumento/criterio
+ * → estado → campos CMS.
+ */
+function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
+  const arbol = buildArbolHitoTarea(bundle)
+  const nCriterios = arbol.reduce(
+    (acc, h) => acc + h.tareas.reduce((a, t) => a + t.items.length, 0),
+    0,
+  )
+
+  return (
+    <View style={styles.sectionWrap}>
+      <PdfSectionBar
+        title={`Checklist editorial PTD — ${nCriterios} criterios`}
+      />
+      <Text style={[styles.bodyMuted, { marginBottom: 8 }]}>
+        Lectura: Hito → Tarea → instrumento/criterio → estado → evidencia CMS.
+      </Text>
+
+      {arbol.map((hito) => (
+        <View key={`h-${hito.hitoId}`} style={styles.hitoBlock}>
+          <Text style={styles.hitoTitle}>
+            Hito {hito.hitoId}
+            {"\n"}
+            {hito.hitoTitulo}
+          </Text>
+          {hito.tareas.map((tarea) => (
+            <View key={`t-${tarea.tareaId}`} style={styles.tareaBlock}>
+              <Text style={styles.tareaTitle}>
+                Tarea {tarea.tareaId}
+                {"\n"}
+                {tarea.tareaDescripcion}
+              </Text>
+              {tarea.items.map((item) => (
+                <PreguntaEntregaPdf key={item.row.id} item={item} />
+              ))}
+            </View>
+          ))}
+        </View>
+      ))}
+    </View>
+  )
+}
+
+function BloqueObservacionesSeveridad({
+  severidad,
+}: {
+  severidad: NonNullable<
+    ClaudeAuditBundle["pilot"]["observaciones_lc_por_severidad"]
+  >
+}) {
+  return (
+    <View style={styles.sectionWrap}>
+      <PdfSectionBar title="Observaciones finales por severidad" />
+      <Text style={styles.subheading}>
+        Hallazgos prioritarios (severidad alta)
+      </Text>
+      <BulletList items={severidad.hallazgos_prioridad_alta} />
+      <Text style={styles.subheading}>
+        Hallazgos medianamente prioritarios (severidad media)
+      </Text>
+      <BulletList items={severidad.hallazgos_prioridad_media} />
+      <Text style={styles.subheading}>
+        Hallazgos bajamente prioritarios (severidad baja)
+      </Text>
+      <BulletList items={severidad.hallazgos_prioridad_baja} />
+    </View>
+  )
+}
+
+export type InformePilotoPdfDocumentProps = {
+  bundle: ClaudeAuditBundle
+}
+
+/**
+ * PDF por URL: datos + checklist editorial (Hito → Tarea → criterio → estado
+ * → campos CMS). Sin resumen ni pasos a seguir.
+ */
+export function InformePilotoPdfDocument({
+  bundle,
+}: InformePilotoPdfDocumentProps) {
+  const { pilot } = bundle
+  const severidad = pilot.observaciones_lc_por_severidad
+  const tieneSeveridad = Boolean(
+    severidad &&
+      (severidad.hallazgos_prioridad_alta.length > 0 ||
+        severidad.hallazgos_prioridad_media.length > 0 ||
+        severidad.hallazgos_prioridad_baja.length > 0),
+  )
+
+  return (
+    <Document
+      title={`Informe LC — ${bundle.audit.url}`}
+      author="INAPI — Lenguaje Claro"
     >
-  }) {
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Observaciones finales por severidad" />
-        <Text style={styles.subheading}>
-          Hallazgos prioritarios (severidad alta)
+      <Page size="A4" style={styles.page} wrap>
+        <Text style={styles.docTitle}>Informe de auditoría — Lenguaje Claro</Text>
+        <Text style={styles.docSubtitle}>
+          Checklist editorial PTD · v{bundle.audit.version_checklist} · Hito →
+          Tarea → criterio
         </Text>
-        <BulletList items={severidad.hallazgos_prioridad_alta} />
-        <Text style={styles.subheading}>
-          Hallazgos medianamente prioritarios (severidad media)
-        </Text>
-        <BulletList items={severidad.hallazgos_prioridad_media} />
-        <Text style={styles.subheading}>
-          Hallazgos bajamente prioritarios (severidad baja)
-        </Text>
-        <BulletList items={severidad.hallazgos_prioridad_baja} />
-      </View>
-    )
-  }
-  
-  function BloqueSustituciones({
-    sustituciones,
-  }: {
-    sustituciones: NonNullable<ClaudeAuditBundle["pilot"]["sustituciones"]>
-  }) {
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Texto propuesto (contenido visible)" />
-        <View style={styles.tableHeaderRow}>
-          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
-            En pantalla
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
-            Corrección
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "18%" }]}>
-            Ubicación
-          </Text>
-          <Text style={[styles.tableHeaderCell, { width: "22%" }]}>Motivo</Text>
-          <Text style={[styles.tableHeaderCell, { width: "8%" }]}>Crit.</Text>
-          <Text style={[styles.tableHeaderCell, { width: "16%" }]}>
-            Ref. técnica
-          </Text>
-        </View>
-        {sustituciones.map((s, i) => {
-          const crit = etiquetaCriteriosSustitucion(
-            s.criterio_id,
-            s.criterios_relacionados,
-          )
-          const motivo = [
-            s.patron_sistema
-              ? "Patrón de sitio (origen compartido)."
-              : null,
-            s.motivo,
-          ]
-            .filter(Boolean)
-            .join(" ")
-          return (
-          <View key={`s-${s.linea}-${i}`} style={styles.tableRow}>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
-              {trunc(s.original, 100)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
-              {trunc(s.propuesto, 100)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "18%" }]}>
-              {trunc(s.ubicacion_pantalla?.trim() || "—", 100)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "22%" }]}>
-              {trunc(motivo, 120)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "8%" }]}>
-              {trunc(crit, 24)}
-            </Text>
-            <Text style={[styles.tableCell, { width: "16%" }]}>
-              {s.linea}
-              {s.html_linea_aprox ? `\n${s.html_linea_aprox}` : ""}
-            </Text>
-          </View>
-          )
-        })}
-      </View>
-    )
-  }
-  
-  function BloqueNotaTi({ texto }: { texto: string }) {
-    const parrafos = parrafosInformeLegible(texto)
-    return (
-      <View style={styles.sectionWrap}>
-        <PdfSectionBar title="Nota para el equipo TI" />
-        {parrafos.map((p, i) => (
-          <Text key={`nota-${i}`} style={[styles.body, { marginBottom: 6 }]}>
-            {p}
-          </Text>
-        ))}
-      </View>
-    )
-  }
-  
-  export type InformePilotoPdfDocumentProps = {
-    bundle: ClaudeAuditBundle
-  }
-  
-  /**
-   * Documento PDF con bloques 1–7 (flujo §4), todo expandido.
-   * Solo servidor — C4 usará renderToBuffer con este componente.
-   */
-  export function InformePilotoPdfDocument({
-    bundle,
-  }: InformePilotoPdfDocumentProps) {
-    const { pilot } = bundle
-    const severidad = pilot.observaciones_lc_por_severidad
-    const tieneSeveridad = Boolean(
-      severidad &&
-        (severidad.hallazgos_prioridad_alta.length > 0 ||
-          severidad.hallazgos_prioridad_media.length > 0 ||
-          severidad.hallazgos_prioridad_baja.length > 0),
-    )
-    const sustituciones = pilot.sustituciones ?? []
-  
-    return (
-      <Document
-        title={`Informe LC — ${bundle.audit.url}`}
-        author="INAPI — Lenguaje Claro"
-      >
-        <Page size="A4" style={styles.page} wrap>
-          <Text style={styles.docTitle}>Informe de auditoría — Lenguaje Claro</Text>
-          <Text style={styles.docSubtitle}>
-            Piloto Claude · Checklist editorial v{bundle.audit.version_checklist}
-          </Text>
-  
-          <BloqueDatosAuditoria bundle={bundle} />
-  
-          {pilot.resumen_ejecutivo ? (
-            <BloqueResumen texto={pilot.resumen_ejecutivo} />
-          ) : null}
-  
-          <BloquePasos bundle={bundle} />
-  
-          <BloqueCriterios bundle={bundle} />
-  
-          {tieneSeveridad && severidad ? (
-            <BloqueObservacionesSeveridad severidad={severidad} />
-          ) : null}
-  
-          {sustituciones.length > 0 ? (
-            <BloqueSustituciones sustituciones={sustituciones} />
-          ) : null}
-  
-          {pilot.nota_final_tic ? (
-            <BloqueNotaTi texto={pilot.nota_final_tic} />
-          ) : null}
-        </Page>
-      </Document>
-    )
-  }
+
+        <BloqueDatosAuditoria bundle={bundle} />
+
+        <BloqueChecklistEditorial bundle={bundle} />
+
+        {tieneSeveridad && severidad ? (
+          <BloqueObservacionesSeveridad severidad={severidad} />
+        ) : null}
+      </Page>
+    </Document>
+  )
+}

@@ -32,7 +32,7 @@ export const MEI_EXPORT_HITOS: MeiExportHito[] = [
     tituloHito:
       "El sitio publica contenidos redactados en lenguaje claro, sin errores ortográficos ni gramaticales.",
     actividades: [2],
-    // B + C + D completas (Lenguaje claro, Redacción, Ortografía/formato) — Meta MEI Hito 2
+    // B + C + D / Redacción+ortografía — Meta MEI Hito 494 / actividad 2 (entrega: solo LC-1.1.5-*)
     criterios: [
       "B1",
       "B2",
@@ -70,6 +70,7 @@ export const MEI_EXPORT_HITOS: MeiExportHito[] = [
     tituloHito:
       "Los contenidos están redactados en lenguaje claro, positivo y cercano, con siglas definidas.",
     actividades: [3],
+    // Lenguaje plano / positivo — Meta MEI Hito 496 / actividad 3 (entrega: solo LC-1.1.3-*)
     criterios: ["B2", "B3", "B4", "B5", "B6", "B7", "B8"],
     fechaInicioActividad: "01-04-2026",
     fechaTerminoActividad: "31-12-2026",

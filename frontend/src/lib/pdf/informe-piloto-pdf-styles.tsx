@@ -117,6 +117,75 @@ export const styles = StyleSheet.create({
     marginTop: 6,
     marginBottom: 4,
   },
+  hitoBlock: {
+    marginBottom: 16,
+    marginTop: 8,
+  },
+  hitoTitle: {
+    fontSize: 14,
+    fontWeight: 700,
+    color: "#ffffff",
+    backgroundColor: LC_AZUL,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginBottom: 8,
+  },
+  tareaBlock: {
+    marginLeft: 0,
+    marginBottom: 12,
+    paddingLeft: 8,
+    borderLeftWidth: 3,
+    borderLeftColor: LC_AZUL,
+  },
+  tareaTitle: {
+    fontSize: 12,
+    fontWeight: 700,
+    color: "#0c4a8a",
+    marginBottom: 8,
+  },
+  preguntaBlock: {
+    marginBottom: 10,
+    paddingVertical: 4,
+    paddingLeft: 4,
+  },
+  preguntaText: {
+    fontSize: 11,
+    fontWeight: 700,
+    marginBottom: 4,
+    color: "#111827",
+  },
+  estadoLine: {
+    fontSize: 11,
+    fontWeight: 700,
+    marginBottom: 6,
+  },
+  estadoCumple: {
+    color: "#047857",
+  },
+  estadoIncumple: {
+    color: "#b91c1c",
+  },
+  estadoNoAplica: {
+    color: "#4b5563",
+  },
+  preguntaMeta: {
+    fontSize: 8,
+    color: "#6b7280",
+    marginBottom: 4,
+  },
+  entregaField: {
+    marginBottom: 3,
+    paddingLeft: 4,
+  },
+  entregaLabel: {
+    fontSize: 8,
+    fontWeight: 700,
+    color: "#6b7280",
+  },
+  entregaValue: {
+    fontSize: 9,
+    color: "#374151",
+  },
 })
 
 const PROGRESS_FILL: Record<string, string> = {
