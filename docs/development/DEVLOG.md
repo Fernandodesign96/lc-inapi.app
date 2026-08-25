@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Solicitud Nueva (Marcas) tramites.inapi.cl — reauditoría v3.0 completa, rechazado 71,4 %](#devlog-2026-08-25-solicitud-nueva-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie](#devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos) |
@@ -102,6 +103,34 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Sala de Prensa — Noticias: reauditoría v3.0 completa, rechazado 73,7 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditoría completa (Prompt 5, orden 7 de la serie META MEI) de `https://www.inapi.cl/sala-de-prensa/noticias`, sustituyendo el JSON vigente del 2026-08-22. Se aplicaron con rigor las calibraciones vivas que aún no se habían aplicado a esta URL: `C-2026-08-25c` (el criterio 42, rótulos y CTA descriptivos, se evalúa siempre, no se marca `no_aplica` por «es informativa»), `C-2026-08-25e` (el criterio 4, datos clave, aplica a contenido informativo, no solo a trámites) y `C-2026-08-25h` (lenguaje ciudadano sin nomenclatura interna en la entrega; distinguir la fecha de la página de listado en sí de la fecha de cada noticia individual).
+
+### Implementación técnica:
+
+- Nueva captura Playwright del DOM renderizado de la página (listado de tres tarjetas de noticia, panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto, todos documentados como componentes de layout compartido con otras URLs de esta sesión). HTML guardado en `auditorias/htmls/www-inapi-cl-sala-de-prensa-noticias_2026-08-25.html`.
+- El contenido editorial propio de la página (tres noticias, títulos, fechas y extractos) es equivalente al de la captura del 2026-08-22; el cambio de puntaje viene de aplicar con más rigor las calibraciones vigentes, no de un cambio en el sitio.
+- El criterio 12 (`LC-1.1.4-01`, fecha de actualización) pasa de `cumple` a `incumple` severidad alta: la revisión anterior había aceptado la fecha de cada noticia individual como si fuera la fecha de actualización de la página de listado; al distinguir ambas cosas, la página de listado en sí no muestra ninguna fecha propia de publicación ni de revisión.
+- El criterio 42 (`LC-5.2.4-01`, rótulos/CTA) pasa de `no_aplica` a `incumple` severidad media, con la misma evidencia de patrón de sitio ya documentada en otras URLs de esta sesión («Conoce más» del menú global y «LINK EXTERNO» del panel de acceso).
+- El criterio 15 (`LC-5.2.1-01`, claridad de servicio digital / preguntas frecuentes) se mantiene en `no_aplica`, ahora con la justificación ciudadana estándar («No se encontraron elementos visuales ni texto que haga referencia a preguntas frecuentes...») en vez de mencionar `applicability` o siglas sueltas.
+- El criterio 4 (`LC-1.1.2-03`, datos clave) se mantiene en `incumple`, ahora severidad media (no alta, porque hay cumplimiento parcial vía título+fecha+extracto de cada tarjeta, salvo el extracto de la tercera tarjeta, que además incumple lenguaje plano).
+- Entrega revisada para no usar `Tnnn`, `applicability`, siglas sueltas ni la pregunta del criterio como «Texto en pantalla»: todas las citas son literales de la página o descripciones de ausencia.
+- Resultado: 73,7 % de cumplimiento (28 de 38 criterios aplicables), calificación RECHAZADO. 13 criterios no aplican (listado de noticias sin trámites, listados de personas con RUN ni contenidos sensibles).
+- Cableado frontend actualizado: `frontend/src/lib/claude-audits-launch.ts` (pilotoNum 7, `claudeAuditId` vigente = `www-inapi-cl-sala-de-prensa-noticias_2026-08-25`, historial ampliado con el id del 2026-08-22) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 7 → mismo id vigente).
+- `bun run validate:claude-audits` pasa sin errores (82 auditorías alineadas con los archivos de lanzamiento).
+
+### Próximos pasos:
+
+- Continuar la serie META MEI con las órdenes siguientes (detalle de noticias) bajo el mismo rigor de calibración.
 
 ---
 
