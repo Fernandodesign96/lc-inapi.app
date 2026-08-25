@@ -40,8 +40,11 @@
     },
     {
       "id": "LC-1.1.2-03",
-      "estado": "no_aplica",
-      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información…?» — Instrumento 2: Completitud. La portada funciona como un punto de entrada con tarjetas cortas que enlazan a páginas de detalle (Marcas, Patentes, guías, noticias); no contiene un párrafo o recuadro informativo propio donde corresponda exigir ese resumen de datos clave en esta vista."
+      "estado": "incumple",
+      "comentario": "La portada funciona como entrada al sitio con tarjetas y accesos, pero no destaca un resumen de datos clave (qué, cómo, dónde, cuándo y para quién) sobre los servicios de INAPI. Ese criterio aplica a contenido informativo del cuerpo/portada; el no aplica por «no ser trámite» corresponde solo al criterio de autonomía de trámites. Al no existir en pantalla un resumen o recuadro de datos clave que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "severidad": "alta",
+      "cita_textual": "(no existe en pantalla)",
+      "ubicacion_pantalla": "Portada › zona superior destacada › bajo el título principal"
     },
     {
       "id": "LC-1.1.2-04",
@@ -89,9 +92,9 @@
     {
       "id": "LC-1.1.4-01",
       "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Criterio 12: «¿Los contenidos están actualizados y muestran su fecha de publicación o revisión?» — Instrumento 4: Actualización. La portada no muestra una fecha de publicación o de actualización visible para su contenido general; solo las tres tarjetas de noticias llevan fecha propia. El aviso de derechos del pie de página es solo eso y no cumple esta función.",
-      "cita_textual": "No hay texto que cumpla con este requisito",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha. Al no existir ningún texto que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "cita_textual": "(sin fecha de actualización visible)",
       "ubicacion_pantalla": "Zona superior › bajo el título principal"
     },
     {
@@ -326,18 +329,19 @@
     }
   ],
   "criterios_aprobados": 30,
-  "criterios_aplicables": 39,
-  "criterios_no_aplica": 12,
-  "porcentaje_cumplimiento": 76.9,
+  "criterios_aplicables": 40,
+  "criterios_no_aplica": 11,
+  "porcentaje_cumplimiento": 75,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta versión corrige además un error de la revisión anterior: el criterio 45 (rótulos y llamados a la acción descriptivos) se había marcado como no aplicable por tratarse de una página informativa; ese criterio se evalúa en todas las páginas del sitio, y al revisar los botones y enlaces reales de la portada se encontraron rótulos genéricos que sí corresponde corregir.\n\nDe las 51 preguntas, 12 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 39 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 76,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción.\n\nHallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio); y dos botones «Acceder» y dos enlaces «Conoce más» repiten el mismo texto genérico para destinos distintos, sin decir a dónde llevan.\n\nHallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo.\n\nSerie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior.",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta versión corrige además un error de la revisión anterior: el criterio 45 (rótulos y llamados a la acción descriptivos) se había marcado como no aplicable por tratarse de una página informativa; ese criterio se evalúa en todas las páginas del sitio, y al revisar los botones y enlaces reales de la portada se encontraron rótulos genéricos que sí corresponde corregir.\n\nDe las 51 preguntas, 12 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 39 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 76,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción.\n\nHallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio); y dos botones «Acceder» y dos enlaces «Conoce más» repiten el mismo texto genérico para destinos distintos, sin decir a dónde llevan.\n\nHallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo.\n\nSerie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25e/f: el criterio de datos clave (criterio 12) pasa a evaluarse como incumplimiento con propuesta CMS (ya no «no aplica» por no ser trámite); la ausencia total de fecha de actualización (criterio 27) se marca con severidad alta (No cumple). Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
+      "(criterio 12) Sin resumen/recuadro de datos clave visible (qué, cómo, dónde, cuándo, para quién). Severidad alta (No cumple): no hay texto que cumpla el requisito.",
+      "(criterio 27) Sin fecha de publicación ni de última actualización visible; el copyright del pie no cuenta. Severidad alta (No cumple).",
       "Los cinco documentos descargables de la portada (guías de marcas y de patentes, y tres documentos institucionales del pie de página) no indican a la vez título completo, formato, peso y una breve descripción."
     ],
     "hallazgos_prioridad_media": [
       "El título de la sección «Observancia» es una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica.",
-      "No hay fecha de publicación ni de última actualización visible para el contenido general de la portada; el aviso de derechos del pie de página no cumple esa función.",
       "Hay frases escritas solo en mayúsculas en los buscadores de patentes y marcas, el banner de la Plataforma de Datos y la ventana emergente de búsqueda del sitio.",
       "Hay botones y enlaces con el mismo texto genérico que se repite con distintos destinos: «Acceder» en dos banners distintos (Plataforma de Datos y Cuenta Pública 2026) y «Conoce más» en el menú de navegación y en la sección «Observancia»."
     ],
@@ -353,7 +357,7 @@
       "linea": "S01",
       "html_linea_aprox": "HTML-aprox (sección hero / bloque superior del home)",
       "ubicacion_pantalla": "Portada › zona superior › bajo el título principal",
-      "original": "No hay texto que cumpla con este requisito",
+      "original": "(sin fecha de actualización visible)",
       "propuesto": "Añadir un texto visible bajo el título principal: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión de la portada).",
       "criterio_id": "LC-1.1.4-01",
       "motivo": "La página debe mostrar información vigente al año en curso mediante una fecha visible. La portada carece de esa fecha general; solo las noticias individuales la tienen y el aviso de derechos del pie no cumple esta función.",
@@ -507,6 +511,16 @@
       "propuesto": "Cambiar el enlace por un texto que diga a dónde lleva, por ejemplo «Conoce cómo protegerte de la piratería y la falsificación».",
       "criterio_id": "LC-5.2.4-01",
       "motivo": "El enlace de la sección «Observancia» usa el mismo texto genérico «Conoce más» que el del menú principal, pero lleva a un destino distinto (piratería y falsificación); sin un rótulo propio, la persona no puede anticipar a dónde va."
+    },
+    {
+      "linea": "S16",
+      "html_linea_aprox": "HTML cuerpo / zona de datos clave",
+      "ubicacion_pantalla": "Portada › zona superior destacada › bajo el título principal",
+      "original": "(no existe en pantalla)",
+      "propuesto": "Añadir un recuadro breve con datos clave del portal: «Qué es: el sitio de INAPI para conocer y usar los servicios de propiedad industrial. Cómo: elige Marcas, Patentes u otro trámite e inicia en línea. Dónde: www.inapi.cl y tramites.inapi.cl. Cuándo: puedes consultar e iniciar trámites en cualquier momento. Para quién: personas, empresas y representantes que necesitan proteger o consultar una marca, patente u otro derecho.»",
+      "criterio_id": "LC-1.1.2-03",
+      "motivo": "La portada es el punto de entrada del sitio y tiene contenido propio (títulos, tarjetas, accesos). Debe destacar qué, cómo, dónde, cuándo y para quién sirven los servicios; no corresponde marcar no aplica solo porque enlaza a otras páginas o porque no es un formulario de trámite.",
+      "patron_sistema": false
     }
   ],
   "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluida la ventana emergente de contacto). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEl criterio de apoyos visuales (criterio 48) se cumple porque hay apoyos visibles en la página; esta pregunta no evalúa el texto alternativo de las imágenes ni la accesibilidad técnica de las mismas.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación (sigla PCT y enlace «Conoce más»), ventana emergente de búsqueda del sitio (mayúsculas sostenidas), pie de página institucional (capitalización del nombre de la institución) y fila de logos del pie (formato, peso y descripción de documentos).\n\nEsta auditoría cubre únicamente Lenguaje claro (51 preguntas); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero los documentos sin formato, peso ni descripción (prioridad alta); luego el título «Observancia», la fecha de actualización, las mayúsculas sostenidas y los botones/enlaces con texto genérico repetido (prioridad media); por último la sigla sin definir, el error de mayúscula institucional, la voz pasiva y la oración larga de la noticia sobre Japón (prioridad baja)."

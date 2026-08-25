@@ -42,8 +42,8 @@
     {
       "id": "LC-1.1.2-03",
       "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información…?» — Instrumento 2: Completitud. Faltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje visible con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera.",
+      "severidad": "alta",
+      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información…?» — Instrumento 2: Completitud. Faltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje visible con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera. Al no existir en pantalla un resumen o recuadro de datos clave que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
       "cita_textual": "No hay texto que cumpla con este requisito",
       "ubicacion_pantalla": "Zona superior › bajo el título principal, sobre la lista de resultados"
     },
@@ -93,9 +93,9 @@
     {
       "id": "LC-1.1.4-01",
       "estado": "incumple",
-      "severidad": "media",
-      "comentario": "Criterio 12: «¿Los contenidos están actualizados y muestran su fecha de publicación o revisión?» — Instrumento 4: Actualización. Esta pantalla no muestra ninguna fecha de publicación ni de actualización visible, ni una indicación de cuándo se actualizó por última vez el índice de búsqueda. El aviso de derechos del pie de página es solo eso y no cumple esta función.",
-      "cita_textual": "No hay texto que cumpla con este requisito",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha. Al no existir ningún texto que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "cita_textual": "(sin fecha de actualización visible)",
       "ubicacion_pantalla": "Zona superior › bajo el título principal"
     },
     {
@@ -326,15 +326,17 @@
   "criterios_aprobados": 22,
   "criterios_aplicables": 31,
   "criterios_no_aplica": 20,
-  "porcentaje_cumplimiento": 71.0,
+  "porcentaje_cumplimiento": 71,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página de resultados del buscador de INAPI (búsqueda del término «noticias») fue reauditada el 25 de agosto de 2026 con una nueva captura de la pantalla, incluida la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, antes de calificar las 51 preguntas del checklist de Lenguaje claro.\n\nEsta reauditoría corrige específicamente el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de esta misma página había quedado marcado como no aplica con el argumento de que se trataba de una página informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Con evidencia del DOM actual, el criterio pasa a incumplido: el enlace «Conoce más» del menú de navegación global no dice de qué trata su destino, y el botón «LINK EXTERNO» del recuadro de acceso o registro no describe a dónde lleva y, además, no tiene un destino real configurado.\n\nSe confirmó también con el navegador automatizado que el extracto de texto que trae cada resultado bajo su título sigue sin verse nunca en pantalla: hoy ese párrafo mide 0 píxeles de alto y ancho, por lo que no se evalúa como contenido visible, en línea con el criterio ya aplicado en la revisión anterior.\n\nDe las 51 preguntas, 20 no corresponden a esta pantalla: es un listado de resultados generado automáticamente por el buscador del sitio, sin párrafos de cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales. De las 31 que sí corresponden, 22 se cuentan como cumplidas, lo que da un 71,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgos propios de esta pantalla: el título principal es solo la palabra «Buscador» y no indica el término buscado ni el número de resultados; falta un mensaje visible con la cantidad de resultados y un campo de búsqueda visible en esta misma pantalla para modificar el término sin reabrir la ventana emergente de la cabecera; y dos de los cinco resultados no son relevantes para la búsqueda de «noticias» — uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía.\n\nHallazgos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del recuadro de acceso no son descriptivos de su destino; la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; la ventana de contacto usa voz pasiva; y hay frases solo en mayúsculas en la ventana emergente de búsqueda del sitio y en el mismo botón «LINK EXTERNO».\n\nSerie META MEI, Buscador de noticias, página de información interior (orden 5, 2 de 2; quinta y última URL de esta ronda de reauditorías centradas en rótulos y llamados a la acción). Reemplaza como vigente a www-inapi-cl-buscador-noticias_2026-08-22, que queda registrado como versión anterior.",
+  "resumen_ejecutivo": "La página de resultados del buscador de INAPI (búsqueda del término «noticias») fue reauditada el 25 de agosto de 2026 con una nueva captura de la pantalla, incluida la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, antes de calificar las 51 preguntas del checklist de Lenguaje claro.\n\nEsta reauditoría corrige específicamente el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de esta misma página había quedado marcado como no aplica con el argumento de que se trataba de una página informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Con evidencia del DOM actual, el criterio pasa a incumplido: el enlace «Conoce más» del menú de navegación global no dice de qué trata su destino, y el botón «LINK EXTERNO» del recuadro de acceso o registro no describe a dónde lleva y, además, no tiene un destino real configurado.\n\nSe confirmó también con el navegador automatizado que el extracto de texto que trae cada resultado bajo su título sigue sin verse nunca en pantalla: hoy ese párrafo mide 0 píxeles de alto y ancho, por lo que no se evalúa como contenido visible, en línea con el criterio ya aplicado en la revisión anterior.\n\nDe las 51 preguntas, 20 no corresponden a esta pantalla: es un listado de resultados generado automáticamente por el buscador del sitio, sin párrafos de cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales. De las 31 que sí corresponden, 22 se cuentan como cumplidas, lo que da un 71,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgos propios de esta pantalla: el título principal es solo la palabra «Buscador» y no indica el término buscado ni el número de resultados; falta un mensaje visible con la cantidad de resultados y un campo de búsqueda visible en esta misma pantalla para modificar el término sin reabrir la ventana emergente de la cabecera; y dos de los cinco resultados no son relevantes para la búsqueda de «noticias» — uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía.\n\nHallazgos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del recuadro de acceso no son descriptivos de su destino; la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; la ventana de contacto usa voz pasiva; y hay frases solo en mayúsculas en la ventana emergente de búsqueda del sitio y en el mismo botón «LINK EXTERNO».\n\nSerie META MEI, Buscador de noticias, página de información interior (orden 5, 2 de 2; quinta y última URL de esta ronda de reauditorías centradas en rótulos y llamados a la acción). Reemplaza como vigente a www-inapi-cl-buscador-noticias_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25f: ausencia total de fecha de actualización → severidad alta (No cumple), no medianamente cumple. Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
   "observaciones_lc_por_severidad": {
-    "hallazgos_prioridad_alta": [],
+    "hallazgos_prioridad_alta": [
+      "(criterio 12) Sin resumen/recuadro de datos clave visible (qué, cómo, dónde, cuándo, para quién). Severidad alta (No cumple): no hay texto que cumpla el requisito.",
+      "(criterio 27) Sin fecha de publicación ni de última actualización visible; el copyright del pie no cuenta. Severidad alta (No cumple)."
+    ],
     "hallazgos_prioridad_media": [
       "El título principal de la pantalla es solo «Buscador» y no indica el término buscado ni el número de resultados.",
       "Falta un mensaje visible con la cantidad de resultados encontrados y un campo de búsqueda visible en esta misma pantalla.",
-      "No hay fecha de publicación ni de última actualización visible en la pantalla.",
       "Dos de los cinco resultados no son relevantes para la búsqueda: uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía.",
       "Hay frases escritas solo en mayúsculas en la ventana emergente de búsqueda del sitio y en un botón del recuadro de acceso o registro de la cabecera.",
       "El enlace «Conoce más» del menú de navegación y el botón «LINK EXTERNO» del recuadro de acceso o registro no describen a dónde llevan; este último, además, no tiene un destino real configurado."
@@ -457,6 +459,16 @@
         "LC-1.2.4-05"
       ],
       "motivo": "El botón no dice a dónde lleva y, además, no tiene un destino real configurado. Comparte nodo con el hallazgo de mayúsculas sostenidas (ese ya propone quitar o corregir el botón), pero responde una pregunta distinta: aquí el problema es que el rótulo no describe ningún destino ni acción, no solo que esté en mayúsculas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "HTML bajo el título principal",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal",
+      "original": "(sin fecha de actualización visible)",
+      "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión editorial de esta página).",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "La página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. Mismo vacío detectado en otras páginas del sitio.",
       "patron_sistema": true
     }
   ],
