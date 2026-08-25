@@ -13,7 +13,7 @@
     "visitas_ref": "—",
     "encargado_ref": "equipo de desarrollo",
     "fuente_piloto_id": "www-inapi-cl_2026-08-22",
-    "descripcion": "Reauditoría 1-URL del lote META MEI orden 1 (Portada o página de inicio), checklist PTD-LC v3.0 (51 preguntas por indicadores). Contenido de portada equivalente al 2026-08-21 y 2026-08-22 (mismo menú, título principal, tarjetas y noticias); se reverifican hoy los pesos reales de los documentos vía cabecera HTTP y se entrega el resultado sin ningún código interno visible para quien lo lee (solo preguntas y nombres de instrumento en lenguaje corriente)."
+    "descripcion": "Reauditoría 1-URL del lote META MEI orden 1 (Portada o página de inicio), checklist PTD-LC v3.0 (51 preguntas por indicadores). Corrige el criterio 45 (rótulos y llamados a la acción descriptivos), que la revisión anterior había marcado como no aplicable por tratarse de una página informativa; se reevaluó todo el contenido visible de la página con una nueva captura y se encontraron rótulos genéricos repetidos («Acceder», «Conoce más») que corresponde corregir. Contenido de portada equivalente al de las revisiones previas (mismo menú, título principal, tarjetas y noticias); se reverificaron hoy los pesos reales de los documentos vía cabecera HTTP."
   },
   "texto_capturado": "T001 [menú de navegación global]: Nosotros | Conoce más | Marcas | Patentes | PCT (sin definir en su primera aparición) | Sistema de Madrid | Sello de Origen | Aprende | Conecta | Trámites | Estadísticas | Dominio Público | Mercado de Origen | Gasto Presupuestario | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Observancia | Datos Abiertos | T002 [cabecera global, excluidos por calibración vigente del criterio de mayúsculas]: «ACCESOS», «BUSCADOR» | T003 [ventana emergente de contacto, abierta y capturada hoy con un clic desde el botón «¿Quieres contactarnos?»]: «Utiliza el canal de comunicación que prefieras:» + tres bloques de teléfono, correo (inapi@inapi.cl) y dirección, cada uno con su horario de atención | T004 [título principal visible]: «Te queremos ayudar a utilizar la propiedad industrial» | T005 [tarjeta Patentes]: «Patentes» | «BUSCADOR DE PATENTES» (mayúscula sostenida) | «Cómo registrar una patente» | «Ingresa tu solicitud» | T006 [tarjeta Marcas]: «Marcas» | «BUSCADOR DE marcas» (mezcla de mayúscula y minúscula, inconsistente con la tarjeta de Patentes) | «Cómo registrar una marca» | «Ingresa tu solicitud» | T007 [accesos rápidos]: «Estadísticas» | «Notificaciones diarias» | «Preguntas frecuentes» | «Datos abiertos» | T008 [Novedades, primera tarjeta, martes 18 de agosto de 2026]: «Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China» + bajada: «Constanza Vargas García, bioquímica especializada en patentes biotecnológicas y químicas, fue admitida por la Universidad de Economía y Derecho de Zhongnan tras un riguroso proceso de evaluación patrocinado por INAPI.» | T009 [Novedades, segunda tarjeta, miércoles 12 de agosto de 2026]: «INAPI y Ministerio de Economía presentan plataforma de información tecnológica de patentes para apoyar el desarrollo productivo sostenible» + bajada: «La herramienta de acceso público reúne 148 productos en áreas estratégicas para el país, como manufactura sostenible, litio, hidrógeno verde, cambio climático y recursos hídricos.» | T010 [Novedades, tercera tarjeta, martes 11 de agosto de 2026]: «INAPI amplía plazos administrativos para usuarios con residencia en Japón debido a la emergencia provocada por los recientes sismos» + bajada de una sola oración: «La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.» | T011: enlace «Ver todas las noticias» | T012 [banner «Plataforma de Datos»]: subtítulos en mayúscula sostenida «INFORMACIÓN TECNOLÓGICA DE PATENTES» / «PROGRAMA DE DESARROLLO» / «PRODUCTIVO SOSTENIBLE» + botón «Acceder» | T013 [«Guías para usuarios»]: «Descargar guía de marcas» (documento real de 17.156.031 bytes, aprox. 16,4 MB, verificado hoy) / «Descargar guía de patentes» (documento real de 13.133.207 bytes, aprox. 12,5 MB, verificado hoy), ninguno de los dos enlaces muestra formato, peso ni descripción en su texto visible | T014 [«Cuenta Pública 2026»]: imagen con botón «Acceder» | T015 [título principal de sección]: «Observancia» + subtítulo «Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile» + enlace «Conoce más» | T016 [pie de página, fila de logos de organismos externos, pesos verificados hoy vía cabecera HTTP]: «Plan de Acción de Cumplimiento 2025 (PDF)» = 299.818 bytes, aprox. 293 KB (solo indica el formato, no el peso); «Teletrabajo» = 3.422.711 bytes, aprox. 3,3 MB (sin formato ni peso visibles); «Código de Ética INAPI 2026» = 604.793 bytes, aprox. 590 KB (sin formato ni peso visibles); el resto de los logos (Ley de Transparencia, Medición de Satisfacción Usuaria, Ley del Lobby, Propiedad Industrial, Trámites Digitales, Derechos Intelectuales, Empleos Públicos, Nuestras Licitaciones, Gobierno Transparente Histórico) enlaza a páginas, no a documentos descargables | T017 [pie de página, bloque «Dónde estamos»]: «Instituto Nacional de Propiedad» (primera línea) + «industrial (INAPI)» (segunda línea, con minúscula inicial en «industrial») + «RUT: 65.999.669-3» (RUT institucional, persona jurídica pública) | T018 [pie de página, aviso de derechos]: «©2026 INAPI. Todos los derechos reservados» | T019: no hay fecha de publicación ni de actualización visible para el contenido general de la página; solo las tres tarjetas de noticias llevan fecha propia | T020 [ventana emergente «Buscar y tramitar», abierta con un clic desde el ícono de lupa de la cabecera, confirmada presente hoy en el mismo componente ya revisado en otra página del sitio]: título y subtítulos en mayúscula sostenida «BUSCAR Y TRAMITAR» / «MARCAS» / «PATENTES» | T021 [metadatos de encabezado, no usados como evidencia visible]: título de pestaña y descripción del buscador — descartados porque no son contenido visible en pantalla.\n\nRevisión de palabras y frases antes de calificar las 51 preguntas del instrumento: no se detectaron términos jurídicos densos dentro de oraciones largas (a diferencia de otras páginas del sitio), salvo el rótulo «Observancia», que por sí solo no explica qué puede hacer la persona ahí aunque el subtítulo lo aclare; y la bajada de la noticia sobre Japón, que junta dos ideas en una sola oración con un giro más administrativo que cotidiano.",
   "criterios_evaluados": [
@@ -280,8 +280,11 @@
     },
     {
       "id": "LC-5.2.4-01",
-      "estado": "no_aplica",
-      "comentario": "Criterio 45: «¿Los textos de los enlaces son descriptivos, evitando «Haga clic aquí»?» — Instrumento 12: Escritura para la web. Esta URL es sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»?» — Instrumento 12: Escritura para la web. En la portada hay dos botones con el mismo texto genérico «Acceder» (en el banner «Plataforma de Datos» y en el banner «Cuenta Pública 2026») que no dicen a dónde llevan, y dos enlaces «Conoce más» (uno en el menú de navegación y otro en la sección «Observancia») que tampoco distinguen su destino entre sí. El resto de los enlaces y botones de la portada sí describen con claridad la acción o el destino, por ejemplo «Descargar guía de marcas», «Ver todas las noticias», «Cómo registrar una patente» o «Buscador de patentes».",
+      "cita_textual": "Acceder (dos banners distintos); Conoce más (menú de navegación y sección Observancia)",
+      "ubicacion_pantalla": "Banner «Plataforma de Datos» › botón «Acceder»; banner «Cuenta Pública 2026» › botón «Acceder»; menú de navegación global › enlace «Conoce más»; sección «Observancia» › enlace «Conoce más»"
     },
     {
       "id": "LC-1.2.4-07",
@@ -323,11 +326,11 @@
     }
   ],
   "criterios_aprobados": 30,
-  "criterios_aplicables": 38,
-  "criterios_no_aplica": 13,
-  "porcentaje_cumplimiento": 78.9,
+  "criterios_aplicables": 39,
+  "criterios_no_aplica": 12,
+  "porcentaje_cumplimiento": 76.9,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro.\n\nDe las 51 preguntas, 13 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 38 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 78,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). El contenido de la página no cambió de forma relevante respecto de la revisión del 22 de agosto; esta versión corrige, en cambio, la forma de entrega: cada hallazgo se explica ahora con la pregunta que responde y el nombre del instrumento al que pertenece, sin códigos internos de ningún tipo.\n\nHallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción.\n\nHallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; y hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio).\n\nHallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo.\n\nSerie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior.",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta versión corrige además un error de la revisión anterior: el criterio 45 (rótulos y llamados a la acción descriptivos) se había marcado como no aplicable por tratarse de una página informativa; ese criterio se evalúa en todas las páginas del sitio, y al revisar los botones y enlaces reales de la portada se encontraron rótulos genéricos que sí corresponde corregir.\n\nDe las 51 preguntas, 12 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 39 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 76,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción.\n\nHallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio); y dos botones «Acceder» y dos enlaces «Conoce más» repiten el mismo texto genérico para destinos distintos, sin decir a dónde llevan.\n\nHallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo.\n\nSerie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior.",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "Los cinco documentos descargables de la portada (guías de marcas y de patentes, y tres documentos institucionales del pie de página) no indican a la vez título completo, formato, peso y una breve descripción."
@@ -335,7 +338,8 @@
     "hallazgos_prioridad_media": [
       "El título de la sección «Observancia» es una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica.",
       "No hay fecha de publicación ni de última actualización visible para el contenido general de la portada; el aviso de derechos del pie de página no cumple esa función.",
-      "Hay frases escritas solo en mayúsculas en los buscadores de patentes y marcas, el banner de la Plataforma de Datos y la ventana emergente de búsqueda del sitio."
+      "Hay frases escritas solo en mayúsculas en los buscadores de patentes y marcas, el banner de la Plataforma de Datos y la ventana emergente de búsqueda del sitio.",
+      "Hay botones y enlaces con el mismo texto genérico que se repite con distintos destinos: «Acceder» en dos banners distintos (Plataforma de Datos y Cuenta Pública 2026) y «Conoce más» en el menú de navegación y en la sección «Observancia»."
     ],
     "hallazgos_prioridad_baja": [
       "La sigla PCT aparece en el menú de navegación sin definirse en su primera aparición.",
@@ -362,7 +366,9 @@
       "original": "Observancia",
       "propuesto": "Cambiar el título de la sección de «Observancia» a un rótulo cotidiano, por ejemplo: «Observancia: protege tu marca o patente de copias». El subtítulo actual («Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile») puede mantenerse igual debajo.",
       "criterio_id": "LC-1.1.3-03",
-      "criterios_relacionados": ["LC-1.2.4-02"],
+      "criterios_relacionados": [
+        "LC-1.2.4-02"
+      ],
       "motivo": "La redacción debe prescindir de jerga legal y los títulos deben entenderse al escanear la página. «Observancia» es un término legal que una persona sin formación jurídica no reconoce por sí solo; el subtítulo aclara el contenido, pero el título principal —lo primero que se lee— debe poder entenderse sin ayuda.",
       "patron_sistema": false
     },
@@ -403,7 +409,9 @@
       "original": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
       "propuesto": "La medida beneficia a las personas con solicitudes que tengan residencia informada en Japón. Busca facilitar el cumplimiento de los plazos administrativos que estaban en curso al 10 de agosto de 2026.",
       "criterio_id": "LC-1.2.2-04",
-      "criterios_relacionados": ["LC-1.2.1-02"],
+      "criterios_relacionados": [
+        "LC-1.2.1-02"
+      ],
       "motivo": "Las oraciones deben ser simples y directas. El texto actual junta dos ideas en una sola oración larga con un giro administrativo («cuya residencia informada corresponda a»); la propuesta separa la oración en dos y usa una expresión más cercana al habla cotidiana.",
       "patron_sistema": false
     },
@@ -444,7 +452,9 @@
       "original": "Descargar guía de marcas / Descargar guía de patentes",
       "propuesto": "Guía de marcas (PDF, 16,4 MB) — Guía práctica para solicitar el registro de una marca en Chile. / Guía de patentes (PDF, 12,5 MB) — Guía práctica para solicitar una patente en Chile.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "Los enlaces a documentos deben indicar título, formato y peso, y traer una breve descripción del contenido. Ninguno de los dos enlaces muestra esta información; los pesos (16,4 MB y 12,5 MB) fueron verificados hoy y deben mantenerse actualizados si el archivo cambia.",
       "patron_sistema": false
     },
@@ -455,10 +465,49 @@
       "original": "Plan de Acción de Cumplimiento 2025 (PDF) / Teletrabajo / Código de Ética INAPI 2026",
       "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025. / Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional. / Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "Los tres documentos del carrusel del pie carecen de descripción breve, y dos de ellos («Teletrabajo», «Código de Ética INAPI 2026») tampoco indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB. Corregir en el origen de la fila de logos institucionales del pie, compartida entre páginas.",
       "patron_sistema": true
+    },
+    {
+      "linea": "T012",
+      "html_linea_aprox": "HTML-L520",
+      "ubicacion_pantalla": "Banner «Plataforma de Datos» › botón «Acceder»",
+      "original": "Acceder",
+      "propuesto": "Cambiar el texto del botón por uno que diga a dónde lleva, por ejemplo «Ver la plataforma de datos de patentes» o «Consultar información tecnológica de patentes».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El botón solo dice «Acceder» sin indicar a qué se entra. Al repetirse el mismo texto en otro banner de la misma página, la persona no puede distinguir un destino del otro con solo leer el rótulo."
+    },
+    {
+      "linea": "T014",
+      "html_linea_aprox": "HTML-L560",
+      "ubicacion_pantalla": "Banner «Cuenta Pública 2026» › botón «Acceder»",
+      "original": "Acceder",
+      "propuesto": "Cambiar el texto del botón por uno que diga a dónde lleva, por ejemplo «Ver la Cuenta Pública 2026».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "Igual que en el banner de la Plataforma de Datos, el botón «Acceder» no indica su destino; con dos botones iguales en la misma portada, la persona no sabe cuál abre qué contenido."
+    },
+    {
+      "linea": "T001",
+      "html_linea_aprox": "HTML-L40",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace del menú principal solo dice «Conoce más» sin indicar de qué. Es un componente compartido con otras páginas del sitio: corregir en el origen del menú para que el cambio se replique en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "T015",
+      "html_linea_aprox": "HTML-L610",
+      "ubicacion_pantalla": "Cuerpo de la página › sección «Observancia» › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el enlace por un texto que diga a dónde lleva, por ejemplo «Conoce cómo protegerte de la piratería y la falsificación».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace de la sección «Observancia» usa el mismo texto genérico «Conoce más» que el del menú principal, pero lleva a un destino distinto (piratería y falsificación); sin un rótulo propio, la persona no puede anticipar a dónde va."
     }
   ],
-  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluida la ventana emergente de contacto). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEl criterio de apoyos visuales (criterio 48) se cumple porque hay apoyos visibles en la página; esta pregunta no evalúa el texto alternativo de las imágenes ni la accesibilidad técnica de las mismas.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación (sigla PCT), ventana emergente de búsqueda del sitio (mayúsculas sostenidas), pie de página institucional (capitalización del nombre de la institución) y fila de logos del pie (formato, peso y descripción de documentos).\n\nEsta auditoría cubre únicamente Lenguaje claro (51 preguntas); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero los documentos sin formato, peso ni descripción (prioridad alta); luego el título «Observancia», la fecha de actualización y las mayúsculas sostenidas (prioridad media); por último la sigla sin definir, el error de mayúscula institucional, la voz pasiva y la oración larga de la noticia sobre Japón (prioridad baja)."
+  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluida la ventana emergente de contacto). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEl criterio de apoyos visuales (criterio 48) se cumple porque hay apoyos visibles en la página; esta pregunta no evalúa el texto alternativo de las imágenes ni la accesibilidad técnica de las mismas.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación (sigla PCT y enlace «Conoce más»), ventana emergente de búsqueda del sitio (mayúsculas sostenidas), pie de página institucional (capitalización del nombre de la institución) y fila de logos del pie (formato, peso y descripción de documentos).\n\nEsta auditoría cubre únicamente Lenguaje claro (51 preguntas); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero los documentos sin formato, peso ni descripción (prioridad alta); luego el título «Observancia», la fecha de actualización, las mayúsculas sostenidas y los botones/enlaces con texto genérico repetido (prioridad media); por último la sigla sin definir, el error de mayúscula institucional, la voz pasiva y la oración larga de la noticia sobre Japón (prioridad baja)."
 }

@@ -30,10 +30,13 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22.
     // Reauditoría 2026-08-25 (Prompt 6 C-2026-08-25b): entrega sin ningún código interno visible
     // (LC-*, IEW/IESD, Tnnn) en texto/ubicación/propuesto/justificación; encabezado «Criterio N — Instrumento M».
-    // Contenido de página equivalente a 2026-08-22; % se mantiene en 78,9 (mismos hallazgos, reescritos).
+    // Reauditoría 2026-08-25 (2ª pasada, C-2026-08-25c): se corrige el criterio 45 (rótulos/CTA
+    // descriptivos, LC-5.2.4-01), que estaba en no_aplica por "página informativa"; ahora se evalúa
+    // con evidencia real (botones «Acceder» y enlaces «Conoce más» ambiguos) y queda en incumple
+    // severidad media. % baja de 78,9 a 76,9 (30/39 aplicables; antes 30/38).
     claudeAuditId: "www-inapi-cl_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 78.9,
+      porcentajeLc: 76.9,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
