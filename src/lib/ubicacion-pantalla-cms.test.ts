@@ -70,14 +70,15 @@ describe("construirUbicacionDetallada / resolverUbicacionEnPantalla", () => {
     expect(ubi).toMatch(/Dónde estamos/)
   })
 
-  test("modal contacto y Dónde estamos", () => {
+  test("ventana emergente de contacto (sin decir modal)", () => {
     const ubi = resolverUbicacionEnPantalla(
       "¿Quieres contactarnos? · Dónde estamos",
       undefined,
       "Los datos están en el modal «¿Quieres contactarnos?» y bloque «Dónde estamos» del pie.",
     )
-    expect(ubi).toMatch(/Modal/)
+    expect(ubi).toMatch(/Ventana emergente/)
     expect(ubi).toMatch(/Dónde estamos/)
+    expect(ubi).not.toMatch(/\bModal\b/)
   })
 
   test("política de privacidad", () => {
@@ -111,14 +112,15 @@ describe("construirUbicacionDetallada / resolverUbicacionEnPantalla", () => {
     ).toBe("Pie de página › enlace «Gobierno Transparente Histórico»")
   })
 
-  test("H1 hero", () => {
+  test("título principal en portada (sin H1/hero)", () => {
     const ubi = resolverUbicacionEnPantalla(
       "Te queremos ayudar a utilizar la propiedad industrial",
       undefined,
       "El H1 visible «Te queremos ayudar a utilizar la propiedad industrial» es coherente con el contenido.",
     )
-    expect(ubi).toMatch(/H1/)
-    expect(ubi).toMatch(/Portada|hero/i)
+    expect(ubi).toMatch(/título principal/)
+    expect(ubi).toMatch(/Portada|zona superior destacada/i)
+    expect(ubi).not.toMatch(/\bH1\b|hero/i)
   })
 
   test("conserva ubicación explícita ya detallada", () => {

@@ -2,7 +2,7 @@
 
 Fuente: docs/Checklist_Editorial_INAPI_v2_0_actualizado.docx
 **Nota (2026-08-24):** motor = `data/checklist-criteria-lc-ptd.json` (**51** `LC-*`, v3.0). Mapa: [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md).
-**Entrega Hito/Tarea:** Hito **494**/Tarea **493** = solo Redacción `1.1.5`; Hito **496**/Tarea **495** = solo Lenguaje plano `1.1.3`. Fiabilidad → **500/499**. Completitud → **492/491**. Privacidad: RUN/tel → **503**; ARCO → **504**. Sensibles: **510** / **511** / **512** (una pregunta cada una).
+**Entrega Hito/Tarea:** sin meta **492/491**. Completitud → **498/497**. Fiabilidad/Actualización → **500/499**. **494**=Redacción; **496**=Lenguaje plano. Privacidad: **503** RUN/tel · **504** ARCO. Sensibles: **510**/**511**/**512**.
 
 Checklist Editorial INAPI v2.0
 Preguntas de chequeo del Instrumento de Calidad Web asociadas a cada tarea del Plan de Transformación Digital (PTD)
@@ -18,33 +18,6 @@ Cada tarea del PTD se asocia a uno o más indicadores del instrumento IQ Web. El
 
 Dimensión 1 · Contenido y Lenguaje Claro
 Proyecto PTD: PTD-D2.1-CL1
-Hito 492
-La institución cuenta con un checklist editorial obligatorio implementado en su flujo de publicación.
-Tarea 491
-Implementar un checklist editorial obligatorio para cada publicación que incluya autoría, completitud del contenido, fecha de publicación o actualización, uso de lenguaje claro, corrección ortográfica y gramatical, objetividad en la redacción y uso de lenguaje respetuoso.
-Indicador 1.1.1 / 5.1.1 — Fiabilidad
-¿Es fácil reconocer la fuente o autoría de la información publicada?
-Indicador 1.1.2 / 5.1.2 — Completitud
-¿Los contenidos representan de manera fiel lo enunciado en su título?
-¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o &quot;En construcción&quot;?
-¿El texto destaca los datos clave de la información?
-En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?
-Indicador 1.1.4 / 5.1.4 — Actualización
-¿Los contenidos están actualizados y muestran información vigente al año en curso? (por ejemplo, se indica expresamente la fecha de publicación o última actualización)
-Indicador 1.1.3 / 5.1.3 — Lenguaje plano
-¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?
-¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?
-¿La redacción prescinde de la jerga técnica o legal?
-¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?
-¿Se define cada sigla y acrónimo y se emplean solo si es necesario?
-¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el &quot;no se puede&quot;?
-Indicador 1.1.5 / 5.1.5 — Redacción y ortografía
-¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos?
-¿Los signos de puntuación empleados facilitan la lectura del documento?
-¿Las frases se relacionan entre sí por medio de conectores?
-Indicador 1.3.2 / 5.3.1 — Objetividad
-¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?
-¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?
 Hito 494
 El sitio publica contenidos redactados en lenguaje claro, sin errores ortográficos ni gramaticales, cumpliendo estándares de calidad en la redacción.
 Tarea 493
@@ -63,11 +36,16 @@ Indicador 1.1.3 / 5.1.3 — Lenguaje plano
 ¿La redacción prescinde de la jerga técnica o legal?
 ¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?
 ¿Se define cada sigla y acrónimo y se emplean solo si es necesario?
-¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el &quot;no se puede&quot;?
+¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el "no se puede"?
 Hito 498
 El sitio publica contenidos presentados de manera clara y concisa, evitando redundancias y ambigüedades en la información.
 Tarea 497
 Ajustar los contenidos del sitio para que transmitan la información de manera clara y concisa, eliminando redundancias o ambigüedades.
+Indicador 1.1.2 / 5.1.2 — Completitud
+¿Los contenidos representan de manera fiel lo enunciado en su título?
+¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o "En construcción"?
+¿El texto destaca los datos clave de la información?
+En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?
 Indicador 1.2.1 / 5.2.1 — Claridad
 ¿La información del servicio digital está organizada de manera que responda claramente a las preguntas frecuentes que podrían tener las personas usuarias? (variante IESD 5.2.1 — trámites)
 ¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?
@@ -121,14 +99,14 @@ Todos los documentos enlazados en el sitio web muestran título, formato, peso y
 Tarea 508
 Configurar en el CMS campos obligatorios para título, formato, peso y descripción de cada documento, y corregir los enlaces existentes que no incluyan esta información.
 Indicador 1.2.4 / 5.2.4 — Escritura para la web
-¿Los contenidos del sitio aplican el modelo de &quot;pirámide invertida&quot; (de lo más a lo menos importante)?
+¿Los contenidos del sitio aplican el modelo de "pirámide invertida" (de lo más a lo menos importante)?
 ¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?
 ¿Es fácil escanear visualmente los contenidos?
 ¿Se utilizan negritas para destacar palabras clave de cada párrafo?
 ¿Se evitan las frases escritas únicamente en mayúsculas?
 ¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»? (Ej.: «Consultar fecha de pago», «Solicitar certificado».) (pregunta exclusiva del instrumento de servicios digitales transaccionales, IESD 5.2.4)
 ¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados? (pregunta exclusiva del instrumento de sitios web)
-Cuando se enlazan documentos, ¿se especifican el título, formato y peso? (ej.: &quot;Informe sobre ciberseguridad en Chile 2024 (pdf, 345 KB)&quot;)
+Cuando se enlazan documentos, ¿se especifican el título, formato y peso? (ej.: "Informe sobre ciberseguridad en Chile 2024 (pdf, 345 KB)")
 ¿Se entrega una breve descripción de los documentos enlazados para mejorar su búsqueda, usabilidad y accesibilidad?
 Hito 513
 El sitio no publica contenidos que expongan la identidad de menores de edad, incluyan expresiones inadecuadas para ellos ni exhiban información que vulnere la dignidad o vida privada de las personas.
@@ -175,7 +153,7 @@ Indicador 2.1.1 / 1.1.1 — Coherencia y estandarización
 En el caso de los sitios del gobierno central, ¿se utilizan los componentes del UI Kit del Gobierno Digital?
 ¿Los iconos son fácilmente comprensibles sin texto adicional y siguen convenciones o figuras reconocibles por cualquier persona?
 Tarea 522
-Sustituir íconos poco claros por íconos reconocibles internacionalmente (ej. lupa para búsqueda, &quot;X&quot; para cerrar), asegurando su comprensión sin necesidad de texto adicional.
+Sustituir íconos poco claros por íconos reconocibles internacionalmente (ej. lupa para búsqueda, "X" para cerrar), asegurando su comprensión sin necesidad de texto adicional.
 Indicador 2.1.1 / 1.1.1 — Coherencia y estandarización
 ¿Se respeta la organización del sitio web/servicio digital y se preserva su consistencia en todas las páginas?
 En el caso de los sitios del gobierno central, ¿se utilizan los componentes del UI Kit del Gobierno Digital?
@@ -203,7 +181,7 @@ Indicador 2.1.3 / 1.1.3 — Diagnóstico y corrección de errores
 ¿Se puede verificar que los mensajes de error no interfieren con la navegación en la página?
 Indicador 2.1.5 / 1.1.5 — Mensajes de error
 En caso de aparecer un mensaje de error, ¿se ofrecen soluciones claras y efectivas para que la persona usuaria pueda resolver el problema?
-En caso de aparecer un mensaje de error inesperado de origen técnico, ¿se entrega información clara en vez de mensajes ambiguos (&quot;Intente más tarde&quot;, &quot;Comuníquese con el administrador&quot;)?
+En caso de aparecer un mensaje de error inesperado de origen técnico, ¿se entrega información clara en vez de mensajes ambiguos ("Intente más tarde", "Comuníquese con el administrador")?
 Tarea 529
 Diseñar mensajes de error que permitan al usuario continuar, retroceder o abandonar procesos sin bloqueos en la navegación.
 Indicador 2.1.3 / 1.1.3 — Diagnóstico y corrección de errores
@@ -270,7 +248,7 @@ Tarea 546
 Configurar el sitio para que utilice protocolo HTTPS en todas sus páginas, asegurando que el certificado SSL/TLS esté vigente y válido.
 Indicador 8.1.1 / 7.1.1 — Certificado SSL válido y vigente
 ¿El sitio web utiliza el protocolo seguro HTTPS en su URL?
-¿El certificado SSL/TLS es válido? (se verifica que aparezca el texto &quot;La conexión es segura&quot;)
+¿El certificado SSL/TLS es válido? (se verifica que aparezca el texto "La conexión es segura")
 Tarea 547
 Configurar el servidor para redirigir automáticamente todo acceso con protocolo HTTP hacia la versión HTTPS correspondiente.
 Indicador 8.1.2 / 7.1.2 — Redirección de HTTP a HTTPS
@@ -280,7 +258,7 @@ El sitio protege los directorios internos y cuenta con cabeceras de seguridad co
 Tarea 549
 Configurar la cabecera X-Frame-Options con los valores DENY o SAMEORIGIN para bloquear el enmascarado del sitio dentro de páginas externas.
 Indicador 8.1.3 / 7.1.3 — Bloqueo de enmascarado
-¿El sitio web tiene configurada la cabecera &quot;X-Frame-Options&quot; con los valores &quot;DENY&quot; o &quot;SAMEORIGIN&quot;?
+¿El sitio web tiene configurada la cabecera "X-Frame-Options" con los valores "DENY" o "SAMEORIGIN"?
 Tarea 550
 Ajustar la configuración del servidor para inhabilitar la visualización de contenidos en directorios internos.
 Indicador 8.1.4 (exclusivo Sitios web) — Directorios desactivados
@@ -288,11 +266,11 @@ Indicador 8.1.4 (exclusivo Sitios web) — Directorios desactivados
 Tarea 551
 Configurar la cabecera X-Content-Type-Options con el valor nosniff para prevenir ataques MIME.
 Indicador 8.3.1 / 7.3.1 — Prevención de ataques MIME
-¿El sitio tiene configurada la cabecera &quot;X-Content-Type-Options&quot; con el valor &quot;nosniff&quot;?
+¿El sitio tiene configurada la cabecera "X-Content-Type-Options" con el valor "nosniff"?
 Tarea 552
 Implementar la cabecera Referrer-Policy con el valor strict-origin para limitar la información de referencia enviada por el sitio.
 Indicador 8.3.2 / 7.3.2 — Límite de referencias Referrer-Policy
-¿El sitio web tiene configurada la cabecera &quot;Referrer-Policy&quot; con el valor &quot;strict-origin&quot;?
+¿El sitio web tiene configurada la cabecera "Referrer-Policy" con el valor "strict-origin"?
 Hito 555
 El sitio cuenta con una política de privacidad clara, actualizada y accesible desde todas sus páginas.
 Tarea 554
@@ -306,10 +284,11 @@ Indicador 1.1.3 / 5.1.3 — Lenguaje plano
 ¿La redacción prescinde de la jerga técnica o legal?
 ¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?
 ¿Se define cada sigla y acrónimo y se emplean solo si es necesario?
-¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el &quot;no se puede&quot;?
+¿Los contenidos están escritos en tono positivo, indicando lo que se puede hacer y evitando enfocar los mensajes desde el "no se puede"?
 Hito 557
 El sitio web informa de manera clara el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles.
 Tarea 556
 Publicar en el sitio web información clara y comprensible sobre el tipo de cookies utilizadas, sus finalidades y las opciones de control disponibles.
 Indicador 8.3.3 / 7.3.3 — Aviso de uso de cookies
 ¿Proporciona el sitio web información clara y comprensible sobre el tipo de cookies que utiliza, sus finalidades y las opciones de control disponibles para la persona usuaria?
+

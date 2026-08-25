@@ -102,13 +102,12 @@ describe("criterioEntregaCampos", () => {
       }),
     )
     expect(campos.ubicacionEnPantalla).toBe(
-      "Cuerpo › bajo el título H1 'Marcas'",
+      "Cuerpo › bajo el título principal 'Marcas'",
     )
-    expect(campos.justificacion).toContain("título H1 'Marcas'")
-    expect(campos.justificacion).toContain("el texto en negrita (bold) 'INAPI'")
-    expect(campos.justificacion).toContain(
-      "Alineado a la izquierda (align left)",
-    )
+    expect(campos.justificacion).toContain("título principal 'Marcas'")
+    expect(campos.justificacion).toContain("el texto en negrita 'INAPI'")
+    expect(campos.justificacion).toContain("Alineado a la izquierda")
+    expect(campos.justificacion).not.toMatch(/\bH1\b|\(bold\)|align left/i)
   })
 
   test("cumple: citas en comentario → Texto en pantalla", () => {
@@ -123,7 +122,8 @@ describe("criterioEntregaCampos", () => {
     expect(campos.textoEnPantalla).toBe(
       "Te queremos ayudar a utilizar la propiedad industrial",
     )
-    expect(campos.ubicacionEnPantalla).toMatch(/H1|Portada|hero/i)
+    expect(campos.ubicacionEnPantalla).toMatch(/título principal|Portada/i)
+    expect(campos.ubicacionEnPantalla).not.toMatch(/\bH1\b|hero/i)
     expect(campos.ubicacionEnPantalla).not.toMatch(/ubicación exacta no registrada/i)
   })
 

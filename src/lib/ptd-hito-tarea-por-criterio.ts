@@ -2,16 +2,15 @@
  * Mapa LC-* → hito(s) y tarea(s) PTD (OpenProject) desde el checklist editorial.
  * Fuente: data/checklist-editorial-ptd-v2.json (= Word PTD v2.0 + ajustes de entrega).
  *
- * Varias preguntas se repiten bajo más de un hito/tarea: se listan todas
- * **excepto** el hito/tarea meta del checklist (492 / 491): ese par solo declara
- * «implementar el checklist» — ya operativo con los 51 `LC-*` — y no se muestra
- * en UI / PDF / Excel. Las mismas preguntas se muestran bajo los otros hitos
- * operativos donde también aparecen.
+ * Hito **492** / Tarea **491** (checklist editorial meta) **nunca** se muestran en
+ * UI / PDF / Excel: el checklist ya está implementado. Las preguntas que solo
+ * vivían ahí se anclan a hitos operativos (p. ej. Completitud → **498** / **497**).
  *
  * Anclaje entrega (sin solape 494↔496):
  * - Fiabilidad (`LC-1.1.1-*`) → Hito **500** / Tarea **499**
- * - Completitud (`LC-1.1.2-*`) → Hito **492** / Tarea **491** (única ancla PTD; excepción al filtro meta)
+ * - Completitud (`LC-1.1.2-*`) → Hito **498** / Tarea **497**
  * - Redacción (`LC-1.1.5-*`) → Hito **494** / Tarea **493**
+ * - Lenguaje plano (`LC-1.1.3-*`) → Hito **496** / Tarea **495**
  * - Privacidad: RUN/teléfonos → **503**; ARCO → **504**
  * - Contenidos sensibles: identidad → **510**; aptitud → **511**; susceptibilidad → **512**
  *
@@ -28,9 +27,9 @@ export type PtdHitoTareaRef = {
 }
 
 export type PtdHitoTareaLabels = {
-  /** Ej. `492 — La institución… | 500 — Cada página…` */
+  /** Ej. `500 — Cada página…` */
   hitoPtd: string
-  /** Ej. `491 — Implementar un checklist… | 499 — Configurar en el CMS…` */
+  /** Ej. `499 — Configurar en el CMS…` */
   tareaPtd: string
   refs: PtdHitoTareaRef[]
 }
@@ -70,25 +69,34 @@ type LcCriterion = {
 const DASH = "—"
 const TITLE_MAX = 72
 
-/** Hito PTD «checklist editorial implementado» — no mostrar en entregables (salvo Completitud). */
+/** Hito/tarea meta del checklist: nunca en entregables. */
 const META_CHECKLIST_HITO_IDS = new Set([492])
-/** Tarea PTD «Implementar un checklist editorial…» — no mostrar en entregables (salvo Completitud). */
 const META_CHECKLIST_TAREA_IDS = new Set([491])
 
-/** Completitud solo está bajo 492/491 en el PTD: sí se muestra en UI/Excel/PDF. */
-function keepsMetaChecklistAnchor(criterioId: string): boolean {
-  return criterioId.startsWith("LC-1.1.2-")
-}
+/**
+ * Anclas forzadas de entrega cuando el JSON solo tiene la pregunta bajo el meta
+ * 492/491 (u otro solape a evitar).
+ */
+const ANCLA_ENTREGA_FORZADA: Array<{
+  match: (id: string) => boolean
+  hitoId: number
+  tareaId: number
+}> = [
+  {
+    match: (id) => id.startsWith("LC-1.1.2-"),
+    hitoId: 498,
+    tareaId: 497,
+  },
+]
 
 function isMetaChecklistRef(ref: PtdHitoTareaRef): boolean {
-  return META_CHECKLIST_HITO_IDS.has(ref.hitoId) || META_CHECKLIST_TAREA_IDS.has(ref.tareaId)
+  return (
+    META_CHECKLIST_HITO_IDS.has(ref.hitoId) ||
+    META_CHECKLIST_TAREA_IDS.has(ref.tareaId)
+  )
 }
 
-function withoutMetaChecklist(
-  refs: PtdHitoTareaRef[],
-  criterioId: string,
-): PtdHitoTareaRef[] {
-  if (keepsMetaChecklistAnchor(criterioId)) return refs
+function withoutMetaChecklist(refs: PtdHitoTareaRef[]): PtdHitoTareaRef[] {
   return refs.filter((r) => !isMetaChecklistRef(r))
 }
 
@@ -227,9 +235,38 @@ const lcById = new Map(
   ((lcFile as { criteria: LcCriterion[] }).criteria ?? []).map((c) => [c.id, c]),
 )
 
+function refPorHitoTarea(
+  hitoId: number,
+  tareaId: number,
+): PtdHitoTareaRef | null {
+  for (const hito of cl1Hitos()) {
+    if (hito.id !== hitoId) continue
+    for (const tarea of hito.tareas) {
+      if (tarea.id !== tareaId) continue
+      return {
+        hitoId: hito.id,
+        hitoTitulo: hito.titulo,
+        tareaId: tarea.id,
+        tareaDescripcion: tarea.descripcion,
+      }
+    }
+  }
+  return null
+}
+
+function anclaForzadaEntrega(criterioId: string): PtdHitoTareaRef[] | null {
+  for (const rule of ANCLA_ENTREGA_FORZADA) {
+    if (!rule.match(criterioId)) continue
+    const ref = refPorHitoTarea(rule.hitoId, rule.tareaId)
+    return ref ? [ref] : null
+  }
+  return null
+}
+
 /**
  * Resuelve hito(s)/tarea(s) PTD para un id de criterio (LC-* o legado A–H).
  * Legado A–H sin fila en catálogo v3.0 → guion.
+ * Nunca incluye Hito 492 / Tarea 491.
  */
 export function ptdHitoTareaPorCriterio(criterioId: string): PtdHitoTareaLabels {
   const lc = lcById.get(criterioId)
@@ -237,13 +274,16 @@ export function ptdHitoTareaPorCriterio(criterioId: string): PtdHitoTareaLabels 
     return { hitoPtd: DASH, tareaPtd: DASH, refs: [] }
   }
 
+  const forced = anclaForzadaEntrega(criterioId)
+  if (forced) return formatRefs(forced)
+
   const core = stripQuestionCore(lc.criterion || lc.verification)
-  let refs = withoutMetaChecklist(matchByQuestion(core), criterioId)
+  let refs = withoutMetaChecklist(matchByQuestion(core))
   if (refs.length === 0) {
     const codes = [lc.indicator_code_iew, lc.indicator_code_iesd].filter(
       (c): c is string => Boolean(c),
     )
-    refs = withoutMetaChecklist(matchByIndicatorCodes(codes), criterioId)
+    refs = withoutMetaChecklist(matchByIndicatorCodes(codes))
   }
   return formatRefs(refs)
 }

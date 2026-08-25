@@ -6,13 +6,11 @@ import type {
 import type { CriterionEvaluation } from "@contracts/checklist"
 import { CRITERION_IDS_V30 } from "@contracts/checklist"
 
-import {
-  formatCriterioEnunciado,
-  formatSeccionTitulo,
-} from "@/lib/checklist-criterion-catalog"
+import { formatCriterioPdfEncabezado } from "@/lib/checklist-criterion-catalog"
 import { presentacionCriterio } from "@/lib/criterio-evaluacion-visual"
 import {
-  formatFechaEvaluacion,
+  formatFechaEvaluacionDatosUi,
+  formatUsuarioQueAudita,
   labelTipoPagina,
 } from "@/lib/informe-piloto-format"
 import {
@@ -27,6 +25,11 @@ import {
   criterioEntregaCampos,
 } from "@repo/lib/criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
+import {
+  buildResumenHitosAuditoria,
+  CHECKLIST_DATOS_AUDITORIA_VALOR,
+  type ResumenHitoAuditoria,
+} from "@repo/lib/resumen-hitos-auditoria"
 
 const CATALOG_ORDER = new Map(
   (CRITERION_IDS_V30 as readonly string[]).map((id, i) => [id, i]),
@@ -41,20 +44,6 @@ function FieldRow({ label, value }: { label: string; value: string }) {
   )
 }
 
-function BulletList({ items }: { items: string[] }) {
-  if (items.length === 0) return null
-  return (
-    <View>
-      {items.map((item, i) => (
-        <View key={`b-${i}`} style={styles.listItem}>
-          <Text style={styles.listBullet}>•</Text>
-          <Text style={styles.listText}>{item}</Text>
-        </View>
-      ))}
-    </View>
-  )
-}
-
 function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
   const { audit, pilot } = bundle
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[audit.estado_aceptacion]
@@ -64,10 +53,11 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
     <View style={styles.sectionWrap}>
       <PdfSectionBar title="Datos de Auditoría" />
       <FieldRow label="URL" value={audit.url} />
-      <FieldRow label="Checklist" value={audit.version_checklist} />
-      <Text style={styles.fieldLabel}>
-        Cumplimiento (criterios aplicables): {pct} %
-      </Text>
+      <FieldRow
+        label="Checklist 3.0"
+        value={CHECKLIST_DATOS_AUDITORIA_VALOR}
+      />
+      <FieldRow label="Porcentaje" value={`${pct} %`} />
       <View style={styles.progressTrack}>
         <View
           style={[
@@ -84,19 +74,109 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
         label="Aprobados"
         value={`${audit.criterios_aprobados} / aplicables ${audit.criterios_aplicables}`}
       />
-      <FieldRow label="N/A" value={String(audit.criterios_no_aplica)} />
+      <FieldRow label="No aplica" value={String(audit.criterios_no_aplica)} />
       <FieldRow
         label="Fecha de evaluación"
-        value={formatFechaEvaluacion(audit.fecha_evaluacion)}
+        value={formatFechaEvaluacionDatosUi(audit.fecha_evaluacion, audit.url)}
       />
-      <FieldRow label="Encargado" value={audit.evaluador_uid} />
+      <FieldRow
+        label="Usuario que audita"
+        value={formatUsuarioQueAudita()}
+      />
       {pilot.tipo_pagina ? (
         <FieldRow
           label="Tipo de página"
           value={labelTipoPagina(pilot.tipo_pagina)}
         />
       ) : null}
-      <FieldRow label="Id auditoría" value={audit.id} />
+    </View>
+  )
+}
+
+function HitoResumenTablePdf({ hito }: { hito: ResumenHitoAuditoria }) {
+  const colDesc = { width: "28%" as const }
+  const colSm = { width: "8%" as const }
+  const colObs = { width: "13%" as const }
+  const colMed = { width: "12%" as const }
+  const colNo = { width: "9%" as const }
+  const colNa = { width: "9%" as const }
+  const colPct = { width: "8%" as const }
+
+  return (
+    <View style={styles.hitoResumenTable} wrap={false}>
+      <View style={styles.hitoResumenHeaderRow}>
+        <View style={[styles.hitoResumenCell, colDesc]}>
+          <Text style={[styles.hitoResumenHeaderText, { textAlign: "left" }]}>
+            Hito
+          </Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colSm]}>
+          <Text style={styles.hitoResumenHeaderText}>Checklist</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colSm]}>
+          <Text style={styles.hitoResumenHeaderText}>Cumple</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colObs]}>
+          <Text style={styles.hitoResumenHeaderText}>
+            Cumple con Observaciones
+          </Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colMed]}>
+          <Text style={styles.hitoResumenHeaderText}>Medianamente cumple</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colNo]}>
+          <Text style={styles.hitoResumenHeaderText}>No cumple</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colNa]}>
+          <Text style={styles.hitoResumenHeaderText}>No aplica</Text>
+        </View>
+        <View style={[styles.hitoResumenCellLast, colPct]}>
+          <Text style={styles.hitoResumenHeaderText}>% Cumple</Text>
+        </View>
+      </View>
+      <View style={styles.hitoResumenDataRow}>
+        <View style={[styles.hitoResumenCell, colDesc]}>
+          <Text style={styles.hitoResumenDesc}>{hito.hitoTitulo}</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colSm]}>
+          <Text style={styles.hitoResumenNum}>{hito.checklist}</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colSm]}>
+          <Text style={styles.hitoResumenNum}>{hito.cumple}</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colObs]}>
+          <Text style={styles.hitoResumenNum}>
+            {hito.cumpleConObservaciones}
+          </Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colMed]}>
+          <Text style={styles.hitoResumenNum}>{hito.medianamenteCumple}</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colNo]}>
+          <Text style={styles.hitoResumenNum}>{hito.noCumple}</Text>
+        </View>
+        <View style={[styles.hitoResumenCell, colNa]}>
+          <Text style={styles.hitoResumenNum}>{hito.noAplica}</Text>
+        </View>
+        <View style={[styles.hitoResumenCellLast, colPct]}>
+          <Text style={styles.hitoResumenNum}>{hito.pctCumple}%</Text>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+function BloqueResumenHitos({ bundle }: { bundle: ClaudeAuditBundle }) {
+  const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
+  const resumen = buildResumenHitosAuditoria(rows)
+  if (resumen.length === 0) return null
+
+  return (
+    <View style={styles.sectionWrap}>
+      <PdfSectionBar title="Resumen por hito" />
+      {resumen.map((hito) => (
+        <HitoResumenTablePdf key={hito.hitoId} hito={hito} />
+      ))}
     </View>
   )
 }
@@ -213,22 +293,32 @@ function EntregaCamposPdf({
   )
 }
 
-function PreguntaEntregaPdf({ item }: { item: EntregaItem }) {
+function PreguntaEntregaPdf({
+  item,
+  numero,
+}: {
+  item: EntregaItem
+  numero: number
+}) {
   const { row, sustList } = item
   const pres = presentacionCriterio(row)
-  const instrumento = formatSeccionTitulo(row.id)
-  const pregunta = formatCriterioEnunciado(row.id)
-  const estadoLine = `${row.id} · ${pres.etiqueta}`
+
+  const encabezado = (
+    <View>
+      <Text style={styles.preguntaText}>
+        {formatCriterioPdfEncabezado(row.id, numero)}
+      </Text>
+      <Text style={[styles.estadoLine, estadoStyle(row.estado)]}>
+        {pres.etiqueta}
+        {sustList.length > 1 ? ` · ${sustList.length} correcciones` : ""}
+      </Text>
+    </View>
+  )
 
   if (sustList.length === 0) {
     return (
       <View style={styles.preguntaBlock} wrap={false}>
-        <Text style={styles.preguntaText}>
-          {instrumento} — {pregunta}
-        </Text>
-        <Text style={[styles.estadoLine, estadoStyle(row.estado)]}>
-          {estadoLine}
-        </Text>
+        {encabezado}
         <EntregaCamposPdf row={row} />
       </View>
     )
@@ -236,13 +326,7 @@ function PreguntaEntregaPdf({ item }: { item: EntregaItem }) {
 
   return (
     <View style={styles.preguntaBlock}>
-      <Text style={styles.preguntaText}>
-        {instrumento} — {pregunta}
-      </Text>
-      <Text style={[styles.estadoLine, estadoStyle(row.estado)]}>
-        {estadoLine}
-        {sustList.length > 1 ? ` · ${sustList.length} correcciones` : ""}
-      </Text>
+      {encabezado}
       {sustList.map((sust, i) => (
         <View key={`${row.id}-s-${i}`} style={{ marginBottom: 6 }}>
           {sustList.length > 1 ? (
@@ -256,25 +340,23 @@ function PreguntaEntregaPdf({ item }: { item: EntregaItem }) {
 }
 
 /**
- * Estructura tipo Checklist Editorial Word: Hito → Tarea → instrumento/criterio
- * → estado → campos CMS.
+ * Detalle: Hito → Tarea → Criterio N → estado → campos CMS.
  */
 function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
   const arbol = buildArbolHitoTarea(bundle)
-  const nCriterios = arbol.reduce(
-    (acc, h) => acc + h.tareas.reduce((a, t) => a + t.items.length, 0),
-    0,
-  )
+  const numeroPorId = new Map<string, number>()
+  let n = 0
+  for (const hito of arbol) {
+    for (const tarea of hito.tareas) {
+      for (const item of tarea.items) {
+        n += 1
+        numeroPorId.set(item.row.id, n)
+      }
+    }
+  }
 
   return (
     <View style={styles.sectionWrap}>
-      <PdfSectionBar
-        title={`Checklist editorial PTD — ${nCriterios} criterios`}
-      />
-      <Text style={[styles.bodyMuted, { marginBottom: 8 }]}>
-        Lectura: Hito → Tarea → instrumento/criterio → estado → evidencia CMS.
-      </Text>
-
       {arbol.map((hito) => (
         <View key={`h-${hito.hitoId}`} style={styles.hitoBlock}>
           <Text style={styles.hitoTitle}>
@@ -290,7 +372,11 @@ function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
                 {tarea.tareaDescripcion}
               </Text>
               {tarea.items.map((item) => (
-                <PreguntaEntregaPdf key={item.row.id} item={item} />
+                <PreguntaEntregaPdf
+                  key={item.row.id}
+                  item={item}
+                  numero={numeroPorId.get(item.row.id) ?? 0}
+                />
               ))}
             </View>
           ))}
@@ -300,52 +386,16 @@ function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
   )
 }
 
-function BloqueObservacionesSeveridad({
-  severidad,
-}: {
-  severidad: NonNullable<
-    ClaudeAuditBundle["pilot"]["observaciones_lc_por_severidad"]
-  >
-}) {
-  return (
-    <View style={styles.sectionWrap}>
-      <PdfSectionBar title="Observaciones finales por severidad" />
-      <Text style={styles.subheading}>
-        Hallazgos prioritarios (severidad alta)
-      </Text>
-      <BulletList items={severidad.hallazgos_prioridad_alta} />
-      <Text style={styles.subheading}>
-        Hallazgos medianamente prioritarios (severidad media)
-      </Text>
-      <BulletList items={severidad.hallazgos_prioridad_media} />
-      <Text style={styles.subheading}>
-        Hallazgos bajamente prioritarios (severidad baja)
-      </Text>
-      <BulletList items={severidad.hallazgos_prioridad_baja} />
-    </View>
-  )
-}
-
 export type InformePilotoPdfDocumentProps = {
   bundle: ClaudeAuditBundle
 }
 
 /**
- * PDF por URL: datos + checklist editorial (Hito → Tarea → criterio → estado
- * → campos CMS). Sin resumen ni pasos a seguir.
+ * PDF por URL: datos + resumen por hito + detalle (Hito → Tarea → criterio).
  */
 export function InformePilotoPdfDocument({
   bundle,
 }: InformePilotoPdfDocumentProps) {
-  const { pilot } = bundle
-  const severidad = pilot.observaciones_lc_por_severidad
-  const tieneSeveridad = Boolean(
-    severidad &&
-      (severidad.hallazgos_prioridad_alta.length > 0 ||
-        severidad.hallazgos_prioridad_media.length > 0 ||
-        severidad.hallazgos_prioridad_baja.length > 0),
-  )
-
   return (
     <Document
       title={`Informe LC — ${bundle.audit.url}`}
@@ -353,18 +403,10 @@ export function InformePilotoPdfDocument({
     >
       <Page size="A4" style={styles.page} wrap>
         <Text style={styles.docTitle}>Informe de auditoría — Lenguaje Claro</Text>
-        <Text style={styles.docSubtitle}>
-          Checklist editorial PTD · v{bundle.audit.version_checklist} · Hito →
-          Tarea → criterio
-        </Text>
 
         <BloqueDatosAuditoria bundle={bundle} />
-
+        <BloqueResumenHitos bundle={bundle} />
         <BloqueChecklistEditorial bundle={bundle} />
-
-        {tieneSeveridad && severidad ? (
-          <BloqueObservacionesSeveridad severidad={severidad} />
-        ) : null}
       </Page>
     </Document>
   )

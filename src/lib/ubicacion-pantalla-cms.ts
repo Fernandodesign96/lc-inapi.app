@@ -10,7 +10,7 @@ export const TEXTO_SIN_REQUISITO =
   "No hay texto que cumpla con este requisito"
 
 const FALLBACK_SIN_ZONA =
-  "Pantalla evaluada › precisar en auditorías nuevas la ruta completa (Cabecera, Cuerpo, Pie o Modal › bloque o enlace «…»)"
+  "Pantalla evaluada › precisar en auditorías nuevas la ruta completa (Cabecera, Cuerpo, Pie o ventana emergente › bloque o enlace «…»)"
 
 /** True si la ubicación no sirve a Equipo UX (imprecisa, corta o genérica). */
 export function esUbicacionPantallaVaga(raw: string): boolean {
@@ -58,17 +58,19 @@ function primerFragmentoTexto(texto: string): string {
 
 function detectarZonaBase(narracion: string): string | null {
   const n = narracion.toLowerCase()
-  if (/modal/.test(n)) {
-    const m = narracion.match(/modal\s*[«"']([^»"']+)[»"']/i)
-    if (m?.[1]) return `Modal «${m[1].trim()}»`
-    return "Modal de la página"
+  if (/modal|ventana\s+emergente/.test(n)) {
+    const m = narracion.match(
+      /(?:modal|ventana\s+emergente)\s*[«"']([^»"']+)[»"']/i,
+    )
+    if (m?.[1]) return `Ventana emergente «${m[1].trim()}»`
+    return "Ventana emergente de la página"
   }
   if (/pie\s+de\s+p[aá]gina|footer|\bpie\b/.test(n)) return "Pie de página"
   if (/cabecera|encabezado|header|men[uú]\s+(superior|global|principal)/.test(n)) {
     return "Cabecera"
   }
   if (/\bhero\b|portada|parte\s+superior|zona\s+superior/.test(n)) {
-    return "Portada › zona superior (hero)"
+    return "Portada › zona superior destacada"
   }
   if (/cuerpo|secci[oó]n\s+de\s+noticias|novedades/.test(n)) return "Cuerpo"
   return null
@@ -87,26 +89,29 @@ export function construirUbicacionDetallada(
   const lit = primerFragmentoTexto(textoEnPantalla)
   const partes: string[] = []
 
-  // H1 / hero
-  if (/\bH1\b|t[ií]tulo\s+H1|hero/i.test(n)) {
+  // Título principal / zona destacada de portada
+  if (/\bH1\b|t[ií]tulo\s+(?:principal|H1)|hero|título\s+principal/i.test(n)) {
     const quote =
-      n.match(/(?:H1|t[ií]tulo\s+H1)[^\n«"']{0,40}[«"']([^»"']+)[»"']/i)?.[1] ??
-      lit
+      n.match(
+        /(?:H1|t[ií]tulo\s+(?:principal|H1)|título\s+principal)[^\n«"']{0,40}[«"']([^»"']+)[»"']/i,
+      )?.[1] ?? lit
     const label = quote
-      ? `título H1 «${clipLiteral(quote)}»`
-      : "título H1 (zona hero)"
-    return `Portada › zona superior (hero) › ${label}`
+      ? `título principal «${clipLiteral(quote)}»`
+      : "título principal"
+    return `Portada › zona superior destacada › ${label}`
   }
 
-  // Modal + pie (contactos / Dónde estamos)
-  const modalQ = n.match(/modal\s*[«"']([^»"']+)[»"']/i)?.[1]
+  // Ventana emergente + pie (contactos / Dónde estamos)
+  const modalQ = n.match(
+    /(?:modal|ventana\s+emergente)\s*[«"']([^»"']+)[»"']/i,
+  )?.[1]
   const bloqueDonde = /bloque\s*[«"']D[oó]nde estamos[»"']/i.test(n)
   if (modalQ && bloqueDonde) {
-    return `Modal «${modalQ.trim()}» (contacto) y Pie de página › bloque «Dónde estamos» (teléfono, correo y dirección institucionales)`
+    return `Ventana emergente «${modalQ.trim()}» (contacto) y Pie de página › bloque «Dónde estamos» (teléfono, correo y dirección institucionales)`
   }
   if (modalQ) {
     const extra = lit ? ` › texto «${lit}»` : ""
-    return `Modal «${modalQ.trim()}»${extra}`
+    return `Ventana emergente «${modalQ.trim()}»${extra}`
   }
 
   // Bloque de accesos rápidos
@@ -120,10 +125,13 @@ export function construirUbicacionDetallada(
     (/\benlace\b/i.test(n) && lit ? lit : null)
   if (enlaceLit) {
     const zona =
-      detectarZonaBase(n)?.replace(/^Portada › zona superior \(hero\)$/, "Portada") ??
-      ( /pie|footer/i.test(n) ? "Pie de página" : null) ??
-      "Pie de página"
-    const zonaClean = zona.startsWith("Modal") ? "Pie de página" : zona
+      detectarZonaBase(n)?.replace(
+        /^Portada › zona superior destacada$/,
+        "Portada",
+      ) ?? (/pie|footer/i.test(n) ? "Pie de página" : null) ?? "Pie de página"
+    const zonaClean = zona.startsWith("Modal") || zona.startsWith("Ventana")
+      ? "Pie de página"
+      : zona
     return `${zonaClean} › enlace «${clipLiteral(enlaceLit)}»`
   }
 
@@ -131,9 +139,10 @@ export function construirUbicacionDetallada(
   const bloqueLit = n.match(/bloque\s*[«"']([^»"']+)[»"']/i)?.[1]
   if (bloqueLit) {
     const zona = detectarZonaBase(n) ?? "Pie de página"
-    const zonaClean = zona.startsWith("Modal")
-      ? "Pie de página"
-      : zona.replace(/^Portada › zona superior \(hero\)$/, "Portada")
+    const zonaClean =
+      zona.startsWith("Modal") || zona.startsWith("Ventana")
+        ? "Pie de página"
+        : zona.replace(/^Portada › zona superior destacada$/, "Portada")
     return `${zonaClean} › bloque «${clipLiteral(bloqueLit)}»`
   }
 
@@ -266,7 +275,7 @@ export function resolverUbicacionEnPantalla(
     )
   }
   if (lit) {
-    return `Pantalla evaluada › junto al texto «${lit}» (indicar Cabecera, Cuerpo, Pie o Modal › bloque o enlace)`
+    return `Pantalla evaluada › junto al texto «${lit}» (indicar Cabecera, Cuerpo, Pie o ventana emergente › bloque o enlace)`
   }
   return FALLBACK_SIN_ZONA
 }

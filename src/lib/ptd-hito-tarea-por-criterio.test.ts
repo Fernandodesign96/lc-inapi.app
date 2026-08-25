@@ -6,16 +6,17 @@ import {
 } from "./ptd-hito-tarea-por-criterio"
 
 describe("ptdHitoTareaPorCriterio", () => {
-  test("cubre hito/tarea en los 51 LC-* (Completitud bajo meta 492)", () => {
+  test("cubre hito/tarea en los 51 LC-* (sin meta 492)", () => {
     const c = coberturaPtdHitoTarea()
     expect(c.total).toBe(51)
     expect(c.conHito).toBe(51)
     expect(c.sinHito).toEqual([])
   })
 
-  test("no muestra hito 492 ni tarea 491 salvo Completitud", () => {
+  test("nunca muestra hito 492 ni tarea 491", () => {
     for (const id of [
       "LC-1.1.1-01",
+      "LC-1.1.2-01",
       "LC-1.1.3-01",
       "LC-1.1.4-01",
       "LC-1.1.5-01",
@@ -24,9 +25,9 @@ describe("ptdHitoTareaPorCriterio", () => {
       const labels = ptdHitoTareaPorCriterio(id)
       expect(labels.hitoPtd).not.toContain("492")
       expect(labels.tareaPtd).not.toContain("491")
-      expect(labels.refs.every((r) => r.hitoId !== 492 && r.tareaId !== 491)).toBe(
-        true,
-      )
+      expect(
+        labels.refs.every((r) => r.hitoId !== 492 && r.tareaId !== 491),
+      ).toBe(true)
     }
   })
 
@@ -59,7 +60,7 @@ describe("ptdHitoTareaPorCriterio", () => {
     expect(labels.tareaPtd).toContain("516")
   })
 
-  test("Completitud → hito 492 / tarea 491 (única ancla PTD)", () => {
+  test("Completitud → hito 498 / tarea 497 (sin meta 492)", () => {
     for (const id of [
       "LC-1.1.2-01",
       "LC-1.1.2-02",
@@ -67,8 +68,10 @@ describe("ptdHitoTareaPorCriterio", () => {
       "LC-1.1.2-04",
     ] as const) {
       const labels = ptdHitoTareaPorCriterio(id)
-      expect(labels.hitoPtd).toContain("492")
-      expect(labels.tareaPtd).toContain("491")
+      expect(labels.hitoPtd).toContain("498")
+      expect(labels.tareaPtd).toContain("497")
+      expect(labels.hitoPtd).not.toContain("492")
+      expect(labels.tareaPtd).not.toContain("491")
       expect(labels.refs.length).toBeGreaterThan(0)
     }
   })

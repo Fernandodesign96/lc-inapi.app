@@ -31,21 +31,23 @@ Skill para escribir **resultados entendibles** para personas que no son de desar
 
 ## Tipografía, pesos y formato (obligatorio al mencionarlos)
 
-Si se habla de títulos, alineación, negrita, cursiva u otros estilos, usar el rol + literal + término CMS (ES + EN):
+Si se habla de títulos, alineación, negrita, cursiva u otros estilos, usar **palabras claras** (sin H1/H2, CSS ni inglés técnico):
 
 | Concepto | Forma canónica |
 | --- | --- |
-| Título principal | `título H1 'x'` |
-| Subtítulo | `subtítulo h2 'y'` · `subtítulo h3 '…'` |
-| Alineación | `Alineado a la izquierda (align left)` · `Justificado (justify)` |
-| Estilos | `el texto en negrita (bold) 'x'` · `el texto en cursiva (italic) 'y'` · `el texto sin negrita 'x'` |
+| Título principal | `título principal 'x'` |
+| Subtítulo | `subtítulo 'y'` · `título de apartado '…'` |
+| Alineación | `Alineado a la izquierda` · `Justificado` |
+| Estilos | `el texto en negrita 'x'` · `el texto en cursiva 'y'` · `el texto sin negrita 'x'` |
+| Zonas frecuentes | `zona superior destacada` · `ventana emergente` · `pie de página` · `cabecera` |
 
-Ejemplo bueno: «Cambiar el título H1 'Observancia' a lenguaje cotidiano; dejar el texto en negrita (bold) 'INAPI' en el pie.»  
-La entrega (UI/PDF/Excel) pasa por `normalizarLenguajeTipografiaCms` para unificar frases frecuentes.
+Ejemplo bueno: «Cambiar el título principal 'Observancia' a lenguaje cotidiano; dejar el texto en negrita 'INAPI' en el pie.»  
+La entrega (UI/PDF/Excel) pasa por `normalizarLenguajeTipografiaCms` para unificar frases frecuentes (también convierte H1/hero/modal si el JSON aún los trae).
 
 ## Prohibido
 
-Jerga de orquestación, HTML como único hallazgo, “cumple según skill”, mensajes vacíos, inventar KB de PDFs.
+Jerga de orquestación, HTML como único hallazgo, “cumple según skill”, mensajes vacíos, inventar KB de PDFs.  
+En entrega: **no** usar H1/H2/H3, `hero`, `modal`, `footer`, `bold`, `align left` ni selectores CSS.
 
 ## Chequeo rápido
 

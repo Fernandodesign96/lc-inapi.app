@@ -9,7 +9,13 @@ import {
   parrafosInformeLegible,
 } from "@repo/lib/informe-texto-legible"
 
-export { formatFechaEvaluacion, labelTipoPagina } from "@/lib/informe-piloto-format"
+export {
+  formatFechaEvaluacion,
+  formatFechaEvaluacionCorta,
+  formatFechaEvaluacionDatosUi,
+  formatUsuarioQueAudita,
+  labelTipoPagina,
+} from "@/lib/informe-piloto-format"
 
 function SeveridadList({
   titulo,

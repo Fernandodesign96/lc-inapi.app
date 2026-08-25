@@ -10,6 +10,9 @@ export type ChecklistCriterionCatalogRow = {
   source: string
   display_label?: string
   indicator_name?: string
+  indicator_code_display?: string
+  indicator_code_iew?: string
+  indicator_code_iesd?: string | null
 }
 
 /** Texto para la columna «Criterio»: preferir display_label v3.0; si no, id + enunciado. */
@@ -25,6 +28,25 @@ export function formatSeccionTitulo(id: string): string {
   const row = getCriterionCatalogRow(id)
   if (!row) return "—"
   return row.indicator_name ?? row.section_title
+}
+
+/** Encabezado PDF: Criterio N + pregunta + dimensión/códigos al final. */
+export function formatCriterioPdfEncabezado(
+  id: string,
+  numero: number,
+): string {
+  const row = getCriterionCatalogRow(id)
+  const pregunta =
+    row?.criterion?.trim() ||
+    (row?.display_label?.trim() ? row.display_label : id)
+  const nombre = row?.indicator_name?.trim() || "Lenguaje claro"
+  const codigos =
+    row?.indicator_code_display?.trim() ||
+    [row?.indicator_code_iew, row?.indicator_code_iesd]
+      .filter((c): c is string => Boolean(c && String(c).trim()))
+      .join(" / ") ||
+    id
+  return `Criterio ${numero}: ${pregunta} (Dimensión: ${nombre} — ${nombre} ${codigos})`
 }
 
 const criteria = [
