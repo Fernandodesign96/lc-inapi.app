@@ -91,15 +91,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Acerca de INAPI",
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 4)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-22",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H); reauditada el 2026-08-25.
+    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 63.4,
+      porcentajeLc: 68.3,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-acerca-de-inapi_2026-08-22" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-20" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-19" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-18" },

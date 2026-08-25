@@ -50,7 +50,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/acerca-de/inapi",
     nombreUi: "Acerca de INAPI",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-22",
+    auditId: "www-inapi-cl-acerca-de-inapi_2026-08-25",
     rolMetaMei: "Página de información interior (1/2)",
   },
   {
