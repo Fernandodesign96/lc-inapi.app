@@ -78,7 +78,8 @@ function etiquetaCriterioSimple(criterioId: string): string {
 }
 
 /**
- * Quita códigos LC-* / IEW-IESD de textos de entrega y los sustituye por «criterio N».
+ * Quita códigos LC-* / IEW-IESD / Tnnn y jerga de orquestación de textos de entrega
+ * y los sustituye por lenguaje ciudadano («criterio N», sin instrucciones al auditor).
  * También elimina encabezados Criterio N / Instrumento M colados en el cuerpo.
  */
 export function limpiarNomenclaturaEntrega(text: string): string {
@@ -86,6 +87,50 @@ export function limpiarNomenclaturaEntrega(text: string): string {
   let t = stripEncabezadoCriterioInstrumento(text)
   t = t.replace(/\bLC-\d+\.\d+\.\d+-\d+\b/g, (id) =>
     etiquetaCriterioSimple(id),
+  )
+  // Inventario interno T001… — nunca en entrega CMS
+  t = t.replace(/\bT\d{3}\b/g, "")
+  // Campo técnico del catálogo
+  t = t.replace(/\bapplicability\b/gi, "")
+  t = t.replace(/\btipo_pagina\b/gi, "tipo de página")
+  // Acrónimos de instrumentos: siempre nombre completo + sigla
+  t = t.replace(
+    /\bInstrumento de Evaluaci[oó]n de Sitios Web\s*\(IEW\)/gi,
+    "§§IEW§§",
+  )
+  t = t.replace(
+    /\bInstrumento de Evaluaci[oó]n de Servicios Digitales\s*\(IESD\)/gi,
+    "§§IESD§§",
+  )
+  t = t.replace(
+    /\bIEW\b/g,
+    "Instrumento de Evaluación de Sitios Web (IEW)",
+  )
+  t = t.replace(
+    /\bIESD\b/g,
+    "Instrumento de Evaluación de Servicios Digitales (IESD)",
+  )
+  t = t.replace(
+    /§§IEW§§/g,
+    "Instrumento de Evaluación de Sitios Web (IEW)",
+  )
+  t = t.replace(
+    /§§IESD§§/g,
+    "Instrumento de Evaluación de Servicios Digitales (IESD)",
+  )
+  t = t.replace(/\bMETA\s*MEI\b/gi, "muestra de evaluación institucional")
+  // Instrucciones al auditor pegadas por error en ubicación/justificación
+  t = t.replace(
+    /\s*\(indicar\s+Cabecera,\s*Cuerpo,\s*Pie[^)]*\)/gi,
+    "",
+  )
+  t = t.replace(
+    /\s*\(describir bloque o enlace con su r[oó]tulo en auditor[ií]as nuevas\)/gi,
+    "",
+  )
+  t = t.replace(
+    /Pantalla evaluada\s*[›>]\s*precisar en auditor[ií]as nuevas[^«"]*/gi,
+    "Pantalla evaluada › zona del contenido revisado",
   )
   // Códigos de indicador sueltos (1.1.3 / 5.1.3) fuera de contexto de instrumento
   t = t.replace(/\b\d+\.\d+\.\d+(?:\s*\/\s*\d+\.\d+\.\d+)?\b/g, "")
@@ -352,13 +397,15 @@ function conLenguajeTipografiaCms(
   return {
     ...campos,
     textoEnPantalla: normalizarLenguajeTipografiaCms(
-      presentarTextoEnPantallaEntrega(campos.textoEnPantalla),
+      limpiarNomenclaturaEntrega(
+        presentarTextoEnPantallaEntrega(campos.textoEnPantalla),
+      ),
     ),
     correccionPropuesta: normalizarLenguajeTipografiaCms(
-      campos.correccionPropuesta,
+      limpiarNomenclaturaEntrega(campos.correccionPropuesta),
     ),
     ubicacionEnPantalla: normalizarLenguajeTipografiaCms(
-      campos.ubicacionEnPantalla,
+      limpiarNomenclaturaEntrega(campos.ubicacionEnPantalla),
     ),
     justificacion: normalizarLenguajeTipografiaCms(
       limpiarNomenclaturaEntrega(campos.justificacion),

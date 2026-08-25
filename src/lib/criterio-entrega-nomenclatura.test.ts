@@ -17,6 +17,16 @@ describe("limpiarNomenclaturaEntrega", () => {
     expect(out).not.toMatch(/LC-/)
     expect(out.toLowerCase()).toContain("criterio")
   })
+
+  test("quita Tnnn, applicability e instrucciones de ubicación (C-2026-08-25h)", () => {
+    const out = limpiarNomenclaturaEntrega(
+      "Evidencia T020 y T019. El campo applicability es tramites (IESD). Pantalla › texto (indicar Cabecera, Cuerpo, Pie o ventana emergente › bloque).",
+    )
+    expect(out).not.toMatch(/\bT\d{3}\b/)
+    expect(out).not.toMatch(/applicability/i)
+    expect(out).not.toMatch(/indicar Cabecera/i)
+    expect(out).toMatch(/Instrumento de Evaluaci[oó]n de Servicios Digitales \(IESD\)/)
+  })
 })
 
 describe("criterioEntregaCampos — sin nomenclatura en propuesto", () => {

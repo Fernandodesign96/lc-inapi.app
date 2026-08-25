@@ -10,7 +10,7 @@ export const TEXTO_SIN_REQUISITO =
   "No hay texto que cumpla con este requisito"
 
 const FALLBACK_SIN_ZONA =
-  "Pantalla evaluada › precisar en auditorías nuevas la ruta completa (Cabecera, Cuerpo, Pie o ventana emergente › bloque o enlace «…»)"
+  "Pantalla evaluada › zona del contenido revisado › precisar el bloque o enlace con su rótulo visible"
 
 /** True si la ubicación no sirve a Equipo UX (imprecisa, corta o genérica). */
 export function esUbicacionPantallaVaga(raw: string): boolean {
@@ -271,11 +271,11 @@ export function resolverUbicacionEnPantalla(
   }
   if (zona) {
     return normalizarSeparadoresUbicacion(
-      `${zona} › elemento visible evaluado (describir bloque o enlace con su rótulo en auditorías nuevas)`,
+      `${zona} › elemento visible evaluado`,
     )
   }
   if (lit) {
-    return `Pantalla evaluada › junto al texto «${lit}» (indicar Cabecera, Cuerpo, Pie o ventana emergente › bloque o enlace)`
+    return `Cuerpo › junto al texto «${lit}»`
   }
   return FALLBACK_SIN_ZONA
 }
