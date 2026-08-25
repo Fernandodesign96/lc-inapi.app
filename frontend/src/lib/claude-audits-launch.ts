@@ -71,11 +71,12 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Marcas",
     tipoPagina: "sitioweb",
     // Reauditoría META MEI orden 2, checklist PTD-LC v3.0 (51 criterios LC-*).
-    // 2026-08-25: entrega CMS reescrita sin nomenclatura interna (ubicaciones y propuestas
-    // en lenguaje humano) y sección «Trámites» con frase por trámite + subtítulo de sección.
+    // 2026-08-25: corrige el criterio 45 (rótulos/CTA descriptivos), que había quedado en
+    // no_aplica por "página informativa" (calibración C-2026-08-25c); entrega reescrita con
+    // encabezado canónico "Criterio N — Instrumento M" y sin nomenclatura interna.
     claudeAuditId: "www-inapi-cl-marcas_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 73.2,
+      porcentajeLc: 71.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
