@@ -267,7 +267,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-22",
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
@@ -276,10 +276,11 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     resumenMvp: {
       porcentajeLc: 59.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-22" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" },

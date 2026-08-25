@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Noticia — Cuenta Pública Participativa 2026 www.inapi.cl — auditoría v3.0 completa, rechazado 59,0 %](#devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Solicitud Nueva (Marcas) tramites.inapi.cl — reauditoría v3.0 completa, rechazado 71,4 %](#devlog-2026-08-25-solicitud-nueva-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie](#devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos) |
@@ -103,6 +104,35 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Noticia — Cuenta Pública Participativa 2026: auditoría v3.0 completa, rechazado 59,0 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Auditoría completa (Prompt 5, orden 8 de la serie META MEI, primera de dos noticias de detalle) de `https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial`, sustituyendo el JSON del 2026-08-22 (que quedaba en `history[]` junto con los del 2026-08-20, 2026-08-18 y 2026-07-29). Se aplicó todo el conjunto de calibraciones vivas en `06-calibracion-hallazgos.md`, incluida la nueva `C-2026-08-25j` (negritas ausentes = No cumple, sin explicaciones entre paréntesis mezcladas con literales en los cuatro campos CMS).
+
+### Implementación técnica:
+
+- Antes de auditar la URL nueva se cerró trabajo pendiente de una sesión previa (§5.1): se commiteó la documentación de `C-2026-08-25j` en `06-calibracion-hallazgos.md`/CLAUDE.md/Prompt 5/skills 02 y 05, el filtro de paréntesis explicativos en `criterio-entrega-campos.ts` (con test) y la aplicación retroactiva de esa calibración a las auditorías ya cerradas de Acerca de INAPI y Sala de Prensa — Noticias (criterio 39 pasa a severidad alta con el literal completo del párrafo, sin `(sin negrita…)`).
+- Nueva captura Playwright del DOM renderizado de la página (panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto documentados como componentes de layout compartido). HTML guardado en `auditorias/htmls/www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25.html`.
+- El encabezado más visible de la página, antes del título de la noticia, es la etiqueta genérica de plantilla «Detalle» (H1 real), no el título propio del artículo (que aparece después, en un encabezado menor): incumple completitud (título↔contenido), patrón de plantilla de todas las noticias de detalle.
+- El primer párrafo del cuerpo comienza con minúscula y sin sujeto propio («la Casa Central de la…»), evidenciando que falta su cláusula inicial (probablemente la fecha y el lugar exactos del evento): incumple redacción y gramática con severidad alta, y deja además sin resolver el dato «cuándo» del criterio de datos clave (agrupado).
+- Ninguno de los once párrafos del cuerpo destaca en negrita sus palabras o cifras clave: incumple severidad alta (`C-2026-08-25j`), con tres filas de `sustituciones[]` que citan literales completos de tres párrafos distintos (nunca `(sin negrita…)`).
+- El cuerpo tiene once párrafos (máximo recomendado: ocho), el bloque de texto está alineado en formato justificado —verificado con `getComputedStyle` (`text-align: justify`)— en vez de a la izquierda, y varios párrafos concentran varios datos o compromisos distintos en una sola oración larga (evidencia de concisión y de posibilidad de convertir una enumeración en lista).
+- Se repiten en esta página patrones ya documentados en otras URLs de esta sesión: el botón «LINK EXTERNO» del panel de acceso sin destino real, el enlace «Conoce más» del menú global sin indicar de qué trata, la sigla PCT sin definir en el menú (y, de forma propia de esta noticia, también sin definir en el cuerpo del artículo), mayúscula sostenida en la ventana «Buscar y tramitar», y la capitalización incorrecta de «industrial» en el nombre de la institución en el pie de página.
+- Hallazgo fuera del checklist LC, documentado solo en `nota_final_tic`: la primera imagen del carrusel de la noticia tiene alt/título «Portada de las Directrices de Marcas 2026», contenido no relacionado con este artículo.
+- Recuento: 39 criterios aplicables (23 cumple, 16 incumple: 2 alta, 10 media, 4 baja), 12 `no_aplica` con justificación propia → 59,0 % → `rechazado`. Cobertura 1:1 verificada por script (16 criterios incumplidos, 23 filas de `sustituciones[]`, sin filas huérfanas). Escaneo automatizado sin `Tnnn`, `applicability`, `LC-*`, siglas sueltas ni Prompt/§N en los campos de entrega.
+- JSON nuevo en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores, 83 auditorías alineadas).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` — `claudeAuditId` vigente actualizado al id del 2026-08-25, `resumenMvp` recalculado, id del 2026-08-22 movido a `history[]` junto con 2026-08-20, 2026-08-18 y 2026-07-29. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 8) — `auditId` actualizado al id vigente.
+
+### Próximos pasos:
+
+- Continuar la serie META MEI con la segunda noticia de detalle (orden 9) bajo el mismo rigor de calibración.
 
 ---
 
