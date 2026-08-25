@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 71,4 %](#devlog-2026-08-25-patentes-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 73,2 %](#devlog-2026-08-25-marcas-reaudit-v30) |
 | 2026-08-24 | [Frontend: entrega resultado v3.0 — resumen por hito, filtros y PDF alineados](#devlog-2026-08-24-entrega-resultado-v30) |
 | 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
@@ -92,6 +93,31 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-patentes-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Patentes www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 71,4 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la página Patentes (`https://www.inapi.cl/patentes`, META MEI orden 3, Menú principal 2/2) aplicando el mismo estándar de entrega ya corregido en Marcas el mismo día: campos de evidencia y sustituciones en lenguaje humano puro, sin ids de inventario ni referencias de proceso interno, con una fila de sustitución por cada documento o texto localizable distinto.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/patentes`, con apertura y verificación de la ventana de contacto, la ventana de búsqueda «Buscar y tramitar» y el panel de acceso/registro; el DOM coincide con la captura del 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length` de los 11 documentos PDF de la página (8 guías PPH/Global PPH/PAPV + 3 documentos institucionales del pie): sin cambios.
+- Revisión completa del lenguaje de menor a mayor unidad (palabra, frase, oración, párrafo, forma) antes de calificar los 51 criterios; se mantienen los hallazgos de jerga sin definir (novedad, elemento inventivo, aplicación industrial, tasas, Modelos de Utilidad, Esquemas de Trazados o Topografías de Circuitos Integrados, Recursos para Usuarios) y de siglas sin expandir (PCT, PPH, PAPV).
+- 51 criterios evaluados: 28 cumple, 12 incumple, 2 agrupados (`LC-1.2.1-04` → `LC-1.1.3-03`; `LC-1.2.4-08` → `LC-1.2.4-07`), 9 no aplica → 42 aplicables, 71,4 % de cumplimiento → `rechazado` (igual que el 2026-08-22, porque el contenido de la página no cambió).
+- Entrega redactada solo con literales visibles y rutas de pantalla (`Sección «…», tarjeta «…»`); los 8 documentos de las pestañas de guías y los 3 del pie de página tienen cada uno su propia fila de sustitución con formato/peso/descripción, en vez de una fila combinada.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-patentes_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (META MEI extra) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 3) apuntan al nuevo id; `www-inapi-cl-patentes_2026-08-22` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Continuar la cola META MEI (orden 4 en adelante) con la misma disciplina de entrega CMS sin nomenclatura interna.
 
 ---
 
