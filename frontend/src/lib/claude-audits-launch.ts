@@ -36,7 +36,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // severidad media. % baja de 78,9 a 76,9 (30/39 aplicables; antes 30/38).
     claudeAuditId: "www-inapi-cl_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 76.9,
+      porcentajeLc: 75.0,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
@@ -99,7 +99,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H); reauditada el 2026-08-25.
     claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 66.7,
+      porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
@@ -141,14 +141,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 6)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22",
+    // Reauditoría 2026-08-25: aplica C-2026-08-25c (rótulos LC-5.2.4-01 en todas las URLs) y
+    // C-2026-08-25e/f/g (rigor en datos clave, fecha ausente y ausencia total → severidad alta).
+    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 73.5,
+      porcentajeLc: 71.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" },
