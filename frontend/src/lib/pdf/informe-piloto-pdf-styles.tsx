@@ -169,22 +169,24 @@ export const styles = StyleSheet.create({
     color: "#4b5563",
   },
   preguntaMeta: {
-    fontSize: 8,
-    color: "#6b7280",
-    marginBottom: 4,
+    fontSize: 11,
+    fontWeight: 700,
+    color: "#111827",
+    marginTop: 6,
+    marginBottom: 6,
   },
   entregaField: {
-    marginBottom: 3,
+    marginBottom: 4,
     paddingLeft: 4,
   },
   entregaLabel: {
-    fontSize: 8,
+    fontSize: 10,
     fontWeight: 700,
-    color: "#6b7280",
+    color: "#111827",
   },
   entregaValue: {
     fontSize: 9,
-    color: "#374151",
+    color: "#111827",
   },
   hitoResumenTable: {
     marginBottom: 10,

@@ -62,7 +62,7 @@ Carga este archivo al inicio de cada sesión. Skills en `.claude/skills/`. Diagr
 **Nomenclatura:** `{Indicador} {código IEW/IESD} — Criterio: {pregunta del instrumento}`.  
 **ID máquina:** `LC-{código}-{nn}` (ej. `LC-1.1.1-01`). En `sustituciones[].criterio_id` y en la UI/Excel usar el **id** + el `display_label` del catálogo.
 
-**Obligatorio:** ejecutar siempre las **51** preguntas únicas aplicables a la URL (no inventar un 52.º; no omitir exclusivas del instrumento). Conteos: **38** ambos · **10** solo IEW · **3** solo IESD (el listado UX «8 solo IEW» agrupa sensibles×3 como un tema).
+**Obligatorio:** ejecutar siempre las **51** preguntas únicas aplicables a la URL (no inventar un 52.º; no omitir exclusivas del instrumento). Conteos: **39** ambos · **10** solo IEW · **2** solo IESD (el listado UX «8 solo IEW» agrupa sensibles×3 como un tema). `LC-5.2.4-01` (rótulos/CTA) cuenta en **ambos**.
 
 JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen válidos en validación; **no** emitir A1–H1 en auditorías nuevas.
 
@@ -100,7 +100,7 @@ JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen vá
 | Claridad | 5.2.1 | Esperable | + variante `LC-5.2.1-01` (servicio digital) |
 | Concisión | 5.2.2 | Esperable | + variante `LC-5.2.2-01` (inicio+trámite) |
 | Legibilidad | 5.2.3 | Esperable | Mismos que 1.2.3 |
-| Escritura para la web | 5.2.4 | Esperable | + rótulos `LC-5.2.4-01` (solo IESD); sin enlaces relacionados |
+| Escritura para la web | 5.2.4 | Esperable | + rótulos `LC-5.2.4-01` (**ambos** sitioweb/trámites, C-2026-08-25c); sin enlaces relacionados |
 | Objetividad | 5.3.1 | Deseable | Sin el 80 % hechos |
 | Archivo | 5.3.2 | Deseable | Mismo que 1.3.3 |
 
@@ -119,7 +119,8 @@ JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen vá
 - **LC-1.1.7-01 / RUN:** RUT de **persona jurídica pública** (ej. `65.999.669-3` de INAPI en footer) → `cumple`. RUN de persona natural en **HTML estático público** → `incumple`, `severidad: alta`.
 - **Sesión autenticada (`captura_con_sesion: true`):** datos del solicitante logueado en formularios **no** son incumplimiento de privacidad — son esperables. Evaluar etiquetas, ayudas y claridad del trámite. Ver §19.
 - **LC-1.2.4-05 — mayúsculas:** ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** (plantilla). Aplicar en el resto y en `tramites.inapi.cl`.
-- **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer.
+- **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer. **Ausencia total → `severidad: alta` (No cumple)** (C-2026-08-25f); no usar `media`.
+- **LC-1.1.2-03 — datos clave:** aplica a páginas informativas/institucionales con cuerpo; **no** marcar `no_aplica` por «no es trámite» (eso es `LC-1.1.2-04` / criterio 13) — C-2026-08-25e. Si Texto = «No hay texto que cumpla…» → **`severidad: alta` (No cumple)** — C-2026-08-25g.
 - **LC-1.3.1-01 — visualización / apoyos visuales:** responde **solo** «¿hay íconos, imágenes, gráficos o infografías para presentar datos?». Si la portada (u otra URL) ya muestra banners, tarjetas con foto, íconos de sección, gráficos → **`cumple`**, citando en `comentario` qué apoyos se vieron. **`incumple`** solo si faltan apoyos donde los datos lo requieren («faltan gráficos/íconos/imágenes…»). **Prohibido** incumplir este id por `alt` vacío, `alt` genérico, enlace solo-ícono o WCAG: eso **no** es la pregunta del instrumento; anotar en `nota_final_tic` (lenguaje CMS) si conviene, **sin** fila de `sustituciones[]` bajo `LC-1.3.1-01` y **sin** bajar el %. No marcar `incumple` porque Playwright “no encontró” un apoyo que sí es visible: reintentar captura o declarar duda, no inventar fallo.
 - **Títulos, subtítulos, tooltips y jerga visible (LC-1.1.3-03 + LC-1.2.4-02):** el lenguaje plano y los «títulos claros» aplican al **rótulo que se escanea primero** (H1–H3, títulos de tarjeta/sección, ítems de menú, tooltips, textos de íconos), no solo a párrafos largos. Un término legal o técnico como único encabezado (**ej. «Observancia»**) **incumple** jerga / título claro aunque debajo haya un subtítulo explicativo: el subtítulo ayuda, pero quien solo lee el título sigue sin entender. Propuesta CMS: cambiar el título a lenguaje cotidiano **o** dejar el término + glosa breve en el mismo bloque de título (no solo en un párrafo lejano). Revisar también «Dominio Público», «Sistema de Madrid», «Sello de Origen», etc. en menú y secciones. Mismo nodo título → un primario (§20.3); no duplicar el mismo `propuesto` en filas independientes.
 - **Texto + apoyos visuales (escaneo / pirámide, no “diseño UI”):** LC-1.2.4-01/03 evalúan si lo importante se ve primero y si se puede escanear (títulos + tarjetas + íconos que guían). **No** convertir el % LC en auditoría de arquitectura de información completa (peso tipográfico, grilla, jerarquía visual fina): eso es **Usabilidad** (§23); si hay desorden grave que impide entender el mensaje, anotar en `nota_final_tic` en lenguaje CMS y, si aplica, amarrar solo a escaneo/pirámide con evidencia de muro de texto o bloques sin encabezado.
@@ -228,7 +229,7 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | --- | --- | --- |
 | Mayúsculas en navbar | LC-1.2.4-05 | «En el menú lateral, los rótulos MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS están solo en mayúsculas. Cambiar a mayúscula inicial (ej. «Tramitación») para facilitar la lectura.» TI: suele venir del layout compartido. |
 | «Titulos» sin tilde; «Patentes PCT» | LC-1.1.5-01 / LC-1.1.3-05 | «En el menú de Patentes, corregir «Titulos» → «Títulos». Expandir PCT la primera vez o añadir ayuda/tooltip.» |
-| Botones `OK` / `Aceptar` en modales | LC-5.2.4-01 (trámites) / rótulos | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. |
+| Botones `OK` / `Aceptar` / rótulos ambiguos | LC-5.2.4-01 (todas las URLs) | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. En sitioweb: lo mismo para «Más», «LINK EXTERNO», atajos opacos. |
 | PDF sin formato/peso/descripción | LC-1.2.4-07 / LC-1.2.4-08 | «Junto al enlace del documento, mostrar título + formato + peso + breve descripción (ej. «Guía de marcas (PDF, 245 KB) — …»).» |
 | Sin fecha de actualización | LC-1.1.4-01 | «Bajo el título de la página, añadir una línea visible: «Actualizado: DD de mes de AAAA». El © del pie no cuenta como fecha de contenido.» |
 | Título principal genérico o desalineado | LC-1.1.2-01 | «El título principal de la página debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
@@ -545,7 +546,8 @@ git push origin main                      # subir a remoto
 | LC-1.2.1-05 | No hay listas de requisitos de servicios | Home/portal sin requisitos |
 | LC-1.2.2-05 | El texto tiene menos de 4 párrafos continuos | Home con tarjetas cortas |
 | LC-1.2.4-06 | No aplica enlaces relacionados (p. ej. solo trámite IESD sin sitio informativo) | Según `applicability` |
-| LC-5.2.1-01 / LC-5.2.2-01 / LC-5.2.4-01 | Variantes solo IESD en página `sitioweb` informativa pura | Noticia institucional |
+| LC-5.2.1-01 / LC-5.2.2-01 | Variantes solo IESD en página `sitioweb` informativa pura | Noticia institucional |
+| ~~LC-5.2.4-01~~ | **No** usar `no_aplica` por «informativa»: rótulos/CTA aplican siempre (C-2026-08-25c) | — |
 | LC-1.2.4-07 / 08 | No hay documentos descargables | Página sin PDFs |
 | LC-1.3.1-01 | No hay datos que requieran apoyos visuales (página solo narrativa) | Nota sin cifras/datos a ilustrar. **No** marcar `no_aplica` ni `incumple` por problemas de `alt` |
 | LC-1.3.3-01 | No hay versiones anteriores / archivo publicado | Mayoría de URLs |
@@ -878,9 +880,11 @@ Claude Code orquesta; Playwright captura y mide; Chroma fundamenta y trae preced
 
 Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ejecutivo` y `nota_final_tic` **no** es el orquestador: es una persona que corrige textos en Sitefinity / CMS o en el layout compartido. Escribir para esa persona.
 
-**Prohibido en esos campos (mensaje principal):** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma»); sintaxis HTML/DOM como si fuera el hallazgo (`alt=""`, `<img src=…>`, `<a href=…>`, selectores `section.… img`); literales de código (`getComputedStyle`); ubicaciones solo técnicas (`T042`, `HTML-L512`) sin ruta humana.
+**Prohibido en esos campos (mensaje principal):** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma», «mapa D0», «análisis textual ascendente», «Prompt 6/7», códigos `C-YYYY-…`); códigos `LC-*` e IEW/IESD (`1.1.3 / 5.1.3`); sintaxis HTML/DOM como si fuera el hallazgo; ubicaciones o citas solo con ids de inventario (`T042`, `T008–T011`) **sin** literal ni ruta humana.
 
-Escribir lo que la persona **ve** y **debe cambiar** en el CMS («falta una imagen que acompañe el dato», «el banner de Cuenta Pública ya está; el criterio se cumple»). La ancla HTML queda en `html_linea_aprox` / `linea` para TI, **después** del mensaje CMS.
+**Referencias entre criterios:** «el criterio 4», «los criterios 6 y 24» (numeración 1…51). **Encabezado:** `Criterio N: … — Instrumento M: Nombre` — ej. `— Instrumento 3: Lenguaje plano`.
+
+Escribir lo que la persona **ve** y **debe cambiar** en el CMS. La ancla HTML / `Tnnn` / `LC-*` queda en JSON técnico (`html_linea_aprox`, `criterio_id`), **nunca** como mensaje principal de entrega.
 
 ### 22.2 Cada criterio = pregunta del instrumento
 
@@ -899,10 +903,10 @@ La fila en `sustituciones[]` **no reemplaza** la respuesta a la pregunta: la tra
 | Campo | Regla |
 | --- | --- |
 | `ubicacion_pantalla` | Ruta humana **obligatoria y específica**: `Zona › elemento › «rótulo»`. Ej.: `Pie de página › enlace «Política de privacidad»`; `Portada › zona superior destacada › título principal '…'`; `Pie de página › bloque «Dónde estamos»`. **Prohibido:** solo `Tnnn`, solo HTML, o vaguedades (`el enlace`, `el bloque`, `En la página…`). Ver calibración C-2026-08-24. |
-| `original` | Cita corta del texto **visible** a corregir (o descripción de ausencia: «(sin fecha de actualización visible)»). |
-| `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). Sin meta-comentarios («debería mejorarse la claridad»). Si habla de formato tipográfico, usar §22.3bis. |
-| `motivo` | 1–3 frases: (1) respuesta a la pregunta del criterio, (2) por qué el original no cumple, (3) si es patrón de sitio (`patron_sistema: true`), decir «corregir una vez en el layout / componente compartido». |
-| `linea` / `html_linea_aprox` | Secundarios para TIC; no sustituyen a `ubicacion_pantalla`. |
+| `original` | Cita corta del texto **visible** a corregir (o descripción de ausencia: «(sin fecha de actualización visible)»). Si el criterio **cumple**, el comentario (y, en entrega, Texto en pantalla) debe citar esa evidencia — no dejar vacío/`—` mientras la justificación habla de nodos internos. |
+| `propuesto` | Texto **listo para pegar** en el CMS, o instrucción inequívoca («Añadir bajo el título: “Actualizado: DD de mes de AAAA”»). **Sin** meta-comentarios tipográficos o de proceso entre paréntesis («formato de oración, consistente con…», «según Prompt…»). Si habla de formato tipográfico, usar §22.3bis. |
+| `motivo` | 1–3 frases: (1) respuesta a la pregunta del criterio (cumple / medianamente / no), (2) por qué, con literales o zona humana, (3) si es patrón de sitio (`patron_sistema: true`), decir «corregir una vez en el layout / componente compartido». Sin `Tnnn` ni «mapa D0». |
+| `linea` / `html_linea_aprox` | Secundarios para TIC; no sustituyen a `ubicacion_pantalla` ni aparecen en justificación de entrega. |
 
 ### 22.3bis Tipografía, pesos y formato (UI · PDF · Excel)
 
@@ -926,22 +930,30 @@ Aplicar en `comentario`, `motivo`, `propuesto`, `ubicacion_pantalla` y campos de
 - Malo: `T015` / `HTML-L420` / `el enlace` / `El bloque` / `En la página (ubicación exacta no registrada…)`
 - Bueno: `Menú superior › grupo Patentes › enlace «PCT»`
 - Bueno: `Pie de página › enlace «Uso de los Contenidos de este Sitio»`
-- Bueno: `Portada › bloque de accesos rápidos (Estadísticas, Notificaciones diarias, …)`
+- Bueno: `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`
+- Bueno: `Sección «Trámites», títulos bajo cada tarjeta`
 
 **Texto en pantalla (entrega)**
 
 - Malo en PDF/Excel: `(ausencia)`
 - Bueno: `No hay texto que cumpla con este requisito` (en JSON puede quedar `(ausencia)`)
+- Malo si `cumple`: `—` + justificación «tarjetas T008–T011…»
+- Bueno si `cumple`: citar el literal o el rótulo visible que demuestra el sí
+- Malo (C-2026-08-25d): `Texto en pantalla: ¿Los signos de puntuación empleados facilitan la lectura del documento?` (pregunta del criterio)
+- Bueno: solo el literal de la página (p. ej. `Para Informarse`); el encabezado `Criterio N: «pregunta» — Instrumento M` va **solo** en el título de la fila, nunca dentro de los 4 campos CMS
 
 **Propuesto**
 
 - Malo: `Mejorar la redacción con lenguaje claro y voz activa.`
+- Malo: `Solicitud nueva / Títulos y certificados (formato de oración, consistente con Renovación y Anotación)`
 - Bueno: `Protege tu marca en Chile: revisa si ya existe y presenta la solicitud en línea.`
+- Bueno (Trámites): unificar títulos en formato de oración **y** añadir bajo cada tarjeta una frase de qué es el trámite (p. ej. bajo «Anotación»: «Registra cambios en una marca ya inscrita»).
 
 **Motivo**
 
-- Malo: `Incumple LC-1.1.3-02 según skill; evidencia capa R.`
+- Malo: `Incumple LC-1.1.3-02 según skill; evidencia capa R. Mapa D0 (Prompt 6).`
 - Bueno: `La pregunta pide un tono cercano. El texto actual usa voz distante y no dice qué puede hacer la persona. El propuesto dice la acción en presente.`
+- Bueno (secundario agrupado): `Medianamente cumple concisión: la tarjeta «Cómo registrar una marca» concentra tres etapas en una sola oración larga. La lista numerada del criterio de lenguaje plano ya define los términos; aquí basta exigir una idea por paso y frases cortas.`
 
 
 ### 22.5 Instrucción extra al lanzar cada sub-subagente (§17)
@@ -982,7 +994,8 @@ Evaluar **todos** los criterios ≠ inventar un defecto en cada atajo o ítem de
 
 | Criterio / caso | Regla de realismo |
 | --- | --- |
-| **LC-1.1.2-03** (qué / cómo / dónde / cuándo / para quién) | Aplicar a **párrafos, oraciones o recuadros informativos** del cuerpo. **No** exigir resumen en ítems cortos de menú/navegación. |
+| **LC-1.1.2-03** (qué / cómo / dónde / cuándo / para quién) | Aplicar a **párrafos, oraciones o recuadros informativos** del cuerpo (incl. páginas institucionales / hubs / Portada). **No** exigir resumen en ítems cortos de menú/navegación. **Prohibido** `no_aplica` solo porque «no es un trámite» (C-2026-08-25e); eso es `LC-1.1.2-04`. |
+| **LC-1.1.4-01** (fecha) | Sin fecha visible → `incumple` + **`severidad: alta`** (No cumple). `media` solo si la fecha es parcial/ambigua, no si falta por completo (C-2026-08-25f). |
 | **LC-1.1.3-05** (siglas en menú) | Puede incumplir si la sigla aparece sin definición. Preferir propuestas **sutiles** (tooltip/`title`, glosa, definición en destino). |
 | **Claridad/Concisión/Legibilidad sobre navegación** | No tratar labels de menú como “oraciones” o “párrafos” a reescribir. |
 | Páginas con poco texto | Es válido `no_aplica` o `cumple` con comentario breve; **no** fabricar `incumple` para “llenar” el checklist. |
@@ -991,13 +1004,16 @@ Evaluar **todos** los criterios ≠ inventar un defecto en cada atajo o ítem de
 
 Si varios criterios apuntan al **mismo** nodo/texto: primario descuenta; secundarios con `agrupado_en` / `criterios_relacionados` (§20.3). Cada uno mantiene **lógica de justificación propia** (responde su pregunta).
 
+**Propuesto no repetido (C-2026-08-25):** el bloque largo de reescritura CMS vive **una vez** (criterio primario). Secundarios **no** pegar el mismo texto: justificación = respuesta a *su* pregunta; `propuesto` (si hace falta) = enfoque / tipo de palabras / estructura alineada a esa pregunta (concisión ≠ jerga ≠ lista).
+
 **Pero:** no cruzar criterios solo para “aplicar los 51”. Si un criterio **no tiene necesidad real** de corrección en ese elemento (ej. Completitud/datos clave sobre un atajo de tres palabras), no inventar `incumple` ni un `propuesto` idéntico forzado. Preferir `cumple` con evidencia o `no_aplica` con comentario.
 
 ### 22.11 Plantillas de `propuesto` para ausencias frecuentes
 
 **Fecha (`LC-1.1.4-01`)** — si no hay fecha visible:
 
-- `ubicacion_pantalla`: zona donde debe ir (ej. «Bajo el H1 › línea de metadatos de la página»).
+- `estado`: `incumple` · `severidad`: **`alta`** (presentación: No cumple). No usar `media` si la ausencia es total (C-2026-08-25f).
+- `ubicacion_pantalla`: zona donde debe ir (ej. «Bajo el título principal › línea de metadatos de la página»).
 - `propuesto` (instrucción): `Añadir texto visible: «Publicado: DD de mes de AAAA» o «Actualizado: DD de mes de AAAA» (usar la fecha real de publicación/revisión).`
 - No usar solo el © del pie como sustituto de fecha de actualización.
 
@@ -1025,6 +1041,15 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 4. Documentos sin mención de título + formato + peso + descripción (o instrucción de completar formato/peso).
 5. Criterio operativo (ortografía, legibilidad, corrector) sin **cómo** hacerlo efectivo.
 6. `incumple` sin necesidad real en el tipo de elemento (forzado).
+7. Entrega con `Tnnn`, «mapa D0», «Prompt N», `C-YYYY-…`, **`LC-*`** o códigos `1.1.x / 5.1.x` en texto/ubicación/propuesto/justificación.
+8. Mismo `propuesto` largo copiado en criterios secundarios del mismo nodo (debe diferenciarse por la pregunta).
+9. `cumple` con Texto en pantalla `—` / vacío cuando la justificación ya describe evidencia visible.
+10. `propuesto` del tipo «Corregir incumplimiento de …» sin texto CMS ni paso de medición accionable.
+11. Encabezado de criterio con «Dimensión: … 1.1.3» o paréntesis `(Instrumento: …)` en vez de `— Instrumento M: Nombre`.
+12. Pregunta del criterio (o `Criterio N: «…» — Instrumento M`) dentro de Texto en pantalla / ubicación / propuesto / justificación (C-2026-08-25d).
+13. `LC-1.1.2-03` en `no_aplica` solo porque «no es trámite» (C-2026-08-25e).
+14. `LC-1.1.4-01` con ausencia total de fecha y `severidad` distinta de `alta` (C-2026-08-25f).
+15. `LC-1.1.2-03` (u otro) con Texto «No hay texto que cumpla…» y `severidad` distinta de `alta` (C-2026-08-25g).
 
 ---
 
@@ -1047,14 +1072,14 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 
 | Dimensión | Total único | Ambos | Solo IEW | Solo IESD | ¿En % §17 ahora? |
 | --- | --- | --- | --- | --- | --- |
-| **Lenguaje claro** | **51** | 38 | 10 | 3 | **Sí** — JSON canónico = 51 filas `LC-*` |
+| **Lenguaje claro** | **51** | 39 | 10 | 2 | **Sí** — JSON canónico = 51 filas `LC-*` |
 | **Usabilidad** | **18** | 16 | 1 | 1 | **No** (post-Excel LC) |
 | **Seguridad** | **10** | 9 | 1 | 0 | **No** (salvo solape **LC-1.1.7-03**) |
 | **Total 3 dimensiones** | **79** | 65 | 10 | 4 | — |
 
 **Nota conteo LC:** el listado UX «8 solo IEW» agrupa «Contenidos sensibles ×3» como un tema; en filas son 10 exclusivas IEW (38+10+3=51).
 
-**LC — exclusivas:** IEW = conectores, anti-redifusión, RUN, teléfonos/direcciones, sensibles (×3), 80 % hechos vs adjetivos, enlaces relacionados, visualización 1.3.1; IESD = variante claridad «servicio digital», variante concisión inicio+trámite, rótulos de enlace descriptivos.  
+**LC — exclusivas:** IEW = conectores, anti-redifusión, RUN, teléfonos/direcciones, sensibles (×3), 80 % hechos vs adjetivos, enlaces relacionados, visualización 1.3.1; IESD = variante claridad «servicio digital», variante concisión inicio+trámite. **Rótulos de enlace descriptivos (`LC-5.2.4-01`) aplican a ambos** (C-2026-08-25c).  
 **Usabilidad — exclusivas:** IEW = botones de video; IESD = anclar interacciones si autenticado.  
 **Seguridad — exclusiva IEW:** directorios internos no listables.
 
@@ -1093,6 +1118,6 @@ Al auditar LC, cubrir las **51** preguntas únicas aplicables a la URL. La misma
 Antes de `validate:claude-audits`:
 
 1. Exactamente **51** filas `LC-*` en orden del catálogo; cada una con `comentario` (§22.8).
-2. Exclusivas IESD (`LC-5.2.1-01`, `LC-5.2.2-01`, `LC-5.2.4-01`): aplicar en trámites/servicio digital; en sitioweb informativo → `no_aplica` justificado si no caben.
+2. Exclusivas IESD restantes (`LC-5.2.1-01`, `LC-5.2.2-01`): aplicar en trámites/servicio digital; en sitioweb informativo → `no_aplica` justificado. **`LC-5.2.4-01` (rótulos/CTA) se evalúa en todas las URLs** (C-2026-08-25c).
 3. No omitir fecha (`LC-1.1.4-01`), documentos (`LC-1.2.4-07/08`), siglas (`LC-1.1.3-05`), datos clave (`LC-1.1.2-03`) con realismo §22.9–§22.11.
 4. Confirmar que **no** se añadieron Usabilidad (18) ni Seguridad (10) al % de los **51**.

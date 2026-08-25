@@ -1,10 +1,12 @@
 /**
  * Campos de evidencia por criterio para UI, PDF y Excel MEI (misma lógica).
  */
+import lcCatalog from "../../data/checklist-criteria-lc-ptd.json"
 import type { CriterionEvaluation } from "../schemas/checklist"
 import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
 import { isMetadataSustitucion } from "./audit-visible-content"
 import { normalizarLenguajeTipografiaCms } from "./lenguaje-tipografia-cms"
+import { ptdHitoTareaPorCriterio } from "./ptd-hito-tarea-por-criterio"
 import {
   presentarTextoEnPantallaEntrega,
   resolverUbicacionEnPantalla,
@@ -19,6 +21,105 @@ export {
 } from "./ubicacion-pantalla-cms"
 
 const DASH = "—"
+
+const PROPUESTA_FALLBACK_LEGIBLE =
+  "Reescribir el texto citado en oraciones cortas y palabras cotidianas; comprobar la legibilidad con una herramienta de lectura fácil (por ejemplo Legible) hasta alcanzar al menos tres de cinco indicadores en dificultad Normal."
+
+const PROPUESTA_FALLBACK_GENERICA =
+  "Reescribir el texto citado en pantalla con lenguaje cotidiano, oraciones cortas y una idea clara por frase, de modo que una persona lo entienda a la primera."
+
+/** Preguntas del catálogo PTD (nunca deben ir a «Texto en pantalla»). */
+const PREGUNTAS_CRITERIO: ReadonlySet<string> = (() => {
+  const set = new Set<string>()
+  const rows = (lcCatalog as { criteria?: Array<{ criterion?: string }> })
+    .criteria
+  for (const c of rows ?? []) {
+    const q = normalizarPreguntaCriterio(c.criterion ?? "")
+    if (q) set.add(q)
+  }
+  return set
+})()
+
+function normalizarPreguntaCriterio(s: string): string {
+  return s.replace(/\s+/g, " ").trim()
+}
+
+/** True si el fragmento es (o empieza siendo) la pregunta de un criterio del catálogo. */
+export function esPreguntaDeCriterio(fragmento: string): boolean {
+  const t = normalizarPreguntaCriterio(fragmento)
+  if (!t) return false
+  if (PREGUNTAS_CRITERIO.has(t)) return true
+  // Cita truncada o con sufijo («¿…?» · Para Informarse)
+  for (const q of PREGUNTAS_CRITERIO) {
+    if (t === q || t.startsWith(`${q} `) || t.startsWith(`${q}·`)) return true
+  }
+  return false
+}
+
+/**
+ * Quita el encabezado de fila «Criterio N: «pregunta» — Instrumento M: Nombre.»
+ * que a veces se copia dentro de comentario/motivo (no pertenece a los 4 campos CMS).
+ */
+export function stripEncabezadoCriterioInstrumento(text: string): string {
+  if (!text.trim()) return text
+  // Hasta «— Instrumento M: ….» (soporta comillas anidadas en la pregunta)
+  const encabezado =
+    /^Criterio\s+\d+\s*:\s*.+?\s*[—–-]\s*Instrumento\s+\d+\s*:\s*[^.]+.\s*/i
+  let t = text.trim()
+  while (encabezado.test(t)) {
+    t = t.replace(encabezado, "").trim()
+  }
+  return t.replace(/\s{2,}/g, " ").trim()
+}
+
+function etiquetaCriterioSimple(criterioId: string): string {
+  const n = ptdHitoTareaPorCriterio(criterioId).criterioOrdinal
+  return n != null ? `criterio ${n}` : "este criterio"
+}
+
+/**
+ * Quita códigos LC-* / IEW-IESD de textos de entrega y los sustituye por «criterio N».
+ * También elimina encabezados Criterio N / Instrumento M colados en el cuerpo.
+ */
+export function limpiarNomenclaturaEntrega(text: string): string {
+  if (!text.trim()) return text
+  let t = stripEncabezadoCriterioInstrumento(text)
+  t = t.replace(/\bLC-\d+\.\d+\.\d+-\d+\b/g, (id) =>
+    etiquetaCriterioSimple(id),
+  )
+  // Códigos de indicador sueltos (1.1.3 / 5.1.3) fuera de contexto de instrumento
+  t = t.replace(/\b\d+\.\d+\.\d+(?:\s*\/\s*\d+\.\d+\.\d+)?\b/g, "")
+  t = t.replace(/\s{2,}/g, " ").replace(/\s+([.,;:)])/g, "$1").trim()
+  return t
+}
+
+function propuestaEsSoloNomenclatura(propuesto: string): boolean {
+  const t = propuesto.trim()
+  if (!t || t === DASH) return false
+  return (
+    /corregir\s+incumplimiento/i.test(t) ||
+    /^LC-\d/i.test(t) ||
+    /^corregir\s+incumplimiento\s+de\s+(?:el\s+)?criterio\s+\d+/i.test(t) ||
+    /^incumple\s+LC-/i.test(t)
+  )
+}
+
+function corregirPropuestaEntrega(
+  propuesto: string,
+  criterioId: string,
+): string {
+  const limpio = limpiarNomenclaturaEntrega(propuesto)
+  if (!propuestaEsSoloNomenclatura(propuesto) && !propuestaEsSoloNomenclatura(limpio)) {
+    return limpio
+  }
+  if (
+    criterioId === "LC-1.1.3-01" ||
+    /legible|comprensi[oó]n\s+lectora/i.test(propuesto)
+  ) {
+    return PROPUESTA_FALLBACK_LEGIBLE
+  }
+  return PROPUESTA_FALLBACK_GENERICA
+}
 
 const CMS_PROPUESTOS: Partial<Record<string, string>> = {
   E3: "Agregar fecha visible de última actualización en la página (pie o cabecera).",
@@ -87,6 +188,8 @@ export function extraerCitasEntreComillas(text: string): string[] {
   for (const m of text.matchAll(/«([^»]+)»|"([^"]{2,80})"|'([^']{2,80})'/g)) {
     const q = (m[1] ?? m[2] ?? m[3] ?? "").trim()
     if (!q || seen.has(q)) continue
+    // Nunca tratar la pregunta del instrumento como literal en pantalla
+    if (esPreguntaDeCriterio(q)) continue
     seen.add(q)
     out.push(q)
   }
@@ -95,7 +198,7 @@ export function extraerCitasEntreComillas(text: string): string[] {
 
 /**
  * Texto literal que debe ir en «Texto en pantalla»:
- * 1) original de sustitución / cita_textual
+ * 1) original de sustitución / cita_textual (si no es la pregunta del criterio)
  * 2) citas entre comillas en comentario/motivo (también en cumple / no_aplica)
  * 3) no volcar citas si la justificación dice que esos textos no se observaron
  */
@@ -104,25 +207,35 @@ export function resolverTextoEnPantalla(
   sust?: ClaudeSustitucion,
 ): string {
   const fromSust = sust?.original?.trim() ?? ""
-  if (fromSust) return fromSust
+  if (fromSust && !esPreguntaDeCriterio(fromSust)) return fromSust
 
-  const cita = ev.cita_textual?.trim() ?? ""
-  if (cita && cita !== "(ausencia)") return cita
+  const citaRaw = ev.cita_textual?.trim() ?? ""
+  const cita =
+    citaRaw && citaRaw !== "(ausencia)" && !esPreguntaDeCriterio(citaRaw)
+      ? citaRaw
+      : ""
+  if (cita) return cita
 
-  const narracion = [ev.comentario, sust?.motivo].filter(Boolean).join(" ").trim()
+  const narracion = stripEncabezadoCriterioInstrumento(
+    [ev.comentario, sust?.motivo].filter(Boolean).join(" ").trim(),
+  )
   if (!narracion) {
-    if (ev.estado === "incumple" && !sust) return cita || "(ausencia)"
+    if (ev.estado === "incumple" && !sust) {
+      return citaRaw === "(ausencia)" ? "(ausencia)" : DASH
+    }
     return DASH
   }
 
   if (justificacionDeclaraAusenciaDeTextos(narracion)) {
-    return cita === "(ausencia)" ? "(ausencia)" : DASH
+    return citaRaw === "(ausencia)" ? "(ausencia)" : DASH
   }
 
   const quotes = extraerCitasEntreComillas(narracion)
   if (quotes.length > 0) return quotes.join(" · ")
 
-  if (ev.estado === "incumple" && !sust) return cita || "(ausencia)"
+  if (ev.estado === "incumple" && !sust) {
+    return citaRaw === "(ausencia)" ? "(ausencia)" : DASH
+  }
   return DASH
 }
 
@@ -146,8 +259,14 @@ function esMotivoCumpleDebil(comentario: string | undefined): boolean {
 export function justificacionCumple(
   ev: CriterionEvaluation,
 ): string {
-  const cita = ev.cita_textual?.trim() ?? ""
-  const comentario = ev.comentario?.trim() ?? ""
+  const citaRaw = ev.cita_textual?.trim() ?? ""
+  const cita =
+    citaRaw && citaRaw !== "(ausencia)" && !esPreguntaDeCriterio(citaRaw)
+      ? citaRaw
+      : ""
+  const comentario = stripEncabezadoCriterioInstrumento(
+    ev.comentario?.trim() ?? "",
+  )
 
   if (cita) {
     return comentario || MOTIVO_CUMPLE_GENERICO
@@ -226,7 +345,7 @@ export function buildSustitucionPrimariaPorCriterio(
   return map
 }
 
-/** Aplica convenciones tipográficas CMS a los campos narrativos de entrega. */
+/** Aplica convenciones tipográficas CMS y limpia nomenclatura de orquestación. */
 function conLenguajeTipografiaCms(
   campos: CriterioEntregaCampos,
 ): CriterioEntregaCampos {
@@ -241,7 +360,9 @@ function conLenguajeTipografiaCms(
     ubicacionEnPantalla: normalizarLenguajeTipografiaCms(
       campos.ubicacionEnPantalla,
     ),
-    justificacion: normalizarLenguajeTipografiaCms(campos.justificacion),
+    justificacion: normalizarLenguajeTipografiaCms(
+      limpiarNomenclaturaEntrega(campos.justificacion),
+    ),
   }
 }
 
@@ -250,18 +371,55 @@ function conLenguajeTipografiaCms(
  * Una llamada = una corrección. Si hay N sustituciones, llamar N veces (Excel/UI/PDF
  * emiten N filas con el mismo `criterio_id`).
  */
+function narracionLimpia(
+  ev: CriterionEvaluation,
+  sust?: ClaudeSustitucion,
+): string {
+  return stripEncabezadoCriterioInstrumento(
+    [ev.comentario, sust?.motivo].filter(Boolean).join(" "),
+  )
+}
+
+function comentarioLimpio(ev: CriterionEvaluation): string {
+  return stripEncabezadoCriterioInstrumento(ev.comentario?.trim() ?? "")
+}
+
+function motivoLimpio(sust?: ClaudeSustitucion): string {
+  return stripEncabezadoCriterioInstrumento(sust?.motivo?.trim() ?? "")
+}
+
+/** Quita pregunta-de-criterio embebida en rutas de ubicación derivadas. */
+function limpiarUbicacionEntrega(ubicacion: string, textoEnPantalla: string): string {
+  let u = ubicacion.trim()
+  if (!u || u === DASH) return u
+  // Si la ruta cita la pregunta del criterio como si fuera rótulo en pantalla → invalidar
+  const lit = textoEnPantalla.split(/\s*[·|]\s*/)[0]?.trim() ?? ""
+  if (esPreguntaDeCriterio(lit) || /texto\s+«¿[^»]+\?»/i.test(u)) {
+    // Quitar el tramo «texto «¿…?»»; si queda vacío o vago, DASH
+    u = u
+      .replace(/\s*[›>]\s*texto\s+[«"']¿[^»"']+\?[»"']/gi, "")
+      .replace(/[«"']¿[^»"']+\?[»"']/g, (q) =>
+        esPreguntaDeCriterio(q.replace(/[«»"']/g, "")) ? "" : q,
+      )
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s*[›>]\s*$/g, "")
+      .trim()
+  }
+  if (!u || u === DASH) return DASH
+  return u
+}
+
 export function criterioEntregaCampos(
   ev: CriterionEvaluation,
   sust?: ClaudeSustitucion,
 ): CriterioEntregaCampos {
-  const narracion = [ev.comentario, sust?.motivo].filter(Boolean).join(" ")
+  const narracion = narracionLimpia(ev, sust)
   const textoEnPantalla = resolverTextoEnPantalla(ev, sust)
   const ubicacionExplicita =
     sust?.ubicacion_pantalla?.trim() || ev.ubicacion_pantalla?.trim() || ""
-  const ubicacionEnPantalla = resolverUbicacionEnPantalla(
+  const ubicacionEnPantalla = limpiarUbicacionEntrega(
+    resolverUbicacionEnPantalla(textoEnPantalla, ubicacionExplicita, narracion),
     textoEnPantalla,
-    ubicacionExplicita,
-    narracion,
   )
 
   if (ev.estado === "no_aplica") {
@@ -270,7 +428,7 @@ export function criterioEntregaCampos(
       correccionPropuesta: DASH,
       ubicacionEnPantalla,
       justificacion:
-        ev.comentario?.trim() ||
+        comentarioLimpio(ev) ||
         "Sin justificación registrada (auditorías nuevas deben justificar no_aplica).",
       tipoEntregaSinSust: "nuevo_contenido",
       lineaRef: "",
@@ -294,20 +452,30 @@ export function criterioEntregaCampos(
 
   // incumple
   if (sust) {
+    const relacionados = sust.criterios_relacionados ?? []
+    const listaRel =
+      relacionados.length > 0
+        ? [sust.criterio_id, ...relacionados]
+            .map((id) => etiquetaCriterioSimple(id))
+            .join(", ")
+        : ""
     return conLenguajeTipografiaCms({
       textoEnPantalla,
-      correccionPropuesta: sust.propuesto,
+      correccionPropuesta: corregirPropuestaEntrega(
+        sust.propuesto,
+        sust.criterio_id || ev.id,
+      ),
       ubicacionEnPantalla,
       justificacion: [
-        ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
+        ev.agrupado_en
+          ? `Agrupado en el ${etiquetaCriterioSimple(ev.agrupado_en)} (mismo nodo).`
+          : null,
         sust.patron_sistema
-          ? "Patrón de sitio (corregir en Layout/header/footer/modal compartido)."
+          ? "Patrón de sitio (corregir una vez en el layout o componente compartido del CMS)."
           : null,
-        sust.criterios_relacionados?.length
-          ? `Criterios: ${sust.criterio_id}, ${sust.criterios_relacionados.join(", ")}.`
-          : null,
-        sust.motivo,
-        ev.comentario,
+        listaRel ? `Criterios relacionados: ${listaRel}.` : null,
+        motivoLimpio(sust) || null,
+        comentarioLimpio(ev) || null,
       ]
         .filter(Boolean)
         .join(" "),
@@ -319,14 +487,20 @@ export function criterioEntregaCampos(
   }
 
   const cms = CMS_PROPUESTOS[ev.id]
-  const propuesto = cms ?? `Corregir incumplimiento de ${ev.id}.`
+  const propuesto = corregirPropuestaEntrega(
+    cms ?? `Corregir incumplimiento de ${ev.id}.`,
+    ev.id,
+  )
   return conLenguajeTipografiaCms({
     textoEnPantalla,
     correccionPropuesta: propuesto,
     ubicacionEnPantalla,
     justificacion: [
-      ev.agrupado_en ? `Agrupado en ${ev.agrupado_en} (mismo nodo).` : null,
-      ev.comentario ?? `Incumple ${ev.id} sin fila en sustituciones[].`,
+      ev.agrupado_en
+        ? `Agrupado en el ${etiquetaCriterioSimple(ev.agrupado_en)} (mismo nodo).`
+        : null,
+      comentarioLimpio(ev) ||
+        `Incumple el ${etiquetaCriterioSimple(ev.id)} sin fila de corrección registrada.`,
     ]
       .filter(Boolean)
       .join(" "),

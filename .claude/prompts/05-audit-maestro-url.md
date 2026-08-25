@@ -130,8 +130,8 @@ Orden fijo: Fiabilidad → Completitud → Lenguaje plano → Actualización →
 
 Con las 51 filas borrador, lanzar los **5 sub-subagentes** (§17.2) — pueden trabajar en paralelo sobre el mismo borrador:
 
-1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes.  
-2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`).  
+1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes; literales humanos (C-2026-08-25); sin `Tnnn`/mapa D0/Prompt en entrega.  
+2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`); propuestas sin meta entre paréntesis; no repetir el mismo `propuesto` en criterios secundarios.  
 3. **Veracidad y realismo** — preciso, humano, sin inventar defectos (§20.6 / §22.9).  
 4. **Estructura Excel/tablas** — filas ordenadas, jerarquía clara, casillas no vacías, alineado a columnas de entrega (Prompt 3).  
 5. **Higiene y sensibles** — PI, ARCO, RUN/teléfonos, contenidos sensibles, §18–§19.

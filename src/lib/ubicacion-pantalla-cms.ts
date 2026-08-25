@@ -283,6 +283,14 @@ export function resolverUbicacionEnPantalla(
 /** Presentación de Texto en pantalla para UI/PDF/Excel. */
 export function presentarTextoEnPantallaEntrega(raw: string): string {
   const t = raw.trim()
-  if (t === "(ausencia)" || /^\(ausencia\b/i.test(t)) return TEXTO_SIN_REQUISITO
+  if (
+    t === "(ausencia)" ||
+    /^\(ausencia\b/i.test(t) ||
+    /^\(sin fecha de actualizaci[oó]n visible\)$/i.test(t) ||
+    /^\(no existe en pantalla\)$/i.test(t) ||
+    /^no hay texto que cumpla con este requisito$/i.test(t)
+  ) {
+    return TEXTO_SIN_REQUISITO
+  }
   return raw
 }

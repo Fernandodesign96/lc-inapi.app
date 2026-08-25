@@ -8,10 +8,10 @@
   "indicators_iesd_count": 13,
   "conteos": {
     "total_unicas": 51,
-    "ambos": 38,
+    "ambos": 39,
     "solo_iew": 10,
-    "solo_iesd": 3,
-    "nota_conteo": "El listado UX «8 solo IEW» agrupa «Contenidos sensibles x3» como un tema; en filas JSON son 3 preguntas → 10 exclusivas IEW. 38+10+3=51."
+    "solo_iesd": 2,
+    "nota_conteo": "El listado UX «8 solo IEW» agrupa «Contenidos sensibles x3» como un tema; en filas JSON son 3 preguntas → 10 exclusivas IEW. LC-5.2.4-01 (rótulos/CTA) aplica a sitioweb y trámites (C-2026-08-25c). 39+10+2=51."
   },
   "indicators_iew": [
     {
@@ -877,7 +877,7 @@
       "verification": "¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»? Por ejemplo: «Consultar fecha de pago», «Solicitar certificado».",
       "display_label": "Escritura para la web 5.2.4 — Criterio: ¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»? Por ejemplo: «Consultar fecha de pago», «Solicitar certificado».",
       "source": "IESD 5.2.4",
-      "applicability": "tramites",
+      "applicability": "ambos",
       "criticidad": "esperable",
       "dimension": "lenguaje_claro"
     },

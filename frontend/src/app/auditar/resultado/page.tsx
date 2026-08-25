@@ -89,6 +89,8 @@ import {
 } from "@/lib/criterios-evaluados-filters"
 import {
   formatCriterioEnunciado,
+  formatCriterioPdfEncabezado,
+  formatInstrumentoEntrega,
   formatSeccionTitulo,
 } from "@/lib/checklist-criterion-catalog"
 
@@ -689,7 +691,12 @@ function ResultadoInner() {
                         <TableBody>
                           <TableRow className="hover:bg-transparent">
                             <TableCell className="align-bottom border-r border-border text-left text-sm leading-snug text-foreground">
-                              {hito.hitoTitulo}
+                              <span className="font-medium">
+                                Hito {hito.hitoOrdinal}
+                              </span>
+                              <span className="mt-0.5 block text-muted-foreground">
+                                {hito.hitoTitulo}
+                              </span>
                             </TableCell>
                             <TableCell className="align-bottom border-r border-border text-right tabular-nums">
                               {hito.checklist}
@@ -1069,8 +1076,8 @@ function ResultadoInner() {
                 <TableCaption className="sr-only">
                   Criterios del checklist editorial: Instrumento de evaluación,
                   Estado, Texto en pantalla, Corrección propuesta, Ubicación en
-                  pantalla, Comentario o justificación, Criterio, Hito PTD y
-                  Tarea PTD.
+                  pantalla, Comentario o justificación, Criterio, Hito y
+                  Tarea.
                 </TableCaption>
                 <TableHeader>
                   <TableRow className="border-b border-border bg-muted/50 hover:bg-muted/50">
@@ -1078,26 +1085,26 @@ function ResultadoInner() {
                       Instrumento de evaluación
                     </TableHead>
                     <TableHead className="text-card-foreground">Estado</TableHead>
-                    <TableHead className="min-w-[10rem] text-card-foreground">
+                    <TableHead className="min-w-[10rem] text-sm font-bold text-foreground">
                       Texto en pantalla
                     </TableHead>
-                    <TableHead className="min-w-[10rem] text-card-foreground">
+                    <TableHead className="min-w-[10rem] text-sm font-bold text-foreground">
                       Corrección propuesta
                     </TableHead>
-                    <TableHead className="min-w-[9rem] text-card-foreground">
+                    <TableHead className="min-w-[9rem] text-sm font-bold text-foreground">
                       Ubicación en pantalla
                     </TableHead>
-                    <TableHead className="min-w-[12rem] text-card-foreground">
+                    <TableHead className="min-w-[12rem] text-sm font-bold text-foreground">
                       Comentario / justificación
                     </TableHead>
                     <TableHead className="min-w-[14rem] text-card-foreground">
                       Criterio
                     </TableHead>
                     <TableHead className="min-w-[12rem] text-card-foreground">
-                      Hito PTD
+                      Hito
                     </TableHead>
                     <TableHead className="min-w-[12rem] text-card-foreground">
-                      Tarea PTD
+                      Tarea
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -1201,7 +1208,12 @@ function ResultadoInner() {
                           </span>
                         </TableCell>
                         <TableCell className="max-w-[min(100vw,28rem)] text-sm leading-snug text-foreground">
-                          {formatCriterioEnunciado(row.id)}
+                          {ptd.criterioOrdinal != null
+                            ? formatCriterioPdfEncabezado(
+                                row.id,
+                                ptd.criterioOrdinal,
+                              )
+                            : `${formatCriterioEnunciado(row.id)} — ${formatInstrumentoEntrega(row.id)}`}
                         </TableCell>
                         <TableCell
                           className="max-w-[14rem] text-sm leading-snug text-muted-foreground"

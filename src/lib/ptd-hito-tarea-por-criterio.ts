@@ -27,10 +27,22 @@ export type PtdHitoTareaRef = {
 }
 
 export type PtdHitoTareaLabels = {
-  /** Ej. `500 — Cada página…` */
+  /**
+   * Etiqueta de entrega (numeración simple).
+   * Ej. `Hito 1 — El sitio publica contenidos…`
+   */
   hitoPtd: string
-  /** Ej. `499 — Configurar en el CMS…` */
+  /**
+   * Etiqueta de entrega (numeración simple dentro del hito).
+   * Ej. `Tarea 1 — Corregir y prevenir errores…`
+   */
   tareaPtd: string
+  /** 1…N según orden de hitos PTD (menor id → mayor), excl. 492. */
+  hitoOrdinal: number | null
+  /** 1…M dentro del hito (menor id de tarea → mayor). */
+  tareaOrdinal: number | null
+  /** 1…51 continuo (recorrido Hito → Tarea → catálogo; no reinicia por tarea). */
+  criterioOrdinal: number | null
   refs: PtdHitoTareaRef[]
 }
 
@@ -168,11 +180,121 @@ function buildIndex(): IndexedPair[] {
 
 const INDEX = buildIndex()
 
-function formatRefs(refs: PtdHitoTareaRef[]): PtdHitoTareaLabels {
-  if (refs.length === 0) {
-    return { hitoPtd: DASH, tareaPtd: DASH, refs: [] }
+const lcById = new Map(
+  ((lcFile as { criteria: LcCriterion[] }).criteria ?? []).map((c) => [c.id, c]),
+)
+
+const CATALOG_ORDER = new Map(
+  [...lcById.keys()].map((id, i) => [id, i]),
+)
+
+/**
+ * Numeración de entrega: Hito 1…N (ids PTD asc), Tarea 1…M por hito,
+ * Criterio 1…51 continuo (recorrido Hito → Tarea → catálogo). Ids OpenProject en `refs`.
+ */
+type NumeracionSimple = {
+  hitoOrdinalById: Map<number, number>
+  tareaOrdinalByKey: Map<string, number>
+  criterioOrdinalById: Map<string, number>
+}
+
+function buildNumeracionSimple(): NumeracionSimple {
+  type AccTarea = { tareaId: number; desc: string; criterioIds: string[] }
+  type AccHito = {
+    hitoId: number
+    titulo: string
+    tareas: Map<number, AccTarea>
   }
-  // Deduplicar manteniendo orden
+  const byHito = new Map<number, AccHito>()
+
+  for (const id of lcById.keys()) {
+    const forced = anclaForzadaEntrega(id)
+    let refs: PtdHitoTareaRef[]
+    if (forced) {
+      refs = forced
+    } else {
+      const lc = lcById.get(id)!
+      const core = stripQuestionCore(lc.criterion || lc.verification)
+      refs = withoutMetaChecklist(matchByQuestion(core))
+      if (refs.length === 0) {
+        const codes = [lc.indicator_code_iew, lc.indicator_code_iesd].filter(
+          (c): c is string => Boolean(c),
+        )
+        refs = withoutMetaChecklist(matchByIndicatorCodes(codes))
+      }
+    }
+    const ref = refs[0]
+    if (!ref) continue
+    let h = byHito.get(ref.hitoId)
+    if (!h) {
+      h = { hitoId: ref.hitoId, titulo: ref.hitoTitulo, tareas: new Map() }
+      byHito.set(ref.hitoId, h)
+    }
+    let t = h.tareas.get(ref.tareaId)
+    if (!t) {
+      t = {
+        tareaId: ref.tareaId,
+        desc: ref.tareaDescripcion,
+        criterioIds: [],
+      }
+      h.tareas.set(ref.tareaId, t)
+    }
+    if (!t.criterioIds.includes(id)) t.criterioIds.push(id)
+  }
+
+  const hitoOrdinalById = new Map<number, number>()
+  const tareaOrdinalByKey = new Map<string, number>()
+  const criterioOrdinalById = new Map<string, number>()
+
+  const hitos = [...byHito.values()].sort((a, b) => a.hitoId - b.hitoId)
+  const criterioIdsEnOrden: string[] = []
+  hitos.forEach((h, hi) => {
+    const hitoN = hi + 1
+    hitoOrdinalById.set(h.hitoId, hitoN)
+    const tareas = [...h.tareas.values()].sort((a, b) => a.tareaId - b.tareaId)
+    tareas.forEach((t, ti) => {
+      const tareaN = ti + 1
+      tareaOrdinalByKey.set(`${h.hitoId}:${t.tareaId}`, tareaN)
+      const sorted = [...t.criterioIds].sort(
+        (a, b) =>
+          (CATALOG_ORDER.get(a) ?? 999) - (CATALOG_ORDER.get(b) ?? 999),
+      )
+      for (const cid of sorted) criterioIdsEnOrden.push(cid)
+    })
+  })
+  // Criterios 1…51 en orden de recorrido Hito → Tarea → catálogo (no reinician por tarea).
+  criterioIdsEnOrden.forEach((cid, i) => {
+    criterioOrdinalById.set(cid, i + 1)
+  })
+
+  return { hitoOrdinalById, tareaOrdinalByKey, criterioOrdinalById }
+}
+
+/** Lazy: `anclaForzadaEntrega` se define más abajo. */
+let NUMERACION: NumeracionSimple | null = null
+
+function numeracion(): NumeracionSimple {
+  if (!NUMERACION) NUMERACION = buildNumeracionSimple()
+  return NUMERACION
+}
+
+function emptyLabels(refs: PtdHitoTareaRef[] = []): PtdHitoTareaLabels {
+  return {
+    hitoPtd: DASH,
+    tareaPtd: DASH,
+    hitoOrdinal: null,
+    tareaOrdinal: null,
+    criterioOrdinal: null,
+    refs,
+  }
+}
+
+function formatRefs(
+  refs: PtdHitoTareaRef[],
+  criterioId?: string,
+): PtdHitoTareaLabels {
+  if (refs.length === 0) return emptyLabels()
+  const num = numeracion()
   const seenH = new Set<number>()
   const seenT = new Set<number>()
   const hitoParts: string[] = []
@@ -180,16 +302,33 @@ function formatRefs(refs: PtdHitoTareaRef[]): PtdHitoTareaLabels {
   for (const r of refs) {
     if (!seenH.has(r.hitoId)) {
       seenH.add(r.hitoId)
-      hitoParts.push(`${r.hitoId} — ${truncate(r.hitoTitulo)}`)
+      const n = num.hitoOrdinalById.get(r.hitoId)
+      hitoParts.push(
+        n != null
+          ? `Hito ${n} — ${truncate(r.hitoTitulo)}`
+          : `Hito — ${truncate(r.hitoTitulo)}`,
+      )
     }
     if (!seenT.has(r.tareaId)) {
       seenT.add(r.tareaId)
-      tareaParts.push(`${r.tareaId} — ${truncate(r.tareaDescripcion)}`)
+      const n = num.tareaOrdinalByKey.get(`${r.hitoId}:${r.tareaId}`)
+      tareaParts.push(
+        n != null
+          ? `Tarea ${n} — ${truncate(r.tareaDescripcion)}`
+          : `Tarea — ${truncate(r.tareaDescripcion)}`,
+      )
     }
   }
+  const primary = refs[0]!
   return {
     hitoPtd: hitoParts.join(" | "),
     tareaPtd: tareaParts.join(" | "),
+    hitoOrdinal: num.hitoOrdinalById.get(primary.hitoId) ?? null,
+    tareaOrdinal:
+      num.tareaOrdinalByKey.get(`${primary.hitoId}:${primary.tareaId}`) ?? null,
+    criterioOrdinal: criterioId
+      ? (num.criterioOrdinalById.get(criterioId) ?? null)
+      : null,
     refs,
   }
 }
@@ -231,10 +370,6 @@ function matchByIndicatorCodes(codes: string[]): PtdHitoTareaRef[] {
   return hits
 }
 
-const lcById = new Map(
-  ((lcFile as { criteria: LcCriterion[] }).criteria ?? []).map((c) => [c.id, c]),
-)
-
 function refPorHitoTarea(
   hitoId: number,
   tareaId: number,
@@ -267,15 +402,14 @@ function anclaForzadaEntrega(criterioId: string): PtdHitoTareaRef[] | null {
  * Resuelve hito(s)/tarea(s) PTD para un id de criterio (LC-* o legado A–H).
  * Legado A–H sin fila en catálogo v3.0 → guion.
  * Nunca incluye Hito 492 / Tarea 491.
+ * Etiquetas de entrega: Hito 1…N / Tarea 1…M / Criterio 1…K (no ids OpenProject).
  */
 export function ptdHitoTareaPorCriterio(criterioId: string): PtdHitoTareaLabels {
   const lc = lcById.get(criterioId)
-  if (!lc) {
-    return { hitoPtd: DASH, tareaPtd: DASH, refs: [] }
-  }
+  if (!lc) return emptyLabels()
 
   const forced = anclaForzadaEntrega(criterioId)
-  if (forced) return formatRefs(forced)
+  if (forced) return formatRefs(forced, criterioId)
 
   const core = stripQuestionCore(lc.criterion || lc.verification)
   let refs = withoutMetaChecklist(matchByQuestion(core))
@@ -285,7 +419,7 @@ export function ptdHitoTareaPorCriterio(criterioId: string): PtdHitoTareaLabels 
     )
     refs = withoutMetaChecklist(matchByIndicatorCodes(codes))
   }
-  return formatRefs(refs)
+  return formatRefs(refs, criterioId)
 }
 
 /** Cubre los 51 LC-* (útil en tests). */

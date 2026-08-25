@@ -5,8 +5,10 @@ import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
 import {
   buildSustitucionesPorCriterio,
   criterioEntregaCampos,
+  esPreguntaDeCriterio,
   justificacionCumple,
   resolverTextoEnPantalla,
+  stripEncabezadoCriterioInstrumento,
 } from "./criterio-entrega-campos"
 
 function ev(
@@ -125,6 +127,49 @@ describe("criterioEntregaCampos", () => {
     expect(campos.ubicacionEnPantalla).toMatch(/título principal|Portada/i)
     expect(campos.ubicacionEnPantalla).not.toMatch(/\bH1\b|hero/i)
     expect(campos.ubicacionEnPantalla).not.toMatch(/ubicación exacta no registrada/i)
+  })
+
+  test("no usa la pregunta del criterio como Texto en pantalla (C-2026-08-25d)", () => {
+    expect(
+      esPreguntaDeCriterio(
+        "¿Los signos de puntuación empleados facilitan la lectura del documento?",
+      ),
+    ).toBe(true)
+
+    const stripped = stripEncabezadoCriterioInstrumento(
+      "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. La puntuación de los párrafos institucionales no entorpece la lectura.",
+    )
+    expect(stripped).toBe(
+      "La puntuación de los párrafos institucionales no entorpece la lectura.",
+    )
+    expect(stripped).not.toMatch(/Criterio\s+\d+|Instrumento\s+\d+/i)
+
+    const soloPregunta = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.5-02",
+        estado: "cumple",
+        comentario:
+          "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. La puntuación de los párrafos institucionales y de la lista de Valores no entorpece la lectura.",
+      }),
+    )
+    expect(soloPregunta.textoEnPantalla).toBe("—")
+    expect(soloPregunta.textoEnPantalla).not.toMatch(/signos de puntuaci[oó]n/i)
+    expect(soloPregunta.justificacion).not.toMatch(/^Criterio\s+\d+/i)
+    expect(soloPregunta.justificacion).toMatch(/p[aá]rrafos institucionales/i)
+    expect(soloPregunta.ubicacionEnPantalla).not.toMatch(/signos de puntuaci[oó]n/i)
+    expect(soloPregunta.correccionPropuesta).toBe("—")
+
+    const conLiteralReal = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.5-02",
+        estado: "cumple",
+        comentario:
+          "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. Las tarjetas de «Para Informarse» usan puntuación simple.",
+      }),
+    )
+    expect(conLiteralReal.textoEnPantalla).toBe("Para Informarse")
+    expect(conLiteralReal.justificacion).toMatch(/Para Informarse/)
+    expect(conLiteralReal.justificacion).not.toMatch(/^Criterio\s+\d+/i)
   })
 
   test("con texto infiere ubicación desde narración o usa explícita", () => {

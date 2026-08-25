@@ -64,35 +64,49 @@ export type OpcionTareaFiltro = { id: number; label: string }
 export function opcionesHitoDisponibles(
   rows: CriterionEvaluation[],
 ): OpcionHitoFiltro[] {
-  const map = new Map<number, string>()
+  const map = new Map<number, { ordinal: number; titulo: string }>()
   for (const row of rows) {
-    const ref = ptdHitoTareaPorCriterio(row.id).refs[0]
-    if (!ref) continue
+    const labels = ptdHitoTareaPorCriterio(row.id)
+    const ref = labels.refs[0]
+    if (!ref || labels.hitoOrdinal == null) continue
     if (!map.has(ref.hitoId)) {
-      map.set(ref.hitoId, `${ref.hitoId} — ${ref.hitoTitulo}`)
+      map.set(ref.hitoId, {
+        ordinal: labels.hitoOrdinal,
+        titulo: ref.hitoTitulo,
+      })
     }
   }
   return [...map.entries()]
-    .sort((a, b) => a[0] - b[0])
-    .map(([id, label]) => ({ id, label }))
+    .sort((a, b) => a[1].ordinal - b[1].ordinal)
+    .map(([id, v]) => ({
+      id,
+      label: `Hito ${v.ordinal} — ${v.titulo}`,
+    }))
 }
 
 export function opcionesTareaDisponibles(
   rows: CriterionEvaluation[],
   hitoId: "todos" | number = "todos",
 ): OpcionTareaFiltro[] {
-  const map = new Map<number, string>()
+  const map = new Map<number, { ordinal: number; desc: string }>()
   for (const row of rows) {
-    const ref = ptdHitoTareaPorCriterio(row.id).refs[0]
-    if (!ref) continue
+    const labels = ptdHitoTareaPorCriterio(row.id)
+    const ref = labels.refs[0]
+    if (!ref || labels.tareaOrdinal == null) continue
     if (hitoId !== "todos" && ref.hitoId !== hitoId) continue
     if (!map.has(ref.tareaId)) {
-      map.set(ref.tareaId, `${ref.tareaId} — ${ref.tareaDescripcion}`)
+      map.set(ref.tareaId, {
+        ordinal: labels.tareaOrdinal,
+        desc: ref.tareaDescripcion,
+      })
     }
   }
   return [...map.entries()]
-    .sort((a, b) => a[0] - b[0])
-    .map(([id, label]) => ({ id, label }))
+    .sort((a, b) => a[1].ordinal - b[1].ordinal)
+    .map(([id, v]) => ({
+      id,
+      label: `Tarea ${v.ordinal} — ${v.desc}`,
+    }))
 }
 
 export function opcionesCriterioIds(

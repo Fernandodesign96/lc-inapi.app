@@ -39,9 +39,68 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
 - **Regla:** el campo `applicability` de cada criterio en `data/checklist-criteria-lc-ptd.json` es normativo, no orientativo:
   - `applicability: "sitioweb"` (10 exclusivas IEW: LC-1.1.5-03, LC-1.1.6-02, LC-1.1.7-01, LC-1.1.7-02, LC-1.1.8-01/02/03, LC-1.2.4-06, LC-1.3.1-01, LC-1.3.2-02) → **`no_aplica`** en toda URL `tipo_pagina: "tramites"`, con `comentario`: «Este criterio es exclusivo del instrumento IEW (sitioweb) según el catálogo v3.0; esta URL es tramites (instrumento IESD), por lo que no corresponde evaluarlo aquí.» No es un `no_aplica` para evadir un incumplimiento (§16): es exclusión estructural del catálogo, documentada y simétrica en ambos sentidos.
-  - `applicability: "tramites"` (3 exclusivas IESD: LC-5.2.1-01, LC-5.2.2-01, LC-5.2.4-01) → **evaluar normalmente** (cumple/incumple/no_aplica según evidencia) en toda URL `tramites`; en `sitioweb` siguen siendo `no_aplica` (ya vigente, ver tabla §16).
-  - `applicability: "ambos"` → evaluar igual en los dos tipos de página.
-- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 3 exclusivos IESD como evaluables antes de lanzar los 15 subagentes, para no arrastrar el hábito «sitioweb-first» de las auditorías anteriores de esta serie.
+  - `applicability: "tramites"` (2 exclusivas IESD: LC-5.2.1-01, LC-5.2.2-01) → **evaluar normalmente** en toda URL `tramites`; en `sitioweb` → `no_aplica` justificado.
+  - `applicability: "ambos"` → evaluar igual en los dos tipos de página. **Incluye `LC-5.2.4-01`** (rótulos/CTA descriptivos) — ver C-2026-08-25c.
+- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 2 exclusivos IESD restantes como evaluables antes de lanzar los 15 subagentes.
+
+### C-2026-08-25e — Datos clave (`LC-1.1.2-03`, criterio 12) ≠ autonomía de trámites (`LC-1.1.2-04`, criterio 13)
+
+- **Origen:** revisión Acerca de INAPI — el criterio 12 (`¿El texto destaca los datos clave…?`) se marcó `no_aplica` con el argumento de que la página «no es un trámite»; ese argumento corresponde al criterio 13, no al 12. Mismo error en Portada.
+- **Regla:**
+  1. **Criterio 12 / `LC-1.1.2-03` (datos clave: qué, cómo, dónde, cuándo, para quién o recuadro equivalente):** aplica a páginas **informativas e institucionales** con cuerpo propio (Acerca de, hubs Marcas/Patentes, Portada, buscadores con contenido editorial, etc.). Si falta el resumen/recuadro → `incumple` + fila en `sustituciones[]` (texto, ubicación, propuesto, justificación). **Prohibido** `no_aplica` solo porque «no es un trámite» o «no es un servicio digital».
+  2. **Criterio 13 / `LC-1.1.2-04` (autonomía para realizar trámites):** sí pregunta por textos referidos a **trámites**. En sitioweb institucional sin pasos de trámite → `no_aplica` justificado es correcto.
+  3. Realismo §22.9 se mantiene: no exigir el recuadro en **ítems cortos de menú/navegación** solos; sí exigirlo cuando hay párrafos, tarjetas informativas, hub de sección o pantallas de resultados.
+  4. **Severidad (C-2026-08-25g):** si en entrega el Texto en pantalla es ausencia total («No hay texto que cumpla con este requisito» / `(no existe en pantalla)`) → **`severidad: alta` (No cumple)**. No usar `media` / Medianamente cumple cuando no hay ningún texto que cumpla.
+- **Ejemplo malo:** `no_aplica` en Acerca de INAPI: «no es un trámite ni un servicio con pasos operativos».
+- **Ejemplo bueno:** `incumple` + `alta` + propuesta de recuadro «Qué es / Cómo / Dónde / Cuándo / Para quién» (o, en buscador: conteo de resultados + campo visible); criterio 13 sigue en `no_aplica` en URLs sin trámite.
+- **Aplica a:** todas (sitioweb y trámites).
+- **estado:** vigente
+
+### C-2026-08-25g — Ausencia total de texto que cumpla → No cumple (`severidad: alta`) en datos clave (y análogo)
+
+- **Origen:** revisión Buscador de noticias — criterio 12 con Texto «No hay texto que cumpla con este requisito» pero presentación «Medianamente cumple» (`severidad: media`). Mismo patrón en Portada / Marcas / Acerca de.
+- **Regla:** cuando el defecto es que **no existe** el texto/control requerido (entrega = ausencia / «No hay texto que cumpla…»), la severidad es **`alta` → No cumple**. «Medianamente cumple» (`media`) queda para incumplimientos **parciales** (hay texto, pero incompleto o deficiente). Alineado a C-2026-08-25f (fecha).
+- **Aplica a:** todas; en especial `LC-1.1.2-03` y cualquier criterio con ausencia total documentada en Texto en pantalla.
+- **estado:** vigente
+
+### C-2026-08-25f — Fecha de actualización ausente (`LC-1.1.4-01`, criterio 27) = No cumple (`severidad: alta`)
+
+- **Origen:** revisión Acerca de INAPI — sin fecha visible se entregó como «Medianamente cumple» (`incumple` + `severidad: media`) pese a que no existe ningún texto que cumpla el requisito.
+- **Regla:**
+  1. Si **no hay** fecha de publicación ni de última actualización visible → `incumple` + **`severidad: alta`** (UI/PDF/Excel: **No cumple**). **Prohibido** `media` / «Medianamente cumple» cuando la ausencia es total.
+  2. `©año` del pie **nunca** cuenta como fecha de actualización (regla ya vigente).
+  3. Entrega obligatoria: Texto = `(sin fecha de actualización visible)` / mensaje de ausencia; Ubicación = dónde debe ir la línea; Propuesto = «Añadir texto visible: Actualizado: DD de mes de AAAA…»; Justificación = ausencia total + que el copyright no reemplaza.
+  4. `severidad: media` (Medianamente cumple) solo si hay fecha visible pero **parcialmente** insuficiente (p. ej. año solo, fecha ambigua, o vigente en un bloque y ausente en el contenido principal evaluado) — no cuando no hay nada.
+- **Ejemplo malo:** `incumple` + `media` + «(sin fecha de actualización visible)».
+- **Ejemplo bueno:** `incumple` + `alta` + misma evidencia y propuesta CMS.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25d — Texto en pantalla ≠ pregunta del criterio (ni encabezado Instrumento)
+
+- **Origen:** revisión Acerca de INAPI / criterios 2 y 3 (y patrón en las 5 URLs META MEI) — en «Texto en pantalla», «Ubicación», «Corrección» y «Justificación» aparecía la pregunta del instrumento (`¿Los signos de puntuación…?`, `¿Las frases se relacionan…?`) porque el `comentario` empezaba con el encabezado de fila `Criterio N: «pregunta» — Instrumento M: Nombre.` y la capa de entrega extraía esa cita como si fuera literal de la página.
+- **Regla:**
+  1. El encabezado `Criterio N: «pregunta» — Instrumento M: Nombre` **solo** en el título de la fila (UI/PDF). **Prohibido** copiarlo dentro de `comentario`, `motivo`, `cita_textual`, `original`, `propuesto` o `ubicacion_pantalla`.
+  2. **Texto en pantalla** = solo literales **visibles en la página** (o `(ausencia)` / mensaje de ausencia). **Nunca** la pregunta del criterio ni el nombre del instrumento.
+  3. **Ubicación / corrección / justificación** tampoco deben repetir esa pregunta como si fuera rótulo en pantalla.
+  4. Si `cumple`/`no_aplica` y no hay cita real de la página → Texto = `—` (o ausencia legible) y justificación = análisis sin el encabezado de fila.
+  5. Capa de entrega (`criterio-entrega-campos.ts`): filtra preguntas del catálogo y hace strip del encabezado Criterio/Instrumento (defensa en profundidad).
+- **Ejemplo malo:** `Texto en pantalla: ¿Los signos de puntuación empleados facilitan la lectura del documento? · Para Informarse`
+- **Ejemplo bueno:** `Texto en pantalla: Para Informarse` · Justificación: «Las tarjetas de «Para Informarse» usan puntuación simple…» (sin «Criterio 14: … — Instrumento 5»).
+- **Aplica a:** todas (UI · PDF · Excel). No exige reauditoría completa de las 5 URLs: basta regenerar entrega con el código corregido; reauditoría puntual solo si se quiere enriquecer citas reales donde quedó `—`.
+- **estado:** vigente
+
+### C-2026-08-25c — Rótulos / enlaces / CTA descriptivos (`LC-5.2.4-01`) aplican a TODAS las URLs
+
+- **Origen:** revisión Patentes (META MEI orden 3) y patrón repetido en Portada/Marcas/Acerca de/Buscador — se marcó `no_aplica` con «esta URL es informativa, no un servicio digital».
+- **Regla:** el criterio 42 (`LC-5.2.4-01`) pregunta si los **textos de enlaces, botones y llamados a la acción** describen el destino o la acción (evitar «Haga clic aquí», «Más», «LINK EXTERNO», etc.). Eso **aplica en sitioweb y en trámites**: menú, tarjetas, atajos, ventanas emergentes, pies de página, resultados de búsqueda, CTAs de trámite. **Prohibido** `no_aplica` solo porque la página sea «informativa» o «no sea un flujo de trámite».
+  - Catálogo: `applicability: "ambos"` (ya no `tramites`).
+  - Evaluar: `cumple` / `incumple` (+ sustituciones) según evidencia visible; `no_aplica` solo si **no hay ningún enlace ni botón** evaluable en la vista (caso extremo).
+  - Propuesta CMS: rótulo que diga qué hace o a dónde lleva (ej. «Consultar fecha de pago», «Solicitar certificado», «Ver requisitos de patente»).
+- **Ejemplo malo:** `Justificación: Esta URL es informativa… la variante de rótulos para servicios digitales no corresponde.`
+- **Ejemplo bueno:** citar el rótulo ambiguo («Más», «Anotación», «LINK EXTERNO») + ubicación + propuesta descriptiva.
+- **Aplica a:** todas.
+- **estado:** vigente
 
 ### C-2026-08-21 — Reauditoría completa: precedentes ≠ atajo
 
@@ -152,7 +211,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-08 — Fecha de actualización (`LC-1.1.4-01`)
 
-- **Regla:** sin fecha visible → `(ausencia)` + propuesta de línea visible. **Nunca** usar `©año` del footer como “fecha de actualización”.
+- **Regla:** sin fecha visible → `(ausencia)` / `(sin fecha de actualización visible)` + propuesta de línea visible. **Nunca** usar `©año` del footer como “fecha de actualización”. **Severidad:** ausencia total → `alta` (No cumple); ver C-2026-08-25f.
 
 ### C-2026-08 — Visualización / apoyos (`LC-1.3.1-01`)
 
@@ -211,6 +270,21 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
   - Malo: `Justificación: Las tarjetas T008–T011… El mapa D0… (Prompt 6, C-2026-08-21).`
   - Bueno: `Ubicación: Sección «Para Informarse», tarjeta «Cómo registrar una marca». Texto: «El procedimiento para registrar…». Justificación: la tarjeta usa una sola oración larga con términos no explicados; por eso medianamente cumple concisión.`
 - **Aplica a:** todas (esp. reauditoría Marcas y siguientes META MEI).
+- **estado:** **superseded** por C-2026-08-25b (sin `LC-*` en entrega)
+
+### C-2026-08-25b — Entrega sin ninguna nomenclatura; Instrumento N; criterios 1…51
+
+- **Origen:** revisión Patentes — propuesta «Corregir incumplimiento de LC-1.1.3-01»; encabezados «(Dimensión: Lenguaje plano — Lenguaje plano 1.1.3 / 5.1.3)».
+- **Regla (UI · PDF · Excel de entrega):**
+  1. **Prohibido** en texto/ubicación/propuesto/justificación: `LC-*`, códigos IEW/IESD (`1.1.3`, `5.1.3`), `Tnnn`, mapa D0, Prompt N, `C-YYYY-…`, Layout/header como jerga, etc.
+  2. Referencias cruzadas: «el criterio 4», «los criterios 6 y 24» (numeración simple 1…51), nunca `LC-1.1.3-01`.
+  3. Encabezado de criterio: `Criterio N: «pregunta» — Instrumento M: Nombre` — ej. `— Instrumento 3: Lenguaje plano`, `— Instrumento 1: Fiabilidad`. **Sin** paréntesis ni «Dimensión: … 1.1.3 / 5.1.3».
+  4. **Corrección propuesta** = texto o instrucción CMS accionable. **Prohibido** «Corregir incumplimiento de LC-…» / «Corregir incumplimiento de criterio N» sin decir *qué* escribir o *cómo* medir.
+  5. Legibilidad (criterio de lenguaje orientado a comprensión lectora / Legible): si falta medición, el `propuesto` debe pedir reescritura en lenguaje cotidiano **y** comprobar con herramienta de lectura fácil; no bastar con nombrar el incumplimiento.
+- **Ejemplo malo → bueno (propuesto):**
+  - Malo: `Corregir incumplimiento de LC-1.1.3-01.`
+  - Bueno: `Reescribir la tarjeta «Requisitos para obtener una patente» en oraciones cortas; comprobar con Legible hasta al menos tres de cinco indicadores en dificultad Normal.`
+- **Aplica a:** todas.
 - **estado:** vigente
 
 ### C-2026-08-25 — Marcas: sección «Trámites» — más que unificar mayúsculas
@@ -244,4 +318,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura, **Trámites con frases/subtítulo**, **entrega solo literales C-2026-08-25**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura, **Trámites con frases/subtítulo**, **entrega solo literales C-2026-08-25b**, **rótulos CTA C-2026-08-25c**, **texto ≠ pregunta C-2026-08-25d**, **datos clave ≠ trámite C-2026-08-25e**, **fecha ausente = No cumple C-2026-08-25f**, **ausencia total datos clave = No cumple C-2026-08-25g**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

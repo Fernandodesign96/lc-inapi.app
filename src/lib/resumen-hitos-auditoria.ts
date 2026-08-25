@@ -2,13 +2,17 @@
  * Resumen de cumplimiento por hito PTD (UI · PDF).
  * Categorías MEI: Cumple / Cumple con observaciones / Medianamente cumple /
  * No cumple / No aplica.
+ * Numeración de entrega: Hito 1…N (orden id PTD ascendente).
  */
 import type { CriterionEvaluation } from "../schemas/checklist"
 import { categoriaPresentacionFromEvaluation } from "./mei-export/mei-criterio-categoria"
 import { ptdHitoTareaPorCriterio } from "./ptd-hito-tarea-por-criterio"
 
 export type ResumenHitoAuditoria = {
+  /** Id OpenProject (interno; orden y filtros). */
   hitoId: number
+  /** 1…N en entrega (menor id PTD → mayor). */
+  hitoOrdinal: number
   /** Título del hito (sin prefijo «Hito:»). */
   hitoTitulo: string
   checklist: number
@@ -28,6 +32,7 @@ export function buildResumenHitosAuditoria(
     number,
     {
       titulo: string
+      ordinal: number
       checklist: number
       cumple: number
       cumpleConObservaciones: number
@@ -38,13 +43,15 @@ export function buildResumenHitosAuditoria(
   >()
 
   for (const row of evaluations) {
-    const ref = ptdHitoTareaPorCriterio(row.id).refs[0]
+    const labels = ptdHitoTareaPorCriterio(row.id)
+    const ref = labels.refs[0]
     if (!ref) continue
 
     let g = byHito.get(ref.hitoId)
     if (!g) {
       g = {
         titulo: ref.hitoTitulo,
+        ordinal: labels.hitoOrdinal ?? 0,
         checklist: 0,
         cumple: 0,
         cumpleConObservaciones: 0,
@@ -68,6 +75,7 @@ export function buildResumenHitosAuditoria(
     .sort((a, b) => a[0] - b[0])
     .map(([hitoId, g]) => ({
       hitoId,
+      hitoOrdinal: g.ordinal,
       hitoTitulo: g.titulo,
       checklist: g.checklist,
       cumple: g.cumple,

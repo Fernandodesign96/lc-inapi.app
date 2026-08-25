@@ -34,8 +34,8 @@ Que jefatura / Equipo UX lean el mismo mensaje en los tres canales, sin jerga de
 5. Ubicación en pantalla  
 6. Comentario / justificación  
 7. Criterio  
-8. **Hito PTD**  
-9. **Tarea PTD**  
+8. **Hito**
+9. **Tarea**
 
 En el **PDF**, Texto y Ubicación van juntos (Texto → Ubicación → Corrección → Justificación) para que cada literal tenga zona. En Excel el orden de columnas se mantiene; si hay Texto y falta Ubicación, la entrega completa la zona (explícita, inferida del comentario o fallback CMS).
 
@@ -46,10 +46,14 @@ Excel detalle añade Página, Dirección, Categoría y Línea/ref. técnica; las
 ## Lenguaje de entrega (obligatorio)
 
 - Audiencia: editor CMS / UX / jefatura — **no** desarrollador.
-- Prohibido en `propuesto` / `motivo` / `comentario` / `ubicacion_pantalla`: «subagente», «§17», selectores CSS como único mensaje, HTML crudo como hallazgo.
+- Prohibido en `propuesto` / `motivo` / `comentario` / `ubicacion_pantalla`: «subagente», «§17», «mapa D0», «Prompt N», `C-YYYY-…`, `Tnnn`, **`LC-*`**, códigos `1.1.x / 5.1.x`, selectores CSS como único mensaje, HTML crudo como hallazgo.
+- Encabezado criterio: `Criterio N: … — Instrumento M: Nombre` — no «Dimensión: … 1.1.3 / 5.1.3» ni paréntesis.
+- Referencias: «criterio 4», no `LC-1.1.3-01`. Propuesto accionable (nunca «Corregir incumplimiento de LC-…»).
 - Casillas no vacías (§22.8). Realismo (§22.9): no forzar defectos donde el criterio no cabe.
+- **Cumple → evidencia en Texto en pantalla** (C-2026-08-25): citar lo que se ve; no `—` con justificación que nombra nodos internos.
+- **Propuestas no repetidas** (C-2026-08-25 / §22.10): un `propuesto` largo por nodo (primario); secundarios responden su pregunta con enfoque distinto.
 - **Tipografía / formato** (§22.3bis + skill 02): si se menciona título, alineación o estilo → `título principal '…'`, `subtítulo '…'`, `título de apartado '…'`, `Alineado a la izquierda`, `Justificado`, `el texto en negrita '…'`, `el texto en cursiva '…'`, `el texto sin negrita '…'`. **Sin** H1/H2/H3, hero, modal, bold ni align left. UI/PDF/Excel normalizan vía `lenguaje-tipografia-cms.ts`.
-- **Ubicación detallada** (C-2026-08-24): `Zona › elemento › «rótulo»`; nunca «el enlace» / «el bloque». Ausencia en entrega: `No hay texto que cumpla con este requisito`. **PDF sin** sección «Nota para el equipo TI».
+- **Ubicación detallada** (C-2026-08-24): `Zona › elemento › «rótulo»` (ej. `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`); nunca «el enlace» / «el bloque» / `T008`. Ausencia en entrega: `No hay texto que cumpla con este requisito`. **PDF sin** sección «Nota para el equipo TI».
 
 ## Validación JSON
 
