@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Solicitud Nueva (Marcas) tramites.inapi.cl — reauditoría v3.0 completa, rechazado 71,4 %](#devlog-2026-08-25-solicitud-nueva-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie](#devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 69,8 %](#devlog-2026-08-25-patentes-reaudit-criterio-45-rotulos) |
@@ -101,6 +102,35 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-solicitud-nueva-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Solicitud Nueva (Marcas): reauditoría v3.0 completa, rechazado 71,4 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditoría completa (Prompt 5, orden 6 de la serie META MEI) de `https://www.inapi.cl/marcas/tramites/solicitud-nueva`, sustituyendo el JSON vigente del 2026-08-22. Se aplicó con rigor el conjunto de calibraciones vivas en `06-calibracion-hallazgos.md` que aún no se habían aplicado a esta URL: `C-2026-08-25c` (el criterio 45, rótulos y CTA descriptivos, aplica a todas las URLs — ya no queda `no_aplica` por «es un panel de accesos, no un servicio digital»), `C-2026-08-25e` (el criterio 4, datos clave, no se marca `no_aplica` con la excusa «no es trámite» cuando la URL sí es información de un trámite), `C-2026-08-25f` (fecha de actualización ausente = severidad alta) y `C-2026-08-25g` (ausencia total de texto que cumpla un requisito = severidad alta, nunca media).
+
+### Implementación técnica:
+
+- Nueva captura Playwright del DOM renderizado de la página (panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto verificados con 1 clic; pesos de los 3 documentos del carrusel del pie reverificados hoy vía cabecera HTTP `Content-Length`: 293 KB, 3,3 MB y 590 KB). HTML guardado en `auditorias/htmls/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25.html`.
+- El contenido de la página es equivalente al de la captura del 2026-08-22 (sin cambios editoriales en el sitio); el cambio de puntaje viene de aplicar las calibraciones más recientes, no de un cambio en el sitio.
+- Análisis textual ascendente (Paso D0): confirma que «Publicación en el Diario Oficial», «Pizarra de Pagos» y «Presentación de Escritos» siguen sin definirse, y que no existe ningún párrafo ni recuadro entre el submenú de pestañas y las cinco tarjetas de acción.
+- El criterio 45 (`LC-5.2.4-01`) pasa de `no_aplica` a `incumple` severidad media, con evidencia propia de esta página («Conoce más» del menú global y «LINK EXTERNO» del panel de acceso, ambos componentes compartidos).
+- Los criterios 4 y 5 (`LC-1.1.2-03`/`LC-1.1.2-04`) se mantienen en `incumple` severidad alta (ya lo estaban en la versión anterior), reforzando en el comentario que la ausencia es total y que el criterio 4 sí corresponde evaluarlo en esta URL por ser información de un trámite, no una excepción.
+- El criterio 12 (`LC-1.1.4-01`, fecha) se mantiene en `incumple` pero sube de severidad media a alta, siguiendo `C-2026-08-25f`.
+- Entrega reescrita en su totalidad con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre` en `comentario`, y sin códigos `LC-*`, `Tnnn` ni referencias de orquestación en `ubicacion_pantalla`, `original`, `propuesto` ni `motivo` de `sustituciones[]` (`C-2026-08-25b`/`d`).
+- Recuento (`summarizeEvaluations`: numerador = cumple + agrupados): 16 `no_aplica`, 35 aplicables, 25 aprobados (23 cumple + 2 agrupados) → 71,4 % → `rechazado` (antes 73,5 %, también `rechazado`).
+- JSON nuevo en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #6) — `claudeAuditId` actualizado a la auditoría del 2026-08-25, `resumenMvp` recalculado y el id del 2026-08-22 movido a `history[]` (junto con 2026-08-20, 2026-08-18 y 2026-06-07, que ya estaban ahí). `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 6) — `auditId` actualizado al id vigente.
+- Las entradas de calibración `C-2026-08-25d`, `C-2026-08-25e`, `C-2026-08-25f` y `C-2026-08-25g` ya existían en `06-calibracion-hallazgos.md` (creadas en una sesión previa de esta misma rama); no fue necesario crearlas de nuevo, solo aplicarlas.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; queda cerrada en la serie META MEI orden 6.
 
 ---
 
