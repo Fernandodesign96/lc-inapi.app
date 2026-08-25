@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 69,8 %](#devlog-2026-08-25-patentes-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 71,4 %](#devlog-2026-08-25-marcas-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Portada www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 76,9 %](#devlog-2026-08-25-portada-reaudit-criterio-45-rotulos) |
@@ -99,6 +100,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Acerca de INAPI www.inapi.cl: reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda pasada sobre la reauditoría de «Acerca de INAPI» del día (id `www-inapi-cl-acerca-de-inapi_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «página sitioweb institucional, no un servicio digital ni un trámite». Esa justificación quedó prohibida por la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`). Además, la versión anterior de esta URL todavía no tenía aplicado el encabezado canónico de entrega («Criterio N: «pregunta» — Instrumento M: Nombre») exigido por `C-2026-08-25b`; se aprovechó esta pasada para reescribir los 51 comentarios con ese formato y sin códigos `LC-*` en los campos de entrega.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/acerca-de/inapi` (HTML renderizado + inventario completo de enlaces con `href`); el contenido coincide con el HTML ya versionado en `auditorias/htmls/www-inapi-cl-acerca-de-inapi_2026-08-25.html` de la pasada anterior de esta misma sesión, así que no requirió sobrescritura.
+- Inventario de los 75 enlaces y 2 botones de la página: se confirmaron los mismos dos rótulos genéricos compartidos con Portada/Marcas/Patentes que no describen su destino: el enlace «Conoce más» del menú de navegación global (lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del panel de acceso y registro (`href="#"`, sin destino real configurado). El resto de enlaces propios de la página (submenú de la sección, panel de búsqueda «Buscar y tramitar», pie de página) ya son descriptivos.
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); la del menú de navegación queda `patron_sistema: true`. La fila del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- Se reescribieron los `comentario` de los 51 criterios con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre`, y se reescribieron `resumen_ejecutivo`, `observaciones_lc_por_severidad` y `nota_final_tic` en lenguaje CMS, referenciando criterios por número (1…51) en vez de códigos `LC-*`.
+- Resto del contenido reevaluado contra el DOM actual: equivalente a la revisión previa del mismo día (mismo error de concordancia en «Valores Institucionales», mismas oraciones largas en Visión/Misión, mismos documentos del pie sin formato/peso/descripción, misma alineación justificada).
+- Recuento (fórmula `summarizeEvaluations`: numerador = cumple + agrupados): `criterios_no_aplica` 10→9, `criterios_aplicables` 41→42, `criterios_aprobados` se mantiene en 28 → 66,7 % (antes 68,3 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-acerca-de-inapi_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #4) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 68.3 a 66.7. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 4) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; el resto de URLs META MEI de esta sesión (Patentes, Portada, Buscador de noticias) ya se revisaron en pasadas equivalentes.
 
 ---
 
