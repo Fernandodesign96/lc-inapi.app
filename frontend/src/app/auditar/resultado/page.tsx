@@ -630,7 +630,7 @@ function ResultadoInner() {
                     Usuario que audita:
                   </span>{" "}
                   <span className="font-medium">
-                    {formatUsuarioQueAudita(auditoria.evaluador_uid)}
+                    {formatUsuarioQueAudita()}
                   </span>
                 </p>
                 {pilotMeta?.tipo_pagina ? (

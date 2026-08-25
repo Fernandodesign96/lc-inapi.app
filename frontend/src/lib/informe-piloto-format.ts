@@ -46,7 +46,7 @@ export function formatFechaEvaluacionDatosUi(
 }
 
 /** Auditorías piloto: siempre Fernando Arriagada (UI · PDF). */
-export function formatUsuarioQueAudita(_uid?: string): string {
+export function formatUsuarioQueAudita(): string {
   return "Fernando Arriagada"
 }
 

@@ -81,7 +81,7 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
       />
       <FieldRow
         label="Usuario que audita"
-        value={formatUsuarioQueAudita(audit.evaluador_uid)}
+        value={formatUsuarioQueAudita()}
       />
       {pilot.tipo_pagina ? (
         <FieldRow
@@ -344,7 +344,16 @@ function PreguntaEntregaPdf({
  */
 function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
   const arbol = buildArbolHitoTarea(bundle)
-  let criterioNumero = 0
+  const numeroPorId = new Map<string, number>()
+  let n = 0
+  for (const hito of arbol) {
+    for (const tarea of hito.tareas) {
+      for (const item of tarea.items) {
+        n += 1
+        numeroPorId.set(item.row.id, n)
+      }
+    }
+  }
 
   return (
     <View style={styles.sectionWrap}>
@@ -362,16 +371,13 @@ function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
                 {"\n"}
                 {tarea.tareaDescripcion}
               </Text>
-              {tarea.items.map((item) => {
-                criterioNumero += 1
-                return (
-                  <PreguntaEntregaPdf
-                    key={item.row.id}
-                    item={item}
-                    numero={criterioNumero}
-                  />
-                )
-              })}
+              {tarea.items.map((item) => (
+                <PreguntaEntregaPdf
+                  key={item.row.id}
+                  item={item}
+                  numero={numeroPorId.get(item.row.id) ?? 0}
+                />
+              ))}
             </View>
           ))}
         </View>
