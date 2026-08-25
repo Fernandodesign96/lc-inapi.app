@@ -7,83 +7,360 @@
   "tipo_pagina": "sitioweb",
   "texto_capturado": "T001 [nav global]: Conoce más | Marcas | Patentes | PCT (sin definir en su primera aparición) | Sistema de Madrid | Sello de Origen | Estadísticas | Trámites | Conecta | Dominio Público | Gasto Presupuestario | Aprende | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Nosotros (activo) | Observancia | Datos Abiertos | T002 [cabecera global, EXCLUIDOS de LC-1.2.4-05 por calibración vigente]: «ACCESOS», «BUSCADOR» | T003 [panel de acceso y registro «INAPI», 1 clic desde el ícono de usuario en cabecera, patrón de sitio]: h3 «INAPI»; enlace «Usuario Frecuente» -> ion.inapi.cl; enlace «Registro» -> claveunica.gob.cl; enlace «LINK EXTERNO» (mayúscula sostenida) href=\"#\" sin destino real, confirmado en el DOM actual | T004 [ventana emergente «Buscar y tramitar», 1 clic desde el ícono de lupa en cabecera, patrón de sitio idéntico a Marcas/Patentes/Portada]: h3 «BUSCAR Y TRAMITAR» (mayúscula sostenida); h4 «MARCAS»/«PATENTES» (mayúscula sostenida) con sus propios enlaces | T005 [banner, H1]: «Acerca de» | T006 [banner, H2, mismo bloque visual que T005]: «INAPI» | T007 [breadcrumb]: «Home» › «Nosotros» › «INAPI» | T008 [submenú activo de la sección, títulos claros]: «Funciones», «Objetivos», «Director nacional», «Organigrama», «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable» | T009 [primer párrafo del cuerpo]: «INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile. Le corresponde, asimismo, promover la protección que brinda la propiedad industrial y difundir el acervo tecnológico y la información de que dispone.» | T010 [segundo párrafo del cuerpo, ~48 palabras, una oración con tres gerundios encadenados]: «INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes para el uso y protección de los derechos de propiedad industrial, promoviendo la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.» | T011 [bloque «Visión», ícono ilustrativo, ~56 palabras en una sola oración, en futuro, sin negrita interna]: «INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.» | T012 [bloque «Misión», ícono ilustrativo, ~44 palabras en una sola oración, sin negrita interna]: «Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.» | T013 [sección «Valores Institucionales», lista con 5 ítems, cada etiqueta en negrita]: «Calidad de Servicio: ...y se adoptan medidas necesarias para la mejora continua.» (voz pasiva); «Trabajo en equipo: Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.» (error de concordancia sujeto plural / verbo singular, confirmado en el DOM actual); «Calidad de Vida: ...que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.» (voz pasiva + jerga de gestión); «Innovación: ...»; «Socialmente responsable: ...impacto ambiental (consumo energético, reciclaje, huella de carbono), medidas de inclusión, y de pago oportuno a sus proveedores.» (tres compromisos distintos en una sola oración) | T014 [pie de página, carrusel de logos institucionales, mismo carrusel que Portada/Marcas/Patentes, pesos verificados hoy vía cabecera HTTP Content-Length]: «Plan de Acción de Cumplimiento 2025 (PDF)» = 299.818 bytes ≈ 293 KB (solo formato, sin peso ni descripción); «Teletrabajo» = 3.422.711 bytes ≈ 3,3 MB (sin formato, sin peso, sin descripción); «Código de Ética INAPI 2026» = 604.793 bytes ≈ 590 KB (sin formato, sin peso, sin descripción); resto de logos con título descriptivo salvo un enlace a cchrgm.cl sin texto visible (accesibilidad, fuera del % LC) | T015 [ventana emergente de contacto «¿Quieres contactarnos?», abierta y capturada en el DOM, patrón de sitio idéntico a Portada/Marcas/Patentes]: «Utiliza el canal de comunicación que prefieras:» + tres bloques ícono+título+texto: «(56 2) 2 887 0400» / «Lunes a jueves de 09:00 a 18:00 hrs y viernes de 09:00 a 17:00 hrs.»; «inapi@inapi.cl» / «Tu consulta será atendida por un especialista.» (voz pasiva); «Av. Libertador Bernardo O'Higgins 194, Santiago» / «Lunes a viernes de 09:00 a 14:00 hrs.» | T016 [pie de página, bloque «Dónde estamos»]: «Instituto Nacional de Propiedad<br>industrial (INAPI)<br>RUT: 65.999.669-3» (RUT institucional, persona jurídica pública) — 'industrial' con minúscula inicial rompe el nombre propio, mismo error de otras URLs | T017 [pie de página]: enlace «Política de privacidad» | T018 [pie de página, copyright]: «©2026 INAPI. Todos los derechos reservados» | T019: sin fecha de publicación/actualización visible en esta página | T020 [CSS computado, verificado hoy vía getComputedStyle en .box-texto p, .mision-vision p, .lista-check li]: text-align: justify en el primer y segundo párrafo del cuerpo, en el bloque «Visión», en el bloque «Misión» y en los ítems de «Valores Institucionales» | T021 [meta head, NO USADO como evidencia visible]: title, meta description — descartados por calibración de evidencia visible.\n\nRevisión de lenguaje de menor a mayor unidad (palabra/concepto -> frase -> oración -> párrafo -> forma), previa a la evaluación de los 51 criterios: se detectó jerga institucional sin equivalente común («acervo tecnológico», «gestión por objetivos, medición de productos y orientación hacia la calidad»); un H1 «Acerca de» que depende del H2 adyacente «INAPI» para identificar el contenido; tres oraciones únicas de 44 a 56 palabras (segundo párrafo del cuerpo, Visión, Misión) que empaquetan varias ideas y usan lenguaje aspiracional/autoevaluativo en el caso de la Visión; y un error de concordancia gramatical confirmado en la declaración oficial de «Valores Institucionales» («los asume» en vez de «los asumen»).",
   "criterios_evaluados": [
-    { "id": "LC-1.1.1-01", "estado": "cumple", "comentario": "El pie de página identifica a la institución responsable del contenido, con su nombre y su RUT institucional, y el logo de INAPI está presente en toda la cabecera de la página.", "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3", "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»" },
-    { "id": "LC-1.1.2-01", "estado": "incumple", "severidad": "media", "comentario": "El título principal visible «Acerca de», leído solo, no identifica el contenido de la página: necesita el subtítulo inmediato «INAPI» para tener sentido completo. Evaluación sobre el título visible del banner, no sobre la pestaña del navegador.", "cita_textual": "Acerca de (título principal); INAPI (subtítulo inmediato)", "ubicacion_pantalla": "Banner principal › título principal «Acerca de» y subtítulo «INAPI»" },
-    { "id": "LC-1.1.2-02", "estado": "cumple", "comentario": "No se observan bloques «en construcción» ni secciones vacías: los párrafos institucionales, los bloques de Visión y Misión, y la lista de Valores Institucionales muestran contenido completo.", "cita_textual": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.", "ubicacion_pantalla": "Cuerpo principal, bajo el título" },
-    { "id": "LC-1.1.2-03", "estado": "no_aplica", "comentario": "Esta es una página descriptiva e institucional («Acerca de INAPI»), no un trámite ni un servicio con pasos operativos; no existe un «qué, cómo, dónde, cuándo, para quién» transaccional que deba resumirse en un recuadro." },
-    { "id": "LC-1.1.2-04", "estado": "no_aplica", "comentario": "Esta URL es institucional (sitioweb), no una página de trámite; la autonomía para completar un trámite no corresponde evaluarla en este contenido." },
-    { "id": "LC-1.1.3-01", "estado": "incumple", "severidad": "baja", "comentario": "No se aplicó una herramienta de medición de legibilidad sobre el texto principal de la página en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. Las oraciones largas de los bloques «Visión» y «Misión» (44 a 56 palabras) hacen poco probable que una medición real arroje un resultado «Normal».", "cita_textual": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial...", "ubicacion_pantalla": "Bloque «Visión»" },
-    { "id": "LC-1.1.3-02", "estado": "cumple", "comentario": "El contenido visible (párrafos institucionales, ventana emergente de contacto) mantiene un registro neutro y cercano, sin trato distante ni irrespetuoso hacia la persona usuaria.", "ubicacion_pantalla": "Cuerpo principal y ventana emergente «¿Quieres contactarnos?»" },
-    { "id": "LC-1.1.3-03", "estado": "incumple", "severidad": "media", "comentario": "Dos expresiones de jerga institucional sin definir ni reemplazar por lenguaje cotidiano: «acervo tecnológico», término formal sin equivalente común; y «gestión por objetivos, medición de productos y orientación hacia la calidad», jerga de gestión de bajo valor comunicativo para quien lee la página.", "cita_textual": "difundir el acervo tecnológico y la información de que dispone; ...que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.", "ubicacion_pantalla": "Primer párrafo del cuerpo, bajo el título; Sección «Valores Institucionales», ítem «Calidad de Vida»" },
-    { "id": "LC-1.1.3-04", "estado": "cumple", "comentario": "En el texto visible evaluado no se detectan extranjerismos, eufemismos ni modismos evitables más allá de la jerga ya tratada en el criterio de lenguaje plano y la sigla del menú." },
-    { "id": "LC-1.1.3-05", "estado": "incumple", "severidad": "baja", "comentario": "La sigla «PCT» aparece en el menú de navegación global (escritorio y móvil) sin definirse en su primera aparición.", "cita_textual": "PCT", "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»" },
-    { "id": "LC-1.1.3-06", "estado": "cumple", "comentario": "El contenido institucional describe funciones y valores en tono afirmativo, indicando qué hace y qué promueve INAPI, sin enfocarse en prohibiciones o restricciones." },
-    { "id": "LC-1.1.4-01", "estado": "incumple", "severidad": "media", "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha.", "cita_textual": "(sin fecha de actualización visible)", "ubicacion_pantalla": "Banner principal › bajo el título «Acerca de INAPI»" },
-    { "id": "LC-1.1.5-01", "estado": "incumple", "severidad": "alta", "comentario": "Dos errores visibles: (1) en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución; (2) error de concordancia gramatical en la declaración oficial de «Valores Institucionales», ítem «Trabajo en equipo»: sujeto plural «Los(as) funcionarios(as)» con verbo en singular «asume» (debería ser «asumen»), confirmado en la página actual.", "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI); ...reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.", "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; Sección «Valores Institucionales», ítem «Trabajo en equipo»" },
-    { "id": "LC-1.1.5-02", "estado": "cumple", "comentario": "La puntuación de los párrafos institucionales y de la lista de Valores no entorpece la lectura; la extensión de las oraciones se trata por separado en el criterio de oraciones simples." },
-    { "id": "LC-1.1.5-03", "estado": "no_aplica", "comentario": "Cada párrafo del cuerpo y cada ítem de la lista de Valores Institucionales es una sola oración; no hay dos o más frases dentro del mismo bloque que requieran conectores para relacionarse entre sí." },
-    { "id": "LC-1.1.6-01", "estado": "cumple", "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.", "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»" },
-    { "id": "LC-1.1.6-02", "estado": "cumple", "comentario": "El contenido visible (misión, visión, valores institucionales) corresponde a producción institucional propia; no se observa redifusión de material protegido de terceros sin atribución." },
-    { "id": "LC-1.1.7-01", "estado": "cumple", "comentario": "El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.", "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3", "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»" },
-    { "id": "LC-1.1.7-02", "estado": "cumple", "comentario": "Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página institucional) son teléfono, correo y dirección de INAPI; no se publican direcciones ni teléfonos particulares de personas naturales." },
-    { "id": "LC-1.1.7-03", "estado": "cumple", "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de los derechos de acceso, rectificación, cancelación y oposición.", "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»" },
-    { "id": "LC-1.1.8-01", "estado": "no_aplica", "comentario": "Esta página no publica información sobre menores de edad; el contenido visible es institucional general (misión, visión, valores)." },
-    { "id": "LC-1.1.8-02", "estado": "cumple", "comentario": "El contenido visible es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad." },
-    { "id": "LC-1.1.8-03", "estado": "cumple", "comentario": "No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas; el contenido se limita a la descripción institucional de INAPI." },
-    { "id": "LC-1.2.1-01", "estado": "incumple", "severidad": "media", "comentario": "El contenido se redacta desde la perspectiva institucional (qué es INAPI, su visión, misión y valores) y no como respuesta a preguntas concretas que se haría una persona usuaria (por ejemplo, «¿qué hace INAPI por mí?»).", "cita_textual": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.", "ubicacion_pantalla": "Cuerpo principal, primer y segundo párrafo bajo el título" },
-    { "id": "LC-5.2.1-01", "estado": "no_aplica", "comentario": "Esta URL es institucional (sitioweb), no un servicio digital ni un trámite; la variante de claridad para servicio digital no corresponde aquí." },
-    { "id": "LC-1.2.1-02", "estado": "incumple", "severidad": "media", "agrupado_en": "LC-1.2.2-04", "comentario": "Medianamente cumple claridad: los bloques «Visión» y «Misión» usan lenguaje abstracto y aspiracional («institución referente a nivel mundial», «motor del emprendimiento e innovación», «visión equilibrada e integral») que no dice con palabras claras qué hace INAPI en la práctica. Comparte el mismo texto y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.", "cita_textual": "INAPI será una institución referente a nivel mundial...; ...el fomento de una visión equilibrada e integral de la Propiedad Industrial...", "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»" },
-    { "id": "LC-1.2.1-03", "estado": "incumple", "severidad": "media", "comentario": "Cuatro construcciones que rompen la voz activa en presente: dos ítems de «Valores Institucionales» en voz pasiva; la ventana emergente de contacto en voz pasiva y futuro; y el bloque «Visión» redactado en futuro en vez de presente.", "cita_textual": "se adoptan medidas necesarias para la mejora continua; ...es propiciado institucionalmente...; Tu consulta será atendida por un especialista.; INAPI será una institución referente...", "ubicacion_pantalla": "Sección «Valores Institucionales», ítems «Calidad de Servicio» y «Calidad de Vida»; ventana emergente «¿Quieres contactarnos?»; bloque «Visión»" },
-    { "id": "LC-1.2.1-04", "estado": "cumple", "comentario": "Las oraciones del cuerpo principal siguen mayoritariamente el orden sujeto-verbo-predicado; no se detectan inversiones que dificulten la comprensión." },
-    { "id": "LC-1.2.1-05", "estado": "no_aplica", "comentario": "Esta página no presenta listados de requisitos de servicios a la ciudadanía; la lista de Valores Institucionales es declarativa, no procedimental." },
-    { "id": "LC-1.2.2-01", "estado": "cumple", "comentario": "El cuerpo principal se compone de bloques breves: dos párrafos introductorios, un bloque de Visión, uno de Misión y una lista de cinco valores; no hay muros de texto extensos." },
-    { "id": "LC-5.2.2-01", "estado": "no_aplica", "comentario": "Esta URL es institucional (sitioweb), no un servicio digital ni un trámite; la variante de concisión para servicio digital no corresponde aquí." },
-    { "id": "LC-1.2.2-02", "estado": "cumple", "comentario": "Los párrafos y bloques del cuerpo ocupan entre 3 y 7 líneas visuales en escritorio, bajo el umbral de 8 líneas, aunque algunas correspondan a una sola oración muy larga (ver criterio de oraciones simples)." },
-    { "id": "LC-1.2.2-03", "estado": "incumple", "severidad": "alta", "agrupado_en": "LC-1.2.2-04", "comentario": "Tres bloques empaquetan varias ideas distintas en una sola oración: «Visión» (posicionamiento, motor de emprendimiento y productividad de la economía), «Misión» (protección de derechos, difusión, visión equilibrada y desarrollo económico y social) y el ítem «Socialmente responsable» (impacto ambiental, inclusión y pago a proveedores). Comparte los mismos textos y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.", "cita_textual": "INAPI será una institución referente a nivel mundial...; Consolidar el Sistema Nacional de Propiedad Industrial...; ...impacto ambiental (consumo energético, reciclaje, huella de carbono), medidas de inclusión, y de pago oportuno a sus proveedores.", "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»; sección «Valores Institucionales», ítem «Socialmente responsable»" },
-    { "id": "LC-1.2.2-04", "estado": "incumple", "severidad": "alta", "comentario": "Tres oraciones superan ampliamente una extensión razonable: el segundo párrafo del cuerpo (~48 palabras con tres gerundios encadenados), el bloque «Visión» (~56 palabras) y el bloque «Misión» (~44 palabras), todas en una sola oración corrida.", "cita_textual": "INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes...; INAPI será una institución referente a nivel mundial...; Consolidar el Sistema Nacional de Propiedad Industrial...", "ubicacion_pantalla": "Segundo párrafo del cuerpo; bloque «Visión»; bloque «Misión»" },
-    { "id": "LC-1.2.2-05", "estado": "no_aplica", "comentario": "El cuerpo editorial son bloques breves bajo sus propios encabezados (introducción, Visión, Misión, Valores), no un texto corrido de cuatro o más párrafos continuos que amerite un resumen inicial." },
-    { "id": "LC-1.2.3-01", "estado": "cumple", "comentario": "Los bloques del cuerpo (introducción, Visión, Misión, Valores Institucionales) se presentan con espacio visual entre ellos; no hay párrafos apretados unos contra otros." },
-    { "id": "LC-1.2.3-02", "estado": "incumple", "severidad": "media", "comentario": "Verificado hoy: los párrafos de introducción, el bloque «Visión», el bloque «Misión» y los ítems de «Valores Institucionales» usan alineación justificada, no alineación a la izquierda. El texto justificado sin control de guionado en web genera espacios irregulares entre palabras, especialmente en las oraciones largas de Visión y Misión.", "cita_textual": "Alineado justificado (verificado en los párrafos del cuerpo, en el bloque «Visión», en el bloque «Misión» y en la lista de «Valores Institucionales»)", "ubicacion_pantalla": "Cuerpo principal: introducción, bloque «Visión», bloque «Misión» y sección «Valores Institucionales»" },
-    { "id": "LC-1.2.3-03", "estado": "cumple", "comentario": "La sección «Valores Institucionales» usa una lista con viñetas en vez de texto corrido separado por comas; cada valor es un ítem independiente con su etiqueta en negrita." },
-    { "id": "LC-1.2.4-01", "estado": "cumple", "comentario": "La página ordena el contenido de lo general a lo específico: propósito institucional primero, luego Visión y Misión, y por último Valores Institucionales, que aportan detalle adicional." },
-    { "id": "LC-1.2.4-02", "estado": "cumple", "comentario": "Los títulos de sección («Visión», «Misión», «Valores Institucionales») y el submenú de la página («Funciones», «Objetivos», «Director nacional», «Organigrama», «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable») son claros y anticipan su contenido. El matiz del título principal frente a su subtítulo se trata en el criterio de completitud, no aquí." },
-    { "id": "LC-1.2.4-03", "estado": "cumple", "comentario": "La página usa encabezados jerárquicos, un submenú de pestañas y una lista con viñetas que permiten identificar de un vistazo las secciones; los bloques de Visión y Misión, aunque densos, están claramente delimitados por su propio título e ícono." },
-    { "id": "LC-1.2.4-04", "estado": "incumple", "severidad": "baja", "comentario": "Los bloques «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del primer párrafo del cuerpo (que resalta «INAPI» y «Gobierno de Chile») y de «Valores Institucionales» (que resalta la etiqueta de cada ítem).", "cita_textual": "INAPI será una institución referente a nivel mundial... (sin negrita); Consolidar el Sistema Nacional de Propiedad Industrial... (sin negrita)", "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»" },
-    { "id": "LC-1.2.4-05", "estado": "incumple", "severidad": "media", "comentario": "Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» (títulos «BUSCAR Y TRAMITAR», «MARCAS», «PATENTES») y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio; los propios títulos de esta página («Visión», «Misión», «Valores Institucionales») no usan mayúscula sostenida.", "cita_textual": "BUSCAR Y TRAMITAR; MARCAS; PATENTES; LINK EXTERNO", "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»" },
-    { "id": "LC-1.2.4-06", "estado": "cumple", "comentario": "El submenú de la sección («Funciones», «Objetivos», «Director nacional», «Organigrama», «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable») constituye un conjunto de enlaces internos relacionados con el contenido de esta página, distinto del menú global." },
-    { "id": "LC-5.2.4-01", "estado": "no_aplica", "comentario": "Esta URL es sitioweb institucional, no un servicio digital ni un trámite; la variante de rótulos descriptivos para servicios digitales no corresponde aquí." },
-    { "id": "LC-1.2.4-07", "estado": "incumple", "severidad": "alta", "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página indica los cuatro elementos requeridos: «Plan de Acción de Cumplimiento 2025» solo indica el formato (PDF) sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB respectivamente.", "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026", "ubicacion_pantalla": "Pie de página › fila de logos institucionales › carrusel de documentos" },
-    { "id": "LC-1.2.4-08", "estado": "incumple", "severidad": "alta", "agrupado_en": "LC-1.2.4-07", "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página trae una breve descripción de su contenido junto al título. Se agrupa con el criterio de formato y peso porque comparte exactamente los mismos documentos y la misma corrección.", "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026", "ubicacion_pantalla": "Pie de página › fila de logos institucionales › carrusel de documentos" },
-    { "id": "LC-1.3.1-01", "estado": "cumple", "comentario": "La página usa apoyos visuales para presentar información: un ícono ilustrativo en el bloque «Visión» y otro en el bloque «Misión», y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.", "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»; pie de página › carrusel de logos institucionales" },
-    { "id": "LC-1.3.2-01", "estado": "incumple", "severidad": "media", "agrupado_en": "LC-1.2.2-04", "comentario": "El bloque «Visión» incluye calificativos autoevaluativos y aspiracionales («institución referente a nivel mundial», «un motor del emprendimiento e innovación») que reflejan una afirmación de mérito propio en vez de una descripción objetiva y neutra de las funciones de la institución. Comparte el mismo texto y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.", "cita_textual": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación...", "ubicacion_pantalla": "Bloque «Visión»" },
-    { "id": "LC-1.3.2-02", "estado": "incumple", "severidad": "media", "agrupado_en": "LC-1.3.2-01", "comentario": "El bloque «Visión» privilegia adjetivos calificativos y afirmaciones de mérito («referente a nivel mundial», «motor del emprendimiento e innovación») por sobre datos y hechos concretos, a diferencia de los párrafos introductorios y de «Valores Institucionales». Comparte el mismo texto y la misma corrección que el criterio de objetividad, por eso se agrupa bajo ese criterio.", "cita_textual": "INAPI será una institución referente a nivel mundial...", "ubicacion_pantalla": "Bloque «Visión»" },
-    { "id": "LC-1.3.3-01", "estado": "no_aplica", "comentario": "Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista." }
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "Criterio 1: «¿Es fácil reconocer la fuente o autoría de la información publicada?» — Instrumento 1: Fiabilidad. El pie de página identifica a la institución responsable del contenido, con su nombre y su RUT institucional, y el logo de INAPI está presente en toda la cabecera de la página.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 2: «¿Los contenidos representan de manera fiel lo enunciado en su título?» — Instrumento 2: Completitud. El título principal visible «Acerca de», leído solo, no identifica el contenido de la página: necesita el subtítulo inmediato «INAPI» para tener sentido completo. Evaluación sobre el título visible del banner, no sobre la pestaña del navegador.",
+      "cita_textual": "Acerca de (título principal); INAPI (subtítulo inmediato)",
+      "ubicacion_pantalla": "Banner principal › título principal «Acerca de» y subtítulo «INAPI»"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "Criterio 3: «¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o «En construcción»?» — Instrumento 2: Completitud. No se observan bloques «en construcción» ni secciones vacías: los párrafos institucionales, los bloques de Visión y Misión, y la lista de Valores Institucionales muestran contenido completo.",
+      "cita_textual": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.",
+      "ubicacion_pantalla": "Cuerpo principal, bajo el título"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "no_aplica",
+      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información?» — Instrumento 2: Completitud. Esta es una página descriptiva e institucional («Acerca de INAPI»), no un trámite ni un servicio con pasos operativos; no existe un «qué, cómo, dónde, cuándo, para quién» transaccional que deba resumirse en un recuadro."
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Criterio 5: «En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?» — Instrumento 2: Completitud. Esta URL es institucional (sitioweb), no una página de trámite; la autonomía para completar un trámite no corresponde evaluarla en este contenido."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Criterio 6: «¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?» — Instrumento 3: Lenguaje plano. No se aplicó una herramienta de medición de legibilidad sobre el texto principal de la página en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. Las oraciones largas de los bloques «Visión» y «Misión» (44 a 56 palabras) hacen poco probable que una medición real arroje un resultado «Normal».",
+      "cita_textual": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial...",
+      "ubicacion_pantalla": "Bloque «Visión»"
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "Criterio 7: «¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?» — Instrumento 3: Lenguaje plano. El contenido visible (párrafos institucionales, ventana emergente de contacto) mantiene un registro neutro y cercano, sin trato distante ni irrespetuoso hacia la persona usuaria.",
+      "ubicacion_pantalla": "Cuerpo principal y ventana emergente «¿Quieres contactarnos?»"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 8: «¿La redacción prescinde de la jerga técnica o legal?» — Instrumento 3: Lenguaje plano. Dos expresiones de jerga institucional sin definir ni reemplazar por lenguaje cotidiano: «acervo tecnológico», término formal sin equivalente común; y «gestión por objetivos, medición de productos y orientación hacia la calidad», jerga de gestión de bajo valor comunicativo para quien lee la página.",
+      "cita_textual": "difundir el acervo tecnológico y la información de que dispone; ...que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.",
+      "ubicacion_pantalla": "Primer párrafo del cuerpo, bajo el título; Sección «Valores Institucionales», ítem «Calidad de Vida»"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "Criterio 9: «¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados?» — Instrumento 3: Lenguaje plano. En el texto visible evaluado no se detectan extranjerismos, eufemismos ni modismos evitables más allá de la jerga ya tratada en el criterio de lenguaje plano y la sigla del menú."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Criterio 10: «¿Se define cada sigla y acrónimo y se emplean solo si es necesario?» — Instrumento 3: Lenguaje plano. La sigla «PCT» aparece en el menú de navegación global (escritorio y móvil) sin definirse en su primera aparición.",
+      "cita_textual": "PCT",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "Criterio 11: «¿Los contenidos están escritos en tono positivo indicando lo que se puede hacer y evitando enfocar los mensajes desde el «no se puede»?» — Instrumento 3: Lenguaje plano. El contenido institucional describe funciones y valores en tono afirmativo, indicando qué hace y qué promueve INAPI, sin enfocarse en prohibiciones o restricciones."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 12: «¿Los contenidos están actualizados y muestran información vigente al año en curso?» — Instrumento 4: Actualización. No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha.",
+      "cita_textual": "(sin fecha de actualización visible)",
+      "ubicacion_pantalla": "Banner principal › bajo el título «Acerca de INAPI»"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Criterio 13: «¿Son correctas la ortografía y la gramática en los contenidos?» — Instrumento 5: Redacción y ortografía. Dos errores visibles: (1) en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución; (2) error de concordancia gramatical en la declaración oficial de «Valores Institucionales», ítem «Trabajo en equipo»: sujeto plural «Los(as) funcionarios(as)» con verbo en singular «asume» (debería ser «asumen»), confirmado en la página actual.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI); ...reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; Sección «Valores Institucionales», ítem «Trabajo en equipo»"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. La puntuación de los párrafos institucionales y de la lista de Valores no entorpece la lectura; la extensión de las oraciones se trata por separado en el criterio de oraciones simples."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "Criterio 15: «¿Las frases se relacionan entre sí por medio de conectores?» — Instrumento 5: Redacción y ortografía. Cada párrafo del cuerpo y cada ítem de la lista de Valores Institucionales es una sola oración; no hay dos o más frases dentro del mismo bloque que requieran conectores para relacionarse entre sí."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "Criterio 16: «¿El sitio cuenta con información de permisos de uso de sus contenidos en algún lugar del sitio?» — Instrumento 6: Propiedad intelectual. El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "Criterio 17: «¿Se evita la redifusión de material protegido por derechos de autor sin autorización?» — Instrumento 6: Propiedad intelectual. El contenido visible (misión, visión, valores institucionales) corresponde a producción institucional propia; no se observa redifusión de material protegido de terceros sin atribución."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "Criterio 18: «Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?» — Instrumento 7: Privacidad y datos personales. El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Criterio 19: «¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?» — Instrumento 7: Privacidad y datos personales. Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página institucional) son teléfono, correo y dirección de INAPI; no se publican direcciones ni teléfonos particulares de personas naturales."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "Criterio 20: «¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO y bloqueo de datos personales?» — Instrumento 7: Privacidad y datos personales. El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de los derechos de acceso, rectificación, cancelación y oposición.",
+      "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Criterio 21: «Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?» — Instrumento 8: Contenidos sensibles. Esta página no publica información sobre menores de edad; el contenido visible es institucional general (misión, visión, valores)."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "cumple",
+      "comentario": "Criterio 22: «¿El contenido es apto para ser leído por menores de edad?» — Instrumento 8: Contenidos sensibles. El contenido visible es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "cumple",
+      "comentario": "Criterio 23: «¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas?» — Instrumento 8: Contenidos sensibles. No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas; el contenido se limita a la descripción institucional de INAPI."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 24: «¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?» — Instrumento 9: Claridad. El contenido se redacta desde la perspectiva institucional (qué es INAPI, su visión, misión y valores) y no como respuesta a preguntas concretas que se haría una persona usuaria (por ejemplo, «¿qué hace INAPI por mí?»).",
+      "cita_textual": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.",
+      "ubicacion_pantalla": "Cuerpo principal, primer y segundo párrafo bajo el título"
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Criterio 25: «¿La información del servicio digital está organizada de manera que responda claramente a las preguntas frecuentes que podrían tener las personas usuarias?» — Instrumento 9: Claridad. Esta URL es institucional (sitioweb), no un servicio digital ni un trámite; la variante de claridad para servicio digital no corresponde aquí."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "LC-1.2.2-04",
+      "comentario": "Criterio 26: «¿Las palabras, frases y conceptos utilizados tienen un lenguaje claro para las personas usuarias?» — Instrumento 9: Claridad. Medianamente cumple claridad: los bloques «Visión» y «Misión» usan lenguaje abstracto y aspiracional («institución referente a nivel mundial», «motor del emprendimiento e innovación», «visión equilibrada e integral») que no dice con palabras claras qué hace INAPI en la práctica. Comparte el mismo texto y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.",
+      "cita_textual": "INAPI será una institución referente a nivel mundial...; ...el fomento de una visión equilibrada e integral de la Propiedad Industrial...",
+      "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»"
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 27: «¿Predomina el tiempo presente simple y la voz activa de los verbos?» — Instrumento 9: Claridad. Cuatro construcciones que rompen la voz activa en presente: dos ítems de «Valores Institucionales» en voz pasiva; la ventana emergente de contacto en voz pasiva y futuro; y el bloque «Visión» redactado en futuro en vez de presente.",
+      "cita_textual": "se adoptan medidas necesarias para la mejora continua; ...es propiciado institucionalmente...; Tu consulta será atendida por un especialista.; INAPI será una institución referente...",
+      "ubicacion_pantalla": "Sección «Valores Institucionales», ítems «Calidad de Servicio» y «Calidad de Vida»; ventana emergente «¿Quieres contactarnos?»; bloque «Visión»"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Criterio 28: «¿Las oraciones están ordenadas según la forma sujeto-verbo-predicado?» — Instrumento 9: Claridad. Las oraciones del cuerpo principal siguen mayoritariamente el orden sujeto-verbo-predicado; no se detectan inversiones que dificulten la comprensión."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Criterio 29: «Cuando se listan requisitos en contenidos referidos a servicios a la ciudadanía, ¿se usa modo infinitivo?» — Instrumento 9: Claridad. Esta página no presenta listados de requisitos de servicios a la ciudadanía; la lista de Valores Institucionales es declarativa, no procedimental."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "Criterio 30: «¿Los textos son breves y utilizan frases cortas en su redacción?» — Instrumento 10: Concisión. El cuerpo principal se compone de bloques breves: dos párrafos introductorios, un bloque de Visión, uno de Misión y una lista de cinco valores; no hay muros de texto extensos."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Criterio 31: «¿Los textos, tanto de la página de inicio como del desarrollo del trámite, son breves y utilizan frases cortas en su redacción?» — Instrumento 10: Concisión. Esta URL es institucional (sitioweb), no un servicio digital ni un trámite; la variante de concisión para servicio digital no corresponde aquí."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Criterio 32: «Al revisar el sitio web en versión de escritorio, ¿los párrafos son cortos, con menos de 8 líneas?» — Instrumento 10: Concisión. Los párrafos y bloques del cuerpo ocupan entre 3 y 7 líneas visuales en escritorio, bajo el umbral de 8 líneas, aunque algunas correspondan a una sola oración muy larga (ver criterio de oraciones simples)."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.2-04",
+      "comentario": "Criterio 33: «¿Se explica una idea por párrafo?» — Instrumento 10: Concisión. Tres bloques empaquetan varias ideas distintas en una sola oración: «Visión» (posicionamiento, motor de emprendimiento y productividad de la economía), «Misión» (protección de derechos, difusión, visión equilibrada y desarrollo económico y social) y el ítem «Socialmente responsable» (impacto ambiental, inclusión y pago a proveedores). Comparte los mismos textos y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.",
+      "cita_textual": "INAPI será una institución referente a nivel mundial...; Consolidar el Sistema Nacional de Propiedad Industrial...; ...impacto ambiental (consumo energético, reciclaje, huella de carbono), medidas de inclusión, y de pago oportuno a sus proveedores.",
+      "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»; sección «Valores Institucionales», ítem «Socialmente responsable»"
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Criterio 34: «¿Las oraciones son simples y directas, evitando el exceso de palabras?» — Instrumento 10: Concisión. Tres oraciones superan ampliamente una extensión razonable: el segundo párrafo del cuerpo (~48 palabras con tres gerundios encadenados), el bloque «Visión» (~56 palabras) y el bloque «Misión» (~44 palabras), todas en una sola oración corrida.",
+      "cita_textual": "INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes...; INAPI será una institución referente a nivel mundial...; Consolidar el Sistema Nacional de Propiedad Industrial...",
+      "ubicacion_pantalla": "Segundo párrafo del cuerpo; bloque «Visión»; bloque «Misión»"
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "no_aplica",
+      "comentario": "Criterio 35: «Si existe un texto extenso —de cuatro o más párrafos—, ¿hay un resumen al inicio?» — Instrumento 10: Concisión. El cuerpo editorial son bloques breves bajo sus propios encabezados (introducción, Visión, Misión, Valores), no un texto corrido de cuatro o más párrafos continuos que amerite un resumen inicial."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Criterio 36: «¿Hay espacio entre los párrafos?» — Instrumento 11: Legibilidad. Los bloques del cuerpo (introducción, Visión, Misión, Valores Institucionales) se presentan con espacio visual entre ellos; no hay párrafos apretados unos contra otros."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 37: «¿El texto está alineado a la izquierda?» — Instrumento 11: Legibilidad. Verificado hoy: los párrafos de introducción, el bloque «Visión», el bloque «Misión» y los ítems de «Valores Institucionales» usan alineación justificada, no alineación a la izquierda. El texto justificado sin control de guionado en web genera espacios irregulares entre palabras, especialmente en las oraciones largas de Visión y Misión.",
+      "cita_textual": "Alineado justificado (verificado en los párrafos del cuerpo, en el bloque «Visión», en el bloque «Misión» y en la lista de «Valores Institucionales»)",
+      "ubicacion_pantalla": "Cuerpo principal: introducción, bloque «Visión», bloque «Misión» y sección «Valores Institucionales»"
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "cumple",
+      "comentario": "Criterio 38: «¿Se utilizan listas numeradas, viñetas o tablas para presentar la información más ordenada?» — Instrumento 11: Legibilidad. La sección «Valores Institucionales» usa una lista con viñetas en vez de texto corrido separado por comas; cada valor es un ítem independiente con su etiqueta en negrita."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "cumple",
+      "comentario": "Criterio 39: «¿Los contenidos del sitio aplican el modelo de «pirámide invertida» que los estructura desde lo más a lo menos importante?» — Instrumento 12: Escritura para la web. La página ordena el contenido de lo general a lo específico: propósito institucional primero, luego Visión y Misión, y por último Valores Institucionales, que aportan detalle adicional."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "cumple",
+      "comentario": "Criterio 40: «¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?» — Instrumento 12: Escritura para la web. Los títulos de sección («Visión», «Misión», «Valores Institucionales») y el submenú de la página («Funciones», «Objetivos», «Director nacional», «Organigrama», «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable») son claros y anticipan su contenido. El matiz del título principal frente a su subtítulo se trata en el criterio de completitud, no aquí."
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "Criterio 41: «¿Es fácil escanear visualmente los contenidos?» — Instrumento 12: Escritura para la web. La página usa encabezados jerárquicos, un submenú de pestañas y una lista con viñetas que permiten identificar de un vistazo las secciones; los bloques de Visión y Misión, aunque densos, están claramente delimitados por su propio título e ícono."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Criterio 42: «¿Se utilizan negritas para destacar palabras clave de cada párrafo?» — Instrumento 12: Escritura para la web. Los bloques «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del primer párrafo del cuerpo (que resalta «INAPI» y «Gobierno de Chile») y de «Valores Institucionales» (que resalta la etiqueta de cada ítem).",
+      "cita_textual": "INAPI será una institución referente a nivel mundial... (sin negrita); Consolidar el Sistema Nacional de Propiedad Industrial... (sin negrita)",
+      "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»"
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 43: «¿Se evitan las frases escritas únicamente en mayúsculas?» — Instrumento 12: Escritura para la web. Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» (títulos «BUSCAR Y TRAMITAR», «MARCAS», «PATENTES») y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio; los propios títulos de esta página («Visión», «Misión», «Valores Institucionales») no usan mayúscula sostenida.",
+      "cita_textual": "BUSCAR Y TRAMITAR; MARCAS; PATENTES; LINK EXTERNO",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "Criterio 44: «¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados?» — Instrumento 12: Escritura para la web. El submenú de la sección («Funciones», «Objetivos», «Director nacional», «Organigrama», «Indicadores», «Balances», «Compromisos de Calidad», «Trabaje con nosotros», «INAPI socialmente responsable») constituye un conjunto de enlaces internos relacionados con el contenido de esta página, distinto del menú global."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»?» — Instrumento 12: Escritura para la web. En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino (lleva a la página general de propiedad intelectual e industrial), y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»), confirmado en el DOM actual. El resto de los enlaces y botones propios de esta página sí describen con claridad la acción o el destino: el submenú de la sección («Funciones», «Objetivos», «Director nacional», «Organigrama», etc.) y los enlaces del panel de búsqueda «Buscar y tramitar» («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea»).",
+      "severidad": "media",
+      "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (panel de acceso y registro)",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Criterio 46: «Cuando se enlazan documentos, ¿se especifican el título, formato y peso?» — Instrumento 12: Escritura para la web. Ninguno de los tres documentos del carrusel institucional del pie de página indica los cuatro elementos requeridos: «Plan de Acción de Cumplimiento 2025» solo indica el formato (PDF) sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB respectivamente.",
+      "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
+      "ubicacion_pantalla": "Pie de página › fila de logos institucionales › carrusel de documentos"
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.4-07",
+      "comentario": "Criterio 47: «¿Se entrega una breve descripción de los documentos enlazados para mejorar su capacidad de búsqueda, usabilidad y accesibilidad?» — Instrumento 12: Escritura para la web. Ninguno de los tres documentos del carrusel institucional del pie de página trae una breve descripción de su contenido junto al título. Se agrupa con el criterio de formato y peso porque comparte exactamente los mismos documentos y la misma corrección.",
+      "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
+      "ubicacion_pantalla": "Pie de página › fila de logos institucionales › carrusel de documentos"
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "Criterio 48: «¿Se utilizan apoyos visuales como íconos, imágenes, gráficos o infografías para presentar datos?» — Instrumento 13: Visualización de la información. La página usa apoyos visuales para presentar información: un ícono ilustrativo en el bloque «Visión» y otro en el bloque «Misión», y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»; pie de página › carrusel de logos institucionales"
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "LC-1.2.2-04",
+      "comentario": "Criterio 49: «¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?» — Instrumento 14: Objetividad. El bloque «Visión» incluye calificativos autoevaluativos y aspiracionales («institución referente a nivel mundial», «un motor del emprendimiento e innovación») que reflejan una afirmación de mérito propio en vez de una descripción objetiva y neutra de las funciones de la institución. Comparte el mismo texto y la misma corrección que el criterio de oraciones simples, por eso se agrupa bajo ese criterio.",
+      "cita_textual": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación...",
+      "ubicacion_pantalla": "Bloque «Visión»"
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "agrupado_en": "LC-1.3.2-01",
+      "comentario": "Criterio 50: «¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?» — Instrumento 14: Objetividad. El bloque «Visión» privilegia adjetivos calificativos y afirmaciones de mérito («referente a nivel mundial», «motor del emprendimiento e innovación») por sobre datos y hechos concretos, a diferencia de los párrafos introductorios y de «Valores Institucionales». Comparte el mismo texto y la misma corrección que el criterio de objetividad, por eso se agrupa bajo ese criterio.",
+      "cita_textual": "INAPI será una institución referente a nivel mundial...",
+      "ubicacion_pantalla": "Bloque «Visión»"
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Criterio 51: «Si el sitio presenta versiones anteriores de contenidos, ¿están rotuladas claramente como contenidos o documentos de archivo no vigentes?» — Instrumento 15: Archivo. Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
+    }
   ],
   "criterios_aprobados": 28,
-  "criterios_aplicables": 41,
-  "criterios_no_aplica": 10,
-  "porcentaje_cumplimiento": 68.3,
+  "criterios_aplicables": 42,
+  "criterios_no_aplica": 9,
+  "porcentaje_cumplimiento": 66.7,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página «Acerca de INAPI» (https://www.inapi.cl/acerca-de/inapi) fue reauditada el 2026-08-25 con una captura actual de la página (incluida la ventana emergente de contacto, el panel de acceso y registro y la ventana de búsqueda «Buscar y tramitar»), verificando además hoy mismo la alineación del texto y el peso real de los tres documentos del pie de página, y con una revisión detallada del lenguaje usado en cada bloque visible, palabra por palabra y párrafo por párrafo, antes de calificar los 51 criterios de Lenguaje Claro.\n\nDe los 51 criterios, 10 no aplican a esta página (es contenido institucional descriptivo, sin trámites ni servicios digitales). De los 41 aplicables, 28 se cuentan como cumplidos (23 cumplen directamente y 5 quedan agrupados bajo un criterio primario porque comparten exactamente el mismo texto y la misma corrección), lo que da un 68,3 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es superior a 90 %). El contenido de la página no cambió de forma relevante respecto de la revisión anterior; el error de concordancia gramatical en «Valores Institucionales» y la alineación justificada del cuerpo editorial siguen presentes tal como se detectaron antes.\n\nHallazgos de severidad alta: (1) error de concordancia gramatical confirmado en la declaración oficial de «Valores Institucionales» («los asume» en vez de «los asumen»), junto con un error de capitalización del nombre institucional en el pie de página; (2) tres oraciones de 44 a 56 palabras que empaquetan varias ideas en el segundo párrafo del cuerpo, en «Visión» y en «Misión»; (3) los tres documentos del carrusel institucional del pie de página, sin título completo, formato, peso ni descripción.\n\nHallazgos de severidad media: el título principal «Acerca de» depende de su subtítulo «INAPI» para tener sentido completo; jerga institucional sin definir («acervo tecnológico»; «gestión por objetivos, medición de productos y orientación hacia la calidad»); ausencia de fecha de actualización visible; el contenido se redacta desde la perspectiva institucional y no como respuesta a preguntas concretas de la ciudadanía; lenguaje abstracto y aspiracional en Visión y Misión; voz pasiva y futuro en varios bloques; alineación justificada en todo el cuerpo editorial; mayúsculas sostenidas en componentes de menú global compartidos; calificativos autoevaluativos en la Visión institucional en vez de una redacción objetiva.\n\nHallazgos de severidad baja: sin medición de legibilidad documentada; sigla PCT sin definir en el menú global; Visión y Misión sin ninguna palabra en negrita, a diferencia del resto del cuerpo.\n\nSerie META MEI — orden 4 (Página de información interior, 1/2). Reemplaza como vigente a www-inapi-cl-acerca-de-inapi_2026-08-22, que queda en history[].",
+  "resumen_ejecutivo": "La página «Acerca de INAPI» (https://www.inapi.cl/acerca-de/inapi) fue reauditada el 2026-08-25 con una captura actual de la página (incluida la ventana emergente de contacto, el panel de acceso y registro y la ventana de búsqueda «Buscar y tramitar»), verificando además hoy mismo la alineación del texto, el peso real de los tres documentos del pie de página y el destino real de cada enlace y botón visible, y con una revisión detallada del lenguaje usado en cada bloque visible, palabra por palabra y párrafo por párrafo, antes de calificar los 51 criterios de Lenguaje Claro. Esta reauditoría corrige además el criterio de rótulos y llamados a la acción descriptivos, que en la revisión previa había quedado marcado como no aplicable con el argumento de que era una página informativa; esa justificación no es válida, porque la pregunta sobre enlaces y botones descriptivos aplica a todas las páginas del sitio, y por eso se evaluó de nuevo con evidencia real.\n\nDe los 51 criterios, 9 no aplican a esta página (es contenido institucional descriptivo, sin trámites ni servicios digitales). De los 42 aplicables, 28 se cuentan como cumplidos (23 cumplen directamente y 5 quedan agrupados bajo un criterio primario porque comparten exactamente el mismo texto y la misma corrección), lo que da un 66,7 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es superior a 90 %). El contenido propio de la página no cambió de forma relevante respecto de la revisión anterior; el error de concordancia gramatical en «Valores Institucionales» y la alineación justificada del cuerpo editorial siguen presentes tal como se detectaron antes. Lo que cambió es la evaluación del criterio de rótulos y llamados a la acción: al revisar con evidencia real el menú de navegación y el panel de acceso, se confirmaron dos rótulos ambiguos («Conoce más» y «LINK EXTERNO»), por lo que el criterio pasa de no aplicable a incumplido, lo que baja el porcentaje de cumplimiento de 68,3 % a 66,7 %.\n\nHallazgos de severidad alta: (1) error de concordancia gramatical confirmado en la declaración oficial de «Valores Institucionales» («los asume» en vez de «los asumen»), junto con un error de capitalización del nombre institucional en el pie de página; (2) tres oraciones de 44 a 56 palabras que empaquetan varias ideas en el segundo párrafo del cuerpo, en «Visión» y en «Misión»; (3) los tres documentos del carrusel institucional del pie de página, sin título completo, formato, peso ni descripción.\n\nHallazgos de severidad media: el título principal «Acerca de» depende de su subtítulo «INAPI» para tener sentido completo; jerga institucional sin definir («acervo tecnológico»; «gestión por objetivos, medición de productos y orientación hacia la calidad»); ausencia de fecha de actualización visible; el contenido se redacta desde la perspectiva institucional y no como respuesta a preguntas concretas de la ciudadanía; lenguaje abstracto y aspiracional en Visión y Misión; voz pasiva y futuro en varios bloques; alineación justificada en todo el cuerpo editorial; mayúsculas sostenidas en componentes de menú global compartidos; calificativos autoevaluativos en la Visión institucional en vez de una redacción objetiva; el enlace «Conoce más» del menú global y el botón «LINK EXTERNO» del panel de acceso no describen a dónde llevan.\n\nHallazgos de severidad baja: sin medición de legibilidad documentada; sigla PCT sin definir en el menú global; Visión y Misión sin ninguna palabra en negrita, a diferencia del resto del cuerpo.\n\nSerie META MEI — orden 4 (Página de información interior, 1/2). Reemplaza como vigente a www-inapi-cl-acerca-de-inapi_2026-08-22, que queda en history[].",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
-      "(LC-1.1.5-01) Error de concordancia gramatical confirmado en «Valores Institucionales» («los asume» en vez de «los asumen»), junto con error de capitalización institucional en el pie de página.",
-      "(LC-1.2.2-04, con LC-1.2.2-03, LC-1.2.1-02, LC-1.3.2-01 y LC-1.3.2-02 agrupados) Tres oraciones de 44 a 56 palabras en el segundo párrafo del cuerpo, en «Visión» y en «Misión», que además usan lenguaje abstracto y, en el caso de la Visión, calificativos autoevaluativos.",
-      "(LC-1.2.4-07, con LC-1.2.4-08 agrupado) Documentos del carrusel institucional del pie de página sin título completo, formato, peso ni descripción."
+      "(criterio 13) Error de concordancia gramatical confirmado en «Valores Institucionales» («los asume» en vez de «los asumen»), junto con error de capitalización institucional en el pie de página.",
+      "(criterio 34, con los criterios 33, 26, 49 y 50 agrupados) Tres oraciones de 44 a 56 palabras en el segundo párrafo del cuerpo, en «Visión» y en «Misión», que además usan lenguaje abstracto y, en el caso de la Visión, calificativos autoevaluativos.",
+      "(criterio 46, con el criterio 47 agrupado) Documentos del carrusel institucional del pie de página sin título completo, formato, peso ni descripción."
     ],
     "hallazgos_prioridad_media": [
-      "(LC-1.1.2-01) El título principal «Acerca de» depende de su subtítulo «INAPI» para identificar el contenido de la página.",
-      "(LC-1.1.3-03) Jerga institucional sin definir: «acervo tecnológico»; «gestión por objetivos, medición de productos y orientación hacia la calidad».",
-      "(LC-1.1.4-01) Sin fecha de publicación ni de última actualización visible en la página.",
-      "(LC-1.2.1-01) El contenido se redacta desde la perspectiva institucional, no como respuesta a preguntas concretas de la ciudadanía.",
-      "(LC-1.2.1-03) Voz pasiva en dos ítems de «Valores Institucionales» y en la ventana de contacto; «Visión» redactada en futuro.",
-      "(LC-1.2.3-02) Alineación justificada en todo el cuerpo editorial (introducción, Visión, Misión y Valores).",
-      "(LC-1.2.4-05) Mayúsculas sostenidas en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso y registro."
+      "(criterio 2) El título principal «Acerca de» depende de su subtítulo «INAPI» para identificar el contenido de la página.",
+      "(criterio 8) Jerga institucional sin definir: «acervo tecnológico»; «gestión por objetivos, medición de productos y orientación hacia la calidad».",
+      "(criterio 12) Sin fecha de publicación ni de última actualización visible en la página.",
+      "(criterio 24) El contenido se redacta desde la perspectiva institucional, no como respuesta a preguntas concretas de la ciudadanía.",
+      "(criterio 27) Voz pasiva en dos ítems de «Valores Institucionales» y en la ventana de contacto; «Visión» redactada en futuro.",
+      "(criterio 37) Alineación justificada en todo el cuerpo editorial (introducción, Visión, Misión y Valores).",
+      "(criterio 43) Mayúsculas sostenidas en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso y registro.",
+      "(criterio 45) Dos enlaces o botones con texto genérico que no dicen a dónde llevan: «Conoce más» en el menú de navegación global y «LINK EXTERNO» en el panel de acceso y registro, este último sin destino real configurado."
     ],
     "hallazgos_prioridad_baja": [
-      "(LC-1.1.3-01) Sin medición de legibilidad documentada sobre el texto principal en esta sesión.",
-      "(LC-1.1.3-05) Sigla PCT sin definir en su primera aparición en el menú global.",
-      "(LC-1.2.4-04) «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del resto del cuerpo."
+      "(criterio 6) Sin medición de legibilidad documentada sobre el texto principal en esta sesión.",
+      "(criterio 10) Sigla PCT sin definir en su primera aparición en el menú global.",
+      "(criterio 42) «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del resto del cuerpo."
     ]
   },
   "sustituciones": [
@@ -114,7 +391,9 @@
       "original": "Los(as) funcionarios(as) se benefician de medidas que favorecen un mejor balance de la vida laboral y familiar, que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.",
       "propuesto": "INAPI favorece el balance entre la vida laboral y familiar de sus funcionarios(as) con medidas concretas de gestión interna orientadas a la calidad.",
       "criterio_id": "LC-1.1.3-03",
-      "criterios_relacionados": ["LC-1.2.1-03"],
+      "criterios_relacionados": [
+        "LC-1.2.1-03"
+      ],
       "motivo": "«Gestión por objetivos, medición de productos y orientación hacia la calidad» es jerga de gestión sin valor comunicativo para quien lee la página; se simplifica y de paso se corrige la voz pasiva («es propiciado»).",
       "patron_sistema": false
     },
@@ -205,7 +484,10 @@
       "original": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.",
       "propuesto": "INAPI trabaja para ser un referente en el registro, la gestión, la promoción y la calidad de la propiedad industrial. Así impulsa el emprendimiento, la innovación y la diversificación de la economía del país.",
       "criterio_id": "LC-1.2.2-04",
-      "criterios_relacionados": ["LC-1.2.1-02", "LC-1.3.2-01"],
+      "criterios_relacionados": [
+        "LC-1.2.1-02",
+        "LC-1.3.2-01"
+      ],
       "motivo": "Una sola oración de aproximadamente 56 palabras concentra tres ideas distintas, en futuro y con calificativos autoevaluativos («institución referente a nivel mundial», «motor del emprendimiento»). La reescritura separa las ideas, pasa a presente y deja un propósito concreto en vez de una afirmación de mérito propio; por eso responde a la vez las preguntas de extensión, de claridad y de objetividad sobre este mismo texto.",
       "patron_sistema": false
     },
@@ -216,7 +498,9 @@
       "original": "Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.",
       "propuesto": "INAPI trabaja para fortalecer el Sistema Nacional de Propiedad Industrial. Para ello, protege los derechos de propiedad industrial, difunde el conocimiento y contribuye al desarrollo económico y social de Chile.",
       "criterio_id": "LC-1.2.2-04",
-      "criterios_relacionados": ["LC-1.2.1-02"],
+      "criterios_relacionados": [
+        "LC-1.2.1-02"
+      ],
       "motivo": "Una sola oración de aproximadamente 44 palabras concentra cuatro ideas distintas, incluida la frase abstracta «una visión equilibrada e integral de la Propiedad Industrial»; se separa en dos oraciones con acciones concretas.",
       "patron_sistema": false
     },
@@ -287,7 +571,9 @@
       "original": "Plan de Acción de Cumplimiento 2025 (PDF)",
       "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento solo indica el formato (PDF) pero no el peso ni una descripción de su contenido. Peso verificado hoy: 293 KB. Es un componente compartido del carrusel del pie; corregir en el origen replica el cambio en todas las páginas.",
       "patron_sistema": true
     },
@@ -298,7 +584,9 @@
       "original": "Teletrabajo",
       "propuesto": "Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento no indica formato, peso ni descripción de su contenido. Peso verificado hoy: 3,3 MB. Es un componente compartido del carrusel del pie; corregir en el origen replica el cambio en todas las páginas.",
       "patron_sistema": true
     },
@@ -309,10 +597,35 @@
       "original": "Código de Ética INAPI 2026",
       "propuesto": "Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento no indica formato, peso ni descripción de su contenido. Peso verificado hoy: 590 KB. Es un componente compartido del carrusel del pie; corregir en el origen replica el cambio en todas las páginas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S23",
+      "html_linea_aprox": "HTML nav global, enlace «Conoce más»",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace del menú principal solo dice «Conoce más» sin indicar de qué. Es un componente compartido con otras páginas del sitio: corregir en el origen del menú para que el cambio se replique en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S24",
+      "html_linea_aprox": "HTML panel de acceso y registro (a.btn.rojo)",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» (ícono de usuario en cabecera) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar el botón «LINK EXTERNO» del panel mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»).",
+      "criterio_id": "LC-5.2.4-01",
+      "criterios_relacionados": [
+        "LC-1.2.4-05"
+      ],
+      "motivo": "El botón no dice a dónde lleva y, además, no tiene un destino real configurado. Comparte nodo con el hallazgo de mayúsculas sostenidas (ese ya propone quitar o corregir el botón), pero responde una pregunta distinta: aquí el problema es que el rótulo no describe ningún destino ni acción, no solo que esté en mayúsculas.",
       "patron_sistema": true
     }
   ],
-  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluidas la ventana emergente de contacto, la ventana de búsqueda y el panel de acceso y registro). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEsta reauditoría reevaluó la página completa desde una captura actual (no se copiaron estados de la revisión anterior); el contenido de texto no cambió, pero se corrigió la forma de agrupar los hallazgos: la Visión institucional tiene un solo texto de reescritura completa (bajo el criterio de oraciones simples), y los criterios de claridad y de objetividad que comparten exactamente ese mismo texto quedan enlazados a esa misma corrección en vez de repetir el bloque completo tres veces.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): ventana emergente de contacto (voz pasiva), ventana de búsqueda «Buscar y tramitar» (mayúsculas sostenidas), panel de acceso y registro con el botón «LINK EXTERNO» (sin destino real, nota técnica de prioridad alta para el equipo de desarrollo), pie de página institucional (capitalización) y carrusel de documentos del pie (formato, peso y descripción).\n\nEl criterio de apoyos visuales se cumple porque hay apoyos visibles en la página (íconos de Visión y Misión, carrusel de logos); esta pregunta no evalúa el texto alternativo de las imágenes ni accesibilidad técnica.\n\nEsta auditoría cubre únicamente Lenguaje claro (51 criterios); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero el error de concordancia gramatical y de capitalización institucional, la extensión y densidad de Visión y Misión, y los documentos del pie de página sin formato, peso ni descripción (severidad alta); luego el título principal dependiente de su subtítulo, la jerga institucional, la fecha de actualización, la estructura no orientada a preguntas ciudadanas, la alineación justificada y las mayúsculas sostenidas (severidad media)."
+  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluidas la ventana emergente de contacto, la ventana de búsqueda y el panel de acceso y registro). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEsta reauditoría reevaluó la página completa desde una captura actual (no se copiaron estados de la revisión anterior); el contenido de texto no cambió, pero se corrigió la forma de agrupar los hallazgos: la Visión institucional tiene un solo texto de reescritura completa (bajo el criterio de oraciones simples), y los criterios de claridad y de objetividad que comparten exactamente ese mismo texto quedan enlazados a esa misma corrección en vez de repetir el bloque completo tres veces. También se corrigió el criterio de rótulos y llamados a la acción descriptivos, que había quedado marcado como no aplicable con el argumento de que la página era informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio, y al revisar de nuevo el menú y el panel de acceso se confirmaron dos rótulos que no dicen a dónde llevan.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación global con el enlace «Conoce más» sin destino claro, ventana emergente de contacto (voz pasiva), ventana de búsqueda «Buscar y tramitar» (mayúsculas sostenidas), panel de acceso y registro con el botón «LINK EXTERNO» (sin destino real, nota técnica de prioridad alta para el equipo de desarrollo), pie de página institucional (capitalización) y carrusel de documentos del pie (formato, peso y descripción).\n\nEl criterio de apoyos visuales se cumple porque hay apoyos visibles en la página (íconos de Visión y Misión, carrusel de logos); esta pregunta no evalúa el texto alternativo de las imágenes ni accesibilidad técnica.\n\nEsta auditoría cubre únicamente Lenguaje claro (51 criterios); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero el error de concordancia gramatical y de capitalización institucional, la extensión y densidad de Visión y Misión, y los documentos del pie de página sin formato, peso ni descripción (severidad alta); luego el título principal dependiente de su subtítulo, la jerga institucional, la fecha de actualización, la estructura no orientada a preguntas ciudadanas, la alineación justificada, las mayúsculas sostenidas y los dos rótulos de enlace ambiguos (severidad media)."
 }

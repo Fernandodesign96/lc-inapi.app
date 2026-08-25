@@ -99,7 +99,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H); reauditada el 2026-08-25.
     claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 68.3,
+      porcentajeLc: 66.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
