@@ -58,7 +58,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
     nombreUi: "Buscador de noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-buscador-noticias_2026-08-22",
+    auditId: "www-inapi-cl-buscador-noticias_2026-08-25",
     rolMetaMei: "Página de información interior (2/2)",
   },
   {
