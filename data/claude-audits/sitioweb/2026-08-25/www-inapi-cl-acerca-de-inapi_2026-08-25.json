@@ -265,9 +265,9 @@
     {
       "id": "LC-1.2.4-04",
       "estado": "incumple",
-      "severidad": "baja",
-      "comentario": "Los bloques «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del primer párrafo del cuerpo (que resalta «INAPI» y «Gobierno de Chile») y de «Valores Institucionales» (que resalta la etiqueta de cada ítem).",
-      "cita_textual": "INAPI será una institución referente a nivel mundial... (sin negrita); Consolidar el Sistema Nacional de Propiedad Industrial... (sin negrita)",
+      "severidad": "alta",
+      "comentario": "Los bloques Visión y Misión no destacan ninguna palabra clave con negrita. Al no haber resaltado en esos párrafos, el criterio no cumple para esos textos.",
+      "cita_textual": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país. · Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.",
       "ubicacion_pantalla": "Bloque «Visión»; bloque «Misión»"
     },
     {
@@ -350,7 +350,8 @@
       "(criterio 27) Sin fecha de publicación ni de última actualización visible; el copyright del pie no cuenta. Severidad alta (No cumple).",
       "(criterio 13) Error de concordancia gramatical confirmado en «Valores Institucionales» («los asume» en vez de «los asumen»), junto con error de capitalización institucional en el pie de página.",
       "(criterio 34, con los criterios 33, 26, 49 y 50 agrupados) Tres oraciones de 44 a 56 palabras en el segundo párrafo del cuerpo, en «Visión» y en «Misión», que además usan lenguaje abstracto y, en el caso de la Visión, calificativos autoevaluativos.",
-      "(criterio 46, con el criterio 47 agrupado) Documentos del carrusel institucional del pie de página sin título completo, formato, peso ni descripción."
+      "(criterio 46, con el criterio 47 agrupado) Documentos del carrusel institucional del pie de página sin título completo, formato, peso ni descripción.",
+      "(criterio 39) Visión y Misión sin palabras clave en negrita. Severidad alta (No cumple)."
     ],
     "hallazgos_prioridad_media": [
       "(criterio 2) El título principal «Acerca de» depende de su subtítulo «INAPI» para identificar el contenido de la página.",
@@ -363,8 +364,7 @@
     ],
     "hallazgos_prioridad_baja": [
       "(criterio 6) Sin medición de legibilidad documentada sobre el texto principal en esta sesión.",
-      "(criterio 10) Sigla PCT sin definir en su primera aparición en el menú global.",
-      "(criterio 42) «Visión» y «Misión» no destacan ninguna palabra clave con negrita, a diferencia del resto del cuerpo."
+      "(criterio 10) Sigla PCT sin definir en su primera aparición en el menú global."
     ]
   },
   "sustituciones": [
@@ -532,20 +532,20 @@
       "linea": "S16",
       "html_linea_aprox": "HTML bloque Visión, párrafo",
       "ubicacion_pantalla": "Bloque «Visión»",
-      "original": "(sin palabras destacadas en negrita)",
-      "propuesto": "Destacar en negrita los conceptos clave del párrafo de Visión (por ejemplo: «registro, gestión, promoción y calidad»; «emprendimiento e innovación»).",
+      "original": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.",
+      "propuesto": "Destacar en negrita los conceptos clave del párrafo de Visión: registro, gestión, promoción y calidad; emprendimiento e innovación.",
       "criterio_id": "LC-1.2.4-04",
-      "motivo": "El bloque de Visión es una oración corrida sin resaltado visual, a diferencia de la introducción y de Valores Institucionales.",
+      "motivo": "El párrafo de Visión es una oración corrida sin ninguna palabra en negrita.",
       "patron_sistema": false
     },
     {
       "linea": "S17",
       "html_linea_aprox": "HTML bloque Misión, párrafo",
       "ubicacion_pantalla": "Bloque «Misión»",
-      "original": "(sin palabras destacadas en negrita)",
-      "propuesto": "Destacar en negrita los conceptos clave del párrafo de Misión (por ejemplo: «protección de los derechos», «difusión del conocimiento»).",
+      "original": "Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.",
+      "propuesto": "Destacar en negrita los conceptos clave del párrafo de Misión: protección de los derechos; difusión del conocimiento.",
       "criterio_id": "LC-1.2.4-04",
-      "motivo": "El bloque de Misión es una oración corrida sin resaltado visual, a diferencia de la introducción y de Valores Institucionales.",
+      "motivo": "El párrafo de Misión es una oración corrida sin ninguna palabra en negrita.",
       "patron_sistema": false
     },
     {
