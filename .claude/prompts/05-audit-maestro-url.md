@@ -90,6 +90,13 @@ Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propues
 5. Pregunta del criterio como «Texto en pantalla» (C-2026-08-25d).
 6. Ausencia total («No hay texto que cumpla…») con `severidad: media` → debe ser **`alta` / No cumple** (C-2026-08-25f/g).
 7. Criterio 15 (`LC-5.2.1-01`): evaluar en hubs de trámite; si no hay FAQ → `no_aplica` en lenguaje ciudadano (C-2026-08-25h), no por «es sitioweb/IESD».
+8. Criterio 39 (`LC-1.2.4-04` negritas): párrafos sin negrita → `severidad: alta`; Texto = literales reales de esos párrafos/columnas, **nunca** `(sin negrita…)` (C-2026-08-25j).
+9. **Paréntesis:** no explicaciones entre paréntesis mezcladas con otro texto. Solo se admite un campo cuyo **único** contenido sea una frase entre paréntesis de ausencia total sin literal citable.
+10. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c).
+11. Encabezado «Criterio N — Instrumento M» solo en título de fila, no en los 4 campos.
+12. Commits: CLAUDE.md §5.1 / C-2026-08-25i.
+
+Leer Prompt 6 completo (hasta **C-2026-08-25j**) + skill 05 ANTES de puntuar.
 
 ### Paso A — Stack y captura (Prompt 1)
 

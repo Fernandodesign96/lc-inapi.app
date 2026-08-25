@@ -1082,6 +1082,8 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 14. `LC-1.1.4-01` con ausencia total de fecha y `severidad` distinta de `alta` (C-2026-08-25f).
 15. `LC-1.1.2-03` (u otro) con Texto «No hay texto que cumpla…» y `severidad` distinta de `alta` (C-2026-08-25g).
 16. Entrega con `Tnnn`, `applicability`, IEW/IESD sueltos, o ubicación con «(indicar Cabecera…)» (C-2026-08-25h).
+17. Negritas ausentes en párrafos citados con `severidad` distinta de `alta`, o Texto `(sin negrita…)` en vez del literal (C-2026-08-25j).
+18. Explicaciones entre paréntesis mezcladas con otro texto en los 4 campos CMS (C-2026-08-25j).
 
 ---
 

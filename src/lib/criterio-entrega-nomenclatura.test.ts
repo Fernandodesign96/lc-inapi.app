@@ -27,6 +27,17 @@ describe("limpiarNomenclaturaEntrega", () => {
     expect(out).not.toMatch(/indicar Cabecera/i)
     expect(out).toMatch(/Instrumento de Evaluaci[oó]n de Servicios Digitales \(IESD\)/)
   })
+
+  test("quita explicaciones entre paréntesis mezcladas; conserva campo solo-parentético (C-2026-08-25j)", () => {
+    expect(
+      limpiarNomenclaturaEntrega(
+        "Constanza Vargas García, bioquímica… (sin negrita en los tres extractos)",
+      ),
+    ).not.toMatch(/sin negrita/i)
+    expect(limpiarNomenclaturaEntrega("(sin fecha de actualización visible)")).toBe(
+      "(sin fecha de actualización visible)",
+    )
+  })
 })
 
 describe("criterioEntregaCampos — sin nomenclatura en propuesto", () => {

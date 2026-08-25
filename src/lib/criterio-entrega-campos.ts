@@ -128,6 +128,16 @@ export function limpiarNomenclaturaEntrega(text: string): string {
     /\s*\(describir bloque o enlace con su r[oó]tulo en auditor[ií]as nuevas\)/gi,
     "",
   )
+  // Explicaciones meta entre paréntesis mezcladas con literales (C-2026-08-25j).
+  // Solo se admite un campo cuyo ÚNICO contenido sea una frase entre paréntesis
+  // (p. ej. ausencia total sin texto citable). Si hay texto + (aclaración), quitar la aclaración.
+  const soloParentesis = /^\([^)]+\)$/.test(t.trim())
+  if (!soloParentesis) {
+    t = t.replace(/\s*\([^)]*\bsin\s+negrita[^)]*\)/gi, "")
+    t = t.replace(/\s*\([^)]*\bsin\s+palabras\s+destacadas[^)]*\)/gi, "")
+    t = t.replace(/\s*\(por ejemplo:[^)]*\)/gi, "")
+    t = t.replace(/\s*\(usar la fecha real[^)]*\)/gi, "")
+  }
   t = t.replace(
     /Pantalla evaluada\s*[›>]\s*precisar en auditor[ií]as nuevas[^«"]*/gi,
     "Pantalla evaluada › zona del contenido revisado",

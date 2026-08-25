@@ -56,6 +56,19 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas (sitioweb y trámites).
 - **estado:** vigente
 
+### C-2026-08-25j — Negritas ausentes = No cumple; sin explicaciones entre paréntesis en entrega
+
+- **Origen:** revisión Sala de Prensa — Noticias (URL 7), criterio 39 (`LC-1.2.4-04`): se entregó como «Cumple con observaciones» (`severidad: baja`) con Texto `(sin negrita en los tres extractos)` pese a que existen los tres textos de las tarjetas y ninguno cumple el requisito de negrita.
+- **Regla:**
+  1. Si hay párrafos/textos evaluables **y ninguno** usa negrita para destacar palabras clave → `incumple` + **`severidad: alta` (No cumple)**. No usar `baja` / Cumple con observaciones cuando la ausencia de negrita es total en los textos citados.
+  2. **Texto en pantalla** = los literales reales de esos párrafos o columnas de texto (p. ej. los tres textos bajo la fecha en las tarjetas de noticia), unidos con ` · ` si hay varios. **Prohibido** sustituirlos por meta `(sin negrita en los tres extractos)`.
+  3. **Ubicación:** nombrar la zona humana con precisión (p. ej. `Cuerpo › las tres tarjetas de noticia › columna de texto bajo la fecha`), no solo «extractos» sin contexto.
+  4. **Paréntesis en entrega (texto / ubicación / propuesto / justificación):** **prohibido** meter explicaciones o meta-comentarios entre paréntesis junto a otro texto (`… (sin negrita)`, `… (por ejemplo: …)`, `… (usar la fecha real…)`). **Única excepción:** cuando el **único** contenido del campo es una sola frase entre paréntesis que marca ausencia total sin literal citable (p. ej. `(sin fecha de actualización visible)` / `(no existe en pantalla)`). Si hay texto visible que citar, se cita el literal y la ausencia de negrita va en la justificación en prosa, no entre paréntesis.
+- **Ejemplo malo:** `Texto: (sin negrita en los tres extractos)` · presentación Cumple con observaciones.
+- **Ejemplo bueno:** `Texto: «Constanza Vargas García, bioquímica…» · «La herramienta… 148 productos…» · «La medida beneficia… Japón…»` · `severidad: alta` · Ubicación: columna de texto de las tres tarjetas.
+- **Aplica a:** todas.
+- **estado:** vigente
+
 ### C-2026-08-25i — Consistencia de calibración: aplicar + commit sin preguntar
 
 - **Origen:** tras URLs 6 y 7, Claude Code dejó JSON de URLs ya cerradas y capa de entrega en `modified` sin commit y abrió menús «¿commitear / revertir / dejar?».
@@ -339,4 +352,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (… **C-2026-08-25d…h** incluidas: texto≠pregunta, datos clave, fecha/ausencia=No cumple, entrega sin Tnnn/applicability/IEW sueltos, criterio 15 ciudadano); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (… **C-2026-08-25d…j** incluidas); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
