@@ -27,19 +27,20 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Home INAPI",
     tipoPagina: "sitioweb",
     // Misma URL que Clarity rank 16 — reauditoría §20 (15 subagentes + 5 sub-subagentes §17, meta-mei orden 1)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22 (fecha
-    // corregida: la vigente vuelve a ser 2026-08-21, con captura Playwright propia; 2026-08-22 pasa a history[]).
-    // Segunda pasada 2026-08-21 (Prompt 6 C-2026-08-21): modal de contacto abierto/capturado, hero y
-    // recuadro de datos clave reevaluados con más rigor; % baja de 78,9 a 76,9 (resultado correcto).
-    claudeAuditId: "www-inapi-cl_2026-08-21",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22.
+    // Reauditoría 2026-08-25 (Prompt 6 C-2026-08-25b): entrega sin ningún código interno visible
+    // (LC-*, IEW/IESD, Tnnn) en texto/ubicación/propuesto/justificación; encabezado «Criterio N — Instrumento M».
+    // Contenido de página equivalente a 2026-08-22; % se mantiene en 78,9 (mismos hallazgos, reescritos).
+    claudeAuditId: "www-inapi-cl_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 76.9,
+      porcentajeLc: 78.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-21T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl_2026-08-22" },
+      { id: "www-inapi-cl_2026-08-21" },
       { id: "www-inapi-cl_2026-08-20" },
       { id: "www-inapi-cl_2026-08-19" },
       { id: "www-inapi-cl_2026-08-18" },

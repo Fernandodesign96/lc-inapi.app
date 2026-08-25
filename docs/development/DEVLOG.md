@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 78,9 %](#devlog-2026-08-25-portada-reaudit-v30-sin-nomenclatura) |
 | 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 68,3 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 71,4 %](#devlog-2026-08-25-patentes-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 73,2 %](#devlog-2026-08-25-marcas-reaudit-v30) |
@@ -94,6 +95,30 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-portada-reaudit-v30-sin-nomenclatura"></a>
+## [2026-08-25] - Infraestructura | Portada www.inapi.cl: reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 78,9 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la Portada (`https://www.inapi.cl/`, META MEI orden 1) aplicando una calibración más estricta que las tres reauditorías previas de esta misma sesión (Marcas, Patentes, Acerca de INAPI): la entrega debe quedar completamente libre de nomenclatura interna, incluidos los propios códigos `LC-*` e IEW/IESD (`1.1.3`, `5.1.3`, etc.) en los campos de texto, ubicación, propuesta y justificación. Se agregó la entrada de calibración `C-2026-08-25b` en `06-calibracion-hallazgos.md` (y su reflejo en `CLAUDE.md` §22.1/§22.12 y en la skill `02`) con esta regla.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/`, con apertura y verificación de la ventana emergente de contacto; se confirmó que el contenido (menú, título principal, tarjetas de Patentes/Marcas, tres noticias, banners y pie de página) es equivalente al capturado el 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length`: guía de marcas 17.156.031 bytes (≈16,4 MB), guía de patentes 13.133.207 bytes (≈12,5 MB), Plan de Acción de Cumplimiento 2025 (293 KB), Teletrabajo (3,3 MB) y Código de Ética INAPI 2026 (590 KB) — sin cambios respecto de la revisión anterior.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: el criterio de palabras claras y el de títulos claros se agrupan bajo los criterios de oraciones simples y de ausencia de jerga, respectivamente), 13 no aplica → 38 aplicables, 78,9 % de cumplimiento → `rechazado` (mismo resultado numérico que el 2026-08-22; el contenido de la página no cambió).
+- Entrega reescrita bajo la calibración `C-2026-08-25b`: cada criterio comienza con el encabezado «Criterio N: «pregunta» — Instrumento M: Nombre» (numeración simple 1…51, sin códigos `LC-*` ni `1.1.x/5.1.x`); las referencias cruzadas usan «el criterio N»; ninguna corrección propuesta queda como «Corregir incumplimiento de…» sin texto o instrucción accionable. Las tres frases en mayúscula sostenida (buscadores de patentes/marcas, banner de datos, ventana de búsqueda) quedaron en tres filas de sustitución independientes.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) apuntan al nuevo id; `www-inapi-cl_2026-08-22` y `www-inapi-cl_2026-08-21` quedan en `history[]`.
+
+### Próximos pasos:
+
+- Reauditar Buscador de noticias y las siguientes URLs de la cola META MEI con la misma disciplina de entrega cero-nomenclatura (`C-2026-08-25b`).
 
 ---
 
