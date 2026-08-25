@@ -241,11 +241,13 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     label: "Patentes",
     tipoPagina: "sitioweb",
     // Reauditoría META MEI orden 3 (Menú principal 2/2), checklist PTD-LC v3.0 (51 criterios LC-*).
-    // 2026-08-25: captura Playwright actual confirma el mismo DOM y pesos de documentos que la
-    // versión 2026-08-22 (% se mantiene en 71,4%); entrega CMS reescrita sin nomenclatura interna
-    // (ubicaciones y propuestas en lenguaje humano, sin ids de inventario ni referencias de proceso).
+    // 2026-08-25 (segunda reauditoría del día): corrige el criterio 45 (rótulos/CTA descriptivos),
+    // que la revisión anterior había marcado como no aplicable con el argumento inválido de que la
+    // página, por ser informativa, correspondía a la variante exclusiva de servicios digitales. Con
+    // evidencia real (enlace «Conoce más» y botón «LINK EXTERNO» sin destino descrito) el criterio
+    // pasa a incumplido, lo que baja el % de 71,4% a 69,8%. Entrega CMS sin nomenclatura interna.
     resumenMvp: {
-      porcentajeLc: 71.4,
+      porcentajeLc: 69.8,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",

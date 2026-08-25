@@ -5,89 +5,89 @@
   "evaluador_uid": "equipo de desarrollo",
   "version_checklist": "3.0",
   "tipo_pagina": "sitioweb",
-  "texto_capturado": "Captura actual de https://www.inapi.cl/patentes (Playwright, DOM renderizado): título principal «Patentes»; ruta «Home › Patentes»; sección «Para Informarse» con cuatro tarjetas («Qué es una Patente», «Ventajas de Registrar una Patente», «Requisitos para obtener una patente», «Tasas nacionales»); sección «Buscadores» con los enlaces «Buscador en base de datos», «Notificaciones diarias» y «Otros Buscadores»; sección «Tipos de Patentes» con cuatro tarjetas («Invención», «Modelos de Utilidad», «Diseños», «Esquemas de Trazados o Topografías de Circuitos Integrados»); sección «Trámites» con tres tarjetas («Tramitación Patente», «Títulos y Certificados», «Recursos para Usuarios»); tres pestañas de guías descargables («Guías PPH», «Guías Global PPH», «Guías PAPV») con 8 documentos en total; ventana emergente «¿Quieres contactarnos?» (teléfono, correo, dirección y horarios de atención); ventana emergente de búsqueda «Buscar y tramitar» con enlaces de Marcas y Patentes; panel de acceso y registro con los enlaces «Usuario Frecuente», «Registro» y el botón de prueba «LINK EXTERNO» (sin destino real); pie de página institucional con el bloque «Dónde estamos» y un carrusel de documentos y enlaces externos, incluidos «Plan de Acción de Cumplimiento 2025», «Teletrabajo» y «Código de Ética INAPI 2026»; sin fecha de publicación ni de actualización visible en la página. Se verificó hoy vía cabecera HTTP (Content-Length) el peso real de los 11 documentos PDF enlazados en la página.\n\nRevisión de lenguaje de menor a mayor unidad (palabra/concepto → frase → oración → párrafo → forma), previa a la evaluación de los 51 criterios: se detectaron conceptos técnico-jurídicos sin definir («novedad», «elemento inventivo», «aplicación industrial», «tasas», «derecho», «Modelos de Utilidad», «Esquemas de Trazados o Topografías de Circuitos Integrados», «Recursos para Usuarios»); siglas sin expandir en su primera aparición («PCT», «PPH», «PAPV»); títulos de sección que no anticipan su contenido («Para Informarse», «Buscadores»); y un párrafo de tres requisitos de patentabilidad que nombra los criterios legales sin explicar qué significa cada uno ni qué debe hacer o esperar la persona.",
+  "texto_capturado": "Captura actual de https://www.inapi.cl/patentes (Playwright, DOM renderizado, reauditoría del 2026-08-25): título principal «Patentes»; ruta «Home › Patentes»; sección «Para informarse» con cuatro tarjetas («Qué es una patente», «Ventajas de registrar una patente», «Requisitos para obtener una patente», «Tasas nacionales»); sección «Buscadores» con los enlaces «Buscador en base de datos», «Notificaciones diarias» y «Otros buscadores»; sección «Tipos de patentes» con cuatro tarjetas («Invención», «Modelos de utilidad», «Diseños», «Esquemas de trazados o topografías de circuitos integrados»); sección «Trámites» con tres tarjetas («Tramitación patente», «Títulos y certificados», «Recursos para usuarios»); tres pestañas de guías descargables («Guías PPH», «Guías Global PPH», «Guías PAPV») con 8 documentos en total; ventana emergente «¿Quieres contactarnos?» (teléfono, correo, dirección y horarios de atención); ventana emergente de búsqueda «Buscar y tramitar» con enlaces de Marcas y Patentes; panel de acceso y registro con los enlaces «Usuario Frecuente», «Registro» y el botón de prueba «LINK EXTERNO» (sin destino real); pie de página institucional con el bloque «Dónde estamos» y un carrusel de documentos y enlaces externos, incluidos «Plan de Acción de Cumplimiento 2025», «Teletrabajo» y «Código de Ética INAPI 2026»; sin fecha de publicación ni de actualización visible en la página. Se listaron todos los enlaces y botones visibles de la página (menú global, tarjetas, buscadores, trámites, pestañas de guías, ventanas emergentes, panel de acceso y pie de página) para revisar con evidencia real si sus textos describen el destino o la acción, con foco reforzado en el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del panel de acceso, señalados en una revisión anterior como excluidos indebidamente de esta pregunta. Se verificó hoy, consultando el tamaño real de cada archivo, el peso de los 11 documentos PDF enlazados en la página.\n\nRevisión de lenguaje de menor a mayor unidad (palabra/concepto → frase → oración → párrafo → forma), previa a la evaluación de los 51 criterios: se detectaron conceptos técnico-jurídicos sin definir («novedad», «elemento inventivo», «aplicación industrial», «tasas», «derecho», «Modelos de utilidad», «Esquemas de trazados o topografías de circuitos integrados», «Recursos para usuarios»); siglas sin expandir en su primera aparición («PCT», «PPH», «PAPV»); títulos de sección que no anticipan su contenido («Para informarse», «Buscadores»); un párrafo de tres requisitos de patentabilidad que nombra los criterios legales sin explicar qué significa cada uno ni qué debe hacer o esperar la persona; y dos rótulos de enlace/botón que no describen su destino ni su acción («Conoce más», «LINK EXTERNO»).",
   "criterios_evaluados": [
     {
       "id": "LC-1.1.1-01",
       "estado": "cumple",
-      "comentario": "El pie de página identifica a la institución responsable del contenido («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI está presente en toda la cabecera de la página.",
+      "comentario": "Criterio 1: «¿Es fácil reconocer la fuente o autoría de la información publicada? Por ejemplo: se identifica claramente el nombre de la institución que publica en el encabezado o pie de cada página, o la unidad interna o externa que entregó alguna información específica.» — Instrumento 1: Fiabilidad. El pie de página identifica a la institución responsable del contenido («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI está presente en toda la cabecera de la página.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.2-01",
       "estado": "cumple",
-      "comentario": "El título principal visible «Patentes» es fiel al contenido de la página: definición, ventajas, requisitos, tasas, buscadores, tipos de patentes, trámites y guías descargables, todos relacionados con patentes.",
+      "comentario": "Criterio 2: «¿Los contenidos representan de manera fiel lo enunciado en su título?» — Instrumento 2: Completitud. El título principal visible «Patentes» es fiel al contenido de la página: definición, ventajas, requisitos, tasas, buscadores, tipos de patentes, trámites y guías descargables, todos relacionados con patentes.",
       "cita_textual": "Patentes",
       "ubicacion_pantalla": "Zona superior › título principal «Patentes»"
     },
     {
       "id": "LC-1.1.2-02",
       "estado": "cumple",
-      "comentario": "No se observan bloques «en construcción» ni secciones vacías: las cuatro tarjetas de «Para Informarse», los buscadores, los tipos de patentes, los trámites y las tres pestañas de guías muestran contenido completo.",
-      "cita_textual": "Qué es una Patente; Ventajas de Registrar una Patente; Requisitos para obtener una patente; Tasas nacionales",
-      "ubicacion_pantalla": "Cuerpo de la página › secciones «Para Informarse», «Buscadores», «Tipos de Patentes» y «Trámites»"
+      "comentario": "Criterio 3: «¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o «En construcción»?» — Instrumento 2: Completitud. No se observan bloques «en construcción» ni secciones vacías: las cuatro tarjetas de «Para informarse», los buscadores, los tipos de patentes, los trámites y las tres pestañas de guías muestran contenido completo.",
+      "cita_textual": "Qué es una patente; Ventajas de registrar una patente; Requisitos para obtener una patente; Tasas nacionales",
+      "ubicacion_pantalla": "Cuerpo de la página › secciones «Para informarse», «Buscadores», «Tipos de patentes» y «Trámites»"
     },
     {
       "id": "LC-1.1.2-03",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Falta un recuadro que reúna en un solo lugar qué es, cómo se hace, dónde se hace y para quién sirve una solicitud de patente. Además, la tarjeta «Tasas nacionales» solo dice que se debe consultar un cuadro de valores «según el tipo de derecho», sin decir si existen pagos periódicos (por ejemplo, de mantención) además del pago de solicitud y de registro.",
+      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información? Por ejemplo: se presenta un resumen con las respuestas a las preguntas qué, cómo, dónde, cuándo y para quién o existe un recuadro con fechas importantes.» — Instrumento 2: Completitud. Falta un recuadro que reúna en un solo lugar qué es, cómo se hace, dónde se hace y para quién sirve una solicitud de patente. Además, la tarjeta «Tasas nacionales» solo dice que se debe consultar un cuadro de valores «según el tipo de derecho», sin decir si existen pagos periódicos (por ejemplo, de mantención) además del pago de solicitud y de registro.",
       "cita_textual": "Acceda al cuadro actualizado de valores, según el tipo de derecho.",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Tasas nacionales»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Tasas nacionales»"
     },
     {
       "id": "LC-1.1.2-04",
       "estado": "no_aplica",
-      "comentario": "Esta URL es el hub informativo de la sección Patentes, no una página de trámite; la autonomía para completar un trámite se evalúa en las páginas de detalle de cada uno (Tramitación de patente, Títulos y Certificados, Recursos para Usuarios), fuera de esta URL."
+      "comentario": "Criterio 5: «En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?» — Instrumento 2: Completitud. Esta URL es el catálogo informativo de la sección Patentes, no una página de trámite; la autonomía para completar un trámite se evalúa en las páginas de detalle de cada uno (Tramitación de patente, Títulos y certificados, Recursos para usuarios), fuera de esta página."
     },
     {
       "id": "LC-1.1.3-01",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "No se aplicó una herramienta de medición de legibilidad (por ejemplo, una fórmula de lectura fácil) sobre el texto principal de la página en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. La redacción de la tarjeta «Requisitos para obtener una patente» hace probable que una medición real arroje un resultado bajo.",
+      "comentario": "Criterio 6: «¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora? (p. ej. Legible: al menos tres de cinco indicadores en dificultad Normal).» — Instrumento 3: Lenguaje plano. No se aplicó una herramienta de medición de legibilidad (por ejemplo, una fórmula de lectura fácil) sobre el texto principal de la página en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. La redacción de la tarjeta «Requisitos para obtener una patente» hace probable que una medición real arroje un resultado bajo.",
       "cita_textual": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Requisitos para obtener una patente»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Requisitos para obtener una patente»"
     },
     {
       "id": "LC-1.1.3-02",
       "estado": "cumple",
-      "comentario": "El contenido visible (tarjetas de «Para Informarse», ventana emergente de contacto) mantiene un registro neutro y cercano, sin trato distante ni irrespetuoso hacia la persona usuaria.",
-      "ubicacion_pantalla": "Sección «Para Informarse» y ventana emergente «¿Quieres contactarnos?»"
+      "comentario": "Criterio 7: «¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?» — Instrumento 3: Lenguaje plano. El contenido visible (tarjetas de «Para informarse», ventana emergente de contacto) mantiene un registro neutro y cercano, sin trato distante ni irrespetuoso hacia la persona usuaria.",
+      "ubicacion_pantalla": "Sección «Para informarse» y ventana emergente «¿Quieres contactarnos?»"
     },
     {
       "id": "LC-1.1.3-03",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Varios conceptos técnico-jurídicos se usan sin definirse ni reemplazarse por lenguaje cotidiano: los tres requisitos de patentabilidad —«novedad», «elemento inventivo» y «aplicación industrial»— se nombran pero no se explica qué significa cada uno; «tasas» y «derecho» no se definen ni aclaran cuándo se pagan; «Modelos de Utilidad» y «Esquemas de Trazados o Topografías de Circuitos Integrados» aparecen como nombre de categoría sin ninguna descripción; «Recursos para Usuarios» es un título ambiguo que no deja claro si se trata de recursos legales o de material de apoyo.",
+      "comentario": "Criterio 8: «¿La redacción prescinde de la jerga técnica o legal?» — Instrumento 3: Lenguaje plano. Varios conceptos técnico-jurídicos se usan sin definirse ni reemplazarse por lenguaje cotidiano: los tres requisitos de patentabilidad —novedad, elemento inventivo y aplicación industrial— se nombran pero no se explica qué significa cada uno; «tasas» y «derecho» no se definen ni aclaran cuándo se pagan; «Modelos de utilidad» y «Esquemas de trazados o topografías de circuitos integrados» aparecen como nombre de categoría sin ninguna descripción; «Recursos para usuarios» es un título ambiguo que no deja claro si se trata de recursos legales o de material de apoyo.",
       "cita_textual": "novedad; elemento inventivo; aplicación industrial; tasas; derecho; Modelos de Utilidad; Esquemas de Trazados o Topografías de Circuitos Integrados; Recursos para Usuarios",
-      "ubicacion_pantalla": "Sección «Para Informarse», sección «Tipos de Patentes» y sección «Trámites»"
+      "ubicacion_pantalla": "Sección «Para informarse», sección «Tipos de patentes» y sección «Trámites»"
     },
     {
       "id": "LC-1.1.3-04",
       "estado": "cumple",
-      "comentario": "En el conjunto de la página se evitan mayormente abreviaturas y extranjerismos; solo se detecta una abreviatura puntual, «p.ej.», en la tarjeta «Ventajas de Registrar una Patente», que no alcanza a comprometer el 50 % del contenido revisado. Su corrección queda incluida en la reescritura de esa misma oración (criterio de concisión).",
+      "comentario": "Criterio 9: «¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?» — Instrumento 3: Lenguaje plano. En el conjunto de la página se evitan mayormente abreviaturas y extranjerismos; solo se detecta una abreviatura puntual, «p.ej.», en la tarjeta «Ventajas de registrar una patente», que no alcanza a comprometer el 50 % del contenido revisado. Su corrección queda incluida en la reescritura de esa misma oración en el criterio de concisión (criterio 34).",
       "cita_textual": "(p.ej. mecánica, eléctrica, biotecnología, farmacia o química)",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Ventajas de Registrar una Patente»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Ventajas de registrar una patente»"
     },
     {
       "id": "LC-1.1.3-05",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Tres siglas sin definir en su primera aparición: «PCT» en el menú de navegación global; «PPH» y «PAPV», que además son el único rótulo de las pestañas de guías que la persona debe abrir para encontrar los documentos, sin saber de antemano qué significan.",
+      "comentario": "Criterio 10: «¿Se define cada sigla y acrónimo y se emplean solo si es necesario?» — Instrumento 3: Lenguaje plano. Tres siglas sin definir en su primera aparición: «PCT» en el menú de navegación global; «PPH» y «PAPV», que además son el único rótulo de las pestañas de guías que la persona debe abrir para encontrar los documentos, sin saber de antemano qué significan.",
       "cita_textual": "PCT; Guías PPH; Guías Global PPH; Guías PAPV",
       "ubicacion_pantalla": "Menú de navegación global › ítem «PCT»; sección de pestañas de guías descargables"
     },
     {
       "id": "LC-1.1.3-06",
       "estado": "cumple",
-      "comentario": "Las tarjetas de «Para Informarse» y los enlaces de trámites están redactados en tono afirmativo, describiendo qué es y qué se puede hacer, sin enfoque en prohibiciones."
+      "comentario": "Criterio 11: «¿Los contenidos están escritos en tono positivo indicando lo que se puede hacer y evitando enfocar los mensajes desde el «no se puede»?» — Instrumento 3: Lenguaje plano. Las tarjetas de «Para informarse» y los enlaces de trámites están redactados en tono afirmativo, describiendo qué es y qué se puede hacer, sin enfoque en prohibiciones."
     },
     {
       "id": "LC-1.1.4-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página; es un hub de sección sin bloque de noticias que aporte fecha propia. El aviso de copyright del pie de página no reemplaza esta fecha.",
+      "comentario": "Criterio 12: «¿Los contenidos están actualizados y muestran información vigente al año en curso? Por ejemplo: se indica expresamente su fecha de publicación o última fecha de actualización.» — Instrumento 4: Actualización. No hay fecha de publicación ni de última actualización visible en esta página; es un catálogo de sección sin bloque de noticias que aporte fecha propia. El aviso de derechos reservados del pie de página no reemplaza esta fecha.",
       "cita_textual": "(sin fecha de actualización visible)",
       "ubicacion_pantalla": "Zona superior › bajo el título principal «Patentes»"
     },
@@ -95,88 +95,88 @@
       "id": "LC-1.1.5-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Cuatro errores visibles: en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» debería llevar mayúscula inicial en «Industrial»; el título «Ventajas de Registrar una Patente» usa mayúscula en cada palabra mientras las otras tres tarjetas de «Para Informarse» usan formato de oración; falta la partícula «ya» en «cualquier invención sea un proceso o un producto»; y el título «Tramitación Patente» omite la preposición «de» (debería ser «Tramitación de patente»).",
+      "comentario": "Criterio 13: «¿Son correctas la ortografía —literal, acentual y puntual— y la gramática en los contenidos? (revisar con corrector; más de un error → no cumple).» — Instrumento 5: Redacción y ortografía. Cuatro errores visibles: en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» debería llevar mayúscula inicial en «Industrial»; el título «Ventajas de registrar una patente» usa mayúscula en cada palabra mientras las otras tres tarjetas de «Para informarse» usan formato de oración; falta la partícula «ya» en «cualquier invención sea un proceso o un producto»; y el título «Tramitación Patente» omite la preposición «de» (debería ser «Tramitación de patente»).",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI); Ventajas de Registrar una Patente; cualquier invención sea un proceso o un producto; Tramitación Patente",
-      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; sección «Para Informarse», tarjeta «Ventajas de Registrar una Patente»; sección «Trámites», tarjeta «Tramitación Patente»"
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; sección «Para informarse», tarjeta «Ventajas de registrar una patente»; sección «Trámites», tarjeta «Tramitación patente»"
     },
     {
       "id": "LC-1.1.5-02",
       "estado": "cumple",
-      "comentario": "Las tarjetas de «Para Informarse» usan puntuación simple; el punto y coma de «Requisitos para obtener una patente» conecta ideas relacionadas sin entorpecer gravemente la lectura."
+      "comentario": "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. Las tarjetas de «Para informarse» usan puntuación simple; el punto y coma de «Requisitos para obtener una patente» conecta ideas relacionadas sin entorpecer gravemente la lectura."
     },
     {
       "id": "LC-1.1.5-03",
       "estado": "cumple",
-      "comentario": "La tarjeta «Requisitos para obtener una patente» usa el conector referencial «Estos son que...», que relaciona la primera oración (hay tres criterios) con el detalle que sigue.",
+      "comentario": "Criterio 15: «¿Las frases se relacionan entre sí por medio de conectores? Por ejemplo: «A su vez,», «Por otra parte,», «Sin embargo,» o «De igual modo,».» — Instrumento 5: Redacción y ortografía. La tarjeta «Requisitos para obtener una patente» usa el conector referencial «Estos son que...», que relaciona la primera oración (hay tres criterios) con el detalle que sigue.",
       "cita_textual": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad...",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Requisitos para obtener una patente»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Requisitos para obtener una patente»"
     },
     {
       "id": "LC-1.1.6-01",
       "estado": "cumple",
-      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "comentario": "Criterio 16: «¿El sitio cuenta con información de permisos de uso de sus contenidos en algún lugar del sitio (condiciones de uso, copyright o licencia tipo Creative Commons)?» — Instrumento 6: Propiedad intelectual. El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
       "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»"
     },
     {
       "id": "LC-1.1.6-02",
       "estado": "cumple",
-      "comentario": "El contenido visible (tarjetas informativas, tipos de patentes, trámites, guías) corresponde a producción institucional propia; no se observa redifusión de material protegido de terceros sin atribución."
+      "comentario": "Criterio 17: «¿Se evita la redifusión de material protegido por derechos de autor sin autorización?» — Instrumento 6: Propiedad intelectual. El contenido visible (tarjetas informativas, tipos de patentes, trámites, guías) corresponde a producción institucional propia; no se observa redifusión de material protegido de terceros sin atribución."
     },
     {
       "id": "LC-1.1.7-01",
       "estado": "cumple",
-      "comentario": "El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
+      "comentario": "Criterio 18: «Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?» — Instrumento 7: Privacidad y datos personales. El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.7-02",
       "estado": "cumple",
-      "comentario": "Los únicos datos de contacto visibles (ventana emergente «¿Quieres contactarnos?» y pie de página institucional) son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
+      "comentario": "Criterio 19: «¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?» — Instrumento 7: Privacidad y datos personales. Los únicos datos de contacto visibles (ventana emergente «¿Quieres contactarnos?» y pie de página institucional) son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
     },
     {
       "id": "LC-1.1.7-03",
       "estado": "cumple",
-      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de los derechos de acceso, rectificación, cancelación y oposición.",
+      "comentario": "Criterio 20: «¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO (acceso, rectificación, cancelación o eliminación, oposición) y bloqueo de datos personales, conforme a la Ley sobre Protección de la Vida Privada?» — Instrumento 7: Privacidad y datos personales. El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de los derechos de acceso, rectificación, cancelación y oposición.",
       "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»"
     },
     {
       "id": "LC-1.1.8-01",
       "estado": "no_aplica",
-      "comentario": "Esta página no publica información sobre menores de edad; el contenido visible es de alcance institucional general (definiciones, buscadores, trámites de patentes)."
+      "comentario": "Criterio 21: «Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?» — Instrumento 8: Contenidos sensibles. Esta página no publica información sobre menores de edad; el contenido visible es de alcance institucional general (definiciones, buscadores, trámites de patentes)."
     },
     {
       "id": "LC-1.1.8-02",
       "estado": "cumple",
-      "comentario": "El contenido visible (definiciones, tipos de patentes, trámites, guías) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+      "comentario": "Criterio 22: «¿El contenido es apto para ser leído por menores de edad?» — Instrumento 8: Contenidos sensibles. El contenido visible (definiciones, tipos de patentes, trámites, guías) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
     },
     {
       "id": "LC-1.1.8-03",
       "estado": "cumple",
-      "comentario": "No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas; el contenido se limita a información sobre patentes y trámites."
+      "comentario": "Criterio 23: «¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas (salud, ideología, creencias religiosas, vida sexual, características físicas, etc.)?» — Instrumento 8: Contenidos sensibles. No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas; el contenido se limita a información sobre patentes y trámites."
     },
     {
       "id": "LC-1.2.1-01",
       "estado": "cumple",
-      "comentario": "Las cuatro tarjetas de «Para Informarse» organizan el contenido como respuestas a preguntas frecuentes de una persona que quiere patentar una invención: qué es, por qué conviene, qué requisitos exige y cuánto cuesta, aunque los títulos no estén redactados literalmente como preguntas."
+      "comentario": "Criterio 24: «¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?» — Instrumento 9: Claridad. Las cuatro tarjetas de «Para informarse» organizan el contenido como respuestas a preguntas frecuentes de una persona que quiere patentar una invención: qué es, por qué conviene, qué requisitos exige y cuánto cuesta, aunque los títulos no estén redactados literalmente como preguntas."
     },
     {
       "id": "LC-5.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Esta URL es la página informativa de la sección Patentes, no un servicio digital ni un trámite; la variante de claridad para servicio digital no corresponde aquí."
+      "comentario": "Criterio 25: «¿La información del servicio digital está organizada de manera que responda claramente a las preguntas frecuentes que podrían tener las personas usuarias?» — Instrumento 9: Claridad. Esta página es el catálogo informativo de la sección Patentes, no un servicio digital ni un trámite; la variante de claridad para servicio digital no corresponde aquí."
     },
     {
       "id": "LC-1.2.1-02",
       "estado": "cumple",
-      "comentario": "La definición de la tarjeta «Qué es una Patente» usa palabras razonablemente claras («medio más generalizado que existe para proteger los derechos de los inventores»); la densidad técnica real de la página está en los tres requisitos de patentabilidad, ya evaluada en el criterio de lenguaje plano.",
+      "comentario": "Criterio 26: «¿Las palabras, frases y conceptos utilizados tienen un lenguaje claro para las personas usuarias?» — Instrumento 9: Claridad. La definición de la tarjeta «Qué es una patente» usa palabras razonablemente claras («medio más generalizado que existe para proteger los derechos de los inventores»); la densidad técnica real de la página está en los tres requisitos de patentabilidad, ya evaluada en el criterio de lenguaje plano (criterio 8).",
       "cita_textual": "Las patentes, también conocidas con el nombre de patentes de invención, son el medio más generalizado que existe para proteger los derechos de los inventores.",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Qué es una Patente»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Qué es una patente»"
     },
     {
       "id": "LC-1.2.1-03",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "La ventana emergente de contacto usa voz pasiva: «Tu consulta será atendida por un especialista.» La voz pasiva de la tercera cláusula de «Requisitos para obtener una patente» («puede ser aplicado el invento industrialmente») se corrige junto con la definición de jerga de ese mismo párrafo.",
+      "comentario": "Criterio 27: «¿Predomina el tiempo presente simple y la voz activa de los verbos?» — Instrumento 9: Claridad. La ventana emergente de contacto usa voz pasiva: «Tu consulta será atendida por un especialista.» La voz pasiva de la tercera cláusula de «Requisitos para obtener una patente» («puede ser aplicado el invento industrialmente») se corrige junto con la definición de jerga de ese mismo párrafo, en el criterio 8.",
       "cita_textual": "Tu consulta será atendida por un especialista.",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
     },
@@ -184,113 +184,116 @@
       "id": "LC-1.2.1-04",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "La tercera cláusula de «Requisitos para obtener una patente» invierte el orden verbo-sujeto: «el tercero dice que puede ser aplicado el invento industrialmente» en vez de «el invento puede aplicarse industrialmente». Toda la evidencia de este criterio en la página está en ese mismo párrafo, que se corrige junto con la definición de jerga.",
+      "comentario": "Criterio 28: «¿Las oraciones están ordenadas según la forma sujeto-verbo-predicado?» — Instrumento 9: Claridad. La tercera cláusula de «Requisitos para obtener una patente» invierte el orden verbo-sujeto: «el tercero dice que puede ser aplicado el invento industrialmente» en vez de «el invento puede aplicarse industrialmente». Toda la evidencia de este criterio en la página está en ese mismo párrafo, que se corrige junto con la definición de jerga en el criterio 8.",
       "cita_textual": "el tercero dice que puede ser aplicado el invento industrialmente.",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Requisitos para obtener una patente»",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Requisitos para obtener una patente»",
       "agrupado_en": "LC-1.1.3-03"
     },
     {
       "id": "LC-1.2.1-05",
       "estado": "no_aplica",
-      "comentario": "Los tres requisitos de patentabilidad son criterios legales sobre la invención misma (novedad, nivel inventivo, aplicación industrial), no un listado de requisitos administrativos para solicitar un servicio a la ciudadanía; ese tipo de listado, si existe, está en las páginas de detalle de cada trámite, fuera de esta URL."
+      "comentario": "Criterio 29: «Cuando se listan requisitos en contenidos referidos a servicios a la ciudadanía, ¿se usa modo infinitivo?» — Instrumento 9: Claridad. Los tres requisitos de patentabilidad son criterios legales sobre la invención misma (novedad, nivel inventivo, aplicación industrial), no un listado de requisitos administrativos para solicitar un servicio a la ciudadanía; ese tipo de listado, si existe, está en las páginas de detalle de cada trámite, fuera de esta página."
     },
     {
       "id": "LC-1.2.2-01",
       "estado": "cumple",
-      "comentario": "El cuerpo visible se compone de bloques breves: cuatro tarjetas informativas de un párrafo cada una y listas cortas de enlaces (buscadores, tipos, trámites, guías); no hay muros de texto extensos."
+      "comentario": "Criterio 30: «¿Los textos son breves y utilizan frases cortas en su redacción (al menos 2 y como máximo 8 párrafos por página)?» — Instrumento 10: Concisión. El cuerpo visible se compone de bloques breves: cuatro tarjetas informativas de un párrafo cada una y listas cortas de enlaces (buscadores, tipos, trámites, guías); no hay muros de texto extensos."
     },
     {
       "id": "LC-5.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Esta URL es la página informativa de la sección Patentes, no un servicio digital ni un trámite; la variante de concisión para servicio digital no corresponde aquí."
+      "comentario": "Criterio 31: «¿Los textos, tanto de la página de inicio como del desarrollo del trámite, son breves y utilizan frases cortas en su redacción?» — Instrumento 10: Concisión. Esta página es el catálogo informativo de la sección Patentes, no un servicio digital ni un trámite; la variante de concisión para servicio digital no corresponde aquí."
     },
     {
       "id": "LC-1.2.2-02",
       "estado": "cumple",
-      "comentario": "Las cuatro tarjetas de «Para Informarse» ocupan entre 1 y 3 líneas visuales en escritorio, muy por debajo de 8 líneas."
+      "comentario": "Criterio 32: «Al revisar el sitio web en versión de escritorio, ¿los párrafos son cortos, con menos de 8 líneas?» — Instrumento 10: Concisión. Las cuatro tarjetas de «Para informarse» ocupan entre 1 y 3 líneas visuales en pantalla de escritorio, muy por debajo de 8 líneas."
     },
     {
       "id": "LC-1.2.2-03",
       "estado": "cumple",
-      "comentario": "Cada tarjeta desarrolla una sola idea: qué es una patente, sus ventajas, los requisitos y las tasas, sin mezclar temas entre bloques."
+      "comentario": "Criterio 33: «¿Se explica una idea por párrafo?» — Instrumento 10: Concisión. Cada tarjeta desarrolla una sola idea: qué es una patente, sus ventajas, los requisitos y las tasas, sin mezclar temas entre bloques."
     },
     {
       "id": "LC-1.2.2-04",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Dos tarjetas usan una sola oración larga y con exceso de palabras: «Ventajas de Registrar una Patente» (alrededor de 40 palabras) y «Requisitos para obtener una patente» (alrededor de 45 palabras en dos oraciones, con tres ideas concatenadas). La corrección de «Requisitos» se resuelve junto con la definición de jerga y el formato de lista; «Ventajas» necesita su propia corrección independiente.",
+      "comentario": "Criterio 34: «¿Las oraciones son simples y directas, evitando el exceso de palabras?» — Instrumento 10: Concisión. Dos tarjetas usan una sola oración larga y con exceso de palabras: «Ventajas de registrar una patente» (alrededor de 40 palabras) y «Requisitos para obtener una patente» (alrededor de 45 palabras en dos oraciones, con tres ideas concatenadas). La corrección de «Requisitos» se resuelve junto con la definición de jerga y el formato de lista en el criterio 8; «Ventajas» necesita su propia corrección independiente.",
       "cita_textual": "Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Ventajas de Registrar una Patente»"
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Ventajas de registrar una patente»"
     },
     {
       "id": "LC-1.2.2-05",
       "estado": "no_aplica",
-      "comentario": "No existe en esta página un bloque de texto corrido de cuatro o más párrafos continuos (las cuatro tarjetas son bloques independientes de un párrafo cada una), por lo que no corresponde exigir un resumen inicial."
+      "comentario": "Criterio 35: «Si existe un texto extenso —de cuatro o más párrafos—, ¿hay un resumen al inicio?» — Instrumento 10: Concisión. No existe en esta página un bloque de texto corrido de cuatro o más párrafos continuos (las cuatro tarjetas son bloques independientes de un párrafo cada una), por lo que no corresponde exigir un resumen inicial."
     },
     {
       "id": "LC-1.2.3-01",
       "estado": "cumple",
-      "comentario": "Las secciones de la página («Para Informarse», «Buscadores», «Tipos de Patentes», «Trámites») se presentan como bloques separados con espacio visual entre ellos; no hay párrafos apretados unos contra otros."
+      "comentario": "Criterio 36: «¿Hay espacio entre los párrafos?» — Instrumento 11: Legibilidad. Las secciones de la página («Para informarse», «Buscadores», «Tipos de patentes», «Trámites») se presentan como bloques separados con espacio visual entre ellos; no hay párrafos apretados unos contra otros."
     },
     {
       "id": "LC-1.2.3-02",
       "estado": "cumple",
-      "comentario": "El texto de cuerpo visible (tarjetas, encabezados de sección, enlaces) se lee alineado a la izquierda; el subtítulo centrado de la tarjeta «Esquemas de Trazados o Topografías de Circuitos Integrados» es un detalle menor que no cambia la alineación general de la página."
+      "comentario": "Criterio 37: «¿El texto está alineado a la izquierda?» — Instrumento 11: Legibilidad. El texto de cuerpo visible (tarjetas, encabezados de sección, enlaces) se lee alineado a la izquierda; el subtítulo centrado de la tarjeta «Esquemas de trazados o topografías de circuitos integrados» es un detalle menor que no cambia la alineación general de la página."
     },
     {
       "id": "LC-1.2.3-03",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Los ocho documentos de las tres pestañas de guías se presentan como enlaces corridos dentro de párrafos, sin marcado de lista (viñetas o numeración), lo que dificulta escanear la oferta de documentos. La enumeración de los tres requisitos de patentabilidad comparte el mismo problema de formato y se corrige junto con la definición de jerga de ese párrafo.",
+      "comentario": "Criterio 38: «¿Se utilizan listas numeradas, viñetas o tablas para presentar la información más ordenada?» — Instrumento 11: Legibilidad. Los ocho documentos de las tres pestañas de guías se presentan como enlaces corridos dentro de párrafos, sin marcado de lista (viñetas o numeración), lo que dificulta escanear la oferta de documentos. La enumeración de los tres requisitos de patentabilidad comparte el mismo problema de formato y se corrige junto con la definición de jerga de ese párrafo en el criterio 8.",
       "cita_textual": "Guías PPH EPO-INAPI, Guías INAPI - SIPO, Guías PPH INAPI - IMPI, Guías PPH INAPI - INDECOPI, Guías PPH INAPI - SIC, Guía Global PPH en español, Guía Global PPH en inglés, Guías PAPV",
       "ubicacion_pantalla": "Sección de pestañas de guías descargables, dentro de cada pestaña"
     },
     {
       "id": "LC-1.2.4-01",
       "estado": "cumple",
-      "comentario": "La página ordena el contenido de lo general a lo específico: información conceptual, buscadores, tipos de patentes, trámites concretos y guías especializadas, lo que ayuda a una persona que llega sin saber nada del tema antes de dirigirla a contenido más técnico."
+      "comentario": "Criterio 39: «¿Los contenidos del sitio aplican el modelo de «pirámide invertida» que los estructura desde lo más a lo menos importante?» — Instrumento 12: Escritura para la web. La página ordena el contenido de lo general a lo específico: información conceptual, buscadores, tipos de patentes, trámites concretos y guías especializadas, lo que ayuda a una persona que llega sin saber nada del tema antes de dirigirla a contenido más técnico."
     },
     {
       "id": "LC-1.2.4-02",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Dos títulos de sección no anticipan su contenido: «Para Informarse» no dice qué se informa (definición, ventajas, requisitos, tasas); «Buscadores» no dice qué se busca. «Tipos de Patentes» y «Trámites» sí describen razonablemente su contenido.",
+      "comentario": "Criterio 40: «¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?» — Instrumento 12: Escritura para la web. Dos títulos de sección no anticipan su contenido: «Para informarse» no dice qué se informa (definición, ventajas, requisitos, tasas); «Buscadores» no dice qué se busca. «Tipos de patentes» y «Trámites» sí describen razonablemente su contenido.",
       "cita_textual": "Para Informarse; Buscadores",
-      "ubicacion_pantalla": "Encabezados de sección «Para Informarse» y «Buscadores»"
+      "ubicacion_pantalla": "Encabezados de sección «Para informarse» y «Buscadores»"
     },
     {
       "id": "LC-1.2.4-03",
       "estado": "cumple",
-      "comentario": "La página usa tarjetas con íconos, encabezados cortos y bloques separados («Para Informarse», «Buscadores», «Tipos de Patentes», «Trámites», «Guías») que permiten identificar de un vistazo las secciones sin leer párrafos completos."
+      "comentario": "Criterio 41: «¿Es fácil escanear visualmente los contenidos?» — Instrumento 12: Escritura para la web. La página usa tarjetas con íconos, encabezados cortos y bloques separados («Para informarse», «Buscadores», «Tipos de patentes», «Trámites», «Guías») que permiten identificar de un vistazo las secciones sin leer párrafos completos."
     },
     {
       "id": "LC-1.2.4-04",
       "estado": "no_aplica",
-      "comentario": "Los textos visibles de la página son títulos de tarjetas, enlaces cortos y frases de una sola oración; no hay cuerpo de texto largo donde destacar palabras clave con negrita tenga sentido editorial."
+      "comentario": "Criterio 42: «¿Se utilizan negritas para destacar palabras clave de cada párrafo?» — Instrumento 12: Escritura para la web. Los textos visibles de la página son títulos de tarjetas, enlaces cortos y frases de una sola oración; no hay cuerpo de texto largo donde destacar palabras clave con negrita tenga sentido editorial."
     },
     {
       "id": "LC-1.2.4-05",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Mayúscula sostenida en varios elementos de la página, fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global): los encabezados «Buscadores», «Tipos de Patentes» y «Trámites», los enlaces «Buscador en base de datos» y «Notificaciones diarias» (inconsistentes con «Otros Buscadores», que usa mayúscula inicial), y los componentes compartidos del sitio: la ventana de búsqueda «Buscar y tramitar» (con los subtítulos «Marcas» y «Patentes») y el botón de prueba «LINK EXTERNO» del panel de acceso y registro.",
+      "comentario": "Criterio 43: «¿Se evitan las frases escritas únicamente en mayúsculas?» — Instrumento 12: Escritura para la web. Mayúscula sostenida en varios elementos de la página, fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global): los encabezados «Buscadores», «Tipos de patentes» y «Trámites», los enlaces «Buscador en base de datos» y «Notificaciones diarias» (inconsistentes con «Otros buscadores», que usa mayúscula inicial), y los componentes compartidos del sitio: la ventana de búsqueda «Buscar y tramitar» (con los subtítulos «Marcas» y «Patentes») y el botón de prueba «LINK EXTERNO» del panel de acceso y registro.",
       "cita_textual": "BUSCADORES; BUSCADOR EN BASE DE DATOS; NOTIFICACIONES DIARIAS; TIPOS DE PATENTES; TRÁMITES; BUSCAR Y TRAMITAR; LINK EXTERNO",
-      "ubicacion_pantalla": "Encabezados «Buscadores», «Tipos de Patentes» y «Trámites»; ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+      "ubicacion_pantalla": "Encabezados «Buscadores», «Tipos de patentes» y «Trámites»; ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
     },
     {
       "id": "LC-1.2.4-06",
       "estado": "cumple",
-      "comentario": "La página enlaza contenidos del mismo sitio distintos del menú global: buscadores, tipos de patentes, trámites y guías especializadas."
+      "comentario": "Criterio 44: «¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados?» — Instrumento 12: Escritura para la web. La página enlaza contenidos del mismo sitio distintos del menú global: buscadores, tipos de patentes, trámites y guías especializadas."
     },
     {
       "id": "LC-5.2.4-01",
-      "estado": "no_aplica",
-      "comentario": "Esta URL es informativa, no un servicio digital ni un trámite; la variante de rótulos descriptivos para servicios digitales no corresponde aquí."
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»? Por ejemplo: «Consultar fecha de pago», «Solicitar certificado».» — Instrumento 12: Escritura para la web. En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino (lleva a la página general de propiedad intelectual e industrial), y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (queda en el mismo lugar de la página). El resto de los enlaces y botones propios de esta página sí describen con claridad la acción o el destino, por ejemplo «Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea» o «Presentación de escritos».",
+      "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (panel de acceso y registro)",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
     },
     {
       "id": "LC-1.2.4-07",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Ninguno de los 11 documentos PDF de la página (8 guías de las pestañas + 3 documentos institucionales del pie) indica los cuatro elementos requeridos: las guías PPH, Global PPH y PAPV solo muestran el título; «Plan de Acción de Cumplimiento 2025» solo indica el formato sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy vía cabecera HTTP.",
+      "comentario": "Criterio 46: «Cuando se enlazan documentos, ¿se especifican el título, formato y peso? Por ejemplo: «Informe sobre ciberseguridad en Chile 2024 (pdf, 345 KB)».» — Instrumento 12: Escritura para la web. Ninguno de los 11 documentos PDF de la página (8 guías de las pestañas + 3 documentos institucionales del pie) indica los cuatro elementos requeridos: las guías del programa de examen acelerado y las guías del procedimiento acelerado verde solo muestran el título; «Plan de Acción de Cumplimiento 2025» solo indica el formato sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy consultando el tamaño real de cada archivo.",
       "cita_textual": "Guías PPH EPO-INAPI; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Sección de pestañas de guías descargables; pie de página › fila de logos institucionales › carrusel de documentos"
     },
@@ -298,7 +301,7 @@
       "id": "LC-1.2.4-08",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Ninguno de los 11 documentos (8 guías + 3 del pie de página) trae una breve descripción de su contenido junto al título. Se agrupa con el criterio de formato y peso porque comparte exactamente los mismos documentos y la misma corrección.",
+      "comentario": "Criterio 47: «¿Se entrega una breve descripción de los documentos enlazados para mejorar su capacidad de búsqueda, usabilidad y accesibilidad?» — Instrumento 12: Escritura para la web. Ninguno de los 11 documentos (8 guías + 3 del pie de página) trae una breve descripción de su contenido junto al título. Se agrupa con el criterio de formato y peso (criterio 46) porque comparte exactamente los mismos documentos y la misma corrección.",
       "cita_textual": "Guías PPH EPO-INAPI; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Sección de pestañas de guías descargables; pie de página › fila de logos institucionales › carrusel de documentos",
       "agrupado_en": "LC-1.2.4-07"
@@ -306,56 +309,57 @@
     {
       "id": "LC-1.3.1-01",
       "estado": "cumple",
-      "comentario": "La página usa apoyos visuales para presentar información: íconos «+» en las tarjetas de «Tipos de Patentes», imagen de fondo en la sección «Trámites» y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
-      "ubicacion_pantalla": "Sección «Tipos de Patentes» y sección «Trámites»"
+      "comentario": "Criterio 48: «¿Se utilizan apoyos visuales como íconos, imágenes, gráficos o infografías para presentar datos?» — Instrumento 13: Visualización de la información. La página usa apoyos visuales para presentar información: íconos «+» en las tarjetas de «Tipos de patentes», imagen de fondo en la sección «Trámites» y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "ubicacion_pantalla": "Sección «Tipos de patentes» y sección «Trámites»"
     },
     {
       "id": "LC-1.3.2-01",
       "estado": "cumple",
-      "comentario": "Las tarjetas informativas usan redacción neutra y descriptiva sobre qué es una patente, sus ventajas, los requisitos y las tasas, sin adjetivos de opinión ni juicios de valor de quien escribe."
+      "comentario": "Criterio 49: «¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?» — Instrumento 14: Objetividad. Las tarjetas informativas usan redacción neutra y descriptiva sobre qué es una patente, sus ventajas, los requisitos y las tasas, sin adjetivos de opinión ni juicios de valor de quien escribe."
     },
     {
       "id": "LC-1.3.2-02",
       "estado": "cumple",
-      "comentario": "Las cuatro tarjetas se centran en hechos y datos concretos (definición legal, ámbitos de aplicación según acuerdos internacionales, tres requisitos de patentabilidad, cuadro de tasas), privilegiando datos y hechos por sobre adjetivos calificativos."
+      "comentario": "Criterio 50: «¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?» — Instrumento 14: Objetividad. Las cuatro tarjetas se centran en hechos y datos concretos (definición legal, ámbitos de aplicación según acuerdos internacionales, tres requisitos de patentabilidad, cuadro de tasas), privilegiando datos y hechos por sobre adjetivos calificativos."
     },
     {
       "id": "LC-1.3.3-01",
       "estado": "no_aplica",
-      "comentario": "Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
+      "comentario": "Criterio 51: «Si el sitio presenta versiones anteriores de contenidos, ¿están rotuladas claramente como contenidos o documentos de archivo no vigentes, indicando el año o periodo al que corresponden?» — Instrumento 15: Archivo. Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
     }
   ],
   "criterios_aprobados": 30,
-  "criterios_aplicables": 42,
-  "criterios_no_aplica": 9,
-  "porcentaje_cumplimiento": 71.4,
+  "criterios_aplicables": 43,
+  "criterios_no_aplica": 8,
+  "porcentaje_cumplimiento": 69.8,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página de la sección Patentes de INAPI (https://www.inapi.cl/patentes) fue reauditada el 2026-08-25 con una captura actual de la página, incluidas la ventana de contacto, la ventana de búsqueda «Buscar y tramitar» y el panel de acceso y registro, y con una revisión detallada del lenguaje usado en cada bloque visible, palabra por palabra y párrafo por párrafo, antes de calificar los 51 criterios de Lenguaje Claro. Se verificó hoy el peso real de los 11 documentos PDF de la página.\n\nDe los 51 criterios, 9 no aplican a esta página. De los 42 aplicables, 30 se cuentan como cumplidos (28 cumplen directamente y 2 quedan agrupados bajo un criterio primario porque comparten el mismo texto y la misma corrección), lo que da un 71,4 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es superior a 90 %). El contenido de la página no cambió de forma relevante respecto de la revisión anterior; esta versión mantiene los mismos hallazgos verificados de nuevo sobre la captura actual, con la entrega redactada solo con literales visibles y rutas de pantalla, sin abreviaturas internas ni referencias de proceso.\n\nHallazgos de severidad alta: (1) jerga técnico-jurídica sin definir en varias secciones de la página (novedad, elemento inventivo, aplicación industrial, tasas, derecho, Modelos de Utilidad, Esquemas de Trazados o Topografías de Circuitos Integrados, Recursos para Usuarios); (2) tres siglas sin definir (PCT, PPH, PAPV), dos de ellas usadas como único rótulo de una pestaña de sección; (3) títulos «Para Informarse» y «Buscadores» que no anticipan su contenido; (4) mayúsculas sostenidas en siete elementos distintos de la página; (5) 11 documentos PDF sin título completo, formato, peso ni descripción; (6) falta de un recuadro de datos clave y de una tarjeta que explique cómo se tramita una patente.\n\nHallazgos de severidad media: ausencia de fecha de actualización; cuatro errores de ortografía y gramática (capitalización institucional, mayúscula inconsistente entre tarjetas, falta de «ya», falta de «de» en «Tramitación Patente»); una oración larga en la tarjeta «Ventajas de Registrar una Patente»; ocho enlaces de guías presentados sin formato de lista.\n\nHallazgos de severidad baja: sin medición de legibilidad documentada; voz pasiva en la ventana de contacto; orden verbo-sujeto invertido en la tercera cláusula de los requisitos de patentabilidad.\n\nSerie META MEI — orden 3 (Menú principal 2/2, Patentes). Reemplaza como vigente a www-inapi-cl-patentes_2026-08-22, que queda en history[].",
+  "resumen_ejecutivo": "La página de la sección Patentes de INAPI (https://www.inapi.cl/patentes) fue reauditada el 2026-08-25 con una captura actual de la página, incluidas la ventana de contacto, la ventana de búsqueda «Buscar y tramitar» y el panel de acceso y registro, y con una revisión detallada del lenguaje usado en cada bloque visible, palabra por palabra y párrafo por párrafo, antes de calificar los 51 criterios de Lenguaje claro. Esta reauditoría corrige específicamente la evaluación del criterio de rótulos y llamados a la acción descriptivos (criterio 45): la revisión anterior lo había marcado como no aplicable con el argumento de que esta página, por ser informativa, no correspondía a la variante de servicios digitales; esa justificación era incorrecta, porque este criterio aplica a todas las páginas, sean informativas o de trámite. Con evidencia real de los enlaces y botones de la página, el criterio pasa a evaluarse: incumple, porque el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del panel de acceso no describen su destino ni su acción, mientras que el resto de los enlaces propios de la página sí lo hacen con claridad (por ejemplo «Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea»). Se verificó de nuevo el peso real de los 11 documentos PDF de la página.\n\nDe los 51 criterios, 8 no aplican a esta página. De los 43 aplicables, 30 se cuentan como cumplidos (28 cumplen directamente y 2 quedan agrupados bajo un criterio primario porque comparten el mismo texto y la misma corrección), lo que da un 69,8 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es superior a 90 %). El porcentaje baja respecto de la revisión anterior (71,4 %) porque el criterio de rótulos y llamados a la acción pasa de no aplicable a incumplido con evidencia real; el resto de los hallazgos del contenido no cambió de forma relevante. Esta versión mantiene los hallazgos verificados de nuevo sobre la captura actual, con la entrega redactada solo con literales visibles y rutas de pantalla, con el encabezado de criterio y de instrumento correspondiente, sin abreviaturas internas ni referencias de proceso.\n\nHallazgos de severidad alta: (1) jerga técnico-jurídica sin definir en varias secciones de la página (novedad, elemento inventivo, aplicación industrial, tasas, derecho, Modelos de utilidad, Esquemas de trazados o topografías de circuitos integrados, Recursos para usuarios); (2) tres siglas sin definir (PCT, PPH, PAPV), dos de ellas usadas como único rótulo de una pestaña de sección; (3) títulos «Para informarse» y «Buscadores» que no anticipan su contenido; (4) mayúsculas sostenidas en siete elementos distintos de la página; (5) 11 documentos PDF sin título completo, formato, peso ni descripción; (6) falta de un recuadro de datos clave y de una tarjeta que explique cómo se tramita una patente.\n\nHallazgos de severidad media: (7) el enlace «Conoce más» del menú global y el botón «LINK EXTERNO» del panel de acceso no describen su destino ni su acción; (8) ausencia de fecha de actualización; (9) cuatro errores de ortografía y gramática (capitalización institucional, mayúscula inconsistente entre tarjetas, falta de «ya», falta de «de» en «Tramitación Patente»); (10) una oración larga en la tarjeta «Ventajas de registrar una patente»; (11) ocho enlaces de guías presentados sin formato de lista.\n\nHallazgos de severidad baja: sin medición de legibilidad documentada; voz pasiva en la ventana de contacto.\n\nSerie META MEI — orden 3 (Menú principal 2/2, Patentes). Reemplaza como vigente a www-inapi-cl-patentes_2026-08-22 y a la revisión del 2026-08-25 anterior a esta corrección, que quedan en history[].",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
-      "(LC-1.1.2-03) Falta un recuadro de datos clave y una tarjeta de procedimiento; la tarjeta de tasas no aclara qué tipos de pago existen.",
-      "(LC-1.1.3-03, con LC-1.2.1-04 agrupado) Jerga técnico-jurídica sin definir: novedad, elemento inventivo, aplicación industrial, tasas, derecho, Modelos de Utilidad, Esquemas de Trazados o Topografías de Circuitos Integrados, Recursos para Usuarios.",
-      "(LC-1.1.3-05) Siglas PCT, PPH y PAPV sin definir; PPH y PAPV son además el único rótulo de pestañas de sección.",
-      "(LC-1.2.4-02) Títulos «Para Informarse» y «Buscadores» que no anticipan su contenido.",
-      "(LC-1.2.4-05) Mayúsculas sostenidas en siete elementos distintos de la página.",
-      "(LC-1.2.4-07, con LC-1.2.4-08 agrupado) 11 documentos (8 guías + 3 del pie de página) sin título completo, formato, peso ni descripción."
+      "Criterio 4: falta un recuadro de datos clave y una tarjeta de procedimiento; la tarjeta de tasas no aclara qué tipos de pago existen.",
+      "Criterio 8 (con el criterio 28 agrupado): jerga técnico-jurídica sin definir: novedad, elemento inventivo, aplicación industrial, tasas, derecho, Modelos de utilidad, Esquemas de trazados o topografías de circuitos integrados, Recursos para usuarios.",
+      "Criterio 10: siglas PCT, PPH y PAPV sin definir; PPH y PAPV son además el único rótulo de pestañas de sección.",
+      "Criterio 40: títulos «Para informarse» y «Buscadores» que no anticipan su contenido.",
+      "Criterio 43: mayúsculas sostenidas en siete elementos distintos de la página.",
+      "Criterio 46 (con el criterio 47 agrupado): 11 documentos (8 guías + 3 del pie de página) sin título completo, formato, peso ni descripción."
     ],
     "hallazgos_prioridad_media": [
-      "(LC-1.1.4-01) Sin fecha de publicación ni de última actualización visible en la página.",
-      "(LC-1.1.5-01) Cuatro errores de ortografía y gramática: capitalización institucional, mayúscula inconsistente entre tarjetas, falta de «ya», falta de «de» en «Tramitación Patente».",
-      "(LC-1.2.2-04) Oración larga en la tarjeta «Ventajas de Registrar una Patente».",
-      "(LC-1.2.3-03) Ocho enlaces de las pestañas de guías presentados sin formato de lista."
+      "Criterio 12: sin fecha de publicación ni de última actualización visible en la página.",
+      "Criterio 13: cuatro errores de ortografía y gramática: capitalización institucional, mayúscula inconsistente entre tarjetas, falta de «ya», falta de «de» en «Tramitación Patente».",
+      "Criterio 34: oración larga en la tarjeta «Ventajas de registrar una patente».",
+      "Criterio 38: ocho enlaces de las pestañas de guías presentados sin formato de lista.",
+      "Criterio 45: el enlace «Conoce más» del menú global y el botón «LINK EXTERNO» del panel de acceso no describen su destino ni su acción."
     ],
     "hallazgos_prioridad_baja": [
-      "(LC-1.1.3-01) Sin medición de legibilidad documentada sobre el texto principal en esta sesión.",
-      "(LC-1.2.1-03) Voz pasiva en la ventana emergente de contacto."
+      "Criterio 6: sin medición de legibilidad documentada sobre el texto principal en esta sesión.",
+      "Criterio 27: voz pasiva en la ventana emergente de contacto."
     ]
   },
   "sustituciones": [
     {
       "linea": "P01",
-      "html_linea_aprox": "HTML sección h3 «Para Informarse»",
-      "ubicacion_pantalla": "Sección «Para Informarse», bajo el título principal «Patentes»",
+      "html_linea_aprox": "HTML sección h3 «Para informarse»",
+      "ubicacion_pantalla": "Sección «Para informarse», bajo el título principal «Patentes»",
       "original": "(no existe en pantalla)",
       "propuesto": "Añadir un recuadro breve: «Qué es: un derecho exclusivo para proteger una invención. Cómo: presenta tu solicitud, INAPI revisa si cumple los requisitos y, si corresponde, te otorga la patente. Dónde: en tramites.inapi.cl. Cuándo: antes de divulgar o comercializar tu invención. Para quién: personas naturales o jurídicas, nacionales o extranjeras.»",
       "criterio_id": "LC-1.1.2-03",
@@ -365,7 +369,7 @@
     {
       "linea": "P02",
       "html_linea_aprox": "HTML tarjeta «Tasas nacionales»",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Tasas nacionales»",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Tasas nacionales»",
       "original": "Acceda al cuadro actualizado de valores, según el tipo de derecho.",
       "propuesto": "Pagar una patente tiene distintos costos según la etapa: al presentar la solicitud y al obtener el registro. Confirmar y agregar aquí si existen además pagos anuales de mantención mientras la patente esté vigente; si es así, indicar cuándo se pagan o dónde consultar los montos.",
       "criterio_id": "LC-1.1.2-03",
@@ -375,28 +379,32 @@
     {
       "linea": "P03",
       "html_linea_aprox": "HTML tarjeta «Requisitos para obtener una patente»",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Requisitos para obtener una patente»",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Requisitos para obtener una patente»",
       "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
       "propuesto": "Para obtener una patente, tu invención debe cumplir tres requisitos:\n1. Novedad: que no exista antes en ningún lugar del mundo.\n2. Nivel inventivo: que no sea obvia para una persona experta en la materia.\n3. Aplicación industrial: que se pueda fabricar o usar en algún tipo de industria.",
       "criterio_id": "LC-1.1.3-03",
-      "criterios_relacionados": ["LC-1.2.1-03", "LC-1.2.1-04", "LC-1.2.3-03"],
+      "criterios_relacionados": [
+        "LC-1.2.1-03",
+        "LC-1.2.1-04",
+        "LC-1.2.3-03"
+      ],
       "motivo": "Los términos técnico-jurídicos (novedad, elemento inventivo, aplicación industrial) no bastan con reordenarse: deben describirse en lenguaje cotidiano. La propuesta define cada requisito y, de paso, corrige la voz pasiva y el orden invertido de la tercera cláusula y da formato de lista a la enumeración.",
       "patron_sistema": false
     },
     {
       "linea": "P04",
-      "html_linea_aprox": "HTML tarjeta «Modelos de Utilidad», sección Tipos de Patentes",
-      "ubicacion_pantalla": "Sección «Tipos de Patentes», tarjeta «Modelos de Utilidad»",
+      "html_linea_aprox": "HTML tarjeta «Modelos de utilidad», sección Tipos de patentes",
+      "ubicacion_pantalla": "Sección «Tipos de patentes», tarjeta «Modelos de utilidad»",
       "original": "Modelos de Utilidad (sin descripción)",
-      "propuesto": "Modelos de Utilidad: protegen mejoras funcionales a productos u objetos ya existentes (por ejemplo, una nueva forma que hace más práctica una herramienta).",
+      "propuesto": "Modelos de utilidad: protegen mejoras funcionales a productos u objetos ya existentes (por ejemplo, una nueva forma que hace más práctica una herramienta).",
       "criterio_id": "LC-1.1.3-03",
       "motivo": "Cada tipo de patente debe tener una descripción corta (qué es, para qué sirve), no solo el nombre de la categoría.",
       "patron_sistema": false
     },
     {
       "linea": "P05",
-      "html_linea_aprox": "HTML tarjeta «Esquemas de Trazados o Topografías de Circuitos Integrados», sección Tipos de Patentes",
-      "ubicacion_pantalla": "Sección «Tipos de Patentes», tarjeta «Esquemas de Trazados o Topografías de Circuitos Integrados»",
+      "html_linea_aprox": "HTML tarjeta «Esquemas de trazados o topografías de circuitos integrados», sección Tipos de patentes",
+      "ubicacion_pantalla": "Sección «Tipos de patentes», tarjeta «Esquemas de trazados o topografías de circuitos integrados»",
       "original": "Esquemas de Trazados o Topografías de Circuitos Integrados",
       "propuesto": "Esquemas de trazado o topografías de circuitos integrados: protegen el diseño de la disposición de los componentes de un chip electrónico.",
       "criterio_id": "LC-1.1.3-03",
@@ -405,8 +413,8 @@
     },
     {
       "linea": "P06",
-      "html_linea_aprox": "HTML tarjeta «Recursos para Usuarios», sección Trámites",
-      "ubicacion_pantalla": "Sección «Trámites», tarjeta «Recursos para Usuarios»",
+      "html_linea_aprox": "HTML tarjeta «Recursos para usuarios», sección Trámites",
+      "ubicacion_pantalla": "Sección «Trámites», tarjeta «Recursos para usuarios»",
       "original": "Recursos para Usuarios",
       "propuesto": "Recursos para usuarios: formularios y solicitudes que puedes presentar durante la tramitación (por ejemplo, pedir una prórroga de plazo).",
       "criterio_id": "LC-1.1.3-03",
@@ -415,7 +423,7 @@
     },
     {
       "linea": "P07",
-      "html_linea_aprox": "HTML nav global",
+      "html_linea_aprox": "HTML nav global, ítem «PCT»",
       "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»",
       "original": "PCT",
       "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
@@ -435,17 +443,17 @@
     },
     {
       "linea": "P09",
-      "html_linea_aprox": "HTML bajo el H1 «Patentes»",
+      "html_linea_aprox": "HTML bajo el título principal «Patentes»",
       "ubicacion_pantalla": "Zona superior › bajo el título principal «Patentes»",
       "original": "(sin fecha de actualización visible)",
       "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión editorial de esta página).",
       "criterio_id": "LC-1.1.4-01",
-      "motivo": "La página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función.",
+      "motivo": "La página no muestra fecha de publicación ni de actualización; el aviso de derechos reservados del pie no cumple esta función.",
       "patron_sistema": true
     },
     {
       "linea": "P10",
-      "html_linea_aprox": "HTML footer, bloque «Dónde estamos»",
+      "html_linea_aprox": "HTML pie de página, bloque «Dónde estamos»",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»",
       "original": "Instituto Nacional de Propiedad industrial (INAPI)",
       "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
@@ -455,8 +463,8 @@
     },
     {
       "linea": "P11",
-      "html_linea_aprox": "HTML h4 «Ventajas de Registrar una Patente»",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Ventajas de Registrar una Patente»",
+      "html_linea_aprox": "HTML título «Ventajas de registrar una patente»",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Ventajas de registrar una patente»",
       "original": "Ventajas de Registrar una Patente",
       "propuesto": "Ventajas de registrar una patente",
       "criterio_id": "LC-1.1.5-01",
@@ -465,8 +473,8 @@
     },
     {
       "linea": "P12",
-      "html_linea_aprox": "HTML h4 «Tramitación Patente», sección Trámites",
-      "ubicacion_pantalla": "Sección «Trámites», tarjeta «Tramitación Patente»",
+      "html_linea_aprox": "HTML título «Tramitación patente», sección Trámites",
+      "ubicacion_pantalla": "Sección «Trámites», tarjeta «Tramitación patente»",
       "original": "Tramitación Patente",
       "propuesto": "Tramitación de patente",
       "criterio_id": "LC-1.1.5-01",
@@ -475,12 +483,15 @@
     },
     {
       "linea": "P13",
-      "html_linea_aprox": "HTML tarjeta «Ventajas de Registrar una Patente», párrafo",
-      "ubicacion_pantalla": "Sección «Para Informarse», tarjeta «Ventajas de Registrar una Patente»",
+      "html_linea_aprox": "HTML tarjeta «Ventajas de registrar una patente», párrafo",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Ventajas de registrar una patente»",
       "original": "Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).",
       "propuesto": "Según acuerdos internacionales, puedes patentar cualquier invención, ya sea un proceso o un producto, en cualquier área de la tecnología (por ejemplo, mecánica, eléctrica, biotecnología, farmacia o química).",
       "criterio_id": "LC-1.2.2-04",
-      "criterios_relacionados": ["LC-1.1.5-01", "LC-1.1.3-04"],
+      "criterios_relacionados": [
+        "LC-1.1.5-01",
+        "LC-1.1.3-04"
+      ],
       "motivo": "La oración actual (alrededor de 40 palabras) es larga y le falta la partícula «ya»; la propuesta la hace más directa, corrige la falta de «ya» y reemplaza la abreviatura «p.ej.» por «por ejemplo».",
       "patron_sistema": false
     },
@@ -506,17 +517,17 @@
     },
     {
       "linea": "P16",
-      "html_linea_aprox": "HTML h3 «Para Informarse»",
+      "html_linea_aprox": "HTML encabezado sección «Para informarse»",
       "ubicacion_pantalla": "Encabezado de la sección de tarjetas informativas",
       "original": "Para Informarse",
       "propuesto": "Todo sobre las patentes: qué son, sus ventajas, los requisitos y las tasas",
       "criterio_id": "LC-1.2.4-02",
-      "motivo": "El título debe anticipar el contenido que sigue; «Para Informarse» es genérico y no dice qué se va a encontrar en las cuatro tarjetas.",
+      "motivo": "El título debe anticipar el contenido que sigue; «Para informarse» es genérico y no dice qué se va a encontrar en las cuatro tarjetas.",
       "patron_sistema": false
     },
     {
       "linea": "P17",
-      "html_linea_aprox": "HTML h2 «Buscadores»",
+      "html_linea_aprox": "HTML encabezado sección «Buscadores»",
       "ubicacion_pantalla": "Encabezado de la sección de enlaces de búsqueda",
       "original": "Buscadores",
       "propuesto": "Herramientas de búsqueda de patentes",
@@ -539,43 +550,86 @@
       "html_linea_aprox": "HTML panel de acceso y registro, botón de prueba",
       "ubicacion_pantalla": "Panel de acceso y registro «INAPI» (ícono de usuario en cabecera) › botón «LINK EXTERNO»",
       "original": "LINK EXTERNO",
-      "propuesto": "Quitar el botón «LINK EXTERNO» del panel mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»). Mientras tanto, escribirlo con mayúscula inicial, no en mayúscula sostenida.",
+      "propuesto": "Escribir el botón con mayúscula inicial, no en mayúscula sostenida (por ejemplo «Link externo»), mientras se define su destino real o se retira (ver corrección del criterio 45).",
       "criterio_id": "LC-1.2.4-05",
-      "motivo": "El botón está escrito solo en mayúsculas. Es un componente compartido del panel de acceso y registro; corregir en el origen para que el cambio se replique en todas las páginas.",
+      "criterios_relacionados": [
+        "LC-5.2.4-01"
+      ],
+      "motivo": "El botón está escrito solo en mayúsculas. Comparte nodo con el hallazgo de rótulo no descriptivo (criterio 45), pero responde una pregunta distinta: aquí el problema es el uso de mayúscula sostenida, no la falta de destino.",
       "patron_sistema": true
     },
     {
       "linea": "P20",
       "html_linea_aprox": "HTML encabezados «BUSCADORES» / «TIPOS DE PATENTES» / «TRÁMITES» y enlaces de buscadores",
-      "ubicacion_pantalla": "Encabezados de sección «Buscadores», «Tipos de Patentes» y «Trámites»; enlaces «Buscador en base de datos» y «Notificaciones diarias»",
+      "ubicacion_pantalla": "Encabezados de sección «Buscadores», «Tipos de patentes» y «Trámites»; enlaces «Buscador en base de datos» y «Notificaciones diarias»",
       "original": "BUSCADORES; BUSCADOR EN BASE DE DATOS; NOTIFICACIONES DIARIAS; TIPOS DE PATENTES; TRÁMITES",
       "propuesto": "Buscadores; Buscador en base de datos; Notificaciones diarias; Tipos de patentes; Trámites",
       "criterio_id": "LC-1.2.4-05",
-      "motivo": "Mayúscula sostenida en cinco encabezados y enlaces de la página, incluida una inconsistencia con «Otros Buscadores», que usa mayúscula inicial dentro del mismo bloque.",
+      "motivo": "Mayúscula sostenida en cinco encabezados y enlaces de la página, incluida una inconsistencia con «Otros buscadores», que usa mayúscula inicial dentro del mismo bloque.",
       "patron_sistema": false
     },
     {
       "linea": "P21",
-      "html_linea_aprox": "HTML pestañas de guías (enlaces .pdf)",
-      "ubicacion_pantalla": "Sección de pestañas de guías descargables, cada enlace",
-      "original": "Guías PPH EPO-INAPI; Guías INAPI - SIPO; Guías PPH INAPI - IMPI; Guías PPH INAPI - INDECOPI; Guías PPH INAPI - SIC; Guía Global PPH en español; Guía Global PPH en inglés; Guías PAPV",
-      "propuesto": "Guía PPH EPO-INAPI (PDF, 84 KB) — Procedimiento acelerado de examen entre INAPI y la Oficina Europea de Patentes. / Guía INAPI-SIPO (PDF, 151 KB) — Procedimiento acelerado con la oficina de China. / Guía PPH INAPI-IMPI (PDF, 487 KB) — Procedimiento acelerado con la oficina de México. / Guía PPH INAPI-INDECOPI (PDF, 561 KB) — Procedimiento acelerado con la oficina de Perú. / Guía PPH INAPI-SIC (PDF, 437 KB) — Procedimiento acelerado con la oficina de Colombia. / Guía Global PPH en español (PDF, 1,03 MB) — Guía general del programa en español. / Guía Global PPH en inglés (PDF, 891 KB) — Guía general del programa en inglés. / Guía PAPV (PDF, 164 KB) — Procedimiento acelerado para patentes relacionadas con tecnologías verdes.",
-      "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
-      "motivo": "Ninguna de las 8 guías indica formato, peso ni descripción junto al título; solo se muestra el nombre del enlace. Pesos verificados hoy vía cabecera HTTP.",
-      "patron_sistema": false
+      "html_linea_aprox": "HTML enlace «Conoce más», nav global",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace del menú principal solo dice «Conoce más» sin indicar de qué. Es un componente compartido con otras páginas del sitio: corregir en el origen del menú para que el cambio se replique en todas.",
+      "patron_sistema": true
     },
     {
       "linea": "P22",
-      "html_linea_aprox": "HTML footer, fila de logos de organismos externos",
+      "html_linea_aprox": "HTML panel de acceso y registro (botón rojo de prueba)",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» (ícono de usuario en cabecera) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar el botón «LINK EXTERNO» del panel mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»).",
+      "criterio_id": "LC-5.2.4-01",
+      "criterios_relacionados": [
+        "LC-1.2.4-05"
+      ],
+      "motivo": "El botón no dice a dónde lleva y, además, no tiene un destino real configurado. Comparte nodo con el hallazgo de mayúsculas sostenidas (criterio 43), pero responde una pregunta distinta: aquí el problema es que el rótulo no describe ningún destino ni acción, no solo que esté en mayúsculas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "P23",
+      "html_linea_aprox": "HTML pestañas de guías (enlaces .pdf)",
+      "ubicacion_pantalla": "Sección de pestañas de guías descargables, cada enlace",
+      "original": "Guías PPH EPO-INAPI; Guías INAPI - SIPO; Guías PPH INAPI - IMPI; Guías PPH INAPI - INDECOPI; Guías PPH INAPI - SIC; Guía Global PPH en español; Guía Global PPH en inglés; Guías PAPV",
+      "propuesto": "Guía PPH EPO-INAPI (PDF, 84 KB) — Procedimiento acelerado de examen entre INAPI y la Oficina Europea de Patentes. / Guía INAPI-SIPO (PDF, 151 KB) — Procedimiento acelerado con la oficina de China. / Guía PPH INAPI-IMPI (PDF, 487 KB) — Procedimiento acelerado con la oficina de México. / Guía PPH INAPI-INDECOPI (PDF, 562 KB) — Procedimiento acelerado con la oficina de Perú. / Guía PPH INAPI-SIC (PDF, 438 KB) — Procedimiento acelerado con la oficina de Colombia. / Guía Global PPH en español (PDF, 1,03 MB) — Guía general del programa en español. / Guía Global PPH en inglés (PDF, 891 KB) — Guía general del programa en inglés. / Guía PAPV (PDF, 165 KB) — Procedimiento acelerado para patentes relacionadas con tecnologías verdes.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "Ninguna de las 8 guías indica formato, peso ni descripción junto al título; solo se muestra el nombre del enlace. Pesos verificados hoy consultando el tamaño real de cada archivo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "P24",
+      "html_linea_aprox": "HTML pie de página, fila de logos de organismos externos",
       "ubicacion_pantalla": "Pie de página › fila de logos institucionales › documentos «Plan de Acción de Cumplimiento 2025», «Teletrabajo», «Código de Ética INAPI 2026»",
       "original": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
-      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025. / Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional. / Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025. / Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional. / Código de Ética INAPI 2026 (PDF, 591 KB) — Principios y normas de conducta institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
-      "motivo": "Los tres documentos del carrusel del pie carecen de descripción breve, y dos de ellos tampoco indican formato ni peso. Pesos verificados hoy vía cabecera HTTP. Corregir en el origen del carrusel del pie compartido con otras páginas.",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "Los tres documentos del carrusel del pie carecen de descripción breve, y dos de ellos tampoco indican formato ni peso. Pesos verificados hoy consultando el tamaño real de cada archivo. Corregir en el origen del carrusel del pie compartido con otras páginas.",
       "patron_sistema": true
+    },
+    {
+      "linea": "P25",
+      "html_linea_aprox": "HTML tarjeta «Requisitos para obtener una patente»",
+      "ubicacion_pantalla": "Sección «Para informarse», tarjeta «Requisitos para obtener una patente»",
+      "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
+      "propuesto": "Reescribir este párrafo en frases cortas y en lenguaje cotidiano (ver la propuesta de lista numerada del criterio 8) y luego comprobar el resultado con una herramienta de medición de lectura fácil (por ejemplo Legible), buscando alcanzar al menos tres de cinco indicadores en dificultad Normal antes de publicar.",
+      "criterio_id": "LC-1.1.3-01",
+      "criterios_relacionados": [
+        "LC-1.1.3-03"
+      ],
+      "motivo": "No se aplicó ninguna herramienta de medición de legibilidad sobre este párrafo en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. Se deja la instrucción de qué reescribir y con qué herramienta comprobarlo.",
+      "patron_sistema": false
     }
   ],
-  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluidas las ventanas de contacto, búsqueda y acceso/registro). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nLos pagos periódicos de mantención de patentes (anualidades) son habituales en sistemas de propiedad industrial, pero no se pudo verificar en esta sesión si INAPI los cobra ni su estructura exacta; se dejó una instrucción explícita para que el equipo editorial lo confirme y complete, sin inventar montos no verificados.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): ventana emergente de contacto (voz pasiva), ventana emergente «Buscar y tramitar» (mayúsculas sostenidas), panel de acceso y registro con el botón de prueba «LINK EXTERNO» (sin destino real, nota técnica para el equipo de desarrollo, fuera del % de Lenguaje claro), pie de página institucional (capitalización) y carrusel de documentos del pie (formato, peso y descripción).\n\nAccesibilidad fuera del % de Lenguaje claro (nota para Usabilidad, no descuenta): los íconos «+» de Tipos de Patentes y los íconos de Trámites usan textos alternativos repetidos entre tarjetas, y un enlace del pie de página no tiene texto visible ni alternativo; ninguno de los dos es evidencia que afecte el % de esta auditoría.\n\nEl criterio de apoyos visuales (LC-1.3.1-01) cumple porque hay apoyos visibles en la página; esta pregunta no evalúa el texto alternativo de las imágenes ni accesibilidad técnica.\n\nEsta auditoría cubre únicamente Lenguaje claro (51 criterios); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero la jerga sin definir, las siglas PPH y PAPV como rótulo de pestaña, los títulos genéricos, las mayúsculas sostenidas, los documentos sin formato/peso/descripción y el recuadro de datos clave ausente (severidad alta); luego la fecha de actualización, los errores de ortografía y gramática, la oración larga y los enlaces de guías sin lista (severidad media)."
+  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluidas las ventanas de contacto, búsqueda y acceso/registro). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nCorrección respecto de la revisión anterior: el criterio de rótulos y llamados a la acción descriptivos (criterio 45) había sido marcado como no aplicable con el argumento de que esta página, por ser informativa, correspondía a una variante exclusiva de servicios digitales. Ese argumento es incorrecto: el criterio aplica a toda la página, sea informativa o de trámite, y se evaluó con evidencia real de los enlaces y botones visibles.\n\nLos pagos periódicos de mantención de patentes (anualidades) son habituales en sistemas de propiedad industrial, pero no se pudo verificar en esta sesión si INAPI los cobra ni su estructura exacta; se dejó una instrucción explícita para que el equipo editorial lo confirme y complete, sin inventar montos no verificados.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación global (sigla PCT sin definir, enlace «Conoce más» sin destino descrito), ventana emergente de contacto (voz pasiva), ventana emergente «Buscar y tramitar» (mayúsculas sostenidas), panel de acceso y registro con el botón de prueba «LINK EXTERNO» (sin destino real ni rótulo descriptivo, nota técnica para el equipo de desarrollo, fuera del % de Lenguaje claro más allá del texto del rótulo), pie de página institucional (capitalización) y carrusel de documentos del pie (formato, peso y descripción).\n\nAccesibilidad fuera del % de Lenguaje claro (nota para Usabilidad, no descuenta): los íconos «+» de Tipos de patentes y los íconos de Trámites usan textos alternativos repetidos entre tarjetas, y un enlace del pie de página no tiene texto visible ni alternativo; ninguno de los dos es evidencia que afecte el % de esta auditoría.\n\nEl criterio de apoyos visuales (criterio 48) cumple porque hay apoyos visibles en la página; esta pregunta no evalúa el texto alternativo de las imágenes ni accesibilidad técnica.\n\nEsta auditoría cubre únicamente Lenguaje claro (51 criterios); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero la jerga sin definir, las siglas PPH y PAPV como rótulo de pestaña, los títulos genéricos, las mayúsculas sostenidas, los documentos sin formato/peso/descripción y el recuadro de datos clave ausente (severidad alta); luego el rótulo «Conoce más» y el botón «LINK EXTERNO», la fecha de actualización, los errores de ortografía y gramática, la oración larga y los enlaces de guías sin lista (severidad media)."
 }
