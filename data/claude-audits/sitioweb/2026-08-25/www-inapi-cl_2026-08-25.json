@@ -20,21 +20,21 @@
     {
       "id": "LC-1.1.1-01",
       "estado": "cumple",
-      "comentario": "Criterio 1: «¿Es fácil reconocer la fuente o autoría de la información publicada…?» — Instrumento 1: Fiabilidad. El pie de página identifica con claridad a la institución responsable («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI aparece en toda la cabecera de la página.",
+      "comentario": "El pie de página identifica con claridad a la institución responsable («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI aparece en toda la cabecera de la página.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.2-01",
       "estado": "cumple",
-      "comentario": "Criterio 2: «¿Los contenidos representan de manera fiel lo enunciado en su título?» — Instrumento 2: Completitud. El título principal visible «Te queremos ayudar a utilizar la propiedad industrial» es coherente con lo que sigue: bloques de Marcas y Patentes, guías para usuarios y noticias institucionales, todos relacionados con el uso de la propiedad industrial.",
+      "comentario": "El título principal visible «Te queremos ayudar a utilizar la propiedad industrial» es coherente con lo que sigue: bloques de Marcas y Patentes, guías para usuarios y noticias institucionales, todos relacionados con el uso de la propiedad industrial.",
       "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial",
       "ubicacion_pantalla": "Zona superior › título principal"
     },
     {
       "id": "LC-1.1.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 3: «¿Se evitan páginas sin contenido, incompletas o «en construcción»?» — Instrumento 2: Completitud. No se observan textos de tipo «en construcción», «próximamente» ni secciones vacías; todos los bloques de la portada (noticias, guías, accesos, banners) muestran contenido completo.",
+      "comentario": "No se observan textos de tipo «en construcción», «próximamente» ni secciones vacías; todos los bloques de la portada (noticias, guías, accesos, banners) muestran contenido completo.",
       "cita_textual": "Novedades; Plataforma de Datos; Guías para usuarios; Cuenta Pública 2026; Observancia",
       "ubicacion_pantalla": "Cuerpo de la página › todas las secciones visibles"
     },
@@ -49,45 +49,45 @@
     {
       "id": "LC-1.1.2-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 5: «¿Se brinda información suficiente para hacer trámites de forma autónoma?» — Instrumento 2: Completitud. Esta URL es la portada institucional, no un texto de trámite específico; la autonomía para completar un trámite se evalúa en las páginas de detalle de Marcas, Patentes y PCT, fuera de esta vista."
+      "comentario": "Esta URL es la portada institucional, no un texto de trámite específico; la autonomía para completar un trámite se evalúa en las páginas de detalle de Marcas, Patentes y PCT, fuera de esta vista."
     },
     {
       "id": "LC-1.1.3-01",
       "estado": "cumple",
-      "comentario": "Criterio 6: «¿El lenguaje está orientado a que cualquier persona entienda el contenido…?» — Instrumento 3: Lenguaje plano. El título principal y las bajadas de las tres noticias usan oraciones cortas y vocabulario cotidiano, sin términos especializados sin apoyo que dificulten la comprensión de una persona sin conocimientos previos del tema.",
+      "comentario": "El título principal y las bajadas de las tres noticias usan oraciones cortas y vocabulario cotidiano, sin términos especializados sin apoyo que dificulten la comprensión de una persona sin conocimientos previos del tema.",
       "cita_textual": "Te queremos ayudar a utilizar la propiedad industrial",
       "ubicacion_pantalla": "Zona superior › título principal"
     },
     {
       "id": "LC-1.1.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 7: «¿El tono y la voz son amables, respetuosos y cercanos?» — Instrumento 3: Lenguaje plano. El título principal se dirige a la persona en segunda persona («Te queremos ayudar…»); no se observa lenguaje distante ni impersonal en los bloques visibles evaluados."
+      "comentario": "El título principal se dirige a la persona en segunda persona («Te queremos ayudar…»); no se observa lenguaje distante ni impersonal en los bloques visibles evaluados."
     },
     {
       "id": "LC-1.1.3-03",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 8: «¿La redacción prescinde de la jerga técnica o legal?» — Instrumento 3: Lenguaje plano. El título de una de las secciones de la portada es «Observancia», una palabra legal que, leída sola, no dice qué puede hacer la persona ahí. El subtítulo de esa misma sección explica el contenido, pero eso no basta: lo primero que se lee sigue siendo un término que no se entiende por sí solo. El menú de navegación repite la palabra «Observancia» sin ninguna aclaración.",
+      "comentario": "El título de una de las secciones de la portada es «Observancia», una palabra legal que, leída sola, no dice qué puede hacer la persona ahí. El subtítulo de esa misma sección explica el contenido, pero eso no basta: lo primero que se lee sigue siendo un término que no se entiende por sí solo. El menú de navegación repite la palabra «Observancia» sin ninguna aclaración.",
       "cita_textual": "Observancia",
       "ubicacion_pantalla": "Cuerpo de la página › sección «Observancia» › título principal de la sección"
     },
     {
       "id": "LC-1.1.3-04",
       "estado": "cumple",
-      "comentario": "Criterio 9: «¿Se evitan abreviaturas, extranjerismos, eufemismos o términos rebuscados…?» — Instrumento 3: Lenguaje plano. En el texto visible evaluado (título principal, tarjetas de novedades, banner de datos) no se detectaron abreviaturas, extranjerismos, eufemismos ni modismos evitables."
+      "comentario": "En el texto visible evaluado (título principal, tarjetas de novedades, banner de datos) no se detectaron abreviaturas, extranjerismos, eufemismos ni modismos evitables."
     },
     {
       "id": "LC-1.1.3-05",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 10: «¿Se define cada sigla y acrónimo y se usan solo si es necesario?» — Instrumento 3: Lenguaje plano. La sigla «PCT» aparece en el menú de navegación (versión de escritorio y móvil) sin definirse en su primera aparición ni mediante una ayuda accesible con un clic.",
+      "comentario": "La sigla «PCT» aparece en el menú de navegación (versión de escritorio y móvil) sin definirse en su primera aparición ni mediante una ayuda accesible con un clic.",
       "cita_textual": "PCT",
       "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
     },
     {
       "id": "LC-1.1.3-06",
       "estado": "cumple",
-      "comentario": "Criterio 11: «¿Los contenidos están en tono positivo, evitando el «no se puede»?» — Instrumento 3: Lenguaje plano. El título principal y las tarjetas de novedades comunican en tono afirmativo lo que la institución hace o permite hacer (becas, plataformas de apoyo, ampliación de plazos ante una emergencia), sin enfocar los mensajes en prohibiciones."
+      "comentario": "El título principal y las tarjetas de novedades comunican en tono afirmativo lo que la institución hace o permite hacer (becas, plataformas de apoyo, ampliación de plazos ante una emergencia), sin enfocar los mensajes en prohibiciones."
     },
     {
       "id": "LC-1.1.4-01",
@@ -101,80 +101,80 @@
       "id": "LC-1.1.5-01",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 13: «¿Son correctas la ortografía y la gramática en los contenidos?» — Instrumento 5: Redacción y ortografía. En el pie de página, el nombre de la institución se corta en dos líneas y la segunda empieza con minúscula: «Instituto Nacional de Propiedad» seguido de «industrial (INAPI)». «Industrial» debería llevar mayúscula inicial por ser parte del nombre propio de la institución.",
+      "comentario": "En el pie de página, el nombre de la institución se corta en dos líneas y la segunda empieza con minúscula: «Instituto Nacional de Propiedad» seguido de «industrial (INAPI)». «Industrial» debería llevar mayúscula inicial por ser parte del nombre propio de la institución.",
       "cita_textual": "Instituto Nacional de Propiedad / industrial (INAPI)",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.5-02",
       "estado": "cumple",
-      "comentario": "Criterio 14: «¿Los signos de puntuación facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. Las bajadas de las tres noticias usan comas para separar aposiciones y cláusulas explicativas (por ejemplo, «Constanza Vargas García, bioquímica especializada…, fue admitida…»), lo que facilita la lectura sin bloques que la entorpezcan."
+      "comentario": "Las bajadas de las tres noticias usan comas para separar aposiciones y cláusulas explicativas (por ejemplo, «Constanza Vargas García, bioquímica especializada…, fue admitida…»), lo que facilita la lectura sin bloques que la entorpezcan."
     },
     {
       "id": "LC-1.1.5-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 15: «¿Las frases se relacionan entre sí por medio de conectores?» — Instrumento 5: Redacción y ortografía. Cada una de las tres tarjetas de noticias está redactada como una sola oración por bajada; no hay dos o más frases dentro del mismo bloque que necesiten conectores para relacionarse entre sí."
+      "comentario": "Cada una de las tres tarjetas de noticias está redactada como una sola oración por bajada; no hay dos o más frases dentro del mismo bloque que necesiten conectores para relacionarse entre sí."
     },
     {
       "id": "LC-1.1.6-01",
       "estado": "cumple",
-      "comentario": "Criterio 16: «¿Hay información de permisos de uso de los contenidos del sitio?» — Instrumento 6: Propiedad intelectual. El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde la portada sin necesidad de sesión.",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde la portada sin necesidad de sesión.",
       "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»"
     },
     {
       "id": "LC-1.1.6-02",
       "estado": "cumple",
-      "comentario": "Criterio 17: «¿Se evita la redifusión de material protegido sin autorización?» — Instrumento 6: Propiedad intelectual. El contenido visible de la portada (noticias, banners de trámites y de datos abiertos) corresponde a producción institucional propia; no se observa material de terceros redifundido sin atribución."
+      "comentario": "El contenido visible de la portada (noticias, banners de trámites y de datos abiertos) corresponde a producción institucional propia; no se observa material de terceros redifundido sin atribución."
     },
     {
       "id": "LC-1.1.7-01",
       "estado": "cumple",
-      "comentario": "Criterio 18: «Si hay listados de personas, ¿se evita publicar su RUN?» — Instrumento 7: Privacidad y datos personales. El único número de identificación visible en la portada es el RUT de la institución (persona jurídica pública) en el bloque «Dónde estamos» del pie. La mención a una profesional en la sección de novedades es difusión de un logro en un contexto de prensa institucional y no incluye su número de identificación ni forma parte de un listado de personas.",
+      "comentario": "El único número de identificación visible en la portada es el RUT de la institución (persona jurídica pública) en el bloque «Dónde estamos» del pie. La mención a una profesional en la sección de novedades es difusión de un logro en un contexto de prensa institucional y no incluye su número de identificación ni forma parte de un listado de personas.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.7-02",
       "estado": "cumple",
-      "comentario": "Criterio 19: «¿Se protege la privacidad al no publicar direcciones ni teléfonos particulares?» — Instrumento 7: Privacidad y datos personales. Los únicos datos de contacto visibles (ventana emergente «¿Quieres contactarnos?» y bloque «Dónde estamos» del pie) son teléfono, correo y dirección institucionales de INAPI; no se publican datos de contacto particulares de personas naturales."
+      "comentario": "Los únicos datos de contacto visibles (ventana emergente «¿Quieres contactarnos?» y bloque «Dónde estamos» del pie) son teléfono, correo y dirección institucionales de INAPI; no se publican datos de contacto particulares de personas naturales."
     },
     {
       "id": "LC-1.1.7-03",
       "estado": "cumple",
-      "comentario": "Criterio 20: «¿Existe información sobre cómo ejercer los derechos ARCO y bloqueo de datos?» — Instrumento 7: Privacidad y datos personales. El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde la portada, como canal para informarse sobre el ejercicio de estos derechos.",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde la portada, como canal para informarse sobre el ejercicio de estos derechos.",
       "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»"
     },
     {
       "id": "LC-1.1.8-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 21: «Si se publica información de menores de edad, ¿se protege su identidad?» — Instrumento 8: Contenidos sensibles. La portada no publica información sobre menores de edad; los bloques visibles son de alcance institucional general."
+      "comentario": "La portada no publica información sobre menores de edad; los bloques visibles son de alcance institucional general."
     },
     {
       "id": "LC-1.1.8-02",
       "estado": "cumple",
-      "comentario": "Criterio 22: «¿El contenido es apto para ser leído por menores de edad?» — Instrumento 8: Contenidos sensibles. El contenido visible (noticias institucionales, accesos a trámites y datos abiertos) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+      "comentario": "El contenido visible (noticias institucionales, accesos a trámites y datos abiertos) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
     },
     {
       "id": "LC-1.1.8-03",
       "estado": "cumple",
-      "comentario": "Criterio 23: «¿Se evita exhibir material que pueda afectar la susceptibilidad de las personas?» — Instrumento 8: Contenidos sensibles. No se identifica en la portada material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a información institucional, trámites y noticias neutras."
+      "comentario": "No se identifica en la portada material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a información institucional, trámites y noticias neutras."
     },
     {
       "id": "LC-1.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 24: «¿Los contenidos están estructurados como respuestas a preguntas frecuentes?» — Instrumento 9: Claridad. La portada es un punto de entrada (título de bienvenida, tarjetas de acceso a Marcas y Patentes, noticias y accesos rápidos), no un contenido redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas internas de trámite, fuera de esta URL."
+      "comentario": "La portada es un punto de entrada (título de bienvenida, tarjetas de acceso a Marcas y Patentes, noticias y accesos rápidos), no un contenido redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas internas de trámite, fuera de esta URL."
     },
     {
       "id": "LC-5.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 25: «¿La información del servicio digital responde claramente a preguntas frecuentes?» — Instrumento 9: Claridad. Esta URL es la portada del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+      "comentario": "No se encontraron en la portada un bloque de preguntas frecuentes ni respuestas organizadas sobre un servicio o trámite concreto. Por eso este criterio no aplica en esta vista."
     },
     {
       "id": "LC-1.2.1-02",
       "estado": "incumple",
       "severidad": "baja",
       "agrupado_en": "LC-1.2.2-04",
-      "comentario": "Criterio 26: «¿Las palabras, frases y conceptos usados son de lenguaje claro?» — Instrumento 9: Claridad. La bajada de la noticia sobre Japón usa la frase «titulares de solicitudes cuya residencia informada corresponda a Japón», un giro más cercano al lenguaje administrativo que al lenguaje cotidiano. El resto de titulares y bajadas de la portada usan palabras y conceptos comprensibles. Se agrupa con el criterio 34 porque comparte el mismo texto y la misma corrección.",
+      "comentario": "La bajada de la noticia sobre Japón usa la frase «titulares de solicitudes cuya residencia informada corresponda a Japón», un giro más cercano al lenguaje administrativo que al lenguaje cotidiano. El resto de titulares y bajadas de la portada usan palabras y conceptos comprensibles. Se agrupa con el criterio 34 porque comparte el mismo texto y la misma corrección.",
       "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
       "ubicacion_pantalla": "Cuerpo › sección «Novedades» › tercera tarjeta (11 de agosto) › bajada"
     },
@@ -182,110 +182,110 @@
       "id": "LC-1.2.1-03",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 27: «¿Predomina el tiempo presente simple y la voz activa?» — Instrumento 9: Claridad. El titular y la bajada de la primera noticia usan voz pasiva: «es seleccionada» y «fue admitida». Los otros dos titulares de la portada sí usan presente simple y voz activa, por lo que el problema es puntual, no generalizado.",
+      "comentario": "El titular y la bajada de la primera noticia usan voz pasiva: «es seleccionada» y «fue admitida». Los otros dos titulares de la portada sí usan presente simple y voz activa, por lo que el problema es puntual, no generalizado.",
       "cita_textual": "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China",
       "ubicacion_pantalla": "Cuerpo › sección «Novedades» › primera tarjeta (18 de agosto) › titular y bajada"
     },
     {
       "id": "LC-1.2.1-04",
       "estado": "cumple",
-      "comentario": "Criterio 28: «¿Las oraciones siguen el orden sujeto-verbo-predicado?» — Instrumento 9: Claridad. Los titulares y bajadas visibles siguen el orden sujeto-verbo-predicado (por ejemplo, «INAPI amplía plazos administrativos…»); no se detectan inversiones que dificulten la comprensión."
+      "comentario": "Los titulares y bajadas visibles siguen el orden sujeto-verbo-predicado (por ejemplo, «INAPI amplía plazos administrativos…»); no se detectan inversiones que dificulten la comprensión."
     },
     {
       "id": "LC-1.2.1-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 29: «Al listar requisitos de servicios, ¿se usa el modo infinitivo?» — Instrumento 9: Claridad. La portada no presenta listados de requisitos de servicios a la ciudadanía; ese contenido, cuando existe, está en las páginas internas de Marcas y Patentes, fuera de esta URL."
+      "comentario": "La portada no presenta listados de requisitos de servicios a la ciudadanía; ese contenido, cuando existe, está en las páginas internas de Marcas y Patentes, fuera de esta URL."
     },
     {
       "id": "LC-1.2.2-01",
       "estado": "cumple",
-      "comentario": "Criterio 30: «¿Los textos son breves y usan frases cortas (2 a 8 párrafos por página)?» — Instrumento 10: Concisión. El cuerpo visible de la portada se compone de bloques breves: tres tarjetas de noticia de un párrafo cada una y tarjetas de acceso con frases cortas; no hay bloques de texto extensos."
+      "comentario": "El cuerpo visible de la portada se compone de bloques breves: tres tarjetas de noticia de un párrafo cada una y tarjetas de acceso con frases cortas; no hay bloques de texto extensos."
     },
     {
       "id": "LC-5.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 31: «¿Los textos de inicio y del trámite son breves y usan frases cortas?» — Instrumento 10: Concisión. Esta URL es la portada del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+      "comentario": "Esta URL es la portada del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
     },
     {
       "id": "LC-1.2.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 32: «¿Los párrafos son cortos, con menos de 8 líneas en escritorio?» — Instrumento 10: Concisión. Las bajadas de las tres noticias ocupan cada una entre 1 y 2 líneas visuales en escritorio, muy por debajo de las 8 líneas."
+      "comentario": "Las bajadas de las tres noticias ocupan cada una entre 1 y 2 líneas visuales en escritorio, muy por debajo de las 8 líneas."
     },
     {
       "id": "LC-1.2.2-03",
       "estado": "cumple",
-      "comentario": "Criterio 33: «¿Se explica una idea por párrafo?» — Instrumento 10: Concisión. Cada tarjeta de noticia desarrolla un solo tema (la beca, la plataforma de patentes, la ampliación de plazos), sin mezclar temas distintos entre bloques."
+      "comentario": "Cada tarjeta de noticia desarrolla un solo tema (la beca, la plataforma de patentes, la ampliación de plazos), sin mezclar temas distintos entre bloques."
     },
     {
       "id": "LC-1.2.2-04",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 34: «¿Las oraciones son simples y directas, sin exceso de palabras?» — Instrumento 10: Concisión. La bajada de la noticia sobre Japón es una sola oración de cerca de 38 palabras que une dos ideas distintas (a quién beneficia y qué busca facilitar), lo que la hace más difícil de leer de un vistazo. Las otras dos bajadas de la portada son más directas y tratan una sola idea. Comparte el mismo texto que el criterio 26 y se corrige junto con él.",
+      "comentario": "La bajada de la noticia sobre Japón es una sola oración de cerca de 38 palabras que une dos ideas distintas (a quién beneficia y qué busca facilitar), lo que la hace más difícil de leer de un vistazo. Las otras dos bajadas de la portada son más directas y tratan una sola idea. Comparte el mismo texto que el criterio 26 y se corrige junto con él.",
       "cita_textual": "La medida beneficia a los titulares de solicitudes cuya residencia informada corresponda a Japón y busca facilitar el cumplimiento de los plazos administrativos que se encontraban en curso al 10 de agosto de 2026.",
       "ubicacion_pantalla": "Cuerpo › sección «Novedades» › tercera tarjeta (11 de agosto) › bajada"
     },
     {
       "id": "LC-1.2.2-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 35: «Si el texto es extenso (4 o más párrafos), ¿hay un resumen al inicio?» — Instrumento 10: Concisión. No existe en la portada un bloque de texto corrido de cuatro o más párrafos continuos (las noticias son tarjetas independientes de un párrafo cada una), por lo que no corresponde exigir un resumen inicial."
+      "comentario": "No existe en la portada un bloque de texto corrido de cuatro o más párrafos continuos (las noticias son tarjetas independientes de un párrafo cada una), por lo que no corresponde exigir un resumen inicial."
     },
     {
       "id": "LC-1.2.3-01",
       "estado": "cumple",
-      "comentario": "Criterio 36: «¿Hay espacio entre los párrafos?» — Instrumento 11: Legibilidad. Los bloques de la portada (tarjetas de Patentes y Marcas, Novedades, banners de Plataforma de Datos, Guías, Cuenta Pública y Observancia) se presentan como módulos separados con espacio visual entre ellos."
+      "comentario": "Los bloques de la portada (tarjetas de Patentes y Marcas, Novedades, banners de Plataforma de Datos, Guías, Cuenta Pública y Observancia) se presentan como módulos separados con espacio visual entre ellos."
     },
     {
       "id": "LC-1.2.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 37: «¿El texto está alineado a la izquierda?» — Instrumento 11: Legibilidad. El texto de cuerpo visible (títulos de tarjetas, accesos rápidos, banners) se lee alineado a la izquierda, sin bloques centrados ni justificados que dificulten el barrido visual."
+      "comentario": "El texto de cuerpo visible (títulos de tarjetas, accesos rápidos, banners) se lee alineado a la izquierda, sin bloques centrados ni justificados que dificulten el barrido visual."
     },
     {
       "id": "LC-1.2.3-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 38: «¿Se usan listas numeradas, viñetas o tablas para ordenar la información?» — Instrumento 11: Legibilidad. La portada no presenta conjuntos de datos, pasos secuenciales ni listas de requisitos que requieran formato de lista o tabla; es un panel de accesos y novedades, no contenido tabular."
+      "comentario": "La portada no presenta conjuntos de datos, pasos secuenciales ni listas de requisitos que requieran formato de lista o tabla; es un panel de accesos y novedades, no contenido tabular."
     },
     {
       "id": "LC-1.2.4-01",
       "estado": "cumple",
-      "comentario": "Criterio 39: «¿Los contenidos van de lo más a lo menos importante (pirámide invertida)?» — Instrumento 12: Escritura para la web. La página ordena el contenido de mayor a menor urgencia: primero el título principal y las tarjetas transaccionales de Patentes y Marcas con sus llamados a la acción, luego las noticias y al final los banners informativos secundarios (Plataforma de Datos, Guías, Cuenta Pública, Observancia)."
+      "comentario": "La página ordena el contenido de mayor a menor urgencia: primero el título principal y las tarjetas transaccionales de Patentes y Marcas con sus llamados a la acción, luego las noticias y al final los banners informativos secundarios (Plataforma de Datos, Guías, Cuenta Pública, Observancia)."
     },
     {
       "id": "LC-1.2.4-02",
       "estado": "incumple",
       "severidad": "media",
       "agrupado_en": "LC-1.1.3-03",
-      "comentario": "Criterio 40: «¿Las páginas tienen títulos claros y subtítulos que facilitan la lectura?» — Instrumento 12: Escritura para la web. El banner de la sección «Observancia» usa como título principal esa sola palabra, que por sí misma no dice qué puede hacer la persona ahí. Aunque el subtítulo aclara el contenido, el título no se explica solo al escanear la página rápidamente. Se agrupa con el criterio 8 porque es el mismo título y la misma corrección.",
+      "comentario": "El banner de la sección «Observancia» usa como título principal esa sola palabra, que por sí misma no dice qué puede hacer la persona ahí. Aunque el subtítulo aclara el contenido, el título no se explica solo al escanear la página rápidamente. Se agrupa con el criterio 8 porque es el mismo título y la misma corrección.",
       "cita_textual": "Observancia",
       "ubicacion_pantalla": "Cuerpo de la página › sección «Observancia» › título principal de la sección"
     },
     {
       "id": "LC-1.2.4-03",
       "estado": "cumple",
-      "comentario": "Criterio 41: «¿Es fácil escanear visualmente los contenidos?» — Instrumento 12: Escritura para la web. La portada usa tarjetas con íconos, encabezados cortos y bloques separados (Patentes, Marcas, Novedades, accesos rápidos, banners) que permiten identificar de un vistazo las secciones principales sin necesidad de leer párrafos completos."
+      "comentario": "La portada usa tarjetas con íconos, encabezados cortos y bloques separados (Patentes, Marcas, Novedades, accesos rápidos, banners) que permiten identificar de un vistazo las secciones principales sin necesidad de leer párrafos completos."
     },
     {
       "id": "LC-1.2.4-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 42: «¿Se usan negritas para destacar palabras clave de cada párrafo?» — Instrumento 12: Escritura para la web. Los textos visibles de la portada son títulos de tarjetas, enlaces cortos y frases de una sola línea, no párrafos de varias oraciones; no hay cuerpo de texto extenso donde destacar palabras clave con negrita tenga sentido editorial."
+      "comentario": "Los textos visibles de la portada son títulos de tarjetas, enlaces cortos y frases de una sola línea, no párrafos de varias oraciones; no hay cuerpo de texto extenso donde destacar palabras clave con negrita tenga sentido editorial."
     },
     {
       "id": "LC-1.2.4-05",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 43: «¿Se evitan las frases escritas únicamente en mayúsculas?» — Instrumento 12: Escritura para la web. Fuera de los ítems ya excluidos por calibración vigente (los rótulos de la cabecera global), hay mayúscula sostenida en tres lugares: el enlace de búsqueda de la tarjeta de Patentes y de Marcas (con una mezcla inconsistente entre ambos), los subtítulos del banner «Plataforma de Datos», y el título y las opciones de la ventana emergente de búsqueda del sitio.",
+      "comentario": "Fuera de los ítems ya excluidos por calibración vigente (los rótulos de la cabecera global), hay mayúscula sostenida en tres lugares: el enlace de búsqueda de la tarjeta de Patentes y de Marcas (con una mezcla inconsistente entre ambos), los subtítulos del banner «Plataforma de Datos», y el título y las opciones de la ventana emergente de búsqueda del sitio.",
       "cita_textual": "BUSCADOR DE PATENTES / BUSCADOR DE marcas; INFORMACIÓN TECNOLÓGICA DE PATENTES; BUSCAR Y TRAMITAR",
       "ubicacion_pantalla": "Tarjetas «Patentes» y «Marcas»; banner «Plataforma de Datos»; ventana emergente de búsqueda del sitio"
     },
     {
       "id": "LC-1.2.4-06",
       "estado": "cumple",
-      "comentario": "Criterio 44: «¿Se vinculan contenidos del mismo sitio mediante enlaces relacionados?» — Instrumento 12: Escritura para la web. El bloque de accesos rápidos enlaza contenidos del mismo sitio distintos del menú principal: estadísticas, notificaciones diarias, preguntas frecuentes y datos abiertos, además del acceso a todas las noticias."
+      "comentario": "El bloque de accesos rápidos enlaza contenidos del mismo sitio distintos del menú principal: estadísticas, notificaciones diarias, preguntas frecuentes y datos abiertos, además del acceso a todas las noticias."
     },
     {
       "id": "LC-5.2.4-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»?» — Instrumento 12: Escritura para la web. En la portada hay dos botones con el mismo texto genérico «Acceder» (en el banner «Plataforma de Datos» y en el banner «Cuenta Pública 2026») que no dicen a dónde llevan, y dos enlaces «Conoce más» (uno en el menú de navegación y otro en la sección «Observancia») que tampoco distinguen su destino entre sí. El resto de los enlaces y botones de la portada sí describen con claridad la acción o el destino, por ejemplo «Descargar guía de marcas», «Ver todas las noticias», «Cómo registrar una patente» o «Buscador de patentes».",
+      "comentario": "En la portada hay dos botones con el mismo texto genérico «Acceder» (en el banner «Plataforma de Datos» y en el banner «Cuenta Pública 2026») que no dicen a dónde llevan, y dos enlaces «Conoce más» (uno en el menú de navegación y otro en la sección «Observancia») que tampoco distinguen su destino entre sí. El resto de los enlaces y botones de la portada sí describen con claridad la acción o el destino, por ejemplo «Descargar guía de marcas», «Ver todas las noticias», «Cómo registrar una patente» o «Buscador de patentes».",
       "cita_textual": "Acceder (dos banners distintos); Conoce más (menú de navegación y sección Observancia)",
       "ubicacion_pantalla": "Banner «Plataforma de Datos» › botón «Acceder»; banner «Cuenta Pública 2026» › botón «Acceder»; menú de navegación global › enlace «Conoce más»; sección «Observancia» › enlace «Conoce más»"
     },
@@ -293,7 +293,7 @@
       "id": "LC-1.2.4-07",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 46: «Al enlazar documentos, ¿se especifican título, formato y peso?» — Instrumento 12: Escritura para la web. Ninguno de los documentos que se pueden descargar desde la portada indica los tres datos completos: las guías de marcas y de patentes no muestran formato ni peso; en el pie de página, «Plan de Acción de Cumplimiento 2025» solo indica el formato sin el peso, y «Teletrabajo» y «Código de Ética INAPI 2026» no indican ni formato ni peso. Pesos verificados hoy: guía de marcas 16,4 MB, guía de patentes 12,5 MB, Plan de Acción 293 KB, Teletrabajo 3,3 MB, Código de Ética 590 KB.",
+      "comentario": "Ninguno de los documentos que se pueden descargar desde la portada indica los tres datos completos: las guías de marcas y de patentes no muestran formato ni peso; en el pie de página, «Plan de Acción de Cumplimiento 2025» solo indica el formato sin el peso, y «Teletrabajo» y «Código de Ética INAPI 2026» no indican ni formato ni peso. Pesos verificados hoy: guía de marcas 16,4 MB, guía de patentes 12,5 MB, Plan de Acción 293 KB, Teletrabajo 3,3 MB, Código de Ética 590 KB.",
       "cita_textual": "Descargar guía de marcas; Descargar guía de patentes; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Sección «Guías para usuarios»; pie de página › fila de logos institucionales"
     },
@@ -302,30 +302,30 @@
       "estado": "incumple",
       "severidad": "alta",
       "agrupado_en": "LC-1.2.4-07",
-      "comentario": "Criterio 47: «¿Se entrega una breve descripción de los documentos enlazados?» — Instrumento 12: Escritura para la web. Ninguno de los cinco documentos descargables de la portada (dos guías y tres documentos institucionales del pie) trae una descripción breve de su contenido junto al título del enlace. Se agrupa con el criterio 46 porque comparte exactamente los mismos documentos y la misma corrección.",
+      "comentario": "Ninguno de los cinco documentos descargables de la portada (dos guías y tres documentos institucionales del pie) trae una descripción breve de su contenido junto al título del enlace. Se agrupa con el criterio 46 porque comparte exactamente los mismos documentos y la misma corrección.",
       "cita_textual": "Descargar guía de marcas; Descargar guía de patentes; Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Sección «Guías para usuarios»; pie de página › fila de logos institucionales"
     },
     {
       "id": "LC-1.3.1-01",
       "estado": "cumple",
-      "comentario": "Criterio 48: «¿Se usan apoyos visuales (íconos, imágenes, gráficos) para presentar datos?» — Instrumento 13: Visualización de la información. La portada usa numerosos apoyos visuales: banners de la Plataforma de Datos y de las Guías para usuarios, imagen de Cuenta Pública 2026, íconos de sección y un carrusel de logos de organismos externos en el pie. Esta pregunta evalúa si existen apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "comentario": "La portada usa numerosos apoyos visuales: banners de la Plataforma de Datos y de las Guías para usuarios, imagen de Cuenta Pública 2026, íconos de sección y un carrusel de logos de organismos externos en el pie. Esta pregunta evalúa si existen apoyos visuales, no la calidad del texto alternativo de las imágenes.",
       "ubicacion_pantalla": "Cuerpo de la página › banners «Plataforma de Datos», «Guías para usuarios» y «Cuenta Pública 2026»"
     },
     {
       "id": "LC-1.3.2-01",
       "estado": "cumple",
-      "comentario": "Criterio 49: «¿Los contenidos son objetivos y neutros, sin opinión de quien escribe?» — Instrumento 14: Objetividad. Las noticias y bloques institucionales usan redacción neutra y descriptiva (por ejemplo, «INAPI y Ministerio de Economía presentan plataforma…»), sin adjetivos de opinión ni juicios de valor de quien escribe."
+      "comentario": "Las noticias y bloques institucionales usan redacción neutra y descriptiva (por ejemplo, «INAPI y Ministerio de Economía presentan plataforma…»), sin adjetivos de opinión ni juicios de valor de quien escribe."
     },
     {
       "id": "LC-1.3.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 50: «¿Se privilegian datos y hechos por sobre adjetivos calificativos?» — Instrumento 14: Objetividad. Las tres bajadas de noticias visibles se centran en hechos y datos concretos (una beca en una universidad, 148 productos de una plataforma tecnológica, una ampliación de plazos por sismos en Japón), privilegiando datos por sobre adjetivos calificativos."
+      "comentario": "Las tres bajadas de noticias visibles se centran en hechos y datos concretos (una beca en una universidad, 148 productos de una plataforma tecnológica, una ampliación de plazos por sismos en Japón), privilegiando datos por sobre adjetivos calificativos."
     },
     {
       "id": "LC-1.3.3-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 51: «Si hay versiones anteriores, ¿están rotuladas como no vigentes con su año?» — Instrumento 15: Archivo. La portada no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista. El enlace «Gobierno Transparente Histórico» del pie ya está rotulado como histórico en su propio texto."
+      "comentario": "La portada no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista. El enlace «Gobierno Transparente Histórico» del pie ya está rotulado como histórico en su propio texto."
     }
   ],
   "criterios_aprobados": 30,
@@ -333,7 +333,7 @@
   "criterios_no_aplica": 11,
   "porcentaje_cumplimiento": 75,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta versión corrige además un error de la revisión anterior: el criterio 45 (rótulos y llamados a la acción descriptivos) se había marcado como no aplicable por tratarse de una página informativa; ese criterio se evalúa en todas las páginas del sitio, y al revisar los botones y enlaces reales de la portada se encontraron rótulos genéricos que sí corresponde corregir.\n\nDe las 51 preguntas, 12 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 39 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 76,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción.\n\nHallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio); y dos botones «Acceder» y dos enlaces «Conoce más» repiten el mismo texto genérico para destinos distintos, sin decir a dónde llevan.\n\nHallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo.\n\nSerie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25e/f: el criterio de datos clave (criterio 12) pasa a evaluarse como incumplimiento con propuesta CMS (ya no «no aplica» por no ser trámite); la ausencia total de fecha de actualización (criterio 27) se marca con severidad alta (No cumple). Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
+  "resumen_ejecutivo": "La página principal de INAPI (https://www.inapi.cl/) fue reauditada el 25 de agosto de 2026 con una captura actual de la página, incluida la ventana emergente de contacto, y con una revisión palabra por palabra y párrafo por párrafo del lenguaje usado en cada bloque visible, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta versión corrige además un error de la revisión anterior: el criterio 45 (rótulos y llamados a la acción descriptivos) se había marcado como no aplicable por tratarse de una página informativa; ese criterio se evalúa en todas las páginas del sitio, y al revisar los botones y enlaces reales de la portada se encontraron rótulos genéricos que sí corresponde corregir. De las 51 preguntas, 12 no corresponden a esta página (variantes exclusivas de servicio digital o de trámite, y preguntas sin supuesto en esta vista). De las 39 que sí corresponden, 30 se cuentan como cumplidas: 27 cumplen de forma directa y 3 quedan agrupadas junto a otra pregunta porque comparten el mismo texto y la misma corrección. Esto da un 76,9 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). Hallazgo de prioridad alta: ninguno de los cinco documentos descargables de la portada (las guías de marcas y de patentes, y tres documentos institucionales del pie de página) indica a la vez título, formato, peso y una breve descripción. Hallazgos de prioridad media: el título de la sección «Observancia» usa una palabra legal que no se entiende por sí sola al escanear la página, aunque exista un subtítulo que la explica; no hay una fecha de actualización visible para el contenido general de la portada; hay frases escritas solo en mayúsculas fuera de los rótulos ya exceptuados de la cabecera (buscadores de patentes y marcas, banner de datos y ventana de búsqueda del sitio); y dos botones «Acceder» y dos enlaces «Conoce más» repiten el mismo texto genérico para destinos distintos, sin decir a dónde llevan. Hallazgos de prioridad baja: la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; el titular y la bajada de la primera noticia usan voz pasiva; y la bajada de la noticia sobre Japón junta dos ideas en una sola oración larga con un giro administrativo. Serie META MEI, portada o página de inicio (orden 1). Reemplaza como vigente a www-inapi-cl_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25e/f: el criterio de datos clave (criterio 12) pasa a evaluarse como incumplimiento con propuesta CMS (ya no «no aplica» por no ser trámite); la ausencia total de fecha de actualización (criterio 27) se marca con severidad alta (No cumple). Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "(criterio 12) Sin resumen/recuadro de datos clave visible (qué, cómo, dónde, cuándo, para quién). Severidad alta (No cumple): no hay texto que cumpla el requisito.",
@@ -400,7 +400,7 @@
       "linea": "S05",
       "html_linea_aprox": "HTML-noticia-1",
       "ubicacion_pantalla": "Cuerpo › sección «Novedades» › primera tarjeta (18 de agosto) › titular y bajada",
-      "original": "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China / ...fue admitida por la Universidad de Economía y Derecho de Zhongnan...",
+      "original": "Profesional chilena es seleccionada para la beca de maestría en propiedad intelectual Belt and Road 2026 en China /...fue admitida por la Universidad de Economía y Derecho de Zhongnan...",
       "propuesto": "La Universidad de Economía y Derecho de Zhongnan seleccionó a una profesional chilena para la beca de maestría en propiedad intelectual Belt and Road 2026 en China. La universidad admitió a Constanza Vargas García, bioquímica especializada en patentes biotecnológicas y químicas, tras un riguroso proceso de evaluación patrocinado por INAPI.",
       "criterio_id": "LC-1.2.1-03",
       "motivo": "Debe predominar el tiempo presente y la voz activa. El titular y la bajada actuales usan voz pasiva («es seleccionada», «fue admitida»), lo que hace menos directa la lectura; la propuesta nombra primero a quien realiza la acción.",

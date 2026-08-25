@@ -10,7 +10,7 @@
     {
       "id": "LC-1.1.1-01",
       "estado": "cumple",
-      "comentario": "Criterio 1: «¿Es fácil reconocer la fuente o autoría de la información publicada?» — Instrumento 1: Fiabilidad. El pie de página identifica a la institución responsable del contenido («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI está presente en toda la cabecera de la página.",
+      "comentario": "El pie de página identifica a la institución responsable del contenido («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI está presente en toda la cabecera de la página.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
@@ -18,14 +18,14 @@
       "id": "LC-1.1.2-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 2: «¿Los contenidos representan de manera fiel lo enunciado en su título?» — Instrumento 2: Completitud. El título principal visible de la página es el banner compartido de toda la sección Marcas («Marcas» / «Trámites») y no menciona «Solicitud Nueva» en ningún punto; solo la ruta de navegación, en texto plano y de menor jerarquía visual, identifica que esta es la página específica de Solicitud Nueva.",
+      "comentario": "El título principal visible de la página es el banner compartido de toda la sección Marcas («Marcas» / «Trámites») y no menciona «Solicitud Nueva» en ningún punto; solo la ruta de navegación, en texto plano y de menor jerarquía visual, identifica que esta es la página específica de Solicitud Nueva.",
       "cita_textual": "Marcas / Trámites",
       "ubicacion_pantalla": "Zona superior › título principal y subtítulo del banner"
     },
     {
       "id": "LC-1.1.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 3: «¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o «En construcción»?» — Instrumento 2: Completitud. No se observan bloques «en construcción» ni secciones vacías: las cinco tarjetas de acción muestran contenido completo, aunque mínimo.",
+      "comentario": "No se observan bloques «en construcción» ni secciones vacías: las cinco tarjetas de acción muestran contenido completo, aunque mínimo.",
       "cita_textual": "Solicitud Nueva y Pago Electrónico; Revisar y Pagar Solicitudes Guardadas; Publicación en el Diario Oficial; Pizarra de Pagos (pago, renovación y anotación); Presentación de Escritos",
       "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción"
     },
@@ -34,7 +34,7 @@
       "estado": "incumple",
       "severidad": "alta",
       "agrupado_en": "LC-1.1.2-04",
-      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información?» — Instrumento 2: Completitud. Esta página es la información de un trámite (Solicitud Nueva de marca) y, por lo tanto, este criterio corresponde evaluarlo con rigor: no existe ningún recuadro ni párrafo que reúna qué es la Solicitud Nueva, cómo se tramita, dónde, cuándo (plazos) ni para quién. No hay ningún texto que cumpla este requisito, por lo que el criterio no cumple de forma total, no parcial. Comparte exactamente el mismo vacío de contenido y la misma corrección que el criterio 5, por lo que se agrupa bajo ese criterio.",
+      "comentario": "Esta página es la información de un trámite (Solicitud Nueva de marca) y, por lo tanto, este criterio corresponde evaluarlo con rigor: no existe ningún recuadro ni párrafo que reúna qué es la Solicitud Nueva, cómo se tramita, dónde, cuándo (plazos) ni para quién. No hay ningún texto que cumpla este requisito, por lo que el criterio no cumple de forma total, no parcial. Comparte exactamente el mismo vacío de contenido y la misma corrección que el criterio 5, por lo que se agrupa bajo ese criterio.",
       "cita_textual": "(no existe en pantalla)",
       "ubicacion_pantalla": "Entre el submenú de pestañas y las cinco tarjetas de acción"
     },
@@ -42,53 +42,53 @@
       "id": "LC-1.1.2-04",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 5: «En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?» — Instrumento 2: Completitud. Esta página es la información del trámite «Solicitud Nueva» de marca; aunque el formulario se completa en otro dominio, esta página debe orientar a la persona antes de que haga clic. No se brinda ningún requisito, documento necesario, costo ni plazo antes de las cinco tarjetas de acción; una de ellas lleva a un sitio externo (para pagar una publicación) sin ninguna explicación previa. No hay ningún texto que cumpla este requisito.",
+      "comentario": "Esta página es la información del trámite «Solicitud Nueva» de marca; aunque el formulario se completa en otro dominio, esta página debe orientar a la persona antes de que haga clic. No se brinda ningún requisito, documento necesario, costo ni plazo antes de las cinco tarjetas de acción; una de ellas lleva a un sitio externo (para pagar una publicación) sin ninguna explicación previa. No hay ningún texto que cumpla este requisito.",
       "cita_textual": "(no existe en pantalla)",
       "ubicacion_pantalla": "Entre el submenú de pestañas y las cinco tarjetas de acción"
     },
     {
       "id": "LC-1.1.3-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 6: «¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?» — Instrumento 3: Lenguaje plano. No hay texto principal medible en esta página: solo hay cinco títulos de tarjeta de una línea y elementos de menú, modal y pie compartidos con el resto del sitio; no existe un párrafo de cuerpo sobre el cual aplicar una herramienta de legibilidad."
+      "comentario": "No hay texto principal medible en esta página: solo hay cinco títulos de tarjeta de una línea y elementos de menú, modal y pie compartidos con el resto del sitio; no existe un párrafo de cuerpo sobre el cual aplicar una herramienta de legibilidad."
     },
     {
       "id": "LC-1.1.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 7: «¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?» — Instrumento 3: Lenguaje plano. El único texto dirigido directamente a la persona usuaria (la ventana emergente de contacto) mantiene un trato cercano y respetuoso; no se detecta trato distante en el contenido visible.",
+      "comentario": "El único texto dirigido directamente a la persona usuaria (la ventana emergente de contacto) mantiene un trato cercano y respetuoso; no se detecta trato distante en el contenido visible.",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
     },
     {
       "id": "LC-1.1.3-03",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 8: «¿La redacción prescinde de la jerga técnica o legal?» — Instrumento 3: Lenguaje plano. Tres títulos de tarjeta usan un concepto técnico o de trámite sin definirse: «Publicación en el Diario Oficial» no explica por qué la persona debe pagar esa publicación ni qué efecto tiene en su solicitud (abre el plazo para que terceros se opongan); «Pizarra de Pagos (pago, renovación y anotación)» es una metáfora ambigua que no distingue este pago del de la tarjeta «Solicitud Nueva y Pago Electrónico»; «Presentación de Escritos» usa el término legal «escritos» sin definir qué tipo de documento es ni cuándo se necesita.",
+      "comentario": "Tres títulos de tarjeta usan un concepto técnico o de trámite sin definirse: «Publicación en el Diario Oficial» no explica por qué la persona debe pagar esa publicación ni qué efecto tiene en su solicitud (abre el plazo para que terceros se opongan); «Pizarra de Pagos (pago, renovación y anotación)» es una metáfora ambigua que no distingue este pago del de la tarjeta «Solicitud Nueva y Pago Electrónico»; «Presentación de Escritos» usa el término legal «escritos» sin definir qué tipo de documento es ni cuándo se necesita.",
       "cita_textual": "Publicación en el Diario Oficial; Pizarra de Pagos (pago, renovación y anotación); Presentación de Escritos",
       "ubicacion_pantalla": "Cuerpo de la página › tarjetas de acción tercera, cuarta y quinta"
     },
     {
       "id": "LC-1.1.3-04",
       "estado": "cumple",
-      "comentario": "Criterio 9: «¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?» — Instrumento 3: Lenguaje plano. No se detectan abreviaturas, extranjerismos, eufemismos ni modismos en el texto visible de esta página, más allá de la jerga ya tratada en el criterio 8."
+      "comentario": "No se detectan abreviaturas, extranjerismos, eufemismos ni modismos en el texto visible de esta página, más allá de la jerga ya tratada en el criterio 8."
     },
     {
       "id": "LC-1.1.3-05",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 10: «¿Se define cada sigla y acrónimo y se emplean solo si es necesario?» — Instrumento 3: Lenguaje plano. La sigla «PCT» aparece en el menú de navegación global sin definirse en su primera aparición.",
+      "comentario": "La sigla «PCT» aparece en el menú de navegación global sin definirse en su primera aparición.",
       "cita_textual": "PCT",
       "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
     },
     {
       "id": "LC-1.1.3-06",
       "estado": "cumple",
-      "comentario": "Criterio 11: «¿Los contenidos están escritos en tono positivo indicando lo que se puede hacer y evitando enfocar los mensajes desde el «no se puede»?» — Instrumento 3: Lenguaje plano. Los títulos de las cinco tarjetas describen acciones concretas en tono afirmativo (presentar la solicitud, revisar y pagar, publicar, pagar otros trámites, presentar documentos), sin enfoque prohibitivo.",
+      "comentario": "Los títulos de las cinco tarjetas describen acciones concretas en tono afirmativo (presentar la solicitud, revisar y pagar, publicar, pagar otros trámites, presentar documentos), sin enfoque prohibitivo.",
       "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción"
     },
     {
       "id": "LC-1.1.4-01",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 12: «¿Los contenidos están actualizados y muestran información vigente al año en curso?» — Instrumento 4: Actualización. No hay fecha de publicación ni de última actualización visible en esta página. El aviso de derechos de autor del pie no reemplaza esta fecha. No hay ningún texto que cumpla este requisito, por lo que el criterio no cumple de forma total.",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha. Al no existir ningún texto que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
       "cita_textual": "(sin fecha de actualización visible)",
       "ubicacion_pantalla": "Zona superior › bajo el título principal, antes de las tarjetas de acción"
     },
@@ -96,180 +96,180 @@
       "id": "LC-1.1.5-01",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 13: «¿Son correctas la ortografía y la gramática en los contenidos?» — Instrumento 5: Redacción y ortografía. Dos hallazgos: (1) en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución; (2) en el submenú de pestañas, los trámites «Solicitud Nueva» y «Títulos y Certificados» llevan mayúscula en cada palabra, mientras «Renovación» y «Anotación» usan mayúscula solo al inicio.",
+      "comentario": "Dos hallazgos: (1) en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución; (2) en el submenú de pestañas, los trámites «Solicitud Nueva» y «Títulos y Certificados» llevan mayúscula en cada palabra, mientras «Renovación» y «Anotación» usan mayúscula solo al inicio.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI); Solicitud Nueva / Renovación / Anotación / Títulos y Certificados",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; submenú de pestañas › lista de trámites bajo «Trámites»"
     },
     {
       "id": "LC-1.1.5-02",
       "estado": "cumple",
-      "comentario": "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. El texto visible (títulos de tarjeta, ruta de navegación, ventana de contacto) usa puntuación simple y correcta; no hay bloques que entorpezcan la lectura."
+      "comentario": "El texto visible (títulos de tarjeta, ruta de navegación, ventana de contacto) usa puntuación simple y correcta; no hay bloques que entorpezcan la lectura."
     },
     {
       "id": "LC-1.1.5-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 15: «¿Las frases se relacionan entre sí por medio de conectores?» — Instrumento 5: Redacción y ortografía. No hay en esta página párrafos de dos o más oraciones que requieran conectores: los títulos de tarjeta son frases nominales de una sola línea."
+      "comentario": "No hay en esta página párrafos de dos o más oraciones que requieran conectores: los títulos de tarjeta son frases nominales de una sola línea."
     },
     {
       "id": "LC-1.1.6-01",
       "estado": "cumple",
-      "comentario": "Criterio 16: «¿El sitio cuenta con información de permisos de uso de sus contenidos en algún lugar del sitio?» — Instrumento 6: Propiedad intelectual. El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
       "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»"
     },
     {
       "id": "LC-1.1.6-02",
       "estado": "cumple",
-      "comentario": "Criterio 17: «¿Se evita la redifusión de material protegido por derechos de autor sin autorización?» — Instrumento 6: Propiedad intelectual. El contenido visible (títulos de tarjeta, navegación) corresponde a producción institucional propia; no se observa redifusión de material de terceros sin atribución."
+      "comentario": "El contenido visible (títulos de tarjeta, navegación) corresponde a producción institucional propia; no se observa redifusión de material de terceros sin atribución."
     },
     {
       "id": "LC-1.1.7-01",
       "estado": "cumple",
-      "comentario": "Criterio 18: «Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?» — Instrumento 7: Privacidad y datos personales. El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
+      "comentario": "El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.7-02",
       "estado": "cumple",
-      "comentario": "Criterio 19: «¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?» — Instrumento 7: Privacidad y datos personales. Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
+      "comentario": "Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
     },
     {
       "id": "LC-1.1.7-03",
       "estado": "cumple",
-      "comentario": "Criterio 20: «¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos ARCO y bloqueo de datos personales?» — Instrumento 7: Privacidad y datos personales. El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de esos derechos.",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de esos derechos.",
       "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»"
     },
     {
       "id": "LC-1.1.8-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 21: «Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?» — Instrumento 8: Contenidos sensibles. Esta página no publica información sobre menores de edad; el contenido visible son accesos a trámites de marcas."
+      "comentario": "Esta página no publica información sobre menores de edad; el contenido visible son accesos a trámites de marcas."
     },
     {
       "id": "LC-1.1.8-02",
       "estado": "cumple",
-      "comentario": "Criterio 22: «¿El contenido es apto para ser leído por menores de edad?» — Instrumento 8: Contenidos sensibles. El contenido visible es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+      "comentario": "El contenido visible es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
     },
     {
       "id": "LC-1.1.8-03",
       "estado": "cumple",
-      "comentario": "Criterio 23: «¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o menoscabarlas?» — Instrumento 8: Contenidos sensibles. No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas."
+      "comentario": "No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas."
     },
     {
       "id": "LC-1.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 24: «¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?» — Instrumento 9: Claridad. Esta página es un panel de accesos directos a formularios de trámite, sin contenido editorial propio; no corresponde exigirle una estructura de respuestas a preguntas frecuentes. La falta de contexto previo a las tarjetas se evalúa con más precisión en los criterios 4 y 5."
+      "comentario": "No se encontraron elementos visuales ni textos estructurados como respuestas a preguntas frecuentes (por ejemplo listas, tablas o secciones desplegables). Esta página muestra accesos directos a formularios, sin ese tipo de contenido editorial."
     },
     {
       "id": "LC-5.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 25: «¿La información del servicio digital está organizada de manera que responda claramente a las preguntas frecuentes que podrían tener las personas usuarias?» — Instrumento 9: Claridad. Esta URL es la página informativa de sitioweb que da acceso al trámite (no el flujo transaccional en sí, que corre en otro dominio); la variante de claridad para servicio digital no corresponde evaluarla en esta vista."
+      "comentario": "No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes (por ejemplo listas, tablas o secciones desplegables), ni respuestas a ese tipo de preguntas. En consecuencia con el criterio anterior, tampoco corresponde evaluar aquí la organización de la información del servicio digital como respuestas a preguntas frecuentes."
     },
     {
       "id": "LC-1.2.1-02",
       "estado": "cumple",
-      "comentario": "Criterio 26: «¿Las palabras, frases y conceptos utilizados tienen un lenguaje claro para las personas usuarias?» — Instrumento 9: Claridad. Los títulos de tarjeta visibles usan palabras razonablemente claras («Solicitud Nueva y Pago Electrónico», «Revisar y Pagar Solicitudes Guardadas»); la densidad conceptual real de la página está en la jerga sin definir, ya tratada en el criterio 8."
+      "comentario": "Los títulos de tarjeta visibles usan palabras razonablemente claras («Solicitud Nueva y Pago Electrónico», «Revisar y Pagar Solicitudes Guardadas»); la densidad conceptual real de la página está en la jerga sin definir, ya tratada en el criterio 8."
     },
     {
       "id": "LC-1.2.1-03",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 27: «¿Predomina el tiempo presente simple y la voz activa de los verbos?» — Instrumento 9: Claridad. La ventana emergente de contacto usa voz pasiva.",
+      "comentario": "La ventana emergente de contacto usa voz pasiva.",
       "cita_textual": "Tu consulta será atendida por un especialista.",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
     },
     {
       "id": "LC-1.2.1-04",
       "estado": "cumple",
-      "comentario": "Criterio 28: «¿Las oraciones están ordenadas según la forma sujeto-verbo-predicado?» — Instrumento 9: Claridad. No hay oraciones complejas visibles en esta página que evaluar por orden de sus partes; los títulos de tarjeta son frases directas y no presentan inversiones que dificulten la comprensión."
+      "comentario": "No hay oraciones complejas visibles en esta página que evaluar por orden de sus partes; los títulos de tarjeta son frases directas y no presentan inversiones que dificulten la comprensión."
     },
     {
       "id": "LC-1.2.1-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 29: «Cuando se listan requisitos en contenidos referidos a servicios a la ciudadanía, ¿se usa modo infinitivo?» — Instrumento 9: Claridad. Esta página no presenta ningún listado de requisitos; esa ausencia es precisamente el hallazgo señalado en los criterios 4 y 5, no un problema de modo verbal sobre una lista existente."
+      "comentario": "Esta página no presenta ningún listado de requisitos; esa ausencia es precisamente el hallazgo señalado en los criterios 4 y 5, no un problema de modo verbal sobre una lista existente."
     },
     {
       "id": "LC-1.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 30: «¿Los textos son breves y utilizan frases cortas en su redacción (al menos 2 y como máximo 8 párrafos por página)?» — Instrumento 10: Concisión. No hay párrafos de cuerpo editorial en esta página, solo títulos de tarjeta de una línea; no corresponde evaluar el rango de 2 a 8 párrafos."
+      "comentario": "No hay párrafos de cuerpo editorial en esta página, solo títulos de tarjeta de una línea; no corresponde evaluar el rango de 2 a 8 párrafos."
     },
     {
       "id": "LC-5.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 31: «¿Los textos, tanto de la página de inicio como del desarrollo del trámite, son breves y utilizan frases cortas en su redacción?» — Instrumento 10: Concisión. Esta URL es la página informativa de sitioweb que da acceso al trámite, no el desarrollo del trámite en sí (que corre en otro dominio); la variante de concisión para servicio digital no corresponde evaluarla en esta vista."
+      "comentario": "Esta URL es la página informativa de sitioweb que da acceso al trámite, no el desarrollo del trámite en sí (que corre en otro dominio); la variante de concisión para servicio digital no corresponde evaluarla en esta vista."
     },
     {
       "id": "LC-1.2.2-02",
       "estado": "no_aplica",
-      "comentario": "Criterio 32: «Al revisar el sitio web en versión de escritorio, ¿los párrafos son cortos, con menos de 8 líneas?» — Instrumento 10: Concisión. No hay párrafos visibles en esta página sobre los cuales medir líneas de alto."
+      "comentario": "No hay párrafos visibles en esta página sobre los cuales medir líneas de alto."
     },
     {
       "id": "LC-1.2.2-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 33: «¿Se explica una idea por párrafo?» — Instrumento 10: Concisión. No hay párrafos de cuerpo visibles en esta página; los títulos de tarjeta no desarrollan una idea en formato de párrafo."
+      "comentario": "No hay párrafos de cuerpo visibles en esta página; los títulos de tarjeta no desarrollan una idea en formato de párrafo."
     },
     {
       "id": "LC-1.2.2-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 34: «¿Las oraciones son simples y directas, evitando el exceso de palabras?» — Instrumento 10: Concisión. No hay oraciones largas visibles en esta página; los títulos de tarjeta son frases cortas."
+      "comentario": "No hay oraciones largas visibles en esta página; los títulos de tarjeta son frases cortas."
     },
     {
       "id": "LC-1.2.2-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 35: «Si existe un texto extenso —de cuatro o más párrafos—, ¿hay un resumen al inicio?» — Instrumento 10: Concisión. No existe en esta página un bloque de texto corrido de cuatro o más párrafos continuos."
+      "comentario": "No existe en esta página un bloque de texto corrido de cuatro o más párrafos continuos."
     },
     {
       "id": "LC-1.2.3-01",
       "estado": "cumple",
-      "comentario": "Criterio 36: «¿Hay espacio entre los párrafos?» — Instrumento 11: Legibilidad. Las cinco tarjetas de acción y el submenú de pestañas se presentan como bloques separados con espacio visual entre ellos; no hay elementos apretados unos contra otros."
+      "comentario": "Las cinco tarjetas de acción y el submenú de pestañas se presentan como bloques separados con espacio visual entre ellos; no hay elementos apretados unos contra otros."
     },
     {
       "id": "LC-1.2.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 37: «¿El texto está alineado a la izquierda?» — Instrumento 11: Legibilidad. El texto visible (títulos de tarjeta, ruta de navegación) se lee alineado a la izquierda o centrado por diseño de botón, sin bloques de cuerpo editorial en otra alineación."
+      "comentario": "El texto visible (títulos de tarjeta, ruta de navegación) se lee alineado a la izquierda o centrado por diseño de botón, sin bloques de cuerpo editorial en otra alineación."
     },
     {
       "id": "LC-1.2.3-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 38: «¿Se utilizan listas numeradas, viñetas o tablas para presentar la información más ordenada?» — Instrumento 11: Legibilidad. No existe en esta página una enumeración de datos o pasos en prosa que debiera convertirse en lista; la ausencia misma de una lista de requisitos se trata en los criterios 4 y 5, no como un problema de formato."
+      "comentario": "No existe en esta página una enumeración de datos o pasos en prosa que debiera convertirse en lista; la ausencia misma de una lista de requisitos se trata en los criterios 4 y 5, no como un problema de formato."
     },
     {
       "id": "LC-1.2.4-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 39: «¿Los contenidos del sitio aplican el modelo de «pirámide invertida»?» — Instrumento 12: Escritura para la web. Esta página no tiene una estructura narrativa editorial propia sobre la cual aplicar el modelo de pirámide invertida: es un panel de accesos directos sin redacción de cuerpo, cuya carencia de contexto ya se trata en los criterios 4 y 5."
+      "comentario": "Esta página no tiene una estructura narrativa editorial propia sobre la cual aplicar el modelo de pirámide invertida: es un panel de accesos directos sin redacción de cuerpo, cuya carencia de contexto ya se trata en los criterios 4 y 5."
     },
     {
       "id": "LC-1.2.4-02",
       "estado": "cumple",
-      "comentario": "Criterio 40: «¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?» — Instrumento 12: Escritura para la web. Los cinco títulos de tarjeta son individualmente claros y describen la acción que representan; el problema de esta página no es la claridad de esos títulos, sino la ausencia total de contexto previo, ya tratada en los criterios 4 y 5."
+      "comentario": "Los cinco títulos de tarjeta son individualmente claros y describen la acción que representan; el problema de esta página no es la claridad de esos títulos, sino la ausencia total de contexto previo, ya tratada en los criterios 4 y 5."
     },
     {
       "id": "LC-1.2.4-03",
       "estado": "cumple",
-      "comentario": "Criterio 41: «¿Es fácil escanear visualmente los contenidos?» — Instrumento 12: Escritura para la web. Las cinco tarjetas con ícono y título corto permiten identificar de un vistazo las acciones disponibles sin necesidad de leer párrafos."
+      "comentario": "Las cinco tarjetas con ícono y título corto permiten identificar de un vistazo las acciones disponibles sin necesidad de leer párrafos."
     },
     {
       "id": "LC-1.2.4-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 42: «¿Se utilizan negritas para destacar palabras clave de cada párrafo?» — Instrumento 12: Escritura para la web. No hay párrafos de texto visibles en esta página donde destacar palabras clave con negrita tenga sentido editorial; los textos visibles son títulos de tarjeta y elementos de menú."
+      "comentario": "No hay párrafos de texto visibles en esta página donde destacar palabras clave con negrita tenga sentido editorial; los textos visibles son títulos de tarjeta y elementos de menú."
     },
     {
       "id": "LC-1.2.4-05",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 43: «¿Se evitan las frases escritas únicamente en mayúsculas?» — Instrumento 12: Escritura para la web. Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio; los títulos propios de las cinco tarjetas de esta página no usan mayúscula sostenida.",
+      "comentario": "Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio; los títulos propios de las cinco tarjetas de esta página no usan mayúscula sostenida.",
       "cita_textual": "BUSCAR Y TRAMITAR; MARCAS; PATENTES; LINK EXTERNO",
       "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
     },
     {
       "id": "LC-1.2.4-06",
       "estado": "cumple",
-      "comentario": "Criterio 44: «¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados?» — Instrumento 12: Escritura para la web. Las cinco tarjetas constituyen un conjunto de accesos relacionados y coherentes con el ciclo del trámite de Solicitud Nueva (presentar, pagar, revisar, publicar, complementar con escritos), distinto del menú global."
+      "comentario": "Las cinco tarjetas constituyen un conjunto de accesos relacionados y coherentes con el ciclo del trámite de Solicitud Nueva (presentar, pagar, revisar, publicar, complementar con escritos), distinto del menú global."
     },
     {
       "id": "LC-5.2.4-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»?» — Instrumento 12: Escritura para la web. En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino, y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»). El resto de los enlaces propios de esta página (las cinco tarjetas de acción) sí describen con claridad la acción que representan.",
+      "comentario": "En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino, y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»). El resto de los enlaces propios de esta página (las cinco tarjetas de acción) sí describen con claridad la acción que representan.",
       "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (panel de acceso y registro)",
       "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
     },
@@ -277,7 +277,7 @@
       "id": "LC-1.2.4-07",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 46: «Cuando se enlazan documentos, ¿se especifican el título, formato y peso?» — Instrumento 12: Escritura para la web. Ninguno de los tres documentos del carrusel institucional del pie de página indica los cuatro elementos requeridos: «Plan de Acción de Cumplimiento 2025» solo indica el formato (PDF) sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB respectivamente.",
+      "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página indica los cuatro elementos requeridos: «Plan de Acción de Cumplimiento 2025» solo indica el formato (PDF) sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB respectivamente.",
       "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales"
     },
@@ -286,30 +286,30 @@
       "estado": "incumple",
       "severidad": "alta",
       "agrupado_en": "LC-1.2.4-07",
-      "comentario": "Criterio 47: «¿Se entrega una breve descripción de los documentos enlazados para mejorar su capacidad de búsqueda, usabilidad y accesibilidad?» — Instrumento 12: Escritura para la web. Ninguno de los tres documentos del carrusel institucional del pie de página trae una breve descripción de su contenido junto al título. Se agrupa con el criterio 46 porque comparte exactamente los mismos documentos y la misma corrección.",
+      "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página trae una breve descripción de su contenido junto al título. Se agrupa con el criterio 46 porque comparte exactamente los mismos documentos y la misma corrección.",
       "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
       "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales"
     },
     {
       "id": "LC-1.3.1-01",
       "estado": "cumple",
-      "comentario": "Criterio 48: «¿Se utilizan apoyos visuales como íconos, imágenes, gráficos o infografías para presentar datos?» — Instrumento 13: Visualización de la información. La página usa apoyos visuales para presentar la información: cada una de las cinco tarjetas tiene una imagen ilustrativa propia y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "comentario": "La página usa apoyos visuales para presentar la información: cada una de las cinco tarjetas tiene una imagen ilustrativa propia y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
       "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción y pie de página › carrusel de logos"
     },
     {
       "id": "LC-1.3.2-01",
       "estado": "cumple",
-      "comentario": "Criterio 49: «¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quien los escribió?» — Instrumento 14: Objetividad. Los títulos de tarjeta usan redacción neutra y descriptiva de cada acción, sin adjetivos de opinión ni juicios de valor de quien escribe."
+      "comentario": "Los títulos de tarjeta usan redacción neutra y descriptiva de cada acción, sin adjetivos de opinión ni juicios de valor de quien escribe."
     },
     {
       "id": "LC-1.3.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 50: «¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?» — Instrumento 14: Objetividad. El contenido visible de esta página se compone de etiquetas de acción factuales (nombres de trámites y pagos), sin adjetivos calificativos."
+      "comentario": "El contenido visible de esta página se compone de etiquetas de acción factuales (nombres de trámites y pagos), sin adjetivos calificativos."
     },
     {
       "id": "LC-1.3.3-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 51: «Si el sitio presenta versiones anteriores de contenidos, ¿están rotuladas claramente como contenidos o documentos de archivo no vigentes?» — Instrumento 15: Archivo. Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
+      "comentario": "Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
     }
   ],
   "criterios_aprobados": 25,
@@ -317,7 +317,7 @@
   "criterios_no_aplica": 16,
   "porcentaje_cumplimiento": 71.4,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página «Solicitud Nueva» de Marcas (https://www.inapi.cl/marcas/tramites/solicitud-nueva) fue auditada el 25 de agosto de 2026 con una captura actual y propia de la página (incluidos el panel de acceso y registro, la ventana de búsqueda «Buscar y tramitar» y la ventana de contacto), con una revisión detallada del lenguaje usado en cada bloque visible antes de calificar las 51 preguntas del checklist de Lenguaje claro.\n\nEsta auditoría corrige dos criterios de la revisión anterior (22 de agosto): (1) el criterio 45, sobre rótulos y llamados a la acción descriptivos, se había marcado como no aplicable por tratarse de una variante de servicio digital; ese criterio se evalúa en todas las páginas del sitio, y al revisarlo se encontraron dos rótulos genéricos que sí corresponde corregir («Conoce más» y «LINK EXTERNO»); (2) el criterio 4, sobre datos clave de la información, había quedado agrupado bajo el criterio 5 con severidad alta, y esa misma severidad se mantiene y se refuerza en esta revisión porque no hay ningún texto que cumpla ese requisito.\n\nDe las 51 preguntas, 16 no corresponden a esta página (es un panel de accesos directos a formularios de trámite, sin párrafos de cuerpo editorial propio). De las 35 que sí corresponden, 25 se cuentan como cumplidas: 23 cumplen de forma directa y 2 quedan agrupadas junto a otra pregunta porque comparten exactamente el mismo vacío o el mismo texto y la misma corrección. Esto da un 71,4 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgos de prioridad alta: (1) ausencia total de información antes de las cinco tarjetas de acción: no hay ningún requisito, documento necesario, costo ni plazo, y una de las tarjetas envía a la persona a un sitio externo a pagar una publicación sin explicación previa; (2) tres títulos de tarjeta usan jerga sin definir: «Publicación en el Diario Oficial», «Pizarra de Pagos» y «Presentación de Escritos»; (3) sin fecha de publicación ni de actualización visible; (4) los tres documentos del carrusel institucional del pie de página no indican título completo, formato, peso ni descripción.\n\nHallazgos de prioridad media: el título principal de la página es el banner compartido de toda la sección Marcas y no menciona «Solicitud Nueva»; mayúsculas sostenidas en la ventana de búsqueda y en el botón «LINK EXTERNO»; dos rótulos genéricos que no dicen a dónde llevan («Conoce más» y «LINK EXTERNO», este último sin destino real configurado).\n\nHallazgos de prioridad baja: sigla PCT sin definir en el menú global; error de mayúscula en el nombre institucional del pie de página e inconsistencia de mayúsculas entre los cuatro trámites del submenú; voz pasiva en la ventana de contacto.\n\nSerie META MEI, orden 6 (Información del servicio digital / trámite, Solicitud Nueva de Marcas). Reemplaza como vigente a www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22, que queda registrado en el historial junto con las auditorías de 2026-08-20, 2026-08-18 y 2026-06-07.",
+  "resumen_ejecutivo": "La página «Solicitud Nueva» de Marcas (https://www.inapi.cl/marcas/tramites/solicitud-nueva) fue auditada el 25 de agosto de 2026 con una captura actual y propia de la página (incluidos el panel de acceso y registro, la ventana de búsqueda «Buscar y tramitar» y la ventana de contacto), con una revisión detallada del lenguaje usado en cada bloque visible antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta auditoría corrige dos criterios de la revisión anterior (22 de agosto): (1) el criterio 45, sobre rótulos y llamados a la acción descriptivos, se había marcado como no aplicable por tratarse de una variante de servicio digital; ese criterio se evalúa en todas las páginas del sitio, y al revisarlo se encontraron dos rótulos genéricos que sí corresponde corregir («Conoce más» y «LINK EXTERNO»); (2) el criterio 4, sobre datos clave de la información, había quedado agrupado bajo el criterio 5 con severidad alta, y esa misma severidad se mantiene y se refuerza en esta revisión porque no hay ningún texto que cumpla ese requisito. De las 51 preguntas, 16 no corresponden a esta página (es un panel de accesos directos a formularios de trámite, sin párrafos de cuerpo editorial propio). De las 35 que sí corresponden, 25 se cuentan como cumplidas: 23 cumplen de forma directa y 2 quedan agrupadas junto a otra pregunta porque comparten exactamente el mismo vacío o el mismo texto y la misma corrección. Esto da un 71,4 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). Hallazgos de prioridad alta: (1) ausencia total de información antes de las cinco tarjetas de acción: no hay ningún requisito, documento necesario, costo ni plazo, y una de las tarjetas envía a la persona a un sitio externo a pagar una publicación sin explicación previa; (2) tres títulos de tarjeta usan jerga sin definir: «Publicación en el Diario Oficial», «Pizarra de Pagos» y «Presentación de Escritos»; (3) sin fecha de publicación ni de actualización visible; (4) los tres documentos del carrusel institucional del pie de página no indican título completo, formato, peso ni descripción. Hallazgos de prioridad media: el título principal de la página es el banner compartido de toda la sección Marcas y no menciona «Solicitud Nueva»; mayúsculas sostenidas en la ventana de búsqueda y en el botón «LINK EXTERNO»; dos rótulos genéricos que no dicen a dónde llevan («Conoce más» y «LINK EXTERNO», este último sin destino real configurado). Hallazgos de prioridad baja: sigla PCT sin definir en el menú global; error de mayúscula en el nombre institucional del pie de página e inconsistencia de mayúsculas entre los cuatro trámites del submenú; voz pasiva en la ventana de contacto. Serie META MEI, orden 6 (Información del servicio digital / trámite, Solicitud Nueva de Marcas). Reemplaza como vigente a www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22, que queda registrado en el historial junto con las auditorías de 2026-08-20, 2026-08-18 y 2026-06-07.",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "(criterios 4 y 5) Ausencia total de información antes de las cinco tarjetas de acción: no hay requisitos, documentos, costos ni plazos, y una tarjeta envía a un sitio externo a pagar una publicación sin explicación previa. Severidad alta (No cumple): no hay ningún texto que cumpla el requisito.",
@@ -354,7 +354,9 @@
       "original": "(no existe en pantalla)",
       "propuesto": "Añadir un bloque breve antes de las tarjetas: «Presenta tu solicitud de registro de marca y paga en línea. Necesitas: una descripción de tu marca (nombre, logo o ambos) y los productos o servicios que quieres proteger. Costo: pagas una tasa al presentar la solicitud y otra si se aprueba el registro. Plazo: el proceso completo toma varios meses e incluye una publicación en el Diario Oficial. Para quién: personas naturales o jurídicas, nacionales o extranjeras.»",
       "criterio_id": "LC-1.1.2-04",
-      "criterios_relacionados": ["LC-1.1.2-03"],
+      "criterios_relacionados": [
+        "LC-1.1.2-03"
+      ],
       "motivo": "No hay ningún dato en pantalla que le permita a la persona saber qué necesita, cuánto cuesta o cuánto demora antes de hacer clic en una de las cinco tarjetas; se agrega el resumen mínimo que le permite decidir con autonomía. No se inventan montos exactos: se pide al equipo editorial confirmar y completar cifras reales.",
       "patron_sistema": false
     },
@@ -485,7 +487,9 @@
       "original": "Plan de Acción de Cumplimiento 2025 (PDF)",
       "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento indica el formato pero no el peso ni una descripción breve. Peso verificado hoy: 293 KB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
       "patron_sistema": true
     },
@@ -496,7 +500,9 @@
       "original": "Teletrabajo",
       "propuesto": "Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento no indica formato, peso ni descripción. Peso verificado hoy: 3,3 MB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
       "patron_sistema": true
     },
@@ -507,7 +513,9 @@
       "original": "Código de Ética INAPI 2026",
       "propuesto": "Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
       "criterio_id": "LC-1.2.4-07",
-      "criterios_relacionados": ["LC-1.2.4-08"],
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
       "motivo": "El documento no indica formato, peso ni descripción. Peso verificado hoy: 590 KB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
       "patron_sistema": true
     }

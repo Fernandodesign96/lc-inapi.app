@@ -20,7 +20,7 @@
     {
       "id": "LC-1.1.1-01",
       "estado": "cumple",
-      "comentario": "Criterio 1: «¿Es fácil reconocer la fuente o autoría de la información publicada…?» — Instrumento 1: Fiabilidad. El pie de página identifica con claridad a la institución responsable («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI aparece en la cabecera de la página.",
+      "comentario": "El pie de página identifica con claridad a la institución responsable («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI aparece en la cabecera de la página.",
       "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
@@ -28,14 +28,14 @@
       "id": "LC-1.1.2-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 2: «¿Los contenidos representan de manera fiel lo enunciado en su título?» — Instrumento 2: Completitud. El título principal visible es solo «Buscador», una palabra genérica que no dice que se trata de resultados para el término «noticias» ni cuántos resultados hay. Cualquier otra búsqueda mostraría exactamente el mismo título, sin relación con lo que sigue.",
+      "comentario": "El título principal visible es solo «Buscador», una palabra genérica que no dice que se trata de resultados para el término «noticias» ni cuántos resultados hay. Cualquier otra búsqueda mostraría exactamente el mismo título, sin relación con lo que sigue.",
       "cita_textual": "Buscador",
       "ubicacion_pantalla": "Zona superior › título principal de la página de resultados"
     },
     {
       "id": "LC-1.1.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 3: «¿Se evitan páginas sin contenido, incompletas o «en construcción»?» — Instrumento 2: Completitud. No hay textos de tipo «en construcción» ni bloques vacíos en esta pantalla: se muestra la ruta de navegación, el título y los cinco resultados con su título y dirección.",
+      "comentario": "No hay textos de tipo «en construcción» ni bloques vacíos en esta pantalla: se muestra la ruta de navegación, el título y los cinco resultados con su título y dirección.",
       "cita_textual": "Home › Buscador; cinco resultados con título y dirección visibles",
       "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
     },
@@ -43,51 +43,51 @@
       "id": "LC-1.1.2-03",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Criterio 4: «¿El texto destaca los datos clave de la información…?» — Instrumento 2: Completitud. Faltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje visible con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera. Al no existir en pantalla un resumen o recuadro de datos clave que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "comentario": "Faltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje visible con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera. Al no existir en pantalla un resumen o recuadro de datos clave que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
       "cita_textual": "No hay texto que cumpla con este requisito",
       "ubicacion_pantalla": "Zona superior › bajo el título principal, sobre la lista de resultados"
     },
     {
       "id": "LC-1.1.2-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 5: «¿Se brinda información suficiente para hacer trámites de forma autónoma?» — Instrumento 2: Completitud. Esta URL es una herramienta de búsqueda del sitio, no un texto referido a un trámite; la autonomía para completar un trámite se evalúa en las páginas de Marcas, Patentes o Trámites, fuera de esta vista."
+      "comentario": "Esta URL es una herramienta de búsqueda del sitio, no un texto referido a un trámite; la autonomía para completar un trámite se evalúa en las páginas de Marcas, Patentes o Trámites, fuera de esta vista."
     },
     {
       "id": "LC-1.1.3-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 6: «¿El lenguaje está orientado a que cualquier persona entienda el contenido…?» — Instrumento 3: Lenguaje plano. No hay en esta pantalla un texto principal medible: el contenido propio se reduce a un título de una palabra, una ruta de navegación y cinco títulos de resultado de una línea cada uno; no hay un párrafo sobre el que aplicar una medición de comprensión lectora."
+      "comentario": "No hay en esta pantalla un texto principal medible: el contenido propio se reduce a un título de una palabra, una ruta de navegación y cinco títulos de resultado de una línea cada uno; no hay un párrafo sobre el que aplicar una medición de comprensión lectora."
     },
     {
       "id": "LC-1.1.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 7: «¿El tono y la voz son amables, respetuosos y cercanos?» — Instrumento 3: Lenguaje plano. El único texto dirigido directamente a la persona usuaria en esta pantalla, la ventana de contacto, usa un trato cercano y de tuteo («Utiliza el canal de comunicación que prefieras»); no se observa lenguaje distante ni irrespetuoso en el contenido visible.",
+      "comentario": "El único texto dirigido directamente a la persona usuaria en esta pantalla, la ventana de contacto, usa un trato cercano y de tuteo («Utiliza el canal de comunicación que prefieras»); no se observa lenguaje distante ni irrespetuoso en el contenido visible.",
       "cita_textual": "Utiliza el canal de comunicación que prefieras:",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
     },
     {
       "id": "LC-1.1.3-03",
       "estado": "cumple",
-      "comentario": "Criterio 8: «¿La redacción prescinde de la jerga técnica o legal?» — Instrumento 3: Lenguaje plano. Los cinco títulos de resultado propios de esta pantalla (Noticias, Todas las Noticias, INAPI - Instituto Nacional de Propiedad Industrial, Detalle Noticia, Columnas) son palabras y frases simples, sin jerga técnica ni legal.",
+      "comentario": "Los cinco títulos de resultado propios de esta pantalla (Noticias, Todas las Noticias, INAPI - Instituto Nacional de Propiedad Industrial, Detalle Noticia, Columnas) son palabras y frases simples, sin jerga técnica ni legal.",
       "cita_textual": "Noticias; Todas las Noticias; Columnas",
       "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
     },
     {
       "id": "LC-1.1.3-04",
       "estado": "cumple",
-      "comentario": "Criterio 9: «¿Se evitan abreviaturas, extranjerismos, eufemismos o términos rebuscados…?» — Instrumento 3: Lenguaje plano. En el texto visible de esta pantalla (título, títulos de resultado, ventana de contacto) no se detectaron abreviaturas, extranjerismos ni modismos evitables."
+      "comentario": "En el texto visible de esta pantalla (título, títulos de resultado, ventana de contacto) no se detectaron abreviaturas, extranjerismos ni modismos evitables."
     },
     {
       "id": "LC-1.1.3-05",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 10: «¿Se define cada sigla y acrónimo y se usan solo si es necesario?» — Instrumento 3: Lenguaje plano. La sigla «PCT» aparece en el menú de navegación global de esta página sin definirse en su primera aparición ni mediante una ayuda accesible con un clic. Este menú es un componente compartido con el resto del sitio.",
+      "comentario": "La sigla «PCT» aparece en el menú de navegación global de esta página sin definirse en su primera aparición ni mediante una ayuda accesible con un clic. Este menú es un componente compartido con el resto del sitio.",
       "cita_textual": "PCT",
       "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
     },
     {
       "id": "LC-1.1.3-06",
       "estado": "cumple",
-      "comentario": "Criterio 11: «¿Los contenidos están en tono positivo, evitando el «no se puede»?» — Instrumento 3: Lenguaje plano. El contenido visible de esta pantalla (títulos de resultado y ventana de contacto) no enfoca ningún mensaje desde la prohibición o la negación.",
+      "comentario": "El contenido visible de esta pantalla (títulos de resultado y ventana de contacto) no enfoca ningún mensaje desde la prohibición o la negación.",
       "ubicacion_pantalla": "Cuerpo de la página"
     },
     {
@@ -102,81 +102,81 @@
       "id": "LC-1.1.5-01",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 13: «¿Son correctas la ortografía y la gramática en los contenidos?» — Instrumento 5: Redacción y ortografía. En el pie de página, el nombre de la institución se corta en dos líneas y la segunda empieza con minúscula: «Instituto Nacional de Propiedad» seguido de «industrial (INAPI)». «Industrial» debería llevar mayúscula inicial por ser parte del nombre propio de la institución. Este pie es un componente compartido con el resto del sitio.",
+      "comentario": "En el pie de página, el nombre de la institución se corta en dos líneas y la segunda empieza con minúscula: «Instituto Nacional de Propiedad» seguido de «industrial (INAPI)». «Industrial» debería llevar mayúscula inicial por ser parte del nombre propio de la institución. Este pie es un componente compartido con el resto del sitio.",
       "cita_textual": "Instituto Nacional de Propiedad / industrial (INAPI)",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.5-02",
       "estado": "cumple",
-      "comentario": "Criterio 14: «¿Los signos de puntuación facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. El texto visible de esta pantalla (títulos de resultado, ventana de contacto) usa puntuación correcta; no hay bloques de prosa donde la puntuación dificulte la lectura.",
+      "comentario": "El texto visible de esta pantalla (títulos de resultado, ventana de contacto) usa puntuación correcta; no hay bloques de prosa donde la puntuación dificulte la lectura.",
       "ubicacion_pantalla": "Cuerpo de la página y ventana emergente de contacto"
     },
     {
       "id": "LC-1.1.5-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 15: «¿Las frases se relacionan entre sí por medio de conectores?» — Instrumento 5: Redacción y ortografía. No hay en esta pantalla un bloque de dos o más frases seguidas que necesiten conectores para relacionarse entre sí; los títulos de resultado son frases independientes de una línea."
+      "comentario": "No hay en esta pantalla un bloque de dos o más frases seguidas que necesiten conectores para relacionarse entre sí; los títulos de resultado son frases independientes de una línea."
     },
     {
       "id": "LC-1.1.6-01",
       "estado": "cumple",
-      "comentario": "Criterio 16: «¿Hay información de permisos de uso de los contenidos del sitio?» — Instrumento 6: Propiedad intelectual. El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
       "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Uso de los Contenidos de este Sitio»"
     },
     {
       "id": "LC-1.1.6-02",
       "estado": "cumple",
-      "comentario": "Criterio 17: «¿Se evita la redifusión de material protegido sin autorización?» — Instrumento 6: Propiedad intelectual. El contenido visible de esta pantalla (títulos de resultado que enlazan a secciones propias del sitio) corresponde a navegación institucional propia; no se observa material de terceros redifundido sin autorización.",
+      "comentario": "El contenido visible de esta pantalla (títulos de resultado que enlazan a secciones propias del sitio) corresponde a navegación institucional propia; no se observa material de terceros redifundido sin autorización.",
       "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
     },
     {
       "id": "LC-1.1.7-01",
       "estado": "cumple",
-      "comentario": "Criterio 18: «Si hay listados de personas, ¿se evita publicar su RUN?» — Instrumento 7: Privacidad y datos personales. El único número de identificación visible en esta pantalla es el RUT de la institución (persona jurídica pública) en el pie de página. No hay listados de personas naturales en el contenido visible.",
+      "comentario": "El único número de identificación visible en esta pantalla es el RUT de la institución (persona jurídica pública) en el pie de página. No hay listados de personas naturales en el contenido visible.",
       "cita_textual": "RUT: 65.999.669-3",
       "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
     },
     {
       "id": "LC-1.1.7-02",
       "estado": "cumple",
-      "comentario": "Criterio 19: «¿Se protege la privacidad al no publicar direcciones ni teléfonos particulares?» — Instrumento 7: Privacidad y datos personales. Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección institucionales de INAPI; no se publican datos de contacto particulares de personas naturales.",
+      "comentario": "Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección institucionales de INAPI; no se publican datos de contacto particulares de personas naturales.",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?» y pie de página"
     },
     {
       "id": "LC-1.1.7-03",
       "estado": "cumple",
-      "comentario": "Criterio 20: «¿Existe información sobre cómo ejercer los derechos ARCO y bloqueo de datos?» — Instrumento 7: Privacidad y datos personales. El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de estos derechos.",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de estos derechos.",
       "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Política de privacidad»"
     },
     {
       "id": "LC-1.1.8-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 21: «Si se publica información de menores de edad, ¿se protege su identidad?» — Instrumento 8: Contenidos sensibles. Esta pantalla no publica información sobre menores de edad; el contenido visible es un listado de resultados de búsqueda institucional."
+      "comentario": "Esta pantalla no publica información sobre menores de edad; el contenido visible es un listado de resultados de búsqueda institucional."
     },
     {
       "id": "LC-1.1.8-02",
       "estado": "cumple",
-      "comentario": "Criterio 22: «¿El contenido es apto para ser leído por menores de edad?» — Instrumento 8: Contenidos sensibles. El contenido visible (títulos de resultado, ventana de contacto) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+      "comentario": "El contenido visible (títulos de resultado, ventana de contacto) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
     },
     {
       "id": "LC-1.1.8-03",
       "estado": "cumple",
-      "comentario": "Criterio 23: «¿Se evita exhibir material que pueda afectar la susceptibilidad de las personas?» — Instrumento 8: Contenidos sensibles. No se identifica en esta pantalla material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a resultados de búsqueda institucional."
+      "comentario": "No se identifica en esta pantalla material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a resultados de búsqueda institucional."
     },
     {
       "id": "LC-1.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 24: «¿Los contenidos están estructurados como respuestas a preguntas frecuentes?» — Instrumento 9: Claridad. Esta pantalla es un listado automático de resultados de búsqueda, no contenido editorial redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas informativas, fuera de esta URL."
+      "comentario": "Esta pantalla es un listado automático de resultados de búsqueda, no contenido editorial redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas informativas, fuera de esta URL."
     },
     {
       "id": "LC-5.2.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 25: «¿La información del servicio digital responde claramente a preguntas frecuentes?» — Instrumento 9: Claridad. Esta URL es una herramienta de búsqueda del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+      "comentario": "No se encontraron elementos visuales o texto organizados como preguntas frecuentes ni respuestas a ese tipo de preguntas. Esta pantalla es una lista de resultados de búsqueda; por eso este criterio no aplica aquí."
     },
     {
       "id": "LC-1.2.1-02",
       "estado": "cumple",
-      "comentario": "Criterio 26: «¿Las palabras, frases y conceptos usados son de lenguaje claro?» — Instrumento 9: Claridad. Los cinco títulos de resultado usan palabras y frases directas y comprensibles (Noticias, Todas las Noticias, Columnas, entre otros), sin conceptos abstractos ni densos.",
+      "comentario": "Los cinco títulos de resultado usan palabras y frases directas y comprensibles (Noticias, Todas las Noticias, Columnas, entre otros), sin conceptos abstractos ni densos.",
       "cita_textual": "Noticias; Todas las Noticias; Columnas",
       "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
     },
@@ -184,143 +184,143 @@
       "id": "LC-1.2.1-03",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "Criterio 27: «¿Predomina el tiempo presente simple y la voz activa?» — Instrumento 9: Claridad. La ventana emergente de contacto usa voz pasiva («Tu consulta será atendida por un especialista.») en vez de nombrar directamente quién atiende. Esta ventana es un componente compartido con el resto del sitio.",
+      "comentario": "La ventana emergente de contacto usa voz pasiva («Tu consulta será atendida por un especialista.») en vez de nombrar directamente quién atiende. Esta ventana es un componente compartido con el resto del sitio.",
       "cita_textual": "Tu consulta será atendida por un especialista.",
       "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
     },
     {
       "id": "LC-1.2.1-04",
       "estado": "cumple",
-      "comentario": "Criterio 28: «¿Las oraciones siguen el orden sujeto-verbo-predicado?» — Instrumento 9: Claridad. No hay en esta pantalla oraciones complejas que evaluar por su orden interno: los títulos de resultado son frases nominales cortas y la ventana de contacto usa oraciones simples sin inversiones."
+      "comentario": "No hay en esta pantalla oraciones complejas que evaluar por su orden interno: los títulos de resultado son frases nominales cortas y la ventana de contacto usa oraciones simples sin inversiones."
     },
     {
       "id": "LC-1.2.1-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 29: «Al listar requisitos de servicios, ¿se usa el modo infinitivo?» — Instrumento 9: Claridad. Esta pantalla no presenta listados de requisitos de servicios a la ciudadanía; es un listado de resultados de búsqueda."
+      "comentario": "Esta pantalla no presenta listados de requisitos de servicios a la ciudadanía; es un listado de resultados de búsqueda."
     },
     {
       "id": "LC-1.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 30: «¿Los textos son breves y usan frases cortas (2 a 8 párrafos por página)?» — Instrumento 10: Concisión. No hay en esta pantalla párrafos de cuerpo editorial: el contenido propio son cinco títulos de resultado de una línea cada uno; no corresponde medir un rango de párrafos por página."
+      "comentario": "No hay en esta pantalla párrafos de cuerpo editorial: el contenido propio son cinco títulos de resultado de una línea cada uno; no corresponde medir un rango de párrafos por página."
     },
     {
       "id": "LC-5.2.2-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 31: «¿Los textos de inicio y del trámite son breves y usan frases cortas?» — Instrumento 10: Concisión. Esta URL es una herramienta de búsqueda del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+      "comentario": "Esta URL es una herramienta de búsqueda del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
     },
     {
       "id": "LC-1.2.2-02",
       "estado": "no_aplica",
-      "comentario": "Criterio 32: «¿Los párrafos son cortos, con menos de 8 líneas en escritorio?» — Instrumento 10: Concisión. No hay párrafos visibles en esta pantalla sobre los que medir líneas de alto; los títulos de resultado ocupan una sola línea cada uno."
+      "comentario": "No hay párrafos visibles en esta pantalla sobre los que medir líneas de alto; los títulos de resultado ocupan una sola línea cada uno."
     },
     {
       "id": "LC-1.2.2-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 33: «¿Se explica una idea por párrafo?» — Instrumento 10: Concisión. No hay párrafos de cuerpo en esta pantalla; los títulos de resultado no son párrafos que desarrollen una idea."
+      "comentario": "No hay párrafos de cuerpo en esta pantalla; los títulos de resultado no son párrafos que desarrollen una idea."
     },
     {
       "id": "LC-1.2.2-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 34: «¿Las oraciones son simples y directas, sin exceso de palabras?» — Instrumento 10: Concisión. No hay oraciones largas visibles en esta pantalla: los títulos de resultado son frases cortas y la única oración de la ventana de contacto también es breve."
+      "comentario": "No hay oraciones largas visibles en esta pantalla: los títulos de resultado son frases cortas y la única oración de la ventana de contacto también es breve."
     },
     {
       "id": "LC-1.2.2-05",
       "estado": "no_aplica",
-      "comentario": "Criterio 35: «Si el texto es extenso (4 o más párrafos), ¿hay un resumen al inicio?» — Instrumento 10: Concisión. No existe en esta pantalla un bloque de texto corrido de cuatro o más párrafos continuos; no corresponde exigir un resumen inicial."
+      "comentario": "No existe en esta pantalla un bloque de texto corrido de cuatro o más párrafos continuos; no corresponde exigir un resumen inicial."
     },
     {
       "id": "LC-1.2.3-01",
       "estado": "cumple",
-      "comentario": "Criterio 36: «¿Hay espacio entre los párrafos?» — Instrumento 11: Legibilidad. Los cinco resultados se presentan como bloques independientes con espacio visual entre ellos, sin títulos apretados unos contra otros.",
+      "comentario": "Los cinco resultados se presentan como bloques independientes con espacio visual entre ellos, sin títulos apretados unos contra otros.",
       "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
     },
     {
       "id": "LC-1.2.3-02",
       "estado": "cumple",
-      "comentario": "Criterio 37: «¿El texto está alineado a la izquierda?» — Instrumento 11: Legibilidad. El texto visible de esta pantalla (título, títulos de resultado, direcciones) se lee alineado a la izquierda, sin bloques centrados ni justificados.",
+      "comentario": "El texto visible de esta pantalla (título, títulos de resultado, direcciones) se lee alineado a la izquierda, sin bloques centrados ni justificados.",
       "ubicacion_pantalla": "Cuerpo de la página"
     },
     {
       "id": "LC-1.2.3-03",
       "estado": "no_aplica",
-      "comentario": "Criterio 38: «¿Se usan listas numeradas, viñetas o tablas para ordenar la información?» — Instrumento 11: Legibilidad. Esta pantalla no presenta conjuntos de datos ni pasos secuenciales que requieran formato de lista o tabla; los resultados ya se muestran como bloques independientes."
+      "comentario": "Esta pantalla no presenta conjuntos de datos ni pasos secuenciales que requieran formato de lista o tabla; los resultados ya se muestran como bloques independientes."
     },
     {
       "id": "LC-1.2.4-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 39: «¿Los contenidos van de lo más a lo menos importante (pirámide invertida)?» — Instrumento 12: Escritura para la web. Esta pantalla no tiene una estructura narrativa editorial propia sobre la cual aplicar este modelo; es un listado de resultados generado automáticamente por el buscador del sitio."
+      "comentario": "Esta pantalla no tiene una estructura narrativa editorial propia sobre la cual aplicar este modelo; es un listado de resultados generado automáticamente por el buscador del sitio."
     },
     {
       "id": "LC-1.2.4-02",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 40: «¿Las páginas tienen títulos claros y subtítulos que facilitan la lectura?» — Instrumento 12: Escritura para la web. Dos de los cinco resultados no aportan información útil para una búsqueda del término «noticias»: uno lleva a una dirección duplicada de la página de inicio, sin relación directa con el tema buscado, y otro lleva a una plantilla genérica que no tiene ninguna noticia real asociada.",
+      "comentario": "Dos de los cinco resultados no aportan información útil para una búsqueda del término «noticias»: uno lleva a una dirección duplicada de la página de inicio, sin relación directa con el tema buscado, y otro lleva a una plantilla genérica que no tiene ninguna noticia real asociada.",
       "cita_textual": "INAPI - Instituto Nacional de Propiedad Industrial; Detalle Noticia",
       "ubicacion_pantalla": "Cuerpo de la página › tercer y cuarto resultado de la lista"
     },
     {
       "id": "LC-1.2.4-03",
       "estado": "cumple",
-      "comentario": "Criterio 41: «¿Es fácil escanear visualmente los contenidos?» — Instrumento 12: Escritura para la web. Cada resultado se presenta bajo su propio título enlazado seguido de su dirección, lo que permite identificar de un vistazo la lista completa sin necesidad de leer párrafos.",
+      "comentario": "Cada resultado se presenta bajo su propio título enlazado seguido de su dirección, lo que permite identificar de un vistazo la lista completa sin necesidad de leer párrafos.",
       "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
     },
     {
       "id": "LC-1.2.4-04",
       "estado": "no_aplica",
-      "comentario": "Criterio 42: «¿Se usan negritas para destacar palabras clave de cada párrafo?» — Instrumento 12: Escritura para la web. No hay párrafos de cuerpo visibles en esta pantalla donde destacar palabras clave con negrita tenga sentido editorial."
+      "comentario": "No hay párrafos de cuerpo visibles en esta pantalla donde destacar palabras clave con negrita tenga sentido editorial."
     },
     {
       "id": "LC-1.2.4-05",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 43: «¿Se evitan las frases escritas únicamente en mayúsculas?» — Instrumento 12: Escritura para la web. Fuera de los ítems ya excluidos por calibración vigente de la cabecera global, hay mayúscula sostenida en dos componentes compartidos con el resto del sitio: la ventana emergente de búsqueda del sitio y el botón de un recuadro de acceso o registro de la cabecera.",
+      "comentario": "Fuera de los ítems ya excluidos por calibración vigente de la cabecera global, hay mayúscula sostenida en dos componentes compartidos con el resto del sitio: la ventana emergente de búsqueda del sitio y el botón de un recuadro de acceso o registro de la cabecera.",
       "cita_textual": "BUSCAR Y TRAMITAR / MARCAS / PATENTES; LINK EXTERNO",
       "ubicacion_pantalla": "Ventana emergente de búsqueda del sitio; recuadro de acceso o registro de la cabecera"
     },
     {
       "id": "LC-1.2.4-06",
       "estado": "cumple",
-      "comentario": "Criterio 44: «¿Se vinculan contenidos del mismo sitio mediante enlaces relacionados?» — Instrumento 12: Escritura para la web. Los cinco resultados son en sí mismos enlaces internos relacionados con el tema buscado (secciones de noticias y columnas del sitio), distintos del menú principal.",
+      "comentario": "Los cinco resultados son en sí mismos enlaces internos relacionados con el tema buscado (secciones de noticias y columnas del sitio), distintos del menú principal.",
       "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
     },
     {
       "id": "LC-5.2.4-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "Criterio 45: «¿Los textos de los enlaces (rótulos) son descriptivos del contenido o sitio al que dirigen o directos en el llamado a la acción que impulsan, evitando términos ambiguos como «Haga clic aquí» o «Más»?» — Instrumento 12: Escritura para la web. En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino (lleva a la página general de propiedad intelectual e industrial), y en el recuadro de acceso o registro de la cabecera hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»), confirmado en el DOM actual. El resto de los enlaces y botones propios de esta pantalla sí describe con claridad la acción o el destino: los cinco títulos de resultado de la lista de búsqueda, los enlaces de la ventana emergente de búsqueda del sitio («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos») y el botón «Contacto».",
+      "comentario": "En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino (lleva a la página general de propiedad intelectual e industrial), y en el recuadro de acceso o registro de la cabecera hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»), confirmado en el DOM actual. El resto de los enlaces y botones propios de esta pantalla sí describe con claridad la acción o el destino: los cinco títulos de resultado de la lista de búsqueda, los enlaces de la ventana emergente de búsqueda del sitio («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos») y el botón «Contacto».",
       "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (recuadro de acceso o registro)",
       "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; cabecera › recuadro de acceso o registro › botón «LINK EXTERNO»"
     },
     {
       "id": "LC-1.2.4-07",
       "estado": "no_aplica",
-      "comentario": "Criterio 46: «Al enlazar documentos, ¿se especifican título, formato y peso?» — Instrumento 12: Escritura para la web. Esta pantalla no tiene el bloque de documentos institucionales descargables presente en otras páginas del sitio; se revisó el contenido completo sin encontrar enlaces a documentos propios de esta URL."
+      "comentario": "Esta pantalla no tiene el bloque de documentos institucionales descargables presente en otras páginas del sitio; se revisó el contenido completo sin encontrar enlaces a documentos propios de esta URL."
     },
     {
       "id": "LC-1.2.4-08",
       "estado": "no_aplica",
-      "comentario": "Criterio 47: «¿Se entrega una breve descripción de los documentos enlazados?» — Instrumento 12: Escritura para la web. Sin documentos descargables en esta pantalla, no corresponde evaluar si tienen descripción breve."
+      "comentario": "Sin documentos descargables en esta pantalla, no corresponde evaluar si tienen descripción breve."
     },
     {
       "id": "LC-1.3.1-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 48: «¿Se usan apoyos visuales (íconos, imágenes, gráficos) para presentar datos?» — Instrumento 13: Visualización de la información. Esta pantalla no presenta datos, cifras ni contenido que requiera apoyos visuales: es un listado de texto de resultados de búsqueda, sin banners ni tarjetas con imagen propias de esta URL."
+      "comentario": "Esta pantalla no presenta datos, cifras ni contenido que requiera apoyos visuales: es un listado de texto de resultados de búsqueda, sin banners ni tarjetas con imagen propias de esta URL."
     },
     {
       "id": "LC-1.3.2-01",
       "estado": "cumple",
-      "comentario": "Criterio 49: «¿Los contenidos son objetivos y neutros, sin opinión de quien escribe?» — Instrumento 14: Objetividad. Los títulos de resultado son descriptivos y neutros, sin adjetivos de opinión ni juicios de valor de quien escribe.",
+      "comentario": "Los títulos de resultado son descriptivos y neutros, sin adjetivos de opinión ni juicios de valor de quien escribe.",
       "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
     },
     {
       "id": "LC-1.3.2-02",
       "estado": "cumple",
-      "comentario": "Criterio 50: «¿Se privilegian datos y hechos por sobre adjetivos calificativos?» — Instrumento 14: Objetividad. El contenido visible no usa adjetivos calificativos; los títulos de resultado son etiquetas factuales que nombran secciones del sitio."
+      "comentario": "El contenido visible no usa adjetivos calificativos; los títulos de resultado son etiquetas factuales que nombran secciones del sitio."
     },
     {
       "id": "LC-1.3.3-01",
       "estado": "no_aplica",
-      "comentario": "Criterio 51: «Si hay versiones anteriores, ¿están rotuladas como no vigentes con su año?» — Instrumento 15: Archivo. Esta pantalla no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia aquí."
+      "comentario": "Esta pantalla no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia aquí."
     }
   ],
   "criterios_aprobados": 22,
@@ -328,7 +328,7 @@
   "criterios_no_aplica": 20,
   "porcentaje_cumplimiento": 71,
   "estado_aceptacion": "rechazado",
-  "resumen_ejecutivo": "La página de resultados del buscador de INAPI (búsqueda del término «noticias») fue reauditada el 25 de agosto de 2026 con una nueva captura de la pantalla, incluida la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, antes de calificar las 51 preguntas del checklist de Lenguaje claro.\n\nEsta reauditoría corrige específicamente el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de esta misma página había quedado marcado como no aplica con el argumento de que se trataba de una página informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Con evidencia del DOM actual, el criterio pasa a incumplido: el enlace «Conoce más» del menú de navegación global no dice de qué trata su destino, y el botón «LINK EXTERNO» del recuadro de acceso o registro no describe a dónde lleva y, además, no tiene un destino real configurado.\n\nSe confirmó también con el navegador automatizado que el extracto de texto que trae cada resultado bajo su título sigue sin verse nunca en pantalla: hoy ese párrafo mide 0 píxeles de alto y ancho, por lo que no se evalúa como contenido visible, en línea con el criterio ya aplicado en la revisión anterior.\n\nDe las 51 preguntas, 20 no corresponden a esta pantalla: es un listado de resultados generado automáticamente por el buscador del sitio, sin párrafos de cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales. De las 31 que sí corresponden, 22 se cuentan como cumplidas, lo que da un 71,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %).\n\nHallazgos propios de esta pantalla: el título principal es solo la palabra «Buscador» y no indica el término buscado ni el número de resultados; falta un mensaje visible con la cantidad de resultados y un campo de búsqueda visible en esta misma pantalla para modificar el término sin reabrir la ventana emergente de la cabecera; y dos de los cinco resultados no son relevantes para la búsqueda de «noticias» — uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía.\n\nHallazgos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del recuadro de acceso no son descriptivos de su destino; la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; la ventana de contacto usa voz pasiva; y hay frases solo en mayúsculas en la ventana emergente de búsqueda del sitio y en el mismo botón «LINK EXTERNO».\n\nSerie META MEI, Buscador de noticias, página de información interior (orden 5, 2 de 2; quinta y última URL de esta ronda de reauditorías centradas en rótulos y llamados a la acción). Reemplaza como vigente a www-inapi-cl-buscador-noticias_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25f: ausencia total de fecha de actualización → severidad alta (No cumple), no medianamente cumple. Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
+  "resumen_ejecutivo": "La página de resultados del buscador de INAPI (búsqueda del término «noticias») fue reauditada el 25 de agosto de 2026 con una nueva captura de la pantalla, incluida la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta reauditoría corrige específicamente el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de esta misma página había quedado marcado como no aplica con el argumento de que se trataba de una página informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Con evidencia del DOM actual, el criterio pasa a incumplido: el enlace «Conoce más» del menú de navegación global no dice de qué trata su destino, y el botón «LINK EXTERNO» del recuadro de acceso o registro no describe a dónde lleva y, además, no tiene un destino real configurado. Se confirmó también con el navegador automatizado que el extracto de texto que trae cada resultado bajo su título sigue sin verse nunca en pantalla: hoy ese párrafo mide 0 píxeles de alto y ancho, por lo que no se evalúa como contenido visible, en línea con el criterio ya aplicado en la revisión anterior. De las 51 preguntas, 20 no corresponden a esta pantalla: es un listado de resultados generado automáticamente por el buscador del sitio, sin párrafos de cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales. De las 31 que sí corresponden, 22 se cuentan como cumplidas, lo que da un 71,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). Hallazgos propios de esta pantalla: el título principal es solo la palabra «Buscador» y no indica el término buscado ni el número de resultados; falta un mensaje visible con la cantidad de resultados y un campo de búsqueda visible en esta misma pantalla para modificar el término sin reabrir la ventana emergente de la cabecera; y dos de los cinco resultados no son relevantes para la búsqueda de «noticias» — uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía. Hallazgos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del recuadro de acceso no son descriptivos de su destino; la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; la ventana de contacto usa voz pasiva; y hay frases solo en mayúsculas en la ventana emergente de búsqueda del sitio y en el mismo botón «LINK EXTERNO». Serie META MEI, Buscador de noticias, página de información interior (orden 5, 2 de 2; quinta y última URL de esta ronda de reauditorías centradas en rótulos y llamados a la acción). Reemplaza como vigente a www-inapi-cl-buscador-noticias_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25f: ausencia total de fecha de actualización → severidad alta (No cumple), no medianamente cumple. Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
   "observaciones_lc_por_severidad": {
     "hallazgos_prioridad_alta": [
       "(criterio 12) Sin resumen/recuadro de datos clave visible (qué, cómo, dónde, cuándo, para quién). Severidad alta (No cumple): no hay texto que cumpla el requisito.",
