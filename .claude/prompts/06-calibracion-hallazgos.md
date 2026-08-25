@@ -197,6 +197,39 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas.
 - **estado:** vigente
 
+### C-2026-08-25 — Entrega CMS: solo literales; sin nomenclatura interna (salvo `LC-*`)
+
+- **Origen:** revisión manual URL 2 Marcas (`/marcas`) — justificación con `T008`–`T011`, «mapa D0», «Prompt 6/7», `C-2026-08-21/22`; propuestas con meta-comentarios («formato de oración, consistente con…»).
+- **Regla (campos visibles: texto en pantalla, ubicación, corrección propuesta, justificación/comentario):**
+  1. **Prohibido** nomenclatura del repositorio u orquestación: `Tnnn`, `HTML-L…`, «mapa D0», «análisis textual ascendente», «Prompt N», `C-YYYY-…`, «capa R/U», «subagente», «§N», Chroma, etc. **Permitido solo** códigos de criterio `LC-*` (y, si hace falta, el nombre de la dimensión en lenguaje claro).
+  2. Nombrar **siempre el literal** o la zona humana: ej. `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`; `Sección «Trámites», títulos bajo cada tarjeta`; `ventana emergente «¿Quieres contactarnos?»`. Nunca «las tarjetas T008–T011».
+  3. Si `cumple`: **Texto en pantalla** = cita(s) o descripción corta de lo que evidencia el sí (no dejar `—` con justificación que nombra nodos internos).
+  4. **Corrección propuesta** = texto/instrucción pegable en el CMS. **Prohibido** añadir entre paréntesis meta-comentarios de estilo editorial («formato de oración», «consistente con Renovación…», «según Prompt…»). Eso va, si hace falta, en la justificación en lenguaje ciudadano.
+  5. **Propuestas no repetidas:** si varios criterios tocan el mismo nodo (§20.3), **un solo** `propuesto` completo vive en el criterio **primario**. Los secundarios (`agrupado_en` o relacionados) **no** copian el mismo bloque: su justificación responde **su** pregunta (sí/no, cumple/no) y su `propuesto` (si aplica) da **enfoque, tipo de palabras, estructura o detalle** alineado a esa pregunta (p. ej. concisión → «frases cortas; una idea por paso»; lista → «usar lista numerada»; jerga → «definir cada término en la misma tarjeta»).
+  6. Criterios de sí/no / existe / cumple: la pareja propuesta + justificación debe **robustecer la respuesta a la pregunta**, no reciclar el texto de otro criterio.
+- **Ejemplo malo → bueno (ubicación/evidencia):**
+  - Malo: `Justificación: Las tarjetas T008–T011… El mapa D0… (Prompt 6, C-2026-08-21).`
+  - Bueno: `Ubicación: Sección «Para Informarse», tarjeta «Cómo registrar una marca». Texto: «El procedimiento para registrar…». Justificación: la tarjeta usa una sola oración larga con términos no explicados; por eso medianamente cumple concisión.`
+- **Aplica a:** todas (esp. reauditoría Marcas y siguientes META MEI).
+- **estado:** vigente
+
+### C-2026-08-25 — Marcas: sección «Trámites» — más que unificar mayúsculas
+
+- **Origen:** revisión Marcas — títulos «Solicitud Nueva» / «Títulos y Certificados» (Title Case) frente a «Renovación» / «Anotación»; propuesta que solo unificaba a formato de oración.
+- **Regla:** unificar mayúsculas **no basta** si rótulos como «Renovación» o «Anotación» siguen opacos. Preferir en la propuesta CMS:
+  1. **Frase breve** bajo cada uno de los cuatro trámites (qué es / para quién / qué logra la persona); **y/o**
+  2. Un **subtítulo** de la sección que diga qué son esos trámites en conjunto.
+  La justificación debe nombrar la **brecha de claridad** (rótulos sin explicación), no solo la inconsistencia tipográfica. Evitar en `propuesto` el meta «(formato de oración, consistente con…)».
+- **Aplica a:** `/marcas` y bloques homólogos de atajos de trámites.
+- **estado:** vigente
+
+### C-2026-08-25 — Documentos del mismo carrusel: una fila por documento, no una fila combinada
+
+- **Origen:** revisión Marcas — el JSON del 2026-08-22 resumió los tres documentos del carrusel institucional del pie («Plan de Acción de Cumplimiento 2025», «Teletrabajo», «Código de Ética INAPI 2026») en una sola fila de `sustituciones[]`, pese a que la propia entrada C-2026-08-22 «Entrega multi-corrección» ya advertía que esto es el «ejemplo malo».
+- **Regla:** cuando varios documentos comparten el mismo `criterio_id` (formato/peso/descripción, `LC-1.2.4-07`/`08`) pero cada uno tiene su propio título y enlace, crear **una fila por documento**, no una fila que los liste juntos. Cada fila usa `criterios_relacionados` para el criterio agrupado (`LC-1.2.4-08`).
+- **Aplica a:** todas las URLs con carruseles o listados de documentos descargables.
+- **estado:** vigente
+
 ## Plantilla para nuevas entradas
 
 ```markdown
@@ -211,4 +244,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura, **Trámites con frases/subtítulo**, **entrega solo literales C-2026-08-25**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 73,2 %](#devlog-2026-08-25-marcas-reaudit-v30) |
 | 2026-08-24 | [Frontend: entrega resultado v3.0 — resumen por hito, filtros y PDF alineados](#devlog-2026-08-24-entrega-resultado-v30) |
 | 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
 | 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
@@ -91,6 +92,31 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-marcas-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Marcas www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 73,2 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar de nuevo la página Marcas (`https://www.inapi.cl/marcas`, META MEI orden 2) para corregir la forma de entrega detectada en la revisión manual del 2026-08-22: ubicaciones y justificaciones con nomenclatura interna (ids de inventario, referencias de proceso) y una fila de sustitución que resumía tres documentos distintos en un solo texto. La página en sí no cambió de contenido.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/marcas`, con apertura y verificación del modal de contacto, el panel de acceso/registro y el modal de búsqueda «Buscar y tramitar»; el DOM coincide con la captura del 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length` de los tres documentos institucionales del pie: sin cambios (293 KB, 3,3 MB, 590 KB).
+- Revisión completa del lenguaje de menor a mayor unidad (palabra, frase, oración, párrafo, forma) antes de calificar los 51 criterios; se mantienen los hallazgos de jerga técnico-jurídica sin definir y de títulos que no anticipan contenido.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: `LC-1.2.2-04` y `LC-1.2.3-03` → `LC-1.1.3-03`; `LC-1.2.4-08` → `LC-1.2.4-07`), 10 no aplica → 41 aplicables, 73,2 % de cumplimiento → `rechazado` (igual que el 2026-08-22, porque el contenido de la página no cambió).
+- Entrega reescrita: se eliminaron referencias a ids de inventario, nombres de proceso interno y meta-comentarios entre paréntesis en `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario`; los tres documentos del pie sin formato/peso/descripción pasaron de una fila combinada a tres filas independientes (una por documento); la sección «Trámites» ahora propone una frase por trámite y un subtítulo de sección, no solo unificar mayúsculas.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-marcas_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #3) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 2) apuntan al nuevo id; `www-inapi-cl-marcas_2026-08-22` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Aplicar la misma limpieza de entrega (sin ids internos, sin filas combinadas de varios documentos) al resto de URLs META MEI ya auditadas si una revisión manual lo confirma necesario.
 
 ---
 
