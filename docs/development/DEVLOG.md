@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie](#devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 69,8 %](#devlog-2026-08-25-patentes-reaudit-criterio-45-rotulos) |
 | 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 71,4 %](#devlog-2026-08-25-marcas-reaudit-criterio-45-rotulos) |
@@ -100,6 +101,31 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Buscador de noticias www.inapi.cl: reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Quinta y última URL de la ronda de reauditorías por rótulos/CTA de esta sesión (tras Portada, Marcas, Patentes y Acerca de INAPI). Segunda pasada sobre la reauditoría del Buscador de noticias del día (id `www-inapi-cl-buscador-noticias_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «esta URL es sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí». Esa justificación es inválida bajo la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`) — mismo patrón ya corregido en las otras cuatro URLs de esta serie.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0`, con la ventana emergente de búsqueda del sitio, el recuadro de acceso/registro y la ventana de contacto abiertas para inventariar todos los rótulos y CTA; HTML sobrescrito en `auditorias/htmls/www-inapi-cl-buscador-noticias_2026-08-25.html`.
+- Inventario de enlaces con `href`: se confirmaron los mismos dos rótulos genéricos ya vistos en las otras URLs de esta serie, ambos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú de navegación global (lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del recuadro de acceso/registro (`href="#"`, sin destino real configurado, confirmado en el DOM actual). El resto de los enlaces y botones propios de esta pantalla sí describen su acción o destino: los cinco títulos de resultado de la lista de búsqueda y los enlaces de la ventana de búsqueda del sitio («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos», «Clasificador de productos y servicios»).
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); la fila del menú de navegación queda `patron_sistema: true` y la del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- Resto de los 51 criterios reevaluados contra el DOM actual: sin cambios respecto a la revisión previa del mismo día (título principal genérico «Buscador» sin el término buscado ni conteo de resultados, extracto de cada resultado con `display: none` confirmado por script, dos de los cinco resultados poco relevantes, sigla PCT sin definir en el menú, error tipográfico en el nombre institucional del pie, voz pasiva en la ventana de contacto, mayúsculas sostenidas en la ventana de búsqueda del sitio).
+- Recuento: `criterios_no_aplica` 21→20, `criterios_aplicables` 30→31, `criterios_aprobados` se mantiene en 22 → 71,0 % (antes 73,3 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-buscador-noticias_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #5) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 73.3 a 71.0. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 5) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL. Con esta pasada se cierra la ronda de reauditorías por rótulos/CTA de las cinco URLs META MEI de esta sesión.
 
 ---
 
