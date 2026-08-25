@@ -39,8 +39,8 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
 - **Regla:** el campo `applicability` de cada criterio en `data/checklist-criteria-lc-ptd.json` es normativo, no orientativo:
   - `applicability: "sitioweb"` (10 exclusivas IEW: LC-1.1.5-03, LC-1.1.6-02, LC-1.1.7-01, LC-1.1.7-02, LC-1.1.8-01/02/03, LC-1.2.4-06, LC-1.3.1-01, LC-1.3.2-02) → **`no_aplica`** en toda URL `tipo_pagina: "tramites"`, con `comentario`: «Este criterio es exclusivo del instrumento IEW (sitioweb) según el catálogo v3.0; esta URL es tramites (instrumento IESD), por lo que no corresponde evaluarlo aquí.» No es un `no_aplica` para evadir un incumplimiento (§16): es exclusión estructural del catálogo, documentada y simétrica en ambos sentidos.
-  - `applicability: "tramites"` (2 exclusivas IESD: LC-5.2.1-01, LC-5.2.2-01) → **evaluar normalmente** en toda URL `tramites`; en `sitioweb` → `no_aplica` justificado.
-  - `applicability: "ambos"` → evaluar igual en los dos tipos de página. **Incluye `LC-5.2.4-01`** (rótulos/CTA descriptivos) — ver C-2026-08-25c.
+  - `applicability: "tramites"` (exclusiva restante IESD: `LC-5.2.2-01` concisión inicio+trámite) → evaluar en `tramites`; en `sitioweb` → `no_aplica` con **justificación ciudadana** (sin escribir la palabra `applicability` ni siglas sueltas). **`LC-5.2.1-01` ya no es exclusiva:** ver C-2026-08-25h (aplica en hubs de trámite / sitioweb con servicio digital).
+  - `applicability: "ambos"` → evaluar igual en los dos tipos de página. **Incluye `LC-5.2.4-01`** (rótulos/CTA) y **`LC-5.2.1-01`** (claridad servicio digital) — ver C-2026-08-25c / C-2026-08-25h.
 - **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 2 exclusivos IESD restantes como evaluables antes de lanzar los 15 subagentes.
 
 ### C-2026-08-25e — Datos clave (`LC-1.1.2-03`, criterio 12) ≠ autonomía de trámites (`LC-1.1.2-04`, criterio 13)
@@ -54,6 +54,27 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Ejemplo malo:** `no_aplica` en Acerca de INAPI: «no es un trámite ni un servicio con pasos operativos».
 - **Ejemplo bueno:** `incumple` + `alta` + propuesta de recuadro «Qué es / Cómo / Dónde / Cuándo / Para quién» (o, en buscador: conteo de resultados + campo visible); criterio 13 sigue en `no_aplica` en URLs sin trámite.
 - **Aplica a:** todas (sitioweb y trámites).
+- **estado:** vigente
+
+### C-2026-08-25i — Consistencia de calibración: aplicar + commit sin preguntar
+
+- **Origen:** tras URLs 6 y 7, Claude Code dejó JSON de URLs ya cerradas y capa de entrega en `modified` sin commit y abrió menús «¿commitear / revertir / dejar?».
+- **Regla:** ver **CLAUDE.md §5.1** y Prompt 5 Paso F. Calibración vigente = autorización para consistencia en la muestra; commit de consistencia + commit de entrega + commit de la URL nueva en el mismo turno; working tree limpio al cerrar.
+- **Aplica a:** todas las sesiones de auditoría 1-URL.
+- **estado:** vigente
+
+### C-2026-08-25h — Entrega sin jerga de orquestación; claridad servicio digital (criterio 15) en lenguaje ciudadano
+
+- **Origen:** revisión Solicitud Nueva (URL 6) — justificación del criterio 15 con `applicability`, «variante IESD», texto «tramites» inventado; ubicación con instrucción «(indicar Cabecera…)»; y riesgo de reaparecer `T010`/`T020` en justificación. Fecha ausente otra vez vista como «Medianamente cumple».
+- **Regla (campos CMS: texto / ubicación / corrección / justificación):**
+  1. **Prohibido** en entrega: `Tnnn`, `applicability`, `tipo_pagina` técnico, `mapa D0`, Prompt N, `C-YYYY`, `LC-*`, y acrónimos sueltos **IEW / IESD / META MEI**. Si hace falta nombrar un instrumento o muestra: **nombre completo primero** y la sigla entre paréntesis (ej. «Instrumento de Evaluación de Servicios Digitales (IESD)»). Preferir no usar la sigla si el texto ciudadano basta.
+  2. **Ubicación:** ruta real `Zona › elemento › «rótulo»`. **Prohibido** pegar instrucciones al auditor («indicar Cabecera…», «describir en auditorías nuevas…»).
+  3. **Criterio 15 (`LC-5.2.1-01`)** — claridad del servicio digital / preguntas frecuentes: `applicability: "ambos"`. En páginas que hablan de trámites o enlazan a `tramites.inapi.cl`, **evaluar** el contenido (no marcar `no_aplica` solo por «es sitioweb»). Si **no hay** preguntas frecuentes ni respuestas (listas, tablas, desplegables, etc.) — alineado al criterio 14 — → `no_aplica` con justificación ciudadana, p. ej.: «No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes… En consecuencia con el criterio anterior…».
+  4. Si el criterio **sí** pregunta por contenido de trámite presente en la URL → completar texto, ubicación, corrección (si incumple) y justificación con literales visibles.
+  5. **Fecha / ausencia total** (refuerzo 25f/25g): Texto «No hay texto que cumpla…» → **`severidad: alta` (No cumple)**, nunca «Medianamente cumple».
+- **Ejemplo malo:** `Justificación: El campo applicability es «tramites» (IESD)…` · `Ubicación: … (indicar Cabecera…)` · `…(T020)`.
+- **Ejemplo bueno:** `Justificación: No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes…` · `Ubicación: Cuerpo › junto a las tarjetas de acción`.
+- **Aplica a:** todas.
 - **estado:** vigente
 
 ### C-2026-08-25g — Ausencia total de texto que cumpla → No cumple (`severidad: alta`) en datos clave (y análogo)
@@ -318,4 +339,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura, **Trámites con frases/subtítulo**, **entrega solo literales C-2026-08-25b**, **rótulos CTA C-2026-08-25c**, **texto ≠ pregunta C-2026-08-25d**, **datos clave ≠ trámite C-2026-08-25e**, **fecha ausente = No cumple C-2026-08-25f**, **ausencia total datos clave = No cumple C-2026-08-25g**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (… **C-2026-08-25d…h** incluidas: texto≠pregunta, datos clave, fecha/ausencia=No cumple, entrega sin Tnnn/applicability/IEW sueltos, criterio 15 ciudadano); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

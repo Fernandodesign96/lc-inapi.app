@@ -79,6 +79,18 @@ Estados solo: `cumple` | `incumple` | `no_aplica`. Severidad solo en `incumple`.
 Cobertura 1:1 `incumple` → `sustituciones[]`. Solo evidencia **VISIBLE**. Entrega CMS-first (§22).
 **Alcance 2026:** solo Lenguaje claro (51). No puntuar Usabilidad 18 ni Seguridad 10 (§23).
 
+### Reglas duras de entrega (leer antes de escribir comentario/motivo/ubicacion)
+
+Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propuesto/justificación:
+
+1. Inventario interno (`T001`, `T010`, `T020`…): **solo** en `texto_capturado` / inventario del Paso B; **nunca** en los 4 campos CMS.
+2. Jerga de catálogo: `applicability`, `tipo_pagina` como jerga, `mapa D0`, Prompt N, `C-YYYY-…`, `LC-*`.
+3. Siglas sueltas IEW / IESD / META MEI. Si hace falta: «Instrumento de Evaluación de Sitios Web (IEW)», «Instrumento de Evaluación de Servicios Digitales (IESD)», «muestra de evaluación institucional».
+4. Instrucciones al auditor dentro de ubicación: «(indicar Cabecera…)», «describir en auditorías nuevas…».
+5. Pregunta del criterio como «Texto en pantalla» (C-2026-08-25d).
+6. Ausencia total («No hay texto que cumpla…») con `severidad: media` → debe ser **`alta` / No cumple** (C-2026-08-25f/g).
+7. Criterio 15 (`LC-5.2.1-01`): evaluar en hubs de trámite; si no hay FAQ → `no_aplica` en lenguaje ciudadano (C-2026-08-25h), no por «es sitioweb/IESD».
+
 ### Paso A — Stack y captura (Prompt 1)
 
 1. Confirmar MCP Playwright + RAG y Chroma.
@@ -144,8 +156,16 @@ El agente raíz consolida: 51 filas orden catálogo, cruces §20.3, `patron_sist
 bun run validate:claude-audits
 ```
 
-Cablear launch/META MEI. Commit atómico de **esta** URL. Actualizar DEVLOG si aplica.
-Si hubo hallazgo nuevo de calibración: **actualizar Prompt 6** en el mismo PR o el siguiente inmediato.
+Cablear launch / muestra de evaluación institucional (`mei-meta-mei-urls.ts`).
+
+**Commits (CLAUDE.md §5.1 — obligatorio, sin preguntar):**
+
+1. Si tocaste capa de entrega o Prompt 6/skills → commit `feat|fix(entrega): …` (tests + validate OK).
+2. Si una calibración vigente obligó a retocar JSON de URLs **ya cerradas** → commit `fix(audits): consistencia calibración C-…` (**no** abras menú «¿commitear / revertir / dejar?»; Prompt 6 ya autoriza).
+3. Commit `feat(audits): …` de **esta** URL + DEVLOG.
+4. `git status` limpio antes de decir «listo» (salvo `frontend/next-env.d.ts`).
+
+Si hubo hallazgo **nuevo** de calibración: añadir bloque en Prompt 6 en el mismo turno o el siguiente inmediato.
 
 ---
 

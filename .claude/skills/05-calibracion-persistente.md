@@ -35,8 +35,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 10. **Datos clave vs trámites (C-2026-08-25e):** `LC-1.1.2-03` (criterio 12) aplica a informativas/institucionales; **prohibido** `no_aplica` por «no es trámite». Ese argumento es solo de `LC-1.1.2-04` (criterio 13).  
 11. **Fecha ausente = No cumple (C-2026-08-25f):** sin fecha visible → `incumple` + `severidad: alta` (nunca `media` / Medianamente cumple si la ausencia es total).  
 12. **Ausencia total = No cumple (C-2026-08-25g):** si Texto en pantalla es «No hay texto que cumpla…» (p. ej. datos clave sin recuadro) → `severidad: alta`, no `media`.  
-13. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-14. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).
+13. **Entrega ciudadana (C-2026-08-25h):** sin `Tnnn`, `applicability`, IEW/IESD sueltos ni instrucciones «(indicar Cabecera…)» en los 4 campos; criterio 15 se evalúa en hubs de trámite con justificación clara si no hay FAQ.  
+14. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+15. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+16. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

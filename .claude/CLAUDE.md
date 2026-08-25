@@ -219,6 +219,24 @@ Los JSONs del piloto en `data/claude-audits/` usan los nombres `criterios_evalua
 - **LC-1.1.4-01 / fecha:** ausencia de fecha de publicación o actualización **visible** = `incumple`. Nunca sustituir por `©año` del footer.
 - **LC-1.1.5-01 vs LC-1.1.2-01:** ortografía/tildes/capitalización/texto de desarrollo visible = Redacción (`LC-1.1.5-*`). Fidelidad del **H1 visible** al contenido = Completitud (`LC-1.1.2-01`). **Prohibido** usar `<title>`/`<meta>` como evidencia.
 
+### 5.1 Alcance de commits y calibraciones retroactivas (obligatorio)
+
+*Evita menús «¿commitear / revertir / dejar?» y working trees sucios entre URLs META MEI.*
+
+1. **Una URL = un alcance de escritura de auditoría.** Solo crear/actualizar el JSON de la URL en curso + su cableado (`claude-audits-launch.ts` / `mei-meta-mei-urls.ts`) + DEVLOG de esa URL. **Prohibido** editar JSON de otras URLs “de paso” durante la auditoría, salvo el punto 2.
+2. **Calibración vigente ⇒ consistencia automática.** Si una entrada `estado: vigente` del Prompt 6 (o skill `05`) implica corregir URLs **ya auditadas** de la misma fecha/serie (p. ej. quitar `Tnnn` / `applicability` / encabezado Criterio—Instrumento de `comentario`; subir `severidad` a `alta` cuando Texto = ausencia total; reescribir `no_aplica` del criterio 15 en lenguaje ciudadano):
+   - Aplícala de inmediato a esas URLs.
+   - **No preguntes** si “fue autorizado”: Prompt 6 + skill `05` **ya autorizan** la consistencia en toda la muestra.
+   - Commitea **en el mismo turno**, commits separados preferidos:
+     - `fix(audits): consistencia calibración C-… en URLs ya cerradas`
+     - `feat|fix(entrega): …` si tocaste capa de entrega / prompts / skills
+     - `feat(audits): …` la URL nueva de este turno
+   - **Nunca** dejes esos cambios como `modified` sin commit ni abras un menú de opciones al usuario.
+3. **Capa de entrega** (`criterio-entrega-campos.ts`, `ubicacion-pantalla-cms.ts`, Prompt 6, skills): si la refuerzas por un hallazgo de esta URL, es parte del mismo turno. Correr tests + `bun run validate:claude-audits` antes del commit. **No** revertir calibraciones previas (p. ej. 25d…h) al editar `launch.ts`.
+4. **Commit automático (sin preguntar)** para limpiezas que solo aplican calibración vigente: quitar `Tnnn` / `applicability` / IEW-IESD sueltos / encabezado Criterio N—Instrumento M de campos CMS; ausencia total → `severidad: alta`; criterio 15 en lenguaje ciudadano. Eso es **opción 1 siempre**.
+5. **Solo pregunta al usuario** si el cambio es ambiguo o destructivo: bajar % reinterpretando un criterio **sin** calibración vigente; borrar `sustituciones[]` o voltear `cumple`↔`incumple` sin evidencia nueva de Playwright; `push --force` / `reset --hard`; tocar URLs fuera de la serie META MEI en curso.
+6. **Working tree al cerrar la URL:** `git status` limpio (salvo `frontend/next-env.d.ts` autogenerado). Si status muestra JSON de otras URLs modificados → incluirlos en el commit de consistencia **antes** de decir «listo».
+
 ---
 
 ## 6. Patrones sistémicos conocidos (transversales a todas las URLs)
@@ -415,10 +433,20 @@ El JSON en disco y `bun run ingest:b` **no** bastan para la UI. Actualizar:
 Regla: `claudeAuditId` / `id` vigente = **última** auditoría; ids previos en `history[]` + meta. Ver Prompt 5 Paso F.
 
 ### Paso 5 — Commit y DEVLOG
+
+Seguir **§5.1** (alcance + consistencia de calibración sin preguntar).
+
 ```bash
-git add data/claude-audits/... frontend/src/lib/clarity-audits-launch.ts
+# URL nueva
+git add data/claude-audits/... frontend/src/lib/claude-audits-launch.ts src/lib/mei-export/mei-meta-mei-urls.ts
 git commit -m "feat(audits): agregar auditoría {slug-url} — {estado_aceptacion} {porcentaje}%"
+
+# Si Prompt 6 vigente obligó a retocar URLs ya cerradas o la capa de entrega:
+# fix(audits): consistencia calibración C-… en URLs ya cerradas
+# feat|fix(entrega): …
+
 # Añadir entrada en docs/development/DEVLOG.md (formato .agents/workflows/devlog-standard.md)
+git status   # debe quedar limpio (salvo next-env.d.ts)
 ```
 
 ---
@@ -487,6 +515,9 @@ GET /api/claude-audits/{id}/export/pdf
 - El agente raíz orquesta; los 5 sub-subagentes son **por URL**, no un subagente “por URL” que haga los 51 solo.
 
 ### Verificación
+- Tras cada URL: `bun run validate:claude-audits` + commit(s) según **§5.1** (consistencia de calibración incluida si aplica; **sin** menú commit/revertir/dejar).
+- Al cerrar: `git status` limpio (salvo `next-env.d.ts`).
+- No abrir la siguiente URL con working tree sucio de limpiezas de Prompt 6.
 ```bash
 bun run validate:claude-audits
 ```
@@ -1050,6 +1081,7 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 13. `LC-1.1.2-03` en `no_aplica` solo porque «no es trámite» (C-2026-08-25e).
 14. `LC-1.1.4-01` con ausencia total de fecha y `severidad` distinta de `alta` (C-2026-08-25f).
 15. `LC-1.1.2-03` (u otro) con Texto «No hay texto que cumpla…» y `severidad` distinta de `alta` (C-2026-08-25g).
+16. Entrega con `Tnnn`, `applicability`, IEW/IESD sueltos, o ubicación con «(indicar Cabecera…)» (C-2026-08-25h).
 
 ---
 
@@ -1118,6 +1150,6 @@ Al auditar LC, cubrir las **51** preguntas únicas aplicables a la URL. La misma
 Antes de `validate:claude-audits`:
 
 1. Exactamente **51** filas `LC-*` en orden del catálogo; cada una con `comentario` (§22.8).
-2. Exclusivas IESD restantes (`LC-5.2.1-01`, `LC-5.2.2-01`): aplicar en trámites/servicio digital; en sitioweb informativo → `no_aplica` justificado. **`LC-5.2.4-01` (rótulos/CTA) se evalúa en todas las URLs** (C-2026-08-25c).
+2. Exclusivas IESD restantes (`LC-5.2.2-01`): aplicar en trámites/servicio digital; en sitioweb informativo → `no_aplica` justificado en lenguaje ciudadano. **`LC-5.2.1-01` (claridad servicio digital) y `LC-5.2.4-01` (rótulos/CTA) se evalúan en sitioweb y trámites** (C-2026-08-25h / C-2026-08-25c).
 3. No omitir fecha (`LC-1.1.4-01`), documentos (`LC-1.2.4-07/08`), siglas (`LC-1.1.3-05`), datos clave (`LC-1.1.2-03`) con realismo §22.9–§22.11.
 4. Confirmar que **no** se añadieron Usabilidad (18) ni Seguridad (10) al % de los **51**.
