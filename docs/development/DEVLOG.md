@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 73,3 %](#devlog-2026-08-25-buscador-noticias-reaudit-v30-sin-nomenclatura) |
 | 2026-08-25 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 78,9 %](#devlog-2026-08-25-portada-reaudit-v30-sin-nomenclatura) |
 | 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 68,3 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 71,4 %](#devlog-2026-08-25-patentes-reaudit-v30) |
@@ -95,6 +96,25 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-buscador-noticias-reaudit-v30-sin-nomenclatura"></a>
+## [2026-08-25] - Infraestructura | Buscador de noticias www.inapi.cl: reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 73,3 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la página de resultados del buscador del sitio (`https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0`, META MEI orden 5, «Página de información interior 2/2») con la misma calibración estricta aplicada a Portada, Marcas, Patentes y Acerca de INAPI en esta sesión: la entrega debe quedar completamente libre de nomenclatura interna, incluidos los códigos `LC-*` e IEW/IESD, siguiendo `C-2026-08-25b`.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre la URL con la consulta «noticias» ya cargada; se abrió la ventana emergente de contacto y se verificó con `page.evaluate` que el párrafo de extracto que trae cada uno de los cinco resultados tiene hoy `display: none` y mide 0 píxeles de alto y ancho, confirmando que sigue sin ser visible para la persona usuaria (mismo hallazgo de fondo que el 2026-08-22, con la causa técnica exacta reverificada).
+- 51 criterios evaluados: 22 cumple, 8 incumple (título genérico del buscador, falta de mensaje de cantidad de resultados y de campo de búsqueda visible, ausencia de fecha, dos resultados poco relevantes, mayúsculas sostenidas en dos componentes compartidos, sigla PCT sin definir, error de mayúscula institucional y voz pasiva en la ventana de contacto), 21 no aplica (página de resultados automáticos sin cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales) → 30 aplicables, 73,3 % de cumplimiento → `rechazado` (mismo porcentaje que el 2026-08-22; el contenido y la estructura de la página no cambiaron).
+- Entrega redactada ya bajo `C-2026-08-25b`: cada criterio abre con «Criterio N: «pregunta» — Instrumento M: Nombre» (numeración 1…51, sin códigos `LC-*` ni `1.1.x/5.1.x`); las dos filas de mayúsculas sostenidas (ventana de búsqueda del sitio y botón «LINK EXTERNO» del recuadro de acceso) y las dos filas de resultados poco relevantes (dirección duplicada del inicio y plantilla vacía) quedaron como filas de sustitución independientes bajo el mismo criterio.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-buscador-noticias_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #5) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 5) apuntan al nuevo id; `www-inapi-cl-buscador-noticias_2026-08-22` queda en `history[]`.
 
 ---
 
