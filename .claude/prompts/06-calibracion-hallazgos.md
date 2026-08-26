@@ -41,7 +41,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
   - `applicability: "sitioweb"` (10 exclusivas IEW: LC-1.1.5-03, LC-1.1.6-02, LC-1.1.7-01, LC-1.1.7-02, LC-1.1.8-01/02/03, LC-1.2.4-06, LC-1.3.1-01, LC-1.3.2-02) → **`no_aplica`** en toda URL `tipo_pagina: "tramites"`, con `comentario`: «Este criterio es exclusivo del instrumento IEW (sitioweb) según el catálogo v3.0; esta URL es tramites (instrumento IESD), por lo que no corresponde evaluarlo aquí.» No es un `no_aplica` para evadir un incumplimiento (§16): es exclusión estructural del catálogo, documentada y simétrica en ambos sentidos.
   - `applicability: "tramites"` (exclusiva restante IESD: `LC-5.2.2-01` concisión inicio+trámite) → evaluar en `tramites`; en `sitioweb` → `no_aplica` con **justificación ciudadana** (sin escribir la palabra `applicability` ni siglas sueltas). **`LC-5.2.1-01` ya no es exclusiva:** ver C-2026-08-25h (aplica en hubs de trámite / sitioweb con servicio digital).
   - `applicability: "ambos"` → evaluar igual en los dos tipos de página. **Incluye `LC-5.2.4-01`** (rótulos/CTA) y **`LC-5.2.1-01`** (claridad servicio digital) — ver C-2026-08-25c / C-2026-08-25h.
-- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 2 exclusivos IESD restantes como evaluables antes de lanzar los 15 subagentes.
+- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica`; evaluar **`LC-5.2.2-01`** (exclusiva trámites) y también **`LC-5.2.1-01`** / **`LC-5.2.4-01`** (ambos) antes de lanzar los 15 subagentes. En los 4 campos CMS: **sin** `applicability`, **sin** siglas IEW/IESD sueltas y **sin** `Tnnn` (C-2026-08-25h); si hace falta nombrar el instrumento: nombre completo + sigla.
 
 ### C-2026-08-25e — Datos clave (`LC-1.1.2-03`, criterio 12) ≠ autonomía de trámites (`LC-1.1.2-04`, criterio 13)
 
@@ -54,6 +54,23 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Ejemplo malo:** `no_aplica` en Acerca de INAPI: «no es un trámite ni un servicio con pasos operativos».
 - **Ejemplo bueno:** `incumple` + `alta` + propuesta de recuadro «Qué es / Cómo / Dónde / Cuándo / Para quién» (o, en buscador: conteo de resultados + campo visible); criterio 13 sigue en `no_aplica` en URLs sin trámite.
 - **Aplica a:** todas (sitioweb y trámites).
+- **estado:** vigente
+
+### C-2026-08-25l — Escaneo (38) ≠ negritas (39); literales solo de esta URL
+
+- **Origen:** revisión Noticia cifra patentes (URL 9):
+  1. Criterio 38 (`LC-1.2.4-03` escaneo visual) mostraba 3 correcciones: la 1 mezclaba negrita con escaneo y estaba `agrupado_en` el criterio 39; las 2 y 3 eran filas de negrita (`LC-1.2.4-04`) enlazadas con `criterios_relacionados`, por lo que la UI las repetía bajo el 38.
+  2. Criterio 39 tenía dos filas sobre el **mismo** párrafo (primer párrafo) porque la fila de escaneo y la de negrita compartían nodo vía cruce incorrecto.
+  3. Criterio 48 (`LC-1.3.1-01`) usaba como Texto el `alt` «Premio Europeo… biofiltro…» (no es texto visible del ciudadano) y una justificación desalineaada de los gráficos reales de **esta** página.
+- **Causa raíz:** (a) forzar §20.3 / `agrupado_en` / `criterios_relacionados` entre criterios cuya **corrección propuesta es distinta** (estructura/jerarquía vs negrita); (b) contaminar Texto/Justificación con `alt` no visible, notas editoriales o literales de **otra URL** / JSON previo.
+- **Regla:**
+  1. **Criterio 38 = escaneo / jerarquía visual:** subtítulos, listas con viñetas, recuadros, iconografía de apartados, tipografía de bloques. **Prohibido** proponer negrita como corrección del 38 (eso es solo el **39**). **Prohibido** `agrupado_en` el 39 o `criterios_relacionados` hacia/desde el 39 cuando el `propuesto` no es el mismo.
+  2. **Criterio 39 = negrita:** una fila de `sustituciones[]` por **párrafo/nodo distinto**; no dos filas del mismo párrafo. No enlazar esas filas al 38.
+  3. **Literales solo de la URL auditada:** en Texto, Ubicación, Corrección propuesta y Justificación, mencionar **únicamente** lo que aparece textual y literal (o como apoyo visual verificable) en **esa** URL. **Prohibido** copiar `alt`/títulos/párrafos/cifras de otra URL, de un JSON anterior de otra noticia, o inventar apoyos que no estén en el DOM actual. El `alt` no visible **no** es «Texto en pantalla».
+  4. Si un carrusel tiene imagen/temática errónea, documentarlo en `nota_final_tic` (editorial), **no** como evidencia falsa del criterio 48.
+- **Ejemplo malo:** 38 con `agrupado_en: LC-1.2.4-04` + propuesto «…o destacarlas con negrita…» + filas 39 con `criterios_relacionados: [LC-1.2.4-03]`; 48 con Texto = alt de biofiltro.
+- **Ejemplo bueno:** 38 primario con propuesto de subtítulos/listas/recuadro; 39 con N filas de negrita en N párrafos distintos; 48 Cumple citando los gráficos/imágenes intercalados visibles en esta noticia.
+- **Aplica a:** todas (esp. noticias detalle y cualquier reauditoría con JSON previo).
 - **estado:** vigente
 
 ### C-2026-08-25k — Citas negadas ≠ texto en pantalla; sin meta entre paréntesis como literales

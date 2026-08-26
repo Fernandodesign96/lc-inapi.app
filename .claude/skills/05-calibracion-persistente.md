@@ -23,7 +23,7 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Procedimiento
 
-1. **Leer** todas las entradas `estado: vigente` del Prompt 6.  
+1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-08-25l inclusive**).  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
 4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir o reemplazar (Prompt 6 Marcas); usar el mapa D0 (Prompt 7).  
@@ -38,9 +38,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 13. **Entrega ciudadana (C-2026-08-25h):** sin `Tnnn`, `applicability`, IEW/IESD sueltos ni instrucciones «(indicar Cabecera…)» en los 4 campos; criterio 15 se evalúa en hubs de trámite con justificación clara si no hay FAQ.  
 14. **Negritas + paréntesis (C-2026-08-25j):** sin negrita en los párrafos citados → `severidad: alta`; Texto = literales reales, no `(sin negrita…)`. Prohibido explicaciones entre paréntesis salvo que todo el campo sea una sola frase parentética de ausencia.  
 15. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto citas entre comillas que la narración niega; no usar meta `(once párrafos…)` como Texto/original.  
-16. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-17. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-18. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+16. **Escaneo ≠ negritas + literales de esta URL (C-2026-08-25l):** 38 ≠ 39; no cruzar filas de negrita al escaneo; una fila de negrita por párrafo distinto; Texto/Ubicación/Propuesto/Justificación solo con lo literal/visible de la URL auditada (prohibido alt no visible o datos de otra URL).  
+17. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+18. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+19. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

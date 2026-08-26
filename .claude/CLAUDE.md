@@ -1086,6 +1086,8 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 18. Explicaciones entre paréntesis mezcladas con otro texto en los 4 campos CMS (C-2026-08-25j).
 19. Texto en pantalla = cita entre comillas **negada** en la justificación (p. ej. Cumple + Texto «en construcción» cuando el comentario dice que *no* hay «en construcción») (C-2026-08-25k).
 20. Texto/original = meta entre paréntesis del tipo `(once párrafos…)` / `(estructura actual…)` en vez de literales de pantalla (C-2026-08-25k).
+21. Criterio 38 con propuestas de negrita, o filas del 39 repetidas bajo el 38 vía `agrupado_en` / `criterios_relacionados` cuando el `propuesto` no es el mismo (C-2026-08-25l).
+22. Texto/Ubicación/Propuesto/Justificación con literales, `alt` no visible o hechos de **otra URL** / JSON de otra auditoría (C-2026-08-25l).
 
 ---
 
