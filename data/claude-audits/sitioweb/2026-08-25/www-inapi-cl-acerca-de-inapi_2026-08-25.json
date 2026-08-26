@@ -445,8 +445,8 @@
       "linea": "S08",
       "html_linea_aprox": "HTML inicio del cuerpo principal",
       "ubicacion_pantalla": "Cuerpo principal, antes o junto al primer párrafo",
-      "original": "(estructura actual: descripción institucional sin encuadre de pregunta)",
-      "propuesto": "Añadir, antes o junto a la descripción institucional, una frase que responda una pregunta ciudadana, por ejemplo: «¿Qué hace INAPI por ti? Protege tus marcas, patentes y otras creaciones, y te entrega información técnica sobre propiedad industrial.»",
+      "original": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.",
+      "propuesto": "Añadir, antes o junto a la descripción institucional, una frase que responda una pregunta ciudadana: «¿Qué hace INAPI por ti? Protege tus marcas, patentes y otras creaciones, y te entrega información técnica sobre propiedad industrial.»",
       "criterio_id": "LC-1.2.1-01",
       "motivo": "El contenido describe la institución desde su propio punto de vista, sin enmarcar la información como respuesta a una pregunta concreta de la persona usuaria.",
       "patron_sistema": false

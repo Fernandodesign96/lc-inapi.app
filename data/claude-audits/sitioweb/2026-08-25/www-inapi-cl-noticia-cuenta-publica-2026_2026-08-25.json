@@ -25,7 +25,9 @@
     {
       "id": "LC-1.1.2-02",
       "estado": "cumple",
-      "comentario": "La página tiene contenido completo: título, imagen, bajada y once párrafos de cuerpo; no hay señales de página vacía ni de «en construcción»."
+      "comentario": "La página tiene contenido completo: título, imagen, bajada y once párrafos de cuerpo; no hay señales de página vacía ni de «en construcción».",
+      "cita_textual": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial",
+      "ubicacion_pantalla": "Cuerpo de la página › título de la noticia"
     },
     {
       "id": "LC-1.1.2-03",
@@ -181,8 +183,8 @@
       "id": "LC-1.2.2-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "El cuerpo de la noticia tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
-      "cita_textual": "11 párrafos de cuerpo (más el párrafo de bajada)",
+      "comentario": "El cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
+      "cita_textual": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
       "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»"
     },
     {
@@ -253,8 +255,8 @@
       "id": "LC-1.2.4-03",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos, listas ni palabras en negrita que permitan escanear visualmente los temas (eficiencia, PCT, descentralización, compromisos 2026) sin leer todo el texto seguido.",
-      "cita_textual": "(once párrafos de texto corrido sin subtítulos internos ni listas)",
+      "comentario": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos, listas ni palabras en negrita que permitan escanear visualmente los temas de eficiencia, PCT, descentralización y compromisos 2026 sin leer todo el texto seguido.",
+      "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
       "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»"
     },
     {
@@ -451,7 +453,7 @@
       "linea": "S10",
       "html_linea_aprox": "HTML cuerpo, once párrafos entre bajada y «Volver»",
       "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»",
-      "original": "(once párrafos de cuerpo)",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
       "propuesto": "Reducir el cuerpo a un máximo de ocho párrafos, por ejemplo fusionando los párrafos sobre PCT y descentralización en uno solo, o moviendo el detalle de la iniciativa INAPI+Cerca a un recuadro aparte.",
       "criterio_id": "LC-1.2.2-01",
       "motivo": "El cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
@@ -502,8 +504,8 @@
       "linea": "S15",
       "html_linea_aprox": "HTML cuerpo, once párrafos entre bajada y «Volver»",
       "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»",
-      "original": "(once párrafos de texto corrido sin subtítulos internos ni listas)",
-      "propuesto": "Agregar subtítulos breves entre los bloques temáticos del artículo (por ejemplo «Avances en eficiencia», «Liderazgo internacional», «Descentralización», «Compromisos 2026») y convertir la enumeración del noveno párrafo en una lista con viñetas.",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Agregar subtítulos breves entre los bloques temáticos del artículo — Avances en eficiencia, Liderazgo internacional, Descentralización, Compromisos 2026 — y convertir la enumeración del noveno párrafo en una lista con viñetas.",
       "criterio_id": "LC-1.2.4-03",
       "motivo": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos, listas ni palabras en negrita que permitan escanear visualmente los distintos temas sin leer todo el texto seguido.",
       "patron_sistema": false
