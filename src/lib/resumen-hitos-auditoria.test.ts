@@ -23,6 +23,7 @@ describe("buildResumenHitosAuditoria", () => {
     expect(h496!.noCumple).toBe(1)
     expect(h496!.noAplica).toBe(0)
     expect(h496!.pctCumple).toBe(Math.round((2 / 6) * 100))
+    expect(h496!.hitoOrdinal).toBe(2)
     expect(h496!.hitoTitulo).not.toMatch(/^Hito:/)
     expect(h496!.hitoTitulo.length).toBeGreaterThan(10)
   })

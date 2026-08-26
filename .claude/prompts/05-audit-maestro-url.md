@@ -79,6 +79,28 @@ Estados solo: `cumple` | `incumple` | `no_aplica`. Severidad solo en `incumple`.
 Cobertura 1:1 `incumple` → `sustituciones[]`. Solo evidencia **VISIBLE**. Entrega CMS-first (§22).
 **Alcance 2026:** solo Lenguaje claro (51). No puntuar Usabilidad 18 ni Seguridad 10 (§23).
 
+### Reglas duras de entrega (leer antes de escribir comentario/motivo/ubicacion)
+
+Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propuesto/justificación:
+
+1. Inventario interno (`T001`, `T010`, `T020`…): **solo** en `texto_capturado` / inventario del Paso B; **nunca** en los 4 campos CMS.
+2. Jerga de catálogo: `applicability`, `tipo_pagina` como jerga, `mapa D0`, Prompt N, `C-YYYY-…`, `LC-*`.
+3. Siglas sueltas IEW / IESD / META MEI. Si hace falta: «Instrumento de Evaluación de Sitios Web (IEW)», «Instrumento de Evaluación de Servicios Digitales (IESD)», «muestra de evaluación institucional».
+4. Instrucciones al auditor dentro de ubicación: «(indicar Cabecera…)», «describir en auditorías nuevas…».
+5. Pregunta del criterio como «Texto en pantalla» (C-2026-08-25d).
+6. Ausencia total («No hay texto que cumpla…») con `severidad: media` → debe ser **`alta` / No cumple** (C-2026-08-25f/g).
+7. Criterio 15 (`LC-5.2.1-01`): evaluar en hubs de trámite; si no hay FAQ → `no_aplica` en lenguaje ciudadano (C-2026-08-25h), no por «es sitioweb/IESD».
+8. Criterio 39 (`LC-1.2.4-04` negritas): párrafos sin negrita → `severidad: alta`; Texto = literales reales de esos párrafos/columnas, **nunca** `(sin negrita…)` (C-2026-08-25j).
+9. **Paréntesis:** no explicaciones entre paréntesis mezcladas con otro texto. Solo se admite un campo cuyo **único** contenido sea una frase entre paréntesis de ausencia total sin literal citable.
+10. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto comillas que la justificación niega («en construcción», «próximamente»…); no usar `(once párrafos…)` u otras meta-descripciones como Texto/original — citar literales reales.
+11. **Escaneo ≠ negritas (C-2026-08-25l):** criterio 38 = subtítulos/listas/recuadros/jerarquía; criterio 39 = negrita en párrafos distintos. No `agrupado_en` ni `criterios_relacionados` cruzados si el `propuesto` no es el mismo. Literales **solo** de esta URL (no alt invisible ni copy de otra URL).
+12. **No repetir entre criterios (C-2026-08-26a):** al avanzar al criterio N, releer hallazgos 1…N−1; propuesto/justificación **complementarios** o agrupación §20.3 solo si el propuesto es idéntico. Cada pregunta = foco propio (datos clave ≠ autonomía ≠ FAQ servicio ≠ escaneo).
+13. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c).
+14. Encabezado «Criterio N — Instrumento M» solo en título de fila, no en los 4 campos.
+15. Commits: CLAUDE.md §5.1 / C-2026-08-25i.
+
+Leer Prompt 6 completo (hasta **C-2026-08-26a**) + skill 05 ANTES de puntuar.
+
 ### Paso A — Stack y captura (Prompt 1)
 
 1. Confirmar MCP Playwright + RAG y Chroma.
@@ -130,8 +152,8 @@ Orden fijo: Fiabilidad → Completitud → Lenguaje plano → Actualización →
 
 Con las 51 filas borrador, lanzar los **5 sub-subagentes** (§17.2) — pueden trabajar en paralelo sobre el mismo borrador:
 
-1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes.  
-2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`).  
+1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes; literales humanos (C-2026-08-25); sin `Tnnn`/mapa D0/Prompt en entrega.  
+2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`); propuestas sin meta entre paréntesis; no repetir el mismo `propuesto` en criterios secundarios.  
 3. **Veracidad y realismo** — preciso, humano, sin inventar defectos (§20.6 / §22.9).  
 4. **Estructura Excel/tablas** — filas ordenadas, jerarquía clara, casillas no vacías, alineado a columnas de entrega (Prompt 3).  
 5. **Higiene y sensibles** — PI, ARCO, RUN/teléfonos, contenidos sensibles, §18–§19.
@@ -144,8 +166,16 @@ El agente raíz consolida: 51 filas orden catálogo, cruces §20.3, `patron_sist
 bun run validate:claude-audits
 ```
 
-Cablear launch/META MEI. Commit atómico de **esta** URL. Actualizar DEVLOG si aplica.
-Si hubo hallazgo nuevo de calibración: **actualizar Prompt 6** en el mismo PR o el siguiente inmediato.
+Cablear launch / muestra de evaluación institucional (`mei-meta-mei-urls.ts`).
+
+**Commits (CLAUDE.md §5.1 — obligatorio, sin preguntar):**
+
+1. Si tocaste capa de entrega o Prompt 6/skills → commit `feat|fix(entrega): …` (tests + validate OK).
+2. Si una calibración vigente obligó a retocar JSON de URLs **ya cerradas** → commit `fix(audits): consistencia calibración C-…` (**no** abras menú «¿commitear / revertir / dejar?»; Prompt 6 ya autoriza).
+3. Commit `feat(audits): …` de **esta** URL + DEVLOG.
+4. `git status` limpio antes de decir «listo» (salvo `frontend/next-env.d.ts`).
+
+Si hubo hallazgo **nuevo** de calibración: añadir bloque en Prompt 6 en el mismo turno o el siguiente inmediato.
 
 ---
 

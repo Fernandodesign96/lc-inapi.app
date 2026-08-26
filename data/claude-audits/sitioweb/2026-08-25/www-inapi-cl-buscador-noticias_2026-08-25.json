@@ -1,0 +1,476 @@
+{
+  "id": "www-inapi-cl-buscador-noticias_2026-08-25",
+  "url": "https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+  "fecha_evaluacion": "2026-08-25T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "clarity_meta": {
+    "serie": "clarity",
+    "rank": 5,
+    "nombre_ui": "Buscador de noticias — Página de información interior (2/2)",
+    "ruta_etiqueta": "Buscador",
+    "visitas_ref": "—",
+    "encargado_ref": "equipo de desarrollo",
+    "fuente_piloto_id": "www-inapi-cl-buscador-noticias_2026-08-22",
+    "descripcion": "Segunda reauditoría 1-URL del lote META MEI orden 5 (Buscador de noticias), checklist PTD-LC v3.0 (51 preguntas por indicadores). Corrige el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de este mismo id había quedado en no aplica con el argumento de que la página era informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Se navegó de nuevo la URL con la consulta «noticias» ya cargada, se abrió la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, y se verificó con el navegador automatizado que el extracto de cada resultado sigue sin ser visible en pantalla. Entrega sin ningún código interno visible para quien lo lee (solo preguntas y nombres de instrumento en lenguaje corriente)."
+  },
+  "texto_capturado": "Menú de navegación global: Nosotros | Conoce más (rótulo genérico que no dice de qué trata su destino) | Marcas | Patentes | PCT (sin definir en su primera aparición) | Sistema de Madrid | Sello de Origen | Estadísticas | Trámites | Conecta | Dominio Público | Gasto Presupuestario | Aprende | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Observancia | Datos Abiertos. Cabecera global, ítems excluidos por calibración vigente del criterio de mayúsculas: «ACCESOS», «BUSCADOR». Ruta de navegación visible: «Home» › «Buscador» (no muestra el término buscado). Título principal visible: «Buscador» (una sola palabra genérica; no indica el término buscado «noticias» ni cuántos resultados se encontraron). No existe en ningún punto de la pantalla un mensaje del tipo «5 resultados para “noticias”». El único campo de texto del documento es el del recuadro emergente de búsqueda de la cabecera (marcador de posición «BUSCADOR»), oculto por defecto y que exige un clic adicional desde el ícono de lupa; esta pantalla de resultados no ofrece un campo visible para ver o modificar la búsqueda ya hecha. Cinco resultados, cada uno con su propio título enlazado y, debajo, la misma dirección repetida como texto de enlace: (1) «Noticias» → sección de sala de prensa dedicada a noticias; (2) «Todas las Noticias» → listado completo de noticias; (3) «INAPI - Instituto Nacional de Propiedad Industrial» → una dirección duplicada de la página de inicio, sin relación directa con el término buscado; (4) «Detalle Noticia» → una plantilla genérica sin ninguna noticia real asociada; (5) «Columnas» → sección de columnas de opinión. No hay controles de paginación visibles (los cinco resultados caben en una sola pantalla). Bajo cada título hay un párrafo de extracto generado por el buscador que hoy tiene la propiedad de estilo «display: none»: se confirmó con el navegador automatizado que ese párrafo mide 0 píxeles de alto y ancho en pantalla, por lo que su contenido (que mezcla fragmentos de menú y palabras internas del sistema) no llega a verse nunca por la persona usuaria. Ventana emergente de búsqueda del sitio (ícono de lupa de la cabecera, un clic): título y subtítulos en mayúscula sostenida «BUSCAR Y TRAMITAR» / «MARCAS» / «PATENTES»; debajo, enlaces con rótulo descriptivo del destino o la acción («Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos», «Clasificador de productos y servicios»). Recuadro de acceso o registro (ícono de usuario de la cabecera, un clic): dos enlaces con rótulo claro («Usuario Frecuente», «Registro») y un botón «LINK EXTERNO» en mayúscula sostenida, cuyo texto no dice a dónde lleva y cuyo destino, confirmado en el DOM actual, es «#» (sin página real). Ventana emergente de contacto (botón «¿Quieres contactarnos?», abierta y capturada hoy con un clic): «Utiliza el canal de comunicación que prefieras:» + teléfono, horario, correo electrónico («Tu consulta será atendida por un especialista.», en voz pasiva) y dirección con su horario de atención presencial. Pie de página, bloque «Dónde estamos»: «Instituto Nacional de Propiedad» (primera línea) + «industrial (INAPI)» (segunda línea, con minúscula inicial en «industrial») + «RUT: 65.999.669-3» (RUT institucional, persona jurídica pública) + dirección, teléfono y correo institucionales. Pie de página, bloque «Accesos»: enlaces a atajos del teclado, descarga de visualizadores, glosario, mapa del sitio, «Uso de los Contenidos de este Sitio» y «Política de privacidad». Esta página no incluye el carrusel de documentos institucionales descargables (planes, informes) que sí aparece en otras páginas del sitio; no hay documentos propios de esta URL. Aviso de derechos del pie: «©2026 INAPI. Todos los derechos reservados». No hay fecha de publicación ni de actualización visible en ningún punto de la pantalla, ni una indicación de cuándo se actualizó el índice de búsqueda. Metadatos del encabezado (título de pestaña «Buscador»): descartados como evidencia por no ser contenido visible en pantalla.\n\nRevisión de palabras y frases antes de calificar las 51 preguntas del instrumento: los cinco títulos de resultado son frases nominales cortas y sin jerga; el único texto de más de una oración visible en toda la pantalla es la ventana de contacto, que usa una construcción en voz pasiva («Tu consulta será atendida por un especialista.») en vez de nombrar directamente quién atiende. No se detectó ningún párrafo de cuerpo editorial propio de esta pantalla: el listado de resultados es contenido generado automáticamente por el buscador del sitio.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica con claridad a la institución responsable («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI aparece en la cabecera de la página.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El título principal visible es solo «Buscador», una palabra genérica que no dice que se trata de resultados para el término «noticias» ni cuántos resultados hay. Cualquier otra búsqueda mostraría exactamente el mismo título, sin relación con lo que sigue.",
+      "cita_textual": "Buscador",
+      "ubicacion_pantalla": "Zona superior › título principal de la página de resultados"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "No hay textos de tipo «en construcción» ni bloques vacíos en esta pantalla: se muestra la ruta de navegación, el título y los cinco resultados con su título y dirección.",
+      "cita_textual": "Home › Buscador; cinco resultados con título y dirección visibles",
+      "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Faltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje visible con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera. Al no existir en pantalla un resumen o recuadro de datos clave que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "cita_textual": "No hay texto que cumpla con este requisito",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal, sobre la lista de resultados"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es una herramienta de búsqueda del sitio, no un texto referido a un trámite; la autonomía para completar un trámite se evalúa en las páginas de Marcas, Patentes o Trámites, fuera de esta vista."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "no_aplica",
+      "comentario": "No hay en esta pantalla un texto principal medible: el contenido propio se reduce a un título de una palabra, una ruta de navegación y cinco títulos de resultado de una línea cada uno; no hay un párrafo sobre el que aplicar una medición de comprensión lectora."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El único texto dirigido directamente a la persona usuaria en esta pantalla, la ventana de contacto, usa un trato cercano y de tuteo («Utiliza el canal de comunicación que prefieras»); no se observa lenguaje distante ni irrespetuoso en el contenido visible.",
+      "cita_textual": "Utiliza el canal de comunicación que prefieras:",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "cumple",
+      "comentario": "Los cinco títulos de resultado propios de esta pantalla (Noticias, Todas las Noticias, INAPI - Instituto Nacional de Propiedad Industrial, Detalle Noticia, Columnas) son palabras y frases simples, sin jerga técnica ni legal.",
+      "cita_textual": "Noticias; Todas las Noticias; Columnas",
+      "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "En el texto visible de esta pantalla (título, títulos de resultado, ventana de contacto) no se detectaron abreviaturas, extranjerismos ni modismos evitables."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla «PCT» aparece en el menú de navegación global de esta página sin definirse en su primera aparición ni mediante una ayuda accesible con un clic. Este menú es un componente compartido con el resto del sitio.",
+      "cita_textual": "PCT",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "El contenido visible de esta pantalla (títulos de resultado y ventana de contacto) no enfoca ningún mensaje desde la prohibición o la negación.",
+      "ubicacion_pantalla": "Cuerpo de la página"
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha. Al no existir ningún texto que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "cita_textual": "(sin fecha de actualización visible)",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "En el pie de página, el nombre de la institución se corta en dos líneas y la segunda empieza con minúscula: «Instituto Nacional de Propiedad» seguido de «industrial (INAPI)». «Industrial» debería llevar mayúscula inicial por ser parte del nombre propio de la institución. Este pie es un componente compartido con el resto del sitio.",
+      "cita_textual": "Instituto Nacional de Propiedad / industrial (INAPI)",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "El texto visible de esta pantalla (títulos de resultado, ventana de contacto) usa puntuación correcta; no hay bloques de prosa donde la puntuación dificulte la lectura.",
+      "ubicacion_pantalla": "Cuerpo de la página y ventana emergente de contacto"
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "No hay en esta pantalla un bloque de dos o más frases seguidas que necesiten conectores para relacionarse entre sí; los títulos de resultado son frases independientes de una línea."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible de esta pantalla (títulos de resultado que enlazan a secciones propias del sitio) corresponde a navegación institucional propia; no se observa material de terceros redifundido sin autorización.",
+      "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "El único número de identificación visible en esta pantalla es el RUT de la institución (persona jurídica pública) en el pie de página. No hay listados de personas naturales en el contenido visible.",
+      "cita_textual": "RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección institucionales de INAPI; no se publican datos de contacto particulares de personas naturales.",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?» y pie de página"
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de estos derechos.",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Política de privacidad»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no publica información sobre menores de edad; el contenido visible es un listado de resultados de búsqueda institucional."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible (títulos de resultado, ventana de contacto) es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "cumple",
+      "comentario": "No se identifica en esta pantalla material relacionado con salud, ideología o creencias religiosas; el contenido visible se limita a resultados de búsqueda institucional."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla es un listado automático de resultados de búsqueda, no contenido editorial redactado como respuestas a preguntas frecuentes; esa estructura corresponde a páginas informativas, fuera de esta URL."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales o texto organizados como preguntas frecuentes ni respuestas a ese tipo de preguntas. Esta pantalla es una lista de resultados de búsqueda; por eso este criterio no aplica aquí."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Los cinco títulos de resultado usan palabras y frases directas y comprensibles (Noticias, Todas las Noticias, Columnas, entre otros), sin conceptos abstractos ni densos.",
+      "cita_textual": "Noticias; Todas las Noticias; Columnas",
+      "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La ventana emergente de contacto usa voz pasiva («Tu consulta será atendida por un especialista.») en vez de nombrar directamente quién atiende. Esta ventana es un componente compartido con el resto del sitio.",
+      "cita_textual": "Tu consulta será atendida por un especialista.",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "No hay en esta pantalla oraciones complejas que evaluar por su orden interno: los títulos de resultado son frases nominales cortas y la ventana de contacto usa oraciones simples sin inversiones."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no presenta listados de requisitos de servicios a la ciudadanía; es un listado de resultados de búsqueda."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "No hay en esta pantalla párrafos de cuerpo editorial: el contenido propio son cinco títulos de resultado de una línea cada uno; no corresponde medir un rango de párrafos por página."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es una herramienta de búsqueda del sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos visibles en esta pantalla sobre los que medir líneas de alto; los títulos de resultado ocupan una sola línea cada uno."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de cuerpo en esta pantalla; los títulos de resultado no son párrafos que desarrollen una idea."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones largas visibles en esta pantalla: los títulos de resultado son frases cortas y la única oración de la ventana de contacto también es breve."
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "no_aplica",
+      "comentario": "No existe en esta pantalla un bloque de texto corrido de cuatro o más párrafos continuos; no corresponde exigir un resumen inicial."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Los cinco resultados se presentan como bloques independientes con espacio visual entre ellos, sin títulos apretados unos contra otros.",
+      "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "cumple",
+      "comentario": "El texto visible de esta pantalla (título, títulos de resultado, direcciones) se lee alineado a la izquierda, sin bloques centrados ni justificados.",
+      "ubicacion_pantalla": "Cuerpo de la página"
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no presenta conjuntos de datos ni pasos secuenciales que requieran formato de lista o tabla; los resultados ya se muestran como bloques independientes."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no tiene una estructura narrativa editorial propia sobre la cual aplicar este modelo; es un listado de resultados generado automáticamente por el buscador del sitio."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Dos de los cinco resultados no aportan información útil para una búsqueda del término «noticias»: uno lleva a una dirección duplicada de la página de inicio, sin relación directa con el tema buscado, y otro lleva a una plantilla genérica que no tiene ninguna noticia real asociada.",
+      "cita_textual": "INAPI - Instituto Nacional de Propiedad Industrial; Detalle Noticia",
+      "ubicacion_pantalla": "Cuerpo de la página › tercer y cuarto resultado de la lista"
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "Cada resultado se presenta bajo su propio título enlazado seguido de su dirección, lo que permite identificar de un vistazo la lista completa sin necesidad de leer párrafos.",
+      "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de cuerpo visibles en esta pantalla donde destacar palabras clave con negrita tenga sentido editorial."
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de los ítems ya excluidos por calibración vigente de la cabecera global, hay mayúscula sostenida en dos componentes compartidos con el resto del sitio: la ventana emergente de búsqueda del sitio y el botón de un recuadro de acceso o registro de la cabecera.",
+      "cita_textual": "BUSCAR Y TRAMITAR / MARCAS / PATENTES; LINK EXTERNO",
+      "ubicacion_pantalla": "Ventana emergente de búsqueda del sitio; recuadro de acceso o registro de la cabecera"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "Los cinco resultados son en sí mismos enlaces internos relacionados con el tema buscado (secciones de noticias y columnas del sitio), distintos del menú principal.",
+      "ubicacion_pantalla": "Cuerpo de la página › lista de resultados"
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino (lleva a la página general de propiedad intelectual e industrial), y en el recuadro de acceso o registro de la cabecera hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»), confirmado en el DOM actual. El resto de los enlaces y botones propios de esta pantalla sí describe con claridad la acción o el destino: los cinco títulos de resultado de la lista de búsqueda, los enlaces de la ventana emergente de búsqueda del sitio («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos») y el botón «Contacto».",
+      "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (recuadro de acceso o registro)",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; cabecera › recuadro de acceso o registro › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no tiene el bloque de documentos institucionales descargables presente en otras páginas del sitio; se revisó el contenido completo sin encontrar enlaces a documentos propios de esta URL."
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "no_aplica",
+      "comentario": "Sin documentos descargables en esta pantalla, no corresponde evaluar si tienen descripción breve."
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no presenta datos, cifras ni contenido que requiera apoyos visuales: es un listado de texto de resultados de búsqueda, sin banners ni tarjetas con imagen propias de esta URL."
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Los títulos de resultado son descriptivos y neutros, sin adjetivos de opinión ni juicios de valor de quien escribe.",
+      "ubicacion_pantalla": "Cuerpo de la página › títulos de resultado"
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible no usa adjetivos calificativos; los títulos de resultado son etiquetas factuales que nombran secciones del sitio."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pantalla no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia aquí."
+    }
+  ],
+  "criterios_aprobados": 22,
+  "criterios_aplicables": 31,
+  "criterios_no_aplica": 20,
+  "porcentaje_cumplimiento": 71,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La página de resultados del buscador de INAPI (búsqueda del término «noticias») fue reauditada el 25 de agosto de 2026 con una nueva captura de la pantalla, incluida la ventana emergente de búsqueda del sitio, el recuadro de acceso y registro y la ventana emergente de contacto, antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta reauditoría corrige específicamente el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de esta misma página había quedado marcado como no aplica con el argumento de que se trataba de una página informativa; esa justificación no es válida porque la pregunta aplica a todas las páginas del sitio. Con evidencia del DOM actual, el criterio pasa a incumplido: el enlace «Conoce más» del menú de navegación global no dice de qué trata su destino, y el botón «LINK EXTERNO» del recuadro de acceso o registro no describe a dónde lleva y, además, no tiene un destino real configurado. Se confirmó también con el navegador automatizado que el extracto de texto que trae cada resultado bajo su título sigue sin verse nunca en pantalla: hoy ese párrafo mide 0 píxeles de alto y ancho, por lo que no se evalúa como contenido visible, en línea con el criterio ya aplicado en la revisión anterior. De las 51 preguntas, 20 no corresponden a esta pantalla: es un listado de resultados generado automáticamente por el buscador del sitio, sin párrafos de cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales. De las 31 que sí corresponden, 22 se cuentan como cumplidas, lo que da un 71,0 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). Hallazgos propios de esta pantalla: el título principal es solo la palabra «Buscador» y no indica el término buscado ni el número de resultados; falta un mensaje visible con la cantidad de resultados y un campo de búsqueda visible en esta misma pantalla para modificar el término sin reabrir la ventana emergente de la cabecera; y dos de los cinco resultados no son relevantes para la búsqueda de «noticias» — uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía. Hallazgos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú y el botón «LINK EXTERNO» del recuadro de acceso no son descriptivos de su destino; la sigla PCT aparece en el menú sin definirse; el nombre de la institución tiene un error de mayúscula en el pie de página; la ventana de contacto usa voz pasiva; y hay frases solo en mayúsculas en la ventana emergente de búsqueda del sitio y en el mismo botón «LINK EXTERNO». Serie META MEI, Buscador de noticias, página de información interior (orden 5, 2 de 2; quinta y última URL de esta ronda de reauditorías centradas en rótulos y llamados a la acción). Reemplaza como vigente a www-inapi-cl-buscador-noticias_2026-08-22, que queda registrado como versión anterior. Calibración 2026-08-25f: ausencia total de fecha de actualización → severidad alta (No cumple), no medianamente cumple. Calibración 2026-08-25g: criterio 12 (datos clave) con ausencia total de texto que cumpla → severidad alta (No cumple).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(criterio 12) Sin resumen/recuadro de datos clave visible (qué, cómo, dónde, cuándo, para quién). Severidad alta (No cumple): no hay texto que cumpla el requisito.",
+      "(criterio 27) Sin fecha de publicación ni de última actualización visible; el copyright del pie no cuenta. Severidad alta (No cumple)."
+    ],
+    "hallazgos_prioridad_media": [
+      "El título principal de la pantalla es solo «Buscador» y no indica el término buscado ni el número de resultados.",
+      "Falta un mensaje visible con la cantidad de resultados encontrados y un campo de búsqueda visible en esta misma pantalla.",
+      "Dos de los cinco resultados no son relevantes para la búsqueda: uno apunta a una dirección duplicada de la página de inicio y otro a una plantilla vacía.",
+      "Hay frases escritas solo en mayúsculas en la ventana emergente de búsqueda del sitio y en un botón del recuadro de acceso o registro de la cabecera.",
+      "El enlace «Conoce más» del menú de navegación y el botón «LINK EXTERNO» del recuadro de acceso o registro no describen a dónde llevan; este último, además, no tiene un destino real configurado."
+    ],
+    "hallazgos_prioridad_baja": [
+      "La sigla PCT aparece en el menú de navegación sin definirse en su primera aparición.",
+      "El nombre de la institución tiene un error de mayúscula y un salto de línea que lo corta a la mitad, en el pie de página.",
+      "La ventana emergente de contacto está redactada en voz pasiva."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "S01",
+      "html_linea_aprox": "HTML-h1-banner",
+      "ubicacion_pantalla": "Zona superior › título principal de la página de resultados",
+      "original": "Buscador",
+      "propuesto": "Cambiar el título principal para que incluya el término buscado, por ejemplo: «Resultados para “noticias”».",
+      "criterio_id": "LC-1.1.2-01",
+      "motivo": "El título principal debe representar de forma fiel el contenido que sigue. Hoy es siempre la misma palabra genérica, sin relación con la búsqueda concreta que hizo la persona.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S02",
+      "html_linea_aprox": "HTML-aprox (bajo el título, sobre la lista de resultados)",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal, sobre la lista de resultados",
+      "original": "No hay texto que cumpla con este requisito",
+      "propuesto": "Añadir sobre la lista de resultados un mensaje visible, por ejemplo «5 resultados para “noticias”», y un campo de búsqueda visible en esta misma pantalla con el término ya escrito, para que la persona pueda ver y modificar su búsqueda sin volver a abrir la ventana emergente de la cabecera.",
+      "criterio_id": "LC-1.1.2-03",
+      "motivo": "Faltan dos datos clave esperables en una pantalla de resultados: cuántos resultados hay y un campo visible para refinar la búsqueda sin perder el contexto de lo ya buscado.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S03",
+      "html_linea_aprox": "HTML-nav-global",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»",
+      "original": "PCT",
+      "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o al tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o hacer que la página de destino explique la sigla en su primer párrafo visible.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Cada sigla debe definirse en su primera aparición. «PCT» se repite en el menú global sin definición ni ayuda accesible con un clic. Corregir en el origen del menú compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S04",
+      "html_linea_aprox": "HTML footer, bloque «Dónde estamos»",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»",
+      "original": "Instituto Nacional de Propiedad / industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales y sin cortarse a la mitad entre líneas. Corregir en el origen del pie de página compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S05",
+      "html_linea_aprox": "HTML-modal-contacto",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista atenderá tu consulta.",
+      "criterio_id": "LC-1.2.1-03",
+      "motivo": "Debe predominar el tiempo presente y la voz activa. El texto actual usa voz pasiva; la propuesta nombra primero a quien realiza la acción. Corregir en el origen de la ventana de contacto compartida: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S06",
+      "html_linea_aprox": "HTML-resultado-3",
+      "ubicacion_pantalla": "Cuerpo de la página › tercer resultado de la lista",
+      "original": "INAPI - Instituto Nacional de Propiedad Industrial (enlaza a una dirección duplicada de la página de inicio)",
+      "propuesto": "Retirar este resultado del índice de búsqueda del buscador, o hacer que apunte a la dirección oficial única de la página de inicio en vez de a una dirección duplicada, para que no aparezca como un resultado sin relación directa con el término buscado.",
+      "criterio_id": "LC-1.2.4-02",
+      "motivo": "Este resultado no aporta información útil para una búsqueda del término «noticias» y apunta a una dirección duplicada de la página de inicio; corregir en el indexador de búsqueda del sitio.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S07",
+      "html_linea_aprox": "HTML-resultado-4",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto resultado de la lista",
+      "original": "Detalle Noticia (enlaza a una plantilla sin ninguna noticia real asociada)",
+      "propuesto": "Retirar del índice de búsqueda la plantilla genérica de detalle de noticia; que el buscador solo muestre resultados de noticias publicadas con su título real.",
+      "criterio_id": "LC-1.2.4-02",
+      "motivo": "Este resultado es una plantilla vacía del sistema, no una noticia real; no es un resultado útil para quien busca «noticias».",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S08",
+      "html_linea_aprox": "HTML-modal-buscar",
+      "ubicacion_pantalla": "Ventana emergente de búsqueda del sitio (ícono de lupa en la cabecera) › título y opciones",
+      "original": "BUSCAR Y TRAMITAR / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Marcas / Patentes",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Se deben evitar frases escritas solo en mayúsculas. Componente compartido con el resto del sitio; corregir en su origen para que el cambio se replique en todas las páginas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S09",
+      "html_linea_aprox": "HTML-panel-acceso (botón sin destino real)",
+      "ubicacion_pantalla": "Cabecera › recuadro de acceso o registro (ícono de usuario, un clic) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar este botón mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro que diga a dónde lleva. Mientras tanto, escribirlo en mayúscula inicial, no en mayúscula sostenida.",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El botón está escrito solo en mayúsculas y, además, no lleva a ningún destino real. Componente compartido con el resto del sitio; corregir en su origen.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S10",
+      "html_linea_aprox": "HTML-nav-global, enlace «Conoce más»",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace del menú principal solo dice «Conoce más» sin indicar de qué. Es un componente compartido con otras páginas del sitio: corregir en el origen del menú para que el cambio se replique en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S11",
+      "html_linea_aprox": "HTML recuadro de acceso o registro (a.btn.rojo)",
+      "ubicacion_pantalla": "Cabecera › recuadro de acceso o registro (ícono de usuario) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar el botón «LINK EXTERNO» del recuadro mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»).",
+      "criterio_id": "LC-5.2.4-01",
+      "criterios_relacionados": [
+        "LC-1.2.4-05"
+      ],
+      "motivo": "El botón no dice a dónde lleva y, además, no tiene un destino real configurado. Comparte nodo con el hallazgo de mayúsculas sostenidas (ese ya propone quitar o corregir el botón), pero responde una pregunta distinta: aquí el problema es que el rótulo no describe ningún destino ni acción, no solo que esté en mayúsculas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "HTML bajo el título principal",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal",
+      "original": "(sin fecha de actualización visible)",
+      "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión editorial de esta página).",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "La página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. Mismo vacío detectado en otras páginas del sitio.",
+      "patron_sistema": true
+    }
+  ],
+  "nota_final_tic": "Alcance de esta revisión: solo el contenido visible en pantalla o alcanzable con un clic (incluidas la ventana emergente de búsqueda del sitio, el recuadro de acceso o registro y la ventana emergente de contacto). No se usó el título de pestaña ni los metadatos del encabezado como evidencia.\n\nEsta reauditoría corrige el criterio de rótulos y llamados a la acción descriptivos, que en la versión anterior de este mismo id había quedado marcado como no aplica con el argumento de que la página era informativa; esa justificación no era válida porque la pregunta aplica a todas las páginas del sitio. Con el DOM actual se confirmaron dos rótulos que no describen su destino: «Conoce más» en el menú y «LINK EXTERNO» en el recuadro de acceso, este último además sin destino real (apunta a «#»).\n\nSe verificó con el navegador automatizado que el extracto de texto de cada resultado (bajo su título) tiene hoy la propiedad de estilo que lo oculta por completo, con 0 píxeles de alto y ancho en pantalla; por eso ese texto no se evaluó como contenido visible, sin que esto afecte el porcentaje.\n\nEsta pantalla no tiene el bloque de documentos institucionales descargables presente en otras páginas del sitio; por eso los criterios de documentos son no aplica aquí.\n\nComponentes compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): menú de navegación (sigla PCT y enlace «Conoce más»), pie de página institucional (capitalización del nombre de la institución), ventana emergente de contacto (voz pasiva), ventana emergente de búsqueda del sitio (mayúsculas sostenidas) y botón del recuadro de acceso o registro de la cabecera (mayúsculas sostenidas, rótulo no descriptivo y sin destino real).\n\nEsta auditoría cubre únicamente Lenguaje claro (51 preguntas); no incluye Usabilidad ni Seguridad.\n\nPrioridad sugerida: primero el título genérico de la página, la falta de mensaje de resultados y de campo de búsqueda visible, la ausencia de fecha, los dos resultados poco relevantes y los dos rótulos no descriptivos (prioridad media); luego la sigla sin definir, el error de mayúscula institucional y la voz pasiva de la ventana de contacto (prioridad baja)."
+}

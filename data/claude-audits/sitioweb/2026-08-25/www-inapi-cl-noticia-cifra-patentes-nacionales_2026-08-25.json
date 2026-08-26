@@ -1,0 +1,570 @@
+{
+  "id": "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-25",
+  "url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+  "fecha_evaluacion": "2026-08-25T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica a la institución responsable del contenido con su nombre y RUT institucional, y el cuerpo de la noticia atribuye las cifras y declaraciones al director nacional de INAPI, Esteban Figueroa.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El título principal visible sobre la noticia es una plantilla genérica compartida por todas las noticias individuales del sitio y no describe el contenido de este artículo en particular. El titular real, que sí describe el contenido, aparece más abajo como un título de menor jerarquía.",
+      "cita_textual": "Detalle · Noticia",
+      "ubicacion_pantalla": "Banner superior de la noticia › título principal"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "La página tiene contenido completo: título, imagen, bajada y nueve párrafos de cuerpo desarrollados con datos y citas; no hay páginas vacías ni bloques sin terminar.",
+      "cita_textual": "Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década",
+      "ubicacion_pantalla": "Cuerpo de la noticia › titular"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "cumple",
+      "comentario": "La bajada y el primer párrafo destacan con claridad el qué (aumento histórico de solicitudes de patentes), cuánto (296 de 1.416 solicitudes totales, alza de 63%), quién (inventores chilenos) y cuándo (primer semestre de 2026), a lo que se suma el dónde (La Serena) más adelante en el cuerpo.",
+      "cita_textual": "En solo seis meses, inventores chilenos presentaron 296 solicitudes de patentes de invención, la cifra más alta desde al menos 2017. La Serena lidera el ranking comunal por primera vez, por encima de Santiago.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › bajada, bajo el titular"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Esta página es una noticia informativa sobre cifras de patentes, no un texto que guíe a la persona usuaria a completar un trámite; no corresponde evaluar autonomía para tramitar."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El cuerpo de nueve párrafos es texto medible y extenso, pero no queda documentada ninguna medición con una herramienta de lectura fácil que confirme si es comprensible para personas con mayor dificultad de comprensión lectora.",
+      "cita_textual": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El tono combina un registro informativo con citas directas del director nacional de INAPI, lo que humaniza el contenido sin perder formalidad ni cercanía.",
+      "cita_textual": "\"Cuando los inventores deciden proteger lo que crean, es porque confían en que esa protección tiene valor real...\"",
+      "ubicacion_pantalla": "Cuerpo de la noticia › tercer párrafo, cita de Esteban Figueroa"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Los términos «residentes» y «no residentes» se repiten varias veces en el cuerpo sin explicarse nunca; y más adelante, varias categorías de clasificación técnica de patentes se presentan como etiquetas sin ninguna aclaración para una persona no especializada.",
+      "cita_textual": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › primer párrafo y párrafo de áreas técnicas"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "No se identifican extranjerismos ni anglicismos en el cuerpo del artículo; todo el vocabulario está en español."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla «PCT» aparece como ítem del menú de navegación, presente en todas las páginas del sitio, sin definirse la primera vez que se muestra. El cuerpo propio de esta noticia no usa esa sigla.",
+      "cita_textual": "PCT",
+      "ubicacion_pantalla": "Menú de navegación superior › ítem «PCT»"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "El artículo tiene un tono positivo de logro institucional, con frases como «cifra histórica» y «señal alentadora», sin enfocar los mensajes desde la negación.",
+      "cita_textual": "\"Que La Serena encabece este ranking es una señal alentadora\"",
+      "ubicacion_pantalla": "Cuerpo de la noticia › séptimo párrafo"
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "cumple",
+      "comentario": "La noticia muestra una fecha de publicación visible junto al titular.",
+      "cita_textual": "jun. 21, 2026",
+      "ubicacion_pantalla": "Cuerpo de la noticia › encabezado, junto al titular"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El cuerpo editorial de la noticia está bien redactado, sin errores de tildes ni ortografía. Fuera de ese cuerpo, en el pie de página institucional, la palabra «industrial» aparece con minúscula inicial dentro del nombre propio de la institución, y sin espacio respecto de la palabra anterior por un salto de línea mal ubicado.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos», primera línea"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "El cuerpo usa puntuación correcta: las citas textuales van entre comillas con coma antes del verbo introductorio, las cifras de miles usan punto y los porcentajes usan coma decimal, conforme a la convención numérica en español.",
+      "cita_textual": "24,64%",
+      "ubicacion_pantalla": "Cuerpo de la noticia › párrafo de áreas técnicas"
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "cumple",
+      "comentario": "El cuerpo relaciona sus párrafos con conectores que anticipan el contraste o dan continuidad a la idea anterior.",
+      "cita_textual": "El contraste con la década previa es marcado.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › segundo párrafo"
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página incluye un enlace con información sobre las condiciones de uso de los contenidos del sitio, accesible desde esta misma página.",
+      "cita_textual": "Uso de los Contenidos de este Sitio",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible (redacción propia, citas atribuidas, fotografías institucionales) corresponde a producción periodística propia de INAPI; no se observa redifusión de material de terceros sin autorización."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "El único RUT visible en la página es el institucional de INAPI, una persona jurídica pública. El director nacional aparece siempre nombrado en su rol institucional, sin exponer su RUN personal, y la mención de «personas naturales» es una cifra estadística agregada, sin identificar a nadie.",
+      "cita_textual": "RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de contacto visibles en la página (pie de página y ventana emergente de contacto) son el teléfono, correo y dirección institucionales de INAPI; no se publican datos particulares de personas naturales.",
+      "cita_textual": "Teléfono: (56 2) 2 887 0400 · Correo electrónico: inapi@inapi.cl",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece un enlace a la política de privacidad, accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de los derechos de acceso, rectificación, cancelación y oposición sobre datos personales.",
+      "cita_textual": "Política de privacidad",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta noticia no publica información sobre menores de edad; trata sobre cifras de solicitudes de patentes."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "El contenido es una crónica institucional neutra sobre estadísticas de propiedad industrial, apta para cualquier público; no corresponde restringir su lectura por edad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "No se identifica en esta noticia material relacionado con salud, ideología, creencias religiosas, vida sexual o características físicas de personas."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta noticia es una crónica informativa sobre cifras de patentes, no un contenido que deba estructurarse como respuestas a preguntas frecuentes."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales ni texto que haga referencia a preguntas frecuentes en esta página. En consecuencia con el criterio anterior, esta noticia no organiza su información como respuestas a dudas frecuentes de las personas usuarias."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Las palabras, frases y conceptos del cuerpo son en general claros para una persona usuaria (cifra histórica, ranking comunal, áreas tecnológicas); los puntos concretos de jerga sin definir ya se registran en el criterio de lenguaje plano, para no duplicar el mismo hallazgo."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "cumple",
+      "comentario": "El cuerpo usa predominantemente voz activa y una combinación apropiada de pretérito para hechos concluidos del semestre y presente para datos vigentes y citas.",
+      "cita_textual": "Chile recibió 1.416 solicitudes de patentes de invención",
+      "ubicacion_pantalla": "Cuerpo de la noticia › primer párrafo"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Las oraciones del cuerpo siguen predominantemente el orden sujeto-verbo-predicado.",
+      "cita_textual": "La Serena encabeza el ranking de comunas con mayor número de solicitudes",
+      "ubicacion_pantalla": "Cuerpo de la noticia › sexto párrafo"
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Esta noticia no presenta listados de requisitos de servicios a la ciudadanía; es un artículo informativo sobre cifras de patentes."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El cuerpo principal tiene nueve párrafos, uno por sobre el máximo de ocho párrafos por página que establece el criterio.",
+      "cita_textual": "El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento. Las solicitudes de no residentes, en cambio, aumentaron apenas un 5%, de 1.063 a 1.120, en línea con años anteriores. El dinamismo, en esta ocasión, es local.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Este criterio evalúa los textos de la página de inicio y del desarrollo de un trámite en línea; esta página es una noticia informativa, sin flujo de trámite propio que iniciar o completar."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Los nueve párrafos del cuerpo se mantienen por debajo de las ocho líneas de despliegue típico en pantalla de escritorio."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "cumple",
+      "comentario": "Cada párrafo del cuerpo mantiene una idea central única con datos de apoyo coherentes: cifras generales, comparación histórica, definición de patente, distribución geográfica, distribución por área tecnológica y perfil de solicitantes."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La mayoría de las oraciones del cuerpo son breves; se detecta una excepción de alrededor de treinta y dos palabras en el cuarto párrafo, que dificulta su lectura de corrido.",
+      "cita_textual": "Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › cuarto párrafo"
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "cumple",
+      "comentario": "La bajada, ubicada antes del cuerpo de nueve párrafos, cumple la función de resumen inicial al anticipar los dos hallazgos centrales del artículo.",
+      "cita_textual": "En solo seis meses, inventores chilenos presentaron 296 solicitudes de patentes de invención, la cifra más alta desde al menos 2017. La Serena lidera el ranking comunal por primera vez, por encima de Santiago.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › bajada, bajo el titular"
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Los nueve párrafos del cuerpo mantienen un espacio visual real y consistente entre sí."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo de la noticia está alineado en bloque a ambos márgenes (justificado), no alineado a la izquierda; esto genera espaciado irregular entre palabras y dificulta la lectura.",
+      "cita_textual": "El contraste con la década previa es marcado. Entre 2017 y 2024, las solicitudes de residentes oscilaron entre 119 y 152 en el mismo periodo. El salto de 2025 (181 solicitudes) ya había llamado la atención. El de 2026 lo supera en un 63% para el mismo periodo.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El párrafo de áreas técnicas enumera cinco categorías con sus porcentajes en texto corrido, separadas por comas; al ser cinco datos numéricos discretos y comparables, una lista con viñetas facilitaría compararlos.",
+      "cita_textual": "La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › párrafo de áreas técnicas"
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La pirámide invertida se rompe en dos puntos: el cuarto párrafo interrumpe el flujo de cifras y citas con una explicación genérica de qué es una patente, y el hallazgo de mayor valor explicativo (el alza de 101% en solicitudes de personas naturales) queda relegado al último párrafo en vez de estar cerca de la apertura.",
+      "cita_textual": "Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años. Durante ese período, ningún tercero puede fabricar, vender ni importar el producto o proceso protegido sin autorización. Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › cuarto y noveno párrafo"
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El artículo desarrolla al menos tres focos temáticos diferenciados (cifras generales, distribución geográfica, distribución por área tecnológica) sin ningún subtítulo interno que los separe; todo el cuerpo son párrafos corridos bajo el mismo titular.",
+      "cita_textual": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › sexto y octavo párrafo"
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo son nueve párrafos corridos sin subtítulos internos, sin listas con viñetas ni recuadros que organicen las cifras; tampoco hay iconografía o jerarquía tipográfica de apartados que permita escanear los bloques temáticos (cifras del semestre, distribución geográfica, áreas tecnológicas) sin leer todo el texto seguido.",
+      "cita_textual": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Ninguno de los párrafos citados del cuerpo usa negrita para destacar sus cifras clave.",
+      "cita_textual": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año. · Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16. · La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › primer, sexto y octavo párrafo"
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La ventana emergente de búsqueda y trámites, componente compartido con otras páginas del sitio, presenta su título y subtítulos solo en mayúsculas sostenidas.",
+      "cita_textual": "BUSCAR Y TRAMITAR · MARCAS · PATENTES",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar», abierta desde el ícono de lupa en la cabecera › título y subtítulos"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "El bloque «Otras Noticias» agrupa cinco noticias afines con texto de enlace que coincide con el titular real de cada noticia destino, y cierra con un llamado a la acción para ver el listado completo.",
+      "cita_textual": "Otras Noticias",
+      "ubicacion_pantalla": "Barra lateral › bloque «Otras Noticias»"
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El menú de navegación, presente en todas las páginas del sitio, incluye el ítem «Conoce más», que no describe a dónde lleva ni qué información entrega; es un rótulo ambiguo del mismo tipo que «Más» o «Haga clic aquí».",
+      "cita_textual": "Conoce más",
+      "ubicacion_pantalla": "Menú de navegación superior › ítem «Conoce más»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "no_aplica",
+      "comentario": "No hay documentos descargables (PDF u otro formato) enlazados en el cuerpo de esta noticia; los elementos presentes son imágenes de carrusel e imágenes intercaladas, no documentos adjuntos."
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "no_aplica",
+      "comentario": "No hay documentos descargables en esta noticia sobre los cuales evaluar su descripción."
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "La noticia presenta apoyos visuales para los datos: además de la imagen bajo el titular, intercalan en el cuerpo cuatro imágenes-gráfico que muestran las cifras del semestre, con recursos gráficos e iconografía (estrellas) que acompañan la información numérica.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › imágenes intercaladas entre los párrafos del artículo"
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Las valoraciones presentes en el texto («las ideas de hoy son los activos del mañana», «señal alentadora») están siempre dentro de citas textuales atribuidas al director nacional de INAPI; el resto del cuerpo es descriptivo y basado en cifras.",
+      "cita_textual": "\"Que La Serena encabece este ranking es una señal alentadora\"",
+      "ubicacion_pantalla": "Cuerpo de la noticia › séptimo párrafo"
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "cumple",
+      "comentario": "El cuerpo privilegia datos y hechos concretos (1.416, 296, 63%, 44, 101%, porcentajes por área tecnológica) por sobre adjetivos calificativos, que aparecen mayoritariamente dentro de citas atribuidas.",
+      "cita_textual": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+      "ubicacion_pantalla": "Cuerpo de la noticia › sexto párrafo"
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Esta noticia no presenta versiones anteriores de sí misma ni un historial de cambios visible; es contenido vigente de un hecho reciente."
+    }
+  ],
+  "criterios_aprobados": 25,
+  "criterios_aplicables": 40,
+  "criterios_no_aplica": 11,
+  "porcentaje_cumplimiento": 62.5,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La noticia «Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década» (www.inapi.cl/sala-de-prensa) fue reauditada el 2026-08-25 con captura propia mediante navegación automatizada, aplicando el catálogo PTD-LC v3.0 de 51 criterios de lenguaje claro con las calibraciones vigentes hasta el 25 de agosto. El cuerpo editorial de nueve párrafos resultó idéntico al evaluado el 22 de agosto; se reevaluó igualmente todo el contenido visible sin copiar estados de auditorías previas.\n\nDe los 51 criterios, 11 no aplican a esta página (no es un trámite, no tiene documentos descargables, no presenta contenidos sensibles ni versiones anteriores, y las variantes exclusivas de trámites en línea no corresponden a una noticia informativa). De los 40 aplicables, 25 se cuentan como cumplidos, lo que da un 62,5 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es superior a 90 %). El porcentaje baja levemente respecto de la reauditoría anterior (66,7 %) porque, con la calibración vigente, los rótulos de enlaces y botones ahora se evalúan siempre —y no solo en trámites en línea— y se corrigió a prioridad alta la falta total de negrita en las cifras del cuerpo.\n\nEl hallazgo más severo es que ninguno de los nueve párrafos usa negrita para destacar las cifras clave que sostienen el valor noticioso del artículo (1.416 solicitudes, 296 de inventores chilenos, alza de 63 % y 101 %), lo que obliga a releer el texto corrido para ubicarlas; y un error de capitalización en el nombre de la institución en el pie de página, presente en todas las páginas del sitio.\n\nOtros hallazgos: el título principal visible es una plantilla genérica compartida por toda noticia individual del sitio y no describe el contenido de este artículo; la pirámide invertida se rompe porque una explicación genérica de qué es una patente interrumpe el flujo de cifras, y el dato de mayor valor explicativo (el alza de 101 % en solicitudes de personas naturales) queda relegado al último párrafo; el cuerpo no tiene ningún subtítulo interno pese a abordar al menos tres focos temáticos distintos; los términos «residentes» y «no residentes» y varias categorías de clasificación técnica de patentes se usan sin explicación; el texto está alineado justificado en vez de a la izquierda; una enumeración de cinco áreas técnicas aparece en texto corrido en vez de en lista; una oración del cuarto párrafo supera las treinta palabras; el cuerpo tiene nueve párrafos, uno más del máximo recomendado; la sigla PCT no está definida en el menú de navegación; la ventana emergente de búsqueda y trámites usa mayúsculas sostenidas; y el ítem de menú «Conoce más» es un rótulo ambiguo que no describe su destino.\n\nMuestra de evaluación institucional — orden 9 (Últimas noticias, detalle 2 de 2). Esta URL se evaluó como noticia en detalle; no se mezcló con el listado de noticias ni con la noticia sobre la Cuenta Pública Participativa de la misma serie.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "Ninguno de los nueve párrafos del cuerpo usa negrita para destacar las cifras clave de la noticia.",
+      "Error de capitalización del nombre de la institución en el pie de página, presente en todas las páginas del sitio."
+    ],
+    "hallazgos_prioridad_media": [
+      "El título principal visible es una plantilla genérica compartida por toda noticia individual del sitio.",
+      "Los términos «residentes/no residentes» y varias categorías de clasificación técnica se usan sin explicación.",
+      "El cuerpo está alineado justificado en vez de a la izquierda, presente en todas las noticias del sitio.",
+      "La pirámide invertida se rompe: una explicación genérica interrumpe el flujo de cifras y el dato explicativo de mayor peso queda al cierre.",
+      "El cuerpo no tiene ningún subtítulo interno pese a abordar al menos tres focos temáticos distintos.",
+      "No hay recursos de escaneo visual (listas, negritas, subtítulos) dentro de los nueve párrafos del cuerpo.",
+      "La ventana emergente de búsqueda y trámites usa mayúsculas sostenidas en su título y subtítulos.",
+      "El ítem de menú «Conoce más» no describe su destino ni la información que entrega."
+    ],
+    "hallazgos_prioridad_baja": [
+      "No se documentó ninguna medición de lectura fácil sobre el cuerpo de la noticia.",
+      "La sigla PCT no está definida en su primera aparición en el menú de navegación.",
+      "El cuerpo tiene nueve párrafos, uno por sobre el máximo de ocho.",
+      "Una oración del cuarto párrafo supera las treinta palabras.",
+      "Cinco áreas técnicas se enumeran en texto corrido en vez de en una lista con viñetas."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "S01",
+      "html_linea_aprox": "HTML banner H1/H2",
+      "ubicacion_pantalla": "Banner superior de la noticia › título principal",
+      "original": "Detalle · Noticia",
+      "propuesto": "Sala de Prensa — Chile alcanza su mayor cifra de solicitudes de patentes nacionales",
+      "criterio_id": "LC-1.1.2-01",
+      "motivo": "El título principal es una plantilla genérica compartida por toda noticia individual del sitio; se propone incorporar una versión abreviada del titular real directamente en el título principal.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S02",
+      "html_linea_aprox": "ancla: cuerpo completo, nueve párrafos",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»",
+      "original": "(sin medición de legibilidad documentada)",
+      "propuesto": "Aplicar una herramienta de lectura fácil, por ejemplo Legible.es, sobre el cuerpo de la noticia y dejar registrado el resultado, de modo que se pueda confirmar si el texto es comprensible para personas con mayor dificultad de lectura.",
+      "criterio_id": "LC-1.1.3-01",
+      "motivo": "El cuerpo constituye texto medible y extenso para el que no se documentó ninguna medición de lectura fácil.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S03",
+      "html_linea_aprox": "HTML párrafo 1 del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › primer párrafo",
+      "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes.",
+      "propuesto": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando solicitudes de personas y empresas de Chile (residentes) y del extranjero (no residentes).",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "Los términos «residentes» y «no residentes» son jerga propia de oficinas de propiedad industrial y se repiten sin explicación en varios párrafos.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S04",
+      "html_linea_aprox": "HTML párrafo de áreas técnicas",
+      "ubicacion_pantalla": "Cuerpo de la noticia › párrafo de áreas técnicas",
+      "original": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+      "propuesto": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%) y otras tres categorías técnicas de clasificación internacional de patentes: productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "Las categorías de clasificación técnica de patentes se presentan sin ninguna explicación para un lector no especializado.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S05",
+      "html_linea_aprox": "HTML menú de navegación global",
+      "ubicacion_pantalla": "Menú de navegación superior › ítem «PCT»",
+      "original": "PCT",
+      "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes».",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Cada sigla debe definirse en su primera aparición. Es un componente compartido con todas las páginas del sitio: corregir una vez en el menú global.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S06",
+      "html_linea_aprox": "HTML pie de página, bloque «Dónde estamos»",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos», primera línea",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales. Es un componente compartido con todas las páginas del sitio: corregir una vez en el pie de página.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S07",
+      "html_linea_aprox": "ancla: cuerpo completo, nueve párrafos",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»",
+      "original": "El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento. Las solicitudes de no residentes, en cambio, aumentaron apenas un 5%, de 1.063 a 1.120, en línea con años anteriores. El dinamismo, en esta ocasión, es local.",
+      "propuesto": "Reducir el cuerpo a un máximo de ocho párrafos, por ejemplo fusionando los dos párrafos sobre el liderazgo de La Serena en uno solo, o incorporando subtítulos intermedios que permitan acortar la extensión de cada bloque.",
+      "criterio_id": "LC-1.2.2-01",
+      "motivo": "El cuerpo principal tiene nueve párrafos, uno por sobre el máximo de ocho párrafos por página establecido por el criterio.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S08",
+      "html_linea_aprox": "HTML párrafo 4 del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › cuarto párrafo",
+      "original": "Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "propuesto": "Esa protección temporal es también la base de la transferencia tecnológica. Permite que universidades, centros de investigación y empresas licencien sus desarrollos. También pueden comercializarlos o usarlos como respaldo para atraer inversión.",
+      "criterio_id": "LC-1.2.2-04",
+      "motivo": "Es la oración más extensa del cuerpo, con alrededor de treinta y dos palabras; se propone dividirla en oraciones más breves.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S09",
+      "html_linea_aprox": "selector de estilo de párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»",
+      "original": "El contraste con la década previa es marcado. Entre 2017 y 2024, las solicitudes de residentes oscilaron entre 119 y 152 en el mismo periodo.",
+      "propuesto": "Cambiar la alineación del cuerpo de la noticia a la izquierda en vez de justificada a ambos márgenes.",
+      "criterio_id": "LC-1.2.3-02",
+      "motivo": "El criterio exige alineación a la izquierda; el justificado actual fuerza espaciado irregular entre palabras y dificulta la lectura. Es la plantilla de cuerpo compartida por todas las noticias individuales del sitio: corregir una vez en el componente.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S10",
+      "html_linea_aprox": "HTML párrafo de áreas técnicas",
+      "ubicacion_pantalla": "Cuerpo de la noticia › párrafo de áreas técnicas",
+      "original": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+      "propuesto": "Presentar las cinco áreas técnicas y sus porcentajes como una lista con viñetas en vez de texto corrido: productos farmacéuticos (24,64%), biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+      "criterio_id": "LC-1.2.3-03",
+      "motivo": "Es una enumeración de cinco datos numéricos discretos y comparables; una lista con viñetas facilita compararlos frente al párrafo corrido actual.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S11",
+      "html_linea_aprox": "HTML párrafo 4 del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › cuarto párrafo",
+      "original": "Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años. Durante ese período, ningún tercero puede fabricar, vender ni importar el producto o proceso protegido sin autorización. Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+      "propuesto": "Mover este párrafo explicativo sobre qué es una patente hacia el cierre de la noticia, o convertirlo en un recuadro aparte («¿Qué es una patente?»), para no interrumpir la secuencia de cifras y contexto histórico del hecho noticioso.",
+      "criterio_id": "LC-1.2.4-01",
+      "motivo": "Rompe la pirámide invertida al insertar contenido de referencia genérico entre bloques de cifras y citas del hecho noticioso.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "HTML párrafo 9 del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › noveno párrafo",
+      "original": "El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento.",
+      "propuesto": "Adelantar este dato (alza del 101% en solicitudes de personas naturales, principal explicación del crecimiento) a los primeros párrafos, junto a las cifras de 296 solicitudes y el alza del 63%.",
+      "criterio_id": "LC-1.2.4-01",
+      "motivo": "Es un hallazgo de primer orden que explica la causa del hecho noticioso principal y no debería quedar relegado al párrafo de cierre.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S13",
+      "html_linea_aprox": "ancla: sexto y octavo párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › sexto y octavo párrafo",
+      "original": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+      "propuesto": "Insertar subtítulos internos antes de cada bloque temático: «Distribución geográfica» antes del párrafo sobre comunas, y «Distribución por área tecnológica» antes del párrafo sobre porcentajes por sector.",
+      "criterio_id": "LC-1.2.4-02",
+      "motivo": "El cuerpo aborda al menos tres focos temáticos distintos sin ningún subtítulo que los segmente, dificultando el escaneo y la navegación del contenido.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S14",
+      "html_linea_aprox": "HTML cuerpo, nueve párrafos entre bajada y «Volver»",
+      "ubicacion_pantalla": "Cuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver»",
+      "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "propuesto": "Agregar subtítulos breves entre los bloques temáticos — Cifras del semestre, Distribución geográfica, Áreas tecnológicas — y un recuadro o lista con viñetas al inicio con las cifras clave del semestre: 1.416 solicitudes totales, 296 de inventores chilenos, alza de 63%. Convertir el desglose de áreas técnicas en lista con viñetas.",
+      "criterio_id": "LC-1.2.4-03",
+      "motivo": "No hay recursos de escaneo visual de jerarquía e información: faltan subtítulos, listas con viñetas y recuadros que organicen las cifras en nueve párrafos corridos.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S15",
+      "html_linea_aprox": "HTML párrafo 1 del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › primer párrafo",
+      "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "propuesto": "Chile recibió **1.416 solicitudes** de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, **296 corresponden a inventores chilenos**, una cifra histórica que supera el total en el mismo periodo de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo periodo del primer semestre del año.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "Ninguna cifra clave del primer párrafo está destacada con negrita; resaltar 1.416 y 296 facilita ubicar el dato noticioso principal.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S16",
+      "html_linea_aprox": "HTML sexto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la noticia › sexto párrafo",
+      "original": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+      "propuesto": "Uno de los datos más llamativos del período es el geográfico. **La Serena** encabeza el ranking de comunas con mayor número de solicitudes, con **44 presentaciones**, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "El dato geográfico destacado (La Serena, 44 solicitudes) no está en negrita; es un párrafo distinto del de las cifras totales del semestre.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S17",
+      "html_linea_aprox": "HTML párrafo de áreas técnicas",
+      "ubicacion_pantalla": "Cuerpo de la noticia › octavo párrafo",
+      "original": "La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+      "propuesto": "La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los **productos farmacéuticos** concentran el **24,64%** de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "La cifra más alta del desglose por área tecnológica no está destacada con negrita en este párrafo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S18",
+      "html_linea_aprox": "HTML ventana emergente «Buscar y tramitar»",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar», abierta desde el ícono de lupa en la cabecera › título y subtítulos",
+      "original": "BUSCAR Y TRAMITAR / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Marcas / Patentes",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Se deben evitar frases escritas únicamente en mayúsculas. Es un componente compartido con todas las páginas del sitio: corregir una vez en la ventana emergente.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S19",
+      "html_linea_aprox": "HTML menú de navegación global",
+      "ubicacion_pantalla": "Menú de navegación superior › ítem «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo por uno que describa el destino, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El rótulo «Conoce más» no dice a dónde lleva ni qué información entrega, un patrón ambiguo similar a «Más» o «Haga clic aquí». Es un componente compartido con todas las páginas del sitio: corregir una vez en el menú global.",
+      "patron_sistema": true
+    }
+  ],
+  "nota_final_tic": "Alcance de la evaluación: solo se consideró lo que se ve en pantalla o se abre con un clic, sin usar el título de la pestaña del navegador ni los metadatos técnicos de la página como evidencia.\n\nReauditoría completa: se volvió a navegar y a evaluar todo el contenido visible con captura propia (25 de agosto de 2026), sin copiar estados de la auditoría anterior (22 de agosto). El cuerpo editorial resultó idéntico; se verificó de nuevo con una herramienta de estilos que el texto está justificado y que hay veinte píxeles de separación entre párrafos, confirmando los mismos hallazgos con evidencia fresca.\n\nNota editorial (no es un criterio de lenguaje claro y no afecta el porcentaje de esta auditoría): la imagen principal del carrusel tiene una descripción sobre un premio a un biofiltro chileno, un tema no relacionado con esta noticia sobre cifras de solicitudes de patentes; conviene que el equipo de contenidos reemplace esa imagen por una fotografía o gráfico relacionado con el hecho noticioso.\n\nElementos compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos mismos componentes): título principal genérico «Detalle»/«Noticia» de toda noticia individual; sigla PCT sin definir en el menú de navegación; pie de página institucional (capitalización); ventana emergente de búsqueda y trámites (mayúsculas sostenidas); ítem de menú «Conoce más»; alineación justificada del cuerpo de las noticias — el mismo componente ya identificado en auditorías anteriores de esta serie.\n\nHallazgos propios del cuerpo de esta noticia (no son un patrón compartido con otras páginas): pirámide invertida rota por la explicación genérica de qué es una patente y por el dato de mayor peso relegado al cierre; términos «residentes/no residentes» y categorías técnicas sin explicación; ausencia de subtítulos internos para los tres focos temáticos; cifras sin negrita; enumeración de áreas técnicas sin viñetas; una oración extensa; nueve párrafos que exceden el máximo recomendado.\n\nEl criterio de apoyos visuales se cumple por los gráficos e imágenes intercalados en el cuerpo que presentan las cifras (con iconografía visible, incluidas estrellas); no se usa como evidencia el texto alternativo del carrusel ni contenidos de otras URLs.\n\nEsta URL es una noticia en detalle (orden 9 de la muestra de evaluación institucional); no se auditó ni mezcló con el listado de noticias ni con la noticia de la Cuenta Pública Participativa de la misma serie.\n\nUsabilidad y Seguridad quedan fuera de este porcentaje, conforme al alcance vigente de esta auditoría.\n\nPrioridad de corrección: cifras sin negrita y error de capitalización institucional (prioridad alta); título principal genérico, jerga sin explicación, texto justificado, pirámide invertida rota, sin subtítulos, sin recursos de escaneo, mayúsculas de la ventana emergente y rótulo de menú ambiguo (prioridad media).",
+  "texto_capturado": "T001 [nav global, patrón de sitio]: sigla «PCT» sin definir en su primera aparición | T002 [menú global, patrón]: ítem «Conoce más» sin describir destino | T003 [cabecera global, EXCLUIDOS de LC-1.2.4-05]: «ACCESOS», «BUSCADOR» | T004 [ventana emergente «Buscar y tramitar», patrón]: h3 «BUSCAR Y TRAMITAR»; h4 «MARCAS»/«PATENTES», mayúsculas sostenidas | T005 [banner genérico compartido por TODAS las noticias de detalle]: H1 «Detalle», H2 «Noticia» | T006 [breadcrumb]: «Home» › «Sala de Prensa» › «Detalle Noticia» | T007 [fecha visible junto al titular]: «jun. 21, 2026» | T008 [H3, titular real de la noticia]: título completo del artículo | T009 [carrusel, imagen única, descripción no relacionada con el tema de esta noticia] | T010 [H5, bajada/lead] | T011 [párrafo 1, cifras principales; text-align:justify verificado con estilos computados] | T012 [párrafo 2, comparación con la década previa] | T013 [párrafo 3, dos citas atribuidas al director nacional de INAPI] | T014 [párrafo 4, explicación genérica de qué es una patente, oración final de ~32 palabras] | T015 [párrafo 5, cita del director] | T016 [párrafo 6, datos geográficos] | T017 [párrafo 7, cita + mención de programa territorial] | T018 [párrafo 8, cinco áreas técnicas con porcentajes en texto corrido] | T019 [párrafo 9, cierre, cifras de alza de personas naturales y no residentes] | T020 [enlace «Volver»] → /sala-de-prensa | T021 [barra lateral H4]: «Otras Noticias», 5 ítems + enlace «Ver todas las noticias» | T022 [ventana de contacto, patrón de sitio]: «¿Quieres contactarnos?» | T023 [pie de página institucional, patrón]: «Instituto Nacional de Propiedad<br>industrial (INAPI)» — «industrial» con minúscula indebida | T024 [pie de página, enlace]: «Política de privacidad» | T025 [pie de página, copyright]: «©2026 INAPI. Todos los derechos reservados». Verificado con estilos computados sobre los nueve párrafos del cuerpo: alineación justificada, 20px de separación entre párrafos, sin negrita en ninguno de los nueve.\n\nMapa de análisis textual ascendente (de menor a mayor granularidad): nivel 1 (palabra/concepto) — «residentes»/«no residentes» es jerga propia de oficinas de propiedad industrial repetida sin explicación; las categorías de clasificación técnica de patentes se presentan como etiquetas sin explicación; nivel 2 (frase breve) — el titular y la bajada son claros y concretos, anticipando la cifra y la comparación central del artículo; nivel 3 (oración) — la última oración del párrafo 4 (~32 palabras) es la más extensa del cuerpo; nivel 4 (párrafo/cuerpo) — nueve párrafos corridos abordan al menos tres focos temáticos sin ningún subtítulo que los separe; el párrafo 4 interrumpe el flujo de cifras rompiendo la pirámide invertida; el hallazgo de mayor valor explicativo (alza de 101% en personas naturales) queda relegado al cierre; nivel 5 (forma) — el cuerpo está justificado, ninguna cifra clave está destacada con negrita, y las cinco áreas técnicas están en texto corrido sin viñetas."
+}

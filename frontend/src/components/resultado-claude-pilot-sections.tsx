@@ -87,12 +87,20 @@ export function SustitucionesTextoContent({
       <table className="w-full min-w-[56rem] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border bg-muted/50 text-left">
-            <th className="p-2 font-medium">Texto en pantalla</th>
-            <th className="p-2 font-medium">Corrección</th>
-            <th className="p-2 font-medium">Ubicación en pantalla</th>
-            <th className="p-2 font-medium">Motivo</th>
-            <th className="p-2 font-medium">Criterio</th>
-            <th className="p-2 font-medium">Ref. técnica</th>
+            <th className="p-2 text-sm font-bold text-foreground">
+              Texto en pantalla
+            </th>
+            <th className="p-2 text-sm font-bold text-foreground">
+              Corrección
+            </th>
+            <th className="p-2 text-sm font-bold text-foreground">
+              Ubicación en pantalla
+            </th>
+            <th className="p-2 text-sm font-bold text-foreground">Motivo</th>
+            <th className="p-2 text-sm font-bold text-foreground">Criterio</th>
+            <th className="p-2 text-sm font-bold text-foreground">
+              Ref. técnica
+            </th>
           </tr>
         </thead>
         <tbody>

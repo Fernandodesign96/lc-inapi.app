@@ -1,3 +1,7 @@
+/**
+ * Etiquetas de entrega para criterios LC (UI · PDF): sin códigos IEW/IESD ni LC-*.
+ * Instrumento N = orden de los 15 indicadores IEW (§2.1 CLAUDE.md).
+ */
 import checklistCriteriaV21 from "../../../data/checklist-criteria.json"
 import checklistCriteriaV30 from "../../../data/checklist-criteria-lc-ptd.json"
 
@@ -15,38 +19,81 @@ export type ChecklistCriterionCatalogRow = {
   indicator_code_iesd?: string | null
 }
 
-/** Texto para la columna «Criterio»: preferir display_label v3.0; si no, id + enunciado. */
-export function formatCriterioEnunciado(id: string): string {
+/** Orden canónico de instrumentos (entrega). */
+export const INSTRUMENTOS_ENTREGA_ORDEN = [
+  "Fiabilidad",
+  "Completitud",
+  "Lenguaje plano",
+  "Actualización",
+  "Redacción y ortografía",
+  "Propiedad intelectual",
+  "Privacidad y datos personales",
+  "Contenidos sensibles",
+  "Claridad",
+  "Concisión",
+  "Legibilidad",
+  "Escritura para la web",
+  "Visualización de la información",
+  "Objetividad",
+  "Archivo",
+] as const
+
+const INSTRUMENTO_ORDINAL = new Map<string, number>(
+  INSTRUMENTOS_ENTREGA_ORDEN.map((nombre, i) => [nombre.toLowerCase(), i + 1]),
+)
+
+export function instrumentoOrdinalPorNombre(
+  nombre: string | undefined | null,
+): number | null {
+  if (!nombre?.trim()) return null
+  return INSTRUMENTO_ORDINAL.get(nombre.trim().toLowerCase()) ?? null
+}
+
+/** Ej. `Instrumento 3: Lenguaje plano`. */
+export function formatInstrumentoEntrega(id: string): string {
+  const row = getCriterionCatalogRow(id)
+  const nombre =
+    row?.indicator_name?.trim() ||
+    row?.section_title?.trim() ||
+    "Lenguaje claro"
+  const n = instrumentoOrdinalPorNombre(nombre)
+  return n != null ? `Instrumento ${n}: ${nombre}` : `Instrumento: ${nombre}`
+}
+
+/**
+ * Pregunta del criterio sin prefijos «Nombre 1.1.3 / 5.1.3 — Criterio:».
+ */
+export function preguntaCriterioEntrega(id: string): string {
   const row = getCriterionCatalogRow(id)
   if (!row) return id
-  if (row.display_label) return row.display_label
-  return `${id} ${row.criterion}`
+  const directa = row.criterion?.trim()
+  if (directa) return directa
+  const label = row.display_label?.trim()
+  if (!label) return id
+  const m = /(?:—\s*)?Criterio:\s*(.+)$/iu.exec(label)
+  if (m?.[1]) return m[1].trim()
+  return label
+    .replace(/^[A-Za-zÁÉÍÓÚáéíóúñÑüÜ\s]+?\d+\.\d+\.\d+(?:\s*\/\s*\d+\.\d+\.\d+)?\s*—\s*/u, "")
+    .trim()
 }
 
-/** Texto para la columna «Sección»; indicador o section_title; «—» si falta. */
+/** Texto para la columna «Criterio» (solo la pregunta; sin códigos). */
+export function formatCriterioEnunciado(id: string): string {
+  return preguntaCriterioEntrega(id)
+}
+
+/** Columna instrumento / filtros: `Instrumento N: Nombre`. */
 export function formatSeccionTitulo(id: string): string {
-  const row = getCriterionCatalogRow(id)
-  if (!row) return "—"
-  return row.indicator_name ?? row.section_title
+  return formatInstrumentoEntrega(id)
 }
 
-/** Encabezado PDF: Criterio N + pregunta + dimensión/códigos al final. */
+/** Encabezado PDF/UI: Criterio N + pregunta — Instrumento M: Nombre. */
 export function formatCriterioPdfEncabezado(
   id: string,
   numero: number,
 ): string {
-  const row = getCriterionCatalogRow(id)
-  const pregunta =
-    row?.criterion?.trim() ||
-    (row?.display_label?.trim() ? row.display_label : id)
-  const nombre = row?.indicator_name?.trim() || "Lenguaje claro"
-  const codigos =
-    row?.indicator_code_display?.trim() ||
-    [row?.indicator_code_iew, row?.indicator_code_iesd]
-      .filter((c): c is string => Boolean(c && String(c).trim()))
-      .join(" / ") ||
-    id
-  return `Criterio ${numero}: ${pregunta} (Dimensión: ${nombre} — ${nombre} ${codigos})`
+  const pregunta = preguntaCriterioEntrega(id)
+  return `Criterio ${numero}: ${pregunta} — ${formatInstrumentoEntrega(id)}`
 }
 
 const criteria = [

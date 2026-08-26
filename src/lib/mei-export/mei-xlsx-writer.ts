@@ -60,8 +60,8 @@ const DETAIL_HEADERS = [
   "Criterio",
   "CheckList",
   "Línea / ref. técnica",
-  "Hito PTD",
-  "Tarea PTD",
+  "Hito",
+  "Tarea",
 ] as const
 
 const CATEGORY_SECTION_FILL: ExcelJS.Fill = {

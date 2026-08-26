@@ -27,19 +27,23 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Home INAPI",
     tipoPagina: "sitioweb",
     // Misma URL que Clarity rank 16 — reauditoría §20 (15 subagentes + 5 sub-subagentes §17, meta-mei orden 1)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22 (fecha
-    // corregida: la vigente vuelve a ser 2026-08-21, con captura Playwright propia; 2026-08-22 pasa a history[]).
-    // Segunda pasada 2026-08-21 (Prompt 6 C-2026-08-21): modal de contacto abierto/capturado, hero y
-    // recuadro de datos clave reevaluados con más rigor; % baja de 78,9 a 76,9 (resultado correcto).
-    claudeAuditId: "www-inapi-cl_2026-08-21",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21; reauditada el 2026-08-22.
+    // Reauditoría 2026-08-25 (Prompt 6 C-2026-08-25b): entrega sin ningún código interno visible
+    // (LC-*, IEW/IESD, Tnnn) en texto/ubicación/propuesto/justificación; encabezado «Criterio N — Instrumento M».
+    // Reauditoría 2026-08-25 (2ª pasada, C-2026-08-25c): se corrige el criterio 45 (rótulos/CTA
+    // descriptivos, LC-5.2.4-01), que estaba en no_aplica por "página informativa"; ahora se evalúa
+    // con evidencia real (botones «Acceder» y enlaces «Conoce más» ambiguos) y queda en incumple
+    // severidad media. % baja de 78,9 a 76,9 (30/39 aplicables; antes 30/38).
+    claudeAuditId: "www-inapi-cl_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 76.9,
+      porcentajeLc: 75.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-21T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
       { id: "www-inapi-cl_2026-08-22" },
+      { id: "www-inapi-cl_2026-08-21" },
       { id: "www-inapi-cl_2026-08-20" },
       { id: "www-inapi-cl_2026-08-19" },
       { id: "www-inapi-cl_2026-08-18" },
@@ -66,17 +70,19 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://www.inapi.cl/marcas",
     label: "Marcas",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 2)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-21 (antes v2.1, 47 A–H);
-    // profundizada el 2026-08-22 con análisis textual ascendente (Prompt 7 + skill 06).
-    claudeAuditId: "www-inapi-cl-marcas_2026-08-22",
+    // Reauditoría META MEI orden 2, checklist PTD-LC v3.0 (51 criterios LC-*).
+    // 2026-08-25: corrige el criterio 45 (rótulos/CTA descriptivos), que había quedado en
+    // no_aplica por "página informativa" (calibración C-2026-08-25c); entrega reescrita con
+    // encabezado canónico "Criterio N — Instrumento M" y sin nomenclatura interna.
+    claudeAuditId: "www-inapi-cl-marcas_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 73.2,
+      porcentajeLc: 71.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas_2026-08-22" },
       { id: "www-inapi-cl-marcas_2026-08-21" },
       { id: "www-inapi-cl-marcas_2026-08-20" },
       { id: "www-inapi-cl-marcas_2026-08-19" },
@@ -90,15 +96,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Acerca de INAPI",
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 4)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-22",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H); reauditada el 2026-08-25.
+    claudeAuditId: "www-inapi-cl-acerca-de-inapi_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 63.4,
+      porcentajeLc: 65.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-acerca-de-inapi_2026-08-22" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-20" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-19" },
       { id: "www-inapi-cl-acerca-de-inapi_2026-08-18" },
@@ -111,15 +118,16 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Buscador de noticias",
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 5)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-22",
+    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H); reauditada el 2026-08-25.
+    claudeAuditId: "www-inapi-cl-buscador-noticias_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 73.3,
+      porcentajeLc: 71.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-buscador-noticias_2026-08-22" },
       { id: "www-inapi-cl-buscador-noticias_2026-08-20" },
       { id: "www-inapi-cl-buscador-noticias_2026-08-19" },
       { id: "www-inapi-cl-buscador-noticias_2026-08-18" },
@@ -133,14 +141,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 6)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22",
+    // Reauditoría 2026-08-25: aplica C-2026-08-25c (rótulos LC-5.2.4-01 en todas las URLs) y
+    // C-2026-08-25e/f/g (rigor en datos clave, fecha ausente y ausencia total → severidad alta).
+    claudeAuditId: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 73.5,
+      porcentajeLc: 71.4,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-18" },
       { id: "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07" },
@@ -153,14 +164,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 7)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-22",
+    // Reauditoría 2026-08-25: aplica C-2026-08-25c (rótulos LC-5.2.4-01 en todas las URLs) y
+    // C-2026-08-25h (fecha de la página de listado ≠ fecha de cada noticia individual → severidad alta).
+    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 83.8,
-      estadoAceptacion: "aceptado_con_observaciones",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      porcentajeLc: 73.7,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-22" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-20" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-06-07" },
@@ -172,15 +186,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 10)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "tramites-inapi-cl-siac_2026-08-22",
+    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25l; cierra la muestra de
+    // evaluación institucional 1…10 de esta oleada. Nuevo aviso de mantenimiento programado
+    // detectado en el DOM (evidencia positiva de negrita/espaciado y hallazgos de anglicismo/tono).
+    claudeAuditId: "tramites-inapi-cl-siac_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 58.1,
+      porcentajeLc: 54.3,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "tramites-inapi-cl-siac_2026-08-22" },
       { id: "tramites-inapi-cl-siac_2026-08-20" },
       { id: "tramites-inapi-cl-siac_2026-08-18" },
       { id: "tramites-inapi-cl-siac_2026-06-07" },
@@ -228,19 +245,24 @@ export const META_MEI_EXTRA_AUDITS: Array<{
   history?: { id: string }[]
 }> = [
   {
-    id: "www-inapi-cl-patentes_2026-08-22",
+    id: "www-inapi-cl-patentes_2026-08-25",
     url: "https://www.inapi.cl/patentes",
     label: "Patentes",
     tipoPagina: "sitioweb",
-    // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 3)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
+    // Reauditoría META MEI orden 3 (Menú principal 2/2), checklist PTD-LC v3.0 (51 criterios LC-*).
+    // 2026-08-25 (segunda reauditoría del día): corrige el criterio 45 (rótulos/CTA descriptivos),
+    // que la revisión anterior había marcado como no aplicable con el argumento inválido de que la
+    // página, por ser informativa, correspondía a la variante exclusiva de servicios digitales. Con
+    // evidencia real (enlace «Conoce más» y botón «LINK EXTERNO» sin destino descrito) el criterio
+    // pasa a incumplido, lo que baja el % de 71,4% a 69,8%. Entrega CMS sin nomenclatura interna.
     resumenMvp: {
-      porcentajeLc: 71.4,
+      porcentajeLc: 69.8,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-patentes_2026-08-22" },
       { id: "www-inapi-cl-patentes_2026-08-20" },
       { id: "www-inapi-cl-patentes_2026-08-19" },
       { id: "www-inapi-cl-patentes_2026-08-18" },
@@ -248,7 +270,7 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-22",
+    id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
     label: "Noticia — Cuenta Pública Participativa 2026",
     tipoPagina: "sitioweb",
@@ -257,29 +279,33 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     resumenMvp: {
       porcentajeLc: 59.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-22" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-18" },
       { id: "www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29" },
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-22",
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-25",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 9)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
+    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25l (escaneo ≠ negritas;
+    // literales solo de esta URL; desagrupado criterio 38 del 39).
     resumenMvp: {
-      porcentajeLc: 66.7,
+      porcentajeLc: 62.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-22" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" },

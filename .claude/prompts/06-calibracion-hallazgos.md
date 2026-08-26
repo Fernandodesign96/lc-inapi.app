@@ -39,9 +39,150 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
 - **Regla:** el campo `applicability` de cada criterio en `data/checklist-criteria-lc-ptd.json` es normativo, no orientativo:
   - `applicability: "sitioweb"` (10 exclusivas IEW: LC-1.1.5-03, LC-1.1.6-02, LC-1.1.7-01, LC-1.1.7-02, LC-1.1.8-01/02/03, LC-1.2.4-06, LC-1.3.1-01, LC-1.3.2-02) → **`no_aplica`** en toda URL `tipo_pagina: "tramites"`, con `comentario`: «Este criterio es exclusivo del instrumento IEW (sitioweb) según el catálogo v3.0; esta URL es tramites (instrumento IESD), por lo que no corresponde evaluarlo aquí.» No es un `no_aplica` para evadir un incumplimiento (§16): es exclusión estructural del catálogo, documentada y simétrica en ambos sentidos.
-  - `applicability: "tramites"` (3 exclusivas IESD: LC-5.2.1-01, LC-5.2.2-01, LC-5.2.4-01) → **evaluar normalmente** (cumple/incumple/no_aplica según evidencia) en toda URL `tramites`; en `sitioweb` siguen siendo `no_aplica` (ya vigente, ver tabla §16).
-  - `applicability: "ambos"` → evaluar igual en los dos tipos de página.
-- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica` y activar los 3 exclusivos IESD como evaluables antes de lanzar los 15 subagentes, para no arrastrar el hábito «sitioweb-first» de las auditorías anteriores de esta serie.
+  - `applicability: "tramites"` (exclusiva restante IESD: `LC-5.2.2-01` concisión inicio+trámite) → evaluar en `tramites`; en `sitioweb` → `no_aplica` con **justificación ciudadana** (sin escribir la palabra `applicability` ni siglas sueltas). **`LC-5.2.1-01` ya no es exclusiva:** ver C-2026-08-25h (aplica en hubs de trámite / sitioweb con servicio digital).
+  - `applicability: "ambos"` → evaluar igual en los dos tipos de página. **Incluye `LC-5.2.4-01`** (rótulos/CTA) y **`LC-5.2.1-01`** (claridad servicio digital) — ver C-2026-08-25c / C-2026-08-25h.
+- **Cómo aplicar:** al iniciar el Paso D en una URL `tramites`, filtrar primero los 10 exclusivos IEW a `no_aplica`; evaluar **`LC-5.2.2-01`** (exclusiva trámites) y también **`LC-5.2.1-01`** / **`LC-5.2.4-01`** (ambos) antes de lanzar los 15 subagentes. En los 4 campos CMS: **sin** `applicability`, **sin** siglas IEW/IESD sueltas y **sin** `Tnnn` (C-2026-08-25h); si hace falta nombrar el instrumento: nombre completo + sigla.
+
+### C-2026-08-25e — Datos clave (`LC-1.1.2-03`, criterio 12) ≠ autonomía de trámites (`LC-1.1.2-04`, criterio 13)
+
+- **Origen:** revisión Acerca de INAPI — el criterio 12 (`¿El texto destaca los datos clave…?`) se marcó `no_aplica` con el argumento de que la página «no es un trámite»; ese argumento corresponde al criterio 13, no al 12. Mismo error en Portada.
+- **Regla:**
+  1. **Criterio 12 / `LC-1.1.2-03` (datos clave: qué, cómo, dónde, cuándo, para quién o recuadro equivalente):** aplica a páginas **informativas e institucionales** con cuerpo propio (Acerca de, hubs Marcas/Patentes, Portada, buscadores con contenido editorial, etc.). Si falta el resumen/recuadro → `incumple` + fila en `sustituciones[]` (texto, ubicación, propuesto, justificación). **Prohibido** `no_aplica` solo porque «no es un trámite» o «no es un servicio digital».
+  2. **Criterio 13 / `LC-1.1.2-04` (autonomía para realizar trámites):** sí pregunta por textos referidos a **trámites**. En sitioweb institucional sin pasos de trámite → `no_aplica` justificado es correcto.
+  3. Realismo §22.9 se mantiene: no exigir el recuadro en **ítems cortos de menú/navegación** solos; sí exigirlo cuando hay párrafos, tarjetas informativas, hub de sección o pantallas de resultados.
+  4. **Severidad (C-2026-08-25g):** si en entrega el Texto en pantalla es ausencia total («No hay texto que cumpla con este requisito» / `(no existe en pantalla)`) → **`severidad: alta` (No cumple)**. No usar `media` / Medianamente cumple cuando no hay ningún texto que cumpla.
+- **Ejemplo malo:** `no_aplica` en Acerca de INAPI: «no es un trámite ni un servicio con pasos operativos».
+- **Ejemplo bueno:** `incumple` + `alta` + propuesta de recuadro «Qué es / Cómo / Dónde / Cuándo / Para quién» (o, en buscador: conteo de resultados + campo visible); criterio 13 sigue en `no_aplica` en URLs sin trámite.
+- **Aplica a:** todas (sitioweb y trámites).
+- **estado:** vigente
+
+### C-2026-08-26a — No repetir correcciones entre criterios; revisar hallazgos previos al avanzar
+
+- **Origen:** revisión Formulario Contacto SIAC (URL 10): criterios 12, 13 y 15 repetían el mismo párrafo introductorio, el mismo modal de confirmación y justificaciones casi idénticas (autonomía + FAQ + datos clave mezclados). La tercera fila del 13 era un eco del 15; el 15 estaba `agrupado_en` el 13 y reutilizaba las mismas filas vía `criterios_relacionados`.
+- **Causa raíz:** al puntuar el criterio N, no se revisó lo ya escrito en criterios 1…N−1 (texto, ubicación, propuesto, justificación, agrupaciones). Se reutilizó el mismo `propuesto`/`motivo` aunque la **pregunta** del instrumento era otra.
+- **Regla (obligatoria en Pasos D y E):**
+  1. **Antes** de fijar `incumple` + filas de `sustituciones[]` de un criterio nuevo, **releer** las filas y justificaciones ya cerradas de criterios anteriores (mismo turno / mismo JSON en construcción).
+  2. Si el hallazgo toca la misma zona, la corrección nueva debe ser **complementaria** (otro ángulo, otro nodo, otro detalle accionable) o el criterio debe ir `agrupado_en` el primario **solo** cuando el `propuesto` es **exactamente el mismo** (§20.3). **Prohibido** `criterios_relacionados` que hagan reaparecer en la UI la misma corrección bajo otra pregunta.
+  3. La **justificación** responde **solo** la pregunta de ese criterio (datos clave ≠ autonomía ≠ organización FAQ ≠ escaneo ≠ negrita). No pegar el párrafo genérico de autonomía bajo claridad del servicio digital, ni viceversa.
+  4. Varias filas del **mismo** `criterio_id`: cada una = nodo o defecto distinto (p. ej. en autonomía: 1) seguimiento en intro, 2) modal de confirmación, 3) placeholders/ayudas de campos). **Prohibido** dos filas con el mismo literal y el mismo `propuesto`.
+  5. Ejemplos de foco distinto en formularios:
+     - **Datos clave (12):** qué / cómo / cuándo / para quién en el resumen.
+     - **Autonomía (13):** pasos tras enviar, ayudas para completar campos (placeholders con ejemplos; «Seleccione una opción» sin `...`), número de atención usable.
+     - **FAQ servicio digital (15):** bloque de preguntas frecuentes anticipadas y secuencia coherente de ventanas; **no** copiar el `propuesto` de 13 ni el de subtítulos del 37/38.
+- **Ejemplo malo:** 13 y 15 con las mismas 3 correcciones (intro + modal ×2) y justificación clonada.
+- **Ejemplo bueno:** 12 = plazo/para quién en intro; 13 = seguimiento + modal con número + placeholders; 15 = bloque FAQ + secuencia de modales; 37/38 = subtítulos/separación visual sin repetir el bloque FAQ.
+- **Aplica a:** todas (crítico en trámites y en cualquier URL con varios criterios sobre el mismo formulario/artículo).
+- **estado:** vigente
+
+### C-2026-08-25l — Escaneo (38) ≠ negritas (39); literales solo de esta URL
+
+- **Origen:** revisión Noticia cifra patentes (URL 9):
+  1. Criterio 38 (`LC-1.2.4-03` escaneo visual) mostraba 3 correcciones: la 1 mezclaba negrita con escaneo y estaba `agrupado_en` el criterio 39; las 2 y 3 eran filas de negrita (`LC-1.2.4-04`) enlazadas con `criterios_relacionados`, por lo que la UI las repetía bajo el 38.
+  2. Criterio 39 tenía dos filas sobre el **mismo** párrafo (primer párrafo) porque la fila de escaneo y la de negrita compartían nodo vía cruce incorrecto.
+  3. Criterio 48 (`LC-1.3.1-01`) usaba como Texto el `alt` «Premio Europeo… biofiltro…» (no es texto visible del ciudadano) y una justificación desalineaada de los gráficos reales de **esta** página.
+- **Causa raíz:** (a) forzar §20.3 / `agrupado_en` / `criterios_relacionados` entre criterios cuya **corrección propuesta es distinta** (estructura/jerarquía vs negrita); (b) contaminar Texto/Justificación con `alt` no visible, notas editoriales o literales de **otra URL** / JSON previo.
+- **Regla:**
+  1. **Criterio 38 = escaneo / jerarquía visual:** subtítulos, listas con viñetas, recuadros, iconografía de apartados, tipografía de bloques. **Prohibido** proponer negrita como corrección del 38 (eso es solo el **39**). **Prohibido** `agrupado_en` el 39 o `criterios_relacionados` hacia/desde el 39 cuando el `propuesto` no es el mismo.
+  2. **Criterio 39 = negrita:** una fila de `sustituciones[]` por **párrafo/nodo distinto**; no dos filas del mismo párrafo. No enlazar esas filas al 38.
+  3. **Literales solo de la URL auditada:** en Texto, Ubicación, Corrección propuesta y Justificación, mencionar **únicamente** lo que aparece textual y literal (o como apoyo visual verificable) en **esa** URL. **Prohibido** copiar `alt`/títulos/párrafos/cifras de otra URL, de un JSON anterior de otra noticia, o inventar apoyos que no estén en el DOM actual. El `alt` no visible **no** es «Texto en pantalla».
+  4. Si un carrusel tiene imagen/temática errónea, documentarlo en `nota_final_tic` (editorial), **no** como evidencia falsa del criterio 48.
+- **Ejemplo malo:** 38 con `agrupado_en: LC-1.2.4-04` + propuesto «…o destacarlas con negrita…» + filas 39 con `criterios_relacionados: [LC-1.2.4-03]`; 48 con Texto = alt de biofiltro.
+- **Ejemplo bueno:** 38 primario con propuesto de subtítulos/listas/recuadro; 39 con N filas de negrita en N párrafos distintos; 48 Cumple citando los gráficos/imágenes intercalados visibles en esta noticia.
+- **Aplica a:** todas (esp. noticias detalle y cualquier reauditoría con JSON previo).
+- **estado:** vigente
+
+### C-2026-08-25k — Citas negadas ≠ texto en pantalla; sin meta entre paréntesis como literales
+
+- **Origen:** revisión Noticia Cuenta Pública (URL 8): criterio 11 (`LC-1.1.2-02`) en Cumple con Texto `en construcción` porque la justificación decía «no hay señales … ni de «en construcción»» y el extractor de comillas volcó esa cita negada; criterio 38 (`LC-1.2.4-03`) con Texto `(once párrafos de texto corrido…)` — meta descriptiva entre paréntesis, no literal de pantalla.
+- **Regla:**
+  1. **Citas entre comillas negadas** (p. ej. «no hay… «en construcción»», «ni de «próximamente»», «No se observan textos de tipo «…»») **no** son Texto en pantalla. Si el criterio **cumple**, citar evidencia positiva real (título, bajada, bloque visible) o `—` si no hay literal útil; **nunca** el defecto que se niega.
+  2. **Texto / original** no pueden ser meta-descripciones entre paréntesis del tipo `(once párrafos…)`, `(estructura actual…)`, `(sin negrita…)`. Citar literales del cuerpo o de la zona evaluada. Única excepción parentética: campo cuyo **único** contenido es una frase de ausencia total sin literal citable (`(ausencia)`, `(sin fecha de actualización visible)`, `(no existe en pantalla)`).
+  3. En **propuesto / justificación**, preferir prosa o rayas em dash antes que «(por ejemplo …)» cuando se listan ejemplos (coherente con 25j).
+  4. No duplicar el mismo párrafo en justificación (motivo ≈ comentario → uno solo).
+- **Ejemplo malo:** Cumple · Texto `en construcción` · Justificación «…no hay señales de «en construcción»».
+- **Ejemplo bueno:** Cumple · Texto = título de la noticia · Justificación que niega «en construcción» sin volcarla al Texto.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25j — Negritas ausentes = No cumple; sin explicaciones entre paréntesis en entrega
+
+- **Origen:** revisión Sala de Prensa — Noticias (URL 7), criterio 39 (`LC-1.2.4-04`): se entregó como «Cumple con observaciones» (`severidad: baja`) con Texto `(sin negrita en los tres extractos)` pese a que existen los tres textos de las tarjetas y ninguno cumple el requisito de negrita.
+- **Regla:**
+  1. Si hay párrafos/textos evaluables **y ninguno** usa negrita para destacar palabras clave → `incumple` + **`severidad: alta` (No cumple)**. No usar `baja` / Cumple con observaciones cuando la ausencia de negrita es total en los textos citados.
+  2. **Texto en pantalla** = los literales reales de esos párrafos o columnas de texto (p. ej. los tres textos bajo la fecha en las tarjetas de noticia), unidos con ` · ` si hay varios. **Prohibido** sustituirlos por meta `(sin negrita en los tres extractos)`.
+  3. **Ubicación:** nombrar la zona humana con precisión (p. ej. `Cuerpo › las tres tarjetas de noticia › columna de texto bajo la fecha`), no solo «extractos» sin contexto.
+  4. **Paréntesis en entrega (texto / ubicación / propuesto / justificación):** **prohibido** meter explicaciones o meta-comentarios entre paréntesis junto a otro texto (`… (sin negrita)`, `… (por ejemplo: …)`, `… (usar la fecha real…)`). **Única excepción:** cuando el **único** contenido del campo es una sola frase entre paréntesis que marca ausencia total sin literal citable (p. ej. `(sin fecha de actualización visible)` / `(no existe en pantalla)`). Si hay texto visible que citar, se cita el literal y la ausencia de negrita va en la justificación en prosa, no entre paréntesis.
+- **Ejemplo malo:** `Texto: (sin negrita en los tres extractos)` · presentación Cumple con observaciones.
+- **Ejemplo bueno:** `Texto: «Constanza Vargas García, bioquímica…» · «La herramienta… 148 productos…» · «La medida beneficia… Japón…»` · `severidad: alta` · Ubicación: columna de texto de las tres tarjetas.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25i — Consistencia de calibración: aplicar + commit sin preguntar
+
+- **Origen:** tras URLs 6 y 7, Claude Code dejó JSON de URLs ya cerradas y capa de entrega en `modified` sin commit y abrió menús «¿commitear / revertir / dejar?».
+- **Regla:** ver **CLAUDE.md §5.1** y Prompt 5 Paso F. Calibración vigente = autorización para consistencia en la muestra; commit de consistencia + commit de entrega + commit de la URL nueva en el mismo turno; working tree limpio al cerrar.
+- **Aplica a:** todas las sesiones de auditoría 1-URL.
+- **estado:** vigente
+
+### C-2026-08-25h — Entrega sin jerga de orquestación; claridad servicio digital (criterio 15) en lenguaje ciudadano
+
+- **Origen:** revisión Solicitud Nueva (URL 6) — justificación del criterio 15 con `applicability`, «variante IESD», texto «tramites» inventado; ubicación con instrucción «(indicar Cabecera…)»; y riesgo de reaparecer `T010`/`T020` en justificación. Fecha ausente otra vez vista como «Medianamente cumple».
+- **Regla (campos CMS: texto / ubicación / corrección / justificación):**
+  1. **Prohibido** en entrega: `Tnnn`, `applicability`, `tipo_pagina` técnico, `mapa D0`, Prompt N, `C-YYYY`, `LC-*`, y acrónimos sueltos **IEW / IESD / META MEI**. Si hace falta nombrar un instrumento o muestra: **nombre completo primero** y la sigla entre paréntesis (ej. «Instrumento de Evaluación de Servicios Digitales (IESD)»). Preferir no usar la sigla si el texto ciudadano basta.
+  2. **Ubicación:** ruta real `Zona › elemento › «rótulo»`. **Prohibido** pegar instrucciones al auditor («indicar Cabecera…», «describir en auditorías nuevas…»).
+  3. **Criterio 15 (`LC-5.2.1-01`)** — claridad del servicio digital / preguntas frecuentes: `applicability: "ambos"`. En páginas que hablan de trámites o enlazan a `tramites.inapi.cl`, **evaluar** el contenido (no marcar `no_aplica` solo por «es sitioweb»). Si **no hay** preguntas frecuentes ni respuestas (listas, tablas, desplegables, etc.) — alineado al criterio 14 — → `no_aplica` con justificación ciudadana, p. ej.: «No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes… En consecuencia con el criterio anterior…».
+  4. Si el criterio **sí** pregunta por contenido de trámite presente en la URL → completar texto, ubicación, corrección (si incumple) y justificación con literales visibles.
+  5. **Fecha / ausencia total** (refuerzo 25f/25g): Texto «No hay texto que cumpla…» → **`severidad: alta` (No cumple)**, nunca «Medianamente cumple».
+- **Ejemplo malo:** `Justificación: El campo applicability es «tramites» (IESD)…` · `Ubicación: … (indicar Cabecera…)` · `…(T020)`.
+- **Ejemplo bueno:** `Justificación: No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes…` · `Ubicación: Cuerpo › junto a las tarjetas de acción`.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25g — Ausencia total de texto que cumpla → No cumple (`severidad: alta`) en datos clave (y análogo)
+
+- **Origen:** revisión Buscador de noticias — criterio 12 con Texto «No hay texto que cumpla con este requisito» pero presentación «Medianamente cumple» (`severidad: media`). Mismo patrón en Portada / Marcas / Acerca de.
+- **Regla:** cuando el defecto es que **no existe** el texto/control requerido (entrega = ausencia / «No hay texto que cumpla…»), la severidad es **`alta` → No cumple**. «Medianamente cumple» (`media`) queda para incumplimientos **parciales** (hay texto, pero incompleto o deficiente). Alineado a C-2026-08-25f (fecha).
+- **Aplica a:** todas; en especial `LC-1.1.2-03` y cualquier criterio con ausencia total documentada en Texto en pantalla.
+- **estado:** vigente
+
+### C-2026-08-25f — Fecha de actualización ausente (`LC-1.1.4-01`, criterio 27) = No cumple (`severidad: alta`)
+
+- **Origen:** revisión Acerca de INAPI — sin fecha visible se entregó como «Medianamente cumple» (`incumple` + `severidad: media`) pese a que no existe ningún texto que cumpla el requisito.
+- **Regla:**
+  1. Si **no hay** fecha de publicación ni de última actualización visible → `incumple` + **`severidad: alta`** (UI/PDF/Excel: **No cumple**). **Prohibido** `media` / «Medianamente cumple» cuando la ausencia es total.
+  2. `©año` del pie **nunca** cuenta como fecha de actualización (regla ya vigente).
+  3. Entrega obligatoria: Texto = `(sin fecha de actualización visible)` / mensaje de ausencia; Ubicación = dónde debe ir la línea; Propuesto = «Añadir texto visible: Actualizado: DD de mes de AAAA…»; Justificación = ausencia total + que el copyright no reemplaza.
+  4. `severidad: media` (Medianamente cumple) solo si hay fecha visible pero **parcialmente** insuficiente (p. ej. año solo, fecha ambigua, o vigente en un bloque y ausente en el contenido principal evaluado) — no cuando no hay nada.
+- **Ejemplo malo:** `incumple` + `media` + «(sin fecha de actualización visible)».
+- **Ejemplo bueno:** `incumple` + `alta` + misma evidencia y propuesta CMS.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25d — Texto en pantalla ≠ pregunta del criterio (ni encabezado Instrumento)
+
+- **Origen:** revisión Acerca de INAPI / criterios 2 y 3 (y patrón en las 5 URLs META MEI) — en «Texto en pantalla», «Ubicación», «Corrección» y «Justificación» aparecía la pregunta del instrumento (`¿Los signos de puntuación…?`, `¿Las frases se relacionan…?`) porque el `comentario` empezaba con el encabezado de fila `Criterio N: «pregunta» — Instrumento M: Nombre.` y la capa de entrega extraía esa cita como si fuera literal de la página.
+- **Regla:**
+  1. El encabezado `Criterio N: «pregunta» — Instrumento M: Nombre` **solo** en el título de la fila (UI/PDF). **Prohibido** copiarlo dentro de `comentario`, `motivo`, `cita_textual`, `original`, `propuesto` o `ubicacion_pantalla`.
+  2. **Texto en pantalla** = solo literales **visibles en la página** (o `(ausencia)` / mensaje de ausencia). **Nunca** la pregunta del criterio ni el nombre del instrumento.
+  3. **Ubicación / corrección / justificación** tampoco deben repetir esa pregunta como si fuera rótulo en pantalla.
+  4. Si `cumple`/`no_aplica` y no hay cita real de la página → Texto = `—` (o ausencia legible) y justificación = análisis sin el encabezado de fila.
+  5. Capa de entrega (`criterio-entrega-campos.ts`): filtra preguntas del catálogo y hace strip del encabezado Criterio/Instrumento (defensa en profundidad).
+- **Ejemplo malo:** `Texto en pantalla: ¿Los signos de puntuación empleados facilitan la lectura del documento? · Para Informarse`
+- **Ejemplo bueno:** `Texto en pantalla: Para Informarse` · Justificación: «Las tarjetas de «Para Informarse» usan puntuación simple…» (sin «Criterio 14: … — Instrumento 5»).
+- **Aplica a:** todas (UI · PDF · Excel). No exige reauditoría completa de las 5 URLs: basta regenerar entrega con el código corregido; reauditoría puntual solo si se quiere enriquecer citas reales donde quedó `—`.
+- **estado:** vigente
+
+### C-2026-08-25c — Rótulos / enlaces / CTA descriptivos (`LC-5.2.4-01`) aplican a TODAS las URLs
+
+- **Origen:** revisión Patentes (META MEI orden 3) y patrón repetido en Portada/Marcas/Acerca de/Buscador — se marcó `no_aplica` con «esta URL es informativa, no un servicio digital».
+- **Regla:** el criterio 42 (`LC-5.2.4-01`) pregunta si los **textos de enlaces, botones y llamados a la acción** describen el destino o la acción (evitar «Haga clic aquí», «Más», «LINK EXTERNO», etc.). Eso **aplica en sitioweb y en trámites**: menú, tarjetas, atajos, ventanas emergentes, pies de página, resultados de búsqueda, CTAs de trámite. **Prohibido** `no_aplica` solo porque la página sea «informativa» o «no sea un flujo de trámite».
+  - Catálogo: `applicability: "ambos"` (ya no `tramites`).
+  - Evaluar: `cumple` / `incumple` (+ sustituciones) según evidencia visible; `no_aplica` solo si **no hay ningún enlace ni botón** evaluable en la vista (caso extremo).
+  - Propuesta CMS: rótulo que diga qué hace o a dónde lleva (ej. «Consultar fecha de pago», «Solicitar certificado», «Ver requisitos de patente»).
+- **Ejemplo malo:** `Justificación: Esta URL es informativa… la variante de rótulos para servicios digitales no corresponde.`
+- **Ejemplo bueno:** citar el rótulo ambiguo («Más», «Anotación», «LINK EXTERNO») + ubicación + propuesta descriptiva.
+- **Aplica a:** todas.
+- **estado:** vigente
 
 ### C-2026-08-21 — Reauditoría completa: precedentes ≠ atajo
 
@@ -152,7 +293,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-08 — Fecha de actualización (`LC-1.1.4-01`)
 
-- **Regla:** sin fecha visible → `(ausencia)` + propuesta de línea visible. **Nunca** usar `©año` del footer como “fecha de actualización”.
+- **Regla:** sin fecha visible → `(ausencia)` / `(sin fecha de actualización visible)` + propuesta de línea visible. **Nunca** usar `©año` del footer como “fecha de actualización”. **Severidad:** ausencia total → `alta` (No cumple); ver C-2026-08-25f.
 
 ### C-2026-08 — Visualización / apoyos (`LC-1.3.1-01`)
 
@@ -197,6 +338,54 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas.
 - **estado:** vigente
 
+### C-2026-08-25 — Entrega CMS: solo literales; sin nomenclatura interna (salvo `LC-*`)
+
+- **Origen:** revisión manual URL 2 Marcas (`/marcas`) — justificación con `T008`–`T011`, «mapa D0», «Prompt 6/7», `C-2026-08-21/22`; propuestas con meta-comentarios («formato de oración, consistente con…»).
+- **Regla (campos visibles: texto en pantalla, ubicación, corrección propuesta, justificación/comentario):**
+  1. **Prohibido** nomenclatura del repositorio u orquestación: `Tnnn`, `HTML-L…`, «mapa D0», «análisis textual ascendente», «Prompt N», `C-YYYY-…`, «capa R/U», «subagente», «§N», Chroma, etc. **Permitido solo** códigos de criterio `LC-*` (y, si hace falta, el nombre de la dimensión en lenguaje claro).
+  2. Nombrar **siempre el literal** o la zona humana: ej. `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`; `Sección «Trámites», títulos bajo cada tarjeta`; `ventana emergente «¿Quieres contactarnos?»`. Nunca «las tarjetas T008–T011».
+  3. Si `cumple`: **Texto en pantalla** = cita(s) o descripción corta de lo que evidencia el sí (no dejar `—` con justificación que nombra nodos internos).
+  4. **Corrección propuesta** = texto/instrucción pegable en el CMS. **Prohibido** añadir entre paréntesis meta-comentarios de estilo editorial («formato de oración», «consistente con Renovación…», «según Prompt…»). Eso va, si hace falta, en la justificación en lenguaje ciudadano.
+  5. **Propuestas no repetidas:** si varios criterios tocan el mismo nodo (§20.3), **un solo** `propuesto` completo vive en el criterio **primario**. Los secundarios (`agrupado_en` o relacionados) **no** copian el mismo bloque: su justificación responde **su** pregunta (sí/no, cumple/no) y su `propuesto` (si aplica) da **enfoque, tipo de palabras, estructura o detalle** alineado a esa pregunta (p. ej. concisión → «frases cortas; una idea por paso»; lista → «usar lista numerada»; jerga → «definir cada término en la misma tarjeta»).
+  6. Criterios de sí/no / existe / cumple: la pareja propuesta + justificación debe **robustecer la respuesta a la pregunta**, no reciclar el texto de otro criterio.
+- **Ejemplo malo → bueno (ubicación/evidencia):**
+  - Malo: `Justificación: Las tarjetas T008–T011… El mapa D0… (Prompt 6, C-2026-08-21).`
+  - Bueno: `Ubicación: Sección «Para Informarse», tarjeta «Cómo registrar una marca». Texto: «El procedimiento para registrar…». Justificación: la tarjeta usa una sola oración larga con términos no explicados; por eso medianamente cumple concisión.`
+- **Aplica a:** todas (esp. reauditoría Marcas y siguientes META MEI).
+- **estado:** **superseded** por C-2026-08-25b (sin `LC-*` en entrega)
+
+### C-2026-08-25b — Entrega sin ninguna nomenclatura; Instrumento N; criterios 1…51
+
+- **Origen:** revisión Patentes — propuesta «Corregir incumplimiento de LC-1.1.3-01»; encabezados «(Dimensión: Lenguaje plano — Lenguaje plano 1.1.3 / 5.1.3)».
+- **Regla (UI · PDF · Excel de entrega):**
+  1. **Prohibido** en texto/ubicación/propuesto/justificación: `LC-*`, códigos IEW/IESD (`1.1.3`, `5.1.3`), `Tnnn`, mapa D0, Prompt N, `C-YYYY-…`, Layout/header como jerga, etc.
+  2. Referencias cruzadas: «el criterio 4», «los criterios 6 y 24» (numeración simple 1…51), nunca `LC-1.1.3-01`.
+  3. Encabezado de criterio: `Criterio N: «pregunta» — Instrumento M: Nombre` — ej. `— Instrumento 3: Lenguaje plano`, `— Instrumento 1: Fiabilidad`. **Sin** paréntesis ni «Dimensión: … 1.1.3 / 5.1.3».
+  4. **Corrección propuesta** = texto o instrucción CMS accionable. **Prohibido** «Corregir incumplimiento de LC-…» / «Corregir incumplimiento de criterio N» sin decir *qué* escribir o *cómo* medir.
+  5. Legibilidad (criterio de lenguaje orientado a comprensión lectora / Legible): si falta medición, el `propuesto` debe pedir reescritura en lenguaje cotidiano **y** comprobar con herramienta de lectura fácil; no bastar con nombrar el incumplimiento.
+- **Ejemplo malo → bueno (propuesto):**
+  - Malo: `Corregir incumplimiento de LC-1.1.3-01.`
+  - Bueno: `Reescribir la tarjeta «Requisitos para obtener una patente» en oraciones cortas; comprobar con Legible hasta al menos tres de cinco indicadores en dificultad Normal.`
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-08-25 — Marcas: sección «Trámites» — más que unificar mayúsculas
+
+- **Origen:** revisión Marcas — títulos «Solicitud Nueva» / «Títulos y Certificados» (Title Case) frente a «Renovación» / «Anotación»; propuesta que solo unificaba a formato de oración.
+- **Regla:** unificar mayúsculas **no basta** si rótulos como «Renovación» o «Anotación» siguen opacos. Preferir en la propuesta CMS:
+  1. **Frase breve** bajo cada uno de los cuatro trámites (qué es / para quién / qué logra la persona); **y/o**
+  2. Un **subtítulo** de la sección que diga qué son esos trámites en conjunto.
+  La justificación debe nombrar la **brecha de claridad** (rótulos sin explicación), no solo la inconsistencia tipográfica. Evitar en `propuesto` el meta «(formato de oración, consistente con…)».
+- **Aplica a:** `/marcas` y bloques homólogos de atajos de trámites.
+- **estado:** vigente
+
+### C-2026-08-25 — Documentos del mismo carrusel: una fila por documento, no una fila combinada
+
+- **Origen:** revisión Marcas — el JSON del 2026-08-22 resumió los tres documentos del carrusel institucional del pie («Plan de Acción de Cumplimiento 2025», «Teletrabajo», «Código de Ética INAPI 2026») en una sola fila de `sustituciones[]`, pese a que la propia entrada C-2026-08-22 «Entrega multi-corrección» ya advertía que esto es el «ejemplo malo».
+- **Regla:** cuando varios documentos comparten el mismo `criterio_id` (formato/peso/descripción, `LC-1.2.4-07`/`08`) pero cada uno tiene su propio título y enlace, crear **una fila por documento**, no una fila que los liste juntos. Cada fila usa `criterios_relacionados` para el criterio agrupado (`LC-1.2.4-08`).
+- **Aplica a:** todas las URLs con carruseles o listados de documentos descargables.
+- **estado:** vigente
+
 ## Plantilla para nuevas entradas
 
 ```markdown
@@ -211,4 +400,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (reauditoría completa, Portada, **Marcas**: tasas/etapas, títulos, anotación, tipos/cobertura); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (… **C-2026-08-25d…j** incluidas); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

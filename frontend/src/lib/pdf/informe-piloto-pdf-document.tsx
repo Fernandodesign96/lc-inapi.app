@@ -136,7 +136,11 @@ function HitoResumenTablePdf({ hito }: { hito: ResumenHitoAuditoria }) {
       </View>
       <View style={styles.hitoResumenDataRow}>
         <View style={[styles.hitoResumenCell, colDesc]}>
-          <Text style={styles.hitoResumenDesc}>{hito.hitoTitulo}</Text>
+          <Text style={styles.hitoResumenDesc}>
+            Hito {hito.hitoOrdinal}
+            {"\n"}
+            {hito.hitoTitulo}
+          </Text>
         </View>
         <View style={[styles.hitoResumenCell, colSm]}>
           <Text style={styles.hitoResumenNum}>{hito.checklist}</Text>
@@ -188,12 +192,14 @@ type EntregaItem = {
 
 type TareaGrupo = {
   tareaId: number
+  tareaOrdinal: number
   tareaDescripcion: string
   items: EntregaItem[]
 }
 
 type HitoGrupo = {
   hitoId: number
+  hitoOrdinal: number
   hitoTitulo: string
   tareas: TareaGrupo[]
 }
@@ -208,12 +214,13 @@ function buildArbolHitoTarea(bundle: ClaudeAuditBundle): HitoGrupo[] {
   for (const row of rows) {
     const ptd = ptdHitoTareaPorCriterio(row.id)
     const ref = ptd.refs[0]
-    if (!ref) continue
+    if (!ref || ptd.hitoOrdinal == null || ptd.tareaOrdinal == null) continue
 
     let hito = hitoMap.get(ref.hitoId)
     if (!hito) {
       hito = {
         hitoId: ref.hitoId,
+        hitoOrdinal: ptd.hitoOrdinal,
         hitoTitulo: ref.hitoTitulo,
         tareas: [],
       }
@@ -224,6 +231,7 @@ function buildArbolHitoTarea(bundle: ClaudeAuditBundle): HitoGrupo[] {
     if (!tarea) {
       tarea = {
         tareaId: ref.tareaId,
+        tareaOrdinal: ptd.tareaOrdinal,
         tareaDescripcion: ref.tareaDescripcion,
         items: [],
       }
@@ -235,9 +243,11 @@ function buildArbolHitoTarea(bundle: ClaudeAuditBundle): HitoGrupo[] {
     tarea.items.push({ row, sustList })
   }
 
-  const hitos = [...hitoMap.values()].sort((a, b) => a.hitoId - b.hitoId)
+  const hitos = [...hitoMap.values()].sort(
+    (a, b) => a.hitoOrdinal - b.hitoOrdinal,
+  )
   for (const h of hitos) {
-    h.tareas.sort((a, b) => a.tareaId - b.tareaId)
+    h.tareas.sort((a, b) => a.tareaOrdinal - b.tareaOrdinal)
     for (const t of h.tareas) {
       t.items.sort(
         (a, b) =>
@@ -329,9 +339,7 @@ function PreguntaEntregaPdf({
       {encabezado}
       {sustList.map((sust, i) => (
         <View key={`${row.id}-s-${i}`} style={{ marginBottom: 6 }}>
-          {sustList.length > 1 ? (
-            <Text style={styles.preguntaMeta}>Corrección {i + 1}</Text>
-          ) : null}
+          <Text style={styles.preguntaMeta}>Corrección {i + 1}</Text>
           <EntregaCamposPdf row={row} sust={sust} />
         </View>
       ))}
@@ -340,42 +348,35 @@ function PreguntaEntregaPdf({
 }
 
 /**
- * Detalle: Hito → Tarea → Criterio N → estado → campos CMS.
+ * Detalle: Hito N → Tarea M → Criterio K (numeración simple por nivel).
  */
 function BloqueChecklistEditorial({ bundle }: { bundle: ClaudeAuditBundle }) {
   const arbol = buildArbolHitoTarea(bundle)
-  const numeroPorId = new Map<string, number>()
-  let n = 0
-  for (const hito of arbol) {
-    for (const tarea of hito.tareas) {
-      for (const item of tarea.items) {
-        n += 1
-        numeroPorId.set(item.row.id, n)
-      }
-    }
-  }
 
   return (
     <View style={styles.sectionWrap}>
       {arbol.map((hito) => (
         <View key={`h-${hito.hitoId}`} style={styles.hitoBlock}>
           <Text style={styles.hitoTitle}>
-            Hito {hito.hitoId}
+            Hito {hito.hitoOrdinal}
             {"\n"}
             {hito.hitoTitulo}
           </Text>
           {hito.tareas.map((tarea) => (
             <View key={`t-${tarea.tareaId}`} style={styles.tareaBlock}>
               <Text style={styles.tareaTitle}>
-                Tarea {tarea.tareaId}
+                Tarea {tarea.tareaOrdinal}
                 {"\n"}
                 {tarea.tareaDescripcion}
               </Text>
-              {tarea.items.map((item) => (
+              {tarea.items.map((item, idx) => (
                 <PreguntaEntregaPdf
                   key={item.row.id}
                   item={item}
-                  numero={numeroPorId.get(item.row.id) ?? 0}
+                  numero={
+                    ptdHitoTareaPorCriterio(item.row.id).criterioOrdinal ??
+                    idx + 1
+                  }
                 />
               ))}
             </View>

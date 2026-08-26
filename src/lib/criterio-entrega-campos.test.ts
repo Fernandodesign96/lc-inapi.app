@@ -4,9 +4,13 @@ import type { CriterionEvaluation } from "../schemas/checklist"
 import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
 import {
   buildSustitucionesPorCriterio,
+  citaNegadaEnNarracion,
   criterioEntregaCampos,
+  esMetaDescripcionEntreParentesis,
+  esPreguntaDeCriterio,
   justificacionCumple,
   resolverTextoEnPantalla,
+  stripEncabezadoCriterioInstrumento,
 } from "./criterio-entrega-campos"
 
 function ev(
@@ -125,6 +129,49 @@ describe("criterioEntregaCampos", () => {
     expect(campos.ubicacionEnPantalla).toMatch(/título principal|Portada/i)
     expect(campos.ubicacionEnPantalla).not.toMatch(/\bH1\b|hero/i)
     expect(campos.ubicacionEnPantalla).not.toMatch(/ubicación exacta no registrada/i)
+  })
+
+  test("no usa la pregunta del criterio como Texto en pantalla (C-2026-08-25d)", () => {
+    expect(
+      esPreguntaDeCriterio(
+        "¿Los signos de puntuación empleados facilitan la lectura del documento?",
+      ),
+    ).toBe(true)
+
+    const stripped = stripEncabezadoCriterioInstrumento(
+      "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. La puntuación de los párrafos institucionales no entorpece la lectura.",
+    )
+    expect(stripped).toBe(
+      "La puntuación de los párrafos institucionales no entorpece la lectura.",
+    )
+    expect(stripped).not.toMatch(/Criterio\s+\d+|Instrumento\s+\d+/i)
+
+    const soloPregunta = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.5-02",
+        estado: "cumple",
+        comentario:
+          "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. La puntuación de los párrafos institucionales y de la lista de Valores no entorpece la lectura.",
+      }),
+    )
+    expect(soloPregunta.textoEnPantalla).toBe("—")
+    expect(soloPregunta.textoEnPantalla).not.toMatch(/signos de puntuaci[oó]n/i)
+    expect(soloPregunta.justificacion).not.toMatch(/^Criterio\s+\d+/i)
+    expect(soloPregunta.justificacion).toMatch(/p[aá]rrafos institucionales/i)
+    expect(soloPregunta.ubicacionEnPantalla).not.toMatch(/signos de puntuaci[oó]n/i)
+    expect(soloPregunta.correccionPropuesta).toBe("—")
+
+    const conLiteralReal = criterioEntregaCampos(
+      ev({
+        id: "LC-1.1.5-02",
+        estado: "cumple",
+        comentario:
+          "Criterio 14: «¿Los signos de puntuación empleados facilitan la lectura del documento?» — Instrumento 5: Redacción y ortografía. Las tarjetas de «Para Informarse» usan puntuación simple.",
+      }),
+    )
+    expect(conLiteralReal.textoEnPantalla).toBe("Para Informarse")
+    expect(conLiteralReal.justificacion).toMatch(/Para Informarse/)
+    expect(conLiteralReal.justificacion).not.toMatch(/^Criterio\s+\d+/i)
   })
 
   test("con texto infiere ubicación desde narración o usa explícita", () => {
@@ -296,5 +343,92 @@ describe("buildSustitucionesPorCriterio", () => {
     expect(map.get("LC-1.1.3-03")).toHaveLength(1)
     expect(map.get("LC-1.2.2-04")).toHaveLength(1)
     expect(map.get("LC-1.2.3-03")?.[0]?.original).toBe("tres etapas…")
+  })
+})
+
+describe("C-2026-08-25k citas negadas y meta parentética", () => {
+  test("citaNegadaEnNarracion detecta «en construcción» negada", () => {
+    const n =
+      "La página tiene contenido completo; no hay señales de página vacía ni de «en construcción»."
+    expect(citaNegadaEnNarracion(n, "en construcción")).toBe(true)
+    expect(citaNegadaEnNarracion("Hay un aviso «en construcción» aquí.", "en construcción")).toBe(
+      false,
+    )
+  })
+
+  test("cumple no vuelca cita negada a Texto; usa cita_textual positiva", () => {
+    expect(
+      resolverTextoEnPantalla(
+        ev({
+          id: "LC-1.1.2-02",
+          estado: "cumple",
+          comentario:
+            "Contenido completo; no hay señales de página vacía ni de «en construcción».",
+        }),
+      ),
+    ).toBe("—")
+
+    expect(
+      resolverTextoEnPantalla(
+        ev({
+          id: "LC-1.1.2-02",
+          estado: "cumple",
+          comentario:
+            "Contenido completo; no hay señales de página vacía ni de «en construcción».",
+          cita_textual: "INAPI realizó su Cuenta Pública Participativa 2026",
+        }),
+      ),
+    ).toBe("INAPI realizó su Cuenta Pública Participativa 2026")
+  })
+
+  test("meta entre paréntesis no es Texto; cae a literales de cita", () => {
+    expect(esMetaDescripcionEntreParentesis("(once párrafos de texto corrido)")).toBe(
+      true,
+    )
+    expect(esMetaDescripcionEntreParentesis("(ausencia)")).toBe(false)
+
+    const sust: ClaudeSustitucion = {
+      original: "(once párrafos de texto corrido sin subtítulos internos ni listas)",
+      propuesto: "Agregar subtítulos.",
+      criterio_id: "LC-1.2.4-03",
+      motivo: "Sin subtítulos internos.",
+      linea: "S15",
+    }
+    expect(
+      resolverTextoEnPantalla(
+        ev({
+          id: "LC-1.2.4-03",
+          estado: "incumple",
+          severidad: "media",
+          comentario: "Sin subtítulos internos.",
+          cita_textual:
+            "En ese contexto, relevó avances en eficiencia institucional…",
+        }),
+        sust,
+      ),
+    ).toBe("En ese contexto, relevó avances en eficiencia institucional…")
+  })
+
+  test("no duplica motivo y comentario casi iguales en justificación", () => {
+    const sust: ClaudeSustitucion = {
+      original: "Párrafo de ejemplo",
+      propuesto: "Agregar subtítulos.",
+      criterio_id: "LC-1.2.4-03",
+      motivo:
+        "El cuerpo son once párrafos de texto corrido sin subtítulos internos.",
+      linea: "S15",
+    }
+    const campos = criterioEntregaCampos(
+      ev({
+        id: "LC-1.2.4-03",
+        estado: "incumple",
+        severidad: "media",
+        comentario:
+          "El cuerpo son once párrafos de texto corrido sin subtítulos internos, listas ni negrita.",
+      }),
+      sust,
+    )
+    const occurrences = campos.justificacion.split("El cuerpo son once").length - 1
+    expect(occurrences).toBe(1)
   })
 })

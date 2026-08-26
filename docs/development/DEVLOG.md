@@ -8,6 +8,25 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-26 | [Orquestación: cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a (SIAC 54,3 %)](#devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a) |
+| 2026-08-26 | [Calibración C-2026-08-26a — no repetir correcciones entre criterios](#devlog-2026-08-26-calibracion-26a-no-repetir) |
+| 2026-08-25 | [Infraestructura: Formulario Contacto SIAC tramites.inapi.cl — reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10](#devlog-2026-08-25-siac-reaudit-v30-cierre-muestra) |
+| 2026-08-25 | [Infraestructura: Noticia — Cifra histórica de patentes nacionales www.inapi.cl — auditoría v3.0 completa, rechazado 65,0 % — cierre serie](#devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30) |
+| 2026-08-25 | [Calibración C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL](#devlog-2026-08-25-calibracion-25l-escaneo-negritas) |
+| 2026-08-25 | [Calibración C-2026-08-25k — citas negadas y meta parentética en entrega](#devlog-2026-08-25-calibracion-25k-citas-negadas) |
+| 2026-08-25 | [Infraestructura: Noticia — Cuenta Pública Participativa 2026 www.inapi.cl — auditoría v3.0 completa, rechazado 59,0 %](#devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30) |
+| 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
+| 2026-08-25 | [Infraestructura: Solicitud Nueva (Marcas) tramites.inapi.cl — reauditoría v3.0 completa, rechazado 71,4 %](#devlog-2026-08-25-solicitud-nueva-reaudit-v30) |
+| 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie](#devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos) |
+| 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos) |
+| 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 69,8 %](#devlog-2026-08-25-patentes-reaudit-criterio-45-rotulos) |
+| 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 71,4 %](#devlog-2026-08-25-marcas-reaudit-criterio-45-rotulos) |
+| 2026-08-25 | [Infraestructura: Portada www.inapi.cl — reauditoría criterio 45 (rótulos/CTA), rechazado 76,9 %](#devlog-2026-08-25-portada-reaudit-criterio-45-rotulos) |
+| 2026-08-25 | [Infraestructura: Buscador de noticias www.inapi.cl — reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 73,3 %](#devlog-2026-08-25-buscador-noticias-reaudit-v30-sin-nomenclatura) |
+| 2026-08-25 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 78,9 %](#devlog-2026-08-25-portada-reaudit-v30-sin-nomenclatura) |
+| 2026-08-25 | [Infraestructura: Acerca de INAPI www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 68,3 %](#devlog-2026-08-25-acerca-de-inapi-reaudit-v30) |
+| 2026-08-25 | [Infraestructura: Patentes www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 71,4 %](#devlog-2026-08-25-patentes-reaudit-v30) |
+| 2026-08-25 | [Infraestructura: Marcas www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 73,2 %](#devlog-2026-08-25-marcas-reaudit-v30) |
 | 2026-08-24 | [Frontend: entrega resultado v3.0 — resumen por hito, filtros y PDF alineados](#devlog-2026-08-24-entrega-resultado-v30) |
 | 2026-08-22 | [Infraestructura: Portada www.inapi.cl — reauditoría v3.0 (51 LC-*), rechazado 78,9 %](#devlog-2026-08-22-portada-reaudit-v30) |
 | 2026-08-21 | [Orquestación: títulos/jerga (Observancia) + texto con apoyos vs IA](#devlog-2026-08-21-titulos-jerga-ia) |
@@ -91,6 +110,472 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a"></a>
+## [2026-08-26] - Orquestación | Cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Cerrar la oleada de reauditoría de las diez URLs de la muestra de evaluación institucional en checklist PTD-LC v3.0, dejando documentada la calibración que evita clonar correcciones entre criterios (revisión manual del Formulario Contacto SIAC, criterios 12/13/15) y alinear roadmap/DEVLOG antes del commit y PR a `main`.
+
+### Implementación técnica:
+
+- Calibración **C-2026-08-26a** en Prompt 6, Prompt 5, skills 02/05 y gate CLAUDE.md §22.12: al avanzar al criterio N se releen hallazgos 1…N−1; propuesto/justificación complementarios o agrupación §20.3 solo si el propuesto es idéntico.
+- Consistencia en SIAC (`tramites-inapi-cl-siac_2026-08-25`): criterio 12 = datos clave; 13 = seguimiento + confirmación + placeholders; 15 = bloque de preguntas frecuentes + secuencia de ventanas (sin `agrupado_en` el 13). Porcentaje vigente **54,3 %** (`rechazado`); launch actualizado.
+- Roadmap Fase 4: marcado el ítem de reauditoría META MEI 10 URLs a v3.0; Excel MEI regenerado queda pendiente; muestra oro §22+§23 sigue abierta.
+
+### Próximos pasos:
+
+- `lint` / `typecheck:all` / `build`, commit, PR y merge a `main`.
+- Regenerar Excel MEI institucional con los JSON `…_2026-08-25` vigentes.
+
+---
+
+<a id="devlog-2026-08-25-siac-reaudit-v30-cierre-muestra"></a>
+## [2026-08-25] - Infraestructura | Formulario Contacto SIAC: reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Última URL de la muestra de evaluación institucional en curso (orden 10 de 10, la única de tipo trámites/servicios digitales): reauditar el Formulario Contacto SIAC (`https://tramites.inapi.cl/siac`) con captura propia y las calibraciones vigentes hasta C-2026-08-25l.
+
+### Implementación técnica:
+
+- Captura con navegación automatizada, sin sesión iniciada; cerrado el aviso «¡Atención! — debe iniciar sesión» sin iniciar sesión. No se envió el formulario con datos reales; el contenido del mensaje de confirmación se verificó por inspección del documento (oculto por defecto), sin reenviar.
+- Novedad frente a la captura del 2026-08-22: apareció un aviso operativo de mantenimiento programado que no existía antes. Aportó evidencia nueva en ambos sentidos — separación de párrafos, alineación a la izquierda y negrita en el dato clave (cumple en tres preguntas que antes no aplicaban por falta de texto), pero también un anglicismo sin traducir y una redacción centrada en la prohibición (dos hallazgos nuevos de severidad baja).
+- 51 preguntas reevaluadas desde cero (análisis textual ascendente + 15 indicadores + 5 pasadas de entrega), sin copiar estados del JSON anterior. Se confirmó de nuevo, con una consulta al documento, que no existe ningún encabezado semántico en toda la página.
+- Diez preguntas exclusivas del instrumento de sitios web informativos quedaron `no_aplica` por exclusión estructural del catálogo; las variantes propias de servicios digitales/trámites se evaluaron con evidencia real, incluida la de rótulos y botones descriptivos.
+- Ausencia total de fecha de actualización corregida a severidad alta (antes baja en la auditoría del 2026-08-22), siguiendo la calibración vigente sobre ausencia total.
+- Resultado: 57,1 % de cumplimiento (20 de 35 preguntas aplicables), estado `rechazado`; 16 preguntas no aplican. Baja frente al 58,1 % del 2026-08-22 por el ajuste de severidad de la fecha ausente y los dos hallazgos nuevos del aviso de mantenimiento, compensados parcialmente por las preguntas de espaciado, alineación, cantidad de párrafos y negrita que pasaron a `cumple` gracias al nuevo aviso.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `tramites-inapi-cl-siac_2026-08-25`, historial con las tres auditorías previas más la del 2026-08-22) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 10 apunta al id vigente).
+
+### Próximos pasos:
+
+- Serie de 10 URLs cerrada en captura; consistencia criterios 12/13/15 y calibración C-2026-08-26a → ver entrada 2026-08-26 (54,3 %).
+
+---
+
+<a id="devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Noticia — Cifra histórica de patentes nacionales: auditoría v3.0 completa, rechazado 65,0 % — cierre serie
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Última URL de la muestra de evaluación institucional en curso (orden 9 de 9): reauditar la noticia «Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década» con captura propia y las calibraciones vigentes hasta C-2026-08-25k.
+
+### Implementación técnica:
+
+- Captura con navegación automatizada: cuerpo editorial de nueve párrafos idéntico al de la auditoría del 2026-08-22; verificado con estilos computados que sigue justificado, con 20px de separación y sin negrita en ningún párrafo.
+- 51 criterios reevaluados desde cero (Paso D0 texto ascendente + 15 indicadores + 5 pasadas de entrega), sin copiar estados previos.
+- Aplicadas las reglas duras de entrega: sin identificadores de inventario, sin la pregunta del criterio como texto en pantalla, sin códigos de criterio sueltos en los campos CMS, severidad alta cuando la ausencia es total, rótulos/CTA (criterio de enlaces descriptivos) evaluado con evidencia real («Conoce más» del menú, ambiguo), criterio de datos clave evaluado sin excluirlo por «no ser trámite», criterio de preguntas frecuentes evaluado en lenguaje ciudadano, negritas ausentes en los nueve párrafos marcadas como No cumple con literales reales, sin citas negadas ni meta-descripciones entre paréntesis.
+- Resultado: 65,0 % de cumplimiento (26 de 40 criterios aplicables), estado `rechazado`; 11 criterios no aplican. Baja frente al 66,7 % del 2026-08-22 porque el criterio de rótulos/CTA ahora se evalúa siempre (antes `no_aplica`) y la ausencia total de negrita subió a prioridad alta.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `_2026-08-25`, historial con las cuatro auditorías previas) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 9 apunta al id vigente).
+
+### Próximos pasos:
+
+- Serie de 9 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25k.
+
+---
+
+<a id="devlog-2026-08-26-calibracion-26a-no-repetir"></a>
+## [2026-08-26] - Calibración | C-2026-08-26a — no repetir correcciones entre criterios
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión URL 10 SIAC: criterios 12/13/15 clonaban intro, modal y justificaciones; el 15 estaba agrupado al 13.
+
+### Implementación técnica:
+
+- JSON SIAC: 12 = datos clave; 13 = seguimiento + confirmación + placeholders; 15 = bloque FAQ + secuencia de ventanas (sin clonar 13 ni subtítulos del 37/38). % 54,3 %.
+- Prompt 6 **C-2026-08-26a**, Prompt 5, skills 02/05, gate CLAUDE.md §22.12.
+
+### Próximos pasos:
+
+- Serie META MEI 1…10 cerrada en contenido; commits de consistencia si quedan pendientes.
+
+---
+
+<a id="devlog-2026-08-25-calibracion-25l-escaneo-negritas"></a>
+## [2026-08-25] - Calibración | C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión URL 9 (cifra patentes): el criterio 38 arrastraba correcciones de negrita del 39; el 39 duplicaba el mismo párrafo; el 48 citaba un `alt` de biofiltro no usable como Texto en pantalla.
+
+### Implementación técnica:
+
+- URL 9: 38 primario con propuesto de subtítulos/listas/recuadro (sin negrita); 39 con tres filas en párrafos distintos; 48 Cumple justificado con gráficos intercalados; % 62,5 % tras desagrupar.
+- URL 8: comentario/motivo del 38 sin mezclar negrita.
+- Prompt 6 **C-2026-08-25l**, Prompt 5, skills 02/05, gate CLAUDE.md.
+
+### Próximos pasos:
+
+- Continuar META MEI orden 10 (SIAC) con calibraciones hasta 25l.
+
+---
+
+<a id="devlog-2026-08-25-calibracion-25k-citas-negadas"></a>
+## [2026-08-25] - Calibración | C-2026-08-25k — citas negadas y meta parentética en entrega
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión manual de URL 8 (Cuenta Pública): criterio 11 mostraba Texto `en construcción` pese a justificación que negaba ese texto; criterio 38 usaba Texto `(once párrafos…)` en lugar de literales del cuerpo.
+
+### Implementación técnica:
+
+- Capa de entrega (`criterio-entrega-campos.ts`): filtro de citas entre comillas negadas en la narración; rechazo de meta-descripciones entre paréntesis como Texto/original; deduplicación de motivo≈comentario en justificación.
+- JSON URL 8: `cita_textual` positiva en criterio 11; literales reales en criterio 38 y en originales de extensión/escaneo; propuesto sin «(por ejemplo …)».
+- Consistencia: Acerca (`LC-1.2.1-01` original), Patentes (`LC-1.1.3-04` sin paréntesis meta).
+- Documentación: Prompt 6 **C-2026-08-25k**, Prompt 5, skills 02/05, gate CLAUDE.md §22.12.
+
+### Próximos pasos:
+
+- Auditar META MEI orden 9 (noticia cifra patentes) con calibraciones hasta 25k.
+
+---
+
+<a id="devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Noticia — Cuenta Pública Participativa 2026: auditoría v3.0 completa, rechazado 59,0 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Auditoría completa (Prompt 5, orden 8 de la serie META MEI, primera de dos noticias de detalle) de `https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial`, sustituyendo el JSON del 2026-08-22 (que quedaba en `history[]` junto con los del 2026-08-20, 2026-08-18 y 2026-07-29). Se aplicó todo el conjunto de calibraciones vivas en `06-calibracion-hallazgos.md`, incluida la nueva `C-2026-08-25j` (negritas ausentes = No cumple, sin explicaciones entre paréntesis mezcladas con literales en los cuatro campos CMS).
+
+### Implementación técnica:
+
+- Antes de auditar la URL nueva se cerró trabajo pendiente de una sesión previa (§5.1): se commiteó la documentación de `C-2026-08-25j` en `06-calibracion-hallazgos.md`/CLAUDE.md/Prompt 5/skills 02 y 05, el filtro de paréntesis explicativos en `criterio-entrega-campos.ts` (con test) y la aplicación retroactiva de esa calibración a las auditorías ya cerradas de Acerca de INAPI y Sala de Prensa — Noticias (criterio 39 pasa a severidad alta con el literal completo del párrafo, sin `(sin negrita…)`).
+- Nueva captura Playwright del DOM renderizado de la página (panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto documentados como componentes de layout compartido). HTML guardado en `auditorias/htmls/www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25.html`.
+- El encabezado más visible de la página, antes del título de la noticia, es la etiqueta genérica de plantilla «Detalle» (H1 real), no el título propio del artículo (que aparece después, en un encabezado menor): incumple completitud (título↔contenido), patrón de plantilla de todas las noticias de detalle.
+- El primer párrafo del cuerpo comienza con minúscula y sin sujeto propio («la Casa Central de la…»), evidenciando que falta su cláusula inicial (probablemente la fecha y el lugar exactos del evento): incumple redacción y gramática con severidad alta, y deja además sin resolver el dato «cuándo» del criterio de datos clave (agrupado).
+- Ninguno de los once párrafos del cuerpo destaca en negrita sus palabras o cifras clave: incumple severidad alta (`C-2026-08-25j`), con tres filas de `sustituciones[]` que citan literales completos de tres párrafos distintos (nunca `(sin negrita…)`).
+- El cuerpo tiene once párrafos (máximo recomendado: ocho), el bloque de texto está alineado en formato justificado —verificado con `getComputedStyle` (`text-align: justify`)— en vez de a la izquierda, y varios párrafos concentran varios datos o compromisos distintos en una sola oración larga (evidencia de concisión y de posibilidad de convertir una enumeración en lista).
+- Se repiten en esta página patrones ya documentados en otras URLs de esta sesión: el botón «LINK EXTERNO» del panel de acceso sin destino real, el enlace «Conoce más» del menú global sin indicar de qué trata, la sigla PCT sin definir en el menú (y, de forma propia de esta noticia, también sin definir en el cuerpo del artículo), mayúscula sostenida en la ventana «Buscar y tramitar», y la capitalización incorrecta de «industrial» en el nombre de la institución en el pie de página.
+- Hallazgo fuera del checklist LC, documentado solo en `nota_final_tic`: la primera imagen del carrusel de la noticia tiene alt/título «Portada de las Directrices de Marcas 2026», contenido no relacionado con este artículo.
+- Recuento: 39 criterios aplicables (23 cumple, 16 incumple: 2 alta, 10 media, 4 baja), 12 `no_aplica` con justificación propia → 59,0 % → `rechazado`. Cobertura 1:1 verificada por script (16 criterios incumplidos, 23 filas de `sustituciones[]`, sin filas huérfanas). Escaneo automatizado sin `Tnnn`, `applicability`, `LC-*`, siglas sueltas ni Prompt/§N en los campos de entrega.
+- JSON nuevo en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores, 83 auditorías alineadas).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` — `claudeAuditId` vigente actualizado al id del 2026-08-25, `resumenMvp` recalculado, id del 2026-08-22 movido a `history[]` junto con 2026-08-20, 2026-08-18 y 2026-07-29. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 8) — `auditId` actualizado al id vigente.
+
+### Próximos pasos:
+
+- Continuar la serie META MEI con la segunda noticia de detalle (orden 9) bajo el mismo rigor de calibración.
+
+---
+
+<a id="devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Sala de Prensa — Noticias: reauditoría v3.0 completa, rechazado 73,7 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditoría completa (Prompt 5, orden 7 de la serie META MEI) de `https://www.inapi.cl/sala-de-prensa/noticias`, sustituyendo el JSON vigente del 2026-08-22. Se aplicaron con rigor las calibraciones vivas que aún no se habían aplicado a esta URL: `C-2026-08-25c` (el criterio 42, rótulos y CTA descriptivos, se evalúa siempre, no se marca `no_aplica` por «es informativa»), `C-2026-08-25e` (el criterio 4, datos clave, aplica a contenido informativo, no solo a trámites) y `C-2026-08-25h` (lenguaje ciudadano sin nomenclatura interna en la entrega; distinguir la fecha de la página de listado en sí de la fecha de cada noticia individual).
+
+### Implementación técnica:
+
+- Nueva captura Playwright del DOM renderizado de la página (listado de tres tarjetas de noticia, panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto, todos documentados como componentes de layout compartido con otras URLs de esta sesión). HTML guardado en `auditorias/htmls/www-inapi-cl-sala-de-prensa-noticias_2026-08-25.html`.
+- El contenido editorial propio de la página (tres noticias, títulos, fechas y extractos) es equivalente al de la captura del 2026-08-22; el cambio de puntaje viene de aplicar con más rigor las calibraciones vigentes, no de un cambio en el sitio.
+- El criterio 12 (`LC-1.1.4-01`, fecha de actualización) pasa de `cumple` a `incumple` severidad alta: la revisión anterior había aceptado la fecha de cada noticia individual como si fuera la fecha de actualización de la página de listado; al distinguir ambas cosas, la página de listado en sí no muestra ninguna fecha propia de publicación ni de revisión.
+- El criterio 42 (`LC-5.2.4-01`, rótulos/CTA) pasa de `no_aplica` a `incumple` severidad media, con la misma evidencia de patrón de sitio ya documentada en otras URLs de esta sesión («Conoce más» del menú global y «LINK EXTERNO» del panel de acceso).
+- El criterio 15 (`LC-5.2.1-01`, claridad de servicio digital / preguntas frecuentes) se mantiene en `no_aplica`, ahora con la justificación ciudadana estándar («No se encontraron elementos visuales ni texto que haga referencia a preguntas frecuentes...») en vez de mencionar `applicability` o siglas sueltas.
+- El criterio 4 (`LC-1.1.2-03`, datos clave) se mantiene en `incumple`, ahora severidad media (no alta, porque hay cumplimiento parcial vía título+fecha+extracto de cada tarjeta, salvo el extracto de la tercera tarjeta, que además incumple lenguaje plano).
+- Entrega revisada para no usar `Tnnn`, `applicability`, siglas sueltas ni la pregunta del criterio como «Texto en pantalla»: todas las citas son literales de la página o descripciones de ausencia.
+- Resultado: 73,7 % de cumplimiento (28 de 38 criterios aplicables), calificación RECHAZADO. 13 criterios no aplican (listado de noticias sin trámites, listados de personas con RUN ni contenidos sensibles).
+- Cableado frontend actualizado: `frontend/src/lib/claude-audits-launch.ts` (pilotoNum 7, `claudeAuditId` vigente = `www-inapi-cl-sala-de-prensa-noticias_2026-08-25`, historial ampliado con el id del 2026-08-22) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 7 → mismo id vigente).
+- `bun run validate:claude-audits` pasa sin errores (82 auditorías alineadas con los archivos de lanzamiento).
+
+### Próximos pasos:
+
+- Continuar la serie META MEI con las órdenes siguientes (detalle de noticias) bajo el mismo rigor de calibración.
+
+---
+
+<a id="devlog-2026-08-25-solicitud-nueva-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Solicitud Nueva (Marcas): reauditoría v3.0 completa, rechazado 71,4 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditoría completa (Prompt 5, orden 6 de la serie META MEI) de `https://www.inapi.cl/marcas/tramites/solicitud-nueva`, sustituyendo el JSON vigente del 2026-08-22. Se aplicó con rigor el conjunto de calibraciones vivas en `06-calibracion-hallazgos.md` que aún no se habían aplicado a esta URL: `C-2026-08-25c` (el criterio 45, rótulos y CTA descriptivos, aplica a todas las URLs — ya no queda `no_aplica` por «es un panel de accesos, no un servicio digital»), `C-2026-08-25e` (el criterio 4, datos clave, no se marca `no_aplica` con la excusa «no es trámite» cuando la URL sí es información de un trámite), `C-2026-08-25f` (fecha de actualización ausente = severidad alta) y `C-2026-08-25g` (ausencia total de texto que cumpla un requisito = severidad alta, nunca media).
+
+### Implementación técnica:
+
+- Nueva captura Playwright del DOM renderizado de la página (panel de acceso/registro, ventana «Buscar y tramitar» y ventana de contacto verificados con 1 clic; pesos de los 3 documentos del carrusel del pie reverificados hoy vía cabecera HTTP `Content-Length`: 293 KB, 3,3 MB y 590 KB). HTML guardado en `auditorias/htmls/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25.html`.
+- El contenido de la página es equivalente al de la captura del 2026-08-22 (sin cambios editoriales en el sitio); el cambio de puntaje viene de aplicar las calibraciones más recientes, no de un cambio en el sitio.
+- Análisis textual ascendente (Paso D0): confirma que «Publicación en el Diario Oficial», «Pizarra de Pagos» y «Presentación de Escritos» siguen sin definirse, y que no existe ningún párrafo ni recuadro entre el submenú de pestañas y las cinco tarjetas de acción.
+- El criterio 45 (`LC-5.2.4-01`) pasa de `no_aplica` a `incumple` severidad media, con evidencia propia de esta página («Conoce más» del menú global y «LINK EXTERNO» del panel de acceso, ambos componentes compartidos).
+- Los criterios 4 y 5 (`LC-1.1.2-03`/`LC-1.1.2-04`) se mantienen en `incumple` severidad alta (ya lo estaban en la versión anterior), reforzando en el comentario que la ausencia es total y que el criterio 4 sí corresponde evaluarlo en esta URL por ser información de un trámite, no una excepción.
+- El criterio 12 (`LC-1.1.4-01`, fecha) se mantiene en `incumple` pero sube de severidad media a alta, siguiendo `C-2026-08-25f`.
+- Entrega reescrita en su totalidad con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre` en `comentario`, y sin códigos `LC-*`, `Tnnn` ni referencias de orquestación en `ubicacion_pantalla`, `original`, `propuesto` ni `motivo` de `sustituciones[]` (`C-2026-08-25b`/`d`).
+- Recuento (`summarizeEvaluations`: numerador = cumple + agrupados): 16 `no_aplica`, 35 aplicables, 25 aprobados (23 cumple + 2 agrupados) → 71,4 % → `rechazado` (antes 73,5 %, también `rechazado`).
+- JSON nuevo en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #6) — `claudeAuditId` actualizado a la auditoría del 2026-08-25, `resumenMvp` recalculado y el id del 2026-08-22 movido a `history[]` (junto con 2026-08-20, 2026-08-18 y 2026-06-07, que ya estaban ahí). `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 6) — `auditId` actualizado al id vigente.
+- Las entradas de calibración `C-2026-08-25d`, `C-2026-08-25e`, `C-2026-08-25f` y `C-2026-08-25g` ya existían en `06-calibracion-hallazgos.md` (creadas en una sesión previa de esta misma rama); no fue necesario crearlas de nuevo, solo aplicarlas.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; queda cerrada en la serie META MEI orden 6.
+
+---
+
+<a id="devlog-2026-08-25-buscador-noticias-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Buscador de noticias www.inapi.cl: reauditoría criterio 45 (rótulos/CTA), rechazado 71,0 % — cierre serie
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Quinta y última URL de la ronda de reauditorías por rótulos/CTA de esta sesión (tras Portada, Marcas, Patentes y Acerca de INAPI). Segunda pasada sobre la reauditoría del Buscador de noticias del día (id `www-inapi-cl-buscador-noticias_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «esta URL es sitio informativo, no un servicio digital ni un trámite; esta variante del criterio no corresponde aquí». Esa justificación es inválida bajo la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`) — mismo patrón ya corregido en las otras cuatro URLs de esta serie.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0`, con la ventana emergente de búsqueda del sitio, el recuadro de acceso/registro y la ventana de contacto abiertas para inventariar todos los rótulos y CTA; HTML sobrescrito en `auditorias/htmls/www-inapi-cl-buscador-noticias_2026-08-25.html`.
+- Inventario de enlaces con `href`: se confirmaron los mismos dos rótulos genéricos ya vistos en las otras URLs de esta serie, ambos de componentes compartidos con el resto del sitio: el enlace «Conoce más» del menú de navegación global (lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del recuadro de acceso/registro (`href="#"`, sin destino real configurado, confirmado en el DOM actual). El resto de los enlaces y botones propios de esta pantalla sí describen su acción o destino: los cinco títulos de resultado de la lista de búsqueda y los enlaces de la ventana de búsqueda del sitio («Buscar en base de datos», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos», «Clasificador de productos y servicios»).
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); la fila del menú de navegación queda `patron_sistema: true` y la del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- Resto de los 51 criterios reevaluados contra el DOM actual: sin cambios respecto a la revisión previa del mismo día (título principal genérico «Buscador» sin el término buscado ni conteo de resultados, extracto de cada resultado con `display: none` confirmado por script, dos de los cinco resultados poco relevantes, sigla PCT sin definir en el menú, error tipográfico en el nombre institucional del pie, voz pasiva en la ventana de contacto, mayúsculas sostenidas en la ventana de búsqueda del sitio).
+- Recuento: `criterios_no_aplica` 21→20, `criterios_aplicables` 30→31, `criterios_aprobados` se mantiene en 22 → 71,0 % (antes 73,3 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-buscador-noticias_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #5) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 73.3 a 71.0. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 5) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL. Con esta pasada se cierra la ronda de reauditorías por rótulos/CTA de las cinco URLs META MEI de esta sesión.
+
+---
+
+<a id="devlog-2026-08-25-acerca-de-inapi-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Acerca de INAPI www.inapi.cl: reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 66,7 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda pasada sobre la reauditoría de «Acerca de INAPI» del día (id `www-inapi-cl-acerca-de-inapi_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «página sitioweb institucional, no un servicio digital ni un trámite». Esa justificación quedó prohibida por la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`). Además, la versión anterior de esta URL todavía no tenía aplicado el encabezado canónico de entrega («Criterio N: «pregunta» — Instrumento M: Nombre») exigido por `C-2026-08-25b`; se aprovechó esta pasada para reescribir los 51 comentarios con ese formato y sin códigos `LC-*` en los campos de entrega.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/acerca-de/inapi` (HTML renderizado + inventario completo de enlaces con `href`); el contenido coincide con el HTML ya versionado en `auditorias/htmls/www-inapi-cl-acerca-de-inapi_2026-08-25.html` de la pasada anterior de esta misma sesión, así que no requirió sobrescritura.
+- Inventario de los 75 enlaces y 2 botones de la página: se confirmaron los mismos dos rótulos genéricos compartidos con Portada/Marcas/Patentes que no describen su destino: el enlace «Conoce más» del menú de navegación global (lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del panel de acceso y registro (`href="#"`, sin destino real configurado). El resto de enlaces propios de la página (submenú de la sección, panel de búsqueda «Buscar y tramitar», pie de página) ya son descriptivos.
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); la del menú de navegación queda `patron_sistema: true`. La fila del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- Se reescribieron los `comentario` de los 51 criterios con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre`, y se reescribieron `resumen_ejecutivo`, `observaciones_lc_por_severidad` y `nota_final_tic` en lenguaje CMS, referenciando criterios por número (1…51) en vez de códigos `LC-*`.
+- Resto del contenido reevaluado contra el DOM actual: equivalente a la revisión previa del mismo día (mismo error de concordancia en «Valores Institucionales», mismas oraciones largas en Visión/Misión, mismos documentos del pie sin formato/peso/descripción, misma alineación justificada).
+- Recuento (fórmula `summarizeEvaluations`: numerador = cumple + agrupados): `criterios_no_aplica` 10→9, `criterios_aplicables` 41→42, `criterios_aprobados` se mantiene en 28 → 66,7 % (antes 68,3 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-acerca-de-inapi_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #4) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 68.3 a 66.7. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 4) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; el resto de URLs META MEI de esta sesión (Patentes, Portada, Buscador de noticias) ya se revisaron en pasadas equivalentes.
+
+---
+
+<a id="devlog-2026-08-25-patentes-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Patentes www.inapi.cl: reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 69,8 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda pasada sobre la reauditoría de Patentes del día (id `www-inapi-cl-patentes_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «esta URL es informativa, no un servicio digital ni un trámite; la variante de rótulos descriptivos para servicios digitales no corresponde aquí». Esa justificación es inválida bajo la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`) — es el mismo patrón ya corregido en Portada y Marcas esta misma sesión. Se aprovechó la pasada para reevaluar todo el DOM actual y reescribir la entrega completa con el encabezado canónico de `C-2026-08-25b`.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/patentes` (HTML renderizado + inventario completo de enlaces/botones con `href`), sobrescribiendo `auditorias/htmls/www-inapi-cl-patentes_2026-08-25.html`. Contenido, estructura y pesos de los 11 documentos PDF (verificados de nuevo por tamaño real del archivo) resultaron equivalentes a la captura anterior del mismo día.
+- Inventario de todos los textos de enlace/botón de la página: se detectaron dos rótulos genéricos que no describen su destino: el enlace «Conoce más» del menú de navegación global (componente compartido, lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del panel de acceso y registro (`href="#"`, sin destino real configurado). El resto de enlaces propios de la página (buscadores, trámites, guías, documentos) ya son descriptivos («Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea», «Presentación de escritos»).
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); ambas quedan `patron_sistema: true` por ser componentes compartidos del sitio. La fila del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- De paso se corrigió un vacío detectado en la versión anterior: el criterio 6 (Legible, sin medición documentada) no tenía fila de cobertura en `sustituciones[]` pese a estar `incumple`; se agregó una fila con instrucción de reescritura y de verificación con herramienta de lectura fácil.
+- Se reescribieron los `comentario` de los 51 criterios con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre`, y se reescribieron `resumen_ejecutivo`, `observaciones_lc_por_severidad` y `nota_final_tic` en lenguaje CMS, referenciando criterios por número (1…51) en vez de códigos `LC-*`; se verificó por script que ningún campo de entrega humana contiene `LC-*`, `Tnnn`, `§N`, `C-YYYY-…` u otra nomenclatura interna.
+- Recuento (fórmula `summarizeEvaluations`: numerador = cumple + agrupados): `criterios_no_aplica` 9→8, `criterios_aplicables` 42→43, `criterios_aprobados` se mantiene en 30 → 69,8 % (antes 71,4 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-patentes_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto Patentes) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 71.4 a 69.8. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 3) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; queda cerrada en la serie META MEI orden 3.
+
+---
+
+<a id="devlog-2026-08-25-marcas-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Marcas www.inapi.cl: reauditoría criterio 45 (rótulos/CTA) + encabezado canónico, rechazado 71,4 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda pasada sobre la reauditoría de Marcas del día (id `www-inapi-cl-marcas_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «página informativa, no un servicio digital ni un trámite». Esa justificación quedó prohibida por la calibración `C-2026-08-25c` (el criterio aplica en sitioweb y en trámites, `applicability: "ambos"`). Además, la versión anterior de esta URL todavía no tenía aplicado el encabezado canónico de entrega («Criterio N: «pregunta» — Instrumento M: Nombre») exigido por `C-2026-08-25b`; se aprovechó esta pasada para reescribir los 51 comentarios con ese formato y sin códigos `LC-*` en los campos de entrega.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/marcas` (HTML renderizado + inventario completo de enlaces con `href`), sobrescribiendo `auditorias/htmls/www-inapi-cl-marcas_2026-08-25.html`.
+- Inventario de todos los textos de enlace de la página: se detectaron dos rótulos genéricos que no describen su destino: el enlace «Conoce más» del menú de navegación global (componente compartido, lleva a `/propiedad-intelectual-e-industrial`) y el botón «LINK EXTERNO» del panel de acceso y registro (`href="#"`, sin destino real configurado). El resto de enlaces propios de la página (buscadores, trámites, documentos) ya son descriptivos.
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con dos filas nuevas en `sustituciones[]` (una por nodo, regla de multi-corrección `C-2026-08-22`); la del menú de navegación queda `patron_sistema: true`. La fila del botón «LINK EXTERNO» queda relacionada con el criterio 43 (mayúsculas sostenidas), que ya lo señalaba por otro motivo.
+- Se reescribieron los `comentario` de los 51 criterios con el encabezado canónico `Criterio N: «pregunta» — Instrumento M: Nombre`, y se reescribieron `resumen_ejecutivo`, `observaciones_lc_por_severidad` y `nota_final_tic` en lenguaje CMS, referenciando criterios por número (1…51) en vez de códigos `LC-*`.
+- Contenido reevaluado contra el DOM actual: equivalente a la revisión previa del mismo día (misma jerga sin definir en «Trámites», mismos títulos genéricos «Para Informarse»/«Buscadores», mismos documentos del pie sin formato/peso/descripción).
+- Recuento (fórmula `summarizeEvaluations`: numerador = cumple + agrupados): `criterios_no_aplica` 10→9, `criterios_aplicables` 41→42, `criterios_aprobados` se mantiene en 30 → 71,4 % (antes 73,2 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-marcas_2026-08-25.json`; validado con `bun run validate:claude-audits` (OK, sin errores).
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #3) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 73.2 a 71.4. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 2) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Revisar si Acerca de INAPI y el buscador de noticias (ya reauditados bajo `C-2026-08-25b`/`c` en esta sesión) necesitan la misma pasada de encabezado canónico o si ya la tienen aplicada.
+
+---
+
+<a id="devlog-2026-08-25-portada-reaudit-criterio-45-rotulos"></a>
+## [2026-08-25] - Infraestructura | Portada www.inapi.cl: reauditoría criterio 45 (rótulos/CTA), rechazado 76,9 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda pasada sobre la misma reauditoría de Portada del día (id `www-inapi-cl_2026-08-25`, se sustituye el mismo id, no se crea un id nuevo ni se mueve a `history[]`): corregir específicamente el criterio 45 (`LC-5.2.4-01`, rótulos y llamados a la acción descriptivos), que había quedado en `no_aplica` con la justificación «página informativa, no un servicio digital». Esa justificación quedó prohibida por la nueva entrada de calibración `C-2026-08-25c` en `06-calibracion-hallazgos.md` (y su reflejo en `CLAUDE.md` §2.2/§16/§23.1.1/§23.5): el criterio de rótulos/CTA aplica en sitioweb y en trámites, con `applicability: "ambos"` en el catálogo.
+
+### Implementación técnica:
+
+- Nueva captura Playwright de `https://www.inapi.cl/` (HTML renderizado, snapshot de accesibilidad y apertura de la ventana emergente de contacto), sobrescribiendo `auditorias/htmls/www-inapi-cl_2026-08-25.html`.
+- Inventario de todos los textos de enlaces y botones de la página vía `document.querySelectorAll('a, button')`: se detectaron dos botones «Acceder» con destinos distintos (banner «Plataforma de Datos» → `dps.inapi.cl`; banner «Cuenta Pública 2026» → `/cuenta-publica-2026`) y dos enlaces «Conoce más» con destinos distintos (menú de navegación → `/propiedad-intelectual-e-industrial`; sección «Observancia» → `/protege-tu-idea/pirateria-y-falsificacion`). El resto de enlaces y botones de la portada (buscadores, guías, accesos rápidos, pie de página) ya son descriptivos.
+- El criterio 45 pasa de `no_aplica` a `incumple`, severidad media, con cuatro filas nuevas en `sustituciones[]` (una por rótulo/nodo, según la regla de multi-corrección `C-2026-08-22`); la del menú de navegación queda marcada `patron_sistema: true` por ser componente compartido.
+- Se reevaluaron los 51 criterios contra el DOM actual; el contenido y los pesos de documentos (reverificados vía cabecera HTTP `Content-Length`) son equivalentes a la revisión previa del mismo día, por lo que el resto de los criterios no cambió.
+- Recuento: `criterios_no_aplica` 13→12, `criterios_aplicables` 38→39, `criterios_aprobados` se mantiene en 30 → 76,9 % (antes 78,9 %); sigue `rechazado`.
+- JSON sobrescrito en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) tenía el porcentaje cacheado en `resumenMvp.porcentajeLc`; se actualizó de 78.9 a 76.9. `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) ya apuntaba al id vigente, sin cambios.
+
+### Próximos pasos:
+
+- Revisar si otras URLs ya reauditadas bajo `C-2026-08-25c` (Patentes, Marcas, etc.) tienen el mismo patrón de `no_aplica` indebido en el criterio 45 y corregirlas.
+
+---
+
+<a id="devlog-2026-08-25-buscador-noticias-reaudit-v30-sin-nomenclatura"></a>
+## [2026-08-25] - Infraestructura | Buscador de noticias www.inapi.cl: reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 73,3 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la página de resultados del buscador del sitio (`https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0`, META MEI orden 5, «Página de información interior 2/2») con la misma calibración estricta aplicada a Portada, Marcas, Patentes y Acerca de INAPI en esta sesión: la entrega debe quedar completamente libre de nomenclatura interna, incluidos los códigos `LC-*` e IEW/IESD, siguiendo `C-2026-08-25b`.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre la URL con la consulta «noticias» ya cargada; se abrió la ventana emergente de contacto y se verificó con `page.evaluate` que el párrafo de extracto que trae cada uno de los cinco resultados tiene hoy `display: none` y mide 0 píxeles de alto y ancho, confirmando que sigue sin ser visible para la persona usuaria (mismo hallazgo de fondo que el 2026-08-22, con la causa técnica exacta reverificada).
+- 51 criterios evaluados: 22 cumple, 8 incumple (título genérico del buscador, falta de mensaje de cantidad de resultados y de campo de búsqueda visible, ausencia de fecha, dos resultados poco relevantes, mayúsculas sostenidas en dos componentes compartidos, sigla PCT sin definir, error de mayúscula institucional y voz pasiva en la ventana de contacto), 21 no aplica (página de resultados automáticos sin cuerpo editorial propio, sin documentos descargables y sin datos que requieran apoyos visuales) → 30 aplicables, 73,3 % de cumplimiento → `rechazado` (mismo porcentaje que el 2026-08-22; el contenido y la estructura de la página no cambiaron).
+- Entrega redactada ya bajo `C-2026-08-25b`: cada criterio abre con «Criterio N: «pregunta» — Instrumento M: Nombre» (numeración 1…51, sin códigos `LC-*` ni `1.1.x/5.1.x`); las dos filas de mayúsculas sostenidas (ventana de búsqueda del sitio y botón «LINK EXTERNO» del recuadro de acceso) y las dos filas de resultados poco relevantes (dirección duplicada del inicio y plantilla vacía) quedaron como filas de sustitución independientes bajo el mismo criterio.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-buscador-noticias_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #5) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 5) apuntan al nuevo id; `www-inapi-cl-buscador-noticias_2026-08-22` queda en `history[]`.
+
+---
+
+<a id="devlog-2026-08-25-portada-reaudit-v30-sin-nomenclatura"></a>
+## [2026-08-25] - Infraestructura | Portada www.inapi.cl: reauditoría v3.0 (51 LC-*) sin nomenclatura interna, rechazado 78,9 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la Portada (`https://www.inapi.cl/`, META MEI orden 1) aplicando una calibración más estricta que las tres reauditorías previas de esta misma sesión (Marcas, Patentes, Acerca de INAPI): la entrega debe quedar completamente libre de nomenclatura interna, incluidos los propios códigos `LC-*` e IEW/IESD (`1.1.3`, `5.1.3`, etc.) en los campos de texto, ubicación, propuesta y justificación. Se agregó la entrada de calibración `C-2026-08-25b` en `06-calibracion-hallazgos.md` (y su reflejo en `CLAUDE.md` §22.1/§22.12 y en la skill `02`) con esta regla.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/`, con apertura y verificación de la ventana emergente de contacto; se confirmó que el contenido (menú, título principal, tarjetas de Patentes/Marcas, tres noticias, banners y pie de página) es equivalente al capturado el 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length`: guía de marcas 17.156.031 bytes (≈16,4 MB), guía de patentes 13.133.207 bytes (≈12,5 MB), Plan de Acción de Cumplimiento 2025 (293 KB), Teletrabajo (3,3 MB) y Código de Ética INAPI 2026 (590 KB) — sin cambios respecto de la revisión anterior.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: el criterio de palabras claras y el de títulos claros se agrupan bajo los criterios de oraciones simples y de ausencia de jerga, respectivamente), 13 no aplica → 38 aplicables, 78,9 % de cumplimiento → `rechazado` (mismo resultado numérico que el 2026-08-22; el contenido de la página no cambió).
+- Entrega reescrita bajo la calibración `C-2026-08-25b`: cada criterio comienza con el encabezado «Criterio N: «pregunta» — Instrumento M: Nombre» (numeración simple 1…51, sin códigos `LC-*` ni `1.1.x/5.1.x`); las referencias cruzadas usan «el criterio N»; ninguna corrección propuesta queda como «Corregir incumplimiento de…» sin texto o instrucción accionable. Las tres frases en mayúscula sostenida (buscadores de patentes/marcas, banner de datos, ventana de búsqueda) quedaron en tres filas de sustitución independientes.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #1) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1) apuntan al nuevo id; `www-inapi-cl_2026-08-22` y `www-inapi-cl_2026-08-21` quedan en `history[]`.
+
+### Próximos pasos:
+
+- Reauditar Buscador de noticias y las siguientes URLs de la cola META MEI con la misma disciplina de entrega cero-nomenclatura (`C-2026-08-25b`).
+
+---
+
+<a id="devlog-2026-08-25-acerca-de-inapi-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Acerca de INAPI www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 68,3 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la página «Acerca de INAPI» (`https://www.inapi.cl/acerca-de/inapi`, META MEI orden 4, Página de información interior 1/2) aplicando el mismo estándar de entrega ya corregido en Marcas y Patentes el mismo día: campos de evidencia y sustituciones en lenguaje humano puro, sin ids de inventario ni referencias de proceso interno, y sin repetir el mismo bloque largo de reescritura en varias filas cuando distintos criterios comparten exactamente el mismo texto.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado) sobre `https://www.inapi.cl/acerca-de/inapi`, con verificación de la ventana de contacto, el panel de acceso/registro y la ventana de búsqueda «Buscar y tramitar»; el DOM coincide con la captura del 2026-08-22, incluido el error de concordancia («los asume» en vez de «los asumen») en «Valores Institucionales».
+- Verificación hoy vía `getComputedStyle` de que los párrafos del cuerpo, Visión, Misión y la lista de Valores siguen con alineación justificada, y de los pesos reales de los tres documentos del carrusel institucional del pie vía cabecera HTTP `Content-Length` (293 KB, 3,3 MB, 590 KB): sin cambios.
+- Revisión completa del lenguaje de menor a mayor unidad (palabra, frase, oración, párrafo, forma) antes de calificar los 51 criterios; se mantienen los hallazgos de jerga institucional sin definir («acervo tecnológico»; «gestión por objetivos, medición de productos y orientación hacia la calidad») y de oraciones de 44 a 56 palabras en el segundo párrafo, Visión y Misión.
+- Corrección de agrupación (§20.3): la Visión institucional es el mismo texto para tres preguntas distintas (claridad, oraciones simples, objetividad); en la revisión anterior cada una se contaba como incumplimiento independiente con el mismo bloque de reescritura repetido tres veces. Ahora el criterio de oraciones simples (`LC-1.2.2-04`) es el primario con la reescritura completa, y claridad (`LC-1.2.1-02`) y objetividad (`LC-1.3.2-01`, con `LC-1.3.2-02` ya agrupado bajo ese) quedan agrupados bajo ese mismo primario, con justificación propia sin duplicar el texto.
+- 51 criterios evaluados: 23 cumple, 13 incumple, 5 agrupados (`LC-1.2.2-03`, `LC-1.2.1-02`, `LC-1.3.2-01` → `LC-1.2.2-04`; `LC-1.3.2-02` → `LC-1.3.2-01`; `LC-1.2.4-08` → `LC-1.2.4-07`), 10 no aplica → 41 aplicables, 68,3 % de cumplimiento → `rechazado` (el porcentaje sube desde el 63,4 % del 2026-08-22 por la corrección de agrupación, no porque el contenido de la página haya mejorado).
+- Entrega redactada solo con literales visibles y rutas de pantalla (`Bloque «Visión»`, `Sección «Valores Institucionales», ítem «…»`); los tres documentos del carrusel institucional tienen cada uno su propia fila de sustitución con formato/peso/descripción.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-acerca-de-inapi_2026-08-25.json`; validado con `bun run validate:claude-audits` y `bun run typecheck:all`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #4) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 4) apuntan al nuevo id; `www-inapi-cl-acerca-de-inapi_2026-08-22` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Continuar la cola META MEI (orden 5 en adelante) con la misma disciplina de entrega CMS y de agrupación §20.3 cuando el mismo texto responde varias preguntas del instrumento.
+
+---
+
+<a id="devlog-2026-08-25-patentes-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Patentes www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 71,4 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar la página Patentes (`https://www.inapi.cl/patentes`, META MEI orden 3, Menú principal 2/2) aplicando el mismo estándar de entrega ya corregido en Marcas el mismo día: campos de evidencia y sustituciones en lenguaje humano puro, sin ids de inventario ni referencias de proceso interno, con una fila de sustitución por cada documento o texto localizable distinto.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/patentes`, con apertura y verificación de la ventana de contacto, la ventana de búsqueda «Buscar y tramitar» y el panel de acceso/registro; el DOM coincide con la captura del 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length` de los 11 documentos PDF de la página (8 guías PPH/Global PPH/PAPV + 3 documentos institucionales del pie): sin cambios.
+- Revisión completa del lenguaje de menor a mayor unidad (palabra, frase, oración, párrafo, forma) antes de calificar los 51 criterios; se mantienen los hallazgos de jerga sin definir (novedad, elemento inventivo, aplicación industrial, tasas, Modelos de Utilidad, Esquemas de Trazados o Topografías de Circuitos Integrados, Recursos para Usuarios) y de siglas sin expandir (PCT, PPH, PAPV).
+- 51 criterios evaluados: 28 cumple, 12 incumple, 2 agrupados (`LC-1.2.1-04` → `LC-1.1.3-03`; `LC-1.2.4-08` → `LC-1.2.4-07`), 9 no aplica → 42 aplicables, 71,4 % de cumplimiento → `rechazado` (igual que el 2026-08-22, porque el contenido de la página no cambió).
+- Entrega redactada solo con literales visibles y rutas de pantalla (`Sección «…», tarjeta «…»`); los 8 documentos de las pestañas de guías y los 3 del pie de página tienen cada uno su propia fila de sustitución con formato/peso/descripción, en vez de una fila combinada.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-patentes_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (META MEI extra) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 3) apuntan al nuevo id; `www-inapi-cl-patentes_2026-08-22` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Continuar la cola META MEI (orden 4 en adelante) con la misma disciplina de entrega CMS sin nomenclatura interna.
+
+---
+
+<a id="devlog-2026-08-25-marcas-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Marcas www.inapi.cl: reauditoría v3.0 (51 LC-*), rechazado 73,2 %
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Reauditar de nuevo la página Marcas (`https://www.inapi.cl/marcas`, META MEI orden 2) para corregir la forma de entrega detectada en la revisión manual del 2026-08-22: ubicaciones y justificaciones con nomenclatura interna (ids de inventario, referencias de proceso) y una fila de sustitución que resumía tres documentos distintos en un solo texto. La página en sí no cambió de contenido.
+
+### Implementación técnica:
+
+- Captura Playwright (HTML renderizado + snapshot de accesibilidad) sobre `https://www.inapi.cl/marcas`, con apertura y verificación del modal de contacto, el panel de acceso/registro y el modal de búsqueda «Buscar y tramitar»; el DOM coincide con la captura del 2026-08-22.
+- Reverificación de pesos reales vía cabecera HTTP `Content-Length` de los tres documentos institucionales del pie: sin cambios (293 KB, 3,3 MB, 590 KB).
+- Revisión completa del lenguaje de menor a mayor unidad (palabra, frase, oración, párrafo, forma) antes de calificar los 51 criterios; se mantienen los hallazgos de jerga técnico-jurídica sin definir y de títulos que no anticipan contenido.
+- 51 criterios evaluados: 27 cumple, 11 incumple (3 agrupados: `LC-1.2.2-04` y `LC-1.2.3-03` → `LC-1.1.3-03`; `LC-1.2.4-08` → `LC-1.2.4-07`), 10 no aplica → 41 aplicables, 73,2 % de cumplimiento → `rechazado` (igual que el 2026-08-22, porque el contenido de la página no cambió).
+- Entrega reescrita: se eliminaron referencias a ids de inventario, nombres de proceso interno y meta-comentarios entre paréntesis en `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario`; los tres documentos del pie sin formato/peso/descripción pasaron de una fila combinada a tres filas independientes (una por documento); la sección «Trámites» ahora propone una frase por trámite y un subtítulo de sección, no solo unificar mayúsculas.
+- JSON guardado en `data/claude-audits/sitioweb/2026-08-25/www-inapi-cl-marcas_2026-08-25.json`; validado con `bun run validate:claude-audits`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (piloto #3) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 2) apuntan al nuevo id; `www-inapi-cl-marcas_2026-08-22` pasa a `history[]`.
+
+### Próximos pasos:
+
+- Aplicar la misma limpieza de entrega (sin ids internos, sin filas combinadas de varios documentos) al resto de URLs META MEI ya auditadas si una revisión manual lo confirma necesario.
 
 ---
 

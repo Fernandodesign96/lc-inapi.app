@@ -1,0 +1,524 @@
+{
+  "id": "www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25",
+  "url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+  "fecha_evaluacion": "2026-08-25T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [nav global]: Conoce más | Marcas (activo) | Patentes | PCT (sin definir en su primera aparición) | Sistema de Madrid | Sello de Origen | Estadísticas | Trámites | Conecta | Dominio Público | Gasto Presupuestario | Aprende | Contacto | Centro de Documentación | Preguntas Frecuentes | Sala de Prensa | Nosotros | Observancia | Datos Abiertos | T002 [cabecera global, EXCLUIDOS de LC-1.2.4-05 por calibración vigente]: «ACCESOS», «BUSCADOR» | T003 [panel de acceso y registro «INAPI», abierto y verificado en el DOM, 1 clic desde el ícono de usuario en cabecera, patrón de sitio idéntico a otras URLs]: h3 «INAPI»; enlace «Usuario Frecuente» -> ion.inapi.cl; enlace «Registro» -> claveunica.gob.cl; botón «LINK EXTERNO» (mayúscula sostenida) href=\"#\", sin destino real, confirmado en el DOM actual | T004 [modal «Buscar y tramitar», verificado en el DOM, 1 clic desde el ícono de lupa en cabecera, patrón de sitio idéntico a otras URLs]: h3 «BUSCAR Y TRAMITAR» (mayúscula sostenida); h4 «MARCAS» (mayúscula sostenida) con enlaces «Buscar en base de datos», «Notificaciones diarias», «Solicitud y pago en línea», «Renovación en línea», «Presentación de escritos», «Clasificador de productos y servicios»; h4 «PATENTES» (mayúscula sostenida) con enlaces propios | T005 [H1, banner compartido de toda la sección Marcas]: «Marcas» | T006 [H2, mismo banner]: «Trámites» — ninguno de los dos nombra «Solicitud Nueva» | T007 [breadcrumb]: «Home» › «Marcas» › «Trámites» › «Solicitud Nueva» (texto plano, último ítem, menor jerarquía visual que el H1/H2) | T008 [submenú de pestañas de sección]: «Para Informarse» | «Marcas según su tipo» (con submenú: Categoría de la Marca, Tipo de Marca, Tipo de Cobertura) | «Buscadores» | «Trámites» (activo, con sublista: Solicitud Nueva activo, Renovación, Anotación, Títulos y Certificados, Recursos para Usuarios, Formularios Descargables) | «Directrices» | T009: SIN ningún párrafo introductorio ni recuadro entre el submenú (T008) y las cinco tarjetas de acción (T010–T014): no hay texto que explique qué es la Solicitud Nueva, qué requisitos exige, qué documentos se necesitan, cuánto cuesta ni cuánto demora | T010 [tarjeta 1, h4, target=\"_self\"]: «Solicitud Nueva y Pago Electrónico» -> tramites.inapi.cl/Trademark/TrademarkApplication/IndexTrademark | T011 [tarjeta 2, h4, target=\"_self\"]: «Revisar y Pagar Solicitudes Guardadas» -> tramites.inapi.cl/.../TrademarkSavedApplications | T012 [tarjeta 3, h4, target=\"_blank\", dominio EXTERNO confirmado hoy]: «Publicación en el Diario Oficial» -> https://pagos.diarioficial.cl/Servicios/Marca/, sin aviso visible de que el destino sale del sitio inapi.cl ni de por qué corresponde pagar esta publicación | T013 [tarjeta 4, h4, target=\"_self\"]: «Pizarra de Pagos (pago, renovación y anotación)» -> tramites.inapi.cl/.../TrademarkSecondPayment (rótulo ambiguo, no distingue este pago del de la tarjeta 1) | T014 [tarjeta 5, h4, target=\"_self\"]: «Presentación de Escritos» -> tramites.inapi.cl/Trademark/TrademarkUserDocument («escritos» es jerga legal sin definir: no se explica qué tipo de documento es ni cuándo se necesita) | T015 [footer, carrusel de documentos institucionales, pesos verificados hoy vía cabecera HTTP Content-Length]: «Plan de Acción de Cumplimiento 2025 (PDF)» = 299.818 bytes ≈ 293 KB (solo formato en el texto visible, sin peso); «Teletrabajo» = 3.422.711 bytes ≈ 3,3 MB (sin formato ni peso visibles); «Código de Ética INAPI 2026» = 604.793 bytes ≈ 590 KB (sin formato ni peso visibles) | T016 [ventana emergente «¿Quieres contactarnos?», abierta y verificada en el DOM, patrón de sitio idéntico a otras URLs]: «Utiliza el canal de comunicación que prefieras:» + tres bloques ícono+dato+ayuda: «(56 2) 2 887 0400» / «Lunes a jueves de 09:00 a 18:00 hrs y viernes de 09:00 a 17:00 hrs.»; «inapi@inapi.cl» / «Tu consulta será atendida por un especialista.» (voz pasiva); «Av. Libertador Bernardo O'Higgins 194, Santiago» / «Lunes a viernes de 09:00 a 14:00 hrs.» | T017 [pie de página, bloque «Dónde estamos»]: «Instituto Nacional de Propiedad industrial (INAPI) RUT: 65.999.669-3» (RUT institucional, persona jurídica pública) — «industrial» con minúscula inicial rompe el nombre propio | T018 [pie de página]: enlace «Política de privacidad» | T019 [pie de página]: «©2026 INAPI. Todos los derechos reservados» | T020: sin fecha de publicación ni de actualización visible en esta página | T021 [meta head, NO USADO como evidencia visible]: title «Solicitud Nueva», meta description «Sección donde podrás encontrar todas las solicitudes nuevas» — descartados por calibración de evidencia visible.\n\nAnálisis de lenguaje de menor a mayor unidad (palabra/concepto -> frase -> oración -> párrafo -> forma), previo a la evaluación de los 51 criterios: «Diario Oficial» (T012) se nombra sin explicar por qué la persona debe pagar esa publicación ni qué efecto tiene en su solicitud (abre el plazo de oposición de terceros); «Pizarra de Pagos» (T013) es una metáfora ambigua que no se distingue del pago de la tarjeta 1; «Escritos» (T014) es jerga legal sin definir. El H2 del banner solo dice «Trámites», sin nombrar «Solicitud Nueva»; solo el breadcrumb, en texto plano de menor jerarquía, identifica la página específica. No hay ninguna oración ni párrafo de cuerpo en esta página: toda la información relevante para decidir con autonomía (qué es, requisitos, documentos, costos, plazos) está ausente, no solo mal redactada; las cinco tarjetas son accesos directos a formularios externos sin ningún contexto previo. En forma, hay mayúscula sostenida en componentes de layout compartidos (modal de búsqueda, botón de acceso); los títulos de tarjeta propios de esta página están correctamente formateados como botones de acción, sin mayúscula sostenida.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica a la institución responsable del contenido («Instituto Nacional de Propiedad industrial (INAPI)», con su RUT institucional) y el logo de INAPI está presente en toda la cabecera de la página.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El título principal visible de la página es el banner compartido de toda la sección Marcas («Marcas» / «Trámites») y no menciona «Solicitud Nueva» en ningún punto; solo la ruta de navegación, en texto plano y de menor jerarquía visual, identifica que esta es la página específica de Solicitud Nueva.",
+      "cita_textual": "Marcas / Trámites",
+      "ubicacion_pantalla": "Zona superior › título principal y subtítulo del banner"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "No se observan bloques «en construcción» ni secciones vacías: las cinco tarjetas de acción muestran contenido completo, aunque mínimo.",
+      "cita_textual": "Solicitud Nueva y Pago Electrónico; Revisar y Pagar Solicitudes Guardadas; Publicación en el Diario Oficial; Pizarra de Pagos (pago, renovación y anotación); Presentación de Escritos",
+      "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.1.2-04",
+      "comentario": "Esta página es la información de un trámite (Solicitud Nueva de marca) y, por lo tanto, este criterio corresponde evaluarlo con rigor: no existe ningún recuadro ni párrafo que reúna qué es la Solicitud Nueva, cómo se tramita, dónde, cuándo (plazos) ni para quién. No hay ningún texto que cumpla este requisito, por lo que el criterio no cumple de forma total, no parcial. Comparte exactamente el mismo vacío de contenido y la misma corrección que el criterio 5, por lo que se agrupa bajo ese criterio.",
+      "cita_textual": "(no existe en pantalla)",
+      "ubicacion_pantalla": "Entre el submenú de pestañas y las cinco tarjetas de acción"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Esta página es la información del trámite «Solicitud Nueva» de marca; aunque el formulario se completa en otro dominio, esta página debe orientar a la persona antes de que haga clic. No se brinda ningún requisito, documento necesario, costo ni plazo antes de las cinco tarjetas de acción; una de ellas lleva a un sitio externo (para pagar una publicación) sin ninguna explicación previa. No hay ningún texto que cumpla este requisito.",
+      "cita_textual": "(no existe en pantalla)",
+      "ubicacion_pantalla": "Entre el submenú de pestañas y las cinco tarjetas de acción"
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "no_aplica",
+      "comentario": "No hay texto principal medible en esta página: solo hay cinco títulos de tarjeta de una línea y elementos de menú, modal y pie compartidos con el resto del sitio; no existe un párrafo de cuerpo sobre el cual aplicar una herramienta de legibilidad."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El único texto dirigido directamente a la persona usuaria (la ventana emergente de contacto) mantiene un trato cercano y respetuoso; no se detecta trato distante en el contenido visible.",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Tres títulos de tarjeta usan un concepto técnico o de trámite sin definirse: «Publicación en el Diario Oficial» no explica por qué la persona debe pagar esa publicación ni qué efecto tiene en su solicitud (abre el plazo para que terceros se opongan); «Pizarra de Pagos (pago, renovación y anotación)» es una metáfora ambigua que no distingue este pago del de la tarjeta «Solicitud Nueva y Pago Electrónico»; «Presentación de Escritos» usa el término legal «escritos» sin definir qué tipo de documento es ni cuándo se necesita.",
+      "cita_textual": "Publicación en el Diario Oficial; Pizarra de Pagos (pago, renovación y anotación); Presentación de Escritos",
+      "ubicacion_pantalla": "Cuerpo de la página › tarjetas de acción tercera, cuarta y quinta"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "No se detectan abreviaturas, extranjerismos, eufemismos ni modismos en el texto visible de esta página, más allá de la jerga ya tratada en el criterio 8."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla «PCT» aparece en el menú de navegación global sin definirse en su primera aparición.",
+      "cita_textual": "PCT",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "Los títulos de las cinco tarjetas describen acciones concretas en tono afirmativo (presentar la solicitud, revisar y pagar, publicar, pagar otros trámites, presentar documentos), sin enfoque prohibitivo.",
+      "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción"
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No hay fecha de publicación ni de última actualización visible en esta página. El aviso de copyright del pie no reemplaza esta fecha. Al no existir ningún texto que cumpla el requisito, el criterio no cumple (no es un cumplimiento parcial).",
+      "cita_textual": "(sin fecha de actualización visible)",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal, antes de las tarjetas de acción"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Dos hallazgos: (1) en el pie de página, «Instituto Nacional de Propiedad industrial (INAPI)» — «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución; (2) en el submenú de pestañas, los trámites «Solicitud Nueva» y «Títulos y Certificados» llevan mayúscula en cada palabra, mientras «Renovación» y «Anotación» usan mayúscula solo al inicio.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI); Solicitud Nueva / Renovación / Anotación / Títulos y Certificados",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»; submenú de pestañas › lista de trámites bajo «Trámites»"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "El texto visible (títulos de tarjeta, ruta de navegación, ventana de contacto) usa puntuación simple y correcta; no hay bloques que entorpezcan la lectura."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "No hay en esta página párrafos de dos o más oraciones que requieran conectores: los títulos de tarjeta son frases nominales de una sola línea."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta página sin necesidad de sesión.",
+      "ubicacion_pantalla": "Pie de página › enlace «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible (títulos de tarjeta, navegación) corresponde a producción institucional propia; no se observa redifusión de material de terceros sin atribución."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "El único RUT visible en la página es el de la institución (persona jurídica pública). No hay listados de personas naturales con RUN en el contenido visible.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI), RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de contacto visibles (ventana emergente de contacto y pie de página) son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de esos derechos.",
+      "ubicacion_pantalla": "Pie de página › enlace «Política de privacidad»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página no publica información sobre menores de edad; el contenido visible son accesos a trámites de marcas."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible es de tono informativo y neutro, sin lenguaje ni imágenes inapropiadas para menores de edad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "cumple",
+      "comentario": "No se identifica en esta página material relacionado con salud, ideología, creencias religiosas o características físicas."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales ni textos estructurados como respuestas a preguntas frecuentes (por ejemplo listas, tablas o secciones desplegables). Esta página muestra accesos directos a formularios, sin ese tipo de contenido editorial."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes (por ejemplo listas, tablas o secciones desplegables), ni respuestas a ese tipo de preguntas. En consecuencia con el criterio anterior, tampoco corresponde evaluar aquí la organización de la información del servicio digital como respuestas a preguntas frecuentes."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Los títulos de tarjeta visibles usan palabras razonablemente claras («Solicitud Nueva y Pago Electrónico», «Revisar y Pagar Solicitudes Guardadas»); la densidad conceptual real de la página está en la jerga sin definir, ya tratada en el criterio 8."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La ventana emergente de contacto usa voz pasiva.",
+      "cita_textual": "Tu consulta será atendida por un especialista.",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "No hay oraciones complejas visibles en esta página que evaluar por orden de sus partes; los títulos de tarjeta son frases directas y no presentan inversiones que dificulten la comprensión."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Esta página no presenta ningún listado de requisitos; esa ausencia es precisamente el hallazgo señalado en los criterios 4 y 5, no un problema de modo verbal sobre una lista existente."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de cuerpo editorial en esta página, solo títulos de tarjeta de una línea; no corresponde evaluar el rango de 2 a 8 párrafos."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Esta URL es la página informativa de sitioweb que da acceso al trámite, no el desarrollo del trámite en sí (que corre en otro dominio); la variante de concisión para servicio digital no corresponde evaluarla en esta vista."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos visibles en esta página sobre los cuales medir líneas de alto."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de cuerpo visibles en esta página; los títulos de tarjeta no desarrollan una idea en formato de párrafo."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "no_aplica",
+      "comentario": "No hay oraciones largas visibles en esta página; los títulos de tarjeta son frases cortas."
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "no_aplica",
+      "comentario": "No existe en esta página un bloque de texto corrido de cuatro o más párrafos continuos."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Las cinco tarjetas de acción y el submenú de pestañas se presentan como bloques separados con espacio visual entre ellos; no hay elementos apretados unos contra otros."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "cumple",
+      "comentario": "El texto visible (títulos de tarjeta, ruta de navegación) se lee alineado a la izquierda o centrado por diseño de botón, sin bloques de cuerpo editorial en otra alineación."
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "No existe en esta página una enumeración de datos o pasos en prosa que debiera convertirse en lista; la ausencia misma de una lista de requisitos se trata en los criterios 4 y 5, no como un problema de formato."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página no tiene una estructura narrativa editorial propia sobre la cual aplicar el modelo de pirámide invertida: es un panel de accesos directos sin redacción de cuerpo, cuya carencia de contexto ya se trata en los criterios 4 y 5."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "cumple",
+      "comentario": "Los cinco títulos de tarjeta son individualmente claros y describen la acción que representan; el problema de esta página no es la claridad de esos títulos, sino la ausencia total de contexto previo, ya tratada en los criterios 4 y 5."
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "Las cinco tarjetas con ícono y título corto permiten identificar de un vistazo las acciones disponibles sin necesidad de leer párrafos."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "no_aplica",
+      "comentario": "No hay párrafos de texto visibles en esta página donde destacar palabras clave con negrita tenga sentido editorial; los textos visibles son títulos de tarjeta y elementos de menú."
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio; los títulos propios de las cinco tarjetas de esta página no usan mayúscula sostenida.",
+      "cita_textual": "BUSCAR Y TRAMITAR; MARCAS; PATENTES; LINK EXTERNO",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "Las cinco tarjetas constituyen un conjunto de accesos relacionados y coherentes con el ciclo del trámite de Solicitud Nueva (presentar, pagar, revisar, publicar, complementar con escritos), distinto del menú global."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino, y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»). El resto de los enlaces propios de esta página (las cinco tarjetas de acción) sí describen con claridad la acción que representan.",
+      "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (panel de acceso y registro)",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página indica los cuatro elementos requeridos: «Plan de Acción de Cumplimiento 2025» solo indica el formato (PDF) sin el peso; «Teletrabajo» y «Código de Ética INAPI 2026» no indican formato ni peso. Pesos verificados hoy: 293 KB, 3,3 MB y 590 KB respectivamente.",
+      "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
+      "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales"
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.4-07",
+      "comentario": "Ninguno de los tres documentos del carrusel institucional del pie de página trae una breve descripción de su contenido junto al título. Se agrupa con el criterio 46 porque comparte exactamente los mismos documentos y la misma corrección.",
+      "cita_textual": "Plan de Acción de Cumplimiento 2025 (PDF); Teletrabajo; Código de Ética INAPI 2026",
+      "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales"
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "La página usa apoyos visuales para presentar la información: cada una de las cinco tarjetas tiene una imagen ilustrativa propia y el carrusel de logos institucionales del pie de página. La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "ubicacion_pantalla": "Cuerpo de la página › cinco tarjetas de acción y pie de página › carrusel de logos"
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Los títulos de tarjeta usan redacción neutra y descriptiva de cada acción, sin adjetivos de opinión ni juicios de valor de quien escribe."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "cumple",
+      "comentario": "El contenido visible de esta página se compone de etiquetas de acción factuales (nombres de trámites y pagos), sin adjetivos calificativos."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; no corresponde evaluar rotulado de vigencia en esta vista."
+    }
+  ],
+  "criterios_aprobados": 25,
+  "criterios_aplicables": 35,
+  "criterios_no_aplica": 16,
+  "porcentaje_cumplimiento": 71.4,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La página «Solicitud Nueva» de Marcas (https://www.inapi.cl/marcas/tramites/solicitud-nueva) fue auditada el 25 de agosto de 2026 con una captura actual y propia de la página (incluidos el panel de acceso y registro, la ventana de búsqueda «Buscar y tramitar» y la ventana de contacto), con una revisión detallada del lenguaje usado en cada bloque visible antes de calificar las 51 preguntas del checklist de Lenguaje claro. Esta auditoría corrige dos criterios de la revisión anterior (22 de agosto): (1) el criterio 45, sobre rótulos y llamados a la acción descriptivos, se había marcado como no aplicable por tratarse de una variante de servicio digital; ese criterio se evalúa en todas las páginas del sitio, y al revisarlo se encontraron dos rótulos genéricos que sí corresponde corregir («Conoce más» y «LINK EXTERNO»); (2) el criterio 4, sobre datos clave de la información, había quedado agrupado bajo el criterio 5 con severidad alta, y esa misma severidad se mantiene y se refuerza en esta revisión porque no hay ningún texto que cumpla ese requisito. De las 51 preguntas, 16 no corresponden a esta página (es un panel de accesos directos a formularios de trámite, sin párrafos de cuerpo editorial propio). De las 35 que sí corresponden, 25 se cuentan como cumplidas: 23 cumplen de forma directa y 2 quedan agrupadas junto a otra pregunta porque comparten exactamente el mismo vacío o el mismo texto y la misma corrección. Esto da un 71,4 % de cumplimiento y una calificación de RECHAZADO (el umbral de aprobación es superior a 90 %). Hallazgos de prioridad alta: (1) ausencia total de información antes de las cinco tarjetas de acción: no hay ningún requisito, documento necesario, costo ni plazo, y una de las tarjetas envía a la persona a un sitio externo a pagar una publicación sin explicación previa; (2) tres títulos de tarjeta usan jerga sin definir: «Publicación en el Diario Oficial», «Pizarra de Pagos» y «Presentación de Escritos»; (3) sin fecha de publicación ni de actualización visible; (4) los tres documentos del carrusel institucional del pie de página no indican título completo, formato, peso ni descripción. Hallazgos de prioridad media: el título principal de la página es el banner compartido de toda la sección Marcas y no menciona «Solicitud Nueva»; mayúsculas sostenidas en la ventana de búsqueda y en el botón «LINK EXTERNO»; dos rótulos genéricos que no dicen a dónde llevan («Conoce más» y «LINK EXTERNO», este último sin destino real configurado). Hallazgos de prioridad baja: sigla PCT sin definir en el menú global; error de mayúscula en el nombre institucional del pie de página e inconsistencia de mayúsculas entre los cuatro trámites del submenú; voz pasiva en la ventana de contacto. Serie META MEI, orden 6 (Información del servicio digital / trámite, Solicitud Nueva de Marcas). Reemplaza como vigente a www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-22, que queda registrado en el historial junto con las auditorías de 2026-08-20, 2026-08-18 y 2026-06-07.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(criterios 4 y 5) Ausencia total de información antes de las cinco tarjetas de acción: no hay requisitos, documentos, costos ni plazos, y una tarjeta envía a un sitio externo a pagar una publicación sin explicación previa. Severidad alta (No cumple): no hay ningún texto que cumpla el requisito.",
+      "(criterio 8) Jerga técnica o legal sin definir en tres títulos de tarjeta: «Publicación en el Diario Oficial», «Pizarra de Pagos», «Presentación de Escritos».",
+      "(criterio 12) Sin fecha de publicación ni de última actualización visible; el aviso de derechos de autor del pie no cuenta. Severidad alta (No cumple).",
+      "(criterios 46 y 47 agrupados) Los tres documentos del carrusel institucional del pie de página no indican título completo, formato, peso ni descripción."
+    ],
+    "hallazgos_prioridad_media": [
+      "(criterio 2) El título principal visible es el banner compartido de toda la sección Marcas y no menciona «Solicitud Nueva».",
+      "(criterio 43) Mayúsculas sostenidas en la ventana de búsqueda «Buscar y tramitar» y en el botón «LINK EXTERNO» del panel de acceso.",
+      "(criterio 45) Dos rótulos que no dicen a dónde llevan: «Conoce más» en el menú de navegación global y «LINK EXTERNO» en el panel de acceso, este último sin destino real configurado."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(criterio 10) Sigla PCT sin definir en su primera aparición en el menú global.",
+      "(criterio 13) Error de mayúscula en el nombre institucional del pie de página e inconsistencia de mayúsculas entre los cuatro trámites del submenú de la sección.",
+      "(criterio 27) Voz pasiva en la ventana de contacto."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "S01",
+      "html_linea_aprox": "HTML banner H1/H2",
+      "ubicacion_pantalla": "Zona superior › título principal y subtítulo del banner",
+      "original": "Marcas / Trámites",
+      "propuesto": "Marcas — Solicitud Nueva",
+      "criterio_id": "LC-1.1.2-01",
+      "motivo": "El título principal visible es el banner compartido de toda la sección Marcas y no menciona el trámite específico; se propone incorporar el nombre del trámite activo, ya visible en la ruta de navegación, directamente en el título principal.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S02",
+      "html_linea_aprox": "HTML entre section.menu-tabs y section.wrap-item-gestion",
+      "ubicacion_pantalla": "Entre el submenú de pestañas y las cinco tarjetas de acción",
+      "original": "(no existe en pantalla)",
+      "propuesto": "Añadir un bloque breve antes de las tarjetas: «Presenta tu solicitud de registro de marca y paga en línea. Necesitas: una descripción de tu marca (nombre, logo o ambos) y los productos o servicios que quieres proteger. Costo: pagas una tasa al presentar la solicitud y otra si se aprueba el registro. Plazo: el proceso completo toma varios meses e incluye una publicación en el Diario Oficial. Para quién: personas naturales o jurídicas, nacionales o extranjeras.»",
+      "criterio_id": "LC-1.1.2-04",
+      "criterios_relacionados": [
+        "LC-1.1.2-03"
+      ],
+      "motivo": "No hay ningún dato en pantalla que le permita a la persona saber qué necesita, cuánto cuesta o cuánto demora antes de hacer clic en una de las cinco tarjetas; se agrega el resumen mínimo que le permite decidir con autonomía. No se inventan montos exactos: se pide al equipo editorial confirmar y completar cifras reales.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S03",
+      "html_linea_aprox": "HTML tarjeta 3, «Publicación en el Diario Oficial»",
+      "ubicacion_pantalla": "Cuerpo de la página › tercera tarjeta de acción",
+      "original": "Publicación en el Diario Oficial",
+      "propuesto": "Publicación en el Diario Oficial (sitio externo) — Paga aquí para publicar un resumen de tu solicitud; esta publicación abre un plazo para que terceros puedan oponerse a tu marca.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "El término «Diario Oficial» no explica por qué la persona debe pagar esta publicación ni qué efecto tiene en su trámite; la propuesta define el propósito y, de paso, advierte que el destino es un sitio externo distinto de inapi.cl.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S04",
+      "html_linea_aprox": "HTML tarjeta 4, «Pizarra de Pagos»",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarta tarjeta de acción",
+      "original": "Pizarra de Pagos (pago, renovación y anotación)",
+      "propuesto": "Pagar otros trámites de tu marca (renovación o anotación)",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Pizarra de Pagos» es una metáfora ambigua que no distingue este pago del de la tarjeta «Solicitud Nueva y Pago Electrónico»; la propuesta reemplaza la metáfora por una descripción directa de qué se paga aquí.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S05",
+      "html_linea_aprox": "HTML tarjeta 5, «Presentación de Escritos»",
+      "ubicacion_pantalla": "Cuerpo de la página › quinta tarjeta de acción",
+      "original": "Presentación de Escritos",
+      "propuesto": "Presentación de Escritos (documentos adicionales sobre tu trámite)",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Escritos» es jerga legal sin definir; la persona no sabe qué tipo de documento debe subir aquí ni cuándo corresponde usar esta opción.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S06",
+      "html_linea_aprox": "HTML nav global",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»",
+      "original": "PCT",
+      "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes».",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Cada sigla debe definirse en su primera aparición. Corregir en el origen del menú compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S07",
+      "html_linea_aprox": "HTML bajo el banner o sobre las tarjetas de acción",
+      "ubicacion_pantalla": "Zona superior › bajo el título principal, antes de las tarjetas de acción",
+      "original": "(sin fecha de actualización visible)",
+      "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA» (usar la fecha real de la última revisión editorial de esta página).",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "La página no muestra fecha de publicación ni de actualización; el aviso de derechos de autor del pie no cumple esta función.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S08",
+      "html_linea_aprox": "HTML pie de página, bloque «Dónde estamos»",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales. Corregir en el origen del pie de página compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S09",
+      "html_linea_aprox": "HTML submenú de pestañas, lista de trámites",
+      "ubicacion_pantalla": "Submenú de pestañas › lista de trámites bajo «Trámites»",
+      "original": "Solicitud Nueva / Renovación / Anotación / Títulos y Certificados",
+      "propuesto": "Solicitud nueva / Renovación / Anotación / Títulos y certificados (mayúscula solo al inicio de cada rótulo)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "Los cuatro rótulos del mismo submenú deben usar el mismo criterio de mayúsculas; hoy dos siguen mayúscula en cada palabra y dos usan mayúscula solo al inicio. Corregir en el origen del submenú compartido entre las páginas de trámites de Marcas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S10",
+      "html_linea_aprox": "HTML modal de contacto",
+      "ubicacion_pantalla": "Ventana emergente «¿Quieres contactarnos?»",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista atenderá tu consulta.",
+      "criterio_id": "LC-1.2.1-03",
+      "motivo": "Voz pasiva en un componente compartido del sitio. Corregir en el origen: el cambio se replica en todas las páginas que usan esta ventana emergente.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S11",
+      "html_linea_aprox": "HTML modal «Buscar y tramitar»",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar» › título y subtítulos",
+      "original": "BUSCAR Y TRAMITAR / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Marcas / Patentes",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Se deben evitar frases escritas solo en mayúsculas. Corregir en el origen de la ventana emergente compartida: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "HTML panel de acceso y registro",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Escribir el botón en mayúscula inicial, no en mayúscula sostenida, y asignarle un destino real; mientras no tenga un destino real, quitarlo del panel.",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El botón está escrito solo en mayúsculas. Corregir en el origen del panel compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S13",
+      "html_linea_aprox": "HTML nav global, enlace «Conoce más»",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Conoce la propiedad intelectual e industrial",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El rótulo «Conoce más» no dice de qué trata el destino. Corregir en el origen del menú compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S14",
+      "html_linea_aprox": "HTML panel de acceso y registro, botón «LINK EXTERNO»",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Reemplazar el texto por una descripción del destino real (por ejemplo, «Ir al sitio de la Clave Única» si corresponde) o quitar el botón mientras no tenga un destino configurado.",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El botón no describe a dónde lleva y, además, no tiene un destino real (apunta a «#»). Corregir en el origen del panel compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S15",
+      "html_linea_aprox": "HTML footer, documento «Plan de Acción de Cumplimiento 2025»",
+      "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales › «Plan de Acción de Cumplimiento 2025»",
+      "original": "Plan de Acción de Cumplimiento 2025 (PDF)",
+      "propuesto": "Plan de Acción de Cumplimiento 2025 (PDF, 293 KB) — Plan institucional de cumplimiento normativo de INAPI para 2025.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "El documento indica el formato pero no el peso ni una descripción breve. Peso verificado hoy: 293 KB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S16",
+      "html_linea_aprox": "HTML footer, documento «Teletrabajo»",
+      "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales › «Teletrabajo»",
+      "original": "Teletrabajo",
+      "propuesto": "Teletrabajo (PDF, 3,3 MB) — Informe de indicadores de teletrabajo institucional.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "El documento no indica formato, peso ni descripción. Peso verificado hoy: 3,3 MB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S17",
+      "html_linea_aprox": "HTML footer, documento «Código de Ética INAPI 2026»",
+      "ubicacion_pantalla": "Pie de página › carrusel de documentos institucionales › «Código de Ética INAPI 2026»",
+      "original": "Código de Ética INAPI 2026",
+      "propuesto": "Código de Ética INAPI 2026 (PDF, 590 KB) — Principios y normas de conducta institucional.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "El documento no indica formato, peso ni descripción. Peso verificado hoy: 590 KB. Corregir en el origen del carrusel compartido: el cambio se replica en todas las páginas del sitio.",
+      "patron_sistema": true
+    }
+  ],
+  "nota_final_tic": "Alcance visible: solo lo que se ve en pantalla o se abre con un clic. No se usó el título de pestaña ni los metadatos de cabecera como evidencia.\n\nComponentes de layout compartidos con otras páginas del sitio (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): panel de acceso y registro (mayúsculas del botón «LINK EXTERNO» y su falta de destino real; texto del botón), ventana de búsqueda «Buscar y tramitar» (mayúsculas sostenidas), ventana de contacto (voz pasiva), pie de página institucional (capitalización del nombre de INAPI) y carrusel de documentos del pie (formato, peso y descripción).\n\nEl botón «LINK EXTERNO» del panel de acceso apunta a «#» y no tiene un destino real configurado; esto es una tarea para el equipo técnico, además del cambio de texto y de mayúsculas que corresponde al equipo editorial.\n\nUsabilidad y Seguridad quedan fuera del porcentaje de esta auditoría, que evalúa solo Lenguaje claro."
+}

@@ -1,0 +1,598 @@
+{
+  "id": "www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25",
+  "url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+  "fecha_evaluacion": "2026-08-25T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "Captura Playwright del DOM renderizado el 25 de agosto de 2026: cabecera y menú global (incluida la ventana emergente «Buscar y tramitar» y el panel de acceso y registro), migas de pan Home / Sala de Prensa / Detalle Noticia, fecha de publicación «jun. 21, 2026», título de la noticia, carrusel de tres imágenes, párrafo de bajada, once párrafos de cuerpo, enlace «Volver», íconos de compartir en redes, sección «Otras Noticias» con cinco artículos relacionados y enlace «Ver todas las noticias», ventana emergente de contacto «¿Quieres contactarnos?», y pie de página con datos de INAPI y enlaces de accesos.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El logo y el nombre de INAPI están presentes en la cabecera de la página, y el pie identifica a la institución responsable con su nombre completo y RUT institucional. El discurso citado se atribuye con nombre y cargo del Director Nacional, lo que refuerza el reconocimiento de la fuente.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI) — RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El encabezado más grande y visible de la página, ubicado antes del título de la noticia, es una etiqueta genérica de la plantilla que no describe el contenido específico de este artículo. El título real de la noticia sí aparece inmediatamente debajo, en un tamaño menor.",
+      "cita_textual": "Detalle",
+      "ubicacion_pantalla": "Zona superior de la noticia › encabezado de plantilla, antes del título del artículo"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "La página tiene contenido completo: título, imagen, bajada y once párrafos de cuerpo; no hay señales de página vacía ni de «en construcción».",
+      "cita_textual": "INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial",
+      "ubicacion_pantalla": "Cuerpo de la página › título de la noticia"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El primer párrafo cubre gran parte de los datos clave (qué ocurrió, dónde, quién encabezó la actividad) pero no indica en ningún punto del cuerpo la fecha en que se realizó la ceremonia (solo se muestra la fecha de publicación de la noticia, junto al título, que no necesariamente coincide con la fecha del evento). El defecto es parcial: la mayoría de los datos clave sí están presentes.",
+      "cita_textual": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "ubicacion_pantalla": "Cuerpo de la página › primer párrafo"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Esta página es una noticia informativa sobre un evento institucional, no un contenido referido a la realización de un trámite; no corresponde evaluar autonomía para trámites."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "No se aplicó una herramienta de medición de legibilidad sobre el texto principal en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. Varios párrafos del cuerpo tienen entre 40 y 58 palabras en una sola oración, lo que hace poco probable que una medición real arroje un resultado «Normal».",
+      "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo"
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El tono es institucional pero respetuoso, y las citas textuales del Director Nacional aportan cercanía sin caer en frialdad burocrática."
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo usa dos expresiones técnicas sin explicación: «juicios de oposición» (proceso legal por el que un tercero puede objetar una solicitud de marca o patente) y «activos intangibles» (bienes sin forma física, como una marca o una patente, que también tienen valor económico). Ninguna de las dos se define ni se acompaña de una glosa breve.",
+      "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo; noveno párrafo"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "El único término en otro idioma, «Patent Law Treaty», se acompaña de inmediato de su sigla entre paréntesis y del contexto en español; no se detectan abreviaturas ni extranjerismos sin resolver en el resto del cuerpo."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla «PCT» aparece sin definirse tanto en el menú de navegación global como en el cuerpo de este artículo («Autoridad Internacional de Búsqueda y Examen PCT»), a diferencia de «Patent Law Treaty (PLT)», que sí se expande la primera vez que se usa.",
+      "cita_textual": "PCT",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»; cuerpo de la página › quinto párrafo"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "El artículo se enfoca en logros y avances institucionales («la reducción histórica del rezago», «consolidando el posicionamiento técnico»), sin lenguaje restrictivo del tipo «no se puede»."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "cumple",
+      "comentario": "La fecha de publicación de la noticia está visible junto al título, en el año en curso.",
+      "cita_textual": "jun. 21, 2026",
+      "ubicacion_pantalla": "Cuerpo de la página › línea de fecha, sobre el título del artículo"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El primer párrafo del cuerpo comienza con minúscula y sin sujeto propio («la Casa Central de la...»), lo que indica que falta la cláusula inicial de la oración (por ejemplo, la fecha y el lugar del evento); es un error gramatical que además deja sin explicar cuándo ocurrió la actividad. Además, en el pie de página compartido, «industrial» debería llevar mayúscula inicial al ser parte del nombre propio de la institución.",
+      "cita_textual": "la Casa Central de la Pontificia Universidad Católica de Val… · Instituto Nacional de Propiedad industrial (INAPI)",
+      "ubicacion_pantalla": "Cuerpo de la página › primer párrafo; pie de página › bloque «Dónde estamos»"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "La puntuación del cuerpo (comas, punto y seguido, comillas en las citas) facilita la lectura de las oraciones, incluso en los párrafos más largos."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "cumple",
+      "comentario": "Los párrafos se relacionan con conectores como «Asimismo,», «En ese contexto,», «En esta línea,» y «En este marco,», lo que da continuidad a la lectura entre ideas.",
+      "cita_textual": "Asimismo, se abordaron los principales compromisos institucionales para 2026…"
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece el enlace «Uso de los Contenidos de este Sitio», accesible con un clic desde esta página.",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "No se detecta contenido de terceros protegido por derechos de autor redifundido sin atribución; las imágenes y el texto se presentan como material propio de INAPI."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "no_aplica",
+      "comentario": "Las únicas personas nombradas (el Director Nacional y la Subdirectora de Patentes) se mencionan solo por su nombre y cargo institucional, en el ejercicio de su función pública; no hay ningún listado de personas con RUN en esta página."
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de contacto visibles, en la ventana emergente de contacto y en el pie de página, son teléfono, correo y dirección de INAPI; no se publican datos de contacto particulares de personas naturales."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página ofrece el enlace «Política de privacidad», accesible con un clic desde esta página, como canal para informarse sobre el ejercicio de esos derechos.",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Política de privacidad»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página no publica información sobre menores de edad; trata sobre una ceremonia institucional con autoridades y representantes del sector productivo."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "No corresponde evaluar aptitud para lectura por menores porque el contenido es información institucional neutra, sin temas sensibles ni dirigidos a un público adulto."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "No se identifica en esta página material relacionado con salud, ideología, creencias religiosas, vida sexual ni características físicas de personas."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página es una noticia narrativa sobre un evento institucional, no un contenido organizado como respuestas a preguntas frecuentes."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales ni texto que haga referencia a preguntas frecuentes en esta página. En consecuencia con el criterio anterior, tampoco corresponde evaluar aquí la organización de la información de un servicio digital como respuestas a preguntas frecuentes."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Las palabras y frases del titular y de la mayoría de los párrafos son claras para una persona usuaria; los dos términos técnicos sin definir («juicios de oposición», «activos intangibles») ya se tratan en el criterio de lenguaje plano correspondiente para no duplicar el mismo hallazgo."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "cumple",
+      "comentario": "Predomina la voz activa en los verbos que narran la actividad del Director Nacional («destacó», «relevó», «señaló», «puso énfasis»); el tiempo pasado es el adecuado para relatar un evento ya ocurrido, no una instrucción o trámite en curso."
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "La mayoría de las oraciones del cuerpo siguen el orden sujeto-verbo-predicado (por ejemplo, «La actividad reunió a autoridades…», «Otro de los hitos abordados fue…»)."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Esta página no presenta listados de requisitos de servicios a la ciudadanía; es una noticia narrativa."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
+      "cita_textual": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página es una noticia informativa del sitio institucional, no la página de inicio ni el desarrollo de un trámite en el servicio digital."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Cada párrafo del cuerpo es una sola oración o dos oraciones cortas; ninguno se extiende por encima de las ocho líneas que exige el criterio en vista de escritorio."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuarto párrafo concentra tres datos distintos en una sola unidad de texto: el tiempo promedio de tramitación de patentes, el porcentaje de solicitudes de marcas resueltas a tiempo y la reducción del rezago en juicios de oposición.",
+      "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo"
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El noveno párrafo es una sola oración de 58 palabras que enumera cinco compromisos institucionales distintos separados por comas, en vez de presentarlos como oraciones independientes o una lista.",
+      "cita_textual": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "ubicacion_pantalla": "Cuerpo de la página › noveno párrafo"
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "cumple",
+      "comentario": "El párrafo de bajada, ubicado antes del cuerpo de once párrafos, funciona como resumen inicial de la noticia.",
+      "cita_textual": "La jornada permitió dar a conocer los principales avances de INAPI en materia de eficiencia, liderazgo internacional, descentralización y modernización institucional…",
+      "ubicacion_pantalla": "Cuerpo de la página › párrafo de bajada, bajo el título del artículo"
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Los párrafos del cuerpo tienen una separación visual consistente entre sí (aproximadamente 20 píxeles de margen inferior en cada uno), medida directamente sobre la página."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El texto del cuerpo está alineado en formato justificado, no a la izquierda como exige el criterio; se verificó directamente sobre el estilo aplicado a los párrafos del cuerpo de la noticia. Es un estilo compartido por el bloque de texto de las noticias del sitio.",
+      "cita_textual": "Alineación de texto: justificado",
+      "ubicacion_pantalla": "Cuerpo de la página › bloque de texto del artículo"
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El noveno párrafo enumera cinco compromisos institucionales distintos dentro de una sola oración corrida, en vez de presentarse como una lista con viñetas que ordene visualmente la información.",
+      "cita_textual": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "ubicacion_pantalla": "Cuerpo de la página › noveno párrafo"
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "cumple",
+      "comentario": "La bajada y el primer párrafo entregan primero lo más importante (qué ocurrió y quién encabezó la actividad); los detalles y cifras específicas aparecen después, siguiendo el modelo de pirámide invertida."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "cumple",
+      "comentario": "Además del encabezado genérico de plantilla ya tratado en el criterio de completitud, el artículo cuenta con bajada, título propio de la noticia y una sección final «Otras Noticias» con títulos descriptivos que facilitan la búsqueda de contenido relacionado."
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos ni listas con viñetas que permitan escanear visualmente los temas de eficiencia, PCT, descentralización y compromisos 2026 sin leer todo el texto seguido.",
+      "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»"
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Ninguno de los once párrafos del cuerpo destaca en negrita las palabras clave de su contenido.",
+      "cita_textual": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país. · En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · En este marco, el Director Nacional destacó los resultados de la iniciativa INAPI+Cerca, campaña piloto desarrollada en las regiones de Coquimbo, Maule y Los Lagos, que permitió conectar con públicos tradicionalmente alejados de estas materias, incluyendo comunidades rurales y personas mayores.",
+      "ubicacion_pantalla": "Cuerpo de la página › segundo, cuarto y octavo párrafo"
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Fuera de los ítems excluidos por calibración vigente (accesos y buscador de la cabecera global), hay mayúscula sostenida en la ventana de búsqueda «Buscar y tramitar» (títulos «BUSCAR Y TRAMITAR», «MARCAS», «PATENTES») y en el botón «LINK EXTERNO» del panel de acceso y registro, ambos componentes compartidos del diseño global del sitio.",
+      "cita_textual": "BUSCAR Y TRAMITAR; MARCAS; PATENTES; LINK EXTERNO",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "La sección «Otras Noticias» vincula cinco artículos del mismo sitio, y el enlace «Ver todas las noticias» conecta con el listado completo.",
+      "cita_textual": "Ver todas las noticias"
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el menú de navegación global hay un enlace «Conoce más» que no dice de qué trata el destino, y en el panel de acceso y registro hay un botón «LINK EXTERNO» que tampoco describe a dónde lleva y, además, no tiene un destino real configurado (apunta a «#»). Los enlaces propios de esta página («Volver», «formulario disponible», los títulos de «Otras Noticias») sí describen con claridad su destino o acción.",
+      "cita_textual": "Conoce más (menú de navegación global); LINK EXTERNO (panel de acceso y registro)",
+      "ubicacion_pantalla": "Menú de navegación global › enlace «Conoce más»; panel de acceso y registro «INAPI» › botón «LINK EXTERNO»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "no_aplica",
+      "comentario": "Esta página no enlaza ningún documento descargable; el único enlace externo es a un formulario de participación ciudadana, no a un documento."
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "no_aplica",
+      "comentario": "Esta página no enlaza ningún documento descargable, por lo que no corresponde evaluar la descripción de documentos."
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "La página usa apoyos visuales para presentar la información: el carrusel de imágenes propio de la noticia y las imágenes ilustrativas de cada artículo relacionado en «Otras Noticias». La pregunta evalúa presencia de apoyos visuales, no la calidad del texto alternativo de las imágenes.",
+      "ubicacion_pantalla": "Cuerpo de la página › carrusel de imágenes de la noticia; sección «Otras Noticias»"
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "El texto reporta hechos y cita directamente al Director Nacional y a la Subdirectora de Patentes; no hay opiniones propias de quien redacta la noticia fuera de esas citas atribuidas."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Varios párrafos usan lenguaje de balance institucional sin cifras que lo respalden, por ejemplo al describir la actividad como un espacio que se «consolida» en diálogo y transparencia, o al hablar de «reforzar el compromiso» con la descentralización; el resto del cuerpo sí privilegia datos concretos (2,3 años, 97%, de 56% a 3%, hasta 2038), pero estas frases de balance pesan más de lo recomendable frente al total de párrafos.",
+      "cita_textual": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
+      "ubicacion_pantalla": "Cuerpo de la página › segundo párrafo"
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página no presenta versiones anteriores de contenidos ni un historial de cambios visible; es una noticia vigente."
+    }
+  ],
+  "criterios_aprobados": 23,
+  "criterios_aplicables": 39,
+  "criterios_no_aplica": 12,
+  "porcentaje_cumplimiento": 59.0,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La página «INAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial» (sala de prensa, detalle de noticia) fue auditada el 25 de agosto de 2026 con una captura actual y propia de la página, incluida la revisión del panel de acceso y registro y la ventana de búsqueda «Buscar y tramitar» compartidos con el resto del sitio. De los 51 criterios de lenguaje claro, 39 son aplicables a esta página; de ellos, 23 se cumplen y 16 no se cumplen (dos con prioridad alta, diez con prioridad media y cuatro con prioridad baja). El resultado de cumplimiento es 59,0%, por lo que la página queda en estado rechazado según el umbral vigente. El hallazgo de mayor prioridad es que el primer párrafo del cuerpo comienza con una oración gramaticalmente incompleta —probablemente falta la fecha y el lugar exactos del evento— y que ninguno de los once párrafos del cuerpo destaca en negrita sus datos clave. También se repiten en esta página patrones ya detectados en otras páginas del sitio: el botón «LINK EXTERNO» sin destino real, el enlace «Conoce más» sin indicar de qué trata, la sigla PCT sin definir en el menú, mayúscula sostenida en la ventana «Buscar y tramitar» y la capitalización incorrecta de «industrial» en el nombre de la institución en el pie de página. De forma propia de esta noticia, el cuerpo excede el máximo de ocho párrafos recomendado, el texto está alineado en formato justificado y no a la izquierda, y varios párrafos combinan varios datos o compromisos distintos en una sola oración larga.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(criterio 1) Primer párrafo del cuerpo con una oración gramaticalmente incompleta (falta la cláusula inicial, probablemente fecha y lugar), y capitalización incorrecta de «industrial» en el nombre de la institución en el pie de página compartido.",
+      "(criterio 39) Ninguno de los once párrafos del cuerpo destaca en negrita sus palabras o cifras clave."
+    ],
+    "hallazgos_prioridad_media": [
+      "(criterio 10) El encabezado más visible de la página, antes del título del artículo, es una etiqueta genérica de plantilla («Detalle») que no identifica esta noticia en particular.",
+      "(criterio 12) El primer párrafo no indica en ningún punto del cuerpo la fecha en que se realizó la ceremonia relatada.",
+      "(criterio 6) Dos términos técnicos sin explicación en el cuerpo: «juicios de oposición» y «activos intangibles».",
+      "(criterio 20) El cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio.",
+      "(criterio 23) El cuarto párrafo concentra tres datos distintos en una sola unidad de texto.",
+      "(criterio 24) El noveno párrafo enumera cinco compromisos institucionales en una sola oración de 58 palabras.",
+      "(criterio 34) El bloque de texto del cuerpo está en formato justificado en vez de alineado a la izquierda.",
+      "(criterio 38) El cuerpo son once párrafos de texto corrido sin subtítulos internos ni listas con viñetas que faciliten el escaneo visual.",
+      "(criterio 40) Mayúscula sostenida en la ventana «Buscar y tramitar» y en el botón «LINK EXTERNO», ambos componentes compartidos del sitio.",
+      "(criterio 42) El enlace «Conoce más» del menú global y el botón «LINK EXTERNO» del panel de acceso no describen su destino o acción."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(criterio 4) No se aplicó una herramienta de medición de legibilidad sobre el texto principal en esta sesión.",
+      "(criterio 8) La sigla «PCT» aparece sin definirse en el menú global y en el cuerpo del artículo.",
+      "(criterio 35) El noveno párrafo enumera cinco compromisos institucionales que deberían presentarse como lista, no como oración corrida.",
+      "(criterio 50) El segundo párrafo describe la actividad con lenguaje de balance institucional sin una cifra concreta que lo respalde."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "S01",
+      "html_linea_aprox": "HTML encabezado de plantilla, antes del título",
+      "ubicacion_pantalla": "Zona superior de la noticia › encabezado de plantilla, antes del título del artículo",
+      "original": "Detalle",
+      "propuesto": "Cambiar el encabezado de plantilla por uno que ya anticipe el tema, por ejemplo «Noticia», seguido inmediatamente por el título propio del artículo con mayor jerarquía visual que hoy.",
+      "criterio_id": "LC-1.1.2-01",
+      "motivo": "El encabezado más visible de la página («Detalle») no describe el contenido específico de esta noticia; solo el título de menor tamaño que aparece debajo lo hace. Es un componente compartido de la plantilla de todas las noticias de detalle; corregir en el origen replica el cambio en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S02",
+      "html_linea_aprox": "HTML primer párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › primer párrafo",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "propuesto": "En la Cuenta Pública Participativa 2026, realizada el [fecha del evento] en la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) presentó sus principales avances institucionales…",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.2-03"
+      ],
+      "motivo": "El párrafo comienza con minúscula y sin sujeto propio, lo que indica que falta la cláusula inicial de la oración (probablemente la fecha y el lugar del evento). Se propone restituir esa cláusula inicial para que la oración quede completa y gramaticalmente correcta.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S03",
+      "html_linea_aprox": "HTML primer párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › primer párrafo",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "propuesto": "Agregar de forma explícita la fecha en que se realizó la ceremonia (por ejemplo, «El [día] de junio de 2026…»), no solo la fecha de publicación de la noticia que aparece junto al título.",
+      "criterio_id": "LC-1.1.2-03",
+      "agrupado_en": "LC-1.1.5-01",
+      "motivo": "El párrafo cubre bien el qué, el dónde y el quién, pero no indica en ningún punto del cuerpo la fecha en que ocurrió el evento. Comparte el mismo párrafo que el hallazgo de gramática (la cláusula inicial faltante probablemente incluía esa fecha), pero responde una pregunta distinta: aquí el problema es la ausencia de un dato clave, no la corrección gramatical en sí.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S04",
+      "html_linea_aprox": "HTML pie de página, bloque «Dónde estamos»",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos»",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales. Es un componente compartido del pie de página; corregir en el origen replica el cambio en todas las páginas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S05",
+      "html_linea_aprox": "HTML cuarto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "…Asimismo, destacó la reducción histórica del rezago en juicios de oposición —los procesos donde un tercero puede objetar el registro de una marca o patente—, que pasó de un 56% a un 3%.",
+      "criterio_id": "LC-1.1.3-01",
+      "motivo": "Sin una herramienta de legibilidad aplicada sobre el texto, y con oraciones de más de 50 palabras como esta, corresponde marcar el criterio como incumplido; se recomienda pasar el texto por una herramienta de lectura fácil y ajustar hasta obtener un resultado «Normal» en al menos tres de cinco indicadores.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S06",
+      "html_linea_aprox": "HTML cuarto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "…Asimismo, destacó la reducción histórica del rezago en juicios de oposición —los procesos donde un tercero puede objetar el registro de una marca o patente antes de que se conceda—, que pasó de un 56% a un 3%.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Juicios de oposición» es un término legal que se usa sin explicación; se propone una glosa breve entre guiones que aclare de qué se trata sin alargar demasiado la oración.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S07",
+      "html_linea_aprox": "HTML noveno párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › noveno párrafo",
+      "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "…el impulso a mecanismos de financiamiento basados en activos intangibles —como una marca o una patente, que también tienen valor económico aunque no tengan forma física— y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Activos intangibles» es un término técnico-financiero que se usa sin explicación; se propone una glosa breve que aclare el concepto para una persona sin formación económica o legal.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S08",
+      "html_linea_aprox": "HTML nav global",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › ítem «PCT»",
+      "original": "PCT",
+      "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Cada sigla debe definirse en su primera aparición. «PCT» se repite en el menú global sin definición. Es un componente compartido del menú del sitio; corregir en el origen replica el cambio en todas las páginas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S09",
+      "html_linea_aprox": "HTML quinto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › quinto párrafo",
+      "original": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038…",
+      "propuesto": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT (Tratado de Cooperación en materia de Patentes) hasta 2038…",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "La sigla «PCT» se usa en el cuerpo del artículo sin definirse, a diferencia de «Patent Law Treaty (PLT)», que sí se expande en el mismo texto. Se propone agregar la definición entre paréntesis en esta primera aparición dentro del cuerpo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S10",
+      "html_linea_aprox": "HTML cuerpo, once párrafos entre bajada y «Volver»",
+      "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»",
+      "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+      "propuesto": "Reducir el cuerpo a un máximo de ocho párrafos, por ejemplo fusionando los párrafos sobre PCT y descentralización en uno solo, o moviendo el detalle de la iniciativa INAPI+Cerca a un recuadro aparte.",
+      "criterio_id": "LC-1.2.2-01",
+      "motivo": "El cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S11",
+      "html_linea_aprox": "HTML cuarto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "Separar en dos ideas: una oración para el tiempo de tramitación de patentes y el porcentaje de marcas resueltas a tiempo, y otra independiente para la reducción del rezago en juicios de oposición.",
+      "criterio_id": "LC-1.2.2-03",
+      "motivo": "El párrafo concentra tres datos distintos (tiempo de tramitación de patentes, porcentaje de marcas resueltas, reducción del rezago en juicios de oposición) en una sola unidad de texto, en vez de una idea por párrafo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "HTML noveno párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › noveno párrafo",
+      "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Convertir la enumeración en una lista con viñetas: modernización del sitio web institucional; incorporación de inteligencia artificial en procesos de examen; implementación del Patent Law Treaty (PLT); nuevos mecanismos de financiamiento con activos intangibles; inicio de una Estrategia Nacional de Propiedad Industrial.",
+      "criterio_id": "LC-1.2.2-04",
+      "motivo": "El párrafo es una sola oración de 58 palabras que enumera cinco compromisos institucionales distintos separados por comas, en vez de oraciones simples y directas.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S13",
+      "html_linea_aprox": "HTML noveno párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › noveno párrafo",
+      "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Convertir la enumeración en una lista con viñetas: modernización del sitio web institucional; incorporación de inteligencia artificial en procesos de examen; implementación del Patent Law Treaty (PLT); nuevos mecanismos de financiamiento con activos intangibles; inicio de una Estrategia Nacional de Propiedad Industrial.",
+      "criterio_id": "LC-1.2.3-03",
+      "agrupado_en": "LC-1.2.2-04",
+      "motivo": "El párrafo enumera cinco compromisos institucionales dentro de una sola oración corrida; son datos enumerables que deberían presentarse como lista. Comparte el mismo párrafo y la misma corrección que el hallazgo de concisión, por lo que se agrupa bajo ese criterio.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S14",
+      "html_linea_aprox": "HTML bloque de texto del cuerpo (clase texto-noticia)",
+      "ubicacion_pantalla": "Cuerpo de la página › bloque de texto del artículo",
+      "original": "Alineación de texto: justificado",
+      "propuesto": "Cambiar la alineación del bloque de texto del cuerpo de la noticia de justificado a alineado a la izquierda.",
+      "criterio_id": "LC-1.2.3-02",
+      "motivo": "Se verificó directamente el estilo aplicado al bloque de texto del artículo: está en formato justificado, no alineado a la izquierda como exige el criterio. Es un estilo compartido por el bloque de texto de las noticias del sitio; corregir en el origen replica el cambio en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S15",
+      "html_linea_aprox": "HTML cuerpo, once párrafos entre bajada y «Volver»",
+      "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+      "propuesto": "Agregar subtítulos breves entre los bloques temáticos del artículo — Avances en eficiencia, Liderazgo internacional, Descentralización, Compromisos 2026 — y convertir la enumeración del noveno párrafo en una lista con viñetas.",
+      "criterio_id": "LC-1.2.4-03",
+      "motivo": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos ni listas con viñetas que permitan escanear visualmente los distintos temas sin leer todo el texto seguido.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S16",
+      "html_linea_aprox": "HTML segundo párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › segundo párrafo",
+      "original": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
+      "propuesto": "Destacar en negrita los conceptos clave del párrafo: autoridades regionales y nacionales; diálogo y transparencia.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "El párrafo no destaca en negrita ninguna palabra clave de su contenido.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S17",
+      "html_linea_aprox": "HTML cuarto párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › cuarto párrafo",
+      "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+      "propuesto": "Destacar en negrita las cifras clave del párrafo: 2,3 años; 97%; de un 56% a un 3%.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "El párrafo no destaca en negrita ninguna de sus cifras clave (tiempo de tramitación de patentes, porcentaje de marcas resueltas, reducción del rezago en juicios de oposición).",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S18",
+      "html_linea_aprox": "HTML octavo párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › octavo párrafo",
+      "original": "En este marco, el Director Nacional destacó los resultados de la iniciativa INAPI+Cerca, campaña piloto desarrollada en las regiones de Coquimbo, Maule y Los Lagos, que permitió conectar con públicos tradicionalmente alejados de estas materias, incluyendo comunidades rurales y personas mayores.",
+      "propuesto": "Destacar en negrita los datos clave del párrafo: INAPI+Cerca; Coquimbo, Maule y Los Lagos.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "El párrafo no destaca en negrita el nombre de la campaña ni las regiones donde se desarrolló, siendo estos los datos clave del párrafo.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S19",
+      "html_linea_aprox": "HTML ventana emergente «Buscar y tramitar» (título y subtítulos)",
+      "ubicacion_pantalla": "Ventana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos",
+      "original": "BUSCAR Y TRAMITAR / MARCAS / PATENTES",
+      "propuesto": "Buscar y tramitar / Marcas / Patentes",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Se deben evitar frases escritas solo en mayúsculas. Es un componente compartido del sitio; corregir en el origen replica el cambio en todas las páginas que usan esta ventana emergente.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S20",
+      "html_linea_aprox": "HTML panel de acceso y registro, botón",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» (ícono de usuario en cabecera) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar el botón «LINK EXTERNO» del panel mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»). Mientras tanto, escribirlo con mayúscula inicial, no en mayúscula sostenida.",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El botón está escrito solo en mayúsculas. Es un componente compartido del panel de acceso y registro; corregir en el origen replica el cambio en todas las páginas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S21",
+      "html_linea_aprox": "HTML nav global, enlace «Conoce más»",
+      "ubicacion_pantalla": "Menú de navegación global (escritorio y móvil) › enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "El enlace del menú principal solo dice «Conoce más» sin indicar de qué. Es un componente compartido con otras páginas del sitio: corregir en el origen del menú para que el cambio se replique en todas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S22",
+      "html_linea_aprox": "HTML panel de acceso y registro (a.btn.rojo)",
+      "ubicacion_pantalla": "Panel de acceso y registro «INAPI» (ícono de usuario en cabecera) › botón «LINK EXTERNO»",
+      "original": "LINK EXTERNO",
+      "propuesto": "Quitar el botón «LINK EXTERNO» del panel mientras no tenga un destino real, o reemplazarlo por el enlace externo que corresponda con un texto claro (por ejemplo, «Ir al sitio de [nombre del servicio]»).",
+      "criterio_id": "LC-5.2.4-01",
+      "criterios_relacionados": [
+        "LC-1.2.4-05"
+      ],
+      "motivo": "El botón no dice a dónde lleva y, además, no tiene un destino real configurado. Comparte nodo con el hallazgo de mayúsculas sostenidas, pero responde una pregunta distinta: aquí el problema es que el rótulo no describe ningún destino ni acción, no solo que esté en mayúsculas.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S23",
+      "html_linea_aprox": "HTML segundo párrafo del cuerpo",
+      "ubicacion_pantalla": "Cuerpo de la página › segundo párrafo",
+      "original": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
+      "propuesto": "Reemplazar la frase de balance («consolidándose como un espacio de diálogo y transparencia») por un dato concreto sobre la actividad, por ejemplo la cantidad de personas asistentes o de instituciones representadas, si se dispone de esa cifra.",
+      "criterio_id": "LC-1.3.2-02",
+      "motivo": "El párrafo describe la actividad con lenguaje de balance institucional («consolidándose como un espacio de diálogo y transparencia») sin una cifra que lo respalde, a diferencia de otros párrafos del cuerpo que sí privilegian datos concretos.",
+      "patron_sistema": false
+    }
+  ],
+  "nota_final_tic": "Para el equipo que implementa las correcciones: la mayoría de los cambios de esta página se hacen en el editor de contenido de la propia noticia (agregar la fecha y el lugar exactos del evento al inicio del párrafo, destacar en negrita las palabras y cifras clave de cada párrafo, dividir el noveno párrafo en una lista, y cambiar la alineación del bloque de texto de justificado a alineado a la izquierda). Otro grupo de correcciones —el botón «LINK EXTERNO», el enlace «Conoce más» del menú, la sigla PCT en el menú, la ventana «Buscar y tramitar» y la capitalización de «industrial» en el pie de página— pertenece a componentes compartidos del sitio (menú global, panel de acceso, pie de página): corregirlos una sola vez en su origen replica el cambio en todas las páginas que los usan. Nota aparte, no ligada a ningún criterio de este checklist: la primera imagen del carrusel de esta noticia tiene un título y texto alternativo que describen «Portada de las Directrices de Marcas 2026», un contenido distinto al de esta noticia; conviene que el equipo editorial revise y corrija esa descripción de imagen para que corresponda al artículo."
+}
