@@ -9,6 +9,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | Fecha | Entrada |
 | --- | --- |
 | 2026-08-25 | [Infraestructura: Noticia — Cifra histórica de patentes nacionales www.inapi.cl — auditoría v3.0 completa, rechazado 65,0 % — cierre serie](#devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30) |
+| 2026-08-25 | [Calibración C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL](#devlog-2026-08-25-calibracion-25l-escaneo-negritas) |
 | 2026-08-25 | [Calibración C-2026-08-25k — citas negadas y meta parentética en entrega](#devlog-2026-08-25-calibracion-25k-citas-negadas) |
 | 2026-08-25 | [Infraestructura: Noticia — Cuenta Pública Participativa 2026 www.inapi.cl — auditoría v3.0 completa, rechazado 59,0 %](#devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
@@ -129,6 +130,27 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ### Próximos pasos:
 
 - Serie de 9 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25k.
+
+---
+
+<a id="devlog-2026-08-25-calibracion-25l-escaneo-negritas"></a>
+## [2026-08-25] - Calibración | C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión URL 9 (cifra patentes): el criterio 38 arrastraba correcciones de negrita del 39; el 39 duplicaba el mismo párrafo; el 48 citaba un `alt` de biofiltro no usable como Texto en pantalla.
+
+### Implementación técnica:
+
+- URL 9: 38 primario con propuesto de subtítulos/listas/recuadro (sin negrita); 39 con tres filas en párrafos distintos; 48 Cumple justificado con gráficos intercalados; % 62,5 % tras desagrupar.
+- URL 8: comentario/motivo del 38 sin mezclar negrita.
+- Prompt 6 **C-2026-08-25l**, Prompt 5, skills 02/05, gate CLAUDE.md.
+
+### Próximos pasos:
+
+- Continuar META MEI orden 10 (SIAC) con calibraciones hasta 25l.
 
 ---
 

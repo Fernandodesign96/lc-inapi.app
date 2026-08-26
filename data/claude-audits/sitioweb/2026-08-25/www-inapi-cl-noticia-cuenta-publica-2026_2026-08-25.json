@@ -255,7 +255,7 @@
       "id": "LC-1.2.4-03",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos, listas ni palabras en negrita que permitan escanear visualmente los temas de eficiencia, PCT, descentralización y compromisos 2026 sin leer todo el texto seguido.",
+      "comentario": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos ni listas con viñetas que permitan escanear visualmente los temas de eficiencia, PCT, descentralización y compromisos 2026 sin leer todo el texto seguido.",
       "cita_textual": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
       "ubicacion_pantalla": "Cuerpo de la página › los once párrafos entre la bajada y el enlace «Volver»"
     },
@@ -343,7 +343,7 @@
       "(criterio 23) El cuarto párrafo concentra tres datos distintos en una sola unidad de texto.",
       "(criterio 24) El noveno párrafo enumera cinco compromisos institucionales en una sola oración de 58 palabras.",
       "(criterio 34) El bloque de texto del cuerpo está en formato justificado en vez de alineado a la izquierda.",
-      "(criterio 38) El cuerpo son once párrafos de texto corrido sin subtítulos internos, listas ni negrita que faciliten el escaneo visual.",
+      "(criterio 38) El cuerpo son once párrafos de texto corrido sin subtítulos internos ni listas con viñetas que faciliten el escaneo visual.",
       "(criterio 40) Mayúscula sostenida en la ventana «Buscar y tramitar» y en el botón «LINK EXTERNO», ambos componentes compartidos del sitio.",
       "(criterio 42) El enlace «Conoce más» del menú global y el botón «LINK EXTERNO» del panel de acceso no describen su destino o acción."
     ],
@@ -507,7 +507,7 @@
       "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%. · Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
       "propuesto": "Agregar subtítulos breves entre los bloques temáticos del artículo — Avances en eficiencia, Liderazgo internacional, Descentralización, Compromisos 2026 — y convertir la enumeración del noveno párrafo en una lista con viñetas.",
       "criterio_id": "LC-1.2.4-03",
-      "motivo": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos, listas ni palabras en negrita que permitan escanear visualmente los distintos temas sin leer todo el texto seguido.",
+      "motivo": "El cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos ni listas con viñetas que permitan escanear visualmente los distintos temas sin leer todo el texto seguido.",
       "patron_sistema": false
     },
     {

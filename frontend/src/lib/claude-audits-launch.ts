@@ -293,10 +293,10 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 9)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25k (rótulos/CTA siempre evaluables,
-    // ausencia total = severidad alta, sin citas negadas ni meta entre paréntesis).
+    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25l (escaneo ≠ negritas;
+    // literales solo de esta URL; desagrupado criterio 38 del 39).
     resumenMvp: {
-      porcentajeLc: 65.0,
+      porcentajeLc: 62.5,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
