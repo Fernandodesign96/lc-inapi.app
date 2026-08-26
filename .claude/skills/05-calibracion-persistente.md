@@ -37,9 +37,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 12. **Ausencia total = No cumple (C-2026-08-25g):** si Texto en pantalla es «No hay texto que cumpla…» (p. ej. datos clave sin recuadro) → `severidad: alta`, no `media`.  
 13. **Entrega ciudadana (C-2026-08-25h):** sin `Tnnn`, `applicability`, IEW/IESD sueltos ni instrucciones «(indicar Cabecera…)» en los 4 campos; criterio 15 se evalúa en hubs de trámite con justificación clara si no hay FAQ.  
 14. **Negritas + paréntesis (C-2026-08-25j):** sin negrita en los párrafos citados → `severidad: alta`; Texto = literales reales, no `(sin negrita…)`. Prohibido explicaciones entre paréntesis salvo que todo el campo sea una sola frase parentética de ausencia.  
-15. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-16. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-17. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+15. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto citas entre comillas que la narración niega; no usar meta `(once párrafos…)` como Texto/original.  
+16. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+17. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+18. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

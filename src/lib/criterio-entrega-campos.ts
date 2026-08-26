@@ -236,6 +236,57 @@ function justificacionDeclaraAusenciaDeTextos(text: string): boolean {
   )
 }
 
+/**
+ * True si la cita entre comillas está negada en la narración
+ * (p. ej. «no hay señales de … «en construcción»» → no es texto en pantalla).
+ */
+export function citaNegadaEnNarracion(narracion: string, quote: string): boolean {
+  const q = quote.trim()
+  if (!q || !narracion.trim()) return false
+  const lowerN = narracion.toLowerCase()
+  const lowerQ = q.toLowerCase()
+  let from = 0
+  while (from < lowerN.length) {
+    const idx = lowerN.indexOf(lowerQ, from)
+    if (idx < 0) break
+    // Ventana previa a la cita (aprox. contexto de la oración)
+    const prev = lowerN.slice(Math.max(0, idx - 120), idx)
+    if (
+      /\bno\s+hay\b/.test(prev) ||
+      /\bno\s+se\s+observ/.test(prev) ||
+      /\bno\s+se\s+detect/.test(prev) ||
+      /\bno\s+se\s+encontr/.test(prev) ||
+      /\bni\s+de\b/.test(prev) ||
+      /\bsin\s+(?:bloques?|secciones?|textos?|p[aá]ginas?|se[nñ]ales?)\b/.test(
+        prev,
+      ) ||
+      /\btextos?\s+de\s+tipo\b/.test(prev) ||
+      /\bbloques?\s*$/.test(prev.trim()) ||
+      /\bse[nñ]ales?\s+de\b/.test(prev)
+    ) {
+      return true
+    }
+    from = idx + lowerQ.length
+  }
+  return false
+}
+
+/** Meta-descripción entre paréntesis que no es literal de pantalla ni ausencia canónica. */
+export function esMetaDescripcionEntreParentesis(text: string): boolean {
+  const t = text.trim()
+  if (!/^\([^)]+\)$/.test(t)) return false
+  // Ausencias canónicas permitidas como único contenido del campo
+  if (
+    /^\(ausencia\b/i.test(t) ||
+    /^\(sin fecha/i.test(t) ||
+    /^\(no existe en pantalla\)$/i.test(t)
+  ) {
+    return false
+  }
+  // Resto: conteos, estructuras, etc. → no usar como Texto en pantalla
+  return true
+}
+
 /** Extrae fragmentos entre «…», "…" o '…' mencionados en comentarios/motivos. */
 export function extraerCitasEntreComillas(text: string): string[] {
   const out: string[] = []
@@ -245,6 +296,8 @@ export function extraerCitasEntreComillas(text: string): string[] {
     if (!q || seen.has(q)) continue
     // Nunca tratar la pregunta del instrumento como literal en pantalla
     if (esPreguntaDeCriterio(q)) continue
+    // No volcar citas que la narración niega (defectos no observados)
+    if (citaNegadaEnNarracion(text, q)) continue
     seen.add(q)
     out.push(q)
   }
@@ -262,11 +315,20 @@ export function resolverTextoEnPantalla(
   sust?: ClaudeSustitucion,
 ): string {
   const fromSust = sust?.original?.trim() ?? ""
-  if (fromSust && !esPreguntaDeCriterio(fromSust)) return fromSust
+  if (
+    fromSust &&
+    !esPreguntaDeCriterio(fromSust) &&
+    !esMetaDescripcionEntreParentesis(fromSust)
+  ) {
+    return fromSust
+  }
 
   const citaRaw = ev.cita_textual?.trim() ?? ""
   const cita =
-    citaRaw && citaRaw !== "(ausencia)" && !esPreguntaDeCriterio(citaRaw)
+    citaRaw &&
+    citaRaw !== "(ausencia)" &&
+    !esPreguntaDeCriterio(citaRaw) &&
+    !esMetaDescripcionEntreParentesis(citaRaw)
       ? citaRaw
       : ""
   if (cita) return cita
@@ -445,6 +507,27 @@ function motivoLimpio(sust?: ClaudeSustitucion): string {
   return stripEncabezadoCriterioInstrumento(sust?.motivo?.trim() ?? "")
 }
 
+/** Evita pegar motivo + comentario casi idénticos en la justificación. */
+function textosJustificacionCasiIguales(a: string, b: string): boolean {
+  const norm = (s: string) =>
+    s
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .replace(/[.,;:]+$/g, "")
+      .trim()
+  const na = norm(a)
+  const nb = norm(b)
+  if (!na || !nb) return false
+  if (na === nb) return true
+  if (na.includes(nb) || nb.includes(na)) return true
+  // Mismo inicio (p. ej. motivo más corto que el comentario del mismo hallazgo)
+  const prefixLen = Math.min(na.length, nb.length, 72)
+  if (prefixLen >= 40 && na.slice(0, prefixLen) === nb.slice(0, prefixLen)) {
+    return true
+  }
+  return false
+}
+
 /** Quita pregunta-de-criterio embebida en rutas de ubicación derivadas. */
 function limpiarUbicacionEntrega(ubicacion: string, textoEnPantalla: string): string {
   let u = ubicacion.trim()
@@ -516,6 +599,12 @@ export function criterioEntregaCampos(
             .map((id) => etiquetaCriterioSimple(id))
             .join(", ")
         : ""
+    const motivo = motivoLimpio(sust)
+    const comentario = comentarioLimpio(ev)
+    const comentarioExtra =
+      motivo && comentario && textosJustificacionCasiIguales(motivo, comentario)
+        ? null
+        : comentario || null
     return conLenguajeTipografiaCms({
       textoEnPantalla,
       correccionPropuesta: corregirPropuestaEntrega(
@@ -531,8 +620,8 @@ export function criterioEntregaCampos(
           ? "Patrón de sitio (corregir una vez en el layout o componente compartido del CMS)."
           : null,
         listaRel ? `Criterios relacionados: ${listaRel}.` : null,
-        motivoLimpio(sust) || null,
-        comentarioLimpio(ev) || null,
+        motivo || null,
+        comentarioExtra,
       ]
         .filter(Boolean)
         .join(" "),

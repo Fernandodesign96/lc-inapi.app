@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Calibración C-2026-08-25k — citas negadas y meta parentética en entrega](#devlog-2026-08-25-calibracion-25k-citas-negadas) |
 | 2026-08-25 | [Infraestructura: Noticia — Cuenta Pública Participativa 2026 www.inapi.cl — auditoría v3.0 completa, rechazado 59,0 %](#devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Solicitud Nueva (Marcas) tramites.inapi.cl — reauditoría v3.0 completa, rechazado 71,4 %](#devlog-2026-08-25-solicitud-nueva-reaudit-v30) |
@@ -104,6 +105,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-calibracion-25k-citas-negadas"></a>
+## [2026-08-25] - Calibración | C-2026-08-25k — citas negadas y meta parentética en entrega
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión manual de URL 8 (Cuenta Pública): criterio 11 mostraba Texto `en construcción` pese a justificación que negaba ese texto; criterio 38 usaba Texto `(once párrafos…)` en lugar de literales del cuerpo.
+
+### Implementación técnica:
+
+- Capa de entrega (`criterio-entrega-campos.ts`): filtro de citas entre comillas negadas en la narración; rechazo de meta-descripciones entre paréntesis como Texto/original; deduplicación de motivo≈comentario en justificación.
+- JSON URL 8: `cita_textual` positiva en criterio 11; literales reales en criterio 38 y en originales de extensión/escaneo; propuesto sin «(por ejemplo …)».
+- Consistencia: Acerca (`LC-1.2.1-01` original), Patentes (`LC-1.1.3-04` sin paréntesis meta).
+- Documentación: Prompt 6 **C-2026-08-25k**, Prompt 5, skills 02/05, gate CLAUDE.md §22.12.
+
+### Próximos pasos:
+
+- Auditar META MEI orden 9 (noticia cifra patentes) con calibraciones hasta 25k.
 
 ---
 

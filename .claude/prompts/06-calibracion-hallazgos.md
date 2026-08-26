@@ -56,6 +56,19 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas (sitioweb y trámites).
 - **estado:** vigente
 
+### C-2026-08-25k — Citas negadas ≠ texto en pantalla; sin meta entre paréntesis como literales
+
+- **Origen:** revisión Noticia Cuenta Pública (URL 8): criterio 11 (`LC-1.1.2-02`) en Cumple con Texto `en construcción` porque la justificación decía «no hay señales … ni de «en construcción»» y el extractor de comillas volcó esa cita negada; criterio 38 (`LC-1.2.4-03`) con Texto `(once párrafos de texto corrido…)` — meta descriptiva entre paréntesis, no literal de pantalla.
+- **Regla:**
+  1. **Citas entre comillas negadas** (p. ej. «no hay… «en construcción»», «ni de «próximamente»», «No se observan textos de tipo «…»») **no** son Texto en pantalla. Si el criterio **cumple**, citar evidencia positiva real (título, bajada, bloque visible) o `—` si no hay literal útil; **nunca** el defecto que se niega.
+  2. **Texto / original** no pueden ser meta-descripciones entre paréntesis del tipo `(once párrafos…)`, `(estructura actual…)`, `(sin negrita…)`. Citar literales del cuerpo o de la zona evaluada. Única excepción parentética: campo cuyo **único** contenido es una frase de ausencia total sin literal citable (`(ausencia)`, `(sin fecha de actualización visible)`, `(no existe en pantalla)`).
+  3. En **propuesto / justificación**, preferir prosa o rayas em dash antes que «(por ejemplo …)» cuando se listan ejemplos (coherente con 25j).
+  4. No duplicar el mismo párrafo en justificación (motivo ≈ comentario → uno solo).
+- **Ejemplo malo:** Cumple · Texto `en construcción` · Justificación «…no hay señales de «en construcción»».
+- **Ejemplo bueno:** Cumple · Texto = título de la noticia · Justificación que niega «en construcción» sin volcarla al Texto.
+- **Aplica a:** todas.
+- **estado:** vigente
+
 ### C-2026-08-25j — Negritas ausentes = No cumple; sin explicaciones entre paréntesis en entrega
 
 - **Origen:** revisión Sala de Prensa — Noticias (URL 7), criterio 39 (`LC-1.2.4-04`): se entregó como «Cumple con observaciones» (`severidad: baja`) con Texto `(sin negrita en los tres extractos)` pese a que existen los tres textos de las tarjetas y ninguno cumple el requisito de negrita.
