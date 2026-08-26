@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Noticia — Cifra histórica de patentes nacionales www.inapi.cl — auditoría v3.0 completa, rechazado 65,0 % — cierre serie](#devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30) |
 | 2026-08-25 | [Calibración C-2026-08-25k — citas negadas y meta parentética en entrega](#devlog-2026-08-25-calibracion-25k-citas-negadas) |
 | 2026-08-25 | [Infraestructura: Noticia — Cuenta Pública Participativa 2026 www.inapi.cl — auditoría v3.0 completa, rechazado 59,0 %](#devlog-2026-08-25-noticia-cuenta-publica-2026-reaudit-v30) |
 | 2026-08-25 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría v3.0 completa, rechazado 73,7 %](#devlog-2026-08-25-sala-de-prensa-noticias-reaudit-v30) |
@@ -105,6 +106,29 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30"></a>
+## [2026-08-25] - Infraestructura | Noticia — Cifra histórica de patentes nacionales: auditoría v3.0 completa, rechazado 65,0 % — cierre serie
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Última URL de la muestra de evaluación institucional en curso (orden 9 de 9): reauditar la noticia «Chile alcanza su mayor cifra de solicitudes de patentes nacionales en más de una década» con captura propia y las calibraciones vigentes hasta C-2026-08-25k.
+
+### Implementación técnica:
+
+- Captura con navegación automatizada: cuerpo editorial de nueve párrafos idéntico al de la auditoría del 2026-08-22; verificado con estilos computados que sigue justificado, con 20px de separación y sin negrita en ningún párrafo.
+- 51 criterios reevaluados desde cero (Paso D0 texto ascendente + 15 indicadores + 5 pasadas de entrega), sin copiar estados previos.
+- Aplicadas las reglas duras de entrega: sin identificadores de inventario, sin la pregunta del criterio como texto en pantalla, sin códigos de criterio sueltos en los campos CMS, severidad alta cuando la ausencia es total, rótulos/CTA (criterio de enlaces descriptivos) evaluado con evidencia real («Conoce más» del menú, ambiguo), criterio de datos clave evaluado sin excluirlo por «no ser trámite», criterio de preguntas frecuentes evaluado en lenguaje ciudadano, negritas ausentes en los nueve párrafos marcadas como No cumple con literales reales, sin citas negadas ni meta-descripciones entre paréntesis.
+- Resultado: 65,0 % de cumplimiento (26 de 40 criterios aplicables), estado `rechazado`; 11 criterios no aplican. Baja frente al 66,7 % del 2026-08-22 porque el criterio de rótulos/CTA ahora se evalúa siempre (antes `no_aplica`) y la ausencia total de negrita subió a prioridad alta.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `_2026-08-25`, historial con las cuatro auditorías previas) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 9 apunta al id vigente).
+
+### Próximos pasos:
+
+- Serie de 9 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25k.
 
 ---
 

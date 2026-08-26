@@ -287,19 +287,22 @@ export const META_MEI_EXTRA_AUDITS: Array<{
     ],
   },
   {
-    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-22",
+    id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-25",
     url: "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
     label: "Noticia — Cifra histórica de patentes nacionales",
     tipoPagina: "sitioweb",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 9)
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
+    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25k (rótulos/CTA siempre evaluables,
+    // ausencia total = severidad alta, sin citas negadas ni meta entre paréntesis).
     resumenMvp: {
-      porcentajeLc: 66.7,
+      porcentajeLc: 65.0,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-22" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-18" },
       { id: "www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29" },
