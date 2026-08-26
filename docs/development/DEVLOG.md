@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-25 | [Infraestructura: Formulario Contacto SIAC tramites.inapi.cl — reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10](#devlog-2026-08-25-siac-reaudit-v30-cierre-muestra) |
 | 2026-08-25 | [Infraestructura: Noticia — Cifra histórica de patentes nacionales www.inapi.cl — auditoría v3.0 completa, rechazado 65,0 % — cierre serie](#devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30) |
 | 2026-08-25 | [Calibración C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL](#devlog-2026-08-25-calibracion-25l-escaneo-negritas) |
 | 2026-08-25 | [Calibración C-2026-08-25k — citas negadas y meta parentética en entrega](#devlog-2026-08-25-calibracion-25k-citas-negadas) |
@@ -107,6 +108,31 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-25-siac-reaudit-v30-cierre-muestra"></a>
+## [2026-08-25] - Infraestructura | Formulario Contacto SIAC: reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Última URL de la muestra de evaluación institucional en curso (orden 10 de 10, la única de tipo trámites/servicios digitales): reauditar el Formulario Contacto SIAC (`https://tramites.inapi.cl/siac`) con captura propia y las calibraciones vigentes hasta C-2026-08-25l.
+
+### Implementación técnica:
+
+- Captura con navegación automatizada, sin sesión iniciada; cerrado el aviso «¡Atención! — debe iniciar sesión» sin iniciar sesión. No se envió el formulario con datos reales; el contenido del mensaje de confirmación se verificó por inspección del documento (oculto por defecto), sin reenviar.
+- Novedad frente a la captura del 2026-08-22: apareció un aviso operativo de mantenimiento programado que no existía antes. Aportó evidencia nueva en ambos sentidos — separación de párrafos, alineación a la izquierda y negrita en el dato clave (cumple en tres preguntas que antes no aplicaban por falta de texto), pero también un anglicismo sin traducir y una redacción centrada en la prohibición (dos hallazgos nuevos de severidad baja).
+- 51 preguntas reevaluadas desde cero (análisis textual ascendente + 15 indicadores + 5 pasadas de entrega), sin copiar estados del JSON anterior. Se confirmó de nuevo, con una consulta al documento, que no existe ningún encabezado semántico en toda la página.
+- Diez preguntas exclusivas del instrumento de sitios web informativos quedaron `no_aplica` por exclusión estructural del catálogo; las variantes propias de servicios digitales/trámites se evaluaron con evidencia real, incluida la de rótulos y botones descriptivos.
+- Ausencia total de fecha de actualización corregida a severidad alta (antes baja en la auditoría del 2026-08-22), siguiendo la calibración vigente sobre ausencia total.
+- Resultado: 57,1 % de cumplimiento (20 de 35 preguntas aplicables), estado `rechazado`; 16 preguntas no aplican. Baja frente al 58,1 % del 2026-08-22 por el ajuste de severidad de la fecha ausente y los dos hallazgos nuevos del aviso de mantenimiento, compensados parcialmente por las preguntas de espaciado, alineación, cantidad de párrafos y negrita que pasaron a `cumple` gracias al nuevo aviso.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `tramites-inapi-cl-siac_2026-08-25`, historial con las tres auditorías previas más la del 2026-08-22) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 10 apunta al id vigente).
+
+### Próximos pasos:
+
+- Serie de 10 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25l.
 
 ---
 

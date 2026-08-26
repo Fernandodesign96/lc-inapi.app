@@ -186,15 +186,18 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
     // Reauditoría §20 (Paso D0 texto ascendente §17.1bis + 15 subagentes + 5 sub-subagentes §17, meta-mei orden 10)
-    // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
-    claudeAuditId: "tramites-inapi-cl-siac_2026-08-22",
+    // Reauditada el 2026-08-25 con calibraciones hasta C-2026-08-25l; cierra la muestra de
+    // evaluación institucional 1…10 de esta oleada. Nuevo aviso de mantenimiento programado
+    // detectado en el DOM (evidencia positiva de negrita/espaciado y hallazgos de anglicismo/tono).
+    claudeAuditId: "tramites-inapi-cl-siac_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 58.1,
+      porcentajeLc: 57.1,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-22T00:00:00.000Z",
-      evaluadorUid: "equipo-desarrollo",
+      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "tramites-inapi-cl-siac_2026-08-22" },
       { id: "tramites-inapi-cl-siac_2026-08-20" },
       { id: "tramites-inapi-cl-siac_2026-08-18" },
       { id: "tramites-inapi-cl-siac_2026-06-07" },
