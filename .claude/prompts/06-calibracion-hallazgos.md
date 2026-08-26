@@ -56,6 +56,24 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas (sitioweb y trámites).
 - **estado:** vigente
 
+### C-2026-08-26a — No repetir correcciones entre criterios; revisar hallazgos previos al avanzar
+
+- **Origen:** revisión Formulario Contacto SIAC (URL 10): criterios 12, 13 y 15 repetían el mismo párrafo introductorio, el mismo modal de confirmación y justificaciones casi idénticas (autonomía + FAQ + datos clave mezclados). La tercera fila del 13 era un eco del 15; el 15 estaba `agrupado_en` el 13 y reutilizaba las mismas filas vía `criterios_relacionados`.
+- **Causa raíz:** al puntuar el criterio N, no se revisó lo ya escrito en criterios 1…N−1 (texto, ubicación, propuesto, justificación, agrupaciones). Se reutilizó el mismo `propuesto`/`motivo` aunque la **pregunta** del instrumento era otra.
+- **Regla (obligatoria en Pasos D y E):**
+  1. **Antes** de fijar `incumple` + filas de `sustituciones[]` de un criterio nuevo, **releer** las filas y justificaciones ya cerradas de criterios anteriores (mismo turno / mismo JSON en construcción).
+  2. Si el hallazgo toca la misma zona, la corrección nueva debe ser **complementaria** (otro ángulo, otro nodo, otro detalle accionable) o el criterio debe ir `agrupado_en` el primario **solo** cuando el `propuesto` es **exactamente el mismo** (§20.3). **Prohibido** `criterios_relacionados` que hagan reaparecer en la UI la misma corrección bajo otra pregunta.
+  3. La **justificación** responde **solo** la pregunta de ese criterio (datos clave ≠ autonomía ≠ organización FAQ ≠ escaneo ≠ negrita). No pegar el párrafo genérico de autonomía bajo claridad del servicio digital, ni viceversa.
+  4. Varias filas del **mismo** `criterio_id`: cada una = nodo o defecto distinto (p. ej. en autonomía: 1) seguimiento en intro, 2) modal de confirmación, 3) placeholders/ayudas de campos). **Prohibido** dos filas con el mismo literal y el mismo `propuesto`.
+  5. Ejemplos de foco distinto en formularios:
+     - **Datos clave (12):** qué / cómo / cuándo / para quién en el resumen.
+     - **Autonomía (13):** pasos tras enviar, ayudas para completar campos (placeholders con ejemplos; «Seleccione una opción» sin `...`), número de atención usable.
+     - **FAQ servicio digital (15):** bloque de preguntas frecuentes anticipadas y secuencia coherente de ventanas; **no** copiar el `propuesto` de 13 ni el de subtítulos del 37/38.
+- **Ejemplo malo:** 13 y 15 con las mismas 3 correcciones (intro + modal ×2) y justificación clonada.
+- **Ejemplo bueno:** 12 = plazo/para quién en intro; 13 = seguimiento + modal con número + placeholders; 15 = bloque FAQ + secuencia de modales; 37/38 = subtítulos/separación visual sin repetir el bloque FAQ.
+- **Aplica a:** todas (crítico en trámites y en cualquier URL con varios criterios sobre el mismo formulario/artículo).
+- **estado:** vigente
+
 ### C-2026-08-25l — Escaneo (38) ≠ negritas (39); literales solo de esta URL
 
 - **Origen:** revisión Noticia cifra patentes (URL 9):

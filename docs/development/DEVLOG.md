@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-26 | [Orquestación: cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a (SIAC 54,3 %)](#devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a) |
+| 2026-08-26 | [Calibración C-2026-08-26a — no repetir correcciones entre criterios](#devlog-2026-08-26-calibracion-26a-no-repetir) |
 | 2026-08-25 | [Infraestructura: Formulario Contacto SIAC tramites.inapi.cl — reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10](#devlog-2026-08-25-siac-reaudit-v30-cierre-muestra) |
 | 2026-08-25 | [Infraestructura: Noticia — Cifra histórica de patentes nacionales www.inapi.cl — auditoría v3.0 completa, rechazado 65,0 % — cierre serie](#devlog-2026-08-25-noticia-cifra-patentes-reaudit-v30) |
 | 2026-08-25 | [Calibración C-2026-08-25l — escaneo ≠ negritas; literales solo de esta URL](#devlog-2026-08-25-calibracion-25l-escaneo-negritas) |
@@ -111,6 +113,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a"></a>
+## [2026-08-26] - Orquestación | Cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Cerrar la oleada de reauditoría de las diez URLs de la muestra de evaluación institucional en checklist PTD-LC v3.0, dejando documentada la calibración que evita clonar correcciones entre criterios (revisión manual del Formulario Contacto SIAC, criterios 12/13/15) y alinear roadmap/DEVLOG antes del commit y PR a `main`.
+
+### Implementación técnica:
+
+- Calibración **C-2026-08-26a** en Prompt 6, Prompt 5, skills 02/05 y gate CLAUDE.md §22.12: al avanzar al criterio N se releen hallazgos 1…N−1; propuesto/justificación complementarios o agrupación §20.3 solo si el propuesto es idéntico.
+- Consistencia en SIAC (`tramites-inapi-cl-siac_2026-08-25`): criterio 12 = datos clave; 13 = seguimiento + confirmación + placeholders; 15 = bloque de preguntas frecuentes + secuencia de ventanas (sin `agrupado_en` el 13). Porcentaje vigente **54,3 %** (`rechazado`); launch actualizado.
+- Roadmap Fase 4: marcado el ítem de reauditoría META MEI 10 URLs a v3.0; Excel MEI regenerado queda pendiente; muestra oro §22+§23 sigue abierta.
+
+### Próximos pasos:
+
+- `lint` / `typecheck:all` / `build`, commit, PR y merge a `main`.
+- Regenerar Excel MEI institucional con los JSON `…_2026-08-25` vigentes.
+
+---
+
 <a id="devlog-2026-08-25-siac-reaudit-v30-cierre-muestra"></a>
 ## [2026-08-25] - Infraestructura | Formulario Contacto SIAC: reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10
 
@@ -132,7 +156,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ### Próximos pasos:
 
-- Serie de 10 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25l.
+- Serie de 10 URLs cerrada en captura; consistencia criterios 12/13/15 y calibración C-2026-08-26a → ver entrada 2026-08-26 (54,3 %).
 
 ---
 
@@ -156,6 +180,26 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 ### Próximos pasos:
 
 - Serie de 9 URLs de la muestra de evaluación institucional cerrada con calibraciones hasta C-2026-08-25k.
+
+---
+
+<a id="devlog-2026-08-26-calibracion-26a-no-repetir"></a>
+## [2026-08-26] - Calibración | C-2026-08-26a — no repetir correcciones entre criterios
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Revisión URL 10 SIAC: criterios 12/13/15 clonaban intro, modal y justificaciones; el 15 estaba agrupado al 13.
+
+### Implementación técnica:
+
+- JSON SIAC: 12 = datos clave; 13 = seguimiento + confirmación + placeholders; 15 = bloque FAQ + secuencia de ventanas (sin clonar 13 ni subtítulos del 37/38). % 54,3 %.
+- Prompt 6 **C-2026-08-26a**, Prompt 5, skills 02/05, gate CLAUDE.md §22.12.
+
+### Próximos pasos:
+
+- Serie META MEI 1…10 cerrada en contenido; commits de consistencia si quedan pendientes.
 
 ---
 

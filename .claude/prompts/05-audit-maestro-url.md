@@ -94,11 +94,12 @@ Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propues
 9. **Paréntesis:** no explicaciones entre paréntesis mezcladas con otro texto. Solo se admite un campo cuyo **único** contenido sea una frase entre paréntesis de ausencia total sin literal citable.
 10. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto comillas que la justificación niega («en construcción», «próximamente»…); no usar `(once párrafos…)` u otras meta-descripciones como Texto/original — citar literales reales.
 11. **Escaneo ≠ negritas (C-2026-08-25l):** criterio 38 = subtítulos/listas/recuadros/jerarquía; criterio 39 = negrita en párrafos distintos. No `agrupado_en` ni `criterios_relacionados` cruzados si el `propuesto` no es el mismo. Literales **solo** de esta URL (no alt invisible ni copy de otra URL).
-12. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c).
-13. Encabezado «Criterio N — Instrumento M» solo en título de fila, no en los 4 campos.
-14. Commits: CLAUDE.md §5.1 / C-2026-08-25i.
+12. **No repetir entre criterios (C-2026-08-26a):** al avanzar al criterio N, releer hallazgos 1…N−1; propuesto/justificación **complementarios** o agrupación §20.3 solo si el propuesto es idéntico. Cada pregunta = foco propio (datos clave ≠ autonomía ≠ FAQ servicio ≠ escaneo).
+13. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c).
+14. Encabezado «Criterio N — Instrumento M» solo en título de fila, no en los 4 campos.
+15. Commits: CLAUDE.md §5.1 / C-2026-08-25i.
 
-Leer Prompt 6 completo (hasta **C-2026-08-25l**) + skill 05 ANTES de puntuar.
+Leer Prompt 6 completo (hasta **C-2026-08-26a**) + skill 05 ANTES de puntuar.
 
 ### Paso A — Stack y captura (Prompt 1)
 
