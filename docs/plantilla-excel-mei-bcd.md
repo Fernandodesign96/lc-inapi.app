@@ -99,11 +99,12 @@ Campos Excel exclusivos (`fragmento_busqueda`, `ubicacion_contextual`) se docume
 
 ### Pestañas del libro (por hito y entrega completa)
 
-Cada export genera **4 pestañas**:
+Cada export genera **5 pestañas**:
 
 | Pestaña | Contenido |
 | --- | --- |
 | **Índice** | URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos, **Porcentaje LC**; fila TOTAL + sección **Porcentaje final** (promedio de la muestra) |
+| **Hitos-Tareas-Criterios** | Equivalente tabular a «Resumen por hito» / árbol UI·PDF: URL \| Hito \| Tarea \| Criterio \| Estado \| Descripción Hito \| Descripción Tarea \| Descripción Criterio. En Excel de **una URL**: tabla plana. En **completo** (10 URLs): misma pestaña, bloques seccionados por URL |
 | **CheckList** | Hitos \| Tareas \| Instrumentos \| Criterios (`LC-*`) \| Nombre del Criterio \| Cita fuente (51 filas v3.0; sin A–H; sin pestaña Fuentes) |
 | **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
 | **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
@@ -156,4 +157,4 @@ Las hojas de detalle listan los **47** criterios por URL (como MVP/PDF), agrupad
 
 ## 8. Columnas técnicas internas (motor)
 
-El motor sigue generando `MeiExcelRow` ampliado (`MEI_EXCEL_COLUMNS` en `mei-row-builder.ts`) y el writer MEI institucional proyecta ese modelo a las 4 pestañas anteriores.
+El motor sigue generando `MeiExcelRow` ampliado (`MEI_EXCEL_COLUMNS` en `mei-row-builder.ts`) y el writer MEI institucional proyecta ese modelo a las pestañas Índice / detalle; la pestaña **Hitos-Tareas-Criterios** se arma desde `mei-hitos-tareas-criterios.ts` (ordinales PTD + categoría de presentación MEI).

@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-26 | [Frontend/MEI: pestaña Excel Hitos-Tareas-Criterios (URL y consolidado)](#devlog-2026-08-26-excel-hitos-tareas-criterios) |
 | 2026-08-26 | [Orquestación: cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a (SIAC 54,3 %)](#devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a) |
 | 2026-08-26 | [Calibración C-2026-08-26a — no repetir correcciones entre criterios](#devlog-2026-08-26-calibracion-26a-no-repetir) |
 | 2026-08-25 | [Infraestructura: Formulario Contacto SIAC tramites.inapi.cl — reauditoría v3.0 completa, rechazado 57,1 % — cierra la muestra 1…10](#devlog-2026-08-25-siac-reaudit-v30-cierre-muestra) |
@@ -113,6 +114,28 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 ---
 
+<a id="devlog-2026-08-26-excel-hitos-tareas-criterios"></a>
+## [2026-08-26] - Frontend | Pestaña Excel Hitos-Tareas-Criterios (URL y consolidado)
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Alinear el Excel MEI con el resumen por hito de la UI y el PDF: una vista tabular Hito → Tarea → Criterio con estado y descripciones, disponible tanto en la descarga por URL como en el libro consolidado de las diez URLs META MEI.
+
+### Implementación técnica:
+
+- Nuevo builder `mei-hitos-tareas-criterios.ts`: una fila por criterio visible (`LC-*`), ordinales PTD de entrega y categoría MEI (Cumple / observaciones / medianamente / No cumple / No aplica).
+- `mei-xlsx-writer.ts`: pestaña **Hitos-Tareas-Criterios** tras Índice; una URL = tabla plana; consolidado = bloques seccionados por URL.
+- Tests en `mei-hitos-tareas-criterios.test.ts`; plantilla documentada en `docs/plantilla-excel-mei-bcd.md` (5 pestañas).
+
+### Próximos pasos:
+
+- `lint` / `typecheck:all` / `build`, commit, PR y merge a `main`.
+- Regenerar el Excel consolidado con los JSON `…_2026-08-25` vigentes para entrega institucional.
+
+---
+
 <a id="devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a"></a>
 ## [2026-08-26] - Orquestación | Cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a
 
@@ -126,12 +149,11 @@ Cerrar la oleada de reauditoría de las diez URLs de la muestra de evaluación i
 
 - Calibración **C-2026-08-26a** en Prompt 6, Prompt 5, skills 02/05 y gate CLAUDE.md §22.12: al avanzar al criterio N se releen hallazgos 1…N−1; propuesto/justificación complementarios o agrupación §20.3 solo si el propuesto es idéntico.
 - Consistencia en SIAC (`tramites-inapi-cl-siac_2026-08-25`): criterio 12 = datos clave; 13 = seguimiento + confirmación + placeholders; 15 = bloque de preguntas frecuentes + secuencia de ventanas (sin `agrupado_en` el 13). Porcentaje vigente **54,3 %** (`rechazado`); launch actualizado.
-- Roadmap Fase 4: marcado el ítem de reauditoría META MEI 10 URLs a v3.0; Excel MEI regenerado queda pendiente; muestra oro §22+§23 sigue abierta.
+- Roadmap Fase 4: marcado el ítem de reauditoría META MEI 10 URLs a v3.0; muestra oro §22+§23 sigue abierta. Formato Excel con pestaña Hitos-Tareas-Criterios → ver entrada posterior del mismo día.
 
 ### Próximos pasos:
 
-- `lint` / `typecheck:all` / `build`, commit, PR y merge a `main`.
-- Regenerar Excel MEI institucional con los JSON `…_2026-08-25` vigentes.
+- Serie cerrada en captura; regenerar Excel MEI institucional con JSON `…_2026-08-25` (incl. pestaña Hitos-Tareas-Criterios).
 
 ---
 

@@ -18,6 +18,10 @@ import {
   type MeiExcelRow,
 } from "./mei-row-builder"
 import { MEI_CATEGORIA_PRESENTACION } from "./mei-criterio-categoria"
+import {
+  buildHitosTareasCriteriosRows,
+  type HitoTareaCriterioExcelRow,
+} from "./mei-hitos-tareas-criterios"
 import { ptdHitoTareaPorCriterio } from "../ptd-hito-tarea-por-criterio"
 
 const HEADER_BLUE: ExcelJS.Fill = {
@@ -277,6 +281,132 @@ function formatPorcentajeLc(value: number): string {
     : rounded.toFixed(1).replace(".", ",")
 }
 
+const HITOS_TAREAS_CRITERIOS_HEADERS = [
+  "URL",
+  "Hito",
+  "Tarea",
+  "Criterio",
+  "Estado",
+  "Descripción Hito",
+  "Descripción Tarea",
+  "Descripción Criterio",
+] as const
+
+function writeHitoTareaCriterioDataRow(
+  sheet: ExcelJS.Worksheet,
+  rowIdx: number,
+  data: HitoTareaCriterioExcelRow,
+) {
+  const r = sheet.getRow(rowIdx)
+  r.getCell(1).value = data.url
+  r.getCell(2).value = data.hito
+  r.getCell(3).value = data.tarea
+  r.getCell(4).value = data.criterio
+  r.getCell(5).value = data.estado
+  r.getCell(6).value = data.descripcionHito
+  r.getCell(7).value = data.descripcionTarea
+  r.getCell(8).value = data.descripcionCriterio
+  for (const c of [1, 5, 6, 7, 8] as const) {
+    r.getCell(c).alignment = { wrapText: true, vertical: "top" }
+  }
+  for (const c of [2, 3, 4] as const) {
+    r.getCell(c).alignment = { vertical: "top", horizontal: "center" }
+  }
+}
+
+/**
+ * Pestaña alineada a «Resumen por hito» / árbol Hito→Tarea→Criterio (UI/PDF).
+ * Una URL: tabla plana. Varias URLs: bloques seccionados por URL.
+ */
+function addHitosTareasCriteriosSheet(
+  workbook: ExcelJS.Workbook,
+  audits: LoadedClarityAudit[],
+  root: string,
+  documentary: boolean,
+) {
+  const sheet = workbook.addWorksheet("Hitos-Tareas-Criterios")
+  const colCount = HITOS_TAREAS_CRITERIOS_HEADERS.length
+
+  if (documentary) {
+    sheet.mergeCells(1, 1, 1, colCount)
+    sheet.getCell(1, 1).value =
+      "N/A — evidencia documental (sin evaluación por URL). Ver Índice y CheckList."
+    sheet.getCell(1, 1).font = { italic: true }
+    autoWidth(sheet, 2)
+    return
+  }
+
+  const allRows = buildHitosTareasCriteriosRows(audits, root)
+  if (allRows.length === 0) {
+    sheet.mergeCells(1, 1, 1, colCount)
+    sheet.getCell(1, 1).value =
+      "Sin criterios evaluados en el alcance de este export."
+    sheet.getCell(1, 1).font = { italic: true }
+    autoWidth(sheet, 2)
+    return
+  }
+
+  const sectionByUrl = audits.length > 1
+  let rowIdx = 1
+
+  const writeHeader = () => {
+    const header = sheet.getRow(rowIdx)
+    HITOS_TAREAS_CRITERIOS_HEADERS.forEach((label, i) => {
+      header.getCell(i + 1).value = label
+    })
+    styleHeaderRow(header, colCount)
+    header.height = 22
+    rowIdx++
+  }
+
+  if (!sectionByUrl) {
+    writeHeader()
+    for (const data of allRows) {
+      writeHitoTareaCriterioDataRow(sheet, rowIdx, data)
+      rowIdx++
+    }
+  } else {
+    const auditsSorted = [...audits].sort((a, b) => a.rank - b.rank)
+    for (const audit of auditsSorted) {
+      const title = sheet.getRow(rowIdx)
+      sheet.mergeCells(rowIdx, 1, rowIdx, colCount)
+      const rol = audit.rolMetaMei ? ` · ${audit.rolMetaMei}` : ""
+      title.getCell(1).value = `URL ${audit.rank} — ${audit.nombreUi}${rol}`
+      title.getCell(1).font = WHITE_BOLD
+      title.getCell(1).fill = URL_TITLE_FILL
+      rowIdx++
+
+      writeHeader()
+
+      const auditRows = allRows.filter((r) => r.url === audit.url)
+      if (auditRows.length === 0) {
+        const empty = sheet.getRow(rowIdx)
+        empty.getCell(1).value = audit.url
+        empty.getCell(5).value = "—"
+        empty.getCell(8).value =
+          "(sin criterios evaluados en el alcance de este export)"
+        rowIdx++
+      } else {
+        for (const data of auditRows) {
+          writeHitoTareaCriterioDataRow(sheet, rowIdx, data)
+          rowIdx++
+        }
+      }
+      rowIdx++
+    }
+  }
+
+  sheet.getColumn(1).width = 36
+  sheet.getColumn(2).width = 8
+  sheet.getColumn(3).width = 8
+  sheet.getColumn(4).width = 10
+  sheet.getColumn(5).width = 24
+  sheet.getColumn(6).width = 48
+  sheet.getColumn(7).width = 48
+  sheet.getColumn(8).width = 56
+  sheet.views = [{ state: "frozen", ySplit: sectionByUrl ? 0 : 1 }]
+}
+
 function addCheckListSheet(
   workbook: ExcelJS.Workbook,
   root: string,
@@ -488,6 +618,7 @@ export async function buildMeiWorkbook(
   workbook.created = new Date()
 
   addIndiceSheet(workbook, audits, rows, hitos, documentary, urlSet)
+  addHitosTareasCriteriosSheet(workbook, audits, root, documentary)
   addCheckListSheet(workbook, root, hitos)
   addDetallePorTipoSheet(
     workbook,
