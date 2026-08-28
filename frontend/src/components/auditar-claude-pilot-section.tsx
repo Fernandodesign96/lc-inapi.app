@@ -48,19 +48,19 @@ export function AuditarClaudePilotSection() {
     <Card className="border-border bg-card">
       <CardHeader>
         <CardTitle className="text-base">
-          Auditoría 10 URLs INAPI - META MEI
+          Auditoría 11 URLs INAPI - META MEI
         </CardTitle>
         <CardDescription>
-          Cada fila muestra la última auditoría §17 v2.1 (contenido visible en
-          pantalla). Órdenes en reauditoría 1-URL aparecen como «En proceso». El
-          Excel de las 10 URLs aparece aquí cuando las diez estén listas;
-          entretanto, cada resultado descarga el Excel de esa URL.
+          Cada fila muestra la última auditoría con checklist PTD-LC v3.0
+          (contenido visible en pantalla). Órdenes en reauditoría 1-URL aparecen
+          como «En proceso». El Excel de las 11 URLs aparece aquí cuando todas
+          estén listas; entretanto, cada resultado descarga el Excel de esa URL.
         </CardDescription>
         {excelCompletoListo ? (
           <div className="pt-1">
             <Button type="button" variant="secondary" size="sm" asChild>
               <a href={MEI_COMPLETO_EXPORT_HREF} download>
-                Descargar Excel MEI (10 URLs)
+                Descargar Excel MEI (11 URLs)
               </a>
             </Button>
           </div>
@@ -68,9 +68,9 @@ export function AuditarClaudePilotSection() {
       </CardHeader>
       <CardContent className="pt-0">
         <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="meta-mei-10">
+          <AccordionItem value="meta-mei-11">
             <AccordionTrigger className="text-start text-sm sm:text-base">
-              10 URLs - META MEI
+              11 URLs - META MEI
             </AccordionTrigger>
             <AccordionContent>
               <div className="overflow-x-auto px-1 pb-2">

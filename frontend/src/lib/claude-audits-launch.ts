@@ -209,8 +209,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     label: "Trámites y Servicios",
     tipoPagina: "tramites",
     // Misma URL que Clarity rank 1. Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-27.
-    // Orden 11 de la serie de evaluación institucional (amplía la muestra de 10 a 11 páginas);
-    // cableado de mei-meta-mei-urls.ts y demás documentos de la serie pendiente de revisión humana.
+    // Orden 11 de la serie de evaluación institucional (muestra 1…11).
     claudeAuditId: "tramites-inapi-cl_2026-08-27",
     resumenMvp: {
       porcentajeLc: 66.7,

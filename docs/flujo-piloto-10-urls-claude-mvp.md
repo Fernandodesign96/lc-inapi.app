@@ -5,7 +5,7 @@
 | **Fecha** | 2026-08-21 (origen piloto 2026-06-02; fusión stack + fixture 2026-08-21) |
 | **Proveedor IA** | **Claude Code** + Playwright MCP + RAG Chroma/Xenova/LangChain |
 | **Checklist** | PTD-LC **v3.0** — **51** criterios `LC-*` |
-| **Objetivo** | Muestra **META MEI 10 URLs** con JSON + PDF + Excel |
+| **Objetivo** | Muestra **META MEI 11 URLs** con JSON + PDF + Excel |
 | **Histórico** | 27 URLs Clarity/extras · piloto junio **9 URLs** · fixture mock Notificaciones |
 | **Orquestación** | Prompt `05-audit-maestro-url.md` · skills `01`…`05` · `.claude/CLAUDE.md` §17 |
 | **Referencias** | [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`ROADMAP.md`](ROADMAP.md) · [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) · [`checklist-ptd-v2-mapa.md`](checklist-ptd-v2-mapa.md) · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) · [ADR 0009](adr/0009-claude-code-pro-como-orquestador.md) · [`mei-meta-mei-urls.ts`](../src/lib/mei-export/mei-meta-mei-urls.ts) |
@@ -21,13 +21,13 @@
 
 | Requisito | Detalle |
 | --- | --- |
-| **Ubicación** | Barra superior en `/auditar`: tabla **10 URLs META MEI**; debajo, inventarios Clarity / historial. |
+| **Ubicación** | Barra superior en `/auditar`: tabla **11 URLs META MEI**; debajo, inventarios Clarity / historial. |
 | **Patrón UI** | Card + Accordion (design system §15). |
-| **Contenido prioritario** | Las **10 URLs META MEI** (§2.1). El piloto de 9 y Clarity 17 no son el compromiso MEI. |
+| **Contenido prioritario** | Las **11 URLs META MEI** (§2.1). El piloto de 9 y Clarity 17 no son el compromiso MEI. |
 | **Comportamiento** | Clic en fila disponible → `/auditar/resultado?claudeAudit={id}&url={url}`. |
 | **Datos** | [`mei-meta-mei-urls.ts`](../src/lib/mei-export/mei-meta-mei-urls.ts) + [`mei-meta-mei-launch.ts`](../frontend/src/lib/mei-meta-mei-launch.ts). |
 
-**Título en UI (vigente):** «Auditoría 10 URLs INAPI - META MEI» / «10 URLs - META MEI».
+**Título en UI (vigente):** «Auditoría 11 URLs INAPI - META MEI» / «11 URLs - META MEI».
 
 **Registro antiguo:** acordeón piloto junio 2026 (§2.3) — solo histórico.
 
@@ -43,23 +43,24 @@ No hay sincronización automática chat ↔ app. Flujo: **Claude Code / JSON** �
 
 ## 2. URLs — orden de lectura (META MEI → histórico 27 → piloto 9)
 
-### 2.1 Muestra vigente — **10 URLs META MEI** (compromiso jefatura)
+### 2.1 Muestra vigente — **11 URLs META MEI** (compromiso jefatura)
 
 Fuente máquina: [`src/lib/mei-export/mei-meta-mei-urls.ts`](../src/lib/mei-export/mei-meta-mei-urls.ts).  
-Orquestación: Claude Code §17 · checklist **v3.0** (51 `LC-*`) en auditorías nuevas; varias filas vigentes aún en **v2.1** hasta reauditoría.
+Orquestación: Claude Code §17 · checklist **v3.0** (51 `LC-*`) en todas las filas vigentes.
 
 | # | Rol META MEI | Página (UI) | URL canónica | Tipo | % LC (vigente) | Estado | Id JSON vigente | Checklist |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Portada o página de inicio | Portada / inicio INAPI | `https://www.inapi.cl/` | `sitioweb` | 78,9 % | rechazado | `www-inapi-cl_2026-08-22` | **3.0** |
-| 2 | Menú principal (1/2) | Marcas | `https://www.inapi.cl/marcas` | `sitioweb` | 65,1 % | rechazado | `www-inapi-cl-marcas_2026-08-20` | 2.1 |
-| 3 | Menú principal (2/2) | Patentes | `https://www.inapi.cl/patentes` | `sitioweb` | 65,1 % | rechazado | `www-inapi-cl-patentes_2026-08-20` | 2.1 |
-| 4 | Página de información interior (1/2) | Acerca de INAPI | `https://www.inapi.cl/acerca-de/inapi` | `sitioweb` | 55,8 % | rechazado | `www-inapi-cl-acerca-de-inapi_2026-08-20` | 2.1 |
-| 5 | Página de información interior (2/2) | Buscador de noticias | `https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0` | `sitioweb` | 69,0 % | rechazado | `www-inapi-cl-buscador-noticias_2026-08-20` | 2.1 |
-| 6 | Información del servicio digital / trámite | Solicitud Nueva (Marcas) | `https://www.inapi.cl/marcas/tramites/solicitud-nueva` | `sitioweb` | 62,5 % | rechazado | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-20` | 2.1 |
-| 7 | Listado últimas noticias | Sala de Prensa — Noticias | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | 64,1 % | rechazado | `www-inapi-cl-sala-de-prensa-noticias_2026-08-20` | 2.1 |
-| 8 | Últimas noticias (detalle 1/2) | Noticia — Cuenta Pública Participativa 2026 | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial` | `sitioweb` | 44,2 % | rechazado | `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-20` | 2.1 |
-| 9 | Últimas noticias (detalle 2/2) | Noticia — Cifra histórica de patentes nacionales | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada` | `sitioweb` | 58,1 % | rechazado | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-20` | 2.1 |
-| 10 | Formulario (trámites) | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 51,4 % | rechazado | `tramites-inapi-cl-siac_2026-08-20` | 2.1 |
+| 1 | Portada o página de inicio | Portada / inicio INAPI | `https://www.inapi.cl/` | `sitioweb` | 75,0 % | rechazado | `www-inapi-cl_2026-08-25` | **3.0** |
+| 2 | Menú principal (1/2) | Marcas | `https://www.inapi.cl/marcas` | `sitioweb` | 71,4 % | rechazado | `www-inapi-cl-marcas_2026-08-25` | **3.0** |
+| 3 | Menú principal (2/2) | Patentes | `https://www.inapi.cl/patentes` | `sitioweb` | 69,8 % | rechazado | `www-inapi-cl-patentes_2026-08-25` | **3.0** |
+| 4 | Página de información interior (1/2) | Acerca de INAPI | `https://www.inapi.cl/acerca-de/inapi` | `sitioweb` | 65,1 % | rechazado | `www-inapi-cl-acerca-de-inapi_2026-08-25` | **3.0** |
+| 5 | Página de información interior (2/2) | Buscador de noticias | `https://www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0` | `sitioweb` | 71,0 % | rechazado | `www-inapi-cl-buscador-noticias_2026-08-25` | **3.0** |
+| 6 | Información del servicio digital / trámite | Solicitud Nueva (Marcas) | `https://www.inapi.cl/marcas/tramites/solicitud-nueva` | `sitioweb` | 71,4 % | rechazado | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-08-25` | **3.0** |
+| 7 | Listado últimas noticias | Sala de Prensa — Noticias | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | 73,7 % | rechazado | `www-inapi-cl-sala-de-prensa-noticias_2026-08-25` | **3.0** |
+| 8 | Últimas noticias (detalle 1/2) | Noticia — Cuenta Pública Participativa 2026 | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial` | `sitioweb` | 59,0 % | rechazado | `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25` | **3.0** |
+| 9 | Últimas noticias (detalle 2/2) | Noticia — Cifra histórica de patentes nacionales | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada` | `sitioweb` | 62,5 % | rechazado | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-25` | **3.0** |
+| 10 | Formulario (trámites) | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 54,3 % | rechazado | `tramites-inapi-cl-siac_2026-08-25` | **3.0** |
+| 11 | Landing Portal de Trámites | Portal de Trámites (landing) | `https://tramites.inapi.cl/` | `tramites` | 66,7 % | rechazado | `tramites-inapi-cl_2026-08-27` | **3.0** |
 
 **Convención `id`:** `slug-desde-url_YYYY-MM-DD` (debe coincidir archivo, campo `"id"` y launch).
 
@@ -78,7 +79,7 @@ La **home** (`www.inapi.cl/`) cuenta una sola vez (Clarity rank 16 **y** META ME
 
 | # | Origen | Página | URL canónica | Tipo | JSON vigente / nota |
 | --- | --- | --- | --- | --- | --- |
-| C1 | Clarity | Landing Sitio de Trámites | `https://tramites.inapi.cl/` | `tramites` | `tramites-inapi-cl_2026-07-22` |
+| C1 | Clarity + META MEI #11 | Landing Sitio de Trámites | `https://tramites.inapi.cl/` | `tramites` | `tramites-inapi-cl_2026-08-27` |
 | C2 | Clarity | Inicio de sesión | `https://tramites.inapi.cl/Account/Login` | `tramites` | `tramites-inapi-cl-account-login_2026-07-22` |
 | C3 | Clarity | Expediente de marca | `https://tramites.inapi.cl/Trademark/TrademarkFile` | `tramites` | `…trademarkfile_2026-07-27` |
 | C4 | Clarity | Notificaciones Marcas | `https://tramites.inapi.cl/Notificaciones` | `tramites` | `…notificaciones_2026-07-27` |
@@ -95,7 +96,7 @@ La **home** (`www.inapi.cl/`) cuenta una sola vez (Clarity rank 16 **y** META ME
 | C15 | Clarity | Renovación de marca | `https://tramites.inapi.cl/Trademark/TrademarkRenewalApplication` | `tramites` | **Pendiente TI** |
 | C16 | Clarity + META MEI #1 | Home INAPI | `https://www.inapi.cl/` | `sitioweb` | `www-inapi-cl_2026-08-22` (v3.0) |
 | C17 | Clarity | Trámites digitales | `https://www.inapi.cl/tramites/tramites-digitales` | `sitioweb` | `…tramites-digitales_2026-07-22` |
-| M2–M10 | META MEI | (ver §2.1 #2–#10) | — | — | Ids §2.1 |
+| M2–M11 | META MEI | (ver §2.1 #2–#11) | — | — | Ids §2.1 |
 | P2 | Piloto junio | Buscador Marcas INAPI | `https://buscadormarcas.inapi.cl/Marca/BuscarMarca.aspx` | `sitioweb` | `buscadormarcas-…_2026-06-05` |
 
 Detalle Clarity: [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md). Ranks **8, 11, 13, 15** = Pendiente TI.
@@ -116,7 +117,7 @@ Detalle Clarity: [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md
 | 6 | Solicitud Nueva | `https://www.inapi.cl/marcas/tramites/solicitud-nueva` | `sitioweb` | `…_2026-06-07` | Vigente: `…_2026-08-20` |
 | 7 | Sala de Prensa | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | `…_2026-06-07` | Vigente: `…_2026-08-20` |
 | 8 | SIAC | `https://tramites.inapi.cl/siac` | `tramites` | `…siac_2026-06-07` | Vigente: `…_2026-08-20` |
-| 9 | Trámites y Servicios | `https://tramites.inapi.cl/` | `tramites` | `tramites-inapi-cl_2026-06-07` | Clarity C1; no es fila META MEI |
+| 9 | Trámites y Servicios | `https://tramites.inapi.cl/` | `tramites` | `tramites-inapi-cl_2026-06-07` | Clarity C1; vigente META MEI #11 `…_2026-08-27` |
 
 ---
 
@@ -227,7 +228,7 @@ Otros fixtures (81–90 % / ≥91 %): solo JSON validado en `data/audit-fixtures
 
 | Tema | Dónde |
 | --- | --- |
-| 10 URLs META MEI | §2.1 · `mei-meta-mei-urls.ts` |
+| 11 URLs META MEI | §2.1 · `mei-meta-mei-urls.ts` |
 | Clarity 17 | §2.2 · [`ux/inventario-urls-clarity.md`](ux/inventario-urls-clarity.md) |
 | Auth ClaveÚnica | [`fase-3-3-captura-auth-claveunica.md`](fase-3-3-captura-auth-claveunica.md) |
 | Excel MEI | [`plantilla-excel-mei-bcd.md`](plantilla-excel-mei-bcd.md) |

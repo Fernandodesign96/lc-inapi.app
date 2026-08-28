@@ -1,8 +1,8 @@
 import type { CriterionId } from "../../schemas/checklist"
 
 /**
- * 10 URLs META MEI (compromiso INAPI / reunión jefatura).
- * Orden META MEI 2026-07-29. Solo SIAC es trámites; el resto sitioweb.
+ * 11 URLs META MEI (compromiso INAPI / reunión jefatura).
+ * Órdenes 1–9 sitioweb; 10 SIAC + 11 landing Portal de Trámites (`tramites`).
  */
 export type MeiMetaMeiUrl = {
   orden: number
@@ -99,7 +99,15 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     nombreUi: "Formulario Contacto SIAC",
     tipoPagina: "tramites",
     auditId: "tramites-inapi-cl-siac_2026-08-25",
-    rolMetaMei: "Formulario (trámites) — cierra la muestra 1…10",
+    rolMetaMei: "Formulario (trámites)",
+  },
+  {
+    orden: 11,
+    url: "https://tramites.inapi.cl/",
+    nombreUi: "Portal de Trámites (landing)",
+    tipoPagina: "tramites",
+    auditId: "tramites-inapi-cl_2026-08-27",
+    rolMetaMei: "Landing Portal de Trámites — cierra la muestra 1…11",
   },
 ]
 

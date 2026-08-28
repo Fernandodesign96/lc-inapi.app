@@ -20,7 +20,7 @@ export type MetaMeiLaunchResumen = {
   evaluadorUid: string
 }
 
-/** Fila UI de la tabla META MEI (10 URLs compromiso). */
+/** Fila UI de la tabla META MEI (11 URLs compromiso). */
 export type MetaMeiTableRow = {
   orden: number
   url: string
@@ -82,7 +82,7 @@ export function metaMeiRowListoParaUi(entry: {
   return metaMeiAuditReadyForUi(entry.auditId)
 }
 
-/** Las 10 URLs META MEI para la barra superior de `/auditar`. */
+/** Las 11 URLs META MEI para la barra superior de `/auditar`. */
 export const META_MEI_TABLE_ROWS: MetaMeiTableRow[] = MEI_META_MEI_URLS.map(
   (entry) => {
     const claudeAuditId = entry.auditId
