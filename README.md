@@ -1,6 +1,6 @@
 # MVP — Aplicativo de auditoría de lenguaje claro INAPI
 
-Plataforma web con apoyo de IA para evaluar el **Checklist editorial INAPI PTD-LC v3.0** (**51** criterios `LC-*`) sobre URLs de `inapi.cl` y `tramites.inapi.cl` (muestra META MEI: **10 URLs**). Orquestación: **Claude Code** + Playwright MCP + Chroma/Xenova/LangChain; UI en **Vercel**.
+Plataforma web con apoyo de IA para evaluar el **Checklist editorial INAPI PTD-LC v3.0** (**51** criterios `LC-*`) sobre URLs de `inapi.cl` y `tramites.inapi.cl` (muestra META MEI: **11 URLs**). Orquestación: **Claude Code** + Playwright MCP + Chroma/Xenova/LangChain; UI en **Vercel**.
 
 ---
 
@@ -103,7 +103,7 @@ El sistema de auditoría automatizada se organiza en 5 capas. Detalle completo e
 
 ## Estado y próximo paso
 
-**Operativo:** muestra META MEI (**10 URLs**), checklist PTD-LC **v3.0** (51 `LC-*`), UI/PDF/Excel en Vercel, orquestación Claude Code (`.claude/prompts/01`…`07` + `skills/01`…`06`).
+**Operativo:** muestra META MEI (**11 URLs**), checklist PTD-LC **v3.0** (51 `LC-*`), UI/PDF/Excel en Vercel, orquestación Claude Code (`.claude/prompts/01`…`07` + `skills/01`…`06`).
 
 **Runbook de URLs y cableado:** [docs/flujo-piloto-10-urls-claude-mvp.md](docs/flujo-piloto-10-urls-claude-mvp.md).  
 **Roadmap:** [docs/ROADMAP.md](docs/ROADMAP.md) — reauditorías v3.0, worker on-demand (ADR 0011), calibración con Equipo UX.

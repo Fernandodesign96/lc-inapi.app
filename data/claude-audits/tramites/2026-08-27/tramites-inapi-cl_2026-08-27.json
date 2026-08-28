@@ -1,0 +1,466 @@
+{
+  "id": "tramites-inapi-cl_2026-08-27",
+  "url": "https://tramites.inapi.cl/",
+  "fecha_evaluacion": "2026-08-27T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "tramites",
+  "texto_capturado": "NOTA: captura Playwright propia (2026-08-27), sin sesión iniciada (captura_con_sesion: false). Landing pública de acceso al portal de trámites de INAPI (no confundir con https://tramites.inapi.cl/siac). Verificado con `document.querySelectorAll('h1'|'h2'|'h3').length`: 0 ocurrencias de cada uno en toda la página; hay 6 encabezados de nivel cuatro y 4 de nivel cinco (dentro de un cuadro emergente oculto por defecto). El cuadro emergente de la Tesorería General de la República (id ModalInfoAnuncio) se verificó por inspección del DOM sin necesidad de sesión; sigue mostrando la misma fecha operativa vencida detectada en auditorías anteriores (19 de enero). No se inició sesión ni se completó ningún inicio de sesión con Clave Única ni Clave INAPI. | T001 [masthead + barra de navegación fija, patrón de sitio del subdominio de trámites]: «Trámites y Servicios» + logotipo «INAPI» — es el único texto que funciona visualmente como título de la página, sin marcado semántico de título | T002 [pestañas de navegación]: «Marcas» / «Patentes» — abren el menú desplegable de cada línea de negocio, sin destino propio | T003 [encabezados de grupo del menú desplegable, mayúsculas confirmadas como texto literal (no CSS), patrón de sitio repetido en Marcas y Patentes]: «MI INAPI», «TRAMITACIÓN», «PAGOS», «SERVICIOS» | T004 [ítems del menú desplegable]: «Pagar Tasas PCT Fase Internacional» (PCT sin expandir en esta página); «Custodia de Poderes y Personerías» (jerga legal-administrativa sin glosa); «Descargar Formularios (PDF)» (aparece dos veces, Marcas y Patentes, indica formato pero no peso ni descripción) | T005 [encabezado de nivel cuatro, bloque principal]: «Trámites INAPI» | T006: «Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.» | T007: «Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos.» | T008: «Si aún no tiene su Clave Única o no sabe lo que es, por favor ingrese a» + enlace cuyo texto visible es la dirección web completa «https://claveunica.gob.cl/» | T009: «Al conectarse a esta plataforma, usted podrá Solicitar Marcas y Patentes. También podrá presentar escritos en forma completamente electrónica.» | T010: «Para consultas, favor enviar un correo a inapi@inapi.cl» | T011 [encabezado de nivel cuatro]: «Iniciar Sesión» | T012: «Ingrese con Clave Única.» | T013 [enlace de botón]: «ClaveÚnica» (sin espacio entre palabras) | T014 [encabezado de nivel cuatro]: «Registrarse» | T015: «Si es primera vez que ingresa al portal, regístrese. Requiere Clave Única.» + enlace «Regístrese» | T016: «Opcionalmente, si el servicio para ingresar con Clave Única no está disponible, puede ingresar con su clave INAPI previamente registrada.» + enlace «Iniciar Sesión Clave INAPI» | T017 [cuadro emergente oculto por defecto, id ModalInfoAnuncio, patrón de sitio compartido, verificado por inspección del DOM]: «Información» (encabezado de nivel cinco) + «Información de la Tesorería General de la República (TGR)» (en negrita) + «Informamos que, debido a mejoras en nuestra infraestructura de TI, hoy lunes 19 de enero, entre las 16:00 y las 17:00 horas…» (fecha operativa vencida, sin cambios desde auditorías anteriores) + botón «Aceptar» | T018 [cuadro emergente genérico oculto por defecto, id modalAlertComponent, patrón de sitio]: botón «OK» | T019 [pie de página, encabezado de nivel cuatro]: «Dónde estamos» + «Instituto Nacional de Propiedad Industrial (INAPI) RUT: 65.999.669-3» | T020: «Carabineros de Chile Nº 195, Santiago, Chile» | T021: «Tel. (56 2) 2 887 0400» | T022: «Correo electrónico: inapi@inapi.cl» | T023 [pie de página, encabezado de nivel cuatro]: «Conversemos» + enlaces «Contacto», «Facebook», «Twitter», «Instagram», «Linkedin» | T024 [pie de página, encabezado de nivel cuatro]: «Accesos» + enlaces «Atajos del Teclado», «Descarga de Visualizadores», «Glosario», «Mapa del Sitio», «Uso de los Contenidos de este Sitio», «Accesibilidad», «Política de privacidad» (enlace directo a un archivo PDF, sin formato ni peso en el propio texto del enlace) | T025: «©2026 INAPI. Todos los derechos reservados» | T026: «v 2.3.105.0» (número de versión técnica del sistema, visible al usuario en el pie de página).\n\nMAPA D0 — Análisis textual ascendente (Prompt 7 + skill 06, de menor a mayor granularidad):\nNivel 1 (palabra/concepto): «PCT» (T004) no se expande en esta página; «Custodia de Poderes y Personerías» (T004) es jerga legal-administrativa sin glosa; «TGR» sí se expande correctamente en su primera aparición dentro del cuadro emergente (T017).\nNivel 2 (frase breve): el texto del enlace hacia Clave Única (T008) usa la dirección web completa como rótulo en vez de una frase descriptiva; «ClaveÚnica» (T013) falta el espacio entre palabras.\nNivel 3 (etiqueta/ayuda): los tres bloques del cuerpo («Trámites INAPI», «Iniciar Sesión», «Registrarse») tienen encabezado visual pero ninguno usa un nivel de título semántico verdadero.\nNivel 4 (instrucción/párrafo): el bloque «Trámites INAPI» (T006–T010) responde qué se puede hacer y cómo, pero no dice cuándo ni para qué tipo de persona (natural o jurídica) está pensado el portal; el bloque antepone el complemento circunstancial al verbo en dos de sus cinco oraciones (T006 y T010).\nNivel 5 (forma): ausencia total de encabezados semánticos de nivel uno a tres en toda la página (0 ocurrencias verificadas); los tres bloques del cuerpo sí muestran separación visible entre párrafos y alineación a la izquierda, pero ninguno usa negrita para destacar los términos clave («Clave Única», «Clave INAPI», «primera vez»); los encabezados de grupo del menú desplegable siguen en mayúsculas sostenidas, igual que en auditorías anteriores de esta misma landing.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "El pie de página identifica con claridad a la institución responsable del sitio: nombre completo, RUT institucional, dirección y canales de contacto oficiales.",
+      "cita_textual": "Instituto Nacional de Propiedad Industrial (INAPI) RUT: 65.999.669-3"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe ningún encabezado principal marcado semánticamente en toda la página (se confirmó que no hay ningún elemento de título de nivel uno, dos ni tres). El único texto que funciona como título visual es el nombre de marca en la barra de navegación superior, sin marcado semántico de título. La ausencia total impide evaluar si un título representa fielmente el contenido, que es la pregunta de este criterio.",
+      "cita_textual": "(ausencia de título principal marcado semánticamente)",
+      "ubicacion_pantalla": "Encabezado de la página, sobre el bloque «Trámites INAPI»"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "No se detectan textos de «en construcción», marcadores de desarrollo ni contenido inconcluso en la página."
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "El bloque principal responde qué se puede hacer (ingresar y solicitar marcas o patentes) y cómo (con Clave Única o Clave INAPI), pero no indica cuándo está disponible el servicio ni para qué tipo de persona usuaria está pensado el portal (persona natural o representante de una persona jurídica).",
+      "cita_textual": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI», párrafo inicial"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "cumple",
+      "comentario": "El bloque principal explica con suficiencia los pasos para acceder al portal: qué hacer si es primera vez (usar Clave Única y registrar datos), qué hacer si no se tiene Clave Única (enlace a claveunica.gob.cl), qué se puede hacer una vez dentro (solicitar marcas y patentes, presentar escritos) y a quién consultar ante dudas.",
+      "cita_textual": "Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "no_aplica",
+      "comentario": "El cuerpo de texto continuo de la página (los párrafos de los tres bloques de acceso) suma alrededor de ciento veinte palabras, por debajo de las cerca de doscientas necesarias para aplicar un índice de legibilidad automatizado; no existe otro cuerpo editorial continuo medible en esta landing."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "agrupado_en": "LC-1.2.1-04",
+      "comentario": "El tono alterna entre el tratamiento formal «usted» y el imperativo impersonal «favor enviar», sin un registro cercano y consistente. Comparte la misma causa y la misma corrección que el orden de las oraciones del mismo bloque, por lo que se agrupa bajo ese criterio.",
+      "cita_textual": "Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única… / Para consultas, favor enviar un correo a inapi@inapi.cl"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El menú desplegable de Marcas y de Patentes incluye un ítem con jerga legal-administrativa sin ninguna explicación para una persona sin formación jurídica.",
+      "cita_textual": "Custodia de Poderes y Personerías",
+      "ubicacion_pantalla": "Menú superior › grupo de trámites de Marcas y Patentes › ítem «Custodia de Poderes y Personerías»"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "No se detectan extranjerismos, abreviaturas rebuscadas ni modismos sin traducir en el contenido visible de esta landing."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La sigla del cuadro emergente de la Tesorería se expande correctamente en su primera aparición. Sin embargo, otra sigla aparece en el menú desplegable de Patentes sin definirse en ningún punto de esta página.",
+      "cita_textual": "Pagar Tasas PCT Fase Internacional",
+      "ubicacion_pantalla": "Menú superior › grupo de pagos de Patentes › ítem «Pagar Tasas PCT Fase Internacional»"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos del cuerpo principal están redactados en tono positivo, indicando lo que la persona puede hacer, sin enfocar los mensajes desde la prohibición."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "No existe ninguna fecha de publicación ni de última actualización visible en la página. El copyright del pie no reemplaza esa fecha, y la fecha que aparece en el cuadro emergente de la Tesorería corresponde a un evento operativo puntual y vencido, no a la vigencia del contenido de esta landing.",
+      "cita_textual": "(sin fecha de actualización visible)",
+      "ubicacion_pantalla": "Cuerpo › bajo el título del bloque «Trámites INAPI»"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El rótulo del botón de acceso con Clave Única no tiene el espacio requerido entre las dos palabras del nombre del servicio.",
+      "cita_textual": "ClaveÚnica",
+      "ubicacion_pantalla": "Bloque «Iniciar Sesión» › botón de acceso con Clave Única"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "cumple",
+      "comentario": "La puntuación del texto visible de los tres bloques de acceso es correcta y facilita la lectura; no se detectan signos innecesarios o mal ubicados."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre el uso de conectores entre frases pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El pie de página incluye el enlace «Uso de los Contenidos de este Sitio», accesible desde esta misma página, donde se informan los permisos de uso del contenido.",
+      "cita_textual": "Uso de los Contenidos de este Sitio"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre redifusión de material protegido pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre publicación de RUN en listados de personas pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre direcciones y teléfonos particulares pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "Esta pantalla no recolecta datos personales directamente; solo redirige al inicio de sesión externo con Clave Única o al inicio de sesión interno con Clave INAPI. El enlace «Política de privacidad» está disponible en el pie de página desde esta misma pantalla para quien quiera conocer sus derechos antes de continuar.",
+      "cita_textual": "Política de privacidad"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre protección de identidad de menores de edad pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre contenido apto para menores de edad pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre material que pueda afectar la susceptibilidad de las personas pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta página es una landing de acceso con tres bloques breves de instrucción, no un contenido informativo que deba estructurarse como respuestas a preguntas frecuentes."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "cumple",
+      "comentario": "La landing anticipa las preguntas más probables de la persona usuaria sobre el acceso al portal: cómo ingresar, qué hacer si es primera vez, dónde obtener Clave Única si no la tiene, qué podrá hacer una vez dentro y a quién consultar ante dudas.",
+      "cita_textual": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Las palabras y frases del cuerpo principal usan un lenguaje de uso común, sin conceptos técnicos sin explicar (a diferencia de algunos ítems del menú de navegación, tratados en el criterio de jerga)."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "cumple",
+      "comentario": "Los tres bloques de acceso usan presente simple y voz activa; no se detecta voz pasiva en el contenido visible de esta landing."
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Dos de las cinco oraciones del bloque principal anteponen el complemento circunstancial al sujeto y al verbo, en lugar de seguir el orden sujeto-verbo-predicado.",
+      "cita_textual": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI. / Para consultas, favor enviar un correo a inapi@inapi.cl",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI», primer y último párrafo"
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Esta página no presenta un listado de requisitos previos para acceder al portal; solo ofrece dos vías de ingreso, sin enumeración de requisitos."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "El cuerpo de la página suma ocho párrafos breves repartidos en tres bloques independientes, dentro del rango de dos a ocho párrafos por página que exige este criterio."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "cumple",
+      "comentario": "Los textos de esta página de inicio del portal de trámites son breves y usan frases cortas en toda su extensión."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Todos los párrafos visibles ocupan una o dos líneas en pantalla de escritorio, muy por debajo del límite de ocho líneas."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "cumple",
+      "comentario": "Cada párrafo del cuerpo principal desarrolla una sola idea: cómo ingresar, qué hacer si es primera vez, dónde obtener Clave Única, qué se puede hacer una vez dentro y a quién consultar."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "cumple",
+      "comentario": "Las oraciones del cuerpo principal son simples y directas, sin exceso de palabras."
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "cumple",
+      "comentario": "El primer párrafo del bloque principal funciona como resumen de entrada («puede ingresar con Clave Única o con Clave INAPI») antes de que los siguientes cuatro párrafos desarrollen los detalles de cada caso.",
+      "cita_textual": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Los párrafos del cuerpo principal muestran separación visible entre sí, confirmada mediante el margen inferior aplicado a cada bloque de texto."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "cumple",
+      "comentario": "El texto del cuerpo principal está alineado a la izquierda, confirmado en el estilo aplicado a los párrafos."
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "No hay una enumeración de varios elementos en el contenido editorial de esta landing que amerite lista o tabla; los únicos listados visibles son de navegación (menú y pie de página), que son controles de interacción, no contenido editorial."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "cumple",
+      "comentario": "El bloque principal antepone primero el propósito general (cómo ingresar) y luego los detalles según el caso de la persona usuaria (primera vez, sin Clave Única, qué puede hacer, a quién consultar), aplicando el modelo de pirámide invertida."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La página no usa ningún título ni subtítulo semántico para organizar sus tres bloques (acceso general, iniciar sesión, registrarse); solo se apoya en encabezados de menor jerarquía sin equivalencia semántica de título o subtítulo de página.",
+      "cita_textual": "(ausencia de títulos y subtítulos semánticos que organicen los tres bloques de la landing)",
+      "ubicacion_pantalla": "Cuerpo de la página, los tres bloques «Trámites INAPI», «Iniciar Sesión» y «Registrarse»"
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "Aunque los encabezados no usan la jerarquía semántica correcta (ver el criterio de títulos y subtítulos), la página se organiza visualmente en tres bloques breves con encabezado y espaciado propio, lo que permite escanearla con rapidez de un vistazo."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Ninguno de los párrafos del cuerpo principal usa negrita para destacar los términos clave de la acción, como «Clave Única», «Clave INAPI» o «primera vez».",
+      "cita_textual": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI»"
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los cuatro encabezados de grupo del menú desplegable, repetidos en las secciones de Marcas y de Patentes, están escritos en mayúsculas sostenidas como texto literal, sin corresponder a una sigla reconocida.",
+      "cita_textual": "MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS",
+      "ubicacion_pantalla": "Menú superior › encabezados de grupo del menú desplegable de Marcas y Patentes"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre enlaces relacionados entre contenidos del mismo sitio pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La mayoría de los rótulos son descriptivos, por ejemplo «Regístrese» e «Iniciar Sesión Clave INAPI». Sin embargo, el enlace hacia el sitio externo de Clave Única usa como texto la dirección web completa en vez de una frase descriptiva, y el botón del cuadro emergente genérico del sistema usa un texto de sistema que no indica qué acción se confirma o cierra.",
+      "cita_textual": "https://claveunica.gob.cl/ (texto del enlace) / OK (botón del cuadro emergente genérico)",
+      "ubicacion_pantalla": "Bloque «Trámites INAPI» › enlace hacia Clave Única; cuadro emergente genérico del sistema › botón"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "El enlace «Política de privacidad» del pie de página apunta directamente a un archivo PDF sin indicar en el propio texto del enlace que se trata de un documento descargable, ni su formato ni su peso. Los enlaces «Descargar Formularios (PDF)» del menú indican el formato pero no el peso del archivo.",
+      "cita_textual": "Política de privacidad / Descargar Formularios (PDF)",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Política de privacidad»; menú superior › enlaces «Descargar Formularios (PDF)»"
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.4-07",
+      "comentario": "Los mismos enlaces tampoco traen una breve descripción de su contenido junto al título. Se agrupa con la pregunta anterior porque comparte exactamente los mismos enlaces y la misma corrección.",
+      "cita_textual": "Política de privacidad / Descargar Formularios (PDF)"
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre apoyos visuales para presentar datos pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "El contenido visible es neutral e institucional; no refleja opinión personal ni lenguaje promocional."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta sobre privilegiar datos y hechos por sobre adjetivos pertenece al instrumento de evaluación de sitios web informativos; esta página pertenece al instrumento de servicios digitales y trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado o no vigente en esta página."
+    }
+  ],
+  "criterios_aprobados": 24,
+  "criterios_aplicables": 36,
+  "criterios_no_aplica": 15,
+  "porcentaje_cumplimiento": 66.7,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La landing del Portal de Trámites de INAPI (https://tramites.inapi.cl/) fue reauditada el 2026-08-27 con captura propia mediante navegador automatizado, sin sesión iniciada. Se aplicó primero un análisis de menor a mayor granularidad del texto visible y luego una evaluación indicador por indicador de las cincuenta y un preguntas del catálogo vigente, seguida de una revisión de calidad de la entrega para un equipo editorial no técnico.\n\nDe las cincuenta y un preguntas, quince no aplican a esta página: diez porque pertenecen en exclusiva al instrumento de sitios web informativos y esta página es de servicios digitales y trámites, y cinco por razones propias del contenido (no hay suficiente texto continuo para medir legibilidad, no hay listado de requisitos, no hay bloque de preguntas frecuentes ni enumeraciones que ameriten listas, y no hay versiones anteriores publicadas). De las treinta y seis preguntas aplicables, veinticuatro se cuentan como cumplidas (veintidós cumplen directamente y dos quedan agrupadas bajo un criterio primario con el que comparten exactamente el mismo hallazgo y la misma corrección), lo que da un 66,7 % de cumplimiento y calificación RECHAZADO (el umbral de aprobación es sobre 90 %).\n\nEsta landing comparte varios componentes de plantilla con el Formulario de Contacto SIAC evaluado en la auditoría anterior de esta serie: los mismos encabezados de menú en mayúsculas sostenidas, la misma sigla PCT sin definir en el menú de Patentes, la misma jerga «Custodia de Poderes y Personerías», y el mismo cuadro emergente genérico de sistema con el botón «OK». Estos hallazgos, al corregirse en el componente compartido, beneficiarán a ambas páginas y a las demás páginas del subdominio de trámites que reutilizan ese menú.\n\nLos hallazgos de mayor severidad propios de esta página son: ausencia total de encabezados semánticos de título en toda la página, tanto para la fidelidad del título principal como para la organización de sus tres bloques (acceso general, iniciar sesión, registrarse); ausencia de fecha de actualización visible; y dos tipos de enlaces a documentos (política de privacidad y formularios descargables) que no indican peso ni traen una breve descripción.\n\nOtros hallazgos: el bloque principal no indica cuándo está disponible el servicio ni a qué tipo de persona usuaria está dirigido; dos oraciones anteponen el complemento circunstancial al verbo, compartiendo causa con una inconsistencia de tono entre el tratamiento formal y el imperativo impersonal; el botón de acceso con Clave Única tiene un error de espaciado; el enlace hacia el sitio externo de Clave Única usa la dirección web completa como texto en vez de una frase descriptiva; y ningún párrafo usa negrita para destacar los términos clave de la acción.\n\nSerie de evaluación institucional — orden 11 (landing del portal de trámites, acceso sin sesión). El cableado de esta URL en la lista de la serie institucional (mei-meta-mei-urls.ts) y en el listado de lanzamiento del frontend (claude-audits-launch.ts) queda pendiente de una revisión humana antes de ampliar la muestra de diez a once páginas.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "No existe ningún título principal marcado como tal en toda la página; la ausencia total es el peor caso posible de la pregunta sobre fidelidad del título.",
+      "No hay títulos ni subtítulos semánticos que organicen los tres bloques de la landing (acceso general, iniciar sesión, registrarse).",
+      "No hay fecha de publicación ni de última actualización visible en ninguna parte de la página.",
+      "Los cuatro encabezados de grupo del menú desplegable están escritos en mayúsculas sostenidas.",
+      "El enlace «Política de privacidad» y los enlaces «Descargar Formularios (PDF)» no indican el peso del archivo ni traen una breve descripción de su contenido."
+    ],
+    "hallazgos_prioridad_media": [
+      "El bloque principal no indica cuándo está disponible el servicio ni a qué tipo de persona usuaria está dirigido.",
+      "Dos oraciones del bloque principal anteponen el complemento circunstancial al verbo, en vez de seguir el orden sujeto-verbo-predicado.",
+      "El enlace hacia el sitio externo de Clave Única usa la dirección web completa como texto, y el botón del cuadro emergente genérico del sistema no indica qué acción confirma o cierra."
+    ],
+    "hallazgos_prioridad_baja": [
+      "El tono alterna entre el tratamiento formal «usted» y el imperativo impersonal «favor enviar», sin un registro cercano y consistente.",
+      "Jerga legal sin explicación en el menú de navegación: «Custodia de Poderes y Personerías».",
+      "Sigla sin definir en el menú desplegable de Patentes: «PCT».",
+      "El botón de acceso con Clave Única tiene un error de espaciado: «ClaveÚnica».",
+      "Ningún párrafo del cuerpo principal usa negrita para destacar los términos clave de la acción."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "S01",
+      "html_linea_aprox": "ancla: masthead, antes del bloque «Trámites INAPI»",
+      "ubicacion_pantalla": "Encabezado de la página, sobre el bloque «Trámites INAPI»",
+      "original": "(no existe un título principal marcado como tal en la página)",
+      "propuesto": "Agregar un título principal visible y marcado como tal, por ejemplo «Portal de Trámites de Propiedad Industrial», ubicado antes del bloque de acceso.",
+      "criterio_id": "LC-1.1.2-01",
+      "motivo": "La ausencia total de un título principal impide evaluar si el título representa fielmente el contenido de la página y dificulta la navegación para personas que usan lectores de pantalla.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S02",
+      "html_linea_aprox": "ancla: 'Para ingresar al sitio de trámites de INAPI puede hacerlo'",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI», párrafo inicial",
+      "original": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+      "propuesto": "Añadir, en el mismo bloque, quién puede usar este portal (personas naturales y representantes de personas jurídicas que gestionan marcas o patentes) y desde cuándo está disponible el servicio.",
+      "criterio_id": "LC-1.1.2-03",
+      "motivo": "El bloque responde qué se puede hacer y cómo, pero no dice cuándo ni para quién está pensado el portal.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S03",
+      "html_linea_aprox": "ancla: 'Custodia de Poderes y Personerías'",
+      "ubicacion_pantalla": "Menú superior › grupo de trámites de Marcas y Patentes › ítem «Custodia de Poderes y Personerías»",
+      "original": "Custodia de Poderes y Personerías",
+      "propuesto": "Guardar poderes y representantes legales",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "Es jerga legal-administrativa sin explicación para quien no tiene formación jurídica; se propone un rótulo en lenguaje cotidiano.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S04",
+      "html_linea_aprox": "ancla: 'Pagar Tasas PCT Fase Internacional'",
+      "ubicacion_pantalla": "Menú superior › grupo de pagos de Patentes › ítem «Pagar Tasas PCT Fase Internacional»",
+      "original": "Pagar Tasas PCT Fase Internacional",
+      "propuesto": "En la primera aparición de «PCT» en este menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes».",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "La sigla PCT no está definida en ningún punto visible de esta página.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S05",
+      "html_linea_aprox": "ancla: bloque «Trámites INAPI», bajo el encabezado",
+      "ubicacion_pantalla": "Cuerpo › bajo el título del bloque «Trámites INAPI»",
+      "original": "(sin fecha de actualización visible)",
+      "propuesto": "Añadir una línea visible: «Actualizado: DD de mes de AAAA», usando la fecha real de la última revisión de este contenido.",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "No hay fecha de publicación ni de actualización visible; la fecha del cuadro emergente de la Tesorería corresponde a un evento operativo puntual, no a la vigencia del contenido de la página.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S06",
+      "html_linea_aprox": "ancla: botón «ClaveÚnica», bloque «Iniciar Sesión»",
+      "ubicacion_pantalla": "Bloque «Iniciar Sesión» › botón de acceso con Clave Única",
+      "original": "ClaveÚnica",
+      "propuesto": "Clave Única",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "Falta el espacio entre «Clave» y «Única» en el texto del botón de acceso.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S07",
+      "html_linea_aprox": "ancla: primer y último párrafo del bloque «Trámites INAPI»",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI», primer y último párrafo",
+      "original": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI. […] Si usted ingresa por primera vez al sistema debe hacerlo con la Clave única y registrar sus datos básicos. […] Para consultas, favor enviar un correo a inapi@inapi.cl",
+      "propuesto": "Ingresa al portal de trámites con tu Clave Única o con tu Clave INAPI. Si es tu primera vez, ingresa con Clave Única y registra tus datos básicos. ¿Tienes dudas? Escríbenos a inapi@inapi.cl",
+      "criterio_id": "LC-1.2.1-04",
+      "criterios_relacionados": ["LC-1.1.3-02"],
+      "motivo": "Dos oraciones anteponen el complemento circunstancial al verbo en vez de seguir el orden sujeto-verbo-predicado; la misma reescritura unifica además el tono en un tuteo cercano y consistente, en lugar de alternar entre «usted» formal e imperativo impersonal.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S08",
+      "html_linea_aprox": "ancla: tres bloques «Trámites INAPI», «Iniciar Sesión», «Registrarse»",
+      "ubicacion_pantalla": "Cuerpo de la página, los tres bloques «Trámites INAPI», «Iniciar Sesión» y «Registrarse»",
+      "original": "(ausencia de títulos y subtítulos semánticos que organicen los tres bloques de la landing)",
+      "propuesto": "Marcar «Trámites INAPI» como el título principal de la página y «Iniciar Sesión» y «Registrarse» como subtítulos de sus respectivos bloques, en vez de usar solo un nivel de encabezado sin jerarquía semántica.",
+      "criterio_id": "LC-1.2.4-02",
+      "motivo": "La página no tiene ningún título ni subtítulo semántico que organice sus tres bloques; hoy los tres se ven visualmente igual sin que un lector de pantalla pueda distinguir el principal de los secundarios.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S09",
+      "html_linea_aprox": "ancla: párrafos del bloque «Trámites INAPI»",
+      "ubicacion_pantalla": "Cuerpo › bloque «Trámites INAPI»",
+      "original": "Para ingresar al sitio de trámites de INAPI puede hacerlo con su Clave Única o con su Clave INAPI.",
+      "propuesto": "Destacar en negrita los términos clave de cada párrafo, por ejemplo «Clave Única», «Clave INAPI» y «primera vez», sin poner en negrita el resto de la oración.",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "Ningún párrafo del bloque principal usa negrita para ayudar a identificar de un vistazo los términos más importantes de la acción.",
+      "patron_sistema": false
+    },
+    {
+      "linea": "S10",
+      "html_linea_aprox": "ancla: 'MI INAPI' / 'TRAMITACIÓN' / 'PAGOS' / 'SERVICIOS'",
+      "ubicacion_pantalla": "Menú superior › encabezados de grupo del menú desplegable de Marcas y Patentes",
+      "original": "MI INAPI, TRAMITACIÓN, PAGOS, SERVICIOS",
+      "propuesto": "Mi INAPI, Tramitación, Pagos, Servicios",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Encabezados de grupo del menú desplegable en mayúsculas sostenidas, sin justificación de sigla salvo INAPI.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S11",
+      "html_linea_aprox": "ancla: enlace 'https://claveunica.gob.cl/' / botón 'OK'",
+      "ubicacion_pantalla": "Bloque «Trámites INAPI» › enlace hacia Clave Única; cuadro emergente genérico del sistema › botón",
+      "original": "https://claveunica.gob.cl/ (texto del enlace) / OK (botón del cuadro emergente genérico)",
+      "propuesto": "Reemplazar el texto del enlace por «Obtener Clave Única en claveunica.gob.cl», y el botón genérico por «Entendido».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "Una dirección web completa como texto de enlace no describe la acción para quien usa un lector de pantalla; «OK» es un texto de sistema genérico que no indica qué se confirma o cierra.",
+      "patron_sistema": true
+    },
+    {
+      "linea": "S12",
+      "html_linea_aprox": "ancla: 'Política de privacidad' (footer) / 'Descargar Formularios (PDF)' (menú)",
+      "ubicacion_pantalla": "Pie de página › bloque «Accesos» › enlace «Política de privacidad»; menú superior › enlaces «Descargar Formularios (PDF)»",
+      "original": "Política de privacidad / Descargar Formularios (PDF)",
+      "propuesto": "Política de privacidad (PDF) — cómo tratamos tus datos personales y tus derechos. / Formularios de Marcas (PDF, [peso]) — formularios oficiales para presentar solicitudes en papel. Especificar el peso real del archivo junto al enlace; no dejar solo el nombre del documento.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": ["LC-1.2.4-08"],
+      "motivo": "Ambos enlaces llevan a documentos sin indicar el peso del archivo ni una breve descripción de su contenido; el equipo editorial debe completar el peso real, que no puede determinarse desde la página.",
+      "patron_sistema": true
+    }
+  ],
+  "nota_final_tic": "Alcance visible: solo lo que se ve en pantalla o se abre con un clic, incluido el cuadro emergente de la Tesorería, verificado por inspección del documento sin necesidad de sesión. No se usó el título de pestaña ni metadatos del encabezado técnico como evidencia: la pestaña del navegador sigue mostrando el error tipográfico «máss» detectado en auditorías anteriores, pero al no ser contenido visible en pantalla no se cuenta en este resultado; se recomienda corregirlo de todas formas junto con el resto de esta lista.\n\nComponentes de plantilla compartidos con otras páginas del subdominio de trámites, incluido el Formulario de Contacto SIAC evaluado en la auditoría anterior de esta serie (corregir en el origen; el cambio se replica en todas las páginas que usan esos componentes): encabezados de grupo del menú desplegable en mayúsculas sostenidas, sigla PCT sin definir, jerga «Custodia de Poderes y Personerías», botón «ClaveÚnica» sin espacio, botón genérico «OK» del cuadro de alertas del sistema, y el cuadro emergente de la Tesorería con la fecha operativa vencida («19 de enero»), que sigue sin actualizarse o desactivarse desde auditorías anteriores.\n\nHallazgos propios de esta página (no son patrón de plantilla): ausencia total de títulos y subtítulos semánticos en los tres bloques de acceso; ausencia de fecha de actualización visible; falta de indicación de a quién está dirigido el portal y desde cuándo; dos oraciones con el complemento circunstancial antepuesto al verbo, junto con una inconsistencia de tono entre «usted» formal e imperativo impersonal; el enlace hacia el sitio externo de Clave Única con la dirección web completa como texto; ausencia de negrita en los términos clave de cada párrafo; y los enlaces a documentos (política de privacidad y formularios) sin peso ni descripción.\n\nNo se inició sesión en ningún momento de la captura ni se completó ningún flujo de Clave Única o Clave INAPI.\n\nPriorizar: título y subtítulos ausentes, fecha de actualización ausente, mayúsculas del menú y enlaces a documentos sin peso ni descripción (severidad alta); a quién y desde cuándo del bloque principal, orden de dos oraciones, enlace de Clave Única con URL cruda y botón genérico «OK» (severidad media); tono inconsistente, jerga legal, sigla PCT, espaciado de «ClaveÚnica» y ausencia de negrita (severidad baja).\n\nCon esta página se amplía a once la muestra de evaluación institucional de esta oleada; el cableado de esta URL en mei-meta-mei-urls.ts y en claude-audits-launch.ts queda pendiente de una revisión humana antes de publicarla en el listado de la serie."
+}

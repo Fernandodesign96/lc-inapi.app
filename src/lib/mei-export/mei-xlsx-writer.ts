@@ -143,7 +143,7 @@ function addIndiceSheet(
   sheet.getCell(2, 1).value = documentary
     ? `Evidencia documental (${hitoLabel}) — sin filas por URL`
     : urlSet === "meta-mei"
-      ? `META MEI — ${audits.length}/10 URLs compromiso jefatura (Sitio Web + Trámites) — hito(s) ${hitoLabel}` +
+      ? `META MEI — ${audits.length}/${MEI_META_MEI_URLS.length} URLs compromiso jefatura (Sitio Web + Trámites) — hito(s) ${hitoLabel}` +
         (pending > 0 ? ` — ${pending} URL(s) aún sin JSON` : "")
       : `Clarity vigente — ${audits.length} URLs — hito(s) ${hitoLabel}`
 
@@ -588,7 +588,7 @@ function addDetallePorTipoSheet(
 export type BuildMeiWorkbookOptions = {
   hitoIds?: string[]
   root?: string
-  /** Por defecto META MEI (10 URLs jefatura). Use `clarity` para la serie Clarity 13. */
+  /** Por defecto META MEI (11 URLs jefatura). Use `clarity` para la serie Clarity 13. */
   urlSet?: "meta-mei" | "clarity"
   /** Si se pasa, no carga la muestra completa (Excel de una sola URL). */
   audits?: LoadedClarityAudit[]

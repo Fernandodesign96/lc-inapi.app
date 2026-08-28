@@ -37,7 +37,7 @@ No es un “puntaje genérico de calidad”: cada criterio responde una **pregun
 
 ### 1.3 Cómo se audita una URL hoy (método vigente)
 
-1. Se elige **una URL** (muestra META MEI de 10 URLs, o una URL suelta en sesión Claude Code).  
+1. Se elige **una URL** (muestra META MEI de 11 URLs, o una URL suelta en sesión Claude Code).
 2. **Playwright** abre la página real (HTML + lo que ve el usuario). Si hace falta sesión (trámites), se usa captura autenticada (p. ej. ClaveÚnica / cuenta de trabajo), según la documentación de Fase 3.3.  
 3. Se arma un **inventario** del texto visible.  
 4. **Paso D0:** análisis textual de menor a mayor (palabra → frase → oración → párrafo).  

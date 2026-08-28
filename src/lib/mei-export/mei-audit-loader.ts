@@ -86,7 +86,7 @@ function loadBundle(auditsDir: string, auditId: string): ClaudeAuditBundle {
 }
 
 /**
- * Muestra META MEI (10 URLs compromiso jefatura).
+ * Muestra META MEI (11 URLs compromiso jefatura).
  * Omite entradas sin `auditId` (aún no auditadas).
  */
 export function loadMetaMeiAudits(root = process.cwd()): LoadedClarityAudit[] {

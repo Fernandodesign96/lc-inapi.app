@@ -104,29 +104,22 @@ Cada export genera **5 pestañas**:
 | Pestaña | Contenido |
 | --- | --- |
 | **Índice** | URL #, Sección, Página, Dirección, Rol META MEI, Fecha, N° incumplimientos, **Porcentaje LC**; fila TOTAL + sección **Porcentaje final** (promedio de la muestra) |
-| **Hitos-Tareas-Criterios** | Equivalente tabular a «Resumen por hito» / árbol UI·PDF: URL \| Hito \| Tarea \| Criterio \| Estado \| Descripción Hito \| Descripción Tarea \| Descripción Criterio. En Excel de **una URL**: tabla plana. En **completo** (10 URLs): misma pestaña, bloques seccionados por URL |
+| **Hitos-Tareas-Criterios** | Equivalente tabular a «Resumen por hito» / árbol UI·PDF: URL \| Hito \| Tarea \| Criterio \| Estado \| Descripción Hito \| Descripción Tarea \| Descripción Criterio. En Excel de **una URL**: tabla plana. En **completo** (11 URLs): misma pestaña, bloques seccionados por URL |
 | **CheckList** | Hitos \| Tareas \| Instrumentos \| Criterios (`LC-*`) \| Nombre del Criterio \| Cita fuente (51 filas v3.0; sin A–H; sin pestaña Fuentes) |
 | **web INAPI** | Bloques por URL `tipo_pagina === sitioweb` |
 | **sitio TRAMITES** | Bloques por URL `tipo_pagina === tramites` |
 
-### Muestra de URLs (META MEI — jul-2026)
+### Muestra de URLs (META MEI — ago-2026)
 
-Por defecto el export usa las **10 URLs compromiso jefatura** (`src/lib/mei-export/mei-meta-mei-urls.ts`), no la serie Clarity 13. Flag CLI: `--urls=clarity` para la muestra Clarity.
+Por defecto el export usa las **11 URLs compromiso jefatura** (`src/lib/mei-export/mei-meta-mei-urls.ts`), no la serie Clarity 13. Flag CLI: `--urls=clarity` para la muestra Clarity.
 
 | # | URL (rol) | Auditoría vigente | % LC (ref.) |
 | --- | --- | --- | --- |
-| 1 | `www.inapi.cl/` (portada) | `www-inapi-cl_2026-07-22` | 54,5 % |
-| 2 | `/marcas` (menú) | `www-inapi-cl-marcas_2026-06-05` | 48,5 % |
-| 3 | `/patentes` (menú) | `www-inapi-cl-patentes_2026-07-29` (§17) | 42,9 % |
-| 4 | `/acerca-de/inapi` | `www-inapi-cl-acerca-de-inapi_2026-06-07` | 34,3 % |
-| 5 | buscador noticias | `www-inapi-cl-buscador-noticias_2026-06-07` | 34,5 % |
-| 6 | `/marcas/tramites/solicitud-nueva` | `www-inapi-cl-marcas-tramites-solicitud-nueva_2026-06-07` | 44,8 % |
-| 7 | `/sala-de-prensa/noticias` | `www-inapi-cl-sala-de-prensa-noticias_2026-06-07` | 45,5 % |
-| 8 | noticia Cuenta Pública | `www-inapi-cl-noticia-cuenta-publica-2026_2026-07-29` (§17) | 60,0 % |
-| 9 | noticia cifra patentes | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-07-29` (§17) | 65,7 % |
-| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-06-07` | 51,5 % |
+| 1–9 | sitioweb META MEI | `…_2026-08-25` | ver `claude-audits-launch.ts` |
+| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-08-25` | 54,3 % |
+| 11 | `tramites.inapi.cl/` (landing) | `tramites-inapi-cl_2026-08-27` | 66,7 % |
 
-**H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre esas 10 URLs. Export regenerado 2026-07-29 tras §17: ~173 filas de incumplimiento en alcance H02.
+**H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre la muestra META MEI vigente.
 
 **Entrega completa:** unión de hitos `completado` (H01+H02) en el mismo formato; pestaña CheckList con los **51** `LC-*` v3.0.
 

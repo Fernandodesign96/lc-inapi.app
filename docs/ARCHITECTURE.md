@@ -8,7 +8,7 @@
 | **Tipo** | Web app — Next.js (Vercel) + Claude Code (orquestador PC/WSL) + Chroma RAG + Playwright MCP + @xenova/transformers + LangChain.js |
 | **Gestor de paquetes** | Bun |
 | **Checklist vigente** | PTD-LC **v3.0** — **51** criterios `LC-*` |
-| **Muestra META MEI** | **10 URLs** (`mei-meta-mei-urls.ts`) |
+| **Muestra META MEI** | **11 URLs** (`mei-meta-mei-urls.ts`) |
 
 Propuesta técnica: [PROPUESTA_TECNICA_INTEGRAL.md](PROPUESTA_TECNICA_INTEGRAL.md).  
 ADR clave: [0008](adr/0008-typescript-sobre-python-para-rag.md) · [0009](adr/0009-claude-code-pro-como-orquestador.md) · [0010](adr/0010-rag-local-chroma-xenova-transformers.md) · [0011](adr/0011-worker-local-on-demand-vercel.md).  
@@ -86,7 +86,7 @@ flowchart TD
 | Componente | Estado |
 | --- | --- |
 | `/auditar`, historial, MEI | Operativo |
-| 10 URLs META MEI | Cable en `mei-meta-mei-urls.ts` |
+| 11 URLs META MEI | Cable en `mei-meta-mei-urls.ts` |
 | PDF / Excel | APIs + `export:mei-xlsx` |
 | Worker on-demand | `audit-jobs` + worker PC (ADR 0011) |
 

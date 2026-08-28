@@ -77,7 +77,7 @@ flowchart TD
 5. Consolidación CMS (§22) → JSON v3.0.  
 6. Zod → UI / PDF / Excel / commit.
 
-Muestra institucional: **10 URLs** (`mei-meta-mei-urls.ts`).
+Muestra institucional: **11 URLs** (`mei-meta-mei-urls.ts`).
 
 ---
 

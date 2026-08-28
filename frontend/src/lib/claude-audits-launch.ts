@@ -208,15 +208,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     url: "https://tramites.inapi.cl/",
     label: "Trámites y Servicios",
     tipoPagina: "tramites",
-    // Misma URL que Clarity rank 1 — vigente jul-2026
-    claudeAuditId: "tramites-inapi-cl_2026-07-22",
+    // Misma URL que Clarity rank 1. Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-27.
+    // Orden 11 de la serie de evaluación institucional (muestra 1…11).
+    claudeAuditId: "tramites-inapi-cl_2026-08-27",
     resumenMvp: {
-      porcentajeLc: 60.6,
+      porcentajeLc: 66.7,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-07-22T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-08-27T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "tramites-inapi-cl_2026-07-22" },
       { id: "tramites-inapi-cl_2026-06-11" },
       { id: "tramites-inapi-cl_2026-06-07" },
     ],

@@ -1,5 +1,5 @@
 /**
- * Genera entrega MEI XLSX desde auditorías (META MEI 10 URLs por defecto).
+ * Genera entrega MEI XLSX desde auditorías (META MEI 11 URLs por defecto).
  *
  *   bun run export:mei-xlsx
  *   bun run export:mei-xlsx -- --hito=H02

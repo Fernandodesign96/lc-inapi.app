@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-08-27 | [Frontend/docs: cablear META MEI a 11 URLs (landing trámites)](#devlog-2026-08-27-meta-mei-11-urls) |
+| 2026-08-27 | [Infraestructura: Landing Portal de Trámites tramites.inapi.cl — reauditoría v3.0 completa, rechazado 66,7 % — amplía la muestra a 11](#devlog-2026-08-27-tramites-landing-reaudit-v30) |
 | 2026-08-26 | [Frontend/MEI: pestaña Excel Hitos-Tareas-Criterios (URL y consolidado)](#devlog-2026-08-26-excel-hitos-tareas-criterios) |
 | 2026-08-26 | [Orquestación: cierre META MEI 10 URLs v3.0 + calibración C-2026-08-26a (SIAC 54,3 %)](#devlog-2026-08-26-cierre-meta-mei-v30-calibracion-26a) |
 | 2026-08-26 | [Calibración C-2026-08-26a — no repetir correcciones entre criterios](#devlog-2026-08-26-calibracion-26a-no-repetir) |
@@ -111,6 +113,53 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-08-27-meta-mei-11-urls"></a>
+## [2026-08-27] - Frontend | Cablear META MEI a 11 URLs (landing trámites)
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Publicar en la muestra de evaluación institucional la landing `https://tramites.inapi.cl/` (orden 11), ya auditada en v3.0, actualizando listado, UI, Excel consolidado y documentación operativa de 10 a 11 URLs.
+
+### Implementación técnica:
+
+- `mei-meta-mei-urls.ts`: orden 11 con `tramites-inapi-cl_2026-08-27`; rol SIAC sin «cierra 1…10».
+- UI `/auditar`: título y Excel «11 URLs - META MEI»; `mei-xlsx-writer` usa `MEI_META_MEI_URLS.length`.
+- Docs: ROADMAP, README, ARCHITECTURE, PRD, PROPUESTA, flujo §2.1, plantilla Excel, Prompt 5 / skill 05.
+
+### Próximos pasos:
+
+- Regenerar Excel MEI institucional completo (11 URLs) para entrega.
+- Muestra oro §22+§23.
+
+---
+
+<a id="devlog-2026-08-27-tramites-landing-reaudit-v30"></a>
+## [2026-08-27] - Infraestructura | Landing Portal de Trámites: reauditoría v3.0 completa, rechazado 66,7 % — amplía la muestra a 11
+
+**Rama:** `feat/resultado-criterios-excel-alineado`
+
+### Contexto y objetivos:
+
+Segunda URL de tipo trámites/servicios digitales de la serie de evaluación institucional: reauditar la landing pública de acceso `https://tramites.inapi.cl/` (no confundir con `/siac`, orden 10) con captura propia y las calibraciones vigentes hasta C-2026-08-26a. La URL anterior de esta misma dirección (`tramites-inapi-cl_2026-07-22`) estaba en el checklist histórico v1.1; esta es su primera reauditoría con el catálogo PTD-LC v3.0 (51 preguntas).
+
+### Implementación técnica:
+
+- Captura con navegación automatizada, sin sesión iniciada; no se completó ningún inicio de sesión con Clave Única ni Clave INAPI. El cuadro emergente de la Tesorería General de la República se verificó por inspección del documento (oculto por defecto) y sigue mostrando la misma fecha operativa vencida («19 de enero») detectada en auditorías anteriores desde 2026-06-11.
+- 51 preguntas evaluadas desde cero (análisis textual ascendente + 15 indicadores + 5 pasadas de entrega). Se confirmó con una consulta al documento que no existe ningún encabezado semántico de título (nivel uno a tres) en toda la página.
+- Diez preguntas exclusivas del instrumento de sitios web informativos quedaron `no_aplica` por exclusión estructural del catálogo, igual que en el Formulario Contacto SIAC; cinco preguntas más quedaron `no_aplica` por razones propias del contenido (poco texto continuo para medir legibilidad, sin listado de requisitos, sin bloque de preguntas frecuentes, sin enumeraciones que ameriten lista y sin versiones anteriores publicadas).
+- Se detectaron varios hallazgos compartidos con el Formulario Contacto SIAC por ser componentes de plantilla del subdominio de trámites (mayúsculas del menú desplegable, sigla PCT sin definir, jerga «Custodia de Poderes y Personerías», botón genérico «OK»), y dos hallazgos nuevos propios de esta landing: enlace hacia el sitio externo de Clave Única con la dirección web completa como texto, y ausencia de negrita en los términos clave de los párrafos de acceso. Dos oraciones con complemento circunstancial antepuesto y una inconsistencia de tono se agruparon bajo un mismo criterio primario por compartir la misma corrección (calibración C-2026-08-26a).
+- El error tipográfico «máss» en el `<title>` de la pestaña, detectado en la auditoría del 2026-07-22, sigue presente pero no se contabiliza en el % porque el `<title>` no es evidencia visible en pantalla (calibración vigente); se deja registrado en la nota para TI.
+- Resultado: 66,7 % de cumplimiento (24 de 36 preguntas aplicables), estado `rechazado`; 15 preguntas no aplican.
+- Cableado inicial: `frontend/src/lib/claude-audits-launch.ts` (id vigente `tramites-inapi-cl_2026-08-27`). Ampliación formal de la muestra a 11 URLs → ver entrada «Cablear META MEI a 11 URLs» del mismo día.
+
+### Próximos pasos:
+
+- Ninguno pendiente para esta URL; muestra institucional 1…11 cableada.
 
 ---
 

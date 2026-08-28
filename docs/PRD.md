@@ -9,7 +9,7 @@
 | **Estado** | MVP operativo: Claude Code §17 + Playwright + Chroma/Xenova + UI Vercel; **sin login** |
 | **Stack vigente** | Next.js · Bun · Vercel · GitHub Actions · Claude Code · Playwright MCP · Chroma · `@xenova/transformers` · LangChain.js (ingesta) · Zod |
 | **Checklist** | PTD-LC **v3.0** — **51** criterios `LC-*` (IEW/IESD) |
-| **Muestra** | **10 URLs** META MEI |
+| **Muestra** | **11 URLs** META MEI |
 | **Normativa** | Checklist Editorial INAPI PTD + RLC + instrumentos IEW/IESD + Meta MEI |
 
 **Propuestas antiguas (no contempladas):** NestJS, Prisma, Supabase Auth/Postgres, AWS Lambda, Claude API de pago, Firebase — ver ADR 0002 / 0006.
@@ -30,7 +30,7 @@ Herramienta para **evaluar contenidos** en `inapi.cl` y `tramites.inapi.cl` con 
 
 | Objetivo | Meta práctica |
 | --- | --- |
-| Cubrir muestra META MEI | **10 URLs** auditadas con JSON v3.0 |
+| Cubrir muestra META MEI | **11 URLs** auditadas con JSON v3.0 |
 | Criterios LC | **51** filas `LC-*` por URL |
 | Tiempo por URL (automatizado) | Orden de minutos a ~40 min según profundidad §17 |
 | Trazabilidad | JSON en GitHub + `version_checklist: "3.0"` |

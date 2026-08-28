@@ -181,6 +181,6 @@ Si hubo hallazgo **nuevo** de calibración: añadir bloque en Prompt 6 en el mis
 
 ## Multi-URL / muestra oro
 
-- **Cola META MEI (1…10):** una sesión Claude Code = este Prompt 5 con una sola URL del orden en `src/lib/mei-export/mei-meta-mei-urls.ts`. Tras `validate` + commit, abrir la siguiente.
+- **Cola META MEI (1…11):** una sesión Claude Code = este Prompt 5 con una sola URL del orden en `src/lib/mei-export/mei-meta-mei-urls.ts`. Tras `validate` + commit, abrir la siguiente.
 - **Muestra oro UX:** mismo Prompt 5 (p. ej. Portada orden 1 o noticia detalle) con énfasis §22 y lectura obligatoria de Prompt 6 + skill `05` + Prompt 7 + skill `06`.
 - **Prohibido:** mezclar varias URLs en un solo pegado del maestro.

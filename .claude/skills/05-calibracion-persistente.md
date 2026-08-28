@@ -46,4 +46,4 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Efecto deseado
 
-Misma rigurosidad en META MEI 1…10: less “olvido” entre Portada y SIAC; más coherencia en Excel/UI/PDF; % puede bajar si se recuperan hallazgos omitidos por atajo.
+Misma rigurosidad en META MEI 1…11: less “olvido” entre Portada y landing de trámites; más coherencia en Excel/UI/PDF; % puede bajar si se recuperan hallazgos omitidos por atajo.

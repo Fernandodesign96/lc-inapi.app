@@ -2,7 +2,7 @@
 
 **Última actualización:** 2026-08-21  
 
-**Checklist:** 51 `LC-*` v3.0 · **10 URLs** META MEI.  
+**Checklist:** 51 `LC-*` v3.0 · **11 URLs** META MEI.
 **Vigente:** Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel — [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`despliegue/despliegue-hibrido.md`](despliegue/despliegue-hibrido.md) · [`flujo-piloto-10-urls-claude-mvp.md`](flujo-piloto-10-urls-claude-mvp.md).
 
 ---
