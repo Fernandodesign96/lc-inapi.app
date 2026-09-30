@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-09-30 | [Infraestructura: Portada www.inapi.cl — reauditoría por rotación de Novedades (tarjeta PAI), rechazado 75,6 %](#devlog-2026-09-30-portada-reaudit-novedades-pai) |
 | 2026-08-27 | [Frontend/docs: cablear META MEI a 11 URLs (landing trámites)](#devlog-2026-08-27-meta-mei-11-urls) |
 | 2026-08-27 | [Infraestructura: Landing Portal de Trámites tramites.inapi.cl — reauditoría v3.0 completa, rechazado 66,7 % — amplía la muestra a 11](#devlog-2026-08-27-tramites-landing-reaudit-v30) |
 | 2026-08-26 | [Frontend/MEI: pestaña Excel Hitos-Tareas-Criterios (URL y consolidado)](#devlog-2026-08-26-excel-hitos-tareas-criterios) |
@@ -113,6 +114,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-09-30-portada-reaudit-novedades-pai"></a>
+## [2026-09-30] - Infraestructura | Portada: reauditoría por rotación de Novedades (tarjeta PAI), rechazado 75,6 %
+
+**Rama:** `feat/reauditoria-home-novedades-2026-09-30`
+
+### Contexto y objetivos:
+
+Reauditar la portada (`https://www.inapi.cl/`, META MEI orden 1) porque las tres noticias del bloque Novedades rotaron por completo desde la revisión del 2026-08-25: las noticias sobre la beca en China, la plataforma con el Ministerio de Economía y los plazos por sismos en Japón ya no están en pantalla, con evidencia y correcciones que citaban titulares que ya no existen.
+
+### Implementación técnica:
+
+- Captura nueva con navegación automatizada de toda la portada; se guardó el HTML del día en `auditorias/htmls/www-inapi-cl_2026-09-30.html`.
+- Reevaluado desde cero el bloque Novedades (tres tarjetas + enlace «Ver todas las noticias»), con énfasis en la tarjeta nueva del Programa de Asistencia a Inventores (PAI), que también aparece como banner propio más abajo en la portada (contenido que no existía en la revisión anterior).
+- Hallazgos nuevos en Novedades: la sigla «OMPI» sin definir en dos bajadas; ausencia total de negrita en las tres bajadas (antes se habían tratado como demasiado cortas para el criterio; al ser párrafos evaluables, igual que en otras noticias del sitio, corresponde aplicarlo); y las tres fechas de tarjeta omiten la preposición «de» entre el día y el mes (se suma como segunda evidencia del criterio de ortografía y gramática, que sube de severidad baja a media). El nuevo banner del Programa de Asistencia a Inventores agrega un tercer botón de rótulo genérico («Accede aquí») al hallazgo ya existente de enlaces/CTA ambiguos.
+- A diferencia de la revisión anterior, ninguna de las tres noticias vigentes hoy usa voz pasiva, por lo que ese hallazgo puntual se retira (criterio de tiempo presente y voz activa pasa a `cumple`).
+- Resto de la portada (menú, título principal, tarjetas de Patentes y Marcas, guías descargables, banner de Plataforma de Datos, sección Observancia, pie de página, ventanas emergentes) reverificado en la misma captura de hoy; los hallazgos que seguían iguales se confirmaron con evidencia nueva, sin copiar el JSON anterior. Se detectó que uno de los tres documentos institucionales del pie cambió de rótulo («Plan de Acción de Cumplimiento 2025» → «Plan anual de capacitación 2025 - 2027»), mismo archivo y peso.
+- 51 criterios reevaluados (v3.0), 19 filas en `sustituciones[]` (antes 16), sin nomenclatura interna en los campos CMS.
+- Resultado: 75,6 % de cumplimiento (31 de 41 criterios aplicables), estado `rechazado`; 10 criterios no aplican. Baja levemente frente al 75,0 % anterior: el criterio de negrita en Novedades pasa de `no_aplica` a `incumple` severidad alta (nueva evidencia), compensado casi en su totalidad por el criterio de voz activa que pasa de `incumple` a `cumple`.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `www-inapi-cl_2026-09-30`, historial con `www-inapi-cl_2026-08-25` y anteriores) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 1 apunta al id vigente).
+
+### Próximos pasos:
+
+- Si el bloque Novedades vuelve a rotar antes del cierre de la muestra, repetir el mismo ciclo de reevaluación completa del bloque (sin heredar titulares/fechas de auditorías previas).
 
 ---
 
