@@ -34,14 +34,20 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // descriptivos, LC-5.2.4-01), que estaba en no_aplica por "página informativa"; ahora se evalúa
     // con evidencia real (botones «Acceder» y enlaces «Conoce más» ambiguos) y queda en incumple
     // severidad media. % baja de 78,9 a 76,9 (30/39 aplicables; antes 30/38).
-    claudeAuditId: "www-inapi-cl_2026-08-25",
+    // Reauditoría 2026-09-30: el bloque Novedades rotó por completo (nuevas noticias del 25 y 29 de
+    // septiembre, incluida tarjeta nueva del Programa de Asistencia a Inventores, PAI); se reevaluó
+    // desde cero ese bloque y se retiraron las correcciones de noticias ya ausentes. Hallazgos nuevos:
+    // sigla OMPI sin definir, negrita ausente en las tres bajadas, fecha sin la preposición "de", y un
+    // tercer botón genérico ("Accede aquí") en el nuevo banner del PAI. % pasa a 75,6 (31/41 aplicables).
+    claudeAuditId: "www-inapi-cl_2026-09-30",
     resumenMvp: {
-      porcentajeLc: 75.0,
+      porcentajeLc: 75.6,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-09-30T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl_2026-08-25" },
       { id: "www-inapi-cl_2026-08-22" },
       { id: "www-inapi-cl_2026-08-21" },
       { id: "www-inapi-cl_2026-08-20" },
