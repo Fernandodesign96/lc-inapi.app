@@ -27,9 +27,10 @@ import {
   criterioEntregaCampos,
 } from "@repo/lib/criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
+import { buildDesgloseCorreccionesDatosAuditoria } from "@repo/lib/desglose-correcciones-datos-auditoria"
 import {
   buildResumenHitosAuditoria,
-  CHECKLIST_DATOS_AUDITORIA_VALOR,
+  conteoCategoriasPresentacion,
 } from "@repo/lib/resumen-hitos-auditoria"
 import {
   Card,
@@ -48,15 +49,10 @@ import {
   TableRow,
   TableCaption,
 } from "@/components/ui/table"
-import { Progress } from "@/components/ui/progress"
 import { Label } from "@/components/ui/label"
 import { ResultadoScrollTopButton } from "@/components/resultado-scroll-top-button"
-import {
-  formatFechaEvaluacionDatosUi,
-  formatUsuarioQueAudita,
-  labelTipoPagina,
-  SustitucionesTextoContent,
-} from "@/components/resultado-claude-pilot-sections"
+import { SustitucionesTextoContent } from "@/components/resultado-claude-pilot-sections"
+import { ResultadoDatosAuditoriaCampos } from "@/components/resultado-datos-auditoria"
 import {
   ResultadoInformeCollapsible,
   ResultadoInformeCollapsibleGroup,
@@ -65,7 +61,6 @@ import {
 import { buildStrictAuditForAuditarUrl } from "@/lib/editorial-shortcut-audit-mock"
 import { cn } from "@/lib/utils"
 import {
-  CLASES_BARRA_POR_ESTADO,
   ETIQUETA_ESTADO_ACEPTACION,
   PASOS_SEGUN_ESTADO,
   TEXTO_PROPUESTO_GENERICO,
@@ -453,8 +448,11 @@ function ResultadoInner() {
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
   const tituloCriteriosEvaluados = `${criteriosEntregaCount} Criterios evaluados`
-  const resumenHitos = buildResumenHitosAuditoria(
-    criteriosVisiblesParaEntrega(auditoria.criterios_evaluados),
+  const resumenHitos = buildResumenHitosAuditoria(criteriosEntregaRows)
+  const conteosCategorias = conteoCategoriasPresentacion(criteriosEntregaRows)
+  const desgloseCorrecciones = buildDesgloseCorreccionesDatosAuditoria(
+    criteriosEntregaRows,
+    sustitucionesPiloto,
   )
 
   return (
@@ -563,89 +561,13 @@ function ResultadoInner() {
               title="Datos de Auditoría"
               id="resultado-datos-auditoria"
             >
-              <div className="grid gap-2 text-sm sm:grid-cols-2">
-                <p>
-                  <span className="text-muted-foreground">URL:</span>{" "}
-                  <span className="font-medium break-all">{auditoria.url}</span>
-                </p>
-                <p>
-                  <span className="text-muted-foreground">Checklist 3.0:</span>{" "}
-                  <span className="font-medium">
-                    {CHECKLIST_DATOS_AUDITORIA_VALOR}
-                  </span>
-                </p>
-                <div className="sm:col-span-2 space-y-2">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <span
-                      className="text-muted-foreground"
-                      id="resultado-cumplimiento-label"
-                    >
-                      Porcentaje
-                    </span>
-                    <span
-                      className="font-medium tabular-nums text-foreground"
-                      aria-labelledby="resultado-cumplimiento-label"
-                    >
-                      {auditoria.porcentaje_cumplimiento} %
-                    </span>
-                  </div>
-                  <Progress
-                    aria-labelledby="resultado-cumplimiento-label"
-                    value={auditoria.porcentaje_cumplimiento}
-                    max={100}
-                    className={
-                      CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
-                    }
-                    indicatorClassName={
-                      CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
-                    }
-                  />
-                </div>
-                <p>
-                  <span className="text-muted-foreground">Estado:</span>{" "}
-                  <span
-                    className="font-medium"
-                    title={auditoria.estado_aceptacion}
-                  >
-                    {etiquetaEstado}
-                  </span>
-                </p>
-                <p>
-                  <span className="text-muted-foreground">Aprobados:</span>{" "}
-                  {auditoria.criterios_aprobados} / aplicables{" "}
-                  {auditoria.criterios_aplicables}
-                </p>
-                <p>
-                  <span className="text-muted-foreground">No aplica:</span>{" "}
-                  {auditoria.criterios_no_aplica}
-                </p>
-                <p>
-                  <span className="text-muted-foreground">
-                    Fecha de evaluación:
-                  </span>{" "}
-                  <span className="font-medium">
-                    {formatFechaEvaluacionDatosUi(auditoria.fecha_evaluacion, auditoria.url)}
-                  </span>
-                </p>
-                <p>
-                  <span className="text-muted-foreground">
-                    Usuario que audita:
-                  </span>{" "}
-                  <span className="font-medium">
-                    {formatUsuarioQueAudita()}
-                  </span>
-                </p>
-                {pilotMeta?.tipo_pagina ? (
-                  <p>
-                    <span className="text-muted-foreground">
-                      Tipo de página:
-                    </span>{" "}
-                    <span className="font-medium">
-                      {labelTipoPagina(pilotMeta.tipo_pagina)}
-                    </span>
-                  </p>
-                ) : null}
-              </div>
+              <ResultadoDatosAuditoriaCampos
+                auditoria={auditoria}
+                etiquetaEstado={etiquetaEstado}
+                conteos={conteosCategorias}
+                desgloseCorrecciones={desgloseCorrecciones}
+                tipoPagina={pilotMeta?.tipo_pagina}
+              />
             </ResultadoInformePanel>
             {resumenHitos.length > 0 ? (
               <ResultadoInformeCollapsibleGroup>
@@ -741,63 +663,13 @@ function ResultadoInner() {
                 Resumen
               </div>
               <div className={cn(PANEL_BODY_CLASS, "p-4")}>
-                <div className="grid gap-2 text-sm sm:grid-cols-2">
-                  <p>
-                    <span className="text-muted-foreground">URL:</span>{" "}
-                    <span className="font-medium break-all">{auditoria.url}</span>
-                  </p>
-                  <p>
-                    <span className="text-muted-foreground">Checklist 3.0:</span>{" "}
-                    <span className="font-medium">
-                      {CHECKLIST_DATOS_AUDITORIA_VALOR}
-                    </span>
-                  </p>
-                  <div className="sm:col-span-2 space-y-2">
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <span
-                        className="text-muted-foreground"
-                        id="resultado-cumplimiento-label"
-                      >
-                        Porcentaje
-                      </span>
-                      <span
-                        className="font-medium tabular-nums text-foreground"
-                        aria-labelledby="resultado-cumplimiento-label"
-                      >
-                        {auditoria.porcentaje_cumplimiento} %
-                      </span>
-                    </div>
-                    <Progress
-                      aria-labelledby="resultado-cumplimiento-label"
-                      value={auditoria.porcentaje_cumplimiento}
-                      max={100}
-                      className={
-                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].track
-                      }
-                      indicatorClassName={
-                        CLASES_BARRA_POR_ESTADO[auditoria.estado_aceptacion].fill
-                      }
-                    />
-                  </div>
-                  <p>
-                    <span className="text-muted-foreground">Estado:</span>{" "}
-                    <span
-                      className="font-medium"
-                      title={auditoria.estado_aceptacion}
-                    >
-                      {etiquetaEstado}
-                    </span>
-                  </p>
-                  <p>
-                    <span className="text-muted-foreground">Aprobados:</span>{" "}
-                    {auditoria.criterios_aprobados} / aplicables{" "}
-                    {auditoria.criterios_aplicables}
-                  </p>
-                  <p>
-                    <span className="text-muted-foreground">No aplica:</span>{" "}
-                    {auditoria.criterios_no_aplica}
-                  </p>
-                </div>
+                <ResultadoDatosAuditoriaCampos
+                  auditoria={auditoria}
+                  etiquetaEstado={etiquetaEstado}
+                  conteos={conteosCategorias}
+                  desgloseCorrecciones={desgloseCorrecciones}
+                  tipoPagina={pilotMeta?.tipo_pagina}
+                />
               </div>
             </section>
           )}

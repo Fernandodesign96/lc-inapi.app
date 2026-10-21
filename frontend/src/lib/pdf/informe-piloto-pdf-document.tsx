@@ -26,8 +26,13 @@ import {
 } from "@repo/lib/criterio-entrega-campos"
 import { ptdHitoTareaPorCriterio } from "@repo/lib/ptd-hito-tarea-por-criterio"
 import {
+  buildDesgloseCorreccionesDatosAuditoria,
+  formatConteoCategoriaConCorrecciones,
+} from "@repo/lib/desglose-correcciones-datos-auditoria"
+import {
   buildResumenHitosAuditoria,
   CHECKLIST_DATOS_AUDITORIA_VALOR,
+  conteoCategoriasPresentacion,
   type ResumenHitoAuditoria,
 } from "@repo/lib/resumen-hitos-auditoria"
 
@@ -48,6 +53,12 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
   const { audit, pilot } = bundle
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[audit.estado_aceptacion]
   const pct = audit.porcentaje_cumplimiento
+  const filas = criteriosVisiblesParaEntrega(audit.criterios_evaluados)
+  const conteos = conteoCategoriasPresentacion(filas)
+  const desglose = buildDesgloseCorreccionesDatosAuditoria(
+    filas,
+    pilot.sustituciones ?? [],
+  )
 
   return (
     <View style={styles.sectionWrap}>
@@ -74,14 +85,35 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
         label="Aprobados"
         value={`${audit.criterios_aprobados} / aplicables ${audit.criterios_aplicables}`}
       />
-      <FieldRow label="No aplica" value={String(audit.criterios_no_aplica)} />
+      <FieldRow
+        label="Total de correcciones"
+        value={String(desglose.totalCorrecciones)}
+      />
+      <FieldRow
+        label="Cumple con observaciones"
+        value={formatConteoCategoriaConCorrecciones(
+          conteos.cumpleConObservaciones,
+          desglose.cumpleConObservaciones,
+        )}
+      />
+      <FieldRow
+        label="Medianamente cumple"
+        value={formatConteoCategoriaConCorrecciones(
+          conteos.medianamenteCumple,
+          desglose.medianamenteCumple,
+        )}
+      />
+      <FieldRow
+        label="No cumplen"
+        value={formatConteoCategoriaConCorrecciones(
+          conteos.noCumple,
+          desglose.noCumple,
+        )}
+      />
+      <FieldRow label="No aplica" value={String(conteos.noAplica)} />
       <FieldRow
         label="Fecha de evaluación"
         value={formatFechaEvaluacionDatosUi(audit.fecha_evaluacion, audit.url)}
-      />
-      <FieldRow
-        label="Usuario que audita"
-        value={formatUsuarioQueAudita()}
       />
       {pilot.tipo_pagina ? (
         <FieldRow
@@ -89,6 +121,10 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
           value={labelTipoPagina(pilot.tipo_pagina)}
         />
       ) : null}
+      <FieldRow
+        label="Usuario que audita"
+        value={formatUsuarioQueAudita()}
+      />
     </View>
   )
 }
