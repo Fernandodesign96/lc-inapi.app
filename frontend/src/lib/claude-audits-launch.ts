@@ -172,14 +172,17 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Migrada a checklist PTD-LC v3.0 (51 criterios LC-*) el 2026-08-22 (antes v2.1, 47 A–H).
     // Reauditoría 2026-08-25: aplica C-2026-08-25c (rótulos LC-5.2.4-01 en todas las URLs) y
     // C-2026-08-25h (fecha de la página de listado ≠ fecha de cada noticia individual → severidad alta).
-    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-25",
+    // Reauditoría 2026-10-21: el listado rotó por completo (curso Academia INAPI, estudio OMPI,
+    // Índice Mundial de Innovación); reevaluación completa del DOM actual con calibraciones hasta C-2026-08-26a.
+    claudeAuditId: "www-inapi-cl-sala-de-prensa-noticias_2026-10-21",
     resumenMvp: {
-      porcentajeLc: 73.7,
+      porcentajeLc: 61.5,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-10-21T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
     },
     history: [
+      { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-25" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-22" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-20" },
       { id: "www-inapi-cl-sala-de-prensa-noticias_2026-08-18" },

@@ -1,0 +1,931 @@
+{
+  "id": "www-inapi-cl-sala-de-prensa-noticias_2026-10-21",
+  "url": "https://www.inapi.cl/sala-de-prensa/noticias",
+  "fecha_evaluacion": "2026-10-21T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "sitioweb",
+  "texto_capturado": "T001 [U] [HTML-L~150]: logo «Instituto Nacional de Propiedad Industrial INAPI - Chile» (imagen con texto, enlace a portada) | T002 [U] [HTML-L~160]: «A+» «A-» (tamaño de letra) · ícono de contraste con tooltip al pasar el mouse «Contraste de pagina» (sin tilde en «página») | T003 [U]: íconos sin texto de Facebook, X, LinkedIn, Instagram | T004 [R] [HTML-L~175]: «BUSCADOR» (abre panel lateral «Buscar y tramitar») — EXCLUIDO del criterio de mayúsculas por calibración | T005 [R] [HTML-L~180]: «ACCESOS» — EXCLUIDO de mayúsculas. Ahora enlaza directo a https://tramites.inapi.cl en pestaña nueva (ya no abre panel de acceso). El panel con «Usuario Frecuente» / «Registro» / «LINK EXTERNO» existe en el DOM pero está oculto y sin disparador visible → NO es evidencia visible (solo nota TI). | T006 [U]: ícono hamburguesa (abre menú lateral) | T007 [R]: «Conoce más» (→ /propiedad-intelectual-e-industrial) | T008 [R]: «Marcas» · «Patentes» | T009 [R]: «PCT» (sigla sin definir; único lugar donde aparece en la página) | T010 [R]: «Sistema de Madrid» · «Sello de Origen» (términos técnicos sin glosa) | T011 [R]: «Estadísticas» · «Trámites» · «Conecta» · «Dominio Público» · «Gasto Presupuestario» · «Aprende» · «Contacto» · «Centro de Documentación» · «Preguntas Frecuentes» · «Sala de Prensa» · «Nosotros» · «Observancia» · «Datos Abiertos» | T012 [R]: título «BUSCAR Y TRAMITAR» (mayúscula sostenida en el HTML) + ícono roto (se ve un cuadro) | T013 [R]: campo de texto con placeholder «BUSCADOR» | T014 [R]: subtítulo «MARCAS» (mayúscula sostenida) → «Buscar en base de datos» · «Notificaciones diarias» · «Solicitud y pago en línea» · «Renovación en línea» · «Presentación de escritos» · «Clasificador de productos y servicios» | T015 [R]: subtítulo «PATENTES» (mayúscula sostenida) → «Buscar en base de datos» · «Notificaciones diarias» · «Solicitud y pago en línea» · «Presentación de escritos» | T016 [R] [HTML-L~300]: título principal «Sala de Prensa» (se muestra en mayúsculas por estilo: «SALA DE PRENSA») | T017 [R]: subtítulo «Noticias» (se muestra «NOTICIAS») | T018 [R]: migas de pan «Home › Sala de Prensa › Noticias» (se muestran en mayúsculas: «HOME › SALA DE PRENSA › NOTICIAS») | T019 [R]: pestañas «Noticias» (activa) | «Columnas» (se muestran en mayúsculas) | T020 [U]: reproductor de lectura en voz alta «Escuchar» | T021 [U]: tarjeta 1 · fotografía de la noticia (texto alternativo técnico «Noticia-Curso-Aula», no visible) | T022 [R] [HTML-L~395]: tarjeta 1 · título «Academia INAPI abre postulaciones para su nuevo curso gratuito y asincrónico sobre PropiedadIndustrial» (palabras pegadas «PropiedadIndustrial»; «asincrónico» término especializado) | T023 [R]: tarjeta 1 · fecha «Martes 20 octubre de 2026» (falta «de» entre día y mes) | T024 [R]: tarjeta 1 · extracto «El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.» (26 palabras; coma entre sujeto y verbo; no dice cómo/cuándo postular ni para quién) | T025 [U]: tarjeta 2 · fotografía | T026 [R]: tarjeta 2 · título «INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial» (primera aparición de la sigla OMPI, sin definir) | T027 [R]: tarjeta 2 · fecha «Miércoles 14 octubre de 2026» | T028 [R]: tarjeta 2 · extracto «La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.» (32 palabras, una oración; «ecosistema nacional», «respaldo para acceder a financiamiento» abstractos) | T029 [U]: tarjeta 3 · fotografía aérea de una ciudad con edificios | T030 [R]: tarjeta 3 · título «Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo» | T031 [R]: tarjeta 3 · fecha «Martes 29 septiembre de 2026» | T032 [R]: tarjeta 3 · extracto «El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.» (26 palabras; «insumos de innovación» jerga del índice; segunda aparición de OMPI; «ranking» extranjerismo) | T033 [R]: botón «Ver todas las noticias» (se muestra «VER TODAS LAS NOTICIAS» en mayúsculas, botón naranjo) | T034 [R]: botón flotante «¿Quieres contactarnos?» | T035 [R]: título «Utiliza el canal de comunicación que prefieras:» | T036 [R]: «(56 2) 2 887 0400» · «Lunes a jueves de 09:00 a 18:00 hrs y viernes de 09:00 a 17:00 hrs.» (ícono teléfono) | T037 [R]: «inapi@inapi.cl» · «Tu consulta será atendida por un especialista.» (ícono sobre) | T038 [R]: «Av. Libertador Bernardo O'Higgins 194, Santiago» · «Lunes a viernes de 09:00 a 14:00 hrs.» (ícono ubicación) | T039 [U]: visibles al cargar: «Transparencia Activa de la Ley de Transparencia» · «Plan anual de Capacitación 2026» · «Medición de Satisfacción Usuaria INAPI 2026»; al avanzar: «Sistema de Teletrabajo», «Código de Ética», Ley del Lobby, Tribunal de Propiedad Industrial, Trámites Digitales, etc. | T040 [U]: documentos PDF del carrusel — texto visible del banner: «Plan anual de Capacitación 2026» (enlaza a PDF res-pac-2025.pdf), «Sistema de Teletrabajo» (PDF), «Código de Ética» (PDF). En pantalla NO se ve formato, peso ni descripción (formato y peso solo están en el texto alternativo, no visible). Además el texto alternativo del primero dice «2025 - 2027» mientras el banner dice «2026». | T041 [R]: título «Dónde estamos» | T042 [R]: «Instituto Nacional de Propiedad industrial (INAPI)» / «RUT: 65.999.669-3» («industrial» en minúscula dentro del nombre oficial) | T043 [R]: «Av. Libertador Bernardo O'Higgins 194, Santiago.» · «Teléfono: (56 2) 2 887 0400» · «Correo electrónico: inapi@inapi.cl» | T044 [R]: «Conversemos» → «Contacto» | T045 [R]: «Accesos» → «Atajos del Teclado» · «Descarga de Visualizadores» · «Glosario» · «Mapa del Sitio» · «Uso de los Contenidos de este Sitio» · «Accesibilidad» · «Política de privacidad» | T046 [R]: «©2026 INAPI. Todos los derechos reservados» | T047 [R]: el enlace del pie «Política de privacidad» abre directamente un documento PDF (2 páginas) — el rótulo no avisa que es un PDF ni su peso/descripción. Contenido del PDF: «POLÍTICA DE PRIVACIDAD … Ley Nº 19.628 …» con apartado «Derechos de los Usuarios» que enumera solicitar información, modificar o rectificar, eliminar o cancelar, oponerse; cierra con «Para ejercer sus derechos el Usuario podrá dirigirse a inapi@inapi.cl indicando claramente su solicitud.» → evidencia positiva de derechos de acceso, rectificación, cancelación y oposición. | T048 [R]: el enlace del pie «Uso de los Contenidos de este Sitio» existe (condiciones de uso) y «©2026 INAPI. Todos los derechos reservados».",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "Es fácil reconocer quién publica la información: la cabecera muestra el logo con el nombre «Instituto Nacional de Propiedad Industrial INAPI - Chile» y el pie de página, en el bloque «Dónde estamos», repite el nombre de la institución con su dirección, teléfono y correo, y cierra con «©2026 INAPI. Todos los derechos reservados». Además, las tres noticias del listado hablan en nombre de la institución («Academia INAPI abre postulaciones…», «INAPI y OMPI inician…»), de modo que la autoría institucional queda clara en toda la página.",
+      "cita_textual": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos» › nombre de la institución"
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "cumple",
+      "comentario": "El título principal «Sala de Prensa» con el subtítulo «Noticias» anuncia un listado de noticias del Instituto, y eso es justo lo que hay debajo: tres noticias recientes, cada una con foto, título, fecha y extracto, y el botón «Ver todas las noticias». Lo que se anuncia y lo que se muestra coinciden.",
+      "cita_textual": "Sala de Prensa",
+      "ubicacion_pantalla": "Zona superior de la sección › título principal «Sala de Prensa» y subtítulo «Noticias»"
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "La página tiene contenido real y completo para su función: tres noticias con foto, título, fecha y extracto, y un botón para ver todas las demás. No hay secciones vacías ni textos de relleno o de obra pendiente.",
+      "cita_textual": "Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › título"
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "La pregunta pide que el texto destaque los datos clave (qué, cómo, dónde, cuándo y para quién) en un resumen o recuadro. En el listado no hay ningún texto introductorio ni recuadro que diga qué publica esta sección, con qué frecuencia se actualiza o cómo llegar a noticias anteriores. Además, la noticia sobre postulaciones al curso gratuito no dice para quién es, cómo postular ni hasta cuándo, que es justo lo que la persona necesita para actuar. Las otras dos noticias sí informan lo esencial en su título y extracto.",
+      "cita_textual": "(ausencia)",
+      "ubicacion_pantalla": "Zona superior de la sección › bajo el subtítulo «Noticias», antes de las tarjetas"
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "no_aplica",
+      "comentario": "Esta página es un listado de noticias y no describe ningún trámite que la persona deba hacer por sí sola. Los trámites están en otras secciones del sitio, por lo que la pregunta no cabe aquí."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "No hay medición con Legible en los textos de la página y los extractos de las tarjetas 2 y 3 son oraciones largas con ideas abstractas, de comprensión difícil para personas con menor dominio lector. Los títulos son más directos. Hay que reescribir los dos extractos y medirlos.",
+      "cita_textual": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "El tono es cercano y respetuoso donde la página se dirige a la persona: la ventana de contacto usa tuteo y preguntas directas, y el pie de página usa «Conversemos». Los títulos de noticias son neutros pero no distantes ni agresivos.",
+      "cita_textual": "¿Quieres contactarnos?",
+      "ubicacion_pantalla": "Botón flotante › ventana emergente de contacto › título"
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Hay términos técnicos o legales sin explicación: «financiamiento respaldado en propiedad industrial» e «insumos de innovación» en las noticias, y «Sistema de Madrid», «Sello de Origen», «Observancia», «Dominio Público», «Presentación de escritos» y «Notificaciones diarias» en el menú lateral y el panel «Buscar y tramitar». Se proponen cambios o glosas breves, sin párrafos en el menú.",
+      "cita_textual": "financiamiento respaldado en propiedad industrial",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › título enlazado"
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Las tres noticias contienen un término especializado o extranjero cada una: «asincrónico» en la tarjeta 1, «ecosistema nacional» en la tarjeta 2 y «ranking» en la tarjeta 3; además la ruta de navegación dice «Home». Como todo el contenido principal revisado tiene al menos un término así, no se alcanza el 50 % de contenidos que los eviten. No se cuentan aquí los términos jurídicos del criterio 6 ni las siglas del criterio 8.",
+      "cita_textual": "gratuito y asincrónico",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 1 de noticia › título enlazado"
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La sigla OMPI aparece sin desarrollar en el título de la tarjeta 2 y otra vez en el extracto de la tarjeta 3; en el menú lateral «PCT» tampoco se explica. La sigla INAPI sí está desarrollada en el pie de página.",
+      "cita_textual": "INAPI y OMPI inician primer estudio en Chile",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › título enlazado"
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "cumple",
+      "comentario": "Los textos dicen lo que la persona puede hacer o lo que ocurre, sin enfoque en prohibiciones. Por ejemplo, la ventana de contacto invita a elegir un canal y la primera noticia anuncia que se abren postulaciones. No aparece ningún mensaje del tipo «no se puede».",
+      "cita_textual": "Utiliza el canal de comunicación que prefieras:",
+      "ubicacion_pantalla": "Botón flotante › ventana emergente de contacto › título"
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Las noticias sí están fechadas y el contenido está vigente: las tres tarjetas muestran «Martes 20 octubre de 2026», «Miércoles 14 octubre de 2026» y «Martes 29 septiembre de 2026». Lo que falta es la fecha de la propia página de listado: bajo el título principal y el subtítulo no hay ninguna línea que diga cuándo se publicó o se actualizó por última vez la sección. El «©2026 INAPI» del pie de página no cuenta como fecha de contenido. Al faltar por completo, la persona no sabe si el listado se revisa con regularidad.",
+      "cita_textual": "(sin fecha de actualización visible)",
+      "ubicacion_pantalla": "Zona superior de la sección › bajo el subtítulo «Noticias»"
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "La pregunta pide ortografía y gramática sin errores y advierte que más de un error impide cumplir. En el contenido principal hay varios: el título de la primera noticia trae dos palabras pegadas, «PropiedadIndustrial», y las tres fechas del listado omiten la preposición «de» entre día y mes, «Martes 20 octubre de 2026». En la cabecera el texto del ícono de contraste dice «Contraste de pagina» sin tilde y en el pie de página el nombre oficial queda con minúscula, «Propiedad industrial». Se califica como medianamente cumple: el sentido se entiende y cada corrección es de una palabra, pero son varios errores visibles.",
+      "cita_textual": "PropiedadIndustrial · Martes 20 octubre de 2026 · Contraste de pagina · Instituto Nacional de Propiedad industrial (INAPI)",
+      "ubicacion_pantalla": "Cuerpo › tarjetas de noticias › título de la primera noticia y fechas bajo cada título"
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "La pregunta pide una puntuación que facilite la lectura. El texto de la primera noticia separa con coma al sujeto de su verbo, «El programa gratuito y en línea, busca…», lo que corta la frase. Los otros dos textos están bien puntuados: comas que separan una enumeración y una coma antes de «pero». Es una corrección menor de un solo signo.",
+      "cita_textual": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "ubicacion_pantalla": "Cuerpo › primera tarjeta de noticia › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "La pregunta evalúa si se usan conectores para enlazar frases dentro de un texto. Cada noticia se presenta con un extracto de una sola oración y no hay párrafos de varias frases que unir; la tercera noticia usa «pero» de forma correcta dentro de su oración. No hay dónde exigir conectores sin forzar el texto."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "cumple",
+      "comentario": "El sitio informa los permisos de uso de sus contenidos: en el pie de página, dentro del grupo «Accesos», hay un enlace llamado «Uso de los Contenidos de este Sitio» que lleva a las condiciones de uso, y la última línea del pie muestra el aviso de derechos «©2026 INAPI. Todos los derechos reservados». Ambos se ven en todas las páginas del sitio, incluida esta.",
+      "cita_textual": "Uso de los Contenidos de este Sitio",
+      "ubicacion_pantalla": "Pie de página › grupo «Accesos» › enlace «Uso de los Contenidos de este Sitio»"
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "cumple",
+      "comentario": "En el listado no se ve material de terceros reproducido sin autorización: las tres noticias son comunicados propios de la institución («Academia INAPI abre postulaciones…», «INAPI y OMPI inician…», «Chile mantiene el puesto 51…»), cada una con una fotografía ilustrativa de su tarjeta (sala de curso, imagen de ciudad con edificios) y un extracto breve con enlace a la noticia completa. No aparecen textos copiados de otros medios, logotipos ajenos ni obras con crédito de otro autor. Las fotografías no muestran crédito visible; no hay evidencia en pantalla de que sean ajenas, por lo que no se marca hallazgo.",
+      "cita_textual": "Academia INAPI abre postulaciones para su nuevo curso gratuito y asincrónico sobre PropiedadIndustrial",
+      "ubicacion_pantalla": "Cuerpo › tarjetas de noticia › título y fotografía de cada tarjeta"
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "cumple",
+      "comentario": "Los únicos datos de identificación visibles son los del propio Instituto: en el pie de página, bloque «Dónde estamos», figura «RUT: 65.999.669-3», que corresponde a una institución pública y no a una persona natural. No hay listados de personas con RUN en la página.",
+      "cita_textual": "RUT: 65.999.669-3",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos» › línea «RUT: 65.999.669-3»"
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "cumple",
+      "comentario": "Las direcciones y teléfonos publicados son los de la institución, no particulares: en el pie de página aparecen la dirección «Av. Libertador Bernardo O'Higgins 194, Santiago.» y el teléfono «(56 2) 2 887 0400», y la ventana de contacto repite el mismo teléfono, el correo «inapi@inapi.cl» y la dirección con sus horarios de atención. No se ve ningún domicilio ni teléfono de una persona.",
+      "cita_textual": "Teléfono: (56 2) 2 887 0400",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos» › línea «Teléfono: (56 2) 2 887 0400»"
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "cumple",
+      "comentario": "El pie de página tiene el enlace «Política de privacidad», que abre un documento con el apartado «Derechos de los Usuarios». Ahí se explica que la persona puede solicitar información, modificar o rectificar, eliminar o cancelar sus datos y oponerse a su uso, y se indica cómo ejercer esos derechos: escribir a inapi@inapi.cl indicando claramente su solicitud. Se cita la Ley Nº 19.628 sobre protección de la vida privada.",
+      "cita_textual": "Para ejercer sus derechos el Usuario podrá dirigirse a inapi@inapi.cl indicando claramente su solicitud.",
+      "ubicacion_pantalla": "Pie de página › grupo «Accesos» › enlace «Política de privacidad»"
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "La pregunta no cabe en esta página: las tres noticias hablan de un curso, un estudio de financiamiento y un índice de innovación, y no publican información ni fotografías de niños, niñas o adolescentes."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "La página no publica información sobre menores de edad: las tres noticias tratan de un curso gratuito, un estudio sobre financiamiento y un índice de innovación, con fotografías ilustrativas y una vista aérea de una ciudad."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "La página no muestra material que pueda afectar la sensibilidad de las personas: las tres noticias son institucionales sobre un curso gratuito, un estudio sobre financiamiento y un índice de innovación, con fotografías ilustrativas."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes en esta página: es un listado de noticias, con título, fecha y extracto, y no responde dudas de las personas. Solo existe el enlace «Preguntas Frecuentes» en el menú lateral, que lleva a otra sección; el contenido de esa sección no forma parte de esta página.",
+      "cita_textual": "Preguntas Frecuentes",
+      "ubicacion_pantalla": "Menú lateral › enlace «Preguntas Frecuentes»"
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No se encontraron elementos visuales o texto que haga referencia a preguntas frecuentes sobre un servicio digital en esta página. En consecuencia con el criterio anterior, no hay información de un servicio en línea que deba organizarse como preguntas y respuestas; los enlaces del panel «Buscar y tramitar» llevan a otras páginas y se evalúan allí."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Hay dos confusiones de concepto en las tarjetas, distintas de los términos ya tratados en otros criterios. En la tarjeta 1 el título habla de propiedad industrial y el texto bajo la fecha de propiedad intelectual, sin explicar si son lo mismo, por lo que no queda claro de qué trata el curso. En la tarjeta 3 el título dice «puesto 51» y el texto menciona los lugares 43, 41, 63 y 70, sin decir que son mediciones parciales, y la persona puede creer que hay cifras contradictorias.",
+      "cita_textual": "Chile mantiene el puesto 51 en el Índice Mundial de Innovación",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › título enlazado y texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Los títulos de las tres tarjetas están en presente y voz activa («abre», «inician», «mantiene»), pero hay dos excepciones menores: el texto de la tarjeta 2 usa futuro con sujeto vago y la ventana de contacto usa voz pasiva donde puede decirse quién actúa.",
+      "cita_textual": "La iniciativa permitirá conocer el estado actual",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Los títulos y los textos de las tarjetas siguen el orden quién, qué hace y qué complemento: «Academia INAPI abre postulaciones…», «INAPI y OMPI inician primer estudio…», «Chile mantiene el puesto 51…», «El país sube del lugar 43 al 41…». El sujeto aparece primero y el verbo lo sigue sin rodeos.",
+      "cita_textual": "Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › título enlazado"
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "La página no contiene listas de requisitos de ningún servicio: solo noticias, menús y datos de contacto. Por eso no hay requisitos que redactar en infinitivo."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "El cuerpo de la página tiene tres textos breves, uno bajo cada noticia, que parten con «El programa gratuito y en línea…», «La iniciativa permitirá…» y «El país sube del lugar 43 al 41…». Son 3 párrafos: dentro del rango de 2 a 8 por página.",
+      "cita_textual": "El país sube del lugar 43 al 41 en insumos de innovación",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › textos bajo cada fecha"
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta es solo para páginas de un trámite en línea, que deben tener un inicio y un desarrollo del trámite. Esta página es un listado de noticias, sin pasos que seguir.",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias"
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Cada texto es una sola oración de 26 a 32 palabras, con letra pequeña y una columna angosta: ocupa cerca de cuatro líneas en pantalla de escritorio, lejos del límite de 8. Ejemplo: «El programa gratuito y en línea, busca acercar los conceptos fundamentales…».",
+      "cita_textual": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › tarjeta «Academia INAPI abre postulaciones…» › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "cumple",
+      "comentario": "Cada texto bajo la fecha desarrolla una sola idea: la noticia de su tarjeta. El del curso presenta su propósito, el del estudio enumera sus objetivos y el del índice resume el movimiento de Chile en dos mediciones. La longitud del segundo texto se trata en el criterio 24.",
+      "cita_textual": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "El texto de la tarjeta «INAPI y OMPI inician primer estudio…» tiene 32 palabras en una sola oración, con tres verbos en lista y una frase final larga. Pide una oración más corta y directa. Los textos de las otras dos tarjetas (26 palabras) se leen sin dificultad.",
+      "cita_textual": "para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › tarjeta «INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial» › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "no_aplica",
+      "comentario": "Un resumen inicial se pide cuando el texto continuo tiene 4 párrafos o más. Esta página tiene solo 3 textos breves, uno por noticia, así que no hace falta resumen.",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias"
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "cumple",
+      "comentario": "Cada noticia está en una tarjeta propia, con fondo gris y separada de las demás. Dentro de la tarjeta, el texto que sigue a la fecha tiene un espacio inferior visible y un interlineado holgado sobre letra pequeña, de modo que los textos no se ven pegados entre sí ni con el título.",
+      "cita_textual": "El país sube del lugar 43 al 41 en insumos de innovación",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › textos bajo cada fecha"
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "cumple",
+      "comentario": "Los textos de las tres tarjetas están alineados a la izquierda, no centrados ni justificados, y así se ve en pantalla: títulos, fechas y textos parten del mismo borde izquierdo de cada tarjeta.",
+      "cita_textual": "La iniciativa permitirá conocer el estado actual del ecosistema nacional",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › tarjeta «INAPI y OMPI inician primer estudio…» › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "La página es un listado de tres noticias con un texto breve cada una. No hay requisitos, pasos, plazos, cifras ni conjuntos de datos que pidan una lista numerada, viñetas o una tabla; las propias tarjetas ya ordenan las noticias una bajo otra.",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias"
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "cumple",
+      "comentario": "En cada tarjeta lo más importante va primero: el título enlazado dice la noticia completa («Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo»), luego la fecha y al final un extracto breve que amplía. La falta de un texto introductorio de la sección ya se trata en el criterio 12 y no se repite aquí.",
+      "cita_textual": "Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › título enlazado"
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "cumple",
+      "comentario": "El título principal «Sala de Prensa» y el subtítulo «Noticias» anticipan con claridad un listado de noticias, y las pestañas «Noticias» y «Columnas» dicen qué hay detrás. Los títulos de las tarjetas son descriptivos y distintos entre sí. Los términos especializados dentro de títulos y del menú ya se corrigen en los criterios de lenguaje plano.",
+      "cita_textual": "Sala de Prensa",
+      "ubicacion_pantalla": "Zona superior de la sección › título principal «Sala de Prensa» y subtítulo «Noticias»"
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "El listado se escanea con facilidad: cada tarjeta tiene fotografía, título azul enlazado, línea separadora, fecha gris y un extracto de una oración, y el botón «Ver todas las noticias» cierra el bloque. Hay una jerarquía visible entre título, fecha y texto.",
+      "cita_textual": "Ver todas las noticias",
+      "ubicacion_pantalla": "Cuerpo › tres tarjetas de noticia y botón «Ver todas las noticias»"
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Ninguno de los tres extractos destaca palabras clave en negrita: son bloques de texto parejo, y quien solo recorre la página no encuentra de un vistazo el dato principal de cada noticia.",
+      "cita_textual": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación. · La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento. · El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "ubicacion_pantalla": "Cuerpo › las tres tarjetas de noticia › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Varios textos de esta página se ven con todas las letras en mayúscula: el título principal y el subtítulo de la sección, las migas de pan, las pestañas, el botón «Ver todas las noticias» y el título y los subtítulos del panel «Buscar y tramitar». Las mayúsculas sostenidas se leen con más esfuerzo. Quedan fuera, por acuerdo, «ACCESOS» y «BUSCADOR» de la cabecera.",
+      "cita_textual": "SALA DE PRENSA • NOTICIAS",
+      "ubicacion_pantalla": "Zona superior de la sección › título principal y subtítulo"
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "cumple",
+      "comentario": "La página enlaza a contenidos relacionados del mismo sitio: la pestaña «Columnas» junto a «Noticias», el botón «Ver todas las noticias» para llegar a las anteriores y los títulos de cada tarjeta, que llevan a la noticia completa.",
+      "cita_textual": "Columnas",
+      "ubicacion_pantalla": "Zona superior de la sección › pestañas «Noticias» y «Columnas»"
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "En el menú lateral hay rótulos que no anticipan a dónde llevan: «Conoce más», «Conecta» y «Aprende». En cambio «Ver todas las noticias» y «Escuchar» sí dicen qué ocurre al hacer clic, y «Home» se corrige como palabra en el criterio de lenguaje plano.",
+      "cita_textual": "Conoce más",
+      "ubicacion_pantalla": "Menú lateral › enlaces «Conoce más», «Conecta» y «Aprende»"
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "incumple",
+      "severidad": "alta",
+      "comentario": "Los banners del pie «Plan anual de Capacitación 2026», «Sistema de Teletrabajo» y «Código de Ética», y el enlace «Política de privacidad», abren documentos PDF. En pantalla no se ve el formato ni el peso del archivo, y el enlace «Política de privacidad» no avisa que abre un PDF.",
+      "cita_textual": "Plan anual de Capacitación 2026",
+      "ubicacion_pantalla": "Pie de página › carrusel de banners › «Plan anual de Capacitación 2026»"
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "incumple",
+      "severidad": "alta",
+      "agrupado_en": "LC-1.2.4-07",
+      "comentario": "Los cuatro documentos enlazados no traen una breve descripción visible de qué contienen; solo se ve el nombre del banner o del enlace. La descripción se agrega junto con el formato y el peso en las mismas correcciones del criterio 43.",
+      "cita_textual": "Código de Ética",
+      "ubicacion_pantalla": "Pie de página › carrusel de banners y grupo «Accesos»"
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "cumple",
+      "comentario": "La página acompaña la información con apoyos visuales: cada una de las tres tarjetas de noticia lleva una fotografía arriba del título (la tercera, una vista aérea de una ciudad con edificios), la ventana de contacto usa íconos de teléfono, sobre y ubicación junto a cada dato, y el carrusel del pie muestra banners con imagen y texto. La pregunta es solo por la presencia de apoyos visuales, y aquí están presentes.",
+      "cita_textual": "Plan anual de Capacitación 2026 · Sistema de Teletrabajo · Código de Ética",
+      "ubicacion_pantalla": "Cuerpo › fotografía sobre el título de cada tarjeta de noticia; Pie de página › carrusel de banners"
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Los tres extractos informan hechos sin opinar: el curso es gratuito y en línea (tarjeta 1), el estudio busca conocer la situación actual e identificar oportunidades y barreras (tarjeta 2) y Chile sube del lugar 43 al 41 y baja del 63 al 70 (tarjeta 3). La expresión «rol estratégico» de la tarjeta 1 es la más cercana a una valoración, pero describe el contenido del curso y no expresa una opinión personal de quien escribe; se resuelve con la reescritura ya propuesta para ese extracto.",
+      "cita_textual": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "ubicacion_pantalla": "Listado de noticias › tarjeta 3 › texto bajo la fecha"
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "cumple",
+      "comentario": "De los tres contenidos del listado, dos se apoyan por completo en datos y hechos (tarjeta 3 con cifras de ranking y tarjeta 2 con objetivos concretos del estudio) y el tercero mezcla hechos (programa gratuito y en línea) con solo dos expresiones abstractas, «conceptos fundamentales» y «rol estratégico». Esas dos expresiones no alcanzan a revertir el predominio de datos y hechos, por lo que se supera con holgura el umbral del 80 % de contenidos. Esa tarjeta ya queda corregida con la reescritura propuesta en otros criterios.",
+      "cita_textual": "Chile mantiene el puesto 51 en el Índice Mundial de Innovación y lidera América Latina por segundo año consecutivo",
+      "ubicacion_pantalla": "Listado de noticias › tarjeta 3 › título"
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "La pregunta no cabe en esta página: el listado muestra solo las tres noticias más recientes (de septiembre y octubre de 2026) y no presenta versiones anteriores de contenidos ni documentos de archivo. El botón «Ver todas las noticias» lleva a otra página, donde habría que revisar el archivo si existe. El banner «Gobierno Transparente Histórico» del carrusel del pie de página enlaza a un sitio externo y no es contenido archivado de esta página.",
+      "cita_textual": "Ver todas las noticias"
+    }
+  ],
+  "criterios_aprobados": 24,
+  "criterios_aplicables": 39,
+  "criterios_no_aplica": 12,
+  "porcentaje_cumplimiento": 61.5,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "La página «Sala de Prensa — Noticias» (https://www.inapi.cl/sala-de-prensa/noticias) se volvió a auditar el 21 de octubre de 2026 porque el listado cambió por completo desde la revisión del 25 de agosto de 2026. Hoy muestra tres noticias nuevas: el curso gratuito de Academia INAPI (20 de octubre), el estudio con la Organización Mundial de la Propiedad Intelectual sobre financiamiento (14 de octubre) y el puesto de Chile en el Índice Mundial de Innovación (29 de septiembre). Se capturó la página de nuevo y se revisaron desde cero las tarjetas, el menú lateral, el panel «Buscar y tramitar», la ventana de contacto, el carrusel y el pie de página.\n\nDe las 51 preguntas del checklist de Lenguaje claro, 12 no corresponden a esta página, por ser un listado de noticias sin trámites, preguntas frecuentes, menores de edad ni contenido de archivo. De las 39 que sí corresponden, 24 se cumplen. Esto da un 61,5 % de cumplimiento y la calificación RECHAZADO; para aprobar se necesita 91 % o más.\n\nLo más urgente:\n- Agregar bajo el subtítulo «Noticias» un recuadro breve que diga qué se publica en la sección y dónde ver las noticias anteriores.\n- Agregar una línea con la fecha de actualización de la página. Cada noticia tiene su fecha, pero el listado no tiene la suya.\n- Marcar en negrita las palabras clave de los tres textos de las tarjetas.\n- Indicar formato, peso y una breve descripción de los cuatro documentos PDF enlazados desde el pie, incluida la «Política de privacidad».\n\nEn el texto de las noticias nuevas hay que:\n- separar «PropiedadIndustrial»;\n- agregar «de» en las tres fechas;\n- definir la sigla OMPI;\n- explicar términos como «asincrónico», «insumos de innovación» y «financiamiento respaldado en propiedad industrial»;\n- acortar el texto del estudio de financiamiento.\n\nVarios hallazgos vienen de partes compartidas del sitio y se corrigen una sola vez para todas las páginas:\n- el menú lateral («PCT», «Observancia», «Conoce más»);\n- el panel «Buscar y tramitar»;\n- la ventana de contacto;\n- el pie de página.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "(criterio 12) No hay ningún recuadro o texto introductorio con los datos clave de la sección. Además, la noticia del curso de Academia INAPI anuncia postulaciones sin decir para quién es, cómo postular ni hasta cuándo.",
+      "(criterio 27) La página de listado no muestra su propia fecha de publicación ni de actualización. Las fechas de cada noticia y el ©2026 del pie no la reemplazan.",
+      "(criterio 39) Ninguno de los tres textos de las tarjetas usa negrita para destacar palabras clave.",
+      "(criterios 43 y 44, agrupados) Los documentos PDF «Plan anual de Capacitación 2026», «Sistema de Teletrabajo» y «Código de Ética» del carrusel del pie, y el enlace «Política de privacidad», no muestran formato, peso ni descripción."
+    ],
+    "hallazgos_prioridad_media": [
+      "(criterio 1) Hay varios errores de ortografía y gramática visibles. «PropiedadIndustrial» va pegado en un título y a las tres fechas les falta «de» entre el día y el mes. Además, el texto de ayuda dice «Contraste de pagina» y el nombre oficial en el pie dice «Propiedad industrial», con minúscula.",
+      "(criterio 4) No hay medición de lectura fácil, y los textos de las tarjetas del estudio y del índice son oraciones largas con ideas abstractas.",
+      "(criterio 6) Hay jerga técnica o legal sin explicar. En las noticias: «financiamiento respaldado en propiedad industrial» e «insumos de innovación». En el menú lateral: «Sistema de Madrid», «Sello de Origen», «Observancia» y «Dominio Público». En el panel «Buscar y tramitar»: «Presentación de escritos» y «Notificaciones diarias».",
+      "(criterio 7) Cada noticia usa un término especializado o extranjero: «asincrónico», «ecosistema nacional» y «ranking». Las migas de pan dicen «Home».",
+      "(criterio 8) La sigla OMPI no se define en el título de la segunda noticia ni en el texto de la tercera, y «PCT» aparece sin definir en el menú lateral.",
+      "(criterio 16) Hay dos confusiones de concepto. La noticia del curso dice propiedad industrial en el título y propiedad intelectual en el texto. La del índice no explica cómo se relaciona el puesto 51 con los lugares 43, 41, 63 y 70.",
+      "(criterio 40) Se ven en mayúsculas sostenidas el título principal y el subtítulo, las migas de pan, las pestañas, el botón «Ver todas las noticias» y el título y los subtítulos del panel «Buscar y tramitar».",
+      "(criterio 42) Los rótulos del menú lateral «Conoce más», «Conecta» y «Aprende» no dicen a dónde llevan."
+    ],
+    "hallazgos_prioridad_baja": [
+      "(criterio 2) Sobra una coma entre el sujeto y el verbo en el texto de la noticia del curso: «El programa gratuito y en línea, busca…».",
+      "(criterio 17) El texto del estudio usa futuro con sujeto vago («La iniciativa permitirá…»), y la ventana de contacto usa voz pasiva («Tu consulta será atendida por un especialista.»).",
+      "(criterio 24) El texto del estudio es una sola oración de 32 palabras con tres acciones encadenadas."
+    ]
+  },
+  "sustituciones": [
+    {
+      "html_linea_aprox": "Bloque de texto inexistente entre el banner de sección y el listado (~HTML-L300–395)",
+      "ubicacion_pantalla": "Zona superior de la sección › bajo el subtítulo «Noticias», antes de las tarjetas",
+      "original": "(ausencia)",
+      "propuesto": "Añadir un recuadro breve bajo el subtítulo con los datos clave de la sección: «Qué: noticias y novedades de INAPI sobre marcas, patentes, cursos y actividades del Instituto. Cuándo: se publican a medida que ocurren; aquí ves las más recientes. Dónde: para leer las anteriores, usa el botón «Ver todas las noticias» al final de la lista.»",
+      "criterio_id": "LC-1.1.2-03",
+      "motivo": "La pregunta pide datos clave a la vista. Hoy la persona llega directo a tres tarjetas sin saber qué se publica en esta sección ni cuándo se actualiza ni dónde hallar noticias anteriores. Un recuadro de tres líneas lo resuelve sin recargar la página.",
+      "patron_sistema": false,
+      "linea": "S01"
+    },
+    {
+      "html_linea_aprox": "Tarjeta 1, extracto bajo la fecha (~HTML-L395–410)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 1 de noticia «Academia INAPI abre postulaciones…» › texto bajo la fecha",
+      "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "propuesto": "Añadir al final del extracto una línea con los datos que faltan: «Dirigido a [público al que va el curso]. Postula hasta el [fecha límite] en [enlace o lugar de postulación].» Completar con los datos reales de la noticia; no inventarlos.",
+      "criterio_id": "LC-1.1.2-03",
+      "motivo": "El título anuncia que se abren postulaciones, pero el extracto no dice para quién es el curso, cómo se postula ni hasta cuándo. Sin esos datos la persona no puede decidir ni actuar sin abrir la noticia completa.",
+      "patron_sistema": false,
+      "linea": "S02"
+    },
+    {
+      "html_linea_aprox": "HTML-L~420 (extracto tarjeta 2)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › texto bajo la fecha",
+      "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.",
+      "propuesto": "Reescribir el extracto en dos oraciones de no más de 20 palabras cada una, con palabras de uso diario, y pasarlo por la herramienta Legible hasta que al menos tres de cinco indicadores queden en dificultad Normal. Texto sugerido para pegar: «El estudio analiza cómo se usa hoy en Chile la propiedad industrial para conseguir financiamiento. Identifica qué facilita y qué frena ese uso, y propone mejoras.»",
+      "criterio_id": "LC-1.1.3-01",
+      "motivo": "No se midió con Legible y el extracto es una sola oración de 32 palabras con ideas abstractas encadenadas, difícil para quien tiene menos dominio lector. Se propone una versión corta y una medición posterior con la herramienta.",
+      "patron_sistema": false,
+      "linea": "S03"
+    },
+    {
+      "html_linea_aprox": "HTML-L~425 (extracto tarjeta 3)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha",
+      "original": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "propuesto": "Separar las dos cifras en oraciones cortas y volver a medir con Legible hasta lograr al menos tres de cinco indicadores en dificultad Normal. Texto sugerido para pegar: «Chile sube del lugar 43 al 41 en condiciones para innovar. En cambio, baja del 63 al 70 en resultados de innovación. La clasificación la elabora la Organización Mundial de la Propiedad Intelectual.»",
+      "criterio_id": "LC-1.1.3-01",
+      "motivo": "El extracto junta dos comparaciones numéricas y la fuente en una sola oración, y no hay medición de lectura fácil. Una oración por cifra facilita la comprensión; luego se debe medir con Legible.",
+      "patron_sistema": false,
+      "linea": "S04"
+    },
+    {
+      "html_linea_aprox": "HTML-L~403 (título tarjeta 2)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › título enlazado",
+      "original": "INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial",
+      "propuesto": "INAPI y la Organización Mundial de la Propiedad Intelectual (OMPI) inician el primer estudio en Chile sobre el uso de la propiedad industrial, como las marcas y las patentes, para conseguir financiamiento.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "El título usa «financiamiento respaldado en propiedad industrial», una expresión financiera y jurídica que no dice que se trata de usar marcas o patentes como respaldo para obtener créditos. Quien lee solo el título no la entiende.",
+      "patron_sistema": false,
+      "linea": "S05"
+    },
+    {
+      "html_linea_aprox": "HTML-L~425 (extracto tarjeta 3)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha",
+      "original": "insumos de innovación",
+      "propuesto": "Cambiar «insumos de innovación» por «condiciones para innovar, como educación, investigación e infraestructura» y «resultados» por «resultados de innovación».",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Insumos» y «resultados» son los nombres técnicos de las dos partes del índice; sin explicación, la persona no entiende en qué subió y en qué bajó el país.",
+      "patron_sistema": false,
+      "linea": "S06"
+    },
+    {
+      "html_linea_aprox": "HTML-L~210 (menú lateral)",
+      "ubicacion_pantalla": "Menú lateral › enlace «Sistema de Madrid»",
+      "original": "Sistema de Madrid",
+      "propuesto": "Añadir texto de ayuda al pasar el mouse sobre el enlace: «Sistema de Madrid: registra tu marca en otros países». El rótulo puede quedar igual.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "El nombre del sistema internacional no dice para qué sirve; es un término técnico sin glosa. En un menú basta una frase de ayuda, no un párrafo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S07"
+    },
+    {
+      "html_linea_aprox": "HTML-L~211 (menú lateral)",
+      "ubicacion_pantalla": "Menú lateral › enlace «Sello de Origen»",
+      "original": "Sello de Origen",
+      "propuesto": "Añadir texto de ayuda al pasar el mouse: «Sello de Origen: distingue productos típicos de una zona de Chile». El rótulo puede quedar igual.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Sello de Origen» es un término técnico que no explica qué distingue ni a quién sirve. Una glosa breve en el menú lo resuelve. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S08"
+    },
+    {
+      "html_linea_aprox": "HTML-L~232 (menú lateral)",
+      "ubicacion_pantalla": "Menú lateral › enlace «Observancia»",
+      "original": "Observancia",
+      "propuesto": "Cambiar el rótulo por «Observancia: defiende tus derechos de propiedad industrial», con la glosa en el mismo rótulo.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Observancia» es un término legal que, como único rótulo, no dice qué hace la persona en esa sección. Quien solo lee el menú no lo entiende. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S09"
+    },
+    {
+      "html_linea_aprox": "HTML-L~226 (menú lateral)",
+      "ubicacion_pantalla": "Menú lateral › enlace «Dominio Público»",
+      "original": "Dominio Público",
+      "propuesto": "Añadir texto de ayuda al pasar el mouse sobre el enlace: «Dominio público: buscador de patentes que ya se pueden usar libremente». El rótulo puede quedar igual.",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Dominio Público» es un concepto jurídico que el ciudadano común no asocia con inventos de uso libre; la página de destino es un buscador de patentes de dominio público. Una glosa breve evita la duda. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S10"
+    },
+    {
+      "html_linea_aprox": "HTML-L~262 (panel Buscar y tramitar)",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo «MARCAS» › enlace «Presentación de escritos»",
+      "original": "Presentación de escritos",
+      "propuesto": "Cambiar el rótulo por «Enviar documentos a una solicitud de marcas en trámite».",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Escrito» es un término procesal que no todas las personas conocen. El rótulo debe decir qué se hace: enviar documentos a una solicitud ya presentada. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S11"
+    },
+    {
+      "html_linea_aprox": "HTML-L~262+ (panel Buscar y tramitar)",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo «MARCAS» › enlace «Notificaciones diarias»",
+      "original": "Notificaciones diarias",
+      "propuesto": "Cambiar el rótulo por «Avisos diarios de solicitudes de marcas».",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Notificaciones diarias» es un término procesal que no dice qué avisos se publican ni a quién importan. El rótulo propuesto dice qué ve la persona. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S12"
+    },
+    {
+      "html_linea_aprox": "HTML-L~281 (panel Buscar y tramitar)",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo «PATENTES» › enlace «Presentación de escritos»",
+      "original": "Presentación de escritos",
+      "propuesto": "Cambiar el rótulo por «Enviar documentos a una solicitud de patentes en trámite».",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Escrito» es un término procesal que no todas las personas conocen. El rótulo debe decir qué se hace: enviar documentos a una solicitud ya presentada. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S13"
+    },
+    {
+      "html_linea_aprox": "HTML-L~281+ (panel Buscar y tramitar)",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo «PATENTES» › enlace «Notificaciones diarias»",
+      "original": "Notificaciones diarias",
+      "propuesto": "Cambiar el rótulo por «Avisos diarios de solicitudes de patentes».",
+      "criterio_id": "LC-1.1.3-03",
+      "motivo": "«Notificaciones diarias» es un término procesal que no dice qué avisos se publican ni a quién importan. El rótulo propuesto dice qué ve la persona. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S14"
+    },
+    {
+      "html_linea_aprox": "HTML-L~395 (título tarjeta 1)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 1 de noticia › título enlazado",
+      "original": "gratuito y asincrónico",
+      "propuesto": "Cambiar «gratuito y asincrónico» por «gratuito, en línea y a tu propio ritmo».",
+      "criterio_id": "LC-1.1.3-04",
+      "motivo": "«Asincrónico» es un término propio de la educación a distancia. Decir que el curso se hace en línea y a tu ritmo transmite lo mismo con palabras de uso diario.",
+      "patron_sistema": false,
+      "linea": "S15"
+    },
+    {
+      "html_linea_aprox": "HTML-L~420 (extracto tarjeta 2)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › texto bajo la fecha",
+      "original": "el estado actual del ecosistema nacional",
+      "propuesto": "Evitar la palabra «ecosistema» y decir de qué actores o situación se trata. Esto queda resuelto en el texto sugerido del criterio 4; si el editor conserva la frase original, cambiar «el estado actual del ecosistema nacional» por «la situación actual en Chile».",
+      "criterio_id": "LC-1.1.3-04",
+      "motivo": "«Ecosistema» es una metáfora abstracta que no dice qué actores o qué situación se estudiarán. Una expresión directa se entiende sin conocimientos previos.",
+      "patron_sistema": false,
+      "linea": "S16"
+    },
+    {
+      "html_linea_aprox": "HTML-L~425 (extracto tarjeta 3)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha",
+      "original": "según el ranking de la OMPI",
+      "propuesto": "Cambiar «ranking» por «clasificación»: «según la clasificación de la OMPI».",
+      "criterio_id": "LC-1.1.3-04",
+      "motivo": "«Ranking» es un extranjerismo que tiene equivalente corriente en español. Aparece en el único extracto que cita la fuente del dato.",
+      "patron_sistema": false,
+      "linea": "S17"
+    },
+    {
+      "html_linea_aprox": "HTML-L~305 (migas de pan)",
+      "ubicacion_pantalla": "Zona superior de la sección › migas de pan › primer tramo «Home»",
+      "original": "Home",
+      "propuesto": "Cambiar «Home» por «Inicio».",
+      "criterio_id": "LC-1.1.3-04",
+      "motivo": "«Home» es un anglicismo en la ruta de navegación; «Inicio» es la palabra de uso común en español.",
+      "patron_sistema": false,
+      "linea": "S18"
+    },
+    {
+      "html_linea_aprox": "HTML-L~403 (título tarjeta 2)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › título enlazado",
+      "original": "OMPI",
+      "propuesto": "Definir la sigla en su primera aparición: «INAPI y la Organización Mundial de la Propiedad Intelectual (OMPI) inician el primer estudio…». El título completo se propone en el criterio 6.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "La sigla OMPI aparece sin desarrollar en el título, que es lo primero que se lee. Debe definirse en su primera aparición.",
+      "patron_sistema": false,
+      "linea": "S19"
+    },
+    {
+      "html_linea_aprox": "HTML-L~425 (extracto tarjeta 3)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha",
+      "original": "OMPI",
+      "propuesto": "Escribir la sigla con su desarrollo la primera vez que aparece en este extracto: «según la clasificación de la Organización Mundial de la Propiedad Intelectual (OMPI)». Cada tarjeta se lee por separado.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "Esta tarjeta repite la sigla sin explicarla; quien lee solo esta noticia no sabe qué es la OMPI.",
+      "patron_sistema": false,
+      "linea": "S20"
+    },
+    {
+      "html_linea_aprox": "HTML-L~212 (menú lateral)",
+      "ubicacion_pantalla": "Menú lateral › grupo Patentes › enlace «PCT»",
+      "original": "PCT",
+      "propuesto": "Añadir texto de ayuda al pasar el mouse: «PCT: Tratado de Cooperación en materia de Patentes, para pedir protección en varios países». Definir también la sigla al inicio de la página de destino.",
+      "criterio_id": "LC-1.1.3-05",
+      "motivo": "«PCT» aparece como sigla suelta en el menú, sin desarrollar. Una ayuda breve evita convertir el ítem en un párrafo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S21"
+    },
+    {
+      "html_linea_aprox": "HTML-L~300 (banner de sección, tras el subtítulo)",
+      "ubicacion_pantalla": "Zona superior de la sección › línea propia bajo el subtítulo «Noticias»",
+      "original": "(sin fecha de actualización visible)",
+      "propuesto": "Añadir texto visible en una línea propia bajo el subtítulo «Noticias»: «Actualizado: DD de mes de AAAA», usando la fecha real de la última noticia publicada o de la última revisión del listado.",
+      "criterio_id": "LC-1.1.4-01",
+      "motivo": "La pregunta pide que la página muestre cuándo se publicó o actualizó. Las tarjetas tienen su propia fecha, pero el listado como página no dice cuándo se revisó. Una línea breve de fecha, separada del recuadro introductorio, lo resuelve.",
+      "patron_sistema": false,
+      "linea": "S22"
+    },
+    {
+      "html_linea_aprox": "HTML-L~395 (título de la tarjeta 1)",
+      "ubicacion_pantalla": "Cuerpo › primera tarjeta de noticia › título «Academia INAPI abre postulaciones para su nuevo curso gratuito y asincrónico sobre PropiedadIndustrial»",
+      "original": "…sobre PropiedadIndustrial",
+      "propuesto": "…sobre propiedad industrial",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "La pregunta pide ortografía sin errores y el título más destacado del listado trae dos palabras pegadas, lo que se ve como descuido. Se separa y se usa minúscula porque es un concepto común. Para evitar este tipo de error, pasar el título por el corrector ortográfico del CMS o del navegador antes de publicar.",
+      "patron_sistema": false,
+      "linea": "S23"
+    },
+    {
+      "html_linea_aprox": "HTML-L~400 (fecha de la tarjeta 1)",
+      "ubicacion_pantalla": "Cuerpo › primera tarjeta de noticia › fecha gris bajo el título",
+      "original": "Martes 20 octubre de 2026",
+      "propuesto": "Martes 20 de octubre de 2026",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "La fecha omite la preposición «de» entre el día y el mes, error gramatical que se repite en las tres tarjetas. Si el formato se genera automáticamente, pedir a TI corregir la plantilla del listado una vez. Revisar con el corrector del CMS antes de publicar.",
+      "patron_sistema": false,
+      "linea": "S24"
+    },
+    {
+      "html_linea_aprox": "HTML-L~430 (fecha de la tarjeta 2)",
+      "ubicacion_pantalla": "Cuerpo › segunda tarjeta de noticia › fecha gris bajo el título",
+      "original": "Miércoles 14 octubre de 2026",
+      "propuesto": "Miércoles 14 de octubre de 2026",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "Misma omisión de «de» entre día y mes en la segunda noticia; se corrige igual que en la primera.",
+      "patron_sistema": false,
+      "linea": "S25"
+    },
+    {
+      "html_linea_aprox": "HTML-L~465 (fecha de la tarjeta 3)",
+      "ubicacion_pantalla": "Cuerpo › tercera tarjeta de noticia › fecha gris bajo el título",
+      "original": "Martes 29 septiembre de 2026",
+      "propuesto": "Martes 29 de septiembre de 2026",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "Misma omisión de «de» entre día y mes en la tercera noticia; se corrige igual que en las anteriores.",
+      "patron_sistema": false,
+      "linea": "S26"
+    },
+    {
+      "html_linea_aprox": "HTML-L~160 (ícono de contraste de la cabecera)",
+      "ubicacion_pantalla": "Cabecera › ícono de contraste › texto que aparece al pasar el mouse «Contraste de pagina»",
+      "original": "Contraste de pagina",
+      "propuesto": "Contraste de página",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "Falta la tilde de «página»: error de ortografía acentual en un texto visible. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. Pasar los textos de la cabecera por el corrector del navegador antes de publicar.",
+      "patron_sistema": true,
+      "linea": "S27"
+    },
+    {
+      "html_linea_aprox": "HTML-L~880 (pie de página, bloque Dónde estamos)",
+      "ubicacion_pantalla": "Pie de página › bloque «Dónde estamos» › nombre de la institución",
+      "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+      "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+      "criterio_id": "LC-1.1.5-01",
+      "motivo": "En el nombre oficial de una institución las palabras significativas llevan mayúscula inicial; aquí «industrial» quedó en minúscula, distinto de como se escribe en el logo de la cabecera. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S28"
+    },
+    {
+      "html_linea_aprox": "HTML-L~405 (extracto de la tarjeta 1)",
+      "ubicacion_pantalla": "Cuerpo › primera tarjeta de noticia › texto bajo la fecha",
+      "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "propuesto": "El programa gratuito y en línea busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "criterio_id": "LC-1.1.5-02",
+      "motivo": "La pregunta pide una puntuación que ayude a leer. La coma entre el sujeto «El programa gratuito y en línea» y su verbo «busca» no corresponde y corta la frase. Basta quitarla; el resto del texto se trata en los criterios de lenguaje plano.",
+      "patron_sistema": false,
+      "linea": "S29"
+    },
+    {
+      "html_linea_aprox": "HTML-L~395, tarjeta 1: título y extracto",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 1 de noticia › texto bajo la fecha",
+      "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "propuesto": "Usar el mismo término que el título y decir de qué se trata. Si el curso es sobre propiedad industrial: «propiedad industrial, que protege marcas y patentes». Si cubre también derecho de autor, decirlo expresamente: «propiedad industrial y derecho de autor».",
+      "criterio_id": "LC-1.2.1-02",
+      "motivo": "La pregunta pide conceptos claros y consistentes. El título anuncia un curso sobre propiedad industrial y el texto habla de propiedad intelectual; son conceptos distintos y la persona no sabe de cuál se trata. Debe elegirse un solo término y explicarlo en pocas palabras.",
+      "patron_sistema": false,
+      "linea": "S30"
+    },
+    {
+      "html_linea_aprox": "HTML-L~400, tarjeta 3: título y extracto",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia › texto bajo la fecha",
+      "original": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "propuesto": "Partir del texto sugerido del criterio 4 y añadir antes una frase que conecte con el título: «El puesto 51 resume dos mediciones.» Así se entiende que las cifras del 43 al 41 y del 63 al 70 no se contradicen con el puesto general.",
+      "criterio_id": "LC-1.2.1-02",
+      "motivo": "El título habla del puesto 51 y el texto de otros lugares sin relacionarlos, y la persona puede creer que las cifras se contradicen. La corrección conecta las cifras con el puesto general; las palabras técnicas del texto se tratan en otros criterios.",
+      "patron_sistema": false,
+      "linea": "S31"
+    },
+    {
+      "html_linea_aprox": "HTML-L~410, tarjeta 2: extracto",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia › texto bajo la fecha",
+      "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones",
+      "propuesto": "Usar presente y un sujeto claro («El estudio…») en lugar de «La iniciativa permitirá…». Esa forma ya está en el texto sugerido del criterio 4; aquí basta comprobar que ningún verbo quede en futuro ni encadenado en infinitivo.",
+      "criterio_id": "LC-1.2.1-03",
+      "motivo": "La pregunta pide presente simple y voz activa. El texto usa un futuro con verbos en infinitivo encadenados y un sujeto vago, «La iniciativa», sin decir quién hace qué. En presente y con «El estudio» como sujeto se entiende de inmediato.",
+      "patron_sistema": false,
+      "linea": "S32"
+    },
+    {
+      "html_linea_aprox": "Ventana emergente de contacto, texto bajo el correo",
+      "ubicacion_pantalla": "Botón flotante «¿Quieres contactarnos?» › ventana emergente › línea bajo «inapi@inapi.cl»",
+      "original": "Tu consulta será atendida por un especialista.",
+      "propuesto": "Un especialista responde tu consulta.",
+      "criterio_id": "LC-1.2.1-03",
+      "motivo": "La pregunta pide voz activa. La frase en pasiva oculta quién actúa; en activa queda claro que un especialista responde. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S33"
+    },
+    {
+      "html_linea_aprox": "Tarjeta 2 del listado de noticias, extracto bajo la fecha",
+      "ubicacion_pantalla": "Cuerpo › listado de noticias › tarjeta «INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial» › texto bajo la fecha",
+      "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.",
+      "propuesto": "Acortar la oración: quitar el inicio de relleno «La iniciativa permitirá conocer el estado actual del…» y la frase final encadenada con «para avanzar en…». Regla para el editor: sujeto, verbo y dato, con un máximo de 20 palabras por oración y sin listas de tres verbos seguidos. Revisar que cada tarjeta nueva cumpla esa medida.",
+      "criterio_id": "LC-1.2.2-04",
+      "motivo": "La pregunta pide oraciones simples y directas, sin palabras de más. Esta tiene 32 palabras y tres acciones encadenadas; recortar el relleno la deja directa. La reescritura completa en lenguaje cotidiano está en el criterio 4; aquí se pide la medida de longitud.",
+      "patron_sistema": false,
+      "linea": "S34"
+    },
+    {
+      "html_linea_aprox": "Extracto de la tarjeta 1 (~HTML-L395)",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 1 de noticia «Academia INAPI abre postulaciones…» › texto bajo la fecha",
+      "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+      "propuesto": "Marcar en negrita: curso gratuito y en línea; emprendimiento e innovación",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "La pregunta pide destacar en negrita las palabras clave. El extracto es un bloque parejo y quien recorre la página no ve de un vistazo que se trata de un curso gratuito. Poner en negrita esas frases permite entender la noticia en segundos.",
+      "patron_sistema": false,
+      "linea": "S35"
+    },
+    {
+      "html_linea_aprox": "Extracto de la tarjeta 2",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 2 de noticia «INAPI y OMPI inician primer estudio…» › texto bajo la fecha",
+      "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.",
+      "propuesto": "Marcar en negrita: estado actual; oportunidades y barreras; recomendaciones; propiedad industrial como respaldo para acceder a financiamiento",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "El extracto tiene tres objetivos encadenados sin ningún énfasis. Destacar en negrita lo que el estudio entregará ayuda a encontrar la idea principal sin leer la oración completa.",
+      "patron_sistema": false,
+      "linea": "S36"
+    },
+    {
+      "html_linea_aprox": "Extracto de la tarjeta 3",
+      "ubicacion_pantalla": "Cuerpo › tarjeta 3 de noticia «Chile mantiene el puesto 51…» › texto bajo la fecha",
+      "original": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+      "propuesto": "Marcar en negrita: sube del lugar 43 al 41; baja del 63 al 70",
+      "criterio_id": "LC-1.2.4-04",
+      "motivo": "Las dos cifras son el dato central de la noticia y hoy no se distinguen del resto del texto. Con negrita en cada movimiento, quien escanea ve de inmediato qué mejoró y qué empeoró.",
+      "patron_sistema": false,
+      "linea": "S37"
+    },
+    {
+      "html_linea_aprox": "Título principal del banner (~HTML-L300), mayúsculas por estilo",
+      "ubicacion_pantalla": "Zona superior de la sección › título principal «Sala de Prensa»",
+      "original": "SALA DE PRENSA",
+      "propuesto": "Mostrar el título principal con mayúscula inicial: «Sala de Prensa».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "La pregunta pide evitar textos completos en mayúsculas. El título principal se ve con todas las letras en mayúscula, aunque está escrito con mayúscula inicial. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S38"
+    },
+    {
+      "html_linea_aprox": "Subtítulo del banner, mayúsculas por estilo",
+      "ubicacion_pantalla": "Zona superior de la sección › subtítulo «Noticias»",
+      "original": "NOTICIAS",
+      "propuesto": "Mostrar el subtítulo con mayúscula inicial: «Noticias».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El subtítulo también se muestra todo en mayúsculas, lo que dificulta la lectura. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S39"
+    },
+    {
+      "html_linea_aprox": "Migas de pan del banner, mayúsculas por estilo",
+      "ubicacion_pantalla": "Zona superior de la sección › migas de pan «Home › Sala de Prensa › Noticias»",
+      "original": "HOME › SALA DE PRENSA › NOTICIAS",
+      "propuesto": "Mostrar las migas de pan con mayúscula inicial en cada tramo, sin escribirlas todas en mayúsculas: «Inicio › Sala de Prensa › Noticias». El cambio de «Home» a «Inicio» se explica en el criterio 7.",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "La ruta de navegación se ve toda en mayúsculas y cuesta más leerla. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S40"
+    },
+    {
+      "html_linea_aprox": "Pestañas del banner, mayúsculas por estilo",
+      "ubicacion_pantalla": "Zona superior de la sección › pestañas «Noticias» y «Columnas»",
+      "original": "NOTICIAS | COLUMNAS",
+      "propuesto": "Mostrar las pestañas con mayúscula inicial: «Noticias» y «Columnas».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Las dos pestañas se ven en mayúsculas sostenidas. Con mayúscula inicial se leen más rápido. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S41"
+    },
+    {
+      "html_linea_aprox": "Botón naranjo bajo las tarjetas, mayúsculas por estilo",
+      "ubicacion_pantalla": "Cuerpo › botón naranjo bajo las tarjetas «Ver todas las noticias»",
+      "original": "VER TODAS LAS NOTICIAS",
+      "propuesto": "Mostrar el botón con mayúscula inicial: «Ver todas las noticias».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El rótulo del botón es una frase de cuatro palabras que se ve toda en mayúsculas y se lee con más esfuerzo.",
+      "patron_sistema": false,
+      "linea": "S42"
+    },
+    {
+      "html_linea_aprox": "Título del panel lateral de búsqueda, escrito en mayúsculas en el HTML",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › título del panel",
+      "original": "BUSCAR Y TRAMITAR",
+      "propuesto": "Escribir el título del panel con mayúscula inicial: «Buscar y tramitar».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El título del panel se muestra todo en mayúsculas. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S43"
+    },
+    {
+      "html_linea_aprox": "Subtítulo del grupo Marcas del panel lateral",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo del primer grupo de enlaces",
+      "original": "MARCAS",
+      "propuesto": "Escribir el subtítulo con mayúscula inicial: «Marcas».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "El subtítulo del grupo se muestra todo en mayúsculas. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S44"
+    },
+    {
+      "html_linea_aprox": "Subtítulo del grupo Patentes del panel lateral",
+      "ubicacion_pantalla": "Panel «Buscar y tramitar» › subtítulo del segundo grupo de enlaces",
+      "original": "PATENTES",
+      "propuesto": "Escribir el subtítulo con mayúscula inicial: «Patentes».",
+      "criterio_id": "LC-1.2.4-05",
+      "motivo": "Igual que el grupo anterior, el subtítulo se muestra todo en mayúsculas. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S45"
+    },
+    {
+      "html_linea_aprox": "Menú lateral, primer ítem",
+      "ubicacion_pantalla": "Menú lateral › primer enlace «Conoce más»",
+      "original": "Conoce más",
+      "propuesto": "Cambiar el rótulo por «Qué es la propiedad intelectual e industrial», que es el título de la página a la que lleva.",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "La pregunta pide rótulos que describan la acción o el destino. «Conoce más» no dice sobre qué, y la persona debe hacer clic para saberlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S46"
+    },
+    {
+      "html_linea_aprox": "Menú lateral, grupo de enlaces generales",
+      "ubicacion_pantalla": "Menú lateral › enlace «Conecta»",
+      "original": "Conecta",
+      "propuesto": "Cambiar el rótulo por «Conecta: muestra tu innovación protegida a posibles interesados».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "«Conecta» no indica con quién ni para qué. La página de destino es un espacio gratuito para dar a conocer innovaciones con derechos de propiedad industrial; el rótulo debe anticiparlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S47"
+    },
+    {
+      "html_linea_aprox": "Menú lateral, grupo de enlaces generales",
+      "ubicacion_pantalla": "Menú lateral › enlace «Aprende»",
+      "original": "Aprende",
+      "propuesto": "Cambiar el rótulo por «Cursos y capacitaciones sobre propiedad industrial».",
+      "criterio_id": "LC-5.2.4-01",
+      "motivo": "«Aprende» es una invitación general que no dice qué se aprende ni dónde. La página de destino ofrece cursos, talleres y capacitaciones de INAPI; el rótulo debe decirlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S48"
+    },
+    {
+      "html_linea_aprox": "Carrusel del pie, banner-imagen enlazado a PDF",
+      "ubicacion_pantalla": "Pie de página › carrusel de banners › banner «Plan anual de Capacitación 2026»",
+      "original": "Plan anual de Capacitación 2026",
+      "propuesto": "Junto al banner, añadir texto visible: «Plan anual de capacitación 2026 (PDF, [peso real del archivo]) — Actividades de formación de INAPI para su personal.» Pedir al CMS completar el peso real; no dejar solo el nombre del banner.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "La pregunta pide título, formato y peso junto al documento, y una breve descripción. El banner enlaza a un PDF y en pantalla solo se ve el nombre; formato y peso no son visibles ni hay descripción. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S49"
+    },
+    {
+      "html_linea_aprox": "Carrusel del pie, banner-imagen enlazado a PDF",
+      "ubicacion_pantalla": "Pie de página › carrusel de banners › banner «Sistema de Teletrabajo»",
+      "original": "Sistema de Teletrabajo",
+      "propuesto": "Junto al banner, añadir texto visible: «Sistema de Teletrabajo (PDF, [peso real del archivo]) — [descripción breve de qué contiene el documento, tomada del propio PDF].» Pedir al CMS completar formato, peso y descripción reales.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "El banner abre un PDF sin mostrar formato, peso ni descripción: solo se ve el nombre. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S50"
+    },
+    {
+      "html_linea_aprox": "Carrusel del pie, banner-imagen enlazado a PDF",
+      "ubicacion_pantalla": "Pie de página › carrusel de banners › banner «Código de Ética»",
+      "original": "Código de Ética",
+      "propuesto": "Junto al banner, añadir texto visible: «Código de Ética de INAPI 2026 (PDF, [peso real del archivo]) — Principios y conductas que guían al personal del Instituto.» Pedir al CMS completar el peso real.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "El banner abre un PDF y en pantalla no se ve su formato, peso ni descripción. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S51"
+    },
+    {
+      "html_linea_aprox": "Pie de página, enlace que abre un PDF de 2 páginas",
+      "ubicacion_pantalla": "Pie de página › grupo «Accesos» › enlace «Política de privacidad»",
+      "original": "Política de privacidad",
+      "propuesto": "Cambiar el rótulo del enlace por «Política de privacidad (PDF, [peso real del archivo]) — Cómo INAPI protege tus datos personales y cómo ejercer tus derechos». Pedir al CMS completar el peso real.",
+      "criterio_id": "LC-1.2.4-07",
+      "criterios_relacionados": [
+        "LC-1.2.4-08"
+      ],
+      "motivo": "Al hacer clic se abre un documento PDF sin aviso previo, y el rótulo no dice formato, peso ni de qué trata. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+      "patron_sistema": true,
+      "linea": "S52"
+    }
+  ],
+  "nota_final_tic": "Alcance: solo lo que se ve en pantalla o se abre con un clic. No se usaron como evidencia el título de la pestaña del navegador ni los metadatos de la página.\n\nPartes compartidas con otras páginas del sitio. Se corrigen una vez en el origen y el cambio llega a todas las páginas:\n- el menú lateral (sigla PCT, términos sin explicar y rótulos genéricos);\n- el panel «Buscar y tramitar» (mayúsculas sostenidas y rótulos «Presentación de escritos» y «Notificaciones diarias»);\n- la ventana de contacto (voz pasiva);\n- el ícono de contraste de la cabecera (texto de ayuda sin tilde);\n- el carrusel y el pie de página (documentos sin formato ni peso, y nombre oficial con minúscula).\n\nLas mayúsculas del título principal, el subtítulo, las migas de pan, las pestañas y el botón vienen del estilo de la plantilla, no del texto escrito en el gestor de contenidos. Hay que cambiar ese estilo para que se vea el texto con mayúscula inicial.\n\nLa falta de «de» en las fechas de las tarjetas viene del formato automático de fecha del listado. Corregir la plantilla una sola vez.\n\nCambio respecto de la revisión anterior: el botón «ACCESOS» de la cabecera ya no abre el panel de acceso y registro. Ahora lleva directo al portal de trámites. Ese panel (con «Usuario Frecuente», «Registro» y el botón «LINK EXTERNO» sin destino) sigue en el código de la página, pero oculto y sin forma de abrirlo. Conviene eliminarlo o volver a habilitarlo con un destino real.\n\nEl banner del carrusel dice «Plan anual de Capacitación 2026», pero el nombre del archivo enlazado indica 2025 y su texto alternativo dice «2025 - 2027». Hay que confirmar que el documento corresponda al título visible.\n\nEl texto alternativo de la foto de la primera noticia es un nombre de archivo («Noticia-Curso-Aula»). No afecta el porcentaje de Lenguaje claro, pero conviene reemplazarlo por una descripción de la imagen.\n\nCobertura: checklist PTD de Lenguaje claro v3.0, con sus 51 preguntas. No se puntuaron Usabilidad ni Seguridad."
+}

@@ -74,7 +74,7 @@ export const MEI_META_MEI_URLS: MeiMetaMeiUrl[] = [
     url: "https://www.inapi.cl/sala-de-prensa/noticias",
     nombreUi: "Sala de Prensa — Noticias",
     tipoPagina: "sitioweb",
-    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-08-25",
+    auditId: "www-inapi-cl-sala-de-prensa-noticias_2026-10-21",
     rolMetaMei: "Listado últimas noticias",
   },
   {
