@@ -49,14 +49,20 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginBottom: 4,
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
   fieldLabel: {
     fontSize: 9,
     color: "#6b7280",
+    textAlign: "left",
   },
   fieldValue: {
     fontSize: 10,
-    flex: 1,
+    textAlign: "left",
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
   },
   progressTrack: {
     height: 8,

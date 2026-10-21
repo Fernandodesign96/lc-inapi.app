@@ -1,7 +1,10 @@
 import { describe, expect, test } from "bun:test"
 
 import type { CriterionEvaluation } from "../schemas/checklist"
-import { buildResumenHitosAuditoria } from "./resumen-hitos-auditoria"
+import {
+  buildResumenHitosAuditoria,
+  conteoCategoriasPresentacion,
+} from "./resumen-hitos-auditoria"
 
 describe("buildResumenHitosAuditoria", () => {
   test("agrupa por hito y cuenta categorías MEI", () => {
@@ -26,6 +29,23 @@ describe("buildResumenHitosAuditoria", () => {
     expect(h496!.hitoOrdinal).toBe(2)
     expect(h496!.hitoTitulo).not.toMatch(/^Hito:/)
     expect(h496!.hitoTitulo.length).toBeGreaterThan(10)
+  })
+
+  test("conteoCategoriasPresentacion suma todas las filas", () => {
+    const rows: CriterionEvaluation[] = [
+      { id: "LC-1.1.3-01", estado: "cumple" },
+      { id: "LC-1.1.3-03", estado: "incumple", severidad: "baja" },
+      { id: "LC-1.1.3-05", estado: "incumple", severidad: "media" },
+      { id: "LC-1.1.3-06", estado: "incumple", severidad: "alta" },
+      { id: "LC-1.1.3-02", estado: "no_aplica" },
+    ]
+    expect(conteoCategoriasPresentacion(rows)).toEqual({
+      cumple: 1,
+      cumpleConObservaciones: 1,
+      medianamenteCumple: 1,
+      noCumple: 1,
+      noAplica: 1,
+    })
   })
 
   test("cuenta No aplica", () => {

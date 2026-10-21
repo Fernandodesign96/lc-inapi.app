@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-10-21 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría por rotación del listado, rechazado 61,5 %](#devlog-2026-10-21-sala-de-prensa-noticias-reaudit-rotacion) |
 | 2026-09-30 | [Infraestructura: Portada www.inapi.cl — reauditoría por rotación de Novedades (tarjeta PAI), rechazado 75,6 %](#devlog-2026-09-30-portada-reaudit-novedades-pai) |
 | 2026-08-27 | [Frontend/docs: cablear META MEI a 11 URLs (landing trámites)](#devlog-2026-08-27-meta-mei-11-urls) |
 | 2026-08-27 | [Infraestructura: Landing Portal de Trámites tramites.inapi.cl — reauditoría v3.0 completa, rechazado 66,7 % — amplía la muestra a 11](#devlog-2026-08-27-tramites-landing-reaudit-v30) |
@@ -114,6 +115,32 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-10-21-sala-de-prensa-noticias-reaudit-rotacion"></a>
+## [2026-10-21] - Infraestructura | Sala de Prensa — Noticias: reauditoría por rotación del listado, rechazado 61,5 %
+
+**Rama:** `feat/reauditoria-sala-prensa-noticias-2026-10-21`
+
+### Contexto y objetivos:
+
+Reauditar el listado de noticias (`https://www.inapi.cl/sala-de-prensa/noticias`, META MEI orden 7) porque las tres tarjetas rotaron por completo desde la revisión del 2026-08-25 (beca en China, plataforma con el Ministerio de Economía y plazos por sismos en Japón ya no están). Hoy muestra el curso de Academia INAPI (20-10-2026), el estudio INAPI–OMPI sobre financiamiento (14-10-2026) y el Índice Mundial de Innovación (29-09-2026).
+
+### Implementación técnica:
+
+- Captura nueva con Playwright MCP (DOM renderizado, a11y, estilos computados de los extractos, ventana de contacto y panel «Buscar y tramitar» abiertos con un clic); HTML en `auditorias/htmls/www-inapi-cl-sala-de-prensa-noticias_2026-10-21.html`.
+- Flujo completo §17: inventario R+U → Paso D0 (texto ascendente) → 15 subagentes secuenciales por indicador → 5 sub-subagentes de entrega en paralelo → consolidación raíz y gate §22.12 automatizado (sin `Tnnn`, `LC-*`, códigos de indicador ni jerga en campos CMS; sin propuestos duplicados).
+- Hallazgos nuevos en las tarjetas: «PropiedadIndustrial» pegado; «de» ausente en las tres fechas; coma entre sujeto y verbo; sigla OMPI sin definir (título y extracto); jerga «financiamiento respaldado en propiedad industrial», «insumos de innovación»; términos «asincrónico», «ecosistema», «ranking»; confusión propiedad industrial/intelectual y puesto 51 vs subíndices; negrita ausente en los tres extractos (alta); recuadro de datos clave ausente y postulación sin público/plazo (alta).
+- Layout compartido: el botón «ACCESOS» ahora enlaza directo a tramites.inapi.cl; el panel con «LINK EXTERNO» quedó oculto sin disparador y **no** se evaluó como visible (nota TI). Se suman como documento sin formato/peso el enlace del pie «Política de privacidad», que abre un PDF; su contenido sí explica los derechos de acceso, rectificación, cancelación y oposición (criterio 32 cumple).
+- Decisiones de consolidación: criterio 30 `cumple` (RUT institucional, calibración §2, igual que la mayoría de la muestra); criterios 46–47 `no_aplica` (§16); criterio 23 `cumple` por realismo (cada extracto = una noticia); se descartaron filas cosméticas de «hrs.»; se mantuvo la fecha ausente de la página en severidad alta (C-2026-08-25f) pese a que cada noticia tiene fecha.
+- 51 criterios v3.0: 23 cumple, 16 incumple (1 agrupado: 44 en 43), 12 no aplica; 52 filas en `sustituciones[]`. Resultado 61,5 % (24 de 39 aplicables), `rechazado` (antes 73,7 %). La baja se explica por hallazgos reales del contenido nuevo (Legible, términos especializados, conceptos, puntuación) y por el recuadro de datos clave en ausencia total.
+- Cableado: `frontend/src/lib/claude-audits-launch.ts` (id vigente `_2026-10-21`; `_2026-08-25` pasa a `history[]`) y `src/lib/mei-export/mei-meta-mei-urls.ts` (orden 7). `bun run typecheck:all` OK.
+
+### Próximos pasos:
+
+- El cambio de «ACCESOS» (sin panel de acceso) afecta a todas las URLs de www.inapi.cl: en la próxima reauditoría de cada una, no usar «LINK EXTERNO» como evidencia visible si sigue oculto.
+- Confirmar con TI que el PDF del banner «Plan anual de Capacitación 2026» corresponda al título (el archivo indica 2025).
 
 ---
 

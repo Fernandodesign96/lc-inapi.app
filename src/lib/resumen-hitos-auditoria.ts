@@ -90,6 +90,36 @@ export function buildResumenHitosAuditoria(
     }))
 }
 
+/** Conteos globales de presentación MEI (Datos de Auditoría · UI · PDF). */
+export type ConteoCategoriasPresentacion = {
+  cumple: number
+  cumpleConObservaciones: number
+  medianamenteCumple: number
+  noCumple: number
+  noAplica: number
+}
+
+export function conteoCategoriasPresentacion(
+  evaluations: CriterionEvaluation[],
+): ConteoCategoriasPresentacion {
+  const c: ConteoCategoriasPresentacion = {
+    cumple: 0,
+    cumpleConObservaciones: 0,
+    medianamenteCumple: 0,
+    noCumple: 0,
+    noAplica: 0,
+  }
+  for (const row of evaluations) {
+    const cat = categoriaPresentacionFromEvaluation(row)
+    if (cat === "Cumple") c.cumple += 1
+    else if (cat === "Cumple con observaciones") c.cumpleConObservaciones += 1
+    else if (cat === "Medianamente cumple") c.medianamenteCumple += 1
+    else if (cat === "No cumple") c.noCumple += 1
+    else if (cat === "No aplica") c.noAplica += 1
+  }
+  return c
+}
+
 /** Valor tras la etiqueta «Checklist 3.0:» en Datos de Auditoría. */
 export const CHECKLIST_DATOS_AUDITORIA_VALOR = "51 Criterios - 12 Hitos"
 
