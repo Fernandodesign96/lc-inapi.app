@@ -55,10 +55,11 @@ Calibraciones vigentes (Prompt 06): …
 Evalúa SOLO los criterios LC-* de este indicador listados en checklist-criteria-lc-ptd.json.
 Incluye variantes IESD si applicability lo pide.
 Usa el mapa D0: si una unidad candidata toca este indicador, no la ignores.
-Para cada uno: cumple | incumple | no_aplica con evidencia VISIBLE de Playwright.
-Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta; reemplazo o definición según Prompt 06/07).
+Calibraciones C-2026-11-04: origen↔destino; datos clave incompletos = inserción; conceptos oficiales + glosa (no misión/visión); fecha en el pie; eliminar LINK EXTERNO a #; noticias persistentes.
+Para cada uno: cumple | incumple | no_aplica con evidencia VISIBLE de Playwright (esta URL). Destino = contexto, no cita como Texto.
+Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta: glosa/inserción/replicar en destino según Prompt 06/07).
 No evalúes otros indicadores. No calcules el % global.
-Aplica Prompt 06. Entrega filas listas para consolidar.
+Aplica Prompt 06 (hasta C-2026-11-04f). Entrega filas listas para consolidar.
 ```
 
 ## Reconocer estados desde Playwright

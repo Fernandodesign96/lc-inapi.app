@@ -14,7 +14,7 @@ Un mapa de unidades textuales + hallazgos provisionales que alimente a los **15 
 
 ## Importancia
 
-Complementa Prompt 6 (calibraciones Marcas/Portada: tasas, etapas, cobertura, Observancia). Sin este pase, se siguen pasando por alto palabras sueltas y bloques «entendibles» pero incompletos.
+Complementa Prompt 6 (tasas, etapas, cobertura, Observancia, origen↔destino, datos clave incompletos). Sin este pase, se siguen pasando por alto palabras sueltas y bloques «entendibles» pero incompletos.
 
 ## Cableado
 
@@ -31,10 +31,10 @@ Complementa Prompt 6 (calibraciones Marcas/Portada: tasas, etapas, cobertura, Ob
 
 | Nivel | Qué es | Pregunta guía | Corrección típica |
 | --- | --- | --- | --- |
-| **1. Palabra / concepto** | Término suelto o rótulo (ej. «Observancia», «tasas», «Cobertura») | ¿Lo entiende un ciudadano la primera vez? | **O** cambiar el concepto a lenguaje cotidiano **O** agregar definición/descripción breve (paréntesis, guiones, glosa visible) |
+| **1. Palabra / concepto** | Término suelto o rótulo (ej. «Observancia», «tasas», «Cobertura») | ¿Lo entiende un ciudadano la primera vez? | Conceptos oficiales INAPI: **conservar el nombre + glosa** (hover en menú; término+glosa en H1). CTA genéricos: cambiar el rótulo. No reescribir misión/visión/valores (C-2026-11-04c) |
 | **2. Frase breve** | 2–6 palabras (ej. «Tipo de cobertura») | ¿La frase es clara aunque un concepto dentro no lo sea? | Explicar el concepto opaco *in situ*; no dejar solo el rótulo |
 | **3. Frase larga / oración** | Oración completa (ej. pagos de tasas en dos etapas) | ¿Tiene sentido global pero deja dudas por términos no descriptivos? | Reescribir **y** precisar (qué es tasa/derecho/tramitación; cuándo se paga) |
-| **4. Párrafo / lista de etapas** | Varias oraciones o lista numerada | ¿Es «preciso» pero las partes internas no se explican? | Describir cada etapa/parte: qué ocurre, qué hace el usuario, por qué importa; definir jerga interna |
+| **4. Párrafo / lista de etapas** | Varias oraciones o lista numerada | ¿Es «preciso» pero las partes internas no se explican? ¿Faltan dónde / para quién / cuándo / cuánto? | Describir cada etapa; **insertar** las dimensiones de datos clave que falten (C-2026-11-04b). Contrastar con la URL de destino si el bloque es un atajo/tarjeta (C-2026-11-04a) |
 | **5. Criterios de forma** | Sobre la misma unidad | Extensión, densidad, una idea por párrafo, negritas, escaneabilidad (`LC-1.2.2-*`, `LC-1.2.3-*`, `LC-1.2.4-*`, etc.) | Ajustar forma **sin** eliminar la obligación de explicar conceptos |
 
 ## Método (por cada unidad del inventario)
@@ -43,7 +43,7 @@ Complementa Prompt 6 (calibraciones Marcas/Portada: tasas, etapas, cobertura, Ob
 2. **Subir de nivel**: ver si esa unidad vive en frase → oración → párrafo.  
 3. **Acumular contexto** hasta tener suficiente para proponer.  
 4. **Elegir criterio(s)** `LC-*` aplicables (lenguaje plano, claridad, completitud, escritura web, concisión, legibilidad…).  
-5. **Proponer** según Prompt 6: reemplazo **o** definición; etapas/pagos **completos y descritos**; títulos que anticipen contenido; atajos con descripción breve.  
+5. **Proponer** según Prompt 6: término oficial + glosa (no borrar Observancia/PCT/Madrid/Sello); etapas/pagos **completos** (todos los montos); títulos que anticipen contenido; atajos con hover; en hubs, copy alineado al destino.  
 6. **Registrar** en el mapa de salida (no escribir aún el JSON final de 51 filas).
 
 ## Salida del pase (mapa para Paso D)
@@ -63,6 +63,6 @@ El agente raíz y los subagentes 1–15 **deben consumir este mapa**; no descart
 ## Prohibido
 
 - Saltar directo al párrafo sin haber mirado palabras/conceptos opacos.  
-- «Pulir» la oración dejando la misma jerga sin definir.  
+- «Pulir» la oración dejando la misma jerga sin definir, o borrar un concepto oficial para «simplificar».  
 - Inventar defectos fuera del VISIBLE.  
 - Usar JSON antiguos como atajo (Prompt 6 reauditoría completa).

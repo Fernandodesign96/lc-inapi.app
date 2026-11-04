@@ -16,7 +16,7 @@ Skill para que Claude Code lance e instruya al **subagente de análisis textual 
 | --- | --- |
 | `../prompts/07-analisis-texto-ascendente.md` | Contrato de niveles y mapa de salida |
 | `../prompts/05-audit-maestro-url.md` | Paso D0 |
-| `../prompts/06-calibracion-hallazgos.md` | Tasas, etapas, Observancia, cobertura, rigor UX |
+| `../prompts/06-calibracion-hallazgos.md` | Tasas, etapas, Observancia, cobertura, origen↔destino, datos clave, rigor UX |
 | `../CLAUDE.md` | §17.1bis · §20 · §22 |
 | `03-instrucciones-subagentes-instrumentos.md` | Los 15 indicadores **usan** este mapa |
 | `02-lenguaje-entrega-cms.md` | Tono de `propuesta_cms` |
@@ -30,17 +30,17 @@ URL: … | tipo_pagina: … | captura_con_sesion: …
 Entrada: inventario R+U completo (VISIBLE) + Prompt 6 vigente.
 
 Método OBLIGATORIO (ascendente):
-1) Palabras/conceptos técnicos o jurídicos (Observancia, tasas, derechos, cobertura, examen de forma/fondo, extracto, Diario Oficial, tramitación, Anotación, etc.).
-2) Frases breves que los contienen (ej. «Tipo de cobertura»).
+1) Palabras/conceptos técnicos o jurídicos (Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT, tasas, derechos, cobertura, examen de forma/fondo, extracto, Diario Oficial, tramitación, Anotación, etc.).
+2) Frases breves que los contienen (ej. «Tipo de cobertura», «Para Informarse»).
 3) Oraciones (ej. pagos de tasas en dos etapas).
-4) Párrafos / listas de etapas / bloques UI (tipos de marca, cobertura con +).
+4) Párrafos / listas de etapas / bloques UI (tipos de marca, cobertura con +). En hubs: abrir destino (1 clic) y contrastar H1/cuerpo.
 5) Criterios de forma sobre esas mismas unidades (extensión, una idea, escaneo).
 
 Por cada unidad opaca o incompleta:
 - criterios_candidatos LC-*
 - diagnóstico en lenguaje claro
-- propuesta_cms: O cambiar el concepto a lenguaje cotidiano O agregar definición/descripción breve entendible; si hay etapas/pagos, describir qué ocurre y qué debe hacer el usuario.
-- No te quedes solo en «mejorar la redacción» si el concepto sigue sin explicarse (Prompt 6 Marcas).
+- propuesta_cms: conservar el nombre oficial + glosa (hover en menú; término+glosa en H1). CTA genéricos sí se cambian. Si hay etapas/pagos, listar todos y decir qué ocurre. Si el bloque responde qué/cómo pero faltan dónde/quién/cuándo/cuánto: insertar, no solo reescribir. No reescribir misión/visión/valores.
+- No te quedes solo en «mejorar la redacción» si el concepto sigue sin explicarse o si el destino contradice el hub (Prompt 6 C-2026-11-04).
 
 Salida: mapa tabular unidad_id | nivel | texto | ubicación | criterios | diagnóstico | propuesta | contexto_superior.
 No calcules el % global. No escribas el JSON canónico de 51 filas (eso lo consolidan los 15 + raíz).
@@ -64,4 +64,4 @@ No calcules el % global. No escribas el JSON canónico de 51 filas (eso lo conso
 
 ## Efecto deseado
 
-Menos omisiones en Marcas/Portada/trámites: cada término opaco deja rastro y una corrección accionable para CMS.
+Menos omisiones en Marcas/Portada/trámites: cada término opaco deja rastro (nombre + glosa), las tarjetas incompletas ganan dónde/quién/cuánto, y el copy del hub no contradice la página de destino.

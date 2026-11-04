@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-11-04 | [Calibración C-2026-11-04a–f — origen↔destino, datos clave, conceptos oficiales, pie, LINK EXTERNO, noticias](#devlog-2026-11-04-calibracion-origen-destino) |
 | 2026-10-21 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría por rotación del listado, rechazado 61,5 %](#devlog-2026-10-21-sala-de-prensa-noticias-reaudit-rotacion) |
 | 2026-09-30 | [Infraestructura: Portada www.inapi.cl — reauditoría por rotación de Novedades (tarjeta PAI), rechazado 75,6 %](#devlog-2026-09-30-portada-reaudit-novedades-pai) |
 | 2026-08-27 | [Frontend/docs: cablear META MEI a 11 URLs (landing trámites)](#devlog-2026-08-27-meta-mei-11-urls) |
@@ -115,6 +116,24 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-11-04-calibracion-origen-destino"></a>
+## [2026-11-04] - Calibración | C-2026-11-04a–f — consistencia origen↔destino y criterios de datos clave
+
+### Contexto y objetivos:
+
+Equipo UX entregó correcciones manuales (Portada/sitio, Marcas, Sala de Prensa). Hay que persistirlas para que Claude Code no vuelva a proponer copy desalineado entre hubs y destinos, ni reescriba textos fijados por ley.
+
+### Implementación técnica:
+
+- Prompt 6: **C-2026-11-04a** (abrir destino 1 clic; un JSON por URL; replicar copy), **b** (inserción dónde/quién/cuándo/cuánto), **c** (nombre oficial + glosa; no misión/visión/valores), **d** (fecha «Actualizado» en el pie), **e** (eliminar `LINK EXTERNO` `a.btn.rojo` `href="#"`), **f** (noticias persistentes; fechas con «de»; «Home» → «Inicio»).
+- Prompt 5 (reglas duras, Paso A y D0), skills 02/03/05/06, Prompt 7, CLAUDE.md §2/§6/§17.1bis/§22.11–§22.12.
+
+### Próximos pasos:
+
+- Aplicar en la próxima auditoría de hubs (Marcas, Patentes, Portada, Sala de Prensa) y en destinos «Para informarse» / Observancia / PCT cuando toque su sesión.
 
 ---
 

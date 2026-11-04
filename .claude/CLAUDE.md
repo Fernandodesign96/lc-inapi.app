@@ -119,10 +119,10 @@ JSON históricos `version_checklist: "2.1"` (47 A–H) y `"1.1"` (39) siguen vá
 - **LC-1.1.7-01 / RUN:** RUT de **persona jurídica pública** (ej. `65.999.669-3` de INAPI en footer) → `cumple`. RUN de persona natural en **HTML estático público** → `incumple`, `severidad: alta`.
 - **Sesión autenticada (`captura_con_sesion: true`):** datos del solicitante logueado en formularios **no** son incumplimiento de privacidad — son esperables. Evaluar etiquetas, ayudas y claridad del trámite. Ver §19.
 - **LC-1.2.4-05 — mayúsculas:** ítems `ACCESOS` y `BUSCADOR` de la cabecera global de `www.inapi.cl` quedan **excluidos** (plantilla). Aplicar en el resto y en `tramites.inapi.cl`.
-- **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer. **Ausencia total → `severidad: alta` (No cumple)** (C-2026-08-25f); no usar `media`.
-- **LC-1.1.2-03 — datos clave:** aplica a páginas informativas/institucionales con cuerpo; **no** marcar `no_aplica` por «no es trámite» (eso es `LC-1.1.2-04` / criterio 13) — C-2026-08-25e. Si Texto = «No hay texto que cumpla…» → **`severidad: alta` (No cumple)** — C-2026-08-25g.
+- **LC-1.1.4-01 — fecha:** si no hay fecha visible, `(ausencia)` en `cita_textual` y proponer línea visible. **Nunca** sustituir por `©año` del footer **solo**. **Sí cumple** una línea propia «Actualizado: DD de mes de AAAA» **en el pie**, junto al copyright (C-2026-11-04d). **Ausencia total → `severidad: alta` (No cumple)** (C-2026-08-25f); no usar `media`.
+- **LC-1.1.2-03 — datos clave:** aplica a páginas informativas/institucionales con cuerpo; **no** marcar `no_aplica` por «no es trámite» (eso es `LC-1.1.2-04` / criterio 13) — C-2026-08-25e. Si Texto = «No hay texto que cumpla…» → **`severidad: alta` (No cumple)** — C-2026-08-25g. En hubs (Marcas/Patentes/Portada) y destinos «Para informarse»: si el bloque cubre qué/cómo pero faltan dónde/para quién/cuándo/cuánto → **inserción**, no solo reescritura (C-2026-11-04b). En hubs, abrir la URL de destino (1 clic) y alinear copy; Texto en pantalla = solo esta URL (C-2026-11-04a).
 - **LC-1.3.1-01 — visualización / apoyos visuales:** responde **solo** «¿hay íconos, imágenes, gráficos o infografías para presentar datos?». Si la portada (u otra URL) ya muestra banners, tarjetas con foto, íconos de sección, gráficos → **`cumple`**, citando en `comentario` qué apoyos se vieron. **`incumple`** solo si faltan apoyos donde los datos lo requieren («faltan gráficos/íconos/imágenes…»). **Prohibido** incumplir este id por `alt` vacío, `alt` genérico, enlace solo-ícono o WCAG: eso **no** es la pregunta del instrumento; anotar en `nota_final_tic` (lenguaje CMS) si conviene, **sin** fila de `sustituciones[]` bajo `LC-1.3.1-01` y **sin** bajar el %. No marcar `incumple` porque Playwright “no encontró” un apoyo que sí es visible: reintentar captura o declarar duda, no inventar fallo.
-- **Títulos, subtítulos, tooltips y jerga visible (LC-1.1.3-03 + LC-1.2.4-02):** el lenguaje plano y los «títulos claros» aplican al **rótulo que se escanea primero** (H1–H3, títulos de tarjeta/sección, ítems de menú, tooltips, textos de íconos), no solo a párrafos largos. Un término legal o técnico como único encabezado (**ej. «Observancia»**) **incumple** jerga / título claro aunque debajo haya un subtítulo explicativo: el subtítulo ayuda, pero quien solo lee el título sigue sin entender. Propuesta CMS: cambiar el título a lenguaje cotidiano **o** dejar el término + glosa breve en el mismo bloque de título (no solo en un párrafo lejano). Revisar también «Dominio Público», «Sistema de Madrid», «Sello de Origen», etc. en menú y secciones. Mismo nodo título → un primario (§20.3); no duplicar el mismo `propuesto` en filas independientes.
+- **Títulos, subtítulos, tooltips y jerga visible (LC-1.1.3-03 + LC-1.2.4-02):** el lenguaje plano y los «títulos claros» aplican al **rótulo que se escanea primero** (H1–H3, títulos de tarjeta/sección, ítems de menú, tooltips, textos de íconos), no solo a párrafos largos. Un término **oficial INAPI** como único encabezado (**ej. «Observancia»**, Sistema de Madrid, Sello de Origen, Dominio Público, PCT) **incumple** si no hay glosa en el mismo bloque: quien solo lee el título no entiende. **Propuesta vigente (C-2026-11-04c):** **conservar el nombre oficial** + glosa (en menú: texto al pasar el cursor / `title`, no `alt` de imagen; en H1 de destino: término + explicación en el mismo título). **No** sustituir el concepto por una frase que lo borre. CTA genéricos («Conoce más», «Acceder») **sí** se relabelan. **Misión, visión y valores** institucionales: no reescribir (texto ligado a la ley). Mismo nodo título → un primario (§20.3); no duplicar el mismo `propuesto` en filas independientes.
 - **Texto + apoyos visuales (escaneo / pirámide, no “diseño UI”):** LC-1.2.4-01/03 evalúan si lo importante se ve primero y si se puede escanear (títulos + tarjetas + íconos que guían). **No** convertir el % LC en auditoría de arquitectura de información completa (peso tipográfico, grilla, jerarquía visual fina): eso es **Usabilidad** (§23); si hay desorden grave que impide entender el mensaje, anotar en `nota_final_tic` en lenguaje CMS y, si aplica, amarrar solo a escaneo/pirámide con evidencia de muro de texto o bloques sin encabezado.
 - **LC-1.1.2-01 vs título visible:** fidelidad título↔contenido sobre el **H1 visible**, no `<title>`/`<meta>` (fuera de entrega).
 - **LC-1.1.2-02 vs LC-1.1.2-04:** páginas vacías / «En construcción» vs suficiencia para autonomía en trámites (`applicability`).
@@ -247,11 +247,13 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | --- | --- | --- |
 | Mayúsculas en navbar | LC-1.2.4-05 | «En el menú lateral, los rótulos MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS están solo en mayúsculas. Cambiar a mayúscula inicial (ej. «Tramitación») para facilitar la lectura.» TI: suele venir del layout compartido. |
 | «Titulos» sin tilde; «Patentes PCT» | LC-1.1.5-01 / LC-1.1.3-05 | «En el menú de Patentes, corregir «Titulos» → «Títulos». Expandir PCT la primera vez o añadir ayuda/tooltip.» |
-| Botones `OK` / `Aceptar` / rótulos ambiguos | LC-5.2.4-01 (todas las URLs) | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. En sitioweb: lo mismo para «Más», «LINK EXTERNO», atajos opacos. |
+| Botones `OK` / `Aceptar` / rótulos ambiguos | LC-5.2.4-01 (todas las URLs) | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. En sitioweb: «Más» / «Conoce más» / «Acceder» → rótulo que diga el destino. El botón «LINK EXTERNO» del panel de acceso (`a.btn.rojo`, `href="#"`) → **eliminar**, no relabelar (C-2026-11-04e). |
 | PDF sin formato/peso/descripción | LC-1.2.4-07 / LC-1.2.4-08 | «Junto al enlace del documento, mostrar título + formato + peso + breve descripción (ej. «Guía de marcas (PDF, 245 KB) — …»).» |
-| Sin fecha de actualización | LC-1.1.4-01 | «Bajo el título de la página, añadir una línea visible: «Actualizado: DD de mes de AAAA». El © del pie no cuenta como fecha de contenido.» |
+| Sin fecha de actualización | LC-1.1.4-01 | «Añadir una línea visible «Actualizado: DD de mes de AAAA» en el pie, junto a «©… Todos los derechos reservados.» El © solo no cuenta como fecha de contenido (C-2026-11-04d).» |
 | Título principal genérico o desalineado | LC-1.1.2-01 | «El título principal de la página debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
-| PCT en menú sin expansión | LC-1.1.3-05 | «La primera vez que aparece PCT en el menú, definirla (tooltip, glosa o página destino), sin convertir el ítem en un párrafo largo.» |
+| PCT / Observancia / Madrid / Sello en menú | LC-1.1.3-05 / LC-1.1.3-03 | Conservar el nombre oficial. Añadir glosa al pasar el cursor en el menú y término+glosa en el H1 de destino. No reescribir misión/visión/valores (C-2026-11-04c). |
+| Hubs y páginas hermana | LC-1.1.2-03 y copy alineado | Abrir destino (Para informarse, Observancia, PCT). Misma definición/etapas/tasas en origen y destino; Texto de esta auditoría = solo esta URL (C-2026-11-04a). |
+| Miga «Home» / fechas de noticia | LC-1.1.5 / listados | «Home» → «Inicio». Fechas de tarjeta: «Martes 20 de octubre de 2026» (C-2026-11-04f). |
 | ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
 ---
@@ -611,13 +613,13 @@ Recorre el inventario R+U en orden **ascendente de granularidad** y produce un *
 
 | Nivel | Unidad | Pregunta guía | Corrección típica |
 | --- | --- | --- | --- |
-| 1 | Palabra / concepto | ¿Lo entiende un ciudadano? | Cambiar el concepto **o** agregar definición/descripción breve |
+| 1 | Palabra / concepto | ¿Lo entiende un ciudadano? | Nombre oficial + glosa; CTA genérico sí se cambia |
 | 2 | Frase breve | ¿Hay un concepto opaco dentro? | Explicar el concepto *in situ* (paréntesis, guiones, glosa) |
 | 3 | Oración | ¿Deja dudas por términos no descriptivos? | Reescribir **y** precisar (tasas, derechos, tramitación…) |
 | 4 | Párrafo / etapas | ¿Es «preciso» pero las partes no se explican? | Describir cada etapa: qué ocurre, qué hace el usuario, por qué |
 | 5 | Forma | Extensión, una idea, escaneo, negritas… | Ajustar forma **sin** dejar de explicar conceptos |
 
-**Ejemplos canónicos (Prompt 6 / Marcas–Portada):** «Observancia»; «Tipo de cobertura»; oración de tasas/derechos; párrafo de tres etapas del registro.
+**Ejemplos canónicos (Prompt 6 / Marcas–Portada):** «Observancia» (conservar + glosa); «Tipo de cobertura»; oración de tasas/derechos incompleta (añadir dónde/quién/cuánto); párrafo de tres etapas del registro; tarjetas «Para informarse» vs página de destino.
 
 **Salida:** mapa `unidad_id | nivel | texto | ubicación | criterios_candidatos | diagnóstico | propuesta_cms | contexto_superior`.  
 **No** calcula % global ni escribe el JSON de 51 filas.
@@ -1025,9 +1027,9 @@ Evaluar **todos** los criterios ≠ inventar un defecto en cada atajo o ítem de
 
 | Criterio / caso | Regla de realismo |
 | --- | --- |
-| **LC-1.1.2-03** (qué / cómo / dónde / cuándo / para quién) | Aplicar a **párrafos, oraciones o recuadros informativos** del cuerpo (incl. páginas institucionales / hubs / Portada). **No** exigir resumen en ítems cortos de menú/navegación. **Prohibido** `no_aplica` solo porque «no es un trámite» (C-2026-08-25e); eso es `LC-1.1.2-04`. |
-| **LC-1.1.4-01** (fecha) | Sin fecha visible → `incumple` + **`severidad: alta`** (No cumple). `media` solo si la fecha es parcial/ambigua, no si falta por completo (C-2026-08-25f). |
-| **LC-1.1.3-05** (siglas en menú) | Puede incumplir si la sigla aparece sin definición. Preferir propuestas **sutiles** (tooltip/`title`, glosa, definición en destino). |
+| **LC-1.1.2-03** (qué / cómo / dónde / cuándo / para quién) | Aplicar a **párrafos, oraciones, tarjetas o recuadros informativos** del cuerpo (incl. páginas institucionales / hubs / Portada / destinos «Para informarse»). Si cubre qué/cómo y faltan otras dimensiones → **añadirlas** (C-2026-11-04b). **No** exigir el recuadro en ítems cortos de menú (ahí: glosa al pasar el cursor). **Prohibido** `no_aplica` solo porque «no es un trámite» (C-2026-08-25e); eso es `LC-1.1.2-04`. |
+| **LC-1.1.4-01** (fecha) | Sin fecha visible → `incumple` + **`severidad: alta`** (No cumple). `media` solo si la fecha es parcial/ambigua, no si falta por completo (C-2026-08-25f). Línea «Actualizado:…» **en el pie** junto al © = cumple (C-2026-11-04d). |
+| **LC-1.1.3-05** (siglas en menú) | Puede incumplir si la sigla aparece sin definición. Conservar el nombre oficial + tooltip/`title` / glosa; definición también en el H1 de destino (C-2026-11-04c). |
 | **Claridad/Concisión/Legibilidad sobre navegación** | No tratar labels de menú como “oraciones” o “párrafos” a reescribir. |
 | Páginas con poco texto | Es válido `no_aplica` o `cumple` con comentario breve; **no** fabricar `incumple` para “llenar” el checklist. |
 
@@ -1044,9 +1046,9 @@ Si varios criterios apuntan al **mismo** nodo/texto: primario descuenta; secunda
 **Fecha (`LC-1.1.4-01`)** — si no hay fecha visible:
 
 - `estado`: `incumple` · `severidad`: **`alta`** (presentación: No cumple). No usar `media` si la ausencia es total (C-2026-08-25f).
-- `ubicacion_pantalla`: zona donde debe ir (ej. «Bajo el título principal › línea de metadatos de la página»).
-- `propuesto` (instrucción): `Añadir texto visible: «Publicado: DD de mes de AAAA» o «Actualizado: DD de mes de AAAA» (usar la fecha real de publicación/revisión).`
-- No usar solo el © del pie como sustituto de fecha de actualización.
+- `ubicacion_pantalla`: pie de página, junto a la línea de copyright (ubicación acordada C-2026-11-04d). En listados, puede coexistir con las fechas de cada noticia.
+- `propuesto` (instrucción): `Añadir texto visible en el pie, junto a «©… Todos los derechos reservados.»: «Actualizado: DD de mes de AAAA».`
+- No usar solo el © del pie como sustituto de fecha de actualización. Una línea propia «Actualizado:…» **en el pie sí cumple**.
 
 **Documento descargable (`LC-1.2.4-07` + `LC-1.2.4-08`)** — el `propuesto` debe cubrir **siempre** título + formato + peso + descripción:
 
@@ -1060,7 +1062,7 @@ Si Claude Code **no puede** conocer formato o peso exactos (enlace roto, descarg
 - `motivo`: decir qué faltó medir y que el CMS debe completar formato/peso reales.
 - **Prohibido** inventar KB/MB.
 
-**Atajo / ítem de menú** — `ubicacion_pantalla` debe nombrar la zona del menú y el label exacto; `propuesto` = texto corto pegable **o** instrucción de interacción (tooltip WCAG), no un párrafo de cuerpo editorial.
+**Atajo / ítem de menú** — `ubicacion_pantalla` debe nombrar la zona del menú y el label exacto. Conceptos oficiales: conservar el rótulo + **texto al pasar el cursor** (`title` / tooltip; no `alt` de imagen). CTA genéricos: cambiar el rótulo. No un párrafo de cuerpo editorial en el menú (C-2026-11-04c).
 
 ### 22.12 Gate de consolidación §22 (agente raíz) — checklist duro
 
@@ -1090,6 +1092,12 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 22. Texto/Ubicación/Propuesto/Justificación con literales, `alt` no visible o hechos de **otra URL** / JSON de otra auditoría (C-2026-08-25l).
 23. Mismo `propuesto` o misma justificación clonada en criterios distintos (p. ej. 12/13/15) sin complementar ni agrupar §20.3 con propuesto idéntico (C-2026-08-26a).
 24. Avanzar de criterio sin contrastar filas ya escritas en el mismo JSON (C-2026-08-26a).
+25. Hub (Marcas/Patentes/Portada/Sala de Prensa) sin abrir destino de 1 clic ni indicar replicar el copy (C-2026-11-04a).
+26. Datos clave: reescritura de qué/cómo sin añadir dónde/quién/cuándo/cuánto cuando faltan (C-2026-11-04b).
+27. Borrar un concepto oficial (Observancia, Madrid, Sello de Origen, Dominio Público, PCT) o reescribir misión/visión/valores (C-2026-11-04c).
+28. Proponer fecha solo «bajo el H1» e insistir que el pie no vale, o tratar el © solo como fecha (C-2026-11-04d).
+29. Relabelar «LINK EXTERNO» (`href="#"`) en vez de eliminarlo (C-2026-11-04e).
+30. Dejar sin corregir una noticia porque ya no está en el listado; fechas de tarjeta sin «de»; miga «Home» (C-2026-11-04f).
 
 ---
 

@@ -23,10 +23,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Procedimiento
 
-1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-08-26a inclusive**).  
+1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-04f inclusive**).  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
-4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir o reemplazar (Prompt 6 Marcas); usar el mapa D0 (Prompt 7).  
+4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir. Conceptos oficiales: **mismo nombre + glosa** (C-2026-11-04c); no reescribir misión/visión/valores. Usar el mapa D0 (Prompt 7).  
 5. **Varias correcciones por criterio:** si el mismo `LC-*` falla en varios textos, el JSON debe tener N filas en `sustituciones[]`; UI/PDF/Excel las muestran todas (Prompt 6 C-2026-08-22 entrega).  
 6. **Ubicación CMS (C-2026-08-24):** `ubicacion_pantalla` = `Zona › elemento › «rótulo»`; prohibido «el enlace» / «el bloque». Entrega: ausencia → «No hay texto que cumpla con este requisito». PDF editorial **sin** «Nota para el equipo TI».  
 7. **Entrega solo literales (C-2026-08-25 / 25b):** sin `Tnnn` / mapa D0 / Prompt N / `C-YYYY` / **`LC-*`** / códigos IEW-IESD en campos CMS; referencias «criterio N»; encabezado `— Instrumento M: Nombre`; `cumple` con evidencia; propuestas accionables (nunca «Corregir incumplimiento de LC-…»); Trámites Marcas → frases/subtítulo.  
@@ -40,9 +40,15 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 15. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto citas entre comillas que la narración niega; no usar meta `(once párrafos…)` como Texto/original.  
 16. **Escaneo ≠ negritas + literales de esta URL (C-2026-08-25l):** 38 ≠ 39; no cruzar filas de negrita al escaneo; una fila de negrita por párrafo distinto; Texto/Ubicación/Propuesto/Justificación solo con lo literal/visible de la URL auditada (prohibido alt no visible o datos de otra URL).  
 17. **No repetir entre criterios (C-2026-08-26a):** al cerrar cada criterio, contrastar con filas/justificaciones ya escritas; propuesto/justificación complementarios o agrupación solo si el propuesto es idéntico; rigor a la pregunta del instrumento.  
-18. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-19. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-20. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+18. **Origen ↔ destino (C-2026-11-04a):** en hubs, leer la URL de destino (1 clic); alinear definiciones, etapas, tasas y H1/miga; Texto en pantalla = solo esta URL; replicar el propuesto en el destino vía motivo/`nota_final_tic`.  
+19. **Datos clave incompletos (C-2026-11-04b):** tarjetas que solo cubren qué/cómo → añadir dónde, para quién, cuándo y cuánto (tasas completas, Diario Oficial). Título «Para Informarse» → título que anticipe el contenido.  
+20. **Conceptos oficiales (C-2026-11-04c):** no borrar Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT; glosa al pasar el cursor en menú y término+glosa en H1. CTA genérico sí se cambia. **No** reescribir misión/visión/valores (ley).  
+21. **Fecha en el pie (C-2026-11-04d):** «Actualizado: DD de mes de AAAA» junto al © cumple; el © solo no.  
+22. **LINK EXTERNO (C-2026-11-04e):** `href="#"` → eliminar (selector del panel login).  
+23. **Noticias (C-2026-11-04f):** corregir artículos aunque hayan salido del listado; fechas con «de»; «Home» → «Inicio».  
+24. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+25. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+26. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

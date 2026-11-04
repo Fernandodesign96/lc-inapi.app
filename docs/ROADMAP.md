@@ -1,9 +1,9 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-08-27
+**Última actualización:** 2026-11-04
 
-**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones hasta **C-2026-08-26a**). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
+**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones de esa serie hasta **C-2026-08-26a**). Prompt 6 vigente **hasta C-2026-11-04f** (origen↔destino, datos clave, conceptos oficiales + glosa, fecha en pie, LINK EXTERNO, noticias). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
 
 ### Checklist editorial (ago-2026)
 
@@ -302,6 +302,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] **Reauditoría META MEI 10 URLs a PTD-LC v3.0 (51 `LC-*`)** — rama `feat/resultado-criterios-excel-alineado` (2026-08-25/26): órdenes 1–10 con JSON vigentes `…_2026-08-25`; calibraciones Prompt 6 hasta **C-2026-08-26a**. Cierre orden 10 SIAC `tramites-inapi-cl-siac_2026-08-25` (54,3 %).
 - [x] **META MEI ampliada a 11 URLs** — orden 11 landing Portal de Trámites `https://tramites.inapi.cl/` (`tramites-inapi-cl_2026-08-27`, 66,7 % rechazado, sin sesión). Cableado en `mei-meta-mei-urls.ts`, UI `/auditar`, launch, Excel consolidado (11/11).
 - [x] **Excel MEI — pestaña Hitos-Tareas-Criterios** — misma rama: URL \| Hito \| Tarea \| Criterio \| Estado \| descripciones (alineado a resumen por hito UI/PDF); en export por URL y en consolidado (bloques por URL). Regenerar archivo institucional con JSON vigentes pendiente de descarga/entrega.
+- [x] **Calibración C-2026-11-04a–f** (2026-11-04): consistencia origen↔destino, datos clave incompletos, conceptos oficiales + glosa (sin reescribir misión/visión/valores), fecha en pie, eliminar LINK EXTERNO, noticias persistentes — Prompt 6 + maestro + skills.
 - [ ] **Muestra “estándar de oro”** (1–2 URLs) con §22+§23; luego Excel MEI regenerado coherente con los JSON v3.0 vigentes.
 - [ ] **Post-Excel LC:** incorporar Usabilidad y Seguridad (mismo Word/JSON) para cierre de año.
 

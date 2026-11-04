@@ -34,6 +34,83 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Entradas vigentes (actualizar en cada hallazgo)
 
+### C-2026-11-04a — Consistencia origen ↔ destino (hubs y páginas de detalle)
+
+- **Origen:** revisión manual UX oct-2026 (Portada, Marcas, Sala de Prensa): las tarjetas «Para informarse», Observancia, PCT y noticias resumen un contenido que vive en otra URL. Corregir solo el hub deja la página de destino desactualizada (p. ej. `/marcas` vs `/marcas/para-informarse?acordeon=1`; menú «Observancia» vs `/protege-tu-idea/pirateria-y-falsificacion`; «PCT» vs `/pct`).
+- **Regla:**
+  1. En **hubs** (Marcas, Patentes, Portada, Sala de Prensa) el Paso A/B debe inventariar los enlaces informativos de 1 clic (tarjetas, atajos, menú) y **abrir con Playwright la URL de destino** para leer título (H1), miga de pan y cuerpo. **No** es una segunda auditoría de 51 criterios: es evidencia para alinear copy.
+  2. Si se propone un texto en el origen (definición, etapas, tasas, glosa de concepto), el mismo `propuesto` debe **indicar replicarlo** en la página de destino (H1, miga de pan, primer párrafo o acordeón). `ubicacion_pantalla` de esta URL = zona del origen; en `motivo` / `nota_final_tic`: «Aplicar el mismo texto en [URL destino]».
+  3. **Datos clave (criterio 12):** evaluar el par origen+destino juntos. Si el hub cubre qué/cómo y el destino ya responde dónde/para quién/cuánto, no inventar un recuadro duplicado en el hub; si **ninguna** de las dos lo cubre, proponer el complemento en el hub **y** en el destino.
+  4. **Texto en pantalla** de esta auditoría = solo literales **visibles en la URL auditada**. Lo leído en el destino no se cita como si estuviera aquí (sigue C-2026-08-25l). Sirve para no contradecir ni omitir la página hermana.
+  5. Sigue **una URL = un JSON**. La página de destino se reaudita en su propia sesión; el origen ya deja el copy alineado para el CMS.
+- **Ejemplo malo:** reescribir «Qué es una marca» solo en `/marcas` y dejar el acordeón de «Para informarse» con la definición jurídica antigua.
+- **Ejemplo bueno:** misma definición cotidiana en la tarjeta del hub y en `/marcas/para-informarse`; H1 de `/pct` = «PCT: Tratado de Cooperación en materia de Patentes» + miga de pan alineada.
+- **Aplica a:** todas las sitioweb con atajos/tarjetas hacia otra URL del mismo sitio.
+- **estado:** vigente
+
+### C-2026-11-04b — Datos clave incompletos: añadir dónde, para quién, cuándo y cuánto (`LC-1.1.2-03`)
+
+- **Origen:** Marcas «Para Informarse» (qué es / cómo registrar / tasas) y Portada / Sala de Prensa sin recuadro. Las tarjetas actuales cubren **qué** y **cómo**; faltan **dónde**, **quiénes**, **cuándo** y **cuánto** (p. ej. publicación en el Diario Oficial como pago aparte; 1 UTM / 2 UTM).
+- **Regla (complementa C-2026-08-25e y C-2026-08-21 tasas):**
+  1. No basta reescribir el párrafo que ya existe. Si faltan dimensiones del criterio 12 → **inserción** (título que anticipe, frase bajo la tarjeta, o recuadro). Ausencia total de resumen → `severidad: alta`.
+  2. En hubs de trámite informativo (Marcas/Patentes), el título genérico «Para Informarse» no anticipa contenido: proponer p. ej. «Todo sobre las marcas: qué son, sus ventajas, cómo registrarlas y cuánto cuesta» (homólogo en Patentes).
+  3. Tasas: listar **todos** los pagos del ciclo (solicitud, publicación, concesión), no solo «inicio y final».
+  4. En listado de noticias: un recuadro breve bajo «Noticias» (qué se publica, para quién, cómo ver anteriores) **además** de la fecha de la página.
+  5. En Portada: además de atajos, un resumen de servicios (qué, cómo, dónde, cuándo, para quién).
+- **Ejemplo malo:** cambiar solo la definición jurídica de «marca» y dejar tasas sin montos ni publicación.
+- **Ejemplo bueno:** tarjeta «Cómo registrar… y quiénes pueden»: tres etapas + personas naturales/jurídicas; «Pago de solicitud y registro»: 1 UTM / 2 UTM + Diario Oficial.
+- **Aplica a:** sitioweb informativas (hubs, portada, sala de prensa, destinos «para informarse»).
+- **estado:** vigente
+
+### C-2026-11-04c — Conservar conceptos oficiales + glosa; no reescribir misión/visión/valores
+
+- **Origen:** revisión Portada / Marcas / Sala de Prensa. Equipo UX: Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT y homólogos **deben conservar el nombre**; la claridad va en explicación, no en sustituir el término. Misión, visión y valores institucionales **no se reescriben** (texto ligado a la ley).
+- **Regla:**
+  1. **Menú / atajos** (ítems cortos): el rótulo oficial se mantiene. Añadir **texto de ayuda al pasar el cursor** (`title` / tooltip visible; no es `alt` de imagen). Ej.: «PCT: Tratado de Cooperación en materia de Patentes»; «Sistema de Madrid: registra tu marca en otros países»; «Sello de Origen: distingue productos típicos de una zona de Chile»; «Dominio público: buscador de patentes que ya se pueden usar libremente»; «Conecta: muestra tu innovación protegida a posibles interesados»; «Aprende: cursos y capacitaciones sobre propiedad industrial».
+  2. **H1 y título de bloque** de la página de destino: **mismo concepto + glosa en el mismo título** (ej. «Observancia: protege tu marca o patente»; «PCT: Tratado de Cooperación en materia de Patentes»). Luego el cuerpo responde qué / cómo / dónde / para quién (C-2026-11-04a/b).
+  3. **Observancia** en menú: preferir glosa en el mismo rótulo («Observancia: defiende tus derechos de propiedad industrial») o subtítulo visible; no reemplazar «Observancia» por una frase que borre el nombre.
+  4. **CTA genéricos** («Conoce más», «Acceder»): **sí** cambiar el rótulo para decir el destino (no basta hover). Ej. menú «Conoce más» → «Qué es la propiedad intelectual e industrial»; banner Observancia → «Conoce cómo protegerte de la piratería y la falsificación».
+  5. **Misión, visión, valores** y demás copy **legal/institucional fijado por ley:** no proponer reescritura por lenguaje plano. `cumple` (o no puntuar el bloque como defecto de jerga) y, si hace falta, una línea en `nota_final_tic`: el texto no se altera por mandato institucional. **Prohibido** `incumple` solo porque el estilo es formal.
+  6. Nombre de la institución en pie: no inventar una corrección de mayúsculas sobre «industrial» / «Industrial» distinta de lo que Equipo UX fije; si hay duda, no abrir un `incumple` de redacción sobre el nombre legal.
+- **Ejemplo malo:** menú «Observancia» → «Herramientas contra la piratería» (se pierde el concepto oficial).
+- **Ejemplo bueno:** menú conserva «Observancia» + glosa; H1 de destino con el mismo par término+explicación; cuerpo con datos clave.
+- **Aplica a:** todas las sitioweb (menú global = patrón de sitio).
+- **estado:** vigente
+
+### C-2026-11-04d — Fecha de actualización visible en el pie (`LC-1.1.4-01`)
+
+- **Origen:** revisión Portada / Marcas / Sala de Prensa: Equipo UX ubicó «Actualizado: DD de mes de AAAA» **en el footer**, junto a «©2026 INAPI. Todos los derechos reservados.»
+- **Regla (actualiza C-2026-08-25f / C-2026-08 fecha):**
+  1. El **©año solo** sigue **sin** contar como fecha de actualización.
+  2. Una línea **propia** «Actualizado: DD de mes de AAAA» (fecha real) **sí cumple**, aunque esté en el pie. Proponer esa ubicación (no insistir solo «bajo el H1») salvo que la página ya tenga fecha de listado/noticia que deba coexistir.
+  3. En un **listado de noticias**, las fechas de cada tarjeta no sustituyen la fecha de la **página**; puede ir en pie o bajo el subtítulo «Noticias», en línea propia.
+  4. Ausencia total → `incumple` + `severidad: alta`.
+- **Aplica a:** todas.
+- **estado:** vigente
+
+### C-2026-11-04e — Botón «LINK EXTERNO»: eliminar, no solo relabelar
+
+- **Origen:** revisión Marcas (panel de acceso/registro). El botón `a.btn.rojo` con texto «LINK EXTERNO» apunta a `href="#"`: no redirige y está en mayúscula sostenida.
+- **Regla:**
+  1. Si el control no tiene destino real → propuesta tipo **eliminación**, no un rótulo más claro hacia ninguna parte.
+  2. En `ubicacion_pantalla`: panel de acceso y registro «INAPI» › junto a «Usuario Frecuente» y «Registro». En apoyo TI (`html_linea_aprox` / `nota_final_tic`): `header › div.box-login › div.contenido-login › a.btn.rojo` (`body.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo`).
+  3. Patrón de sitio: una corrección en el layout cubre todas las URLs.
+- **Aplica a:** todas las `www.inapi.cl` con el panel de login.
+- **estado:** vigente
+
+### C-2026-11-04f — Noticias y listados: lenguaje claro persistente; fechas con «de»; «Home» → «Inicio»
+
+- **Origen:** revisión Sala de Prensa y Portada (Novedades). El listado rota; las noticias salen de pantalla pero siguen publicadas por fecha.
+- **Regla:**
+  1. Corregir título, bajada y cuerpo de las noticias **aunque ya no estén en el listado vigente**; el CMS debe aplicarlas al artículo. Las **nuevas** noticias se redactan así desde el origen: sin jerga jurídico-técnica sin glosa; siglas desarrolladas en la primera aparición de **cada** tarjeta (se leen sueltas); oraciones cortas; negrita en datos clave del extracto.
+  2. Fechas de tarjetas: «Martes 20 **de** octubre de 2026» (preposición «de» entre día y mes). Patrón de plantilla CMS.
+  3. Miga de pan: «Home» → «Inicio» (patrón de sitio).
+  4. Títulos/migas/pestañas/botones del listado: no mayúscula sostenida (siguen excluidos `ACCESOS` y `BUSCADOR`).
+  5. Listas con viñetas usadas como **ejemplo visual** (p. ej. cuenta pública) no se tratan como «párrafos» del criterio de extensión si se distinguen tipográficamente del cuerpo.
+  6. Unificar «propiedad industrial» vs «propiedad intelectual» en la misma noticia si el título dice una y el extracto la otra.
+- **Aplica a:** Portada (Novedades), Sala de Prensa, detalle de noticia, buscador de noticias.
+- **estado:** vigente
+
 ### C-2026-08-22 — Aplicabilidad IEW/IESD en URLs `tramites`
 
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
@@ -180,7 +257,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
   - Evaluar: `cumple` / `incumple` (+ sustituciones) según evidencia visible; `no_aplica` solo si **no hay ningún enlace ni botón** evaluable en la vista (caso extremo).
   - Propuesta CMS: rótulo que diga qué hace o a dónde lleva (ej. «Consultar fecha de pago», «Solicitar certificado», «Ver requisitos de patente»).
 - **Ejemplo malo:** `Justificación: Esta URL es informativa… la variante de rótulos para servicios digitales no corresponde.`
-- **Ejemplo bueno:** citar el rótulo ambiguo («Más», «Anotación», «LINK EXTERNO») + ubicación + propuesta descriptiva.
+- **Ejemplo bueno:** citar el rótulo ambiguo («Más», «Anotación») + ubicación + propuesta descriptiva. Si el control es «LINK EXTERNO» a `href="#"` → **eliminar** (C-2026-11-04e), no inventar un destino.
 - **Aplica a:** todas.
 - **estado:** vigente
 
@@ -195,7 +272,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 ### C-2026-08-22 — Análisis textual ascendente obligatorio (palabra → párrafo)
 
 - **Origen:** omisiones recurrentes en Marcas/Portada (Observancia, cobertura, tasas/derechos, etapas del registro) pese a calibraciones puntuales.
-- **Regla:** en cada URL, **antes** de los 15 subagentes, ejecutar Prompt **7** + skill **06** (§17.1bis): analizar de menor a mayor granularidad; proponer reemplazo **o** definición/descripción; no «pulir» jerga sin explicar; si un párrafo lista etapas, describir qué ocurre en cada una. El mapa D0 alimenta a los 15 indicadores.
+- **Regla:** en cada URL, **antes** de los 15 subagentes, ejecutar Prompt **7** + skill **06** (§17.1bis): analizar de menor a mayor granularidad; conceptos oficiales = **nombre + glosa** (C-2026-11-04c); no «pulir» jerga sin explicar; si un párrafo lista etapas, describir qué ocurre y completar dónde/quién/cuánto si faltan (C-2026-11-04b). En hubs, contrastar destino (C-2026-11-04a). El mapa D0 alimenta a los 15 indicadores.
 - **Aplica a:** todas.
 - **estado:** vigente
 
@@ -234,7 +311,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 - **Origen:** revisión Portada (refuerza calibración de jerga en título).
 - **Regla:**
-  1. Título **«Observancia»** (o solo jerga legal como rótulo) → incumplir lenguaje plano / escritura web (`LC-1.1.3-03`, `LC-1.2.4-02` u homologables): proponer título cotidiano o término + glosa en el mismo bloque.
+  1. Título **«Observancia»** (o solo jerga legal como rótulo) → incumplir lenguaje plano / escritura web (`LC-1.1.3-03`, `LC-1.2.4-02` u homologables). **Propuesta vigente (C-2026-11-04c):** conservar el término oficial **y** añadir glosa en el mismo bloque o H1 (ej. «Observancia: protege tu marca o patente»). **No** sustituir el nombre por una frase que lo borre.
   2. Subtítulo **«Conoce y utiliza las herramientas de protección de la Propiedad Intelectual en Chile»** → evaluar claridad/cercanía; si «Propiedad Intelectual» / formulación densa no ayuda al público general → `incumple` + propuesta más llana (qué protege, para quién).
 - **Aplica a:** Portada y bloques homólogos en sitioweb.
 - **estado:** vigente
@@ -243,8 +320,8 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 - **Origen:** revisión Marcas (`/marcas`) — tasas/derechos y etapas del procedimiento.
 - **Regla:** si el texto usa conceptos INAPI/jurídicos (**tasas**, **derechos**, **examen de forma**, **examen de fondo**, **extracto**, **Diario Oficial**, etc.), **no** alcanza con reordenar o acortar la oración dejando la misma jerga. La propuesta CMS debe:
-  1. Preferir **reemplazo** por lenguaje cotidiano cuando el término no sea indispensable; **o**
-  2. Si el concepto debe conservarse: **definir o describir en breve** qué es y para qué sirve (1–2 frases claras), en el mismo bloque o como glosa visible.
+  1. **Nombres oficiales de programa/figura** (Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT): **conservar** + glosa (C-2026-11-04c). **No** reemplazar el nombre.
+  2. Otros términos (tasas, derechos, extracto, exámenes): **definir o describir en breve** qué es y para qué sirve (1–2 frases), en el mismo bloque; reemplazo cotidiano solo si el término **no** es el nombre oficial de un servicio o figura legal.
 - **Ejemplo malo:** «pagos de tasas o derechos…» → «pagos de tasas…» (sigue sin explicar qué es una tasa).
 - **Ejemplo bueno:** explicar qué pagos existen, cuándo se pagan y qué cubren (p. ej. presentación, publicación, registro), en lenguaje ciudadano.
 - **Aplica a:** todas (esp. páginas de trámites/información de marcas y patentes).
@@ -293,7 +370,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-08 — Fecha de actualización (`LC-1.1.4-01`)
 
-- **Regla:** sin fecha visible → `(ausencia)` / `(sin fecha de actualización visible)` + propuesta de línea visible. **Nunca** usar `©año` del footer como “fecha de actualización”. **Severidad:** ausencia total → `alta` (No cumple); ver C-2026-08-25f.
+- **Regla:** sin fecha visible → `(ausencia)` / `(sin fecha de actualización visible)` + propuesta de línea visible. **Nunca** usar `©año` **solo** como fecha de actualización. **Sí** cumple una línea propia «Actualizado: DD de mes de AAAA» en el pie, junto al copyright (C-2026-11-04d). **Severidad:** ausencia total → `alta` (No cumple); ver C-2026-08-25f.
 
 ### C-2026-08 — Visualización / apoyos (`LC-1.3.1-01`)
 
@@ -305,7 +382,7 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-08 — Título con jerga (`LC-1.1.3-03` + `LC-1.2.4-02`)
 
-- **Regla:** un término legal solo como H1/título de tarjeta (ej. «Observancia») incumple aunque debajo haya subtítulo. Propuesta: título cotidiano o término + glosa en el mismo bloque. *(Complementada por C-2026-08-21 Portada Observancia.)*
+- **Regla:** un término legal solo como H1/título de tarjeta (ej. «Observancia») incumple aunque debajo haya subtítulo. Propuesta vigente: **término oficial + glosa** en el mismo bloque/H1 (C-2026-11-04c), no borrar el nombre. *(Complementada por C-2026-08-21 Portada Observancia.)*
 
 ### C-2026-08 — Evidencia solo VISIBLE
 
@@ -400,4 +477,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (… **C-2026-08-25d…j** incluidas); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-04f**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
