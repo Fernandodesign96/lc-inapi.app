@@ -7,6 +7,27 @@ import {
   type StrictAuditRecord,
 } from "./checklist"
 
+/** Ancla para captura Playwright de evidencia visual anotada. */
+export const evidenciaVisualPasoSchema = z.object({
+  /** `hover` abre menús desplegables; `click` abre modales/acordeones. */
+  action: z.enum(["click", "hover"]),
+  ancla: z.string().min(1),
+  ancla_tipo: z.enum(["css", "text", "role"]).optional(),
+})
+
+export const evidenciaVisualSchema = z.object({
+  /** CSS / texto visible / nombre de rol — según `ancla_tipo`. */
+  ancla: z.string().min(1),
+  /** Default: `text`. */
+  ancla_tipo: z.enum(["css", "text", "role"]).optional(),
+  /** Clics previos (abrir menú/modal) antes de capturar. */
+  pasos: z.array(evidenciaVisualPasoSchema).optional(),
+  /** Ruta relativa al repo del PNG anotado (rectángulo + flecha). */
+  imagen: z.string().min(1).optional(),
+})
+
+export type EvidenciaVisual = z.infer<typeof evidenciaVisualSchema>
+
 export const claudeSustitucionSchema = z.object({
   linea: z.string().min(1),
   html_linea_aprox: z.string().optional(),
@@ -32,6 +53,11 @@ export const claudeSustitucionSchema = z.object({
    */
   patron_sistema: z.boolean().optional(),
   motivo: z.string().min(1),
+  /**
+   * Ancla + PNG para Word TI con evidencia visual (rectángulo rojo + flecha).
+   * Opcional: no bloquea auditorías sin captura.
+   */
+  evidencia_visual: evidenciaVisualSchema.optional(),
 })
 
 export type ClaudeSustitucion = z.infer<typeof claudeSustitucionSchema>

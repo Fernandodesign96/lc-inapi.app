@@ -69,7 +69,7 @@ export function sanitizePdfFilename(name: string): string {
  */
 export function auditoriaDescargaFilename(
   audit: Pick<StrictAuditRecord, "url" | "fecha_evaluacion">,
-  ext: "pdf" | "xlsx",
+  ext: "pdf" | "xlsx" | "docx",
 ): string {
   const slug = slugFromAuditUrl(audit.url)
   const fecha = fechaArchivoDesdeEvaluacion(audit.fecha_evaluacion, audit.url)

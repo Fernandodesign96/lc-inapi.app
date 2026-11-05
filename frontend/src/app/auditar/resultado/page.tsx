@@ -139,6 +139,7 @@ function ResultadoInner() {
 
   const [claudeBundle, setClaudeBundle] = useState<ClaudeAuditBundle | null>(null)
   const [claudeFetchError, setClaudeFetchError] = useState<string | null>(null)
+  const [wordDocxAvailable, setWordDocxAvailable] = useState(false)
   const [fixtureAudit, setFixtureAudit] = useState<StrictAuditRecord | null>(null)
   const [fixtureFetchError, setFixtureFetchError] = useState<string | null>(null)
   const [importedAudit, setImportedAudit] = useState<StrictAuditRecord | null>(null)
@@ -249,6 +250,25 @@ function ResultadoInner() {
       cancelled = true
     }
   }, [claudeAuditId])
+
+  useEffect(() => {
+    if (!claudeAuditId) return
+    let cancelled = false
+    fetch(
+      `/api/claude-audits/${encodeURIComponent(claudeAuditId)}/export/docx?check=1`,
+    )
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        const body = (await r.json()) as { exists?: boolean }
+        if (!cancelled) setWordDocxAvailable(Boolean(body.exists))
+      })
+      .catch(() => {
+        if (!cancelled) setWordDocxAvailable(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [claudeAuditId, claudeBundle])
 
   const fixtureFetchErrorForDisplay = fixtureId ? fixtureFetchError : null
 
@@ -1142,6 +1162,27 @@ function ResultadoInner() {
                 )
               })()
             : null}
+          {claudeAuditId && claudeAuditForDisplay ? (
+            wordDocxAvailable ? (
+              <Button type="button" asChild>
+                <a
+                  href={`/api/claude-audits/${encodeURIComponent(claudeAuditId)}/export/docx`}
+                  download
+                >
+                  Descargar Word correcciones
+                </a>
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                variant="secondary"
+                disabled
+                title={`Aún no hay Word para esta URL. En el repo: bun run capture:evidencias-visuales -- --audit-id ${claudeAuditId} && bun run generate:word-correcciones -- --audit-id ${claudeAuditId}`}
+              >
+                Word correcciones (pendiente)
+              </Button>
+            )
+          ) : null}
           <Button type="button" variant="outline" asChild>
             <Link href="/auditar">Nueva auditoría</Link>
           </Button>

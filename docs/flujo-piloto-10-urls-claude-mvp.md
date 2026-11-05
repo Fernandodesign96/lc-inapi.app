@@ -59,7 +59,7 @@ Orquestación: Claude Code §17 · checklist **v3.0** (51 `LC-*`) en todas las f
 | 7 | Listado últimas noticias | Sala de Prensa — Noticias | `https://www.inapi.cl/sala-de-prensa/noticias` | `sitioweb` | 73,7 % | rechazado | `www-inapi-cl-sala-de-prensa-noticias_2026-08-25` | **3.0** |
 | 8 | Últimas noticias (detalle 1/2) | Noticia — Cuenta Pública Participativa 2026 | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial` | `sitioweb` | 59,0 % | rechazado | `www-inapi-cl-noticia-cuenta-publica-2026_2026-08-25` | **3.0** |
 | 9 | Últimas noticias (detalle 2/2) | Noticia — Cifra histórica de patentes nacionales | `https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada` | `sitioweb` | 62,5 % | rechazado | `www-inapi-cl-noticia-cifra-patentes-nacionales_2026-08-25` | **3.0** |
-| 10 | Formulario (trámites) | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 54,3 % | rechazado | `tramites-inapi-cl-siac_2026-08-25` | **3.0** |
+| 10 | Formulario (trámites) | Formulario Contacto SIAC | `https://tramites.inapi.cl/siac` | `tramites` | 57,1 % | rechazado | `tramites-inapi-cl-siac_2026-08-25` | **3.0** |
 | 11 | Landing Portal de Trámites | Portal de Trámites (landing) | `https://tramites.inapi.cl/` | `tramites` | 66,7 % | rechazado | `tramites-inapi-cl_2026-08-27` | **3.0** |
 
 **Convención `id`:** `slug-desde-url_YYYY-MM-DD` (debe coincidir archivo, campo `"id"` y launch).
