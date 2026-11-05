@@ -111,6 +111,46 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** Portada (Novedades), Sala de Prensa, detalle de noticia, buscador de noticias.
 - **estado:** vigente
 
+### C-2026-11-05a — Plazos/canales con evidencia; copy CMS (no consejos); título ≠ mayúsculas; SIAC
+
+- **Origen:** corrección post-auditoría Formulario Contacto SIAC (URL 10) y Portal de Trámites (URL 11) con evidencia operativa (correo automático al enviar; compromiso de respuesta no superior a 4 días hábiles; disclaimer de datos junto al formulario).
+- **Regla:**
+  1. **Plazos, canales y confirmaciones:** solo con evidencia operativa o literal visible en pantalla. **Prohibido** placeholders tipo `[N] días hábiles`, números inventados o «plazo a confirmar» como si fueran copy final.
+  2. **Corrección propuesta = copy CMS** (texto pegable) o instrucción con literales («Añadir…», «Reemplazar… por…»). **Prohibido** meta-consejos («Hacer que la secuencia…», «asegurar que…», «mejorar la coherencia…») sin el texto exacto de cada ventana/bloque.
+  3. **Formulario SIAC (y análogos):** si hay evidencia de correo automático + compromiso de 4 días hábiles, reflejarlos en intro, FAQ, modal de confirmación y aviso sin sesión. El modal debe mostrar el **número generado** (formato tipo `SIAC…`) y el plazo; no dejar el número vacío en el propuesto.
+  4. **Disclaimer de datos:** junto a RUT / campos personales, con enlace a Política de privacidad; no basta el enlace genérico del pie.
+  5. **Título visible en mayúsculas:** fidelidad del título (`LC-1.1.2-01` / criterio 10) ≠ mayúsculas sostenidas (`LC-1.2.4-05` / criterio 40). Si el título identifica el contenido, el 10 puede `cumple`; tipografía tipográfica queda solo en el 40.
+  6. Sigue vigente C-2026-08-26a: complementar o agrupar solo si el `propuesto` es idéntico; intro ≠ FAQ ≠ confirmación ≠ placeholders.
+- **Ejemplo malo:** propuesto «Hacer que la secuencia de ventanas sea coherente…» / «Recibirá respuesta en [N] días hábiles» / criterio 10 `incumple` solo por mayúsculas del H1.
+- **Ejemplo bueno:** textos CMS del aviso sin sesión y de la confirmación con número `SIAC…` + «4 días hábiles»; criterio 10 `cumple` citando el título visible; mayúsculas en criterio 40.
+- **Aplica a:** trámites/formularios con plazos o confirmación; toda URL al redactar propuestas.
+- **estado:** vigente
+
+### C-2026-11-05b — ClaveÚnica (Estado): no modificar texto ni forma del botón/widget
+
+- **Origen:** revisión Portal de Trámites / accesos con botón «ClaveÚnica»: el componente de acceso lo entrega el Estado (plataforma Clave Única), no el equipo TI de INAPI.
+- **Regla:**
+  1. **Prohibido** proponer cambios de texto, espaciado tipográfico, color, tamaño, icono o layout del **botón/widget de Clave Única** (p. ej. «ClaveÚnica» → «Clave Única»).
+  2. Si el único hallazgo de un criterio es ese botón → `no_aplica` (o `cumple` si el resto del criterio ya está OK) con justificación ciudadana: el control lo define el Estado; fuera del alcance de correcciones CMS/TI INAPI.
+  3. **Sí** se pueden corregir textos **editoriales** de INAPI que mencionen Clave Única en párrafos, ayudas o enlaces propios (p. ej. «Obtener Clave Única en claveunica.gob.cl»), siempre que no alteren el botón/widget del Estado.
+  4. Anotar en `nota_final_tic` si conviene: «Botón Clave Única: sin propuesta; propiedad del Estado.»
+- **Ejemplo malo:** fila `sustituciones[]` con original `ClaveÚnica` / propuesto `Clave Única` sobre el botón de acceso.
+- **Ejemplo bueno:** no crear esa fila; criterio de ortografía `cumple` o `no_aplica` según el resto de la página.
+- **Aplica a:** todas las URLs con acceso Clave Única (trámites y sitioweb).
+- **estado:** vigente
+
+### C-2026-11-05c — Fecha de actualización solo en el pie, junto al ©
+
+- **Origen:** entrega TI / Word de correcciones: la fecha no debe proponerse bajo el H1 ni junto al encabezado del formulario.
+- **Regla (refuerza y precisa C-2026-11-04d):**
+  1. La línea «Actualizado: DD de mes de AAAA» va **únicamente** al final del pie de página, **al lado** de «©AAAA INAPI. Todos los derechos reservados» (mismo bloque de pie).
+  2. **Prohibido** proponerla bajo el título principal, bajo el encabezado del formulario, en el masthead o en un bloque intermedio del cuerpo.
+  3. El © solo **no** cuenta como fecha de contenido; hace falta la línea «Actualizado:…» junto a él.
+- **Ejemplo malo:** «Añadir Actualizado… junto al encabezado del formulario / bajo el H1».
+- **Ejemplo bueno:** «Añadir en el pie, junto a «©2026 INAPI. Todos los derechos reservados»: Actualizado: DD de mes de AAAA».
+- **Aplica a:** todas.
+- **estado:** vigente
+
 ### C-2026-08-22 — Aplicabilidad IEW/IESD en URLs `tramites`
 
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).
@@ -477,4 +517,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-04f**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-05c**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

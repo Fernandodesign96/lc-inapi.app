@@ -8,6 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-11-05 | [Calibración C-2026-11-05b–c + Word Calibri e imagen en columna N°](#devlog-2026-11-05-calibracion-claveunica-fecha-word) |
+| 2026-11-05 | [Frontend/orquestación: Word TI con evidencias visuales anotadas (Playwright + docx)](#devlog-2026-11-05-word-evidencias-visuales) |
+| 2026-11-05 | [Orquestación: SIAC + Portal — evidencia ops, copy CMS y calibración C-2026-11-05a (SIAC 57,1 %)](#devlog-2026-11-05-siac-portal-evidencia-cms) |
 | 2026-11-04 | [Calibración C-2026-11-04a–f — origen↔destino, datos clave, conceptos oficiales, pie, LINK EXTERNO, noticias](#devlog-2026-11-04-calibracion-origen-destino) |
 | 2026-10-21 | [Infraestructura: Sala de Prensa — Noticias www.inapi.cl — reauditoría por rotación del listado, rechazado 61,5 %](#devlog-2026-10-21-sala-de-prensa-noticias-reaudit-rotacion) |
 | 2026-09-30 | [Infraestructura: Portada www.inapi.cl — reauditoría por rotación de Novedades (tarjeta PAI), rechazado 75,6 %](#devlog-2026-09-30-portada-reaudit-novedades-pai) |
@@ -116,6 +119,73 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-11-05-calibracion-claveunica-fecha-word"></a>
+## [2026-11-05] - Calibración | C-2026-11-05b–c + Word Calibri e imagen en columna N°
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+
+Fijar que el botón/widget Clave Única no lo modifica TI INAPI (Estado); que la fecha «Actualizado» solo va junto al © del pie; y que el Word TI use Calibri con la captura dentro de la celda del N° de solicitud.
+
+### Implementación técnica:
+
+- Prompt 6: **C-2026-11-05b** (ClaveÚnica Estado) y **C-2026-11-05c** (fecha solo en pie); Prompt 5, skills 02/05/03, CLAUDE.md §6/§22.12.
+- Portal: retirada S06 ClaveÚnica; `LC-1.1.5-01` → `cumple`; % **69,4 %**. Fecha S05/S06 (SIAC) propuestas solo junto al ©.
+- `generate:word-correcciones`: tipografía **Calibri**; imagen anotada en la columna «N° de solicitud / evidencia visual» (sin anexo). Words 10 y 11 regenerados.
+
+### Próximos pasos:
+
+- Ninguno inmediato para URL 10/11; resto de URLs cuando lleguen VB.
+
+---
+
+<a id="devlog-2026-11-05-word-evidencias-visuales"></a>
+## [2026-11-05] - Frontend/orquestación | Word TI con evidencias visuales anotadas
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+
+Tras cada auditoría, Equipo UX/TI necesita un Word de correcciones con pantallazo por N° de solicitud, marcando con rectángulo y flecha la zona exacta a corregir — además de PDF y Excel.
+
+### Implementación técnica:
+
+- Schema: `evidencia_visual` opcional en `sustituciones[]` (`ancla`, `ancla_tipo`, `pasos` click/hover, `imagen`).
+- Scripts: `capture:evidencias-visuales` (Playwright + overlay rojo `S0N`) y `generate:word-correcciones` (paquete `docx`, tabla 6 cols + anexo de imágenes).
+- Artefactos: `auditorias/evidencias/{auditId}/correcciones.docx` (PNG en `.gitignore`); API `GET/HEAD …/export/docx`; botón **Descargar Word correcciones** en `/auditar/resultado` si el archivo existe.
+- Smoke: Portal `tramites-inapi-cl_2026-08-27` — 12/12 capturas + Word; SIAC `tramites-inapi-cl-siac_2026-08-25` — 19/21 capturas (faltan S03/S05: aviso de mantenimiento no está en el DOM hoy) + Word. Solo estas 2 URLs por ahora; las otras 9 esperan VB de subdirecciones.
+- Prompt 5 Paso F y CLAUDE.md § entrega: pipeline local obligatorio antes del commit cuando hay sustituciones.
+
+### Próximos pasos:
+
+- Cuando lleguen los Word con VB de las URLs 1–9, cablearlos al frontend como descargables y calibrar JSON con esas correcciones finales.
+- Reintentar S03/S05 SIAC si vuelve el aviso de mantenimiento.
+
+---
+
+<a id="devlog-2026-11-05-siac-portal-evidencia-cms"></a>
+## [2026-11-05] - Orquestación | SIAC + Portal — evidencia ops, copy CMS y calibración C-2026-11-05a
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+
+Corregir sin reauditar las propuestas de URL 10 (Formulario Contacto SIAC) y URL 11 (Portal de Trámites) con evidencia operativa real (correo automático al enviar, compromiso de respuesta no superior a 4 días hábiles, disclaimer de datos junto al formulario) y endurecer copy CMS frente a consejos vagos. Persistir la regla para auditorías futuras.
+
+### Implementación técnica:
+
+- SIAC `tramites-inapi-cl-siac_2026-08-25`: criterio 10 (`LC-1.1.2-01`) pasa a `cumple` (fidelidad del título ≠ mayúsculas del criterio 40); se retira S01; plazos `[N]` → **4 días hábiles**; FAQ/confirmación/aviso sin sesión como textos CMS; disclaimer ARCO junto al formulario; PDF 53,8 KB. % LC **57,1 %** (20/35); launch actualizado.
+- Portal `tramites-inapi-cl_2026-08-27`: propuestas S01/S02/S08/S09/S12 a copy pegable; audiencia sin inventar fecha de disponibilidad del servicio.
+- Calibración **C-2026-11-05a** en Prompt 6, Prompt 5, skills 02/03/05 y gate CLAUDE.md §22.12.
+- Word TI en `docs/auditorias-tramites-url-10-y-11/` sincronizados con los `propuesto` del JSON; `validate:claude-audits` OK.
+
+### Próximos pasos:
+
+- Commit/PR de la rama cuando se pida; regenerar Excel MEI con el % SIAC vigente si hace falta para entrega.
 
 ---
 

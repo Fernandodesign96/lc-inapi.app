@@ -3,7 +3,7 @@
 
 **Última actualización:** 2026-11-04
 
-**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones de esa serie hasta **C-2026-08-26a**). Prompt 6 vigente **hasta C-2026-11-04f** (origen↔destino, datos clave, conceptos oficiales + glosa, fecha en pie, LINK EXTERNO, noticias). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
+**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones de esa serie hasta **C-2026-08-26a** + **C-2026-11-05a** SIAC/portal). Prompt 6 vigente **hasta C-2026-11-05c** (plazos/canales, ClaveÚnica Estado, fecha solo en pie ©; además 11-04a–f / 11-05a). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
 
 ### Checklist editorial (ago-2026)
 
@@ -299,7 +299,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [x] **Mapa IEW/IESD pregunta-a-pregunta** (LC · Usabilidad · Seguridad): inventario dual sitios §1/§2/§8 ↔ trámites §5/§1/§7 en `docs/checklist-ptd-v2-mapa.md`.
 - [x] **Checklist Editorial PTD v2.0 actualizado en repo** + `data/checklist-editorial-ptd-v2.json` + §23: preguntas únicas **LC 51 · US 18 · SE 10** (total **79**); META MEI 2026 solo LC → 47 A–H; US/SE tras Excel LC.
 - [x] **§22 reforzado (copy accionable CMS)** — rama `feat/orquestacion-s22-copy-accionable-cms`: §22.8–§22.12; skill + prompts; prompt oro.
-- [x] **Reauditoría META MEI 10 URLs a PTD-LC v3.0 (51 `LC-*`)** — rama `feat/resultado-criterios-excel-alineado` (2026-08-25/26): órdenes 1–10 con JSON vigentes `…_2026-08-25`; calibraciones Prompt 6 hasta **C-2026-08-26a**. Cierre orden 10 SIAC `tramites-inapi-cl-siac_2026-08-25` (54,3 %).
+- [x] **Reauditoría META MEI 10 URLs a PTD-LC v3.0 (51 `LC-*`)** — rama `feat/resultado-criterios-excel-alineado` (2026-08-25/26): órdenes 1–10 con JSON vigentes `…_2026-08-25`; calibraciones Prompt 6 hasta **C-2026-08-26a**. Cierre orden 10 SIAC `tramites-inapi-cl-siac_2026-08-25` (**57,1 %** tras corrección 2026-11-05: criterio 10 cumple + evidencia ops).
 - [x] **META MEI ampliada a 11 URLs** — orden 11 landing Portal de Trámites `https://tramites.inapi.cl/` (`tramites-inapi-cl_2026-08-27`, 66,7 % rechazado, sin sesión). Cableado en `mei-meta-mei-urls.ts`, UI `/auditar`, launch, Excel consolidado (11/11).
 - [x] **Excel MEI — pestaña Hitos-Tareas-Criterios** — misma rama: URL \| Hito \| Tarea \| Criterio \| Estado \| descripciones (alineado a resumen por hito UI/PDF); en export por URL y en consolidado (bloques por URL). Regenerar archivo institucional con JSON vigentes pendiente de descarga/entrega.
 - [x] **Calibración C-2026-11-04a–f** (2026-11-04): consistencia origen↔destino, datos clave incompletos, conceptos oficiales + glosa (sin reescribir misión/visión/valores), fecha en pie, eliminar LINK EXTERNO, noticias persistentes — Prompt 6 + maestro + skills.
@@ -311,7 +311,7 @@ Orden atómico sugerido (un commit / PR slice por ítem; ajustar nombres al plan
 - [ ] Cola local + fuera de horario más robusto; Continuar→job ya cubierto en paso 4
 - [ ] Endurecer túnel y runbook 8–18 para demostración a jefatura / Equipo UX
 
-**Éxito de la Fase 4:** … + Checklist Editorial PTD v2.0/v3.0 en repo; **META MEI 11 URLs** (1–10 v3.0 + orden 11 landing trámites 2026-08-27; calibraciones hasta C-2026-08-26a); Excel con pestaña **Hitos-Tareas-Criterios**. Queda **muestra oro §22+§23**, regenerar Excel MEI con JSON vigentes, luego Usabilidad/Seguridad fin de año, y doc TI.
+**Éxito de la Fase 4:** … + Checklist Editorial PTD v2.0/v3.0 en repo; **META MEI 11 URLs** (1–10 v3.0 + orden 11 landing trámites 2026-08-27; calibraciones hasta C-2026-11-05a); Excel con pestaña **Hitos-Tareas-Criterios**. Queda **muestra oro §22+§23**, regenerar Excel MEI con JSON vigentes, luego Usabilidad/Seguridad fin de año, y doc TI.
 
 ---
 

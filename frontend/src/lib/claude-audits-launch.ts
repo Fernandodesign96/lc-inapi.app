@@ -200,7 +200,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // detectado en el DOM (evidencia positiva de negrita/espaciado y hallazgos de anglicismo/tono).
     claudeAuditId: "tramites-inapi-cl-siac_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 54.3,
+      porcentajeLc: 57.1,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
@@ -221,7 +221,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // Orden 11 de la serie de evaluación institucional (muestra 1…11).
     claudeAuditId: "tramites-inapi-cl_2026-08-27",
     resumenMvp: {
-      porcentajeLc: 66.7,
+      porcentajeLc: 69.4,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-27T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",

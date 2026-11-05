@@ -101,8 +101,11 @@ Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propues
 16. **Origen ↔ destino (C-2026-11-04a):** en hubs, abrir las URLs de destino de tarjetas/atajos; alinear copy; no citar literales del destino como Texto de esta URL.
 17. **Datos clave incompletos (C-2026-11-04b):** si hay qué/cómo pero faltan dónde/quién/cuándo/cuánto → inserción, no solo reescritura.
 18. **Conceptos oficiales (C-2026-11-04c):** Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT = mismo nombre + glosa (hover en menú; término+glosa en H1). No reescribir misión/visión/valores. Fecha de página: línea «Actualizado:…» en el pie (C-2026-11-04d).
+19. **Plazos/canales + copy CMS (C-2026-11-05a):** plazos/confirmaciones solo con evidencia ops o literal en pantalla (prohibido `[N]`); propuesto = texto pegable o instrucción con literales (prohibido «Hacer que…» sin copy); título en mayúsculas: fidelidad (criterio 10) ≠ tipografía (criterio 40). SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; modal con número generado.
+20. **ClaveÚnica Estado (C-2026-11-05b):** no proponer cambios de texto ni forma del botón/widget Clave Única (lo define el Estado, no TI INAPI).
+21. **Fecha solo en el pie (C-2026-11-05c):** «Actualizado:…» únicamente al lado de «©… INAPI. Todos los derechos reservados»; nunca bajo el H1 ni el encabezado del formulario.
 
-Leer Prompt 6 completo (hasta **C-2026-11-04f**) + skill 05 ANTES de puntuar.
+Leer Prompt 6 completo (hasta **C-2026-11-05c**) + skill 05 ANTES de puntuar.
 
 ### Paso A — Stack y captura (Prompt 1)
 
@@ -164,11 +167,30 @@ Con las 51 filas borrador, lanzar los **5 sub-subagentes** (§17.2) — pueden t
 
 El agente raíz consolida: 51 filas orden catálogo, cruces §20.3, `patron_sistema`, resumen, `nota_final_tic`.
 
-### Paso F — Validar, cablear, commit (Prompt 3)
+### Paso F — Validar, evidencias Word, cablear, commit (Prompt 3)
 
 ```bash
 bun run validate:claude-audits
 ```
+
+**Word TI con evidencias visuales (obligatorio si hay `sustituciones[]`):**
+
+1. En cada fila de corrección, completar `evidencia_visual.ancla` (+ `ancla_tipo` / `pasos` si hace falta abrir menú o modal).
+2. Capturar pantallazos anotados (rectángulo rojo + flecha `S0N`):
+
+```bash
+bun run capture:evidencias-visuales -- --audit-id {id}
+# trámites con sesión:
+# bun run capture:evidencias-visuales -- --audit-id {id} --storage auditorias/.auth/tramites-session.json
+```
+
+3. Generar el Word (tabla 6 cols + anexo de imágenes):
+
+```bash
+bun run generate:word-correcciones -- --audit-id {id}
+```
+
+Salida: `auditorias/evidencias/{id}/correcciones.docx`. La UI ofrece **Descargar Word correcciones** solo si ese archivo existe (no se genera en Vercel).
 
 Cablear launch / muestra de evaluación institucional (`mei-meta-mei-urls.ts`).
 
@@ -176,7 +198,7 @@ Cablear launch / muestra de evaluación institucional (`mei-meta-mei-urls.ts`).
 
 1. Si tocaste capa de entrega o Prompt 6/skills → commit `feat|fix(entrega): …` (tests + validate OK).
 2. Si una calibración vigente obligó a retocar JSON de URLs **ya cerradas** → commit `fix(audits): consistencia calibración C-…` (**no** abras menú «¿commitear / revertir / dejar?»; Prompt 6 ya autoriza).
-3. Commit `feat(audits): …` de **esta** URL + DEVLOG.
+3. Commit `feat(audits): …` de **esta** URL + DEVLOG (+ Word/evidencias si aplica).
 4. `git status` limpio antes de decir «listo» (salvo `frontend/next-env.d.ts`).
 
 Si hubo hallazgo **nuevo** de calibración: añadir bloque en Prompt 6 en el mismo turno o el siguiente inmediato.

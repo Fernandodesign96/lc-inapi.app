@@ -23,7 +23,7 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Procedimiento
 
-1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-04f inclusive**).  
+1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-05c inclusive**).  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
 4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir. Conceptos oficiales: **mismo nombre + glosa** (C-2026-11-04c); no reescribir misión/visión/valores. Usar el mapa D0 (Prompt 7).  
@@ -46,9 +46,12 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 21. **Fecha en el pie (C-2026-11-04d):** «Actualizado: DD de mes de AAAA» junto al © cumple; el © solo no.  
 22. **LINK EXTERNO (C-2026-11-04e):** `href="#"` → eliminar (selector del panel login).  
 23. **Noticias (C-2026-11-04f):** corregir artículos aunque hayan salido del listado; fechas con «de»; «Home» → «Inicio».  
-24. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-25. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-26. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+24. **Plazos/canales + copy CMS (C-2026-11-05a):** plazos/confirmaciones con evidencia ops o literal; propuesto = copy pegable (no «Hacer que…»); título en mayúsculas: fidelidad ≠ tipografía; SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario.  
+25. **ClaveÚnica Estado (C-2026-11-05b):** no cambiar texto/forma del botón-widget Clave Única (Estado).  
+26. **Fecha en pie (C-2026-11-05c):** «Actualizado:…» solo junto al © del footer.  
+27. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+28. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+29. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

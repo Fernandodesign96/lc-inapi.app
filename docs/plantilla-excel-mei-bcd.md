@@ -116,7 +116,7 @@ Por defecto el export usa las **11 URLs compromiso jefatura** (`src/lib/mei-expo
 | # | URL (rol) | Auditoría vigente | % LC (ref.) |
 | --- | --- | --- | --- |
 | 1–9 | sitioweb META MEI | `…_2026-08-25` | ver `claude-audits-launch.ts` |
-| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-08-25` | 54,3 % |
+| 10 | `tramites.inapi.cl/siac` | `tramites-inapi-cl-siac_2026-08-25` | 57,1 % |
 | 11 | `tramites.inapi.cl/` (landing) | `tramites-inapi-cl_2026-08-27` | 66,7 % |
 
 **H02:** criterios B1–B7 + C1–C7 + D1–D7 sobre la muestra META MEI vigente.
