@@ -92,21 +92,21 @@ function BloqueDatosAuditoria({ bundle }: { bundle: ClaudeAuditBundle }) {
       <FieldRow
         label="Cumple con observaciones"
         value={formatConteoCategoriaConCorrecciones(
-          conteos.cumpleConObservaciones,
+          desglose.correccionesCumpleConObservaciones,
           desglose.cumpleConObservaciones,
         )}
       />
       <FieldRow
         label="Medianamente cumple"
         value={formatConteoCategoriaConCorrecciones(
-          conteos.medianamenteCumple,
+          desglose.correccionesMedianamenteCumple,
           desglose.medianamenteCumple,
         )}
       />
       <FieldRow
         label="No cumplen"
         value={formatConteoCategoriaConCorrecciones(
-          conteos.noCumple,
+          desglose.correccionesNoCumple,
           desglose.noCumple,
         )}
       />
@@ -208,7 +208,10 @@ function HitoResumenTablePdf({ hito }: { hito: ResumenHitoAuditoria }) {
 
 function BloqueResumenHitos({ bundle }: { bundle: ClaudeAuditBundle }) {
   const rows = criteriosVisiblesParaEntrega(bundle.audit.criterios_evaluados)
-  const resumen = buildResumenHitosAuditoria(rows)
+  const resumen = buildResumenHitosAuditoria(
+    rows,
+    bundle.pilot.sustituciones ?? [],
+  )
   if (resumen.length === 0) return null
 
   return (

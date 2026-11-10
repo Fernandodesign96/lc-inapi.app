@@ -59,7 +59,7 @@ Calibraciones C-2026-11-04: origen↔destino; datos clave incompletos = inserci�
 Para cada uno: cumple | incumple | no_aplica con evidencia VISIBLE de Playwright (esta URL). Destino = contexto, no cita como Texto.
 Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta: glosa/inserción/replicar en destino según Prompt 06/07).
 No evalúes otros indicadores. No calcules el % global.
-Aplica Prompt 06 (hasta C-2026-11-05c). Entrega filas listas para consolidar.
+Aplica Prompt 06 (hasta C-2026-11-09b). Entrega filas listas para consolidar.
 ```
 
 ## Reconocer estados desde Playwright

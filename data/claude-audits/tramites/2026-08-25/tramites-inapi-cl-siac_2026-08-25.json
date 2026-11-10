@@ -36,7 +36,7 @@
       "id": "LC-1.1.2-04",
       "estado": "incumple",
       "severidad": "alta",
-      "comentario": "Falta información operativa para completar el trámite con autonomía: ayudas de formato en los campos; explicación del seguimiento con el número de atención del correo automático; y un mensaje de confirmación con número usable y plazo de 4 días hábiles (hoy el número aparece vacío).",
+      "comentario": "El modal de confirmación no entrega número, seguimiento ni plazo (propuesta unificada con redacción activa). Los ángulos de intro y de ayudas del formulario se cubren en las solicitudes del párrafo introductorio y de la zona del formulario (criterios relacionados), sin filas intermedias que reescriban el mismo texto.",
       "cita_textual": "Su consulta ha sido recibida. Su número de atención es: . Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
       "ubicacion_pantalla": "Cuerpo › formulario y ventana emergente de confirmación"
     },
@@ -75,8 +75,9 @@
       "id": "LC-1.1.3-06",
       "estado": "incumple",
       "severidad": "baja",
-      "comentario": "El aviso de mantenimiento se centra en lo que no se podrá hacer en vez de orientar a la persona usuaria sobre qué hacer al respecto (por ejemplo, completar el trámite antes de la hora indicada o volver a intentarlo después).",
-      "cita_textual": "Durante este período, no será posible realizar trámites en línea."
+      "comentario": "Agrupado en el criterio de anglicismos del mismo aviso de mantenimiento: la orientación «qué hacer» queda en la propuesta unificada del nodo (mismo texto).",
+      "cita_textual": "Durante este período, no será posible realizar trámites en línea.",
+      "agrupado_en": "LC-1.1.3-04"
     },
     {
       "id": "LC-1.1.4-01",
@@ -92,10 +93,9 @@
     },
     {
       "id": "LC-1.1.5-02",
-      "estado": "incumple",
-      "severidad": "baja",
-      "comentario": "El encabezado del formulario cierra con un punto seguido antes de abrir el paréntesis de la sigla, una puntuación poco habitual para una frase que continúa con la sigla entre paréntesis.",
-      "cita_textual": "Sistema Integral de Atención Ciudadana. (SIAC)"
+      "estado": "cumple",
+      "comentario": "El título visible del formulario ya aparece como «Sistema Integral de Atención Ciudadana (SIAC)» sin punto antes de la sigla; se verifica en captura actual.",
+      "cita_textual": "Sistema Integral de Atención Ciudadana (SIAC)"
     },
     {
       "id": "LC-1.1.5-03",
@@ -153,7 +153,7 @@
       "id": "LC-5.2.1-01",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "La información del servicio digital no está organizada como respuestas anticipadas a preguntas frecuentes (plazo de 4 días hábiles, seguimiento por correo automático con número de atención, tipos de atención), y la secuencia de ventanas no cierra esas mismas preguntas de forma estructurada.",
+      "comentario": "El canal SIAC debe anticipar plazo, seguimiento sin sesión y tipos de atención (bloque FAQ junto al intro) y alinear la secuencia aviso → formulario → confirmación. La propuesta del intro/FAQ queda en la solicitud del párrafo introductorio; la secuencia de ventanas tiene su propia corrección.",
       "cita_textual": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
       "ubicacion_pantalla": "Cuerpo › párrafo introductorio y secuencia de ventanas del servicio"
     },
@@ -166,8 +166,9 @@
       "id": "LC-1.2.1-03",
       "estado": "incumple",
       "severidad": "media",
-      "comentario": "El párrafo introductorio usa correctamente presente y voz activa, pero el mensaje que aparece tras enviar el formulario recurre a voz pasiva en sus dos oraciones.",
-      "cita_textual": "Su consulta ha sido recibida... Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias."
+      "comentario": "Agrupado en la confirmación unificada del criterio de autonomía: la voz activa y el mensaje completo quedan en la propuesta final del mismo modal.",
+      "cita_textual": "Su consulta ha sido recibida... Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "agrupado_en": "LC-1.1.2-04"
     },
     {
       "id": "LC-1.2.1-04",
@@ -241,7 +242,7 @@
       "estado": "incumple",
       "severidad": "media",
       "agrupado_en": "LC-1.2.4-02",
-      "comentario": "El formulario agrupa diez campos consecutivos sin ninguna separación visual, subtítulo ni agrupación temática que facilite escanearlo de un vistazo. Comparte la misma causa raíz y la misma corrección (agregar subtítulos que organicen el formulario) que la pregunta sobre títulos y subtítulos, por lo que se agrupa bajo ese criterio.",
+      "comentario": "Agrupado en la reorganización del formulario (mismo nodo): la separación visual queda en la propuesta unificada de subtítulos y bloques.",
       "cita_textual": "Tipo de Atención, Área de Atención, RUT, Género, Nombres, Apellidos, Correo Electrónico, Repita Correo Electrónico, Teléfono de contacto, Describa su solicitud"
     },
     {
@@ -281,7 +282,7 @@
       "estado": "incumple",
       "severidad": "alta",
       "agrupado_en": "LC-1.2.4-07",
-      "comentario": "El mismo enlace tampoco trae una breve descripción de su contenido junto al título. Se agrupa con la pregunta anterior porque comparte exactamente el mismo enlace y la misma corrección.",
+      "comentario": "Agrupado en el enlace «Política de privacidad» del pie: peso, formato y descripción breve quedan en la misma propuesta.",
       "cita_textual": "Política de privacidad"
     },
     {
@@ -305,10 +306,10 @@
       "comentario": "No se detectan versiones anteriores publicadas ni rótulos de contenido archivado o no vigente en esta página."
     }
   ],
-  "criterios_aprobados": 20,
+  "criterios_aprobados": 23,
   "criterios_aplicables": 35,
   "criterios_no_aplica": 16,
-  "porcentaje_cumplimiento": 57.1,
+  "porcentaje_cumplimiento": 65.7,
   "estado_aceptacion": "rechazado",
   "resumen_ejecutivo": "La página del Formulario Contacto SIAC (https://tramites.inapi.cl/siac) fue reauditada el 2026-08-25 con captura propia mediante navegador automatizado, sin sesión iniciada, y corregida el 2026-11-05 con evidencia operativa (correo automático de confirmación, compromiso de respuesta no superior a 4 días hábiles y disclaimer de datos junto al formulario).\n\nDe las cincuenta y un preguntas, dieciséis no aplican. De las treinta y cinco aplicables, veinte se cuentan como cumplidas (el título visible «FORMULARIO CONTACTO SIAC» identifica fielmente el contenido; la escritura en mayúsculas se trata en el criterio de mayúsculas), lo que da un 57,1 % de cumplimiento y calificación RECHAZADO.\n\nPersisten hallazgos de severidad alta: número de atención vacío en la confirmación (sin plazo ni canal usable), organización del formulario sin subtítulos, mayúsculas sostenidas en barra y menú, ausencia de fecha de actualización y política de privacidad sin formato/peso. Las propuestas de intro, FAQ, confirmación y secuencia de ventanas quedaron redactadas como copy CMS con el plazo real de 4 días hábiles y el correo automático.\n\nSerie de evaluación institucional — orden 10 (Formulario SIAC).",
   "observaciones_lc_por_severidad": {
@@ -365,23 +366,21 @@
     {
       "linea": "S03",
       "html_linea_aprox": "ancla: 'debido a mantenimiento programado del datacenter'",
-      "ubicacion_pantalla": "Aviso superior de mantenimiento programado, primer párrafo",
-      "original": "debido a mantenimiento programado del datacenter",
-      "propuesto": "debido a mantenimiento programado del centro de datos",
+      "ubicacion_pantalla": "Aviso superior de mantenimiento programado (párrafos del mensaje)",
+      "original": "debido a mantenimiento programado del datacenter / Durante este período, no será posible realizar trámites en línea.",
+      "propuesto": "debido a mantenimiento programado del centro de datos. Puede completar su trámite antes de las 17:30 horas del miércoles 26 de agosto o volver a intentarlo una vez restablecido el servicio.",
       "criterio_id": "LC-1.1.3-04",
-      "motivo": "«Datacenter» es un anglicismo sin adaptar; existe una expresión equivalente en español de uso común.",
+      "motivo": "El aviso usa el anglicismo «datacenter» y se centra en lo que no se puede hacer. Se unifica en una sola corrección: expresión en español («centro de datos») y redacción que oriente a la persona sobre qué hacer. Cubre el criterio de anglicismos y el de tono/orientación del mismo aviso.",
       "patron_sistema": false,
       "evidencia_visual": {
-        "ancla": "datacenter",
+        "ancla": "mantenimiento programado",
         "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ]
-      }
+        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S03.png",
+        "pasos": []
+      },
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ]
     },
     {
       "linea": "S04",
@@ -403,27 +402,6 @@
           }
         ],
         "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S04.png"
-      }
-    },
-    {
-      "linea": "S05",
-      "html_linea_aprox": "ancla: 'Durante este período, no será posible realizar trámites en línea'",
-      "ubicacion_pantalla": "Aviso superior de mantenimiento programado, párrafo central",
-      "original": "Durante este período, no será posible realizar trámites en línea.",
-      "propuesto": "Puede completar su trámite antes de las 17:30 horas del miércoles 26 de agosto o volver a intentarlo una vez restablecido el servicio.",
-      "criterio_id": "LC-1.1.3-06",
-      "motivo": "El mensaje se centra en lo que no se puede hacer; se propone una redacción que oriente a la persona sobre qué hacer al respecto.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Durante este período, no será posible realizar trámites en línea",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ]
       }
     },
     {
@@ -449,57 +427,29 @@
       }
     },
     {
-      "linea": "S07",
-      "html_linea_aprox": "ancla: 'Sistema Integral de Atención Ciudadana. (SIAC)'",
-      "ubicacion_pantalla": "Encabezado del formulario, sobre el card «Sistema Integral de Atención Ciudadana (SIAC)»",
-      "original": "Sistema Integral de Atención Ciudadana. (SIAC)",
-      "propuesto": "Sistema Integral de Atención Ciudadana (SIAC)",
-      "criterio_id": "LC-1.1.5-02",
-      "motivo": "Punto innecesario antes del paréntesis de la sigla; la frase no constituye una oración completa que amerite cierre con punto.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Sistema Integral de Atención Ciudadana (SIAC)",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S07.png"
-      }
-    },
-    {
       "linea": "S08",
       "html_linea_aprox": "ancla: bloque de campos del formulario (RUT, Nombres, Apellidos, Correo, Teléfono)",
-      "ubicacion_pantalla": "Formulario de contacto SIAC, sobre el bloque de campos de datos personales",
+      "ubicacion_pantalla": "Entre el subtítulo descriptivo del banner informativo (fondo claro) y el título «Formulario»",
       "original": "(única referencia: enlace «Política de privacidad» del pie de página)",
-      "propuesto": "Antes del formulario o junto al campo RUT, agregar un texto con enlace a la Política de privacidad: «Los datos que ingrese en este formulario se usarán exclusivamente para gestionar su consulta SIAC. Consulte cómo tratamos sus datos personales y cómo ejercer sus derechos de acceso, rectificación, cancelación u oposición en nuestra Política de privacidad.»",
+      "propuesto": "Entre el subtítulo descriptivo y la palabra «Formulario», agregar el texto: «Los datos que ingrese en este formulario se usarán exclusivamente para gestionar su consulta SIAC. Consulte cómo tratamos sus datos personales y cómo ejercer sus derechos de acceso, rectificación, cancelación u oposición en nuestra Política de privacidad.» (con enlace a la Política de privacidad).",
       "criterio_id": "LC-1.1.7-03",
-      "motivo": "Junto a los campos donde se recolectan datos personales debe informarse el uso específico para la consulta SIAC y cómo ejercer los derechos; el enlace genérico del pie no alcanza.",
+      "motivo": "Junto a donde se recolectan datos personales debe informarse el uso específico para la consulta SIAC y cómo ejercer los derechos. La ubicación acordada es entre el subtítulo descriptivo y «Formulario», no solo el enlace genérico del pie.",
       "patron_sistema": false,
       "evidencia_visual": {
-        "ancla": "RUT:",
+        "ancla": "Formulario",
         "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S08.png"
+        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S08.png",
+        "pasos": []
       }
     },
     {
       "linea": "S09",
-      "html_linea_aprox": "ancla: 'ha sido recibida' / 'Se ha enviado'",
+      "html_linea_aprox": "HTML ventana emergente de confirmación",
       "ubicacion_pantalla": "Ventana emergente de confirmación tras enviar el formulario",
-      "original": "Su consulta ha sido recibida... Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
-      "propuesto": "Recibimos su consulta. Enviamos un correo automático de confirmación a la casilla indicada. Gracias.",
-      "criterio_id": "LC-1.2.1-03",
-      "motivo": "El mensaje usa voz pasiva; se propone voz activa con sujeto institucional, alineada a la confirmación completa del criterio de autonomía (número, plazo de 4 días hábiles y seguimiento).",
+      "original": "Su consulta ha sido recibida. Su número de atención es: . Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
+      "propuesto": "Recibimos su consulta. Su número de atención es: [número que genera el sistema, por ejemplo SIAC1222441]. Enviamos un correo automático de confirmación a la casilla indicada. Puede hacer seguimiento con ese número o iniciando sesión en Mi INAPI. El plazo de respuesta es no superior a 4 días hábiles.",
+      "criterio_id": "LC-1.1.2-04",
+      "motivo": "El modal de confirmación debe entregar número real, correo automático, canal de seguimiento y plazo de 4 días hábiles, en voz activa. Cubre autonomía del trámite y redacción activa del mismo mensaje.",
       "patron_sistema": false,
       "evidencia_visual": {
         "ancla": "ENVIAR",
@@ -512,19 +462,23 @@
           }
         ],
         "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S09.png"
-      }
+      },
+      "criterios_relacionados": [
+        "LC-1.2.1-03"
+      ]
     },
     {
       "linea": "S10",
       "html_linea_aprox": "ancla: bloque de diez campos consecutivos del formulario",
       "ubicacion_pantalla": "Cuerpo del formulario, bloque de diez campos",
-      "original": "Tipo de Atención, Área de Atención, RUT, Género, Nombres, Apellidos, Correo Electrónico, Repita Correo Electrónico, Teléfono de contacto, Describa su solicitud",
-      "propuesto": "Agrupar los campos bajo subtítulos, por ejemplo «Datos de la consulta» (tipo y área de atención, descripción) y «Datos de contacto» (RUT, género, nombres, apellidos, correo, teléfono).",
+      "original": "Tipo de Atención, Área de Atención, RUT, Género, Nombres, Apellidos, Correo Electrónico, Repita Correo Electrónico, Teléfono de contacto, Describa su solicitud / …Seleccione… · RUT: · Describa su solicitud (Máximo 7000 caracteres):",
+      "propuesto": "Organizar el formulario en dos bloques con subtítulos visibles «Datos de la consulta» (Tipo de Atención, Área de Atención, Describa su solicitud) y «Datos de contacto» (RUT, Género, Nombres, Apellidos, Correo Electrónico, Repita Correo Electrónico, Teléfono de contacto), con separación visual entre bloques. En los desplegables, reemplazar «…Seleccione…» / «Seleccione…» por «Seleccione una opción». Agregar ejemplos de ayuda visibles: RUT — 12.345.678-9; Nombres — Ingrese sus nombres; Apellidos — Ingrese sus apellidos; Correo Electrónico — nombre@correo.cl; Teléfono de contacto — +56 9 1234 5678; Describa su solicitud — ejemplo breve del motivo en una o dos frases.",
       "criterio_id": "LC-1.2.4-02",
       "criterios_relacionados": [
-        "LC-1.2.4-03"
+        "LC-1.2.4-03",
+        "LC-1.1.2-04"
       ],
-      "motivo": "El formulario de diez campos no tiene ningún título ni subtítulo que lo organice en secciones lógicas, dificultando la navegación y la comprensión de su estructura.",
+      "motivo": "Los diez campos sin subtítulos ni separación visual dificultan el escaneo, y los placeholders no orientan. Se entrega una sola propuesta completa de estructura + ayudas. Cubre títulos claros, escaneo y autonomía de completar el formulario.",
       "patron_sistema": false,
       "evidencia_visual": {
         "ancla": "Tipo de Atención",
@@ -537,28 +491,6 @@
           }
         ],
         "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S10.png"
-      }
-    },
-    {
-      "linea": "S11",
-      "html_linea_aprox": "ancla: bloque de diez campos consecutivos del formulario",
-      "ubicacion_pantalla": "Cuerpo del formulario, bloque de diez campos",
-      "original": "Tipo de Atención, Área de Atención, RUT, Género, Nombres, Apellidos, Correo Electrónico, Repita Correo Electrónico, Teléfono de contacto, Describa su solicitud",
-      "propuesto": "Separar visualmente los diez campos en bloques agrupados por tema —datos de la consulta / datos de contacto—, por ejemplo con espacio, reglas o fondos distintos, sin limitarse a repetir solo los mismos subtítulos ya propuestos en el criterio de títulos claros.",
-      "criterio_id": "LC-1.2.4-03",
-      "motivo": "Los diez campos consecutivos no tienen separación visual que facilite escanearlos de un vistazo; el foco es la jerarquía visual del escaneo, no el texto del subtítulo en sí.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Tipo de Atención",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S11.png"
       }
     },
     {
@@ -635,9 +567,10 @@
       "motivo": "Texto de sistema genérico que no indica qué acción se cierra o confirma.",
       "patron_sistema": true,
       "evidencia_visual": {
-        "ancla": "¡Atención!",
+        "ancla": "OK",
         "ancla_tipo": "text",
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S15.png"
+        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S15.png",
+        "pasos": []
       }
     },
     {
@@ -670,9 +603,9 @@
       "html_linea_aprox": "HTML párrafo introductorio del formulario",
       "ubicacion_pantalla": "Cuerpo › párrafo introductorio, sobre el formulario",
       "original": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
-      "propuesto": "Puede enviar consultas, felicitaciones, reclamos o sugerencias sobre trámites de marcas, patentes y servicios de INAPI. Recibirá una respuesta a su correo electrónico en un plazo no superior a 4 días hábiles.",
+      "propuesto": "Puede enviar consultas, felicitaciones, reclamos o sugerencias sobre trámites de marcas, patentes y servicios de INAPI a través del formulario de contacto disponible a continuación. Tras enviar, recibirá un correo automático con su número de atención; con ese número podrá hacer seguimiento incluso sin iniciar sesión, o en Mi INAPI. Recibirá una respuesta en un plazo no superior a 4 días hábiles.\n\nAntes de los campos, agregar el bloque «Preguntas frecuentes de este servicio» con estas respuestas:\n¿Cuánto demora la respuesta? — Daremos respuesta en un plazo no superior a 4 días hábiles.\n¿Cómo hago seguimiento sin iniciar sesión? — Tras enviar, recibirá un correo automático con su número de atención (asunto del tipo «Numero de atencion de plataforma web – INAPI»). Puede hacer seguimiento con ese número; también puede seguir su consulta iniciando sesión en Mi INAPI.\n¿Qué tipos de atención puedo elegir? — Consulte las opciones del campo «Tipo de Atención» del formulario.",
       "criterio_id": "LC-1.1.2-03",
-      "motivo": "Faltan en el resumen visible el cuándo (plazo de respuesta: compromiso de 4 días hábiles) y el para quién de este canal.",
+      "motivo": "El párrafo introductorio no anticipa ámbito, plazo ni seguimiento, ni organiza las preguntas frecuentes del servicio. Se entrega una sola propuesta final completa (intro + FAQ) sin borradores intermedios. Cubre datos clave, autonomía informativa del canal y claridad del servicio digital.",
       "patron_sistema": false,
       "evidencia_visual": {
         "ancla": "Puede enviar consultas, felicitaciones, reclamos o sugerencias",
@@ -685,95 +618,11 @@
           }
         ],
         "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S17.png"
-      }
-    },
-    {
-      "linea": "S18",
-      "html_linea_aprox": "HTML párrafo introductorio del formulario",
-      "ubicacion_pantalla": "Cuerpo › párrafo introductorio, sobre el formulario",
-      "original": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
-      "propuesto": "Agregar, junto al párrafo introductorio: «Tras enviar, recibirá un correo automático con su número de atención. Con ese número podrá hacer seguimiento a su consulta incluso sin iniciar sesión; también puede seguirla en Mi INAPI.»",
-      "criterio_id": "LC-1.1.2-04",
-      "motivo": "Sin explicar el paso siguiente al envío (correo automático con número de atención) y el seguimiento sin sesión, la persona no puede completar el trámite de forma autónoma.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Puede enviar consultas, felicitaciones, reclamos o sugerencias",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S18.png"
-      }
-    },
-    {
-      "linea": "S19",
-      "html_linea_aprox": "HTML ventana emergente de confirmación",
-      "ubicacion_pantalla": "Ventana emergente de confirmación tras enviar el formulario",
-      "original": "Su consulta ha sido recibida. Su número de atención es: . Se ha enviado un correo electrónico de confirmación a la casilla de correo indicada, gracias.",
-      "propuesto": "Recibimos su consulta. Su número de atención es: [número que genera el sistema, por ejemplo SIAC1222441]. Enviamos un correo automático de confirmación a la casilla indicada. Puede hacer seguimiento con ese número o iniciando sesión en Mi INAPI. El plazo de respuesta es no superior a 4 días hábiles.",
-      "criterio_id": "LC-1.1.2-04",
-      "motivo": "El mensaje de confirmación deja el número de atención vacío y no entrega canal de seguimiento ni el plazo comprometido de 4 días hábiles; además debe reflejar el correo automático de confirmación.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "ENVIAR",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S19.png"
-      }
-    },
-    {
-      "linea": "S20",
-      "html_linea_aprox": "HTML campos del formulario SIAC",
-      "ubicacion_pantalla": "Cuerpo › formulario › campos «Tipo de Atención», «Área de Atención», «RUT», «Nombres», «Apellidos», «Correo Electrónico», «Teléfono de contacto» y «Describa su solicitud»",
-      "original": "...Seleccione... · RUT: · Describa su solicitud (Máximo 7000 caracteres):",
-      "propuesto": "En los desplegables, reemplazar «...Seleccione...» / «Seleccione...» por «Seleccione una opción». En los campos de texto, agregar ejemplos de ayuda visibles antes de escribir: RUT — ejemplo 12.345.678-9; Nombres — Ingrese sus nombres; Apellidos — Ingrese sus apellidos; Correo Electrónico — ejemplo nombre@correo.cl; Teléfono de contacto — ejemplo +56 9 1234 5678; Describa su solicitud — ejemplo breve del motivo de la consulta en una o dos frases.",
-      "criterio_id": "LC-1.1.2-04",
-      "motivo": "Los campos no entregan ayudas de formato ni ejemplos para completarlos sin asistencia; los desplegables usan puntos suspensivos en la opción inicial en vez de una instrucción clara.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Tipo de Atención",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S20.png"
-      }
-    },
-    {
-      "linea": "S21",
-      "html_linea_aprox": "HTML párrafo introductorio antes del formulario",
-      "ubicacion_pantalla": "Cuerpo › entre el párrafo introductorio y el primer campo «Tipo de Atención»",
-      "original": "Puede enviar consultas, felicitaciones, reclamos o sugerencias a través del formulario de contacto disponible a continuación:",
-      "propuesto": "Antes de los campos, agregar el bloque «Preguntas frecuentes de este servicio» con estas respuestas:\n¿Cuánto demora la respuesta? — Daremos respuesta en un plazo no superior a 4 días hábiles.\n¿Cómo hago seguimiento sin iniciar sesión? — Tras enviar, recibirá un correo automático con su número de atención (asunto del tipo «Numero de atencion de plataforma web – INAPI»). Puede hacer seguimiento con ese número; también puede seguir su consulta iniciando sesión en Mi INAPI.\n¿Qué tipos de atención puedo elegir? — Consultas, felicitaciones, reclamos o sugerencias sobre trámites de marcas, patentes y servicios de INAPI.",
-      "criterio_id": "LC-5.2.1-01",
-      "motivo": "La claridad del servicio exige organizar de antemano las respuestas a las preguntas más probables (plazo, seguimiento sin sesión y tipos de atención), con datos reales del servicio.",
-      "patron_sistema": false,
-      "evidencia_visual": {
-        "ancla": "Puede enviar consultas, felicitaciones, reclamos o sugerencias",
-        "ancla_tipo": "text",
-        "pasos": [
-          {
-            "action": "click",
-            "ancla": "Continuar sin Iniciar Sesión",
-            "ancla_tipo": "text"
-          }
-        ],
-        "imagen": "auditorias/evidencias/tramites-inapi-cl-siac_2026-08-25/S21.png"
-      }
+      },
+      "criterios_relacionados": [
+        "LC-1.1.2-04",
+        "LC-5.2.1-01"
+      ]
     },
     {
       "linea": "S22",

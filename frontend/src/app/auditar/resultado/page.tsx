@@ -468,7 +468,10 @@ function ResultadoInner() {
   const bloquePasos = PASOS_SEGUN_ESTADO[auditoria.estado_aceptacion]
   const etiquetaEstado = ETIQUETA_ESTADO_ACEPTACION[auditoria.estado_aceptacion]
   const tituloCriteriosEvaluados = `${criteriosEntregaCount} Criterios evaluados`
-  const resumenHitos = buildResumenHitosAuditoria(criteriosEntregaRows)
+  const resumenHitos = buildResumenHitosAuditoria(
+    criteriosEntregaRows,
+    sustitucionesPiloto,
+  )
   const conteosCategorias = conteoCategoriasPresentacion(criteriosEntregaRows)
   const desgloseCorrecciones = buildDesgloseCorreccionesDatosAuditoria(
     criteriosEntregaRows,

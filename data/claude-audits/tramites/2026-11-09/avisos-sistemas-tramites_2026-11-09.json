@@ -1,0 +1,871 @@
+{
+  "id": "avisos-sistemas-tramites_2026-11-09",
+  "url": "inapi://avisos-sistemas-tramites",
+  "fecha_evaluacion": "2026-11-09T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "texto_capturado": "Corpus de 130 avisos (21 textos únicos) desde Avisos Sistemas.xlsx. Entrega con HTML de referencia por texto único.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "comentario": "Muchos avisos indican el qué/cuándo del corte pero no el qué hacer (completar antes / reintentar después)."
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Varios avisos usan fórmulas densas («Debemos informar», mayúsculas sostenidas en IMPORTANTE) que se simplifican en las propuestas finales por texto."
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "incumple",
+      "cita_textual": "datacenter / mantenciones",
+      "ubicacion_pantalla": "Avisos Sistemas (textos únicos con el hallazgo)",
+      "severidad": "baja",
+      "comentario": "Varios avisos usan «datacenter» o «mantenciones». Hay 3 textos únicos con datacenter y 3 con mantenciones; propuestas unificadas por copy."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "comentario": "Hay avisos con siglas sin expandir (p. ej. TGR) o rótulos poco claros en el copy."
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "incumple",
+      "cita_textual": "Durante este período, no será posible realizar trámites en línea.",
+      "ubicacion_pantalla": "Avisos Sistemas (mensajes de mantención)",
+      "severidad": "baja",
+      "comentario": "6 textos únicos se centran en lo que no se puede hacer sin orientar a la persona."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "cumple",
+      "comentario": "Las propuestas finales usan oraciones cortas y voz activa en el corpus de correcciones."
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Las propuestas finales usan oraciones cortas y voz activa en el corpus de correcciones."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "no_aplica",
+      "comentario": "No aplica al corpus de avisos: se audita el texto del anuncio (con HTML de referencia en la entrega), no la estructura de página contenedora (C-2026-11-09a)."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "no_aplica",
+      "comentario": "Exclusivo del instrumento de sitios web (IEW). Esta auditoría cubre avisos operativos de sistemas (copy de mantención/información), no una página sitioweb."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "cumple",
+      "comentario": "Sin hallazgo de copy en el corpus de avisos para esta pregunta; fuera de alcance HTML/layout de página."
+    }
+  ],
+  "criterios_aprobados": 16,
+  "criterios_aplicables": 21,
+  "criterios_no_aplica": 30,
+  "porcentaje_cumplimiento": 76.2,
+  "estado_aceptacion": "rechazado",
+  "tipo_pagina": "tramites",
+  "resumen_ejecutivo": "Se auditaron 130 avisos de mantenimiento/informativos (21 plantillas editoriales) aplicando los 51 criterios al copy. Se generaron 16 solicitudes de corrección, una por plantilla con hallazgos (agrupa IDs con el mismo mensaje aunque cambien día/hora; separa si cambia el wording). Cada solicitud entrega HTML original, HTML propuesto listo para pegar y vista tipográfica (C-2026-11-09b).",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [],
+    "hallazgos_prioridad_media": [
+      "Varios avisos de mantención no orientan qué hacer antes o después del corte."
+    ],
+    "hallazgos_prioridad_baja": [
+      "Anglicismo «datacenter» y fórmulas en negativo sin alternativa de acción en textos repetidos.",
+      "Siglas o rótulos poco claros en avisos puntuales (TGR, custodia de poderes)."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A01",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 1 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea quedarán inhabilitados temporalmente, debido a mantenciones técnicas programadas. <br/> El mantenimiento se ha planificado en 2 etapas. La primera será mañana jueves 28 a partir de las 17:00 horas hasta las 19:00 horas y la segunda será este sábado 30 de septiembre, desde las 08:00 horas hasta las 16:00 horas. <br/> Lo anterior, implica que no se podrán realizar trámites en línea o acceder a información publicada en nuestro sitio web mientras se realiza la mantención. <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>  ",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Mañana jueves 28 a partir de las 17:00 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Mañana jueves 28 a partir de las 17:00 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ],
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial. Agrupa criterios de lenguaje/orientación del mismo texto.",
+      "aviso_correccion": {
+        "ids": [
+          1
+        ],
+        "fechas_inicio": [
+          "2023-09-27 16:20:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A02",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 4 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea quedarán inhabilitados temporalmente, debido a mantenciones técnicas programadas. <br/> El mantenimiento se realizará el sábado 18 de Noviembre a partir de las 12:00 horas hasta las 16:00 horas<br/> Lo anterior, implica que no se podrán realizar trámites en línea o acceder a información publicada en nuestro sitio web mientras se realiza la mantención. <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Se realizará el sábado 18 de Noviembre a partir de las 12:00 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Se realizará el sábado 18 de Noviembre a partir de las 12:00 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ],
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial. Agrupa criterios de lenguaje/orientación del mismo texto.",
+      "aviso_correccion": {
+        "ids": [
+          4
+        ],
+        "fechas_inicio": [
+          "2023-11-13 17:04:43"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A03",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 5 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea pueden presentar intermitencias, debido a mantenciones técnicas programadas. <br/> El mantenimiento se realizará el Jueves 21 de Diciembre a partir de las 14:00 horas hasta las 16:00 horas<br/> <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Se realizará el Jueves 21 de Diciembre a partir de las 14:00 horas. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Se realizará el Jueves 21 de Diciembre a partir de las 14:00 horas.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          5
+        ],
+        "fechas_inicio": [
+          "2023-12-18 15:45:26"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A04",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 6, 7, 11, 13, 17, 18, 19, 21… (+78) (sistemas 25, 2, 5, 11, 8, 9, 12)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: justify; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que, debido a mantenimiento programado, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. Esta interrupción está programada para este <b>jueves 02 de mayo, a partir de las 17:00 horas</b>. Durante este período, no será posible realizar trámites en línea. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br> <br>  Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Programada para este jueves 02 de mayo, a partir de las 17:00 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Programada para este jueves 02 de mayo, a partir de las 17:00 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-06",
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 86 IDs (6, 7, 11, 13, 17, 18, 19, 21, 22, 23, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 45, 46, 47, 48, 49, 50, 51, 52, 56, 61, 62, 69, 70, 71, 72, 73, 74, 76, 77, 78, 79, 80, 81, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 133, 134, 135, 136); solo cambian día/hora entre filas.",
+      "aviso_correccion": {
+        "ids": [
+          6,
+          7,
+          11,
+          13,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          56,
+          61,
+          62,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          133,
+          134,
+          135,
+          136
+        ],
+        "fechas_inicio": [
+          "2024-04-29 15:17:50",
+          "2024-04-29 16:59:38",
+          "2024-06-17 00:00:00",
+          "2024-06-17 15:15:26",
+          "2024-08-21 10:09:22",
+          "2024-09-25 09:18:46",
+          "2024-09-25 09:18:53",
+          "2024-09-25 09:18:56",
+          "2024-10-21 18:14:22",
+          "2024-10-21 18:14:27",
+          "2024-10-21 18:14:33",
+          "2024-11-18 12:15:36",
+          "2024-12-26 15:42:47",
+          "2024-12-26 15:43:35",
+          "2025-03-25 16:16:24",
+          "2025-03-25 16:19:17",
+          "2025-04-21 16:38:40",
+          "2025-04-21 16:38:45",
+          "2025-05-26 11:54:30",
+          "2025-05-26 11:54:36",
+          "2025-05-26 11:55:09",
+          "2025-05-26 11:55:41",
+          "2025-05-26 11:57:36",
+          "2025-06-22 09:53:15",
+          "2025-06-24 09:53:15",
+          "2025-06-24 09:54:22",
+          "2025-07-22 00:00:00",
+          "2025-08-18 00:00:00",
+          "2025-09-23 00:00:00",
+          "2025-10-19 12:00:00",
+          "2025-10-20 12:00:00",
+          "2025-11-21 12:00:00",
+          "2025-12-16 12:00:00",
+          "2026-01-20 12:00:00",
+          "2026-02-22 12:00:00",
+          "2026-03-23 12:00:00",
+          "2026-04-19 00:00:00",
+          "2026-06-08 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25",
+          "2",
+          "5",
+          "11",
+          "8",
+          "9",
+          "12"
+        ]
+      }
+    },
+    {
+      "linea": "A05",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 8 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: justify; color: Red;\"> <strong>Aviso Importante: Interrupción de los Servicios Electrónicos.</strong> </br> Estimados usuarios: <br/></br> <b>Este viernes 31 de mayo desde las 19:00</b> se realizarán trabajos en la red de INAPI, debido a cambio de proveedor, lo que generará interrupción en los servicios electrónicos.<br> <br>  Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. En la fecha y horario anunciados. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>En la fecha y horario anunciados.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          8
+        ],
+        "fechas_inicio": [
+          "2024-05-28 16:51:20"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A06",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 9 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">   <div style=\"text-align: justify; color: Red;\">     <strong>Aviso Importante: Interrupción de los Servicios Electrónicos de pago.</strong>   </div>   <div>    Estimados usuarios: <br/>Estamos presentando inconvenientes en los pagos con la Tesorería General de la República (TGR), NO  realice presentaciones que requieran pago hasta que esta situación sea resuelta.   </div>   <div> Agradecemos vuestra comprensión.</div>  </div>  ",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. En la fecha y horario anunciados. Si el aviso involucra pagos, recuerde que TGR significa Tesorería General de la República. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>En la fecha y horario anunciados.<br/>Si el aviso involucra pagos, recuerde que TGR significa Tesorería General de la República.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          9
+        ],
+        "fechas_inicio": [
+          "2024-06-03 10:08:16"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A07",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 10 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">   <div style=\"text-align: justify; color: Red;\">     <strong>Aviso Importante: Presentación de Poderes.</strong>   </div>   <div>    Estimados usuarios: <br/>El sistema de \"Custodía y presentación de poderes\" presentará intermitencia a partir de las 4pm por actualización de la plataforma.    </div>   <div> Agradecemos vuestra comprensión.</div>  </div>  ",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. En la fecha y horario anunciados. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>En la fecha y horario anunciados.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-05",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          10
+        ],
+        "fechas_inicio": [
+          "2024-06-10 15:13:31"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A08",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 15 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que, tesorería general de la república está presentando una intermitencia en el servicio de pago. Además informamos que el servicio de pagos estará suspendido entre las 22 y 23 horas de hoy miércoles 26 de junio de 2024. Lamentamos los inconvenientes que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.<br/> <br/> Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios. <br/></br> Saludos cordiales.  </div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. En la fecha y horario anunciados. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>En la fecha y horario anunciados.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          15
+        ],
+        "fechas_inicio": [
+          "2024-06-26 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A09",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 24, 25, 26 (sistemas 2, 5, 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p><p>Debemos informar que  el servicio de ClaveÚnica realizara actividades de mantenimiento programadas el día <strong>jueves 17 de octubre de 21:00 a 23:00 horas</strong>. Durante este periodo, el servicio de autenticación de ClaveÚnica no estará disponible. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p><p>Agradecemos vuestra comprensión.</p><p><strong>Saludos</strong></p></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. El día jueves 17 de octubre de 21:00 a 23:00 horas. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>El día jueves 17 de octubre de 21:00 a 23:00 horas.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 3 IDs (24, 25, 26); solo cambian día/hora entre filas.",
+      "aviso_correccion": {
+        "ids": [
+          24,
+          25,
+          26
+        ],
+        "fechas_inicio": [
+          "2024-10-15 10:25:10",
+          "2024-10-15 10:25:28",
+          "2024-10-15 10:25:32"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "5",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A10",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 63, 64, 65, 66, 67, 68 (sistemas 12, 9, 25, 8, 2, 5)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p><p>Con el fin de mejorar su experiencia en nuestra plataforma, hemos programado una importante actualización de nuestros sistemas. Por este motivo, nuestros servicios de atención en línea estarán temporalmente fuera de servicio, desde las 17:30 horas del viernes 05 de septiembre hasta las 23:59 horas del domingo 07 de septiembre. Le recomendamos adelantar cualquier trámite que necesite realizar, debido a que durante este período, no será posible realizar consultas o trámites en línea. <br>Lamentamos las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Este motivo, nuestros servicios de atención en línea estarán temporalmente fuera de servicio, desde las 17:30 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Este motivo, nuestros servicios de atención en línea estarán temporalmente fuera de servicio, desde las 17:30 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 6 IDs (63, 64, 65, 66, 67, 68); solo cambian día/hora entre filas.",
+      "aviso_correccion": {
+        "ids": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "fechas_inicio": [
+          "2025-09-03 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "12",
+          "9",
+          "25",
+          "8",
+          "2",
+          "5"
+        ]
+      }
+    },
+    {
+      "linea": "A11",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 82, 83, 84, 85, 86, 87 (sistemas 5, 2, 8, 9, 12, 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p>Estimados usuarios:</p><p>Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. <strong>Esta interrupción está programada para sábado 25 de octubre, a partir de las 08:00 horas</strong>. Durante este período, no será posible realizar trámites en línea. <br> <br>Lamentamos profundamente las molestias que esto pueda ocasionar, y solicitamos tomar las medidas necesarias en función de esta situación. <br><br>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Programada para sábado 25 de octubre, a partir de las 08:00 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Programada para sábado 25 de octubre, a partir de las 08:00 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ],
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 6 IDs (82, 83, 84, 85, 86, 87); solo cambian día/hora entre filas. Agrupa criterios de lenguaje/orientación del mismo texto.",
+      "aviso_correccion": {
+        "ids": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "fechas_inicio": [
+          "2025-10-22 12:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "5",
+          "2",
+          "8",
+          "9",
+          "12",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A12",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 126, 127, 128, 129 (sistemas 2, 25, 8, 9)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\" style=\"width: 100%; box-sizing: border-box; margin: 20px 0; font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif; border-left: 5px solid #dc3545; border-radius: 8px; background-color: #f8d7da; color: #491217; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);\"><h2 style=\"margin-top: 0; color: #dc3545; display: flex; align-items: center; font-size: 1.3rem;\"></span>Estimados usuarios:</h2>          <p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\"> Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. Esta interrupción está programada para el <strong>miércoles 27 de mayo, a partir de las 17:30 horas</strong>. Durante este período, no será posible realizar trámites en línea. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p><hr style=\"border: 0; border-top: 1px solid #f5c6cb; margin: 15px 0;\">          <p style=\"font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;\">          <em>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</em>      </p>      </div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Programada para el miércoles 27 de mayo, a partir de las 17:30 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #f8d7da;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Programada para el miércoles 27 de mayo, a partir de las 17:30 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ],
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 4 IDs (126, 127, 128, 129); solo cambian día/hora entre filas. Agrupa criterios de lenguaje/orientación del mismo texto.",
+      "aviso_correccion": {
+        "ids": [
+          126,
+          127,
+          128,
+          129
+        ],
+        "fechas_inicio": [
+          "2026-05-24 15:52:46",
+          "2026-05-25 15:37:30",
+          "2026-05-25 15:41:48",
+          "2026-05-25 15:49:39"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "25",
+          "8",
+          "9"
+        ]
+      }
+    },
+    {
+      "linea": "A13",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 130, 131 (sistemas 2, 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p><p>Debemos informar que, INAPI cambiará el proveedor de enlaces de comunicaciones este fin de semana. Esto podría causar intermitencias en el sitio web y servicios electrónicos debido a la propagación del nuevo direccionamiento IP, un proceso externo que puede tardar hasta 48 horas. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br/>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. En la fecha y horario anunciados. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #FF0000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>En la fecha y horario anunciados.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 2 IDs (130, 131); solo cambian día/hora entre filas.",
+      "aviso_correccion": {
+        "ids": [
+          130,
+          131
+        ],
+        "fechas_inicio": [
+          "2026-05-28 13:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A14",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 137 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">                    <strong style=\"color: #d64000; font-size: 18px;\">IMPORTANTE: Intermitencia en acceso con ClaveÚnica</strong>                    <p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios y usuarias:</p>                    <p style=\"margin-bottom: 12px;\">              Les informamos que el servicio de <strong>ClaveÚnica</strong> realizará una mantención programada hoy <strong>martes 7 de julio, de 21:00 a 23:00 horas</strong>. Por este motivo, el acceso a nuestros trámites en línea a través de dicha plataforma podría presentar intermitencias o no estar disponible durante ese período.          </p>                    <p style=\"margin-bottom: 15px; padding: 8px 12px; background-color: #f0f7ff; border-left: 3px solid #0066cc; color: #004080;\">              <strong>INFORMACIÓN CLAVE:</strong> El sistema de autenticación con <strong>Clave INAPI sí estará disponible</strong> y funcionará con total normalidad para realizar todos sus trámites.          </p>                    <p style=\"margin-bottom: 0;\">              Lamentamos las molestias que esta situación externa pueda ocasionar y les sugerimos tomar las medidas necesarias. Agradecemos vuestra comprensión.          </p>                </div>  </div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Martes 7 de julio, de 21:00 a 23:00 horas. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #d64000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Martes 7 de julio, de 21:00 a 23:00 horas.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          137
+        ],
+        "fechas_inicio": [
+          "2026-07-07 11:50:44"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A15",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 138, 139, 140, 141, 142, 143, 144, 145 (sistemas 25, 8, 2, 9, 11)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">                    <strong style=\"color: #d64000; font-size: 18px;\">IMPORTANTE: mantenimiento programado miércoles 26/08 a las 17:30</strong>                    <p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios:</p>                    <p style=\"margin-bottom: 12px;\">              Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. Esta interrupción está programada para el <strong>miércoles 26 de agosto, a partir de las 17:30 horas</strong>. Durante este período, no será posible realizar trámites en línea. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p>                                        <p style=\"margin-bottom: 0;\">Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p>                </div>  </div>",
+      "propuesto": "Importante. Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio. Programada para el miércoles 26 de agosto, a partir de las 17:30 horas. Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio. Lamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #d64000;\"> <strong>Importante</strong><br/>Estimados usuarios y usuarias: por mantenimiento programado del centro de datos, los servicios de atención en línea estarán temporalmente fuera de servicio.<br/>Programada para el miércoles 26 de agosto, a partir de las 17:30 horas.<br/>Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo una vez restablecido el servicio.<br/>Lamentamos las molestias y agradecemos su comprensión. </div></div>",
+      "criterio_id": "LC-1.1.3-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06"
+      ],
+      "patron_sistema": true,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial en 8 IDs (138, 139, 140, 141, 142, 143, 144, 145); solo cambian día/hora entre filas. Agrupa criterios de lenguaje/orientación del mismo texto.",
+      "aviso_correccion": {
+        "ids": [
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145
+        ],
+        "fechas_inicio": [
+          "2026-08-25 14:52:42",
+          "2026-08-25 15:02:44",
+          "2026-09-21 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25",
+          "8",
+          "2",
+          "9",
+          "11"
+        ]
+      }
+    },
+    {
+      "linea": "A16",
+      "ubicacion_pantalla": "Avisos Sistemas — IDs 146 (sistemas 25)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">          <strong style=\"color: #0F69C4; font-size: 18px;\">Más protección para tus trámites</strong>          <p style=\"margin-top: 15px; margin-bottom: 10px;\">              A partir de este lunes, al ingresar con RUN y contraseña te pediremos un código de seguridad de 6 dígitos que llegará directo a tu correo.          </p>          <p style=\"margin-bottom: 12px;\">              Si utilizas ClaveÚnica, tu acceso sigue exactamente igual.          </p>          <p style=\"margin-bottom: 0;\">              ¡Verifica hoy en tu perfil que tengas acceso a tu correo registrado para no tener demoras!          </p>      </div>  </div>",
+      "propuesto": "Más protección para tus trámites. A partir de este lunes, al ingresar con RUN y contraseña te pediremos un código de seguridad de 6 dígitos que llegará a tu correo. Si utilizas ClaveÚnica, tu acceso sigue igual. Verifica hoy en tu perfil que puedas acceder al correo registrado para evitar demoras.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: #0F69C4;\"> Más protección para tus trámites.<br/>A partir de este lunes, al ingresar con RUN y contraseña te pediremos un código de seguridad de 6 dígitos que llegará a tu correo.<br/>Si utilizas ClaveÚnica, tu acceso sigue igual.<br/>Verifica hoy en tu perfil que puedas acceder al correo registrado para evitar demoras. </div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "patron_sistema": false,
+      "motivo": "Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. Misma plantilla editorial.",
+      "aviso_correccion": {
+        "ids": [
+          146
+        ],
+        "fechas_inicio": [
+          "2026-11-06 16:40:18"
+        ],
+        "estados": [
+          "1"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    }
+  ],
+  "nota_final_tic": "Pegar el HTML propuesto en cada ID listado (conservar id/class del contenedor). Cuando la plantilla agrupa varios IDs, usar el mismo HTML en todos; solo ajusta fechas/horas operativas si el sistema las inyecta aparte."
+}

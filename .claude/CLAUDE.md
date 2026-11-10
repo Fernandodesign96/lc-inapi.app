@@ -257,6 +257,7 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | Plazos / confirmación / SIAC | LC-1.1.2-03/04 · LC-5.2.1-01 · LC-1.1.7-03 | Solo evidencia ops o literal; copy CMS (no consejos); SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; título en mayúsculas: fidelidad ≠ tipografía (C-2026-11-05a). |
 | Botón Clave Única | LC-1.1.5 / CTA | No proponer cambios de texto ni forma: lo define el Estado, no TI INAPI (C-2026-11-05b). |
 | Fecha «Actualizado» | LC-1.1.4-01 | Solo en el pie, junto a «©… INAPI. Todos los derechos reservados» (C-2026-11-05c). |
+| Mismo texto / nodo | Varios LC-* | Una solicitud Word con propuesta final completa; listar criterios; no encadenar borradores (C-2026-11-09a). Avisos: plantilla editorial + HTML propuesto + vista tipográfica (C-2026-11-09b). |
 | ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
 ---
@@ -882,7 +883,7 @@ Cada criterio es una **pregunta del instrumento**. Antes de emitir estado:
 | `incumple` | `alta` | No cumple | Idem; prioridad alta / bloqueante. |
 | `no_aplica` | omitir | No aplica | `comentario` breve obligatorio (§20.4). |
 
-**Hallazgos distintos:** preferir que cada `incumple` aporte un descubrimiento distinto. Si varios criterios chocan con el **mismo** nodo/texto → §20.3 (primario + `agrupado_en`). No reutilizar el mismo `propuesto` genérico en filas independientes sin agrupación.
+**Hallazgos distintos:** preferir que cada `incumple` aporte un descubrimiento distinto. Si varios criterios chocan con el **mismo** nodo/texto → §20.3 (primario + `agrupado_en`) y **C-2026-11-09a** (una solicitud Word con la propuesta final más completa; Observaciones listan todos los criterios; prohibido encadenar borradores). No reutilizar el mismo `propuesto` genérico en filas independientes sin agrupación.
 
 **Criterios de formato / chrome (no solo redacción):** escaneabilidad (`LC-1.2.4-03`), espacio entre párrafos (`LC-1.2.3-01`), alineación (`LC-1.2.3-02`), fecha (`LC-1.1.4-01`), documentos (`LC-1.2.4-07/08`) — inventariar capa **U** y, si hace falta, Playwright `evaluate` / a11y (ver §21). No marcar legibilidad como `no_aplica` por defecto «es CSS».
 
@@ -1104,6 +1105,8 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 31. Plazos/canales inventados o con `[N]`; propuesto tipo «Hacer que…» sin copy CMS; criterio 10 `incumple` solo por mayúsculas del título (C-2026-11-05a).
 32. Proponer cambio de texto/forma del botón-widget Clave Única (C-2026-11-05b).
 33. Proponer «Actualizado:…» fuera del pie (bajo H1 / encabezado de formulario) (C-2026-11-05c).
+34. Varias filas Word que reescriben el mismo literal con propuestas intermedias (C-2026-11-09a).
+35. Auditar o proponer cambios de nomenclatura HTML en avisos de sistemas (solo copy visible) (C-2026-11-09a).
 
 ---
 

@@ -48,6 +48,56 @@ describe("buildResumenHitosAuditoria", () => {
     })
   })
 
+  test("con sustituciones, severidad del hito cuenta correcciones (incl. agrupados)", () => {
+    const rows: CriterionEvaluation[] = [
+      { id: "LC-1.2.1-04", estado: "incumple", severidad: "media" },
+      {
+        id: "LC-1.1.3-02",
+        estado: "incumple",
+        severidad: "baja",
+        agrupado_en: "LC-1.2.1-04",
+      },
+      { id: "LC-1.2.4-07", estado: "incumple", severidad: "alta" },
+      {
+        id: "LC-1.2.4-08",
+        estado: "incumple",
+        severidad: "alta",
+        agrupado_en: "LC-1.2.4-07",
+      },
+    ]
+    const sustituciones = [
+      {
+        linea: "S1",
+        original: "a",
+        propuesto: "b",
+        motivo: "m",
+        criterio_id: "LC-1.2.1-04" as const,
+      },
+      {
+        linea: "S2",
+        original: "c",
+        propuesto: "d",
+        motivo: "m",
+        criterio_id: "LC-1.2.4-07" as const,
+      },
+    ]
+    // Criterios: agrupados → Cumple (no descuentan %).
+    expect(conteoCategoriasPresentacion(rows)).toEqual({
+      cumple: 2,
+      cumpleConObservaciones: 0,
+      medianamenteCumple: 1,
+      noCumple: 1,
+      noAplica: 0,
+    })
+    const hitos = buildResumenHitosAuditoria(rows, sustituciones)
+    const sumSev = hitos.reduce(
+      (n, h) =>
+        n + h.cumpleConObservaciones + h.medianamenteCumple + h.noCumple,
+      0,
+    )
+    expect(sumSev).toBe(2)
+  })
+
   test("cuenta No aplica", () => {
     const rows: CriterionEvaluation[] = [
       { id: "LC-1.1.3-01", estado: "cumple" },

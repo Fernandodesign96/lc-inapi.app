@@ -8,6 +8,9 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-11-09 | [SIAC Word agrupado + avisos 130 + gaps anexo](#devlog-2026-11-09-siac-avisos-anexo) |
+| 2026-11-06 | [Frontend: total de correcciones = filas Word (sust + agrupados) en PDF/UI/hitos](#devlog-2026-11-06-total-correcciones-consistente) |
+| 2026-11-06 | [Frontend: alinear conteos MEI con `agrupado_en` (URL 11 Word/PDF)](#devlog-2026-11-06-conteos-agrupado-en) |
 | 2026-11-05 | [Calibración C-2026-11-05b–c + Word Calibri e imagen en columna N°](#devlog-2026-11-05-calibracion-claveunica-fecha-word) |
 | 2026-11-05 | [Frontend/orquestación: Word TI con evidencias visuales anotadas (Playwright + docx)](#devlog-2026-11-05-word-evidencias-visuales) |
 | 2026-11-05 | [Orquestación: SIAC + Portal — evidencia ops, copy CMS y calibración C-2026-11-05a (SIAC 57,1 %)](#devlog-2026-11-05-siac-portal-evidencia-cms) |
@@ -119,6 +122,62 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-11-09-siac-avisos-anexo"></a>
+## [2026-11-09] - Orquestación/frontend | SIAC Word agrupado + avisos 130 + gaps anexo
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+Consolidar solicitudes Word del mismo texto (C-2026-11-09a), auditar los 130 avisos de `Avisos Sistemas.xlsx` (solo copy) y contrastar el anexo de medios de verificación.
+
+### Implementación técnica:
+- Calibración C-2026-11-09a; JSON SIAC fusionado (14 solicitudes, 65,7 %); Word N° solo 1…N.
+- `build-avisos-sistemas-audit.ts` → `avisos-sistemas-tramites_2026-11-09` (44 textos únicos, 39 correcciones); UI + Word.
+- Informe gaps: `docs/auditorias-tramites-url-10-y-11/informe-gaps-anexo-medios-verificacion.md`.
+
+### Próximos pasos:
+- Completar medios técnicos del anexo (uptime, PageSpeed, W3C, TLS).
+- Recapturar evidencia del aviso de mantención SIAC cuando vuelva al DOM.
+
+---
+
+<a id="devlog-2026-11-06-total-correcciones-consistente"></a>
+## [2026-11-06] - Frontend | Total de correcciones alineado (PDF · UI · hitos · Word)
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+El total de correcciones debe ser la suma de ítems entregables (filas de `sustituciones[]` + criterios `agrupado_en` sin fila propia). Los buckets de severidad y la suma por hito deben coincidir con ese total; el Word emite una fila por corrección (`1 de N` … `N de N`).
+
+### Implementación técnica:
+- `listCorreccionesEntrega` + `buildDesgloseCorreccionesDatosAuditoria` cuentan correcciones por severidad.
+- UI/PDF Datos de Auditoría usan esos conteos (ya no criterios únicos).
+- `buildResumenHitosAuditoria(..., sustituciones)` rellena Obs/Med/No con correcciones.
+- Word regenerado: Portal **13** filas; SIAC **22** filas.
+
+### Próximos pasos:
+- Revisar PDF/Word URL 10 y 11 en UI tras refresh.
+
+---
+
+<a id="devlog-2026-11-06-conteos-agrupado-en"></a>
+## [2026-11-06] - Frontend | Alinear conteos MEI con `agrupado_en` (URL 11)
+
+**Rama:** `fix/siac-portal-propuestas-evidencia`
+
+### Contexto y objetivos:
+En Portal (URL 11) el PDF/UI mostraba «Total de correcciones» = filas de `sustituciones[]` (11), pero la suma de Cumple con observaciones + Medianamente + No cumplen incluía criterios con `agrupado_en` y no coincidía con el Word (11 solicitudes).
+
+### Implementación técnica:
+- `conteoCategoriasPresentacion` y `buildResumenHitosAuditoria` tratan `agrupado_en` como Cumple (misma regla que `summarizeEvaluations`).
+- Word anota en Observaciones los criterios agrupados al primario («También resuelve Criterio N…»).
+- URL 11 queda: total 11 = suma severidad 11 = 11 filas Word. Words 10/11 regenerados.
+
+### Próximos pasos:
+- Verificar en UI/PDF de resultado Portal que los tres buckets sumen 11.
 
 ---
 

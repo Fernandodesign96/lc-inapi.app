@@ -9,8 +9,13 @@ import {
   LoadClaudeAuditBundleError,
   loadClaudeAuditBundle,
 } from "@/lib/load-claude-audit-bundle"
+import { InformeAvisosPdfDocument } from "@/lib/pdf/informe-avisos-pdf-document"
 import { InformePilotoPdfDocument } from "@/lib/pdf/informe-piloto-pdf-document"
 import { bundleForVisibleDelivery } from "@repo/lib/audit-visible-content"
+import {
+  isAvisosSistemasAudit,
+  sustitucionesSonAvisos,
+} from "@repo/lib/avisos-correcciones-entrega"
 
 /** Lectura de disco + @react-pdf/renderer requieren Node (no Edge). */
 export const runtime = "nodejs"
@@ -31,9 +36,17 @@ export async function GET(
     const raw = loadClaudeAuditBundle(param)
     const bundle = bundleForVisibleDelivery(raw)
     const filename = informePilotoPdfFilenameFromBundle(bundle)
+    const id = decodeURIComponent(param.trim())
+    const avisos =
+      isAvisosSistemasAudit(id) ||
+      sustitucionesSonAvisos(bundle.pilot.sustituciones ?? [])
 
     const buffer = await renderToBuffer(
-      <InformePilotoPdfDocument bundle={bundle} />,
+      avisos ? (
+        <InformeAvisosPdfDocument bundle={bundle} />
+      ) : (
+        <InformePilotoPdfDocument bundle={bundle} />
+      ),
     )
     const pdfBytes = new Uint8Array(buffer)
 

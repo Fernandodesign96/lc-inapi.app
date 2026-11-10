@@ -200,7 +200,7 @@ export const CLAUDE_PILOT_URL_ROWS: ClaudePilotUrlRow[] = [
     // detectado en el DOM (evidencia positiva de negrita/espaciado y hallazgos de anglicismo/tono).
     claudeAuditId: "tramites-inapi-cl-siac_2026-08-25",
     resumenMvp: {
-      porcentajeLc: 57.1,
+      porcentajeLc: 65.7,
       estadoAceptacion: "rechazado",
       fechaEvaluacionIso: "2026-08-25T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
@@ -255,6 +255,18 @@ export const META_MEI_EXTRA_AUDITS: Array<{
    */
   history?: { id: string }[]
 }> = [
+  {
+    id: "avisos-sistemas-tramites_2026-11-09",
+    url: "inapi://avisos-sistemas-tramites",
+    label: "Auditoría de avisos de mantenimiento/informativos",
+    tipoPagina: "tramites",
+    resumenMvp: {
+      porcentajeLc: 76.2,
+      estadoAceptacion: "rechazado",
+      fechaEvaluacionIso: "2026-11-09T00:00:00.000Z",
+      evaluadorUid: "equipo de desarrollo",
+    },
+  },
   {
     id: "www-inapi-cl-patentes_2026-08-25",
     url: "https://www.inapi.cl/patentes",
