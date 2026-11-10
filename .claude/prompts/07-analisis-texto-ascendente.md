@@ -43,7 +43,7 @@ Complementa Prompt 6 (tasas, etapas, cobertura, Observancia, origen↔destino, d
 2. **Subir de nivel**: ver si esa unidad vive en frase → oración → párrafo.  
 3. **Acumular contexto** hasta tener suficiente para proponer.  
 4. **Elegir criterio(s)** `LC-*` aplicables (lenguaje plano, claridad, completitud, escritura web, concisión, legibilidad…).  
-5. **Proponer** según Prompt 6: término oficial + glosa (no borrar Observancia/PCT/Madrid/Sello); etapas/pagos **completos** (todos los montos); títulos que anticipen contenido; atajos con hover; en hubs, copy alineado al destino.  
+5. **Proponer** según Prompt 6: término oficial + glosa (no borrar Observancia/PCT/Madrid/Sello); etapas/pagos **completos** (todos los montos); títulos que anticipen contenido; atajos con hover; en hubs, copy alineado al destino. En **avisos de sistemas**: no fusionar 130 filas en un párrafo; conservar TGR, ClaveÚnica, Clave INAPI, MFA, Custodia y la fecha/hora de cada ID (C-2026-11-10a).  
 6. **Registrar** en el mapa de salida (no escribir aún el JSON final de 51 filas).
 
 ## Salida del pase (mapa para Paso D)

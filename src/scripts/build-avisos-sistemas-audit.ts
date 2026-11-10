@@ -1,6 +1,6 @@
 /**
  * Construye la auditoría agregada de avisos de mantenimiento/informativos
- * (130 filas Excel → textos únicos; copy + HTML de referencia en entrega).
+ * (130 filas Excel → chunks por plantilla; copy por hechos + HTML de referencia).
  *
  * Uso: bun run src/scripts/build-avisos-sistemas-audit.ts
  */
@@ -11,6 +11,11 @@ import { fileURLToPath } from "node:url"
 import ExcelJS from "exceljs"
 
 import { avisosPlantillaKey } from "../lib/avisos-plantilla-key"
+import {
+  construirPropuestaAviso,
+  extraerHechosAviso,
+  etiquetasHechos,
+} from "../lib/avisos-hechos-operativos"
 import { buildPropuestaHtml } from "../lib/avisos-propuesta-html"
 import { CRITERION_IDS_V30, summarizeEvaluations } from "../schemas/checklist"
 import type { CriterionEvaluation, CriterionId } from "../schemas/checklist"
@@ -156,8 +161,10 @@ function groupUnique(rows: AvisoRow[]): UniqueGroup[] {
 function analyzeText(texto: string) {
   const t = texto
   const lower = t.toLowerCase()
+  const hechos = extraerHechosAviso(t)
   return {
-    hasDatacenter: /\bdatacenter\b/i.test(t),
+    hechos,
+    hasDatacenter: hechos.datacenter,
     hasMantenciones: /\bmantenciones\b/i.test(t),
     hasNoSeraPosible: /no será posible realizar trámites/i.test(t),
     hasSoloNegativo: /no será posible|no se podrán|fuera de servicio/i.test(t),
@@ -170,48 +177,10 @@ function analyzeText(texto: string) {
     hasImportanteCaps: /^IMPORTANTE\b/.test(t.trim()) || /\bIMPORTANTE:/.test(t),
     hasVuestra: /\bvuestra\b/i.test(t),
     hasIpAnglicism: /\bdireccionamiento IP\b/i.test(t),
-    isMfaNotice: /código de seguridad de 6 dígitos/i.test(t),
+    isMfaNotice: hechos.mfaSeisDigitos,
     isShortBroken: t.length < 120 && /lamentamos las molestias/i.test(lower),
+    tieneHechoEspecifico: etiquetasHechos(hechos).length > 0,
   }
-}
-
-function buildPropuestaFinal(texto: string, a: ReturnType<typeof analyzeText>): string {
-  if (a.isMfaNotice) {
-    return (
-      "Más protección para tus trámites. A partir de este lunes, al ingresar con RUN y contraseña " +
-      "te pediremos un código de seguridad de 6 dígitos que llegará a tu correo. " +
-      "Si utilizas ClaveÚnica, tu acceso sigue igual. " +
-      "Verifica hoy en tu perfil que puedas acceder al correo registrado para evitar demoras."
-    )
-  }
-
-  const schedule =
-    texto.match(
-      /(?:programada para|se realizará|a partir de|desde las|el día|este |mañana |jueves |miércoles |martes |viernes |sábado |domingo )[\s\S]{0,120}?(?:horas|hrs\.?)/i,
-    )?.[0]?.replace(/\s+/g, " ").trim() ?? null
-
-  const when = schedule
-    ? schedule.charAt(0).toUpperCase() + schedule.slice(1)
-    : "En la fecha y horario anunciados"
-
-  let body =
-    `Importante. Estimados usuarios y usuarias: ` +
-    `por mantenimiento programado del centro de datos, los servicios de atención en línea ` +
-    `estarán temporalmente fuera de servicio. ${when}. `
-
-  if (a.hasSoloNegativo || a.hasNoSeraPosible) {
-    body +=
-      `Puede completar su trámite antes del inicio del mantenimiento o volver a intentarlo ` +
-      `una vez restablecido el servicio. `
-  }
-
-  if (a.hasTgrSinExpandir || /\bTGR\b/.test(texto)) {
-    body +=
-      `Si el aviso involucra pagos, recuerde que TGR significa Tesorería General de la República. `
-  }
-
-  body += `Lamentamos las molestias y agradecemos su comprensión.`
-  return body
 }
 
 function ubicacionGroup(g: UniqueGroup): string {
@@ -274,7 +243,8 @@ async function main(): Promise<void> {
       a.hasVuestra ||
       a.hasIpAnglicism ||
       a.isShortBroken ||
-      a.isMfaNotice
+      a.isMfaNotice ||
+      a.tieneHechoEspecifico
 
     if (!needsFix) continue
 
@@ -315,7 +285,9 @@ async function main(): Promise<void> {
       relacionados.push("LC-1.1.3-05")
     }
 
-    const propuestoPlano = buildPropuestaFinal(g.texto_plano, a)
+    const propuestoPlano = construirPropuestaAviso(g.texto_plano, {
+      plantillaVariosIds: g.ids.length > 1,
+    })
     const propuesto_html = buildPropuestaHtml(g.texto_html, propuestoPlano)
 
     sustituciones.push({
@@ -328,9 +300,12 @@ async function main(): Promise<void> {
       propuesto_html,
       motivo:
         `Aviso operativo: pegar el HTML propuesto conservando id/class del contenedor. ` +
+        (etiquetasHechos(a.hechos).length
+          ? `Hechos que no se pueden omitir: ${etiquetasHechos(a.hechos).join("; ")}. `
+          : "") +
         `Misma plantilla editorial` +
         (g.ids.length > 1
-          ? ` en ${g.ids.length} IDs (${g.ids.join(", ")}); solo cambian día/hora entre filas.`
+          ? ` en ${g.ids.length} IDs (${g.ids.join(", ")}); solo cambian día/hora. El propuesto no usa una sola fecha para todos.`
           : ".") +
         (relacionados.length
           ? ` Agrupa criterios de lenguaje/orientación del mismo texto.`

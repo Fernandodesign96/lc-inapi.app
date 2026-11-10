@@ -256,16 +256,20 @@ export const META_MEI_EXTRA_AUDITS: Array<{
   history?: { id: string }[]
 }> = [
   {
-    id: "avisos-sistemas-tramites_2026-11-09",
+    id: "avisos-sistemas-tramites_2026-11-10",
     url: "inapi://avisos-sistemas-tramites",
     label: "Auditoría de avisos de mantenimiento/informativos",
     tipoPagina: "tramites",
+    // 2026-11-10: reauditoría C-2026-11-10a — 130 avisos leídos, 21 plantillas con hechos y
+    // calendario propios por ID (sin párrafo genérico). Baja de 76,2 % a 42,9 % porque la
+    // versión anterior dejaba 30 criterios como no aplicables sin evidencia.
     resumenMvp: {
-      porcentajeLc: 76.2,
+      porcentajeLc: 42.9,
       estadoAceptacion: "rechazado",
-      fechaEvaluacionIso: "2026-11-09T00:00:00.000Z",
+      fechaEvaluacionIso: "2026-11-10T00:00:00.000Z",
       evaluadorUid: "equipo de desarrollo",
     },
+    history: [{ id: "avisos-sistemas-tramites_2026-11-09" }],
   },
   {
     id: "www-inapi-cl-patentes_2026-08-25",
