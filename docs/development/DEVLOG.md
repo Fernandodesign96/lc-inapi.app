@@ -8,6 +8,8 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-11-10 | [Auditoría avisos de sistemas (130) — 21 plantillas con hechos y calendario por ID, rechazado 42,9 %](#devlog-2026-11-10-avisos-reaudit) |
+| 2026-11-10 | [Calibración C-2026-11-10a — avisos: chunks, hechos y 51 criterios por línea](#devlog-2026-11-10-avisos-chunks-hechos) |
 | 2026-11-09 | [SIAC Word agrupado + avisos 130 + gaps anexo](#devlog-2026-11-09-siac-avisos-anexo) |
 | 2026-11-06 | [Frontend: total de correcciones = filas Word (sust + agrupados) en PDF/UI/hitos](#devlog-2026-11-06-total-correcciones-consistente) |
 | 2026-11-06 | [Frontend: alinear conteos MEI con `agrupado_en` (URL 11 Word/PDF)](#devlog-2026-11-06-conteos-agrupado-en) |
@@ -122,6 +124,50 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-11-10-avisos-reaudit"></a>
+## [2026-11-10] - Auditoría | Avisos de sistemas (130) — rechazado 42,9 %
+
+### Contexto y objetivos:
+
+Reauditar el corpus de avisos aplicando C-2026-11-10a, descartando la pasada del script de build (copy unificado). Id previo `avisos-sistemas-tramites_2026-11-09` pasa a `history`.
+
+### Implementación técnica:
+
+- Lectura de las 130 filas del extract: 29 variantes de HTML → 21 plantillas editoriales (las del inventario de chunks).
+- JSON `data/claude-audits/tramites/2026-11-10/avisos-sistemas-tramites_2026-11-10.json`: 51 criterios con evidencia por ID; 21 sustituciones con HTML propuesto (misma cáscara) y calendario por ID en el motivo; hechos verificados con `extraerHechosAviso` (único ajuste deliberado: avisos 122/125 dejan de decir «intermitencia» en el título porque el cuerpo describe falta de disponibilidad).
+- `isAvisosSistemasAudit` reconoce cualquier fecha (`avisos-sistemas-tramites_*`); launch con `history`.
+- 16 no aplica (10 exclusivas de sitios web + 6 sin supuesto); 14 cumple; 1 agrupado (tono positivo → autonomía).
+- Segunda pasada §17: mapa D0 (`docs/auditorias-tramites-url-10-y-11/avisos-d0-mapa-2026-11-10.md`, 75 unidades) → revisión de los 15 indicadores en orden → 5 controles de entrega. Sin cambios de estado; fecha sube a severidad alta (avisos 3, 9, 75, 122, 125, 132 sin fecha), listas de IDs corregidas, justificado solo en 6–8, propuestas sin «fuera de servicio» redundante, «mantenimiento» único, glosa única de «intermitencias», sin consejo de no pagar en el aviso 75 (no respaldado).
+- `avisos-propuesta-html.ts`: la vista tipográfica unía párrafos (`<p>`, `<div>`, `<h2>`, `<li>`), no ponía en negrita los `<h2>` y tomaba `background-color` como color del texto; corregido + `avisos-propuesta-html.test.ts`.
+- Calibración C-2026-11-10b: «criterio N» en entrega = numeración PTD Hito → Tarea.
+- RAG: Colección A no disponible (sin `documentos/` en este equipo); Colección B consultada.
+
+### Próximos pasos:
+
+- TI confirma las fechas deducidas del periodo de publicación (avisos 3, 9, 10, 75, 122, 125, 130, 131, 132, 146) y, si se conocen, agrega horas de término.
+- UX decide si el aviso 146 mantiene tuteo y cierre sin disculpa.
+
+---
+
+<a id="devlog-2026-11-10-avisos-chunks-hechos"></a>
+## [2026-11-10] - Calibración | C-2026-11-10a — avisos: chunks, hechos y 51 criterios por línea
+
+### Contexto y objetivos:
+
+El Word de los 130 avisos unificó el propuesto en un párrafo de «centro de datos» y borró TGR, Clave INAPI, MFA y las fechas de cada ID. Agrupar IDs sigue siendo válido solo cuando el texto es el mismo salvo calendario.
+
+### Implementación técnica:
+
+- Prompt 6 **C-2026-11-10a**; maestro, skills 03/05/06, Prompt 7, CLAUDE.md §6/§22.12.
+- Inventario `docs/auditorias-tramites-url-10-y-11/avisos-chunks-hechos.md` (21 plantillas).
+- `avisos-hechos-operativos.ts` + script de build: no inyectar centro de datos si el original no lo dice; conservar hechos.
+
+### Próximos pasos:
+
+- Auditar el corpus con Claude Code (Prompt 5) y regenerar Word/Excel/PDF.
 
 ---
 

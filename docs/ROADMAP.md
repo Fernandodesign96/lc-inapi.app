@@ -1,9 +1,9 @@
 # Roadmap
 ## MVP — Aplicativo de Auditoría de Lenguaje Claro INAPI
 
-**Última actualización:** 2026-11-04
+**Última actualización:** 2026-11-10
 
-**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones de esa serie hasta **C-2026-08-26a** + **C-2026-11-05a** SIAC/portal). Prompt 6 vigente **hasta C-2026-11-09a** (mismo texto → propuesta final; plazos/canales, ClaveÚnica, fecha pie ©; además 11-04a–f / 11-05a–c). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
+**Lectura rápida:** el camino productivo es **Claude Code + Playwright + Chroma/Xenova/LangChain + Zod + Vercel**. Checklist **v3.0 / 51 `LC-*` · 12 hitos CL1** (sin meta 492). Muestra META MEI: **11 URLs** (órdenes 1–10 v3.0 el 2026-08-25/26; orden 11 landing `tramites.inapi.cl/` el 2026-08-27; calibraciones de esa serie hasta **C-2026-08-26a** + **C-2026-11-05a** SIAC/portal). Prompt 6 vigente **hasta C-2026-11-10a** (avisos: 130 líneas, chunks, hechos TGR/ClaveÚnica/Clave INAPI; además 11-09a/b, 11-04a–f / 11-05a–c). Excel MEI: pestaña **Hitos-Tareas-Criterios** (por URL y consolidado). **Sin** Nest, Supabase Auth, AWS LC ni Claude API operativa (propuestas antiguas — ADR 0002/0006).
 
 ### Checklist editorial (ago-2026)
 

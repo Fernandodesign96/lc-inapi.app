@@ -257,7 +257,7 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | Plazos / confirmación / SIAC | LC-1.1.2-03/04 · LC-5.2.1-01 · LC-1.1.7-03 | Solo evidencia ops o literal; copy CMS (no consejos); SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; título en mayúsculas: fidelidad ≠ tipografía (C-2026-11-05a). |
 | Botón Clave Única | LC-1.1.5 / CTA | No proponer cambios de texto ni forma: lo define el Estado, no TI INAPI (C-2026-11-05b). |
 | Fecha «Actualizado» | LC-1.1.4-01 | Solo en el pie, junto a «©… INAPI. Todos los derechos reservados» (C-2026-11-05c). |
-| Mismo texto / nodo | Varios LC-* | Una solicitud Word con propuesta final completa; listar criterios; no encadenar borradores (C-2026-11-09a). Avisos: plantilla editorial + HTML propuesto + vista tipográfica (C-2026-11-09b). |
+| Mismo texto / nodo | Varios LC-* | Una solicitud Word con propuesta final completa; listar criterios; no encadenar borradores (C-2026-11-09a). Avisos: agrupar IDs si solo cambia fecha/hora; el propuesto conserva hechos (TGR, ClaveÚnica, Clave INAPI, MFA, Custodia, etc.) (C-2026-11-09b / C-2026-11-10a). |
 | ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
 ---
@@ -919,7 +919,7 @@ Quien lee `ubicacion_pantalla`, `propuesto`, `motivo`, `comentario`, `resumen_ej
 
 **Prohibido en esos campos (mensaje principal):** jerga de orquestación («sub-subagente», «§17», «capa R/U», «gate §20.6», «Chroma», «mapa D0», «análisis textual ascendente», «Prompt 6/7», códigos `C-YYYY-…`); códigos `LC-*` e IEW/IESD (`1.1.3 / 5.1.3`); sintaxis HTML/DOM como si fuera el hallazgo; ubicaciones o citas solo con ids de inventario (`T042`, `T008–T011`) **sin** literal ni ruta humana.
 
-**Referencias entre criterios:** «el criterio 4», «los criterios 6 y 24» (numeración 1…51). **Encabezado:** `Criterio N: … — Instrumento M: Nombre` — ej. `— Instrumento 3: Lenguaje plano`.
+**Referencias entre criterios:** «el criterio 4», «los criterios 6 y 24» (numeración 1…51 **PTD Hito → Tarea**, la misma del Word/PDF/Excel — `ptdHitoTareaPorCriterio`; no la posición en el catálogo). Ante duda, nombrar el criterio en vez de numerarlo (C-2026-11-10b). **Encabezado:** `Criterio N: … — Instrumento M: Nombre` — ej. `— Instrumento 3: Lenguaje plano`.
 
 Escribir lo que la persona **ve** y **debe cambiar** en el CMS. La ancla HTML / `Tnnn` / `LC-*` queda en JSON técnico (`html_linea_aprox`, `criterio_id`), **nunca** como mensaje principal de entrega.
 
@@ -1107,6 +1107,7 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 33. Proponer «Actualizado:…» fuera del pie (bajo H1 / encabezado de formulario) (C-2026-11-05c).
 34. Varias filas Word que reescriben el mismo literal con propuestas intermedias (C-2026-11-09a).
 35. Auditar o proponer cambios de nomenclatura HTML en avisos de sistemas (solo copy visible) (C-2026-11-09a).
+36. Un solo `propuesto` genérico para los 130 avisos, o borrar TGR / Clave INAPI / MFA / fechas de cada ID (C-2026-11-10a).
 
 ---
 

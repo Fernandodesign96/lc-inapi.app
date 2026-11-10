@@ -39,7 +39,7 @@ import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
 import { cn } from "@/lib/utils"
 
 const AVISOS_AUDIT = META_MEI_EXTRA_AUDITS.find(
-  (r) => r.id === "avisos-sistemas-tramites_2026-11-09",
+  (r) => r.url === "inapi://avisos-sistemas-tramites",
 )
 
 function labelTipoPagina(tipo: "sitioweb" | "tramites"): string {

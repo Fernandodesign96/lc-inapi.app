@@ -34,6 +34,29 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Entradas vigentes (actualizar en cada hallazgo)
 
+### C-2026-11-10b — «Criterio N» en entrega = numeración PTD (Hito → Tarea), no posición en el catálogo
+
+- **Origen:** auditoría `avisos-sistemas-tramites_2026-11-10`: los comentarios citaban «criterios 4 y 5» con la posición del catálogo `checklist-criteria-lc-ptd.json`, mientras el Word/PDF/Excel numera con `ptdHitoTareaPorCriterio` (p. ej. ortografía = Criterio 1, negritas = Criterio 39). El mismo número apuntaba a dos criterios distintos.
+- **Regla:** en `comentario`, `motivo`, `propuesto`, `resumen_ejecutivo` y `nota_final_tic`, «criterio N» usa **solo** el ordinal PTD (`criterioOrdinal` de `src/lib/ptd-hito-tarea-por-criterio.ts`), el mismo que muestra la entrega. Si no se tiene a mano, **nombrar** el criterio («el criterio de datos clave») en vez de numerarlo. Prohibido usar la posición del catálogo como número visible.
+- **Aplica a:** todas las auditorías nuevas (URL y avisos).
+- **estado:** vigente
+
+### C-2026-11-10a — Avisos de sistemas: 130 líneas, chunks y hechos que no se borran
+
+- **Origen:** revisión del Word/Excel de `Avisos Sistemas.xlsx` (130 filas) y de la entrega `avisos-sistemas-tramites_2026-11-09`. Agrupar IDs por plantilla (C-2026-11-09b) se interpretó como **un solo `propuesto` genérico** («por mantenimiento programado del centro de datos… En la fecha y horario anunciados») para casi todos los avisos. Eso **borra** fecha/hora de cada ID y hechos operativos distintos.
+- **Método obligatorio (antes de puntuar los 51):**
+  1. **Leer las 130 filas** (`docs/auditorias-tramites-url-10-y-11/Avisos Sistemas.xlsx` o `avisos-sistemas-extract.json`). No muestrear 5 y generalizar.
+  2. **Chunk por plantilla:** misma redacción salvo **día / fecha / hora**. Catálogo de IDs del chunk (ordenados, sin inventar huecos).
+  3. **Inventario de hechos** por aviso (no se omiten ni se fusionan en el genérico): TGR / no realizar presentaciones con pago; retraso de comprobante; ClaveÚnica; Clave INAPI disponible; RUN + código de 6 dígitos; Custodia y presentación de poderes; cambio de proveedor / propagación de red (hasta 48 h); centro de datos (`datacenter`); mantención en 2 etapas; firma de títulos; solo Patentes vs solo Marcas; intermitencia vs fuera de servicio; correo `inapi@inapi.cl`.
+  4. **Léxico persistente** (igual en todos los avisos que se reescriben): título «Importante» (no mayúscula sostenida); «Estimados usuarios y usuarias»; cierre «Lamentamos las molestias y agradecemos su comprensión.»; TGR siempre «Tesorería General de la República (TGR)»; ClaveÚnica y Clave INAPI con esos nombres; Custodia (sin tilde incorrecta).
+  5. **51 criterios a cada línea:** con el contexto del chunk + hechos de **esa** fila. Si no hay defecto para un criterio, `cumple` o `no_aplica` con comentario; no copiar el incumplimiento del chunk genérico a un aviso TGR/ClaveÚnica.
+  6. **`propuesto` por línea que requiera corrección:** misma voz del léxico; **conservar la fecha/hora de ese ID**; **conservar y reforzar** los hechos de esa fila. En un chunk de N IDs idénticos, la columna ID's puede listar el grupo, pero el cuerpo **no** usa una sola fecha ni añade «centro de datos» si el original no lo decía.
+- **Prohibido:** un párrafo único para los 130; borrar la advertencia de no pagar (TGR); borrar «Clave INAPI sí estará disponible»; sustituir MFA/RUN por el texto de mantención; ignorar Patentes vs Marcas.
+- **Ejemplo malo:** IDs 9, 10, 137 y 146 con el mismo texto de centro de datos.
+- **Ejemplo bueno:** chunk de mantención genérica (p. ej. IDs 6, 7, 11…) comparte voz y agrupa IDs; ID 9 refuerza TGR + no presentar con pago; ID 137 refuerza ClaveÚnica intermitente + Clave INAPI operativa; ID 146 refuerza código de 6 dígitos y que ClaveÚnica no cambia.
+- **Aplica a:** auditoría de avisos de sistemas (JSON, Word, PDF, Excel). Complementa C-2026-11-09b (agrupar IDs ≠ unificar el copy).
+- **estado:** vigente
+
 ### C-2026-11-04a — Consistencia origen ↔ destino (hubs y páginas de detalle)
 
 - **Origen:** revisión manual UX oct-2026 (Portada, Marcas, Sala de Prensa): las tarjetas «Para informarse», Observancia, PCT y noticias resumen un contenido que vive en otra URL. Corregir solo el hub deja la página de destino desactualizada (p. ej. `/marcas` vs `/marcas/para-informarse?acordeon=1`; menú «Observancia» vs `/protege-tu-idea/pirateria-y-falsificacion`; «PCT» vs `/pct`).
@@ -170,8 +193,8 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 - **Origen:** calibración del Word/PDF/Excel de `avisos-sistemas-tramites_2026-11-09`: IDs consecutivos parecían «saltarse» números porque se agrupaba por literal exacto (fechas distintas = filas distintas); TI necesita HTML listo para pegar y ver tipografía.
 - **Regla:**
-  1. **Agrupar IDs** cuando el mensaje es la **misma plantilla editorial**: ignorar diferencias solo de **día / fecha / hora** (y anclas relativas «mañana», «este jueves», etc.). Listar **todos** los IDs del grupo en la casilla, sin repetir y ordenados.
-  2. **Separar filas** si hay diferencias evidentes de **palabras, conceptos, tono o forma de dirigirse** a la persona (p. ej. «Debemos informar…» vs «Nos dirigimos a ustedes…»; con/sin «datacenter»; MFA vs mantención).
+  1. **Agrupar IDs** cuando el mensaje es la **misma plantilla editorial**: ignorar diferencias solo de **día / fecha / hora** (y anclas relativas «mañana», «este jueves», etc.). Listar **todos** los IDs del grupo en la casilla, sin repetir y ordenados. El agrupado es **catálogo**, no un único párrafo que borre calendarios ni hechos (C-2026-11-10a).
+  2. **Separar filas** si hay diferencias evidentes de **palabras, conceptos, tono, hechos operativos o forma de dirigirse** (p. ej. TGR, ClaveÚnica, Clave INAPI, MFA, Custodia de poderes, Patentes vs Marcas, con/sin datacenter).
   3. IDs ausentes en el Excel fuente no se inventan (huecos reales del corpus).
   4. Columna **Contenido a modificar/agregar**: (a) HTML propuesto completo para copy-paste TI (conservar `id`/`class`/cáscara); (b) debajo, **vista en pantalla** con pesos tipográficos del HTML (negrita, cursiva, subrayado, enlaces, viñetas, color). Si el color del texto es blanco/casi blanco, mostrar con **fondo de contraste** legible.
   5. Columna **Texto anuncio**: HTML original representativo del grupo (no solo texto plano).
@@ -544,4 +567,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-05c**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-10b**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

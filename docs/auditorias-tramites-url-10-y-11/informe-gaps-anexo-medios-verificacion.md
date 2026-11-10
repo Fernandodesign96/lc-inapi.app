@@ -39,7 +39,7 @@ El piloto LC (checklist PTD-LC v3.0, 51 criterios) **cubre bien** la dimensión 
 
 ## Avisos vs hito de disponibilidad
 
-- La auditoría `avisos-sistemas-tramites_2026-11-09` mejora el **copy** de los 130 avisos (propuestas finales por texto único).
+- La auditoría `avisos-sistemas-tramites_2026-11-10` mejora el **copy** de los 130 avisos (21 plantillas; cada propuesta conserva los hechos y la fecha/hora de cada ID — C-2026-11-10a). Reemplaza a `avisos-sistemas-tramites_2026-11-09` (queda en historial).
 - **No reemplaza** el medio de verificación de uptime: hace falta el reporte de monitoreo + narrativa de ventanas anunciadas.
 
 ## Recomendación de siguiente paso
@@ -54,5 +54,5 @@ El piloto LC (checklist PTD-LC v3.0, 51 criterios) **cubre bien** la dimensión 
 | --- | --- |
 | SIAC Word agrupado (C-2026-11-09a) | Listo (65,7 %) |
 | Portal Word (URL 11) | Preexistente |
-| Avisos PDF/Word/Excel vía UI | JSON + Word listos; PDF/Excel vía `/auditar/resultado?claudeAudit=avisos-sistemas-tramites_2026-11-09` |
+| Avisos PDF/Word/Excel vía UI | JSON + Word listos (42,9 %, rechazado); PDF/Excel vía `/auditar/resultado?claudeAudit=avisos-sistemas-tramites_2026-11-10` |
 | Anexo completo STD | **Pendiente** (gaps arriba) |

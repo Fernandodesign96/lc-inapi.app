@@ -40,7 +40,7 @@ Por cada unidad opaca o incompleta:
 - criterios_candidatos LC-*
 - diagnóstico en lenguaje claro
 - propuesta_cms: conservar el nombre oficial + glosa (hover en menú; término+glosa en H1). CTA genéricos sí se cambian. Si hay etapas/pagos, listar todos y decir qué ocurre. Si el bloque responde qué/cómo pero faltan dónde/quién/cuándo/cuánto: insertar, no solo reescribir. No reescribir misión/visión/valores.
-- No te quedes solo en «mejorar la redacción» si el concepto sigue sin explicarse o si el destino contradice el hub (Prompt 6 C-2026-11-04).
+- No te quedes solo en «mejorar la redacción» si el concepto sigue sin explicarse o si el destino contradice el hub (Prompt 6 C-2026-11-04). En avisos: chunks por plantilla + hechos operativos intactos (C-2026-11-10a).
 
 Salida: mapa tabular unidad_id | nivel | texto | ubicación | criterios | diagnóstico | propuesta | contexto_superior.
 No calcules el % global. No escribas el JSON canónico de 51 filas (eso lo consolidan los 15 + raíz).

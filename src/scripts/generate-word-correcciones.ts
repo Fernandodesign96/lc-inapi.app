@@ -95,6 +95,8 @@ const DOCS_COPY: Record<string, string> = {
     "docs/auditorias-tramites-url-10-y-11/11. Cambios de contenidos_web tramites.inapi.cl portal tramites.docx",
   "avisos-sistemas-tramites_2026-11-09":
     "docs/auditorias-tramites-url-10-y-11/Avisos-sistemas-correcciones.docx",
+  "avisos-sistemas-tramites_2026-11-10":
+    "docs/auditorias-tramites-url-10-y-11/Avisos-sistemas-correcciones.docx",
 }
 
 type Args = { auditId: string; copyDocs: boolean }

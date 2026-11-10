@@ -23,7 +23,7 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Procedimiento
 
-1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-09b inclusive**).  
+1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-10a inclusive**).  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
 4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir. Conceptos oficiales: **mismo nombre + glosa** (C-2026-11-04c); no reescribir misión/visión/valores. Usar el mapa D0 (Prompt 7).  
@@ -50,10 +50,10 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 25. **ClaveÚnica Estado (C-2026-11-05b):** no cambiar texto/forma del botón-widget Clave Única (Estado).  
 26. **Fecha en pie (C-2026-11-05c):** «Actualizado:…» solo junto al © del footer.
 27. **Mismo texto → propuesta final (C-2026-11-09a):** un nodo/literal = una solicitud Word con el `propuesto` más completo; listar todos los criterios; no encadenar borradores.  
-28. **Avisos sistemas (C-2026-11-09b):** agrupar IDs por plantilla (ignorar día/hora); separar si cambia wording/concepto; entrega = HTML original + HTML propuesto + vista tipográfica (texto blanco → contraste).
-28. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).
-29. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-30. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+28. **Avisos sistemas (C-2026-11-09b / C-2026-11-10a):** agrupar IDs solo si el copy es el mismo salvo fecha/hora; no unificar el `propuesto`; reforzar TGR/ClaveÚnica/Clave INAPI/MFA/Custodia/etc.; 51 criterios por cada una de las 130 líneas; entrega HTML original + propuesto + vista tipográfica.  
+29. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+30. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+31. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

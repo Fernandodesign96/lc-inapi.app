@@ -1,0 +1,1196 @@
+{
+  "id": "avisos-sistemas-tramites_2026-11-10",
+  "url": "inapi://avisos-sistemas-tramites",
+  "fecha_evaluacion": "2026-11-10T00:00:00.000Z",
+  "evaluador_uid": "equipo de desarrollo",
+  "version_checklist": "3.0",
+  "tipo_pagina": "tramites",
+  "captura_con_sesion": false,
+  "texto_capturado": "Corpus completo de 130 avisos de sistemas (Avisos Sistemas.xlsx; 129 inactivos y 1 activo, el aviso 146). Se leyeron las 130 filas y se agruparon en 21 plantillas editoriales (29 variantes de HTML) cuando el texto solo cambia en día, fecha u hora. Se inventariaron los hechos de cada aviso (pagos con la Tesorería General de la República, retraso de comprobante, ClaveÚnica, Clave INAPI, código de 6 dígitos, Custodia y presentación de poderes, cambio de proveedor, centro de datos, mantención en dos etapas, firma de títulos, Patentes y Marcas, intermitencia o corte total, correo de contacto) y se evaluaron los 51 criterios sobre el texto de cada plantilla.",
+  "criterios_evaluados": [
+    {
+      "id": "LC-1.1.1-01",
+      "estado": "cumple",
+      "comentario": "Los avisos se publican en el recuadro de avisos de las plataformas de trámites de INAPI, bajo su encabezado institucional. Cuando la falla es de otro organismo, el aviso lo nombra: Tesorería General de la República en los avisos 9, 15 y 75, y ClaveÚnica en los avisos 24 a 26 y 137."
+    },
+    {
+      "id": "LC-1.1.2-01",
+      "estado": "incumple",
+      "severidad": "media",
+      "cita_textual": "Aviso Importante: Intermitencia en nuestros servicios (avisos 122 y 125)",
+      "comentario": "En los avisos 122 y 125 el título dice «Intermitencia en nuestros servicios», pero el texto informa que todos los servicios de Marcas Comerciales no están disponibles (Expediente Electrónico, solicitudes, escritos y anotaciones). El título promete cortes breves en todo INAPI y el contenido describe una caída completa de un área. En los demás avisos con título descriptivo (8, 9, 10, 137, 138 a 146) el título coincide con el contenido."
+    },
+    {
+      "id": "LC-1.1.2-02",
+      "estado": "cumple",
+      "comentario": "Ninguno de los 130 avisos está vacío ni dice «en construcción»: todos informan un hecho concreto (mantención, falla de pago, cambio de acceso). El aviso 75 es muy breve y no dice qué hacer, pero eso se evalúa en los criterios de datos clave y de autonomía."
+    },
+    {
+      "id": "LC-1.1.2-03",
+      "estado": "incumple",
+      "severidad": "media",
+      "cita_textual": "Esta interrupción está programada para miércoles 24 de septiembre, a partir de las 17:30 horas (avisos 69 a 74)",
+      "comentario": "Los avisos dicen qué ocurre y cuándo empieza, pero en la mayoría falta cuándo termina: los avisos de mantención genérica (salvo 31 a 34, 36 y 37), los del centro de datos (82 a 87, 126 a 129, 138 a 145) y el aviso 8 solo dicen «a partir de las 17:30 horas» o «desde las 19:00». El aviso 10 no dice el día y los avisos 130 y 131 dicen «este fin de semana». Los avisos 9 y 132 no dicen cuánto durará la falla ni cómo sabrá la persona que se resolvió. Sí traen inicio y término los avisos 1, 4, 5, 15, 24 a 26, 31 a 34, 36, 37, 63 a 68 y 137. Las propuestas no inventan horas de término: piden a TI agregarlas cuando las conozca."
+    },
+    {
+      "id": "LC-1.1.2-04",
+      "estado": "incumple",
+      "severidad": "media",
+      "cita_textual": "solicitamos tomar las medidas necesarias en función de esta situación (avisos de mantención genérica y del centro de datos)",
+      "comentario": "La pregunta es si la persona sabe qué hacer por su cuenta. En 117 avisos (mantención genérica, centro de datos y los avisos 1, 4, 5, 8, 10, 15, 20, 24 a 26, 75 y 130 a 131) el texto se limita a «solicitamos tomar las medidas necesarias» (o «tomar las acciones necesarias para minimizar el impacto», aviso 20) o no dice nada, sin indicar si conviene adelantar el trámite, reintentar después o evitar pagos. Sí orientan bien los avisos 9 (no presentar con pago), 63 a 68 (adelantar trámites), 132 (no volver a pagar), 137 (usar Clave INAPI) y 146 (revisar el correo registrado)."
+    },
+    {
+      "id": "LC-1.1.3-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Debemos informar que, debido a mantenimiento programado, nuestros servicios de atención en línea estarán temporalmente fuera de servicio.",
+      "comentario": "Se midió el índice de Fernández-Huerta de forma aproximada en las 29 variantes de texto: la plantilla de mantención genérica, que se repite en 86 avisos, obtiene alrededor de 50 (algo difícil), con oraciones de 12 a 17 palabras y palabras largas («temporalmente», «mantenimiento programado»). Llegan a nivel normal o fácil los avisos 1, 20, 132 y 146. Para confirmar, medir el texto final en Legible.cl antes de publicarlo; las propuestas acortan las oraciones y usan palabras más comunes."
+    },
+    {
+      "id": "LC-1.1.3-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.",
+      "comentario": "Casi todos los avisos usan «vuestra comprensión», una forma que no se usa en Chile y suena distante, junto a fórmulas como «Debemos informar que» o «Lamentamos profundamente». El saludo «Estimados usuarios» no nombra a las usuarias. Tienen un tono cercano los avisos 20, 122, 125, 132 y 146; el 137 está bien resuelto, pero aún dice «vuestra comprensión». Las propuestas usan el mismo trato en todo el corpus: «Estimados usuarios y usuarias», «su comprensión» y un cierre común."
+    },
+    {
+      "id": "LC-1.1.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "debido a la propagación del nuevo direccionamiento IP, un proceso externo que puede tardar hasta 48 horas (avisos 130 y 131)",
+      "comentario": "Los avisos 130 y 131 usan términos técnicos de redes («proveedor de enlaces de comunicaciones», «propagación del nuevo direccionamiento IP») sin explicarlos. Los avisos 24 a 26 y 137 hablan del «servicio» o «sistema de autenticación», y los avisos 122 y 125 usan «anotaciones», término de INAPI que no todas las personas conocen. El resto del corpus usa palabras comunes."
+    },
+    {
+      "id": "LC-1.1.3-04",
+      "estado": "cumple",
+      "comentario": "La pregunta pide evitar extranjerismos o abreviaturas en al menos la mitad de los contenidos. 111 de los 130 avisos no los usan. Aparecen «datacenter» en 18 avisos (82 a 87, 126 a 129 y 138 a 145) y «4pm» en el aviso 10; se corrigen igual en las propuestas de esos avisos, como parte del criterio de palabras claras."
+    },
+    {
+      "id": "LC-1.1.3-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "TGR Tesoreria General de la República (aviso 75) · direccionamiento IP (avisos 130 y 131)",
+      "comentario": "La sigla IP de los avisos 130 y 131 no se explica. En el aviso 75 la sigla TGR va antes del nombre y sin paréntesis («TGR Tesoreria General de la República»). El aviso 9 lo hace bien («Tesorería General de la República (TGR)») y se toma como modelo para los avisos 15 y 75."
+    },
+    {
+      "id": "LC-1.1.3-06",
+      "estado": "incumple",
+      "severidad": "baja",
+      "agrupado_en": "LC-1.1.2-04",
+      "cita_textual": "Durante este período, no será posible realizar trámites en línea.",
+      "comentario": "Los avisos de mantención dicen lo que no se puede hacer («no será posible realizar trámites en línea») sin ofrecer una alternativa. Se corrige en la misma frase que agrega la orientación del criterio de autonomía (adelantar el trámite o reintentar después), por eso se agrupa con él. Los avisos 63 a 68, 137 y 146 ya están escritos en positivo."
+    },
+    {
+      "id": "LC-1.1.4-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "cita_textual": "A partir de este lunes (aviso 146) · este fin de semana (avisos 130 y 131) · a partir de las 4pm (aviso 10) · mañana jueves 28 (aviso 1)",
+      "comentario": "En los avisos, la información vigente es la fecha del evento. Casi todos la escriben completa, pero cuatro usan referencias relativas que dejan de ser ciertas pocos días después: aviso 1 («mañana jueves 28»), aviso 10 («a partir de las 4pm», sin día), avisos 130 y 131 («este fin de semana») y aviso 146 («A partir de este lunes»), que es el único aviso activo hoy. Además, los avisos 3, 9, 75, 122, 125 y 132 no indican ninguna fecha («en este momento», «actualmente»), así que no se sabe desde cuándo ocurre la falla. Las propuestas escriben día y mes en palabras, tomando el periodo de publicación de cada aviso."
+    },
+    {
+      "id": "LC-1.1.5-01",
+      "estado": "incumple",
+      "severidad": "alta",
+      "cita_textual": "Custodía (aviso 10) · realizara (avisos 24 a 26) · Tesoreria / lamentamos las molestias (aviso 75) · tesorería general de la república (aviso 15) · Estimados usuarias y usuarios (aviso 20)",
+      "comentario": "Hay más de un error, por lo que la pregunta no se cumple: «Custodía» (aviso 10), «realizara» sin tilde (24 a 26), «Tesoreria» y «lamentamos» con minúscula después de punto (75), «tesorería general de la república» en minúsculas (15), «Estimados usuarias y usuarios» sin concordancia (20), «Estimados Usuarios» (3), títulos con mayúsculas innecesarias y punto final («Servicios Electrónicos de pago.», aviso 9; «Presentación de Poderes.», aviso 10; «Interrupción de los Servicios Electrónicos.», aviso 8), «debido a cambio de proveedor» sin artículo (8), «por favor escribir» en vez de «escríbanos» (20) y días y meses con mayúscula («Noviembre» en el 4, «Jueves 21 de Diciembre» en el 5, «Sábado 28 de Diciembre» en el 31 y 32, «Martes 25 de Marzo» en el 33 y 34, «Miércoles» en el 50 a 52, 56, 61 y 62, y «Jueves 24/09» en el 140 a 145). Antes de publicar un aviso, revisarlo con el corrector del editor o con LanguageTool."
+    },
+    {
+      "id": "LC-1.1.5-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Lo anterior, implica que no se podrán realizar trámites en línea (avisos 1 y 4)",
+      "comentario": "Hay comas que separan el sujeto del verbo («Lo anterior, implica», avisos 1 y 4; «Debemos informar que, tesorería», 15; «Debemos informar que, INAPI cambiará», 130 y 131), una coma donde corresponde un punto («(TGR), NO realice», aviso 9) oraciones sin punto final (avisos 4, 5 y 75), un espacio antes del punto en «17:00 horas .» (avisos 11 y 13), falta la coma después de «Además» (15) y sobra la coma antes de «y solicitamos» (1, 4, 5 y 82 a 87). En el resto del corpus la puntuación ayuda a leer."
+    },
+    {
+      "id": "LC-1.1.5-03",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.6-01",
+      "estado": "no_aplica",
+      "comentario": "Los avisos son mensajes breves que aparecen sobre los formularios de trámites. Las condiciones de uso pertenecen al sitio donde se muestran y se revisan en la auditoría de cada página; un aviso de mantención no tiene por qué incluirlas."
+    },
+    {
+      "id": "LC-1.1.6-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.7-03",
+      "estado": "no_aplica",
+      "comentario": "Ningún aviso pide ni muestra datos personales. El aviso 146 menciona el correo registrado de la persona, pero no lo solicita ni lo publica; la información sobre derechos de acceso, rectificación, cancelación y oposición corresponde a la política de privacidad del sitio."
+    },
+    {
+      "id": "LC-1.1.8-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.8-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.1.8-03",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.2.1-01",
+      "estado": "cumple",
+      "comentario": "Los avisos siguen el orden de las preguntas que se haría una persona: qué pasa, cuándo y a qué servicios afecta. Las respuestas que faltan en algunos avisos (hasta cuándo, qué hacer) se cuentan en los criterios de datos clave y de autonomía para hacer el trámite."
+    },
+    {
+      "id": "LC-5.2.1-01",
+      "estado": "cumple",
+      "comentario": "Dentro del servicio digital, cada aviso responde primero qué servicio se ve afectado y luego en qué horario. Los avisos 20 (Patentes afectado, Marcas normal), 122 y 125 (servicios de Marcas afectados) y 137 (ClaveÚnica afectada, Clave INAPI disponible) separan con claridad lo que funciona de lo que no."
+    },
+    {
+      "id": "LC-1.2.1-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "debido a mantenimiento programado del datacenter (avisos 82 a 87, 126 a 129 y 138 a 145) · a partir de las 4pm (aviso 10)",
+      "comentario": "«Datacenter» aparece en 18 avisos y no todas las personas lo entienden; se reemplaza por «centro de datos» solo en esos avisos, sin agregarlo a los que no lo mencionan. «4pm» (aviso 10) se escribe «16:00 horas», como en el resto del corpus."
+    },
+    {
+      "id": "LC-1.2.1-03",
+      "estado": "cumple",
+      "comentario": "Predominan el presente y el futuro en voz activa («estamos presentando», «estarán fuera de servicio», «funcionarán normalmente»). Las formas impersonales son pocas («se está trabajando», aviso 3) y no dificultan la lectura."
+    },
+    {
+      "id": "LC-1.2.1-04",
+      "estado": "cumple",
+      "comentario": "Las oraciones siguen el orden sujeto, verbo y complemento («nuestros servicios de atención en línea estarán temporalmente fuera de servicio», «El servicio de ClaveÚnica realizará una mantención»). Los incisos entre comas son breves."
+    },
+    {
+      "id": "LC-1.2.1-05",
+      "estado": "no_aplica",
+      "comentario": "Los avisos no listan requisitos para hacer un trámite; informan cortes o cambios de acceso."
+    },
+    {
+      "id": "LC-1.2.2-01",
+      "estado": "cumple",
+      "comentario": "Los avisos son breves: entre 22 y 108 palabras, en 1 a 5 bloques de texto. Ninguno supera el largo recomendado para una pantalla."
+    },
+    {
+      "id": "LC-5.2.2-01",
+      "estado": "cumple",
+      "comentario": "Dentro del trámite, el aviso ocupa pocas líneas sobre el formulario (la plantilla más usada tiene unas 75 palabras) y no interrumpe la lectura del trámite."
+    },
+    {
+      "id": "LC-1.2.2-02",
+      "estado": "cumple",
+      "comentario": "Ningún bloque supera las 8 líneas en escritorio: el más largo (la plantilla de mantención genérica, unas 70 palabras en un solo bloque) ocupa unas 4 o 5 líneas."
+    },
+    {
+      "id": "LC-1.2.2-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Debemos informar que, debido a mantenimiento programado […] Lamentamos profundamente las molestias […] y solicitamos tomar las medidas necesarias en función de esta situación.",
+      "comentario": "En la plantilla de mantención genérica (86 avisos), en las del centro de datos y en los avisos 20 y 130 a 131, un solo bloque mezcla cuatro o cinco ideas: causa, fecha, efecto, disculpa y petición. Las propuestas separan una idea por párrafo. Los avisos 137 y 146 ya lo hacen."
+    },
+    {
+      "id": "LC-1.2.2-04",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.",
+      "comentario": "La fórmula de cierre de la mayoría de los avisos usa más palabras de las necesarias («Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación»), y los avisos 1 y 4 usan otra igual de larga («Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias»). Las propuestas usan el cierre corto común «Lamentamos las molestias y agradecemos su comprensión.»"
+    },
+    {
+      "id": "LC-1.2.2-05",
+      "estado": "cumple",
+      "comentario": "Los únicos avisos con cuatro o más bloques (1, 122, 125 y 137) empiezan con una oración o un título que resume el hecho. El resto tiene menos de cuatro bloques."
+    },
+    {
+      "id": "LC-1.2.3-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "…solicitamos tomar las medidas necesarias en función de esta situación. Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios. (avisos 38 a 42, 45 a 52, 56, 61 y 62)",
+      "comentario": "En los avisos 1, 3, 4, 5, 20, 38 a 42, 45 a 52, 56, 61, 62, 63 a 68, 130, 131 y 132, el agradecimiento va pegado al párrafo anterior con un solo salto de línea, sin espacio. En los avisos 9 y 10 los bloques van uno tras otro sin margen. Las propuestas usan párrafos separados."
+    },
+    {
+      "id": "LC-1.2.3-02",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Debemos informar que, debido a mantenimiento programado, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. (avisos 6 y 7) · Este viernes 31 de mayo desde las 19:00 se realizarán trabajos en la red de INAPI, debido a cambio de proveedor (aviso 8)",
+      "comentario": "Los avisos 6, 7 y 8 tienen el cuerpo del texto justificado, lo que deja espacios irregulares entre palabras. En los avisos 9 y 10 solo el título está en un bloque justificado y el cuerpo va alineado a la izquierda, igual que en el resto del corpus."
+    },
+    {
+      "id": "LC-1.2.3-03",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "La primera será mañana jueves 28 a partir de las 17:00 horas hasta las 19:00 horas y la segunda será este sábado 30 de septiembre… (aviso 1)",
+      "comentario": "El aviso 1 describe dos etapas con sus horarios en una sola oración, y los avisos 122 y 125 enumeran tres servicios afectados dentro de un párrafo. En los dos casos una lista ayuda a leer; en el resto de los avisos no hay enumeraciones que lo necesiten."
+    },
+    {
+      "id": "LC-1.2.4-01",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "Debemos informar que, debido a mantenimiento programado, nuestros servicios… (avisos de mantención genérica)",
+      "comentario": "En la mayoría de los avisos el hecho principal llega después de un preámbulo («Debemos informar que, debido a…»). En el aviso 20 el dato que más tranquiliza (Marcas funciona normalmente) queda en medio del bloque, y en el aviso 1 las fechas quedan en el segundo bloque. Empiezan por lo importante los avisos 9, 132, 137 y 146; el aviso 3 abre con «Nos dirigimos a ustedes para informarles que…»."
+    },
+    {
+      "id": "LC-1.2.4-02",
+      "estado": "incumple",
+      "severidad": "media",
+      "cita_textual": "Importante (mayoría de los avisos) · Estimados usuarios: (título de los avisos 126 a 129)",
+      "comentario": "En la mayoría de los avisos el título es solo «Importante», que no dice de qué trata; en los avisos 126 a 129 el título grande es el saludo «Estimados usuarios:», y los avisos 20 y 75 no tienen título descriptivo. Las propuestas conservan «Importante» y agregan el tema (por ejemplo, «Importante: mantenimiento programado del centro de datos»). Ya tienen un título que dice el tema los avisos 8, 9, 10, 137, 138 a 145 y 146; en los avisos 122 y 125 el título no coincide con el contenido (se corrige en el criterio de fidelidad del título)."
+    },
+    {
+      "id": "LC-1.2.4-03",
+      "estado": "cumple",
+      "comentario": "Los avisos son cortos y casi todos destacan la fecha en negrita, así que el dato principal se encuentra de un vistazo. Lo que falta (negritas en algunos avisos, títulos, párrafos) se cuenta en los criterios de una idea por párrafo, espacio entre párrafos, títulos y negritas."
+    },
+    {
+      "id": "LC-1.2.4-04",
+      "estado": "incumple",
+      "severidad": "alta",
+      "cita_textual": "Estamos presentando inconvenientes en los pagos con la Tesorería General de la República (TGR), NO realice presentaciones que requieran pago hasta que esta situación sea resuelta. (aviso 9)",
+      "comentario": "Los avisos 1, 3, 4, 5, 9, 10, 15, 63, 64, 66, 75, 130, 131, 132 y 146 solo llevan en negrita el título (y, en los avisos 63, 64, 66 y 130 a 132, también el saludo): ningún dato del texto está destacado, ni la fecha ni la instrucción clave. El caso más grave es el aviso 9: la advertencia de no realizar presentaciones con pago no está destacada. Los avisos de mantención genérica, del centro de datos, 20, 122, 125 y 137 sí destacan la fecha o el servicio. Además, 42 avisos ponen en negrita el saludo «Estimados usuarios:» y 19 la despedida «Saludos», que no son palabras clave y compiten con la fecha."
+    },
+    {
+      "id": "LC-1.2.4-05",
+      "estado": "incumple",
+      "severidad": "baja",
+      "cita_textual": "IMPORTANTE: mantenimiento programado miércoles 26/08 a las 17:30 (avisos 138 a 145) · INFORMACIÓN CLAVE: (aviso 137) · NO realice (aviso 9)",
+      "comentario": "Los títulos de los avisos 137 a 145 empiezan con «IMPORTANTE:» en mayúsculas sostenidas, el aviso 137 usa «INFORMACIÓN CLAVE:» y el aviso 9 destaca «NO» en mayúsculas. El resto del corpus escribe «Importante» con mayúscula inicial, que es la forma que se mantiene en las propuestas."
+    },
+    {
+      "id": "LC-1.2.4-06",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-5.2.4-01",
+      "estado": "cumple",
+      "comentario": "Los avisos no tienen botones ni enlaces con textos ambiguos como «Más» o «Aquí». El único canal de contacto (inapi@inapi.cl, aviso 20) se muestra completo y se entiende directamente."
+    },
+    {
+      "id": "LC-1.2.4-07",
+      "estado": "no_aplica",
+      "comentario": "Ningún aviso enlaza documentos descargables."
+    },
+    {
+      "id": "LC-1.2.4-08",
+      "estado": "no_aplica",
+      "comentario": "Ningún aviso enlaza documentos, así que no hay descripciones que revisar."
+    },
+    {
+      "id": "LC-1.3.1-01",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.3.2-01",
+      "estado": "cumple",
+      "comentario": "Los avisos informan hechos (qué servicio, qué horario, qué hacer) con redacción neutra. Expresiones como «importante actualización» (avisos 63 a 68) o «Lamentamos profundamente» son de cortesía y no reflejan opiniones."
+    },
+    {
+      "id": "LC-1.3.2-02",
+      "estado": "no_aplica",
+      "comentario": "Esta pregunta corresponde solo al instrumento de evaluación de sitios web. Los avisos de sistemas se muestran dentro de los servicios digitales de trámites, por lo que no corresponde evaluarla aquí."
+    },
+    {
+      "id": "LC-1.3.3-01",
+      "estado": "no_aplica",
+      "comentario": "Los avisos anteriores no se publican como archivo: 129 de los 130 están inactivos y solo el aviso 146 está vigente. No hay versiones anteriores a la vista que deban rotularse."
+    }
+  ],
+  "criterios_aprobados": 15,
+  "criterios_aplicables": 35,
+  "criterios_no_aplica": 16,
+  "porcentaje_cumplimiento": 42.9,
+  "estado_aceptacion": "rechazado",
+  "resumen_ejecutivo": "Se revisaron los 130 avisos que muestran los sistemas de trámites en línea, agrupados en 21 plantillas. Se aprueban 15 de 35 criterios aplicables (14 se cumplen y 1 se cuenta junto con el criterio de autonomía), es decir, 42,9 %, por lo que el corpus queda rechazado.\n\nLos avisos informan bien qué pasa y cuándo empieza, pero la mayoría no dice qué puede hacer la persona ni cuándo termina el corte. Además hay errores de ortografía repetidos, títulos que solo dicen «Importante», avisos que no destacan en negrita ningún dato (incluida la advertencia de no pagar del aviso 9) y un trato distante («vuestra comprensión»).\n\nLas 21 solicitudes usan la misma voz («Importante: …», «Estimados usuarios y usuarias:», «Lamentamos las molestias y agradecemos su comprensión.») y conservan los hechos y la fecha y hora de cada aviso. Los avisos 137 (Clave INAPI disponible) y 146 (código de 6 dígitos) son los mejor redactados y sirven de modelo.",
+  "observaciones_lc_por_severidad": {
+    "hallazgos_prioridad_alta": [
+      "15 de los 130 avisos no destacan en negrita ningún dato del texto (solo el título o el saludo); en el aviso 9 la advertencia de no realizar presentaciones con pago no está destacada.",
+      "Errores de ortografía repetidos: «Custodía», «realizara», «Tesoreria», nombres propios en minúscula, días y meses con mayúscula y falta de concordancia en «Estimados usuarias y usuarios».",
+      "Avisos sin ninguna fecha (3, 9, 75, 122, 125 y 132) o con fechas relativas que dejan de ser ciertas: «mañana jueves 28», «a partir de las 4pm», «este fin de semana», «a partir de este lunes»."
+    ],
+    "hallazgos_prioridad_media": [
+      "La mayoría de los avisos no orienta qué hacer («solicitamos tomar las medidas necesarias»).",
+      "Muchos avisos dicen cuándo empieza el corte, pero no cuándo termina.",
+      "Títulos que solo dicen «Importante» o que son el saludo; en los avisos 122 y 125 el título habla de intermitencia y el texto, de una caída completa de Marcas Comerciales."
+    ],
+    "hallazgos_prioridad_baja": [
+      "Trato distante («vuestra comprensión», «Debemos informar que») y oraciones largas con varias ideas en un mismo bloque.",
+      "Términos técnicos o en inglés sin explicar: «datacenter», «direccionamiento IP», «4pm».",
+      "Texto justificado en los avisos 6, 7 y 8, bloques sin espacio entre ellos y mayúsculas sostenidas en «IMPORTANTE» e «INFORMACIÓN CLAVE».",
+      "Dos etapas y tres servicios afectados escritos en una sola oración en vez de una lista (avisos 1, 122 y 125).",
+      "Comas que separan el sujeto del verbo («Lo anterior, implica», «Debemos informar que, INAPI cambiará»), oraciones sin punto final y un espacio antes del punto en «17:00 horas .».",
+      "El hecho principal llega después de un preámbulo («Debemos informar que, debido a…») y los avisos dicen lo que no se puede hacer sin ofrecer una alternativa.",
+      "La plantilla más usada tiene un nivel de lectura algo difícil (índice de Fernández-Huerta cercano a 50); medir el texto final en Legible.cl."
+    ]
+  },
+  "sustituciones": [
+    {
+      "linea": "A01",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Mantención genérica (fuera de servicio, sin centro de datos) (avisos 6, 7, 11, 13, 17–19, 21–23, 27–34, 36–42, 45–52, 56, 61, 62, 69–74, 76–81, 88–121, 133–136)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p>Estimados usuarios:</p><p>Debemos informar que, debido a mantenimiento programado, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. <strong>Esta interrupción está programada para miércoles 24 de septiembre, a partir de las 17:30 horas</strong>. Durante este período, no será posible realizar trámites en línea. <br> <br>Lamentamos las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br><br>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante: mantenimiento programado de los servicios en línea\nEstimados usuarios y usuarias:\nPor mantenimiento programado, los servicios de atención en línea no estarán disponibles el miércoles 24 de septiembre, desde las 17:30 horas. Durante ese periodo no podrá realizar trámites en línea.\nLe recomendamos realizar sus trámites antes de esa hora o volver a intentarlo una vez terminado el mantenimiento.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: mantenimiento programado de los servicios en línea</strong></p><p>Estimados usuarios y usuarias:</p><p>Por mantenimiento programado, los servicios de atención en línea no estarán disponibles el <strong>miércoles 24 de septiembre, desde las 17:30 horas</strong>. Durante ese periodo no podrá realizar trámites en línea.</p><p>Le recomendamos <strong>realizar sus trámites antes de esa hora</strong> o volver a intentarlo una vez terminado el mantenimiento.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.2-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-06",
+        "LC-1.1.3-01",
+        "LC-1.1.3-02",
+        "LC-1.1.5-01",
+        "LC-1.2.2-03",
+        "LC-1.2.2-04",
+        "LC-1.2.3-01",
+        "LC-1.2.3-02",
+        "LC-1.2.4-01",
+        "LC-1.2.4-02",
+        "LC-1.1.5-02"
+      ],
+      "patron_sistema": true,
+      "motivo": "El aviso hoy dice qué pasa pero no qué puede hacer la persona: «solicitamos tomar las medidas necesarias en función de esta situación» no orienta. El propuesto agrega la acción concreta (adelantar el trámite o reintentar al terminar), cambia «vuestra» y «Estimados usuarios» por el trato común del corpus, separa causa, fecha, recomendación y cierre en párrafos con espacio entre ellos, cambia el título genérico «Importante» por uno que dice de qué trata el aviso, alinea a la izquierda los avisos 6 y 7 (hoy justificados) y escribe días y meses con minúscula («Sábado 28 de Diciembre», «Martes 25 de Marzo», «Miércoles 23 de julio» → minúscula). Si se conoce la hora de término, agregarla después de la hora de inicio, como ya hacen los avisos 31 a 34, 36 y 37. En los avisos 33, 34, 36 y 37, «hasta las 23:59 horas aproximadamente» es contradictorio (23:59 es una hora exacta); el calendario lo escribe «hasta el final del día». Hoy 42 avisos ponen en negrita el saludo «Estimados usuarios:» y 19 la despedida «Saludos», lo que compite con la fecha; el propuesto deja la negrita solo en la fecha y en la recomendación. También se corrigen «17:00 horas .» (espacio antes del punto, avisos 11 y 13) y los ceros iniciales («02 de mayo»). Los avisos 31 a 34, 36 y 37 conservan su hora de término (ver la lista de calendario); no reducirlos a «desde las…». Hechos que se conservan: servicios en línea fuera de servicio (no intermitencia), sin mención de centro de datos porque el original no la trae, y la fecha y hora propias de cada aviso. El HTML propuesto muestra la fecha del aviso 69; en cada aviso, reemplazar solo la fecha y hora en negrita por la que corresponde a ese ID (no usar una fecha común): avisos 6, 7: «jueves 2 de mayo, desde las 17:00 horas»; avisos 11, 13: «miércoles 19 de junio, desde las 17:00 horas»; avisos 17–19: «jueves 22 de agosto, desde las 17:00 horas»; avisos 21–23: «jueves 26 de septiembre, desde las 17:00 horas»; avisos 27–29: «jueves 24 de octubre, desde las 17:00 horas»; aviso 30: «jueves 21 de noviembre, desde las 17:00 horas»; avisos 31, 32: «sábado 28 de diciembre, de 08:00 a 13:00 horas aproximadamente»; avisos 33, 34: «martes 25 de marzo, desde las 17:00 horas hasta el final del día»; avisos 36, 37: «miércoles 23 de abril, desde las 17:30 horas hasta el final del día»; avisos 38–42: «martes 27 de mayo, desde las 17:30 horas»; avisos 45–49: «miércoles 25 de junio, desde las 17:30 horas»; avisos 50–52: «miércoles 23 de julio, desde las 17:30 horas»; avisos 56, 61, 62: «miércoles 20 de agosto, desde las 17:30 horas»; avisos 69–74: «miércoles 24 de septiembre, desde las 17:30 horas»; avisos 76–81: «miércoles 22 de octubre, desde las 17:30 horas»; avisos 88–91: «miércoles 26 de noviembre, desde las 17:30 horas»; avisos 92–97: «miércoles 17 de diciembre, desde las 17:30 horas»; avisos 98–103: «miércoles 21 de enero, desde las 17:30 horas»; avisos 104–109: «miércoles 25 de febrero, desde las 17:30 horas»; avisos 110–115: «miércoles 25 de marzo, desde las 17:30 horas»; avisos 116–121: «miércoles 22 de abril, desde las 17:30 horas»; avisos 133–136: «miércoles 10 de junio, desde las 17:30 horas».",
+      "aviso_correccion": {
+        "ids": [
+          6,
+          7,
+          11,
+          13,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          56,
+          61,
+          62,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          133,
+          134,
+          135,
+          136
+        ],
+        "fechas_inicio": [
+          "2024-04-29 15:17:50",
+          "2024-04-29 16:59:38",
+          "2024-06-17 00:00:00",
+          "2024-06-17 15:15:26",
+          "2024-08-21 10:09:22",
+          "2024-09-25 09:18:46",
+          "2024-09-25 09:18:53",
+          "2024-09-25 09:18:56",
+          "2024-10-21 18:14:22",
+          "2024-10-21 18:14:27",
+          "2024-10-21 18:14:33",
+          "2024-11-18 12:15:36",
+          "2024-12-26 15:42:47",
+          "2024-12-26 15:43:35",
+          "2025-03-25 16:16:24",
+          "2025-03-25 16:19:17",
+          "2025-04-21 16:38:40",
+          "2025-04-21 16:38:45",
+          "2025-05-26 11:54:30",
+          "2025-05-26 11:54:36",
+          "2025-05-26 11:55:09",
+          "2025-05-26 11:55:41",
+          "2025-05-26 11:57:36",
+          "2025-06-22 09:53:15",
+          "2025-06-24 09:53:15",
+          "2025-06-24 09:54:22",
+          "2025-07-22 00:00:00",
+          "2025-08-18 00:00:00",
+          "2025-09-23 00:00:00",
+          "2025-10-19 12:00:00",
+          "2025-10-20 12:00:00",
+          "2025-11-21 12:00:00",
+          "2025-12-16 12:00:00",
+          "2026-01-20 12:00:00",
+          "2026-02-22 12:00:00",
+          "2026-03-23 12:00:00",
+          "2026-04-19 00:00:00",
+          "2026-06-08 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "5",
+          "8",
+          "9",
+          "11",
+          "12",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A02",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Centro de datos (título con fecha) (avisos 138–145)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">                    <strong style=\"color: #d64000; font-size: 18px;\">IMPORTANTE: mantenimiento programado miércoles 26/08 a las 17:30</strong>                    <p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios:</p>                    <p style=\"margin-bottom: 12px;\">              Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. Esta interrupción está programada para el <strong>miércoles 26 de agosto, a partir de las 17:30 horas</strong>. Durante este período, no será posible realizar trámites en línea. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p>                                        <p style=\"margin-bottom: 0;\">Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p>                </div>  </div>",
+      "propuesto": "Importante: mantenimiento programado el miércoles 26 de agosto, desde las 17:30 horas\nEstimados usuarios y usuarias:\nPor mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el miércoles 26 de agosto, desde las 17:30 horas. Durante ese periodo no podrá realizar trámites en línea.\nLe recomendamos realizar sus trámites antes de esa hora o volver a intentarlo una vez terminado el mantenimiento.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; line-height: 1.6;\"><strong style=\"color: #d64000; font-size: 18px;\">Importante: mantenimiento programado el miércoles 26 de agosto, desde las 17:30 horas</strong><p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios y usuarias:</p><p style=\"margin-bottom: 12px;\">Por mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el <strong>miércoles 26 de agosto, desde las 17:30 horas</strong>. Durante ese periodo no podrá realizar trámites en línea.</p><p style=\"margin-bottom: 12px;\">Le recomendamos <strong>realizar sus trámites antes de esa hora</strong> o volver a intentarlo una vez terminado el mantenimiento.</p><p style=\"margin-bottom: 0;\">Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-05",
+      "criterios_relacionados": [
+        "LC-1.2.1-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.5-01",
+        "LC-1.1.3-02",
+        "LC-1.2.2-03",
+        "LC-1.2.2-04",
+        "LC-1.2.4-01"
+      ],
+      "patron_sistema": true,
+      "motivo": "El título está escrito en mayúsculas sostenidas («IMPORTANTE: mantenimiento programado miércoles 26/08 a las 17:30») y usa el extranjerismo «datacenter» en el cuerpo. El propuesto deja «Importante» con mayúscula inicial, escribe la fecha del título en palabras y con minúscula («Jueves 24/09» → «jueves 24 de septiembre»), cambia «datacenter» por «centro de datos» y agrega qué puede hacer la persona. En los avisos 140 a 145 el título y el cuerpo deben llevar ambos «jueves 24 de septiembre». Hechos que se conservan: mantenimiento del centro de datos (el original dice «datacenter»), servicios fuera de servicio y la fecha del título y del cuerpo de cada aviso. El HTML propuesto muestra la fecha del aviso 138; en cada aviso, reemplazar solo la fecha y hora en negrita por la que corresponde a ese ID (no usar una fecha común): avisos 138, 139: «miércoles 26 de agosto, desde las 17:30 horas»; avisos 140–145: «jueves 24 de septiembre, desde las 17:30 horas».",
+      "aviso_correccion": {
+        "ids": [
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145
+        ],
+        "fechas_inicio": [
+          "2026-08-25 14:52:42",
+          "2026-08-25 15:02:44",
+          "2026-09-21 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "8",
+          "9",
+          "11",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A03",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Centro de datos (cuerpo, recuadro rojo) (avisos 82–87)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p>Estimados usuarios:</p><p>Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. <strong>Esta interrupción está programada para sábado 25 de octubre, a partir de las 08:00 horas</strong>. Durante este período, no será posible realizar trámites en línea. <br> <br>Lamentamos profundamente las molestias que esto pueda ocasionar, y solicitamos tomar las medidas necesarias en función de esta situación. <br><br>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante: mantenimiento programado del centro de datos\nEstimados usuarios y usuarias:\nPor mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el sábado 25 de octubre, desde las 08:00 horas. Durante ese periodo no podrá realizar trámites en línea.\nLe recomendamos realizar sus trámites antes de esa hora o volver a intentarlo una vez terminado el mantenimiento.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: mantenimiento programado del centro de datos</strong></p><p>Estimados usuarios y usuarias:</p><p>Por mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el <strong>sábado 25 de octubre, desde las 08:00 horas</strong>. Durante ese periodo no podrá realizar trámites en línea.</p><p>Le recomendamos <strong>realizar sus trámites antes de esa hora</strong> o volver a intentarlo una vez terminado el mantenimiento.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.1-02",
+      "criterios_relacionados": [
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.3-02",
+        "LC-1.2.2-03",
+        "LC-1.2.2-04",
+        "LC-1.2.4-01",
+        "LC-1.2.4-02",
+        "LC-1.1.5-02"
+      ],
+      "patron_sistema": true,
+      "motivo": "«Debido a mantenimiento programado del datacenter» usa un extranjerismo que no todas las personas entienden. El propuesto dice «centro de datos», nombra el tema en el título y agrega qué hacer antes o después del corte. Hechos que se conservan: mantenimiento del centro de datos, servicios fuera de servicio y la fecha «sábado 25 de octubre, desde las 08:00 horas», que es la misma en los seis avisos.",
+      "aviso_correccion": {
+        "ids": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "fechas_inicio": [
+          "2025-10-22 12:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "5",
+          "8",
+          "9",
+          "12",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A04",
+      "ubicacion_pantalla": "Recuadro de aviso sobre los formularios de trámites en línea › Centro de datos (recuadro rosado, saludo como título) (avisos 126–129)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\" style=\"width: 100%; box-sizing: border-box; margin: 20px 0; font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif; border-left: 5px solid #dc3545; border-radius: 8px; background-color: #f8d7da; color: #491217; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);\"><h2 style=\"margin-top: 0; color: #dc3545; display: flex; align-items: center; font-size: 1.3rem;\"></span>Estimados usuarios:</h2>          <p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\"> Debemos informar que, debido a mantenimiento programado del datacenter, nuestros servicios de atención en línea estarán temporalmente fuera de servicio. Esta interrupción está programada para el <strong>miércoles 27 de mayo, a partir de las 17:30 horas</strong>. Durante este período, no será posible realizar trámites en línea. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p><hr style=\"border: 0; border-top: 1px solid #f5c6cb; margin: 15px 0;\">          <p style=\"font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;\">          <em>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</em>      </p>      </div>",
+      "propuesto": "Importante: mantenimiento programado del centro de datos\nEstimados usuarios y usuarias:\nPor mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el miércoles 27 de mayo, desde las 17:30 horas. Durante ese periodo no podrá realizar trámites en línea.\nLe recomendamos realizar sus trámites antes de esa hora o volver a intentarlo una vez terminado el mantenimiento.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\" style=\"width: 100%; box-sizing: border-box; margin: 20px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-left: 5px solid #dc3545; border-radius: 8px; background-color: #f8d7da; color: #491217; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);\"><h2 style=\"margin-top: 0; color: #dc3545; display: flex; align-items: center; font-size: 1.3rem;\">Importante: mantenimiento programado del centro de datos</h2><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Estimados usuarios y usuarias:</p><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Por mantenimiento programado del centro de datos, los servicios de atención en línea no estarán disponibles el <strong>miércoles 27 de mayo, desde las 17:30 horas</strong>. Durante ese periodo no podrá realizar trámites en línea.</p><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Le recomendamos <strong>realizar sus trámites antes de esa hora</strong> o volver a intentarlo una vez terminado el mantenimiento.</p><hr style=\"border: 0; border-top: 1px solid #f5c6cb; margin: 15px 0;\"><p style=\"font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;\"><em>Lamentamos las molestias y agradecemos su comprensión.</em></p></div>",
+      "criterio_id": "LC-1.2.4-02",
+      "criterios_relacionados": [
+        "LC-1.2.1-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.3-02",
+        "LC-1.2.2-03",
+        "LC-1.2.2-04",
+        "LC-1.2.4-01"
+      ],
+      "patron_sistema": true,
+      "motivo": "El título grande del recuadro es el saludo «Estimados usuarios:», así que quien solo mira el título no sabe de qué trata el aviso. El propuesto pone como título el tema del aviso, deja el saludo como primera línea del texto, cambia «datacenter» por «centro de datos» y quita una etiqueta suelta que hoy rompe el título. Hechos que se conservan: mantenimiento del centro de datos, servicios fuera de servicio y la fecha «miércoles 27 de mayo, desde las 17:30 horas», igual en los cuatro avisos.",
+      "aviso_correccion": {
+        "ids": [
+          126,
+          127,
+          128,
+          129
+        ],
+        "fechas_inicio": [
+          "2026-05-24 15:52:46",
+          "2026-05-25 15:37:30",
+          "2026-05-25 15:41:48",
+          "2026-05-25 15:49:39"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "8",
+          "9",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A05",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Actualización de sistemas (avisos 63–68)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p>Estimados usuarios:</p><p>Con el fin de mejorar su experiencia en nuestra plataforma, hemos programado una importante actualización de nuestros sistemas. Por este motivo, nuestros servicios de atención en línea estarán temporalmente fuera de servicio, <strong>desde las 17:30 horas del viernes 05 de septiembre hasta las 23:59 horas del domingo 07 de septiembre</strong>. Le recomendamos adelantar cualquier trámite que necesite realizar, debido a que durante este período, no será posible realizar consultas o trámites en línea. <br>Lamentamos las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante: actualización de nuestros sistemas\nEstimados usuarios y usuarias:\nPara mejorar su experiencia en nuestra plataforma, actualizaremos nuestros sistemas. Por este motivo, los servicios de atención en línea no estarán disponibles desde las 17:30 horas del viernes 5 de septiembre hasta las 23:59 horas del domingo 7 de septiembre.\nDurante ese periodo no podrá hacer consultas ni trámites en línea. Le recomendamos adelantar los trámites que necesite realizar.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: actualización de nuestros sistemas</strong></p><p>Estimados usuarios y usuarias:</p><p>Para mejorar su experiencia en nuestra plataforma, actualizaremos nuestros sistemas. Por este motivo, los servicios de atención en línea no estarán disponibles <strong>desde las 17:30 horas del viernes 5 de septiembre hasta las 23:59 horas del domingo 7 de septiembre</strong>.</p><p>Durante ese periodo no podrá hacer consultas ni trámites en línea. Le recomendamos <strong>adelantar los trámites que necesite realizar</strong>.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.1.3-01",
+        "LC-1.1.3-02",
+        "LC-1.2.2-03",
+        "LC-1.2.2-04",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01"
+      ],
+      "patron_sistema": true,
+      "motivo": "Los avisos 63, 64 y 66 no destacan en negrita el periodo del corte (los avisos 65, 67 y 68 sí). Las oraciones son largas (unas 17 palabras en promedio) y mezclan motivo, periodo y recomendación en un solo bloque. El propuesto destaca en negrita el periodo y la recomendación en los seis avisos y separa las ideas. Hechos que se conservan: el motivo (actualización de sistemas para mejorar la experiencia), el periodo completo de viernes a domingo y la recomendación de adelantar trámites, que el original ya trae.",
+      "aviso_correccion": {
+        "ids": [
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "fechas_inicio": [
+          "2025-09-03 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "5",
+          "8",
+          "9",
+          "12",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A06",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › ClaveÚnica no disponible (avisos 24–26)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p><p>Debemos informar que  el servicio de ClaveÚnica realizara actividades de mantenimiento programadas el día <strong>jueves 17 de octubre de 21:00 a 23:00 horas</strong>. Durante este periodo, el servicio de autenticación de ClaveÚnica no estará disponible. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.</p><p>Agradecemos vuestra comprensión.</p><p><strong>Saludos</strong></p></div></div>",
+      "propuesto": "Importante: ClaveÚnica no estará disponible\nEstimados usuarios y usuarias:\nEl servicio de ClaveÚnica realizará un mantenimiento programado el jueves 17 de octubre, de 21:00 a 23:00 horas. Durante ese horario no podrá ingresar con ClaveÚnica.\nLe recomendamos realizar sus trámites antes o después de ese horario.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: ClaveÚnica no estará disponible</strong></p><p>Estimados usuarios y usuarias:</p><p>El servicio de <strong>ClaveÚnica</strong> realizará un mantenimiento programado el <strong>jueves 17 de octubre, de 21:00 a 23:00 horas</strong>. Durante ese horario no podrá ingresar con ClaveÚnica.</p><p>Le recomendamos realizar sus trámites antes o después de ese horario.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.3-03",
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02"
+      ],
+      "patron_sistema": true,
+      "motivo": "«realizara» va con tilde («realizará»), porque es futuro. «Servicio de autenticación» es un término técnico: el propuesto dice «no podrá ingresar con ClaveÚnica». Si ese día el ingreso con Clave INAPI siguió funcionando, TI puede agregar la frase que usa el aviso 137; no se agrega aquí porque el original no lo dice. Hechos que se conservan: solo ClaveÚnica está en mantenimiento (no los servicios de INAPI) y la ventana de 21:00 a 23:00 horas del jueves 17 de octubre.",
+      "aviso_correccion": {
+        "ids": [
+          24,
+          25,
+          26
+        ],
+        "fechas_inicio": [
+          "2024-10-15 10:25:10",
+          "2024-10-15 10:25:28",
+          "2024-10-15 10:25:32"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "5",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A07",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Marcas Comerciales / Expediente Electrónico (avisos 122, 125)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\" style=\"width: 100%; box-sizing: border-box; margin: 20px 0; font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif; border-left: 5px solid #dc3545; border-radius: 8px; background-color: #f8d7da; color: #491217; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);\">          <h2 style=\"margin-top: 0; color: #dc3545; display: flex; align-items: center; font-size: 1.3rem;\">          <span style=\"margin-right: 10px; font-size: 1.5rem;\"></span>           Aviso Importante: Intermitencia en nuestros servicios      </h2>          <p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">          Les informamos que actualmente estamos presentando inconvenientes técnicos que afectan la disponibilidad de <strong>todos los servicios de Marcas Comerciales</strong>.      </p>    <p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">        Debido a esto, temporalmente no se encuentra disponible el acceso al Expediente Electrónico, la actualización de información, ni la <strong>tramitación de solicitudes, ingreso de escritos y anotaciones</strong>.    </p>      <p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">          Nuestro equipo técnico ya se encuentra trabajando para subsanar esta situación a la brevedad y restablecer el servicio por completo.      </p>          <hr style=\"border: 0; border-top: 1px solid #f5c6cb; margin: 15px 0;\">          <p style=\"font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;\">          <em>Lamentamos los inconvenientes que esto pueda causar y agradecemos su comprensión.</em>      </p>      </div>",
+      "propuesto": "Importante: problemas técnicos en los servicios de Marcas Comerciales\nEstimados usuarios y usuarias:\nDesde el miércoles 20 de mayo, estamos presentando problemas técnicos que afectan todos los servicios de Marcas Comerciales. Por eso, por ahora no es posible:\n• acceder al Expediente Electrónico;\n• actualizar información;\n• tramitar solicitudes, ingresar escritos ni hacer anotaciones (registrar cambios en una marca ya inscrita).\nNuestro equipo técnico ya está trabajando para restablecer el servicio lo antes posible.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\" style=\"width: 100%; box-sizing: border-box; margin: 20px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-left: 5px solid #dc3545; border-radius: 8px; background-color: #f8d7da; color: #491217; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);\"><h2 style=\"margin-top: 0; color: #dc3545; display: flex; align-items: center; font-size: 1.3rem;\">Importante: problemas técnicos en los servicios de Marcas Comerciales</h2><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Estimados usuarios y usuarias:</p><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Desde el <strong>miércoles 20 de mayo</strong>, estamos presentando problemas técnicos que afectan <strong>todos los servicios de Marcas Comerciales</strong>. Por eso, por ahora no es posible:</p><ul style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\"><li>acceder al <strong>Expediente Electrónico</strong>;</li><li>actualizar información;</li><li><strong>tramitar solicitudes, ingresar escritos ni hacer anotaciones</strong> (registrar cambios en una marca ya inscrita).</li></ul><p style=\"font-size: 1rem; line-height: 1.6; margin-bottom: 15px;\">Nuestro equipo técnico ya está trabajando para restablecer el servicio lo antes posible.</p><hr style=\"border: 0; border-top: 1px solid #f5c6cb; margin: 15px 0;\"><p style=\"font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;\"><em>Lamentamos las molestias y agradecemos su comprensión.</em></p></div>",
+      "criterio_id": "LC-1.1.2-01",
+      "criterios_relacionados": [
+        "LC-1.2.3-03",
+        "LC-1.1.4-01",
+        "LC-1.1.3-03"
+      ],
+      "patron_sistema": true,
+      "motivo": "El título dice «Intermitencia en nuestros servicios», pero el texto dice que todos los servicios de Marcas Comerciales no están disponibles: el título habla de cortes breves en todo INAPI y el contenido de una caída completa de un área. El propuesto alinea el título con el contenido (problemas técnicos en Marcas Comerciales, sin afirmar que son cortes breves) y presenta en una lista los servicios afectados. El aviso no trae fecha de término; no se inventa. Se agrega desde cuándo ocurre, tomado de la fecha de inicio del aviso en el sistema; TI debe confirmarla. También se explica «anotaciones», término de INAPI que no todas las personas conocen. Hechos que se conservan: afecta solo a Marcas Comerciales, y en particular al Expediente Electrónico, la actualización de información, las solicitudes, los escritos y las anotaciones; el equipo técnico está trabajando en la solución.",
+      "aviso_correccion": {
+        "ids": [
+          122,
+          125
+        ],
+        "fechas_inicio": [
+          "2026-05-20 10:49:19",
+          "2026-05-20 11:02:37"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "9",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A08",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Cambio de proveedor de comunicaciones + direccionamiento IP (avisos 130, 131)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p><p>Debemos informar que, INAPI cambiará el proveedor de enlaces de comunicaciones este fin de semana. Esto podría causar intermitencias en el sitio web y servicios electrónicos debido a la propagación del nuevo direccionamiento IP, un proceso externo que puede tardar hasta 48 horas. Lamentamos profundamente las molestias que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación. <br/>Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</p></div></div>",
+      "propuesto": "Importante: posibles intermitencias por cambio de proveedor de comunicaciones\nEstimados usuarios y usuarias:\nEl sábado 30 y el domingo 31 de mayo, INAPI cambiará el proveedor de enlaces de comunicaciones (la empresa que conecta nuestros servicios a internet).\nPor este cambio, el sitio web y los servicios electrónicos podrían presentar intermitencias (interrupciones breves) durante un máximo de 48 horas, mientras se actualiza la dirección de nuestros servicios en internet (direccionamiento IP). Este proceso no depende de INAPI.\nSi un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: posibles intermitencias por cambio de proveedor de comunicaciones</strong></p><p>Estimados usuarios y usuarias:</p><p>El <strong>sábado 30 y el domingo 31 de mayo</strong>, INAPI cambiará el proveedor de enlaces de comunicaciones (la empresa que conecta nuestros servicios a internet).</p><p>Por este cambio, el sitio web y los servicios electrónicos <strong>podrían presentar intermitencias (interrupciones breves) durante un máximo de 48 horas</strong>, mientras se actualiza la dirección de nuestros servicios en internet (direccionamiento IP). Este proceso no depende de INAPI.</p><p>Si un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.3-03",
+      "criterios_relacionados": [
+        "LC-1.1.3-05",
+        "LC-1.1.4-01",
+        "LC-1.1.5-02",
+        "LC-1.2.4-04",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.2.2-03",
+        "LC-1.2.3-01",
+        "LC-1.1.2-03"
+      ],
+      "patron_sistema": true,
+      "motivo": "«Propagación del nuevo direccionamiento IP» y «proveedor de enlaces de comunicaciones» son términos técnicos, y la sigla IP no se explica. «Este fin de semana» no dice qué días: el aviso se publicó el jueves 28 de mayo y se retiró el lunes 1 de junio, por lo que el fin de semana es el sábado 30 y el domingo 31 de mayo (TI debe confirmar esas fechas antes de publicar). Además sobra la coma en «Debemos informar que, INAPI cambiará» y no hay ninguna palabra en negrita. Hechos que se conservan: cambio de proveedor de enlaces de comunicaciones, intermitencias (no corte total) en el sitio web y en los servicios electrónicos, propagación del direccionamiento IP como proceso externo y el plazo de hasta 48 horas.",
+      "aviso_correccion": {
+        "ids": [
+          130,
+          131
+        ],
+        "fechas_inicio": [
+          "2026-05-28 13:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "2",
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A09",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Mantención en dos etapas (aviso 1)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea quedarán inhabilitados temporalmente, debido a mantenciones técnicas programadas. <br/> El mantenimiento se ha planificado en 2 etapas. La primera será mañana jueves 28 a partir de las 17:00 horas hasta las 19:00 horas y la segunda será este sábado 30 de septiembre, desde las 08:00 horas hasta las 16:00 horas. <br/> Lo anterior, implica que no se podrán realizar trámites en línea o acceder a información publicada en nuestro sitio web mientras se realiza la mantención. <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>",
+      "propuesto": "Importante: mantenimiento en dos etapas de los servicios en línea y del sitio web\nEstimados usuarios y usuarias:\nPor mantenimiento técnico programado, los servicios de atención en línea y el sitio web no estarán disponibles en dos etapas:\n• Primera etapa: jueves 28 de septiembre, de 17:00 a 19:00 horas.\n• Segunda etapa: sábado 30 de septiembre, de 08:00 a 16:00 horas.\nDurante esos horarios no podrá realizar trámites en línea ni consultar la información de nuestro sitio web. Le recomendamos realizar sus trámites fuera de esos horarios.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: mantenimiento en dos etapas de los servicios en línea y del sitio web</strong></p><p>Estimados usuarios y usuarias:</p><p>Por mantenimiento técnico programado, los servicios de atención en línea y el sitio web no estarán disponibles en dos etapas:</p><ul><li><strong>Primera etapa: jueves 28 de septiembre, de 17:00 a 19:00 horas.</strong></li><li><strong>Segunda etapa: sábado 30 de septiembre, de 08:00 a 16:00 horas.</strong></li></ul><p>Durante esos horarios no podrá realizar trámites en línea ni consultar la información de nuestro sitio web. Le recomendamos realizar sus trámites fuera de esos horarios.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.3-03",
+      "criterios_relacionados": [
+        "LC-1.2.4-04",
+        "LC-1.1.4-01",
+        "LC-1.1.5-02",
+        "LC-1.2.4-01",
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.3-02",
+        "LC-1.2.2-04",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "Las dos etapas están en una sola oración larga y sin negrita; la primera usa «mañana jueves 28», que deja de ser cierto al día siguiente de publicado. El propuesto las presenta en una lista con fecha completa. También sobra la coma en «Lo anterior, implica» y hay una etiqueta de negrita abierta al final que TI debe quitar. Hechos que se conservan: las dos etapas con sus horarios (jueves 28 de 17:00 a 19:00 y sábado 30 de septiembre de 08:00 a 16:00) y que también se afecta el sitio web, no solo los trámites.",
+      "aviso_correccion": {
+        "ids": [
+          1
+        ],
+        "fechas_inicio": [
+          "2023-09-27 16:20:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A10",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Firma electrónica de títulos y certificados (aviso 3)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados Usuarios: <br>  Nos dirigimos a ustedes para informarles que, debido a un inconveniente técnico, no es posible firmar electrónicamente los títulos y certificados, por lo que no pueden ser emitidos en este momento. <br> Se está trabajando para resolver esta situación.  Agradecemos su comprensión y paciencia mientras se trabaja en la solución. <br>Les informaremos tan pronto la emisión de títulos y certificados esté nuevamente disponible.</div></div>",
+      "propuesto": "Importante: emisión de títulos y certificados suspendida\nEstimados usuarios y usuarias:\nDesde el martes 24 de octubre, por un problema técnico, no es posible firmar electrónicamente los títulos y certificados, por lo que no se pueden emitir en este momento.\nEstamos trabajando para resolverlo. Le informaremos apenas la emisión de títulos y certificados esté disponible nuevamente.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: emisión de títulos y certificados suspendida</strong></p><p>Estimados usuarios y usuarias:</p><p>Desde el <strong>martes 24 de octubre</strong>, por un problema técnico, <strong>no es posible firmar electrónicamente los títulos y certificados</strong>, por lo que no se pueden emitir en este momento.</p><p>Estamos trabajando para resolverlo. Le informaremos apenas la emisión de títulos y certificados esté disponible nuevamente.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.1.5-01",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01",
+        "LC-1.2.4-01",
+        "LC-1.1.4-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "El hecho clave (no se pueden emitir títulos ni certificados) no está en negrita, «Estimados Usuarios» lleva mayúscula innecesaria y el cierre repite «Agradecemos su comprensión y paciencia mientras se trabaja en la solución». El propuesto destaca el hecho clave y usa el cierre común. Se agrega desde cuándo ocurre, tomado de la fecha de inicio del aviso en el sistema; TI debe confirmarla. Hechos que se conservan: no se pueden firmar electrónicamente ni emitir títulos y certificados; se avisará cuando vuelva a estar disponible.",
+      "aviso_correccion": {
+        "ids": [
+          3
+        ],
+        "fechas_inicio": [
+          "2023-10-24 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A11",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Mantención un sábado (trámites y sitio web) (aviso 4)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea quedarán inhabilitados temporalmente, debido a mantenciones técnicas programadas. <br/> El mantenimiento se realizará el sábado 18 de Noviembre a partir de las 12:00 horas hasta las 16:00 horas<br/> Lo anterior, implica que no se podrán realizar trámites en línea o acceder a información publicada en nuestro sitio web mientras se realiza la mantención. <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>",
+      "propuesto": "Importante: mantenimiento de los servicios en línea y del sitio web\nEstimados usuarios y usuarias:\nPor mantenimiento técnico programado, los servicios de atención en línea y el sitio web no estarán disponibles el sábado 18 de noviembre, de 12:00 a 16:00 horas.\nDurante ese horario no podrá realizar trámites en línea ni consultar la información de nuestro sitio web. Le recomendamos realizar sus trámites antes o después de ese horario.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: mantenimiento de los servicios en línea y del sitio web</strong></p><p>Estimados usuarios y usuarias:</p><p>Por mantenimiento técnico programado, los servicios de atención en línea y el sitio web no estarán disponibles el <strong>sábado 18 de noviembre, de 12:00 a 16:00 horas</strong>.</p><p>Durante ese horario no podrá realizar trámites en línea ni consultar la información de nuestro sitio web. Le recomendamos realizar sus trámites antes o después de ese horario.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.1.5-01",
+        "LC-1.1.5-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.1.3-02",
+        "LC-1.2.2-04",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "La fecha no está en negrita, «Noviembre» va con minúscula, falta el punto después de «16:00 horas», sobra la coma en «Lo anterior, implica» y «solicitamos tomar todas las acciones que sean necesarias» no dice qué hacer. Hay una etiqueta de negrita abierta al final que TI debe quitar. Hechos que se conservan: «quedarán inhabilitados» (corte total), afecta también al sitio web y el horario del sábado 18 de noviembre de 12:00 a 16:00 horas.",
+      "aviso_correccion": {
+        "ids": [
+          4
+        ],
+        "fechas_inicio": [
+          "2023-11-13 17:04:43"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A12",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Intermitencias (no corte total) (aviso 5)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que nuestros servicios de atención en línea pueden presentar intermitencias, debido a mantenciones técnicas programadas. <br/> El mantenimiento se realizará el Jueves 21 de Diciembre a partir de las 14:00 horas hasta las 16:00 horas<br/> <br/> Lamentamos las incomodidades que estas medidas puedan generar, y solicitamos tomar todas las acciones que sean necesarias. <br/> Agradecemos vuestra comprensión. <br/></br> Saludos cordiales.  <strong></div></div>",
+      "propuesto": "Importante: posibles intermitencias en los servicios en línea\nEstimados usuarios y usuarias:\nPor mantenimiento técnico programado, los servicios de atención en línea podrían presentar intermitencias (interrupciones breves) el jueves 21 de diciembre, de 14:00 a 16:00 horas.\nSi un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: posibles intermitencias en los servicios en línea</strong></p><p>Estimados usuarios y usuarias:</p><p>Por mantenimiento técnico programado, los servicios de atención en línea <strong>podrían presentar intermitencias (interrupciones breves) el jueves 21 de diciembre, de 14:00 a 16:00 horas</strong>.</p><p>Si un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.1.5-01",
+        "LC-1.1.5-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "El aviso dice «pueden presentar intermitencias»: no corresponde reescribirlo como «fuera de servicio». Hoy no destaca la fecha en negrita, escribe «Jueves 21 de Diciembre» con mayúsculas, le falta el punto final a la oración del horario y no dice qué hacer si el trámite se corta. Hechos que se conservan: se trata de intermitencias, no de un corte total, entre 14:00 y 16:00 horas del jueves 21 de diciembre.",
+      "aviso_correccion": {
+        "ids": [
+          5
+        ],
+        "fechas_inicio": [
+          "2023-12-18 15:45:26"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A13",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Trabajos en la red por cambio de proveedor (aviso 8)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: justify; color: Red;\"> <strong>Aviso Importante: Interrupción de los Servicios Electrónicos.</strong> </br> Estimados usuarios: <br/></br> <b>Este viernes 31 de mayo desde las 19:00</b> se realizarán trabajos en la red de INAPI, debido a cambio de proveedor, lo que generará interrupción en los servicios electrónicos.<br> <br>  Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios.</div></div>",
+      "propuesto": "Importante: interrupción de los servicios electrónicos\nEstimados usuarios y usuarias:\nEl viernes 31 de mayo, desde las 19:00 horas, haremos trabajos en la red de INAPI por un cambio de proveedor. Durante esos trabajos, los servicios electrónicos estarán interrumpidos.\nLe recomendamos realizar sus trámites antes de esa hora.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: interrupción de los servicios electrónicos</strong></p><p>Estimados usuarios y usuarias:</p><p>El <strong>viernes 31 de mayo, desde las 19:00 horas</strong>, haremos trabajos en la red de INAPI por un cambio de proveedor. Durante esos trabajos, los servicios electrónicos estarán interrumpidos.</p><p>Le recomendamos <strong>realizar sus trámites antes de esa hora</strong>.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.2.3-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02"
+      ],
+      "patron_sistema": false,
+      "motivo": "El aviso dice cuándo empieza la interrupción pero no cuándo termina ni qué hacer. Si TI conoce la hora de término, agregarla después de «desde las 19:00 horas». El texto está justificado; el propuesto lo alinea a la izquierda. El título «Aviso Importante: Interrupción de los Servicios Electrónicos.» lleva mayúsculas innecesarias, y falta el artículo en «debido a cambio de proveedor». Hechos que se conservan: trabajos en la red de INAPI por cambio de proveedor, interrupción de los servicios electrónicos y el inicio el viernes 31 de mayo a las 19:00 horas.",
+      "aviso_correccion": {
+        "ids": [
+          8
+        ],
+        "fechas_inicio": [
+          "2024-05-28 16:51:20"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A14",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › TGR — no presentar con pago (aviso 9)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">   <div style=\"text-align: justify; color: Red;\">     <strong>Aviso Importante: Interrupción de los Servicios Electrónicos de pago.</strong>   </div>   <div>    Estimados usuarios: <br/>Estamos presentando inconvenientes en los pagos con la Tesorería General de la República (TGR), NO  realice presentaciones que requieran pago hasta que esta situación sea resuelta.   </div>   <div> Agradecemos vuestra comprensión.</div>  </div>",
+      "propuesto": "Importante: interrupción de los pagos en línea\nEstimados usuarios y usuarias:\nDesde el lunes 3 de junio, estamos presentando problemas con los pagos a través de la Tesorería General de la República (TGR).\nNo realice presentaciones que requieran pago hasta que este problema se resuelva.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante: interrupción de los pagos en línea</strong></div><div style=\"margin-top: 10px;\">Estimados usuarios y usuarias:</div><div style=\"margin-top: 10px;\">Desde el <strong>lunes 3 de junio</strong>, estamos presentando problemas con los pagos a través de la Tesorería General de la República (TGR).</div><div style=\"margin-top: 10px;\"><strong>No realice presentaciones que requieran pago hasta que este problema se resuelva.</strong></div><div style=\"margin-top: 10px;\">Lamentamos las molestias y agradecemos su comprensión.</div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.2.4-05",
+        "LC-1.1.5-01",
+        "LC-1.1.5-02",
+        "LC-1.2.3-01",
+        "LC-1.1.3-02",
+        "LC-1.1.4-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "La instrucción más importante del aviso («NO realice presentaciones que requieran pago») va pegada a la oración anterior con una coma, no está en negrita y destaca solo con la palabra «NO» en mayúsculas. El propuesto la separa en su propia línea y la pone en negrita sin mayúsculas sostenidas. Los bloques van sin espacio entre ellos; el propuesto los separa. El título «Aviso Importante: Interrupción de los Servicios Electrónicos de pago.» lleva mayúsculas innecesarias y punto final. Se agrega desde cuándo ocurre, tomado de la fecha de inicio del aviso en el sistema; TI debe confirmarla. Hechos que se conservan: el problema es con los pagos de la Tesorería General de la República (TGR) y la instrucción expresa de no realizar presentaciones que requieran pago hasta que se resuelva.",
+      "aviso_correccion": {
+        "ids": [
+          9
+        ],
+        "fechas_inicio": [
+          "2024-06-03 10:08:16"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A15",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Custodia y presentación de poderes (aviso 10)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">   <div style=\"text-align: justify; color: Red;\">     <strong>Aviso Importante: Presentación de Poderes.</strong>   </div>   <div>    Estimados usuarios: <br/>El sistema de \"Custodía y presentación de poderes\" presentará intermitencia a partir de las 4pm por actualización de la plataforma.    </div>   <div> Agradecemos vuestra comprensión.</div>  </div>",
+      "propuesto": "Importante: intermitencia en Custodia y presentación de poderes\nEstimados usuarios y usuarias:\nPor una actualización de la plataforma, el sistema de Custodia y presentación de poderes presentará intermitencias (interrupciones breves) el lunes 10 de junio, desde las 16:00 horas.\nSi un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><strong>Importante: intermitencia en Custodia y presentación de poderes</strong></div><div style=\"margin-top: 10px;\">Estimados usuarios y usuarias:</div><div style=\"margin-top: 10px;\">Por una actualización de la plataforma, el sistema de <strong>Custodia y presentación de poderes</strong> presentará intermitencias (interrupciones breves) <strong>el lunes 10 de junio, desde las 16:00 horas</strong>.</div><div style=\"margin-top: 10px;\">Si un trámite se interrumpe, le recomendamos volver a intentarlo más tarde.</div><div style=\"margin-top: 10px;\">Lamentamos las molestias y agradecemos su comprensión.</div></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.4-01",
+        "LC-1.2.1-02",
+        "LC-1.2.4-04",
+        "LC-1.2.3-01",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.1.2-03"
+      ],
+      "patron_sistema": false,
+      "motivo": "«Custodía» lleva una tilde incorrecta: se escribe «Custodia». «A partir de las 4pm» usa una abreviatura en inglés y no dice qué día: el aviso se publicó el lunes 10 de junio a las 15:13, por lo que el propuesto dice «el lunes 10 de junio, desde las 16:00 horas» (TI debe confirmar la fecha). El texto no tiene negritas y el título «Aviso Importante: Presentación de Poderes.» lleva mayúsculas innecesarias y punto final. Hechos que se conservan: el sistema afectado es «Custodia y presentación de poderes», se trata de intermitencias (no corte total) y el motivo es una actualización de la plataforma.",
+      "aviso_correccion": {
+        "ids": [
+          10
+        ],
+        "fechas_inicio": [
+          "2024-06-10 15:13:31"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A16",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › TGR — intermitencia y suspensión de 22 a 23 horas (aviso 15)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> </br> Estimados usuarios: <br/></br> Debemos informar que, tesorería general de la república está presentando una intermitencia en el servicio de pago. Además informamos que el servicio de pagos estará suspendido entre las 22 y 23 horas de hoy miércoles 26 de junio de 2024. Lamentamos los inconvenientes que esto pueda ocasionar y solicitamos tomar las medidas necesarias en función de esta situación.<br/> <br/> Agradecemos vuestra comprensión mientras trabajamos para mejorar nuestros servicios. <br/></br> Saludos cordiales.  </div></div>",
+      "propuesto": "Importante: intermitencia en los pagos con la Tesorería General de la República\nEstimados usuarios y usuarias:\nLa Tesorería General de la República (TGR) está presentando intermitencias (interrupciones breves) en su servicio de pago. Además, el servicio de pagos estará suspendido hoy miércoles 26 de junio de 2024, entre las 22:00 y las 23:00 horas.\nLe recomendamos realizar sus pagos fuera de ese horario.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: intermitencia en los pagos con la Tesorería General de la República</strong></p><p>Estimados usuarios y usuarias:</p><p>La Tesorería General de la República (TGR) está presentando intermitencias (interrupciones breves) en su servicio de pago. Además, <strong>el servicio de pagos estará suspendido hoy miércoles 26 de junio de 2024, entre las 22:00 y las 23:00 horas</strong>.</p><p>Le recomendamos realizar sus pagos fuera de ese horario.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.5-02",
+        "LC-1.2.4-04",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02"
+      ],
+      "patron_sistema": false,
+      "motivo": "«tesorería general de la república» es un nombre propio y va con mayúsculas iniciales; sobra la coma en «Debemos informar que, tesorería». La ventana de suspensión no está en negrita. El propuesto usa el nombre completo con su sigla, como el resto de los avisos de pago, agrega la coma después de «Además» y quita «mientras trabajamos para mejorar nuestros servicios», porque la falla es de la Tesorería y no una mejora de INAPI. Hechos que se conservan: intermitencia del servicio de pago de la Tesorería General de la República (TGR) y la suspensión de pagos entre las 22:00 y las 23:00 horas del miércoles 26 de junio de 2024.",
+      "aviso_correccion": {
+        "ids": [
+          15
+        ],
+        "fechas_inicio": [
+          "2024-06-26 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A17",
+      "ubicacion_pantalla": "Recuadro de aviso sobre los formularios de trámites en línea › Solo Patentes (Marcas funciona normal) (aviso 20)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; color: Red;\">           <p><strong>Estimados usuarias y usuarios:</strong></p>          <p>  Les informamos que el día martes <strong>3 de septiembre a partir de las 14:00 horas</strong>, INAPI llevará a cabo una mantención del sistema de tramitación del Área de Patentes. Durante este proceso, no será posible utilizar los servicios de la plataforma Web de Patentes.    Les recomendamos tomar las acciones necesarias para minimizar el impacto que esta mantención pueda causar en sus gestiones.    <br><strong>Los servicios de tramitación de Marcas Comerciales funcionarán normalmente.</strong>  <br>    Agradecemos su comprensión y lamentamos los inconvenientes que esto pueda ocasionar. Ante cualquier consulta por favor escribir a inapi@inapi.cl.</p>              </div>  </div>",
+      "propuesto": "Importante: mantenimiento del sistema de Patentes\nEstimados usuarios y usuarias:\nEl martes 3 de septiembre, desde las 14:00 horas, INAPI hará un mantenimiento del sistema de tramitación del Área de Patentes. Durante el mantenimiento no podrá usar los servicios de la plataforma web de Patentes.\nLos servicios de tramitación de Marcas Comerciales funcionarán normalmente.\nLe recomendamos realizar sus trámites de Patentes antes de esa hora. Si tiene consultas, escríbanos a inapi@inapi.cl.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: mantenimiento del sistema de Patentes</strong></p><p>Estimados usuarios y usuarias:</p><p>El <strong>martes 3 de septiembre, desde las 14:00 horas</strong>, INAPI hará un mantenimiento del sistema de tramitación del Área de Patentes. Durante el mantenimiento no podrá usar los servicios de la plataforma web de Patentes.</p><p><strong>Los servicios de tramitación de Marcas Comerciales funcionarán normalmente.</strong></p><p>Le recomendamos realizar sus trámites de Patentes antes de esa hora. Si tiene consultas, escríbanos a inapi@inapi.cl.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.2-04",
+        "LC-1.1.3-06",
+        "LC-1.2.4-01",
+        "LC-1.2.2-03",
+        "LC-1.2.4-02",
+        "LC-1.2.3-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "«Estimados usuarias y usuarios» no concuerda: el adjetivo debe concordar con «usuarias» o repetirse; el propuesto usa el saludo común «Estimados usuarios y usuarias». El aviso no tiene título y todo va en un solo párrafo; el dato tranquilizador (Marcas funciona normalmente) queda en medio del bloque. El propuesto le da título y separa Patentes, Marcas y consultas en párrafos distintos. «Les recomendamos tomar las acciones necesarias para minimizar el impacto» no dice qué hacer, y «por favor escribir» pasa a «escríbanos». Hechos que se conservan: solo se afecta el Área de Patentes (plataforma web de Patentes); Marcas Comerciales funciona normalmente; correo de consultas inapi@inapi.cl.",
+      "aviso_correccion": {
+        "ids": [
+          20
+        ],
+        "fechas_inicio": [
+          "2024-09-02 09:03:29"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A18",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › TGR — aviso corto (aviso 75)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">  <strong>Importante</strong> <p>Estimados usuarios:</p><p>Estamos presentando intermitencia en los servicios de pago con la TGR Tesoreria General de la República. lamentamos las molestias</p></div>",
+      "propuesto": "Importante: intermitencia en los pagos con la Tesorería General de la República\nEstimados usuarios y usuarias:\nDesde el jueves 25 de septiembre, estamos presentando intermitencias (interrupciones breves) en los pagos a través de la Tesorería General de la República (TGR).\nSi un pago no se completa, le recomendamos volver a intentarlo más tarde.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><p><strong>Importante: intermitencia en los pagos con la Tesorería General de la República</strong></p><p>Estimados usuarios y usuarias:</p><p>Desde el <strong>jueves 25 de septiembre</strong>, estamos presentando intermitencias (interrupciones breves) en los pagos a través de la Tesorería General de la República (TGR).</p><p>Si un pago no se completa, le recomendamos volver a intentarlo más tarde.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div>",
+      "criterio_id": "LC-1.1.5-01",
+      "criterios_relacionados": [
+        "LC-1.1.3-05",
+        "LC-1.1.5-02",
+        "LC-1.1.2-04",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02",
+        "LC-1.2.4-04",
+        "LC-1.1.4-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "«Tesoreria» va con tilde; «TGR Tesoreria General de la República» pone la sigla antes del nombre y sin paréntesis; «lamentamos las molestias» empieza con minúscula después de punto y no tiene punto final. El aviso no dice qué hacer: el propuesto agrega qué hacer si el pago falla. Se agrega desde cuándo ocurre, tomado de la fecha de inicio del aviso en el sistema; TI debe confirmarla. Hechos que se conservan: intermitencia en los pagos con la Tesorería General de la República (TGR). Si INAPI prefiere pedir que no se paguen presentaciones mientras dure la falla, como en el aviso 9, TI debe confirmarlo antes de publicar.",
+      "aviso_correccion": {
+        "ids": [
+          75
+        ],
+        "fechas_inicio": [
+          "2025-09-25 12:48:13"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A19",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › Retraso en la confirmación de pagos (aviso 132)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"> <div style=\"text-align: left; color: Red;\"> <strong>Importante</strong> <p><strong>Estimados usuarios:</strong></p> <p>Les informamos que presentamos retrasos en la confirmación de pagos. Si ya realizó su transacción, por favor no vuelva a intentar el pago y espere el comprobante, ya que el proceso está tardando más de lo habitual.<br/>Agradecemos su comprensión mientras trabajamos para solucionar este inconveniente.</p> </div> </div>",
+      "propuesto": "Importante: retraso en la confirmación de pagos\nEstimados usuarios y usuarias:\nDesde el domingo 31 de mayo, la confirmación de los pagos está tardando más de lo habitual.\nSi ya pagó, no vuelva a intentar el pago: espere el comprobante.\nEstamos trabajando para solucionar este problema.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; color: Red;\"><p><strong>Importante: retraso en la confirmación de pagos</strong></p><p>Estimados usuarios y usuarias:</p><p>Desde el <strong>domingo 31 de mayo</strong>, la confirmación de los pagos está tardando más de lo habitual.</p><p><strong>Si ya pagó, no vuelva a intentar el pago: espere el comprobante.</strong></p><p>Estamos trabajando para solucionar este problema.</p><p>Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-04",
+      "criterios_relacionados": [
+        "LC-1.2.3-01",
+        "LC-1.1.3-02",
+        "LC-1.2.4-02",
+        "LC-1.1.4-01"
+      ],
+      "patron_sistema": false,
+      "motivo": "La instrucción clave (no volver a pagar y esperar el comprobante) está en medio del párrafo y sin negrita; el agradecimiento va pegado con un solo salto de línea. El propuesto deja la instrucción en su propia línea, en negrita. El aviso no dice cuánto esperar ni dónde consultar si el comprobante no llega; si TI conoce el plazo o el canal, agregarlos. Se agrega desde cuándo ocurre, tomado de la fecha de inicio del aviso en el sistema; TI debe confirmarla. Hechos que se conservan: hay retraso en la confirmación de pagos; quien ya pagó no debe volver a intentar el pago y debe esperar el comprobante.",
+      "aviso_correccion": {
+        "ids": [
+          132
+        ],
+        "fechas_inicio": [
+          "2026-05-31 00:00:00"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A20",
+      "ubicacion_pantalla": "Recuadro de aviso «Importante» sobre los formularios de trámites en línea › ClaveÚnica intermitente + Clave INAPI disponible (aviso 137)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">                    <strong style=\"color: #d64000; font-size: 18px;\">IMPORTANTE: Intermitencia en acceso con ClaveÚnica</strong>                    <p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios y usuarias:</p>                    <p style=\"margin-bottom: 12px;\">              Les informamos que el servicio de <strong>ClaveÚnica</strong> realizará una mantención programada hoy <strong>martes 7 de julio, de 21:00 a 23:00 horas</strong>. Por este motivo, el acceso a nuestros trámites en línea a través de dicha plataforma podría presentar intermitencias o no estar disponible durante ese período.          </p>                    <p style=\"margin-bottom: 15px; padding: 8px 12px; background-color: #f0f7ff; border-left: 3px solid #0066cc; color: #004080;\">              <strong>INFORMACIÓN CLAVE:</strong> El sistema de autenticación con <strong>Clave INAPI sí estará disponible</strong> y funcionará con total normalidad para realizar todos sus trámites.          </p>                    <p style=\"margin-bottom: 0;\">              Lamentamos las molestias que esta situación externa pueda ocasionar y les sugerimos tomar las medidas necesarias. Agradecemos vuestra comprensión.          </p>                </div>  </div>",
+      "propuesto": "Importante: intermitencia en el acceso con ClaveÚnica\nEstimados usuarios y usuarias:\nEl servicio de ClaveÚnica hará un mantenimiento programado hoy martes 7 de julio, de 21:00 a 23:00 horas. Durante ese horario, el ingreso a nuestros trámites en línea con ClaveÚnica podría presentar intermitencias (interrupciones breves) o no estar disponible.\nInformación clave: el ingreso con Clave INAPI sí estará disponible y funcionará con normalidad para realizar todos sus trámites.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; line-height: 1.6;\"><strong style=\"color: #d64000; font-size: 18px;\">Importante: intermitencia en el acceso con ClaveÚnica</strong><p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios y usuarias:</p><p style=\"margin-bottom: 12px;\">El servicio de <strong>ClaveÚnica</strong> hará un mantenimiento programado hoy <strong>martes 7 de julio, de 21:00 a 23:00 horas</strong>. Durante ese horario, el ingreso a nuestros trámites en línea con ClaveÚnica podría presentar intermitencias (interrupciones breves) o no estar disponible.</p><p style=\"margin-bottom: 15px; padding: 8px 12px; background-color: #f0f7ff; border-left: 3px solid #0066cc; color: #004080;\"><strong>Información clave:</strong> el ingreso con <strong>Clave INAPI sí estará disponible</strong> y funcionará con normalidad para realizar todos sus trámites.</p><p style=\"margin-bottom: 0;\">Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.2.4-05",
+      "criterios_relacionados": [
+        "LC-1.1.3-02",
+        "LC-1.1.3-03"
+      ],
+      "patron_sistema": false,
+      "motivo": "Es el aviso mejor resuelto del corpus: título que dice el tema, alternativa concreta (Clave INAPI) y recuadro destacado. Solo se corrigen las mayúsculas sostenidas («IMPORTANTE:», «INFORMACIÓN CLAVE:»), «vuestra comprensión» y el cierre largo, que pasa al cierre común. Hechos que se conservan: ClaveÚnica (servicio externo) con intermitencia de 21:00 a 23:00 horas del martes 7 de julio, y Clave INAPI sí disponible para todos los trámites.",
+      "aviso_correccion": {
+        "ids": [
+          137
+        ],
+        "fechas_inicio": [
+          "2026-07-07 11:50:44"
+        ],
+        "estados": [
+          "0"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    },
+    {
+      "linea": "A21",
+      "ubicacion_pantalla": "Recuadro de aviso sobre los formularios de trámites en línea › Código de seguridad de 6 dígitos (RUN y contraseña) (aviso 146)",
+      "original": "<div id=\"AvisoMantencionInapi\" class=\"formularios\">      <div style=\"text-align: left; line-height: 1.6;\">          <strong style=\"color: #0F69C4; font-size: 18px;\">Más protección para tus trámites</strong>          <p style=\"margin-top: 15px; margin-bottom: 10px;\">              A partir de este lunes, al ingresar con RUN y contraseña te pediremos un código de seguridad de 6 dígitos que llegará directo a tu correo.          </p>          <p style=\"margin-bottom: 12px;\">              Si utilizas ClaveÚnica, tu acceso sigue exactamente igual.          </p>          <p style=\"margin-bottom: 0;\">              ¡Verifica hoy en tu perfil que tengas acceso a tu correo registrado para no tener demoras!          </p>      </div>  </div>",
+      "propuesto": "Importante: más protección para sus trámites\nEstimados usuarios y usuarias:\nDesde el lunes 9 de noviembre, al ingresar con RUN y contraseña le pediremos un código de seguridad de 6 dígitos, que llegará a su correo electrónico registrado.\nSi ingresa con ClaveÚnica, su acceso no cambia.\nRevise en su perfil que tenga acceso a su correo registrado, para evitar demoras al ingresar.\nLamentamos las molestias y agradecemos su comprensión.",
+      "propuesto_html": "<div id=\"AvisoMantencionInapi\" class=\"formularios\"><div style=\"text-align: left; line-height: 1.6;\"><strong style=\"color: #0F69C4; font-size: 18px;\">Importante: más protección para sus trámites</strong><p style=\"margin-top: 15px; margin-bottom: 10px;\">Estimados usuarios y usuarias:</p><p style=\"margin-bottom: 12px;\">Desde el <strong>lunes 9 de noviembre</strong>, al ingresar con <strong>RUN y contraseña</strong> le pediremos un <strong>código de seguridad de 6 dígitos</strong>, que llegará a su correo electrónico registrado.</p><p style=\"margin-bottom: 12px;\">Si ingresa con <strong>ClaveÚnica</strong>, su acceso no cambia.</p><p style=\"margin-bottom: 12px;\"><strong>Revise en su perfil que tenga acceso a su correo registrado</strong>, para evitar demoras al ingresar.</p><p style=\"margin-bottom: 0;\">Lamentamos las molestias y agradecemos su comprensión.</p></div></div>",
+      "criterio_id": "LC-1.1.4-01",
+      "criterios_relacionados": [
+        "LC-1.2.4-04"
+      ],
+      "patron_sistema": false,
+      "motivo": "«A partir de este lunes» no dice la fecha y deja de ser claro apenas pasa ese lunes: el aviso se publicó el viernes 6 de noviembre, así que el propuesto dice «lunes 9 de noviembre». El texto no destaca en negrita el código ni la acción a realizar. Se pasa al trato de usted y al saludo y cierre comunes de los avisos; si el equipo prefiere mantener el tuteo de este aviso, conservar los mismos hechos. El cierre con disculpa se agregó por el léxico común del corpus; como el aviso anuncia una mejora y no una falla, UX puede reemplazarlo por «Agradecemos su comprensión.». Si «RUN y contraseña» es el mismo ingreso que «Clave INAPI» (aviso 137), conviene nombrarlo igual en ambos; TI debe confirmarlo. Hechos que se conservan: el código de seguridad de 6 dígitos llega al correo y se pide solo al ingresar con RUN y contraseña; con ClaveÚnica el acceso no cambia; revisar el correo registrado en el perfil.",
+      "aviso_correccion": {
+        "ids": [
+          146
+        ],
+        "fechas_inicio": [
+          "2026-11-06 16:40:18"
+        ],
+        "estados": [
+          "1"
+        ],
+        "ids_sistema": [
+          "25"
+        ]
+      }
+    }
+  ],
+  "nota_final_tic": "Cada solicitud trae el HTML propuesto listo para pegar, con el mismo id y la misma clase del contenedor original. Pegar ese HTML en cada aviso listado en la columna de IDs.\n\nCuando una solicitud agrupa varios avisos, el HTML muestra la fecha de uno de los avisos del grupo, indicado en la columna de observaciones. En cada aviso, cambiar solo la fecha y la hora en negrita por las de ese aviso, según la lista de la columna de observaciones. No usar una fecha común para todo el grupo.\n\nNo agregar «centro de datos» a los avisos que no lo mencionan y no quitar los datos propios de cada aviso: pagos con la Tesorería General de la República (TGR), Clave INAPI disponible, código de 6 dígitos, Custodia y presentación de poderes, Patentes o Marcas.\n\nEn los avisos 3, 9, 10, 75, 122, 125, 130, 131, 132 y 146 la fecha se dedujo del periodo de publicación del aviso; confirmarla antes de publicar. Si se conoce la hora de término de un corte, agregarla después de la hora de inicio.\n\nPara los próximos avisos, partir de estas plantillas y revisar la ortografía con el corrector del editor o con LanguageTool antes de publicar."
+}

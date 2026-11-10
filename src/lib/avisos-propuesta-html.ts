@@ -55,9 +55,16 @@ function normalizeCssColor(raw: string | undefined): string | undefined {
 
 /** Extrae color del style inline más cercano en el HTML original. */
 export function extractDominantTextColor(html: string): string | undefined {
-  const m = html.match(/color\s*:\s*([^;"']+)/i)
+  const m = html.match(COLOR_RE)
   return normalizeCssColor(m?.[1])
 }
+
+/** `color:` del texto; no confunde `background-color` ni `border-*-color`. */
+const COLOR_RE = /(?:^|[;"'\s])color\s*:\s*([^;"']+)/i
+
+/** Etiquetas de bloque: al cerrarse, la vista empieza una línea nueva. */
+const BLOCK_TAGS = ["p", "div", "li", "ul", "ol", "h1", "h2", "h3", "h4", "h5", "h6"]
+const HEADING_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
 /**
  * Envuelve el texto propuesto en la misma cáscara HTML del aviso original
@@ -113,7 +120,9 @@ function escapeHtml(s: string): string {
  */
 export function htmlToVistaRuns(html: string): VistaRun[] {
   const runs: VistaRun[] = []
-  const outerColor = extractDominantTextColor(html)
+  // Color base = solo el del contenedor exterior; los hijos aportan el suyo vía `stack`.
+  const firstTag = html.match(/<[a-z0-9]+([^>]*)>/i)
+  const outerColor = normalizeCssColor(firstTag?.[1]?.match(COLOR_RE)?.[1])
 
   // Tokenizar tags relevantes
   const tokenRe =
@@ -127,7 +136,7 @@ export function htmlToVistaRuns(html: string): VistaRun[] {
     let color = outerColor
     let link: string | undefined
     for (const s of stack) {
-      if (s.tag === "strong" || s.tag === "b") bold = true
+      if (s.tag === "strong" || s.tag === "b" || HEADING_TAGS.includes(s.tag)) bold = true
       if (s.tag === "em" || s.tag === "i") italic = true
       if (s.tag === "u") underline = true
       if (s.tag === "a") {
@@ -154,10 +163,19 @@ export function htmlToVistaRuns(html: string): VistaRun[] {
             break
           }
         }
+        if (BLOCK_TAGS.includes(tag)) runs.push({ text: "\n" })
         continue
       }
-      if (["div", "span", "p", "strong", "b", "em", "i", "u", "a", "li", "ul", "ol"].includes(tag)) {
-        const colorM = attrs.match(/color\s*:\s*([^;"']+)/i)
+      if (tag === "hr") {
+        runs.push({ text: "\n" })
+        continue
+      }
+      if (
+        ["div", "span", "p", "strong", "b", "em", "i", "u", "a", "li", "ul", "ol", ...HEADING_TAGS].includes(tag)
+      ) {
+        // Un bloque que abre después de texto en línea (p. ej. <strong> título + <p>) empieza línea nueva
+        if (BLOCK_TAGS.includes(tag) && tag !== "li") runs.push({ text: "\n" })
+        const colorM = attrs.match(COLOR_RE)
         const hrefM = attrs.match(/href\s*=\s*["']([^"']+)["']/i)
         stack.push({
           tag,
@@ -191,7 +209,27 @@ export function htmlToVistaRuns(html: string): VistaRun[] {
     }
   }
 
-  return mergeRuns(runs)
+  return mergeRuns(collapseLineBreaks(runs))
+}
+
+/** Un solo salto entre bloques; sin saltos ni espacios sueltos al inicio o al final. */
+function collapseLineBreaks(runs: VistaRun[]): VistaRun[] {
+  const out: VistaRun[] = []
+  for (const r of runs) {
+    const prev = out[out.length - 1]
+    if (r.text === "\n") {
+      if (!prev || prev.text === "\n") continue
+      // Quitar espacios en blanco que quedaron antes del salto
+      while (out.length > 0 && out[out.length - 1]!.text.trim() === "" && out[out.length - 1]!.text !== "\n") out.pop()
+      if (out.length === 0 || out[out.length - 1]!.text === "\n") continue
+      out.push(r)
+      continue
+    }
+    if ((!prev || prev.text === "\n") && r.text.trim() === "") continue
+    out.push(r)
+  }
+  while (out.length > 0 && (out[out.length - 1]!.text === "\n" || out[out.length - 1]!.text.trim() === "")) out.pop()
+  return out
 }
 
 function mergeRuns(runs: VistaRun[]): VistaRun[] {

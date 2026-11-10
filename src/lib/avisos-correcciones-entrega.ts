@@ -14,7 +14,10 @@ import {
 } from "./avisos-propuesta-html"
 import { ptdHitoTareaPorCriterio } from "./ptd-hito-tarea-por-criterio"
 
-export const AVISOS_AUDIT_ID = "avisos-sistemas-tramites_2026-11-09"
+export const AVISOS_AUDIT_ID = "avisos-sistemas-tramites_2026-11-10"
+
+/** Prefijo común a todas las fechas de la auditoría de avisos (vigente + history). */
+const AVISOS_AUDIT_ID_PREFIX = "avisos-sistemas-tramites_"
 
 export const AVISOS_CORRECCION_HEADERS = [
   "Número de solicitud",
@@ -48,7 +51,7 @@ export type AvisosCorreccionRow = {
 }
 
 export function isAvisosSistemasAudit(auditId: string): boolean {
-  return auditId === AVISOS_AUDIT_ID
+  return auditId.startsWith(AVISOS_AUDIT_ID_PREFIX)
 }
 
 export function sustitucionesSonAvisos(
