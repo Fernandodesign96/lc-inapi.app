@@ -39,3 +39,10 @@ export function evidenciasDocxPath(
 ): string {
   return join(evidenciasDir(repoRoot, claudeAuditId), "correcciones.docx")
 }
+
+export function evidenciasXlsxPath(
+  repoRoot: string,
+  claudeAuditId: string,
+): string {
+  return join(evidenciasDir(repoRoot, claudeAuditId), "correcciones.xlsx")
+}

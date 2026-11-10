@@ -1,10 +1,14 @@
 /**
  * Resumen de cumplimiento por hito PTD (UI · PDF).
- * Categorías MEI: Cumple / Cumple con observaciones / Medianamente cumple /
- * No cumple / No aplica.
+ * Checklist / Cumple / No aplica: criterios.
+ * Cumple con observaciones / Medianamente / No cumple: **correcciones**
+ * (sustituciones + agrupados), para que la suma entre hitos coincida con
+ * el total de correcciones de Datos de Auditoría.
  * Numeración de entrega: Hito 1…N (orden id PTD ascendente).
  */
 import type { CriterionEvaluation } from "../schemas/checklist"
+import type { ClaudeSustitucion } from "../schemas/claude-audit-pilot"
+import { listCorreccionesEntrega } from "./desglose-correcciones-datos-auditoria"
 import { categoriaPresentacionFromEvaluation } from "./mei-export/mei-criterio-categoria"
 import { ptdHitoTareaPorCriterio } from "./ptd-hito-tarea-por-criterio"
 
@@ -27,6 +31,7 @@ export type ResumenHitoAuditoria = {
 
 export function buildResumenHitosAuditoria(
   evaluations: CriterionEvaluation[],
+  sustituciones: readonly ClaudeSustitucion[] = [],
 ): ResumenHitoAuditoria[] {
   const byHito = new Map<
     number,
@@ -42,16 +47,12 @@ export function buildResumenHitosAuditoria(
     }
   >()
 
-  for (const row of evaluations) {
-    const labels = ptdHitoTareaPorCriterio(row.id)
-    const ref = labels.refs[0]
-    if (!ref) continue
-
-    let g = byHito.get(ref.hitoId)
+  function ensure(hitoId: number, titulo: string, ordinal: number) {
+    let g = byHito.get(hitoId)
     if (!g) {
       g = {
-        titulo: ref.hitoTitulo,
-        ordinal: labels.hitoOrdinal ?? 0,
+        titulo,
+        ordinal,
         checklist: 0,
         cumple: 0,
         cumpleConObservaciones: 0,
@@ -59,16 +60,63 @@ export function buildResumenHitosAuditoria(
         noCumple: 0,
         noAplica: 0,
       }
-      byHito.set(ref.hitoId, g)
+      byHito.set(hitoId, g)
     }
+    return g
+  }
 
+  for (const row of evaluations) {
+    const labels = ptdHitoTareaPorCriterio(row.id)
+    const ref = labels.refs[0]
+    if (!ref) continue
+
+    const g = ensure(ref.hitoId, ref.hitoTitulo, labels.hitoOrdinal ?? 0)
     g.checklist += 1
+    // Misma regla que summarizeEvaluations: agrupado_en no descuenta %.
+    if (row.agrupado_en) {
+      g.cumple += 1
+      continue
+    }
     const cat = categoriaPresentacionFromEvaluation(row)
     if (cat === "Cumple") g.cumple += 1
-    else if (cat === "Cumple con observaciones") g.cumpleConObservaciones += 1
-    else if (cat === "Medianamente cumple") g.medianamenteCumple += 1
-    else if (cat === "No cumple") g.noCumple += 1
     else if (cat === "No aplica") g.noAplica += 1
+    else if (
+      cat === "Cumple con observaciones" ||
+      cat === "Medianamente cumple" ||
+      cat === "No cumple"
+    ) {
+      // Las columnas de severidad se rellenan con correcciones más abajo.
+    }
+  }
+
+  const correcciones = listCorreccionesEntrega(evaluations, sustituciones)
+  if (correcciones.length > 0) {
+    for (const it of correcciones) {
+      const labels = ptdHitoTareaPorCriterio(it.criterioId)
+      const ref = labels.refs[0]
+      if (!ref) continue
+      const g = ensure(ref.hitoId, ref.hitoTitulo, labels.hitoOrdinal ?? 0)
+      if (it.categoria === "Cumple con observaciones") {
+        g.cumpleConObservaciones += 1
+      } else if (it.categoria === "Medianamente cumple") {
+        g.medianamenteCumple += 1
+      } else if (it.categoria === "No cumple") {
+        g.noCumple += 1
+      }
+    }
+  } else {
+    // Sin sustituciones (p. ej. demos): buckets = criterios incumplidos.
+    for (const row of evaluations) {
+      if (row.agrupado_en) continue
+      const labels = ptdHitoTareaPorCriterio(row.id)
+      const ref = labels.refs[0]
+      if (!ref) continue
+      const g = ensure(ref.hitoId, ref.hitoTitulo, labels.hitoOrdinal ?? 0)
+      const cat = categoriaPresentacionFromEvaluation(row)
+      if (cat === "Cumple con observaciones") g.cumpleConObservaciones += 1
+      else if (cat === "Medianamente cumple") g.medianamenteCumple += 1
+      else if (cat === "No cumple") g.noCumple += 1
+    }
   }
 
   return [...byHito.entries()]
@@ -110,6 +158,10 @@ export function conteoCategoriasPresentacion(
     noAplica: 0,
   }
   for (const row of evaluations) {
+    if (row.agrupado_en) {
+      c.cumple += 1
+      continue
+    }
     const cat = categoriaPresentacionFromEvaluation(row)
     if (cat === "Cumple") c.cumple += 1
     else if (cat === "Cumple con observaciones") c.cumpleConObservaciones += 1

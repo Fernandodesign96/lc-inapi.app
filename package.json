@@ -15,6 +15,7 @@
     "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
     "capture:evidencias-visuales": "bun run src/scripts/capture-evidencias-visuales.ts",
     "generate:word-correcciones": "bun run src/scripts/generate-word-correcciones.ts",
+    "build:avisos-sistemas-audit": "bun run src/scripts/build-avisos-sistemas-audit.ts",
     "worker:audit-jobs": "bun run src/scripts/audit-jobs-worker.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "typecheck:frontend": "bun run --cwd frontend typecheck",
@@ -34,6 +35,7 @@
     "docx": "^9.15.2",
     "exceljs": "^4.4.0",
     "playwright": "^1.61.1",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "xlsx": "^0.18.5"
   }
 }

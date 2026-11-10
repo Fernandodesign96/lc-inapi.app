@@ -34,8 +34,13 @@ import {
   META_MEI_TABLE_ROWS,
   metaMeiResultadoHref,
 } from "@/lib/mei-meta-mei-launch"
+import { META_MEI_EXTRA_AUDITS } from "@/lib/claude-audits-launch"
 import { ETIQUETA_ESTADO_ACEPTACION } from "@/lib/resultado-mock-copy"
 import { cn } from "@/lib/utils"
+
+const AVISOS_AUDIT = META_MEI_EXTRA_AUDITS.find(
+  (r) => r.id === "avisos-sistemas-tramites_2026-11-09",
+)
 
 function labelTipoPagina(tipo: "sitioweb" | "tramites"): string {
   return tipo === "tramites" ? "Trámites" : "Sitio web"
@@ -190,6 +195,33 @@ export function AuditarClaudePilotSection() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        {AVISOS_AUDIT ? (
+          <div className="mt-6 rounded-md border border-border p-4">
+            <h3 className="text-sm font-semibold text-foreground">
+              {AVISOS_AUDIT.label}
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Corpus de 130 avisos (Avisos Sistemas.xlsx): solo texto visible,
+              no HTML. Checklist PTD-LC v3.0 —{" "}
+              {AVISOS_AUDIT.resumenMvp.porcentajeLc} % ·{" "}
+              {
+                ETIQUETA_ESTADO_ACEPTACION[
+                  AVISOS_AUDIT.resumenMvp.estadoAceptacion
+                ]
+              }
+              .
+            </p>
+            <div className="mt-3">
+              <Button type="button" size="sm" asChild>
+                <Link
+                  href={`/auditar/resultado?claudeAudit=${encodeURIComponent(AVISOS_AUDIT.id)}&url=${encodeURIComponent(AVISOS_AUDIT.url)}`}
+                >
+                  Ver resultado y descargas
+                </Link>
+              </Button>
+            </div>
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   )

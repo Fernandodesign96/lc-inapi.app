@@ -104,8 +104,10 @@ Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propues
 19. **Plazos/canales + copy CMS (C-2026-11-05a):** plazos/confirmaciones solo con evidencia ops o literal en pantalla (prohibido `[N]`); propuesto = texto pegable o instrucción con literales (prohibido «Hacer que…» sin copy); título en mayúsculas: fidelidad (criterio 10) ≠ tipografía (criterio 40). SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; modal con número generado.
 20. **ClaveÚnica Estado (C-2026-11-05b):** no proponer cambios de texto ni forma del botón/widget Clave Única (lo define el Estado, no TI INAPI).
 21. **Fecha solo en el pie (C-2026-11-05c):** «Actualizado:…» únicamente al lado de «©… INAPI. Todos los derechos reservados»; nunca bajo el H1 ni el encabezado del formulario.
+22. **Mismo texto → propuesta final (C-2026-11-09a):** mismo literal/nodo = una solicitud con el propuesto más completo; listar criterios; no encadenar borradores.  
+23. **Avisos sistemas (C-2026-11-09b):** agrupar IDs por plantilla (ignorar día/hora); HTML original + HTML propuesto + vista tipográfica.
 
-Leer Prompt 6 completo (hasta **C-2026-11-05c**) + skill 05 ANTES de puntuar.
+Leer Prompt 6 completo (hasta **C-2026-11-09b**) + skill 05 ANTES de puntuar.
 
 ### Paso A — Stack y captura (Prompt 1)
 

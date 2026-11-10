@@ -151,6 +151,33 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 - **Aplica a:** todas.
 - **estado:** vigente
 
+### C-2026-11-09a — Mismo texto/nodo: una solicitud con propuesta final completa
+
+- **Origen:** revisión Word SIAC (URL 10): varias filas reescribían el mismo párrafo introductorio, el mismo modal de confirmación o el mismo aviso de mantenimiento con propuestas encadenadas (la última anulaba a la anterior).
+- **Regla (refuerza §20.3 y C-2026-08-26a para entrega Word/TI):**
+  1. Si varios criterios apuntan al **mismo texto visible**, **mismo nodo** o **misma sección localizable**, hay **una sola** fila de solicitud de corrección (o una sola fila en `sustituciones[]` del primario + `criterios_relacionados` / secundarios con `agrupado_en`).
+  2. El `propuesto` debe ser la **propuesta final más completa y detallada** (no una cadena de borradores: primero un ajuste superficial y luego otro que lo vuelve a cambiar).
+  3. En Observaciones / `motivo` del primario: listar **todos** los hitos y criterios cubiertos («Checklist Hito X - Criterio Y; Hito Z - Criterio W») y cuántas correcciones del grupo son.
+  4. **Prohibido** entregar N filas Word independientes que, al aplicarse en orden, reescriban el mismo literal varias veces.
+  5. Sigue vigente C-2026-08-22: textos **distintos** del mismo `LC-*` (nodos distintos) → N filas. Esta calibración solo aplica cuando el **literal/nodo** es el mismo.
+  6. En avisos HTML de sistemas: la entrega incluye HTML original + HTML propuesto (misma cáscara id/class) + vista tipográfica; no inventar ids/clases nuevas.
+- **Ejemplo malo:** tres filas sobre «Puede enviar consultas…» con tres `propuesto` sucesivos incompletos.
+- **Ejemplo bueno:** una fila con el párrafo introductorio final (ámbito + seguimiento + FAQ si aplica) y Observaciones que nombran los tres criterios.
+- **Aplica a:** todas (prioridad trámites / SIAC / avisos).
+- **estado:** vigente
+
+### C-2026-11-09b — Avisos de sistemas: plantilla editorial + HTML de entrega
+
+- **Origen:** calibración del Word/PDF/Excel de `avisos-sistemas-tramites_2026-11-09`: IDs consecutivos parecían «saltarse» números porque se agrupaba por literal exacto (fechas distintas = filas distintas); TI necesita HTML listo para pegar y ver tipografía.
+- **Regla:**
+  1. **Agrupar IDs** cuando el mensaje es la **misma plantilla editorial**: ignorar diferencias solo de **día / fecha / hora** (y anclas relativas «mañana», «este jueves», etc.). Listar **todos** los IDs del grupo en la casilla, sin repetir y ordenados.
+  2. **Separar filas** si hay diferencias evidentes de **palabras, conceptos, tono o forma de dirigirse** a la persona (p. ej. «Debemos informar…» vs «Nos dirigimos a ustedes…»; con/sin «datacenter»; MFA vs mantención).
+  3. IDs ausentes en el Excel fuente no se inventan (huecos reales del corpus).
+  4. Columna **Contenido a modificar/agregar**: (a) HTML propuesto completo para copy-paste TI (conservar `id`/`class`/cáscara); (b) debajo, **vista en pantalla** con pesos tipográficos del HTML (negrita, cursiva, subrayado, enlaces, viñetas, color). Si el color del texto es blanco/casi blanco, mostrar con **fondo de contraste** legible.
+  5. Columna **Texto anuncio**: HTML original representativo del grupo (no solo texto plano).
+- **Aplica a:** auditoría de avisos de sistemas (entrega Word/PDF/Excel/UI).
+- **estado:** vigente
+
 ### C-2026-08-22 — Aplicabilidad IEW/IESD en URLs `tramites`
 
 - **Origen:** primera URL `tipo_pagina: "tramites"` migrada a v3.0 en esta serie (Formulario Contacto SIAC, META MEI orden 10).

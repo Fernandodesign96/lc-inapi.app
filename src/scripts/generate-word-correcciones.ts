@@ -18,25 +18,42 @@ import {
   Packer,
   PageOrientation,
   Paragraph,
+  ShadingType,
   Table,
   TableCell,
   TableLayoutType,
   TableRow,
   TextRun,
+  UnderlineType,
   WidthType,
   BorderStyle,
   VerticalAlign,
   type FileChild,
   type IParagraphOptions,
 } from "docx"
+import type { VistaRun } from "../lib/avisos-propuesta-html"
+import type { AvisosCorreccionRow } from "../lib/avisos-correcciones-entrega"
 
 import {
+  AVISOS_CORRECCION_HEADERS,
+  buildAvisosCorreccionRows,
+  isAvisosSistemasAudit,
+  sustitucionesSonAvisos,
+} from "../lib/avisos-correcciones-entrega"
+import { avisosCorreccionesXlsxBuffer } from "../lib/avisos-correcciones-xlsx"
+import {
   evidenciasDocxPath,
+  evidenciasXlsxPath,
   resolveClaudeAuditJsonPath,
 } from "../lib/claude-audit-file-path"
+import {
+  listCorreccionesEntrega,
+  type CorreccionEntregaItem,
+} from "../lib/desglose-correcciones-datos-auditoria"
 import { ptdHitoTareaPorCriterio } from "../lib/ptd-hito-tarea-por-criterio"
 import {
   claudeAuditFileSchema,
+  type ClaudeAuditFile,
   type ClaudeSustitucion,
 } from "../schemas/claude-audit-pilot"
 
@@ -76,6 +93,8 @@ const DOCS_COPY: Record<string, string> = {
     "docs/auditorias-tramites-url-10-y-11/10. Cambios de contenidos_web tramites.inapi.cl formulario siac.docx",
   "tramites-inapi-cl_2026-08-27":
     "docs/auditorias-tramites-url-10-y-11/11. Cambios de contenidos_web tramites.inapi.cl portal tramites.docx",
+  "avisos-sistemas-tramites_2026-11-09":
+    "docs/auditorias-tramites-url-10-y-11/Avisos-sistemas-correcciones.docx",
 }
 
 type Args = { auditId: string; copyDocs: boolean }
@@ -136,21 +155,30 @@ function sevLabel(
 }
 
 function obsFor(
-  sust: ClaudeSustitucion,
+  item: CorreccionEntregaItem,
   byId: Map<string, { estado: string; severidad?: string }>,
-  sameCriterionCount: Map<string, number>,
-  sameCriterionIndex: Map<string, number>,
+  relacionadosLabels: string[],
 ): string {
-  const meta = ptdHitoTareaPorCriterio(sust.criterio_id)
-  const ev = byId.get(sust.criterio_id)
+  const meta = ptdHitoTareaPorCriterio(item.criterioId)
+  const ev = byId.get(item.criterioId)
   const label = sevLabel(ev?.estado, ev?.severidad)
-  const total = sameCriterionCount.get(sust.criterio_id) ?? 1
-  const idx = sameCriterionIndex.get(`${sust.linea}`) ?? 1
-  let head = `Checklist Hito ${meta.hitoOrdinal ?? "?"} - Criterio ${meta.criterioOrdinal ?? "?"} — ${label}`
-  if (total > 1) head += ` (corrección ${idx} de ${total})`
+  const heads = [
+    `Checklist Hito ${meta.hitoOrdinal ?? "?"} - Criterio ${meta.criterioOrdinal ?? "?"} — ${label}`,
+    ...relacionadosLabels,
+  ]
+  let head = heads.join("; ")
+  if (item.totalInGrupo > 1) {
+    head += ` (corrección ${item.indexInGrupo} de ${item.totalInGrupo})`
+  }
   head += "."
-  const parts = [head, "", sust.motivo]
-  if (sust.patron_sistema) parts.push("", "Patrón de sitio.")
+  const parts = [head, "", item.sust.motivo]
+  if (relacionadosLabels.length > 0) {
+    parts.push(
+      "",
+      `Esta solicitud agrupa ${relacionadosLabels.length + 1} criterios del mismo texto o sección (propuesta final única).`,
+    )
+  }
+  if (item.sust.patron_sistema) parts.push("", "Patrón de sitio.")
   return parts.join("\n")
 }
 
@@ -188,10 +216,7 @@ function numeroConEvidenciaCell(
   sust: ClaudeSustitucion,
   width: number,
 ): TableCell {
-  const children: Paragraph[] = [
-    para(String(n), { bold: true, size: 20 }),
-    para(`(${sust.linea})`, { size: 16, color: "666666" }),
-  ]
+  const children: Paragraph[] = [para(String(n), { bold: true, size: 20 })]
 
   const imgRel = sust.evidencia_visual?.imagen
   const imgAbs = imgRel ? join(REPO_ROOT, imgRel) : null
@@ -242,6 +267,188 @@ function numeroConEvidenciaCell(
   })
 }
 
+function cssColorToDocxHex(color: string | undefined): string | undefined {
+  if (!color) return undefined
+  const c = color.trim().toLowerCase()
+  if (c === "red") return "FF0000"
+  if (c === "white") return "FFFFFF"
+  if (c.startsWith("#") && (c.length === 7 || c.length === 4)) {
+    if (c.length === 4) {
+      return `${c[1]}${c[1]}${c[2]}${c[2]}${c[3]}${c[3]}`.toUpperCase()
+    }
+    return c.slice(1).toUpperCase()
+  }
+  return undefined
+}
+
+function vistaRunsToParagraphs(runs: VistaRun[]): Paragraph[] {
+  const paragraphs: Paragraph[] = []
+  let current: TextRun[] = []
+  const flush = () => {
+    if (current.length === 0) {
+      paragraphs.push(new Paragraph({ children: [run(" ")] }))
+    } else {
+      paragraphs.push(new Paragraph({ children: current }))
+    }
+    current = []
+  }
+  for (const r of runs) {
+    if (r.text === "\n") {
+      flush()
+      continue
+    }
+    const hex = cssColorToDocxHex(r.color)
+    current.push(
+      new TextRun({
+        text: r.text,
+        font: FONT,
+        size: SIZE_BODY,
+        bold: r.bold,
+        italics: r.italic,
+        underline: r.underline || r.link ? { type: UnderlineType.SINGLE } : undefined,
+        color: hex && hex !== "FFFFFF" ? hex : r.highlight ? "111111" : hex,
+        highlight: r.highlight ? "yellow" : undefined,
+        shading: r.highlight
+          ? { type: ShadingType.CLEAR, fill: r.highlight }
+          : undefined,
+      }),
+    )
+  }
+  if (current.length > 0) flush()
+  return paragraphs.length > 0 ? paragraphs : [para(" ")]
+}
+
+function contenidoModificarCell(
+  row: AvisosCorreccionRow,
+  width: number,
+): TableCell {
+  const children: Paragraph[] = [
+    ...row.propuestoHtml.split("\n").map((line) =>
+      para(line || " ", { size: 14, color: "333333" }),
+    ),
+    para(" "),
+    para("— Vista en pantalla —", { bold: true, size: 16 }),
+    ...vistaRunsToParagraphs(row.vistaRuns),
+  ]
+  return new TableCell({
+    width: { size: width, type: WidthType.DXA },
+    margins: {
+      top: CELL_PAD,
+      bottom: CELL_PAD,
+      left: CELL_PAD,
+      right: CELL_PAD,
+    },
+    borders: CELL_BORDERS,
+    verticalAlign: VerticalAlign.TOP,
+    children,
+  })
+}
+
+async function buildAvisosWordDoc(file: ClaudeAuditFile): Promise<Document> {
+  const susts = file.sustituciones ?? []
+  const rows = buildAvisosCorreccionRows(susts, file.criterios_evaluados)
+  // Primeras 5 angostas; texto/propuesta/obs más anchas
+  const fracs = [0.05, 0.08, 0.1, 0.06, 0.07, 0.24, 0.22] as const
+  const w = fracs.map((f) => Math.round(CONTENT_W * f))
+  const widths = [...w, CONTENT_W - w.reduce((a, b) => a + b, 0)] as number[]
+
+  const children: FileChild[] = [
+    new Paragraph({
+      heading: HeadingLevel.HEADING_1,
+      children: [
+        run("FORMULARIO DE REVISIÓN — AVISOS DE SISTEMAS", { bold: true, size: 28 }),
+      ],
+    }),
+    new Paragraph({
+      children: [run("SITIO WEB / TRÁMITES INAPI 2026", { bold: true, size: 24 })],
+    }),
+    new Paragraph({ children: [] }),
+    new Paragraph({
+      children: [
+        run(
+          "Nombre del área: Departamento de Experiencia Usuaria y Ciencia de Datos",
+        ),
+      ],
+    }),
+    new Paragraph({
+      children: [
+        run(
+          `Fecha: ${new Date().toLocaleDateString("es-CL", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}`,
+        ),
+      ],
+    }),
+    new Paragraph({
+      children: [
+        run(
+          "Corpus: Avisos Sistemas (plantillas editoriales; IDs agrupados si solo cambian día/hora)",
+        ),
+      ],
+    }),
+    new Paragraph({ children: [] }),
+  ]
+
+  const headerRow = new TableRow({
+    children: AVISOS_CORRECCION_HEADERS.map((h, i) =>
+      headerCell(h, widths[i]!),
+    ),
+  })
+
+  const dataRows = rows.map(
+    (row) =>
+      new TableRow({
+        children: row.cells.map((cell, i) =>
+          i === 6
+            ? contenidoModificarCell(row, widths[i]!)
+            : textCell(cell, widths[i]!),
+        ),
+      }),
+  )
+
+  children.push(
+    new Table({
+      width: { size: CONTENT_W, type: WidthType.DXA },
+      columnWidths: widths,
+      layout: TableLayoutType.FIXED,
+      alignment: AlignmentType.CENTER,
+      rows: [headerRow, ...dataRows],
+    }),
+  )
+
+  return new Document({
+    styles: {
+      default: {
+        document: {
+          run: { font: FONT, size: SIZE_BODY },
+        },
+      },
+    },
+    sections: [
+      {
+        properties: {
+          page: {
+            size: {
+              width: PAGE_W,
+              height: PAGE_H,
+              orientation: PageOrientation.LANDSCAPE,
+            },
+            margin: {
+              top: MARGIN,
+              bottom: MARGIN,
+              left: MARGIN,
+              right: MARGIN,
+            },
+          },
+        },
+        children,
+      },
+    ],
+  })
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
   const jsonPath = resolveClaudeAuditJsonPath(REPO_ROOT, args.auditId)
@@ -259,25 +466,65 @@ async function main(): Promise<void> {
     process.exit(1)
   }
 
-  const byId = new Map<string, { estado: string; severidad?: string }>()
-  for (const c of file.criterios_evaluados) {
-    byId.set(c.id, { estado: c.estado, severidad: c.severidad })
+  const avisosMode =
+    isAvisosSistemasAudit(args.auditId) || sustitucionesSonAvisos(susts)
+
+  if (avisosMode) {
+    const doc = await buildAvisosWordDoc(file)
+    const outPath = evidenciasDocxPath(REPO_ROOT, args.auditId)
+    mkdirSync(dirname(outPath), { recursive: true })
+    writeFileSync(outPath, await Packer.toBuffer(doc))
+    console.log(`Word: ${relative(REPO_ROOT, outPath)}`)
+
+    const xlsxPath = evidenciasXlsxPath(REPO_ROOT, args.auditId)
+    writeFileSync(
+      xlsxPath,
+      await avisosCorreccionesXlsxBuffer(susts, file.criterios_evaluados),
+    )
+    console.log(`Excel: ${relative(REPO_ROOT, xlsxPath)}`)
+
+    if (args.copyDocs && DOCS_COPY[args.auditId]) {
+      const dest = join(REPO_ROOT, DOCS_COPY[args.auditId])
+      mkdirSync(dirname(dest), { recursive: true })
+      copyFileSync(outPath, dest)
+      console.log(`Copia TI: ${relative(REPO_ROOT, dest)}`)
+      const xlsxDocs = dest.replace(/\.docx$/i, ".xlsx")
+      copyFileSync(xlsxPath, xlsxDocs)
+      console.log(`Copia TI Excel: ${relative(REPO_ROOT, xlsxDocs)}`)
+    }
+    return
   }
 
-  const sameCriterionCount = new Map<string, number>()
-  for (const s of susts) {
-    sameCriterionCount.set(
-      s.criterio_id,
-      (sameCriterionCount.get(s.criterio_id) ?? 0) + 1,
-    )
+  const byId = new Map<string, { estado: string; severidad?: string }>()
+  const agrupadosPorPrimario = new Map<string, string[]>()
+  for (const c of file.criterios_evaluados) {
+    byId.set(c.id, { estado: c.estado, severidad: c.severidad })
+    if (c.agrupado_en) {
+      const list = agrupadosPorPrimario.get(c.agrupado_en) ?? []
+      list.push(c.id)
+      agrupadosPorPrimario.set(c.agrupado_en, list)
+    }
   }
-  const seen = new Map<string, number>()
-  const sameCriterionIndex = new Map<string, number>()
-  for (const s of susts) {
-    const n = (seen.get(s.criterio_id) ?? 0) + 1
-    seen.set(s.criterio_id, n)
-    sameCriterionIndex.set(s.linea, n)
+
+  function labelsRelacionados(sust: ClaudeSustitucion): string[] {
+    const ids = new Set<string>([
+      ...(sust.criterios_relacionados ?? []),
+      ...(agrupadosPorPrimario.get(sust.criterio_id) ?? []),
+    ])
+    const out: string[] = []
+    for (const id of ids) {
+      if (id === sust.criterio_id) continue
+      const meta = ptdHitoTareaPorCriterio(id)
+      const ev = byId.get(id)
+      const label = sevLabel(ev?.estado, ev?.severidad)
+      out.push(
+        `Hito ${meta.hitoOrdinal ?? "?"} - Criterio ${meta.criterioOrdinal ?? "?"} — ${label}`,
+      )
+    }
+    return out
   }
+
+  const correcciones = listCorreccionesEntrega(file.criterios_evaluados, susts)
 
   // 6 columnas = ancho útil A4 apaisado (proporción tipo formulario TI compacto)
   const w0 = Math.round(CONTENT_W * 0.14) // N° + evidencia
@@ -334,7 +581,8 @@ async function main(): Promise<void> {
     ],
   })
 
-  const dataRows: TableRow[] = susts.map((s, i) => {
+  const dataRows: TableRow[] = correcciones.map((item, i) => {
+    const s = item.sust
     let original = s.original
     if (
       original.startsWith("(sin ") ||
@@ -351,7 +599,7 @@ async function main(): Promise<void> {
         textCell(s.ubicacion_pantalla ?? "", w[2]),
         textCell(original, w[3]),
         textCell(s.propuesto, w[4]),
-        textCell(obsFor(s, byId, sameCriterionCount, sameCriterionIndex), w[5]),
+        textCell(obsFor(item, byId, labelsRelacionados(s)), w[5]),
       ],
     })
   })
@@ -365,6 +613,18 @@ async function main(): Promise<void> {
       rows: [headerRow, ...dataRows],
     }),
   )
+
+  const notasWord = file.notas_entrega_word ?? []
+  if (notasWord.length > 0) {
+    children.push(new Paragraph({ children: [] }))
+    for (const nota of notasWord) {
+      children.push(
+        new Paragraph({
+          children: [run(`• ${nota}`, { size: SIZE_BODY })],
+        }),
+      )
+    }
+  }
 
   const doc = new Document({
     styles: {

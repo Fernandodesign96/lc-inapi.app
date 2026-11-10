@@ -28,6 +28,20 @@ export const evidenciaVisualSchema = z.object({
 
 export type EvidenciaVisual = z.infer<typeof evidenciaVisualSchema>
 
+/**
+ * Metadatos de filas Excel «Avisos Sistemas» agrupadas por el mismo copy.
+ * Una solicitud = un texto único; IDs/fechas/estados/sistemas van concatenados
+ * sin repetir valores dentro de la misma casilla.
+ */
+export const avisoCorreccionSchema = z.object({
+  ids: z.array(z.number().int()).min(1),
+  fechas_inicio: z.array(z.string().min(1)).min(1),
+  estados: z.array(z.string().min(1)).min(1),
+  ids_sistema: z.array(z.string().min(1)).min(1),
+})
+
+export type AvisoCorreccion = z.infer<typeof avisoCorreccionSchema>
+
 export const claudeSustitucionSchema = z.object({
   linea: z.string().min(1),
   html_linea_aprox: z.string().optional(),
@@ -38,8 +52,21 @@ export const claudeSustitucionSchema = z.object({
   ubicacion_pantalla: z.string().optional(),
   /** METADATA no se incluye en entrega UI/PDF/Excel. */
   capa: z.enum(["VISIBLE", "METADATA", "SISTEMA"]).optional(),
+  /**
+   * Texto original / anuncio. En avisos de sistemas: HTML completo del anuncio
+   * (una muestra representativa del grupo de copy equivalente).
+   */
   original: z.string().min(1),
+  /**
+   * Corrección propuesta. En avisos: texto plano legible (base de la vista).
+   * El HTML listo para pegar va en `propuesto_html` cuando aplica.
+   */
   propuesto: z.string().min(1),
+  /**
+   * HTML completo propuesto (avisos): mismo id/class/cáscara; TI copia y pega.
+   * La celda de entrega muestra este HTML y debajo la vista tipográfica.
+   */
+  propuesto_html: z.string().min(1).optional(),
   /** Criterio primario que descuenta en el % (uno por hallazgo editorial). */
   criterio_id: criterionIdSchema,
   /**
@@ -58,6 +85,8 @@ export const claudeSustitucionSchema = z.object({
    * Opcional: no bloquea auditorías sin captura.
    */
   evidencia_visual: evidenciaVisualSchema.optional(),
+  /** Solo auditoría de avisos de sistemas (columnas ID / fechas / estado / sistema). */
+  aviso_correccion: avisoCorreccionSchema.optional(),
 })
 
 export type ClaudeSustitucion = z.infer<typeof claudeSustitucionSchema>
@@ -78,6 +107,8 @@ export const claudeAuditPilotMetaSchema = z.object({
   observaciones_lc_por_severidad: observacionesLcPorSeveridadSchema.optional(),
   sustituciones: z.array(claudeSustitucionSchema).optional(),
   nota_final_tic: z.string().optional(),
+  /** Viñetas al final del Word, fuera de la tabla de solicitudes. */
+  notas_entrega_word: z.array(z.string().min(1)).optional(),
 })
 
 export type ClaudeAuditPilotMeta = z.infer<typeof claudeAuditPilotMetaSchema>
@@ -122,6 +153,7 @@ export function parseClaudeAuditFile(data: unknown): ClaudeAuditBundle {
     observaciones_lc_por_severidad: file.observaciones_lc_por_severidad,
     sustituciones: file.sustituciones,
     nota_final_tic: file.nota_final_tic,
+    notas_entrega_word: file.notas_entrega_word,
   }
   return { audit, pilot, clarity: file.clarity_meta }
 }

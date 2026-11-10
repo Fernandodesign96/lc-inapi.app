@@ -114,7 +114,7 @@ export function ResultadoDatosAuditoriaCampos({
         <Dato label="Cumple con observaciones">
           <span className="font-medium">
             {formatConteoCategoriaConCorrecciones(
-              conteos.cumpleConObservaciones,
+              desgloseCorrecciones.correccionesCumpleConObservaciones,
               desgloseCorrecciones.cumpleConObservaciones,
             )}
           </span>
@@ -122,7 +122,7 @@ export function ResultadoDatosAuditoriaCampos({
         <Dato label="Medianamente cumple">
           <span className="font-medium">
             {formatConteoCategoriaConCorrecciones(
-              conteos.medianamenteCumple,
+              desgloseCorrecciones.correccionesMedianamenteCumple,
               desgloseCorrecciones.medianamenteCumple,
             )}
           </span>
@@ -130,7 +130,7 @@ export function ResultadoDatosAuditoriaCampos({
         <Dato label="No cumplen">
           <span className="font-medium">
             {formatConteoCategoriaConCorrecciones(
-              conteos.noCumple,
+              desgloseCorrecciones.correccionesNoCumple,
               desgloseCorrecciones.noCumple,
             )}
           </span>

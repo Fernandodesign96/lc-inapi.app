@@ -5,6 +5,9 @@ import { esUrlHomeInapi } from "@/lib/informe-piloto-format"
 
 /** Slug para descargables: `inapi-cl`, `inapi-cl-marcas`, `tramites-inapi-cl-siac`. */
 export function slugFromAuditUrl(url: string): string {
+  if (url.startsWith("inapi://")) {
+    return sanitizePdfFilename(url.replace(/^inapi:\/\//, "inapi-"))
+  }
   try {
     const u = new URL(url)
     const host = u.hostname.replace(/^www\./i, "").replace(/\./g, "-")
