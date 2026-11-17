@@ -36,8 +36,9 @@ export function evidenciasDir(repoRoot: string, claudeAuditId: string): string {
 export function evidenciasDocxPath(
   repoRoot: string,
   claudeAuditId: string,
+  fileName = "correcciones.docx",
 ): string {
-  return join(evidenciasDir(repoRoot, claudeAuditId), "correcciones.docx")
+  return join(evidenciasDir(repoRoot, claudeAuditId), fileName)
 }
 
 export function evidenciasXlsxPath(

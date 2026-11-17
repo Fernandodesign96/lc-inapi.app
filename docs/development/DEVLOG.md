@@ -8,6 +8,7 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 
 | Fecha | Entrada |
 | --- | --- |
+| 2026-11-17 | [Calibración C-2026-11-17a/b — entrega proveedor (5 cols) vs respaldo interno](#devlog-2026-11-17-entrega-proveedor) |
 | 2026-11-10 | [Auditoría avisos de sistemas (130) — 21 plantillas con hechos y calendario por ID, rechazado 42,9 %](#devlog-2026-11-10-avisos-reaudit) |
 | 2026-11-10 | [Calibración C-2026-11-10a — avisos: chunks, hechos y 51 criterios por línea](#devlog-2026-11-10-avisos-chunks-hechos) |
 | 2026-11-09 | [SIAC Word agrupado + avisos 130 + gaps anexo](#devlog-2026-11-09-siac-avisos-anexo) |
@@ -124,6 +125,38 @@ Bitácora de decisiones de implementación, aprendizajes y bloqueos. Las entrada
 | 2026-05-14 | [Pantallas mock del flujo auditar (captura y resultado con 39 criterios)](#devlog-2026-05-14-pantallas-mock) |
 | 2026-05-14 | [Inicialización del frontend con Next, Tailwind, shadcn y formulario URL](#devlog-2026-05-14-inicializacion-frontend) |
 | 2026-05-13 | [Documentación y contratos de la fase 0 (PRD, ADR, checklist y script de validación)](#devlog-2026-05-13-fase-0) |
+
+---
+
+<a id="devlog-2026-11-17-entrega-proveedor"></a>
+## [2026-11-17] - Calibración | C-2026-11-17a/b — entrega proveedor vs respaldo
+
+**Rama:** `feat/calib-entrega-proveedor-15h`
+
+### Contexto y objetivos:
+
+El Word que Comunicaciones envía al proveedor (`docs/proveedor-solicitudes-texto.docx`) tiene 5 columnas y agrupa header/footer. El generador por URL metía Ubicación, hito/criterio y severidad en Observaciones: eso es respaldo interno, no el archivo del proveedor. Hay que entrenar la orquestación (gates + ejemplos) para un presupuesto de 15 h: hover en menú, no aplastar pestañas, no inventar hero ni noticias.
+
+### Implementación técnica:
+
+- Prompt 6 **C-2026-11-17a** (árbol: veto legal, no renombrar menú, jerarquía de pestañas, componente de sitio = 1 solicitud N URLs, casos 1–8) y **C-2026-11-17b** (perfil proveedor 5 cols vs respaldo). Punteros «complementada por 17a» en C-2026-11-04b/c (supersede H1+glosa y relabel «Conoce más» del menú).
+- Prompt 5 Paso E/F: consolidación de sitio antes del Word proveedor; skills 02/03/05; CLAUDE.md §6 y gate §22.12 (ítems 37–42). No se reescriben C-2026-11-10a/b ni el JSON de avisos.
+- `src/lib/entrega-proveedor.ts`: columnas fijas, original vacío si inserción, Observaciones sin `LC-*`, consolidado header/footer, amarillo en texto nuevo. Fixture de 3 filas (hover, inserción, footer PDF).
+- `generate-word-correcciones.ts`: `--perfil proveedor|respaldo`, `--consolidado`, `--audit-ids`, `--fixture`.
+
+**Ejemplos canónicos (copiados de los dos Word de referencia):**
+
+| Caso | Original | Propuesto | Observaciones proveedor |
+| --- | --- | --- | --- |
+| 1 hover | `Conoce más` | `title="Qué es la Propiedad Intelectual e Industrial"` | Insertar ayuda al cursor; no cambiar el rótulo |
+| 2 hero | *(vacío)* | Encargo a Comunicaciones (qué/cómo/dónde/cuándo/para quién) | Insertar. No inventar el copy |
+| 3 etiquetas | literal actual | `Título:` / `Desplegable:` / `Bajada:` (amarillo en lo nuevo) | Actualizar en la pestaña activa |
+| 8 noticias | — | Encargo: máx. 8 párrafos; negrita/cursiva/viñetas; izquierda | No reescribir el artículo |
+
+### Próximos pasos:
+
+- Cuando Comunicaciones cierre el Word texto×texto, reauditar las 9 URLs y armar el Word proveedor consolidado (`--perfil proveedor --consolidado --audit-ids …`).
+- No mezclar con el merge de avisos TIC (`avisos-mantenimiento-tic`).
 
 ---
 
