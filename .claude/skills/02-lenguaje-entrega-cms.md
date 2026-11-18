@@ -25,7 +25,8 @@ Skill para escribir **resultados entendibles** para personas que no son de desar
 | --- | --- |
 | **Texto en pantalla** | Literal que ve el ciudadano (C-2026-08-25d). **Nunca** la pregunta del criterio ni `Criterio N: «…» — Instrumento M`. Si **cumple**, citar lo que evidencia el sí. Si no hay literal que cumpla: `No hay texto que cumpla con este requisito` (JSON interno: `(ausencia)`). Evitar `—` cuando la justificación ya describe nodos visibles. **Negritas (C-2026-08-25j):** si el párrafo existe sin negrita, citar el párrafo completo, no `(sin negrita…)`. **Paréntesis:** no meter explicaciones entre paréntesis; solo un campo cuyo único contenido sea una frase parentética de ausencia. **Citas negadas (C-2026-08-25k):** si la justificación dice que *no* hay «en construcción» / «próximamente», **no** poner esas palabras en Texto; citar evidencia positiva. Prohibido meta `(once párrafos…)` / `(estructura actual…)` como Texto. **Solo esta URL (C-2026-08-25l):** no usar `alt` invisible ni literales de otra página/auditoría. |
 | **Corrección propuesta** | Texto listo para pegar en el CMS, o instrucción «Añadir / Quitar / Mover…» **con literales**. **Prohibido** meta-consejos («Hacer que…», «asegurar que…») sin el copy exacto (C-2026-11-05a). Plazos/canales solo con evidencia ops o literal en pantalla; **prohibido** `[N]` días. **Prohibido** alterar el botón/widget Clave Única (Estado, C-2026-11-05b). Fecha «Actualizado:…» solo junto al © del pie (C-2026-11-05c). **Sin** meta entre paréntesis («formato de oración…», «consistente con…», «según calibración…»). No repetir el mismo bloque largo en criterios secundarios del mismo nodo: ahí, enfoque alineado a **esa** pregunta. **Escaneo (38):** subtítulos/listas/recuadros, **no** negrita (eso es 39) (C-2026-08-25l). **No clonar** el propuesto de otro criterio ya cerrado: complementar o agrupar (§20.3 / C-2026-08-26a). Conceptos oficiales: mismo nombre + glosa, no borrar el término. Si el copy se replica en destino, decirlo en justificación/`nota_final_tic`, no como si el literal estuviera aquí. |
-| **Ubicación en pantalla** | Ruta humana **zona › elemento › «rótulo»** (ej. `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`; `Pie de página › enlace «Política de privacidad»`). **Nunca** `T042`, `T008–T011`, selectores CSS, ni palabras sueltas (`el enlace`, `el bloque`). |
+| **Ubicación en pantalla** | Ruta humana **zona › elemento › «rótulo»** (ej. `Sección «Para Informarse», tarjeta «Cómo registrar una marca»`; `Pie de página › enlace «Política de privacidad»`). **Nunca** `T042`, `T008–T011`, selectores CSS, ni palabras sueltas (`el enlace`, `el bloque`). **Prohibido** copiar este campo a Contenido original o a Contenido a modificar/agregar (C-2026-11-17b). |
+| **Word proveedor (5 cols)** | N° · Link (una o N URLs) · Original (literal o **vacío** si inserción) · Propuesto (`Título:` / `Desplegable:` / `Bajada:`; amarillo solo en lo nuevo) · Observaciones (insertar/actualizar/eliminar + ubicación humana). **Sin** hito, criterio, severidad ni `LC-*`. Header/footer = una fila. |
 | **Justificación / motivo** | Responde la pregunta del criterio con literales o zona humana. Referencias: «criterio 4», no `LC-*`. **Prohibido:** mapa D0, Prompt N, C-YYYY, Tnnn, `applicability`, códigos IEW/IESD sueltos (si se nombra un instrumento: nombre completo + sigla). **Prohibido** pegar instrucciones («indicar Cabecera…»). **Prohibido** reutilizar el mismo párrafo de justificación de otro criterio; cada uno alinea a **su** pregunta (C-2026-08-26a). |
 | **Resumen / nota TIC** | Problema + qué hacer; TI al final si hace falta ancla técnica |
 
@@ -59,3 +60,15 @@ Tras cerrar las filas, cada `sustituciones[]` con corrección debe llevar `evide
 ## Chequeo rápido
 
 Si Equipo UX no entiende la fila en 10 segundos → reescribir con esta skill.
+
+## Ejemplos canónicos (C-2026-11-17a/b)
+
+**Caso 1 — bueno:** Original `Conoce más`. Propuesto `title="Qué es la Propiedad Intelectual e Industrial"`. Observaciones `Insertar ayuda al pasar el cursor en el ítem del menú; no cambiar el rótulo.` Link: URLs de evidencia.
+
+**Caso 1 — malo:** Propuesto `Qué es la PI` como nuevo rótulo del menú.
+
+**Caso 2 — bueno:** Original vacío. Propuesto `Encargo a Comunicaciones: frase del hero que diga qué, cómo, dónde, cuándo y para quién. No inventar el copy.`
+
+**Caso 3 — bueno:** Propuesto con etiquetas `Título:` / `Desplegable:` / `Bajada:`; amarillo solo en el texto nuevo.
+
+**Caso 8 — malo:** reescribir los párrafos de la noticia. **Bueno:** encargo (máx. 8 párrafos; negrita/cursiva/viñetas; alineado a la izquierda).

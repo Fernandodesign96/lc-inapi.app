@@ -23,7 +23,7 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 
 ## Procedimiento
 
-1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-10a inclusive**).  
+1. **Leer** todas las entradas `estado: vigente` del Prompt 6 (**hasta C-2026-11-17b inclusive**). No contradecir C-2026-11-10a/b (avisos).  
 2. **Aplicar** antes de fijar `cumple`/`incumple` en criterios afectados.  
 3. **Reauditoría:** precedentes / JSON antiguos = apoyo; **nunca** sustituyen captura Playwright + inventario + **D0 (§17.1bis)** + 15+5 sobre el DOM actual (ver Prompt 6 C-2026-08-21 / C-2026-08-22).  
 4. **Jerga INAPI:** no «pulir» tasas/examen de forma/fondo/cobertura sin definir. Conceptos oficiales: **mismo nombre + glosa** (C-2026-11-04c); no reescribir misión/visión/valores. Usar el mapa D0 (Prompt 7).  
@@ -42,7 +42,7 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 17. **No repetir entre criterios (C-2026-08-26a):** al cerrar cada criterio, contrastar con filas/justificaciones ya escritas; propuesto/justificación complementarios o agrupación solo si el propuesto es idéntico; rigor a la pregunta del instrumento.  
 18. **Origen ↔ destino (C-2026-11-04a):** en hubs, leer la URL de destino (1 clic); alinear definiciones, etapas, tasas y H1/miga; Texto en pantalla = solo esta URL; replicar el propuesto en el destino vía motivo/`nota_final_tic`.  
 19. **Datos clave incompletos (C-2026-11-04b):** tarjetas que solo cubren qué/cómo → añadir dónde, para quién, cuándo y cuánto (tasas completas, Diario Oficial). Título «Para Informarse» → título que anticipe el contenido.  
-20. **Conceptos oficiales (C-2026-11-04c):** no borrar Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT; glosa al pasar el cursor en menú y término+glosa en H1. CTA genérico sí se cambia. **No** reescribir misión/visión/valores (ley).  
+20. **Conceptos oficiales (C-2026-11-04c / 17a):** no borrar Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT; glosa al pasar el cursor en menú (`title`); glosa en destino **dentro de la pestaña**, no fusionada al H1. **No** renombrar ítems del menú header. CTA de cuerpo/banner sí pueden acortar si Comunicaciones lo pactó. **No** reescribir misión/visión/valores/objetivos estratégicos.  
 21. **Fecha en el pie (C-2026-11-04d):** «Actualizado: DD de mes de AAAA» junto al © cumple; el © solo no.  
 22. **LINK EXTERNO (C-2026-11-04e):** `href="#"` → eliminar (selector del panel login).  
 23. **Noticias (C-2026-11-04f):** corregir artículos aunque hayan salido del listado; fechas con «de»; «Home» → «Inicio».  
@@ -51,9 +51,11 @@ Skill que hace a Claude Code **persistente**: aplicar en todas las URLs los hall
 26. **Fecha en pie (C-2026-11-05c):** «Actualizado:…» solo junto al © del footer.
 27. **Mismo texto → propuesta final (C-2026-11-09a):** un nodo/literal = una solicitud Word con el `propuesto` más completo; listar todos los criterios; no encadenar borradores.  
 28. **Avisos sistemas (C-2026-11-09b / C-2026-11-10a):** agrupar IDs solo si el copy es el mismo salvo fecha/hora; no unificar el `propuesto`; reforzar TGR/ClaveÚnica/Clave INAPI/MFA/Custodia/etc.; 51 criterios por cada una de las 130 líneas; entrega HTML original + propuesto + vista tipográfica.  
-29. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
-30. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
-31. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
+29. **Sentido común entrega (C-2026-11-17a):** no aplastar pestañas en un H1; header/footer = una solicitud N URLs; presupuesto 15 h (hover / copy pegable); Caso 2 hero y Caso 8 noticias = encargo a Comunicaciones, no inventar copy.  
+30. **Word dual (C-2026-11-17b):** proveedor = 5 columnas fijas, original vacío si inserción, Observaciones sin hito/criterio/`LC-*`; respaldo interno alinea las mismas filas con Checklist Hito X. Hasta **C-2026-11-17b**; no contradecir 11-10 avisos.  
+31. Si la sesión descubre un patrón nuevo validado con evidencia: **proponer** bloque nuevo en Prompt 6 (plantilla del propio archivo).  
+32. No contradecir una calibración vigente sin acuerdo explícito documentado (nueva entrada que supersede la anterior).  
+33. **Consistencia + commits (CLAUDE.md §5.1):** si una calibración vigente implica retocar URLs ya cerradas o la capa de entrega, **aplicar + commitear en el mismo turno** (commits separados). **Prohibido** dejar `modified` sin commit o preguntar «¿commitear / revertir / dejar?» para limpiezas de calibración vigente.
 
 ## Efecto deseado
 

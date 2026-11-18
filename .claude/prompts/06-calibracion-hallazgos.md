@@ -34,6 +34,45 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Entradas vigentes (actualizar en cada hallazgo)
 
+### C-2026-11-17a — Sentido común de entrega: veto legal, menú, pestañas, presupuesto 15 h, casos 1–8
+
+- **Origen:** Word proveedor `docs/proveedor-solicitudes-texto.docx` (5 columnas, 144 filas) + agrupación `docs/Solicitudes-pendientes-LC_FC_Rev.docx` (casos 1–3, 6–8). Las 51 LC siguen vigentes; esta entrada calibra **qué se pide al proveedor** para no gastar 15 h de implementación en reescrituras de cabecera, infografías o copy que Comunicaciones aún no cierra.
+- **Complementa** C-2026-11-04a (leer destino; no duplicar), C-2026-11-04d/05c (fecha en pie), C-2026-11-04e (LINK EXTERNO), C-2026-11-10a/b (avisos: no reescribir). **Corrige** partes de C-2026-11-04b §2 y C-2026-11-04c §2 y §4 (ver esas entradas).
+- **Regla — árbol (aplicar en este orden):**
+  1. **Veto legal:** misión, visión, valores, **objetivos estratégicos** y resoluciones citadas → no `incumple` de jerga; no `propuesto`. Refuerza C-2026-11-04c.
+  2. **No renombrar ítems del menú de navegación** (header global). Conservar el rótulo visible. Claridad = **ayuda al pasar el cursor** (`title` / tooltip; **no** `alt` de imagen). CTA de **cuerpo o banner** (no header) sí pueden tener rótulo corto descriptivo si Comunicaciones ya lo pactó (p. ej. Observancia). **Supersede** C-2026-11-04c §4 («Conoce más» del menú → «Qué es la PI»).
+  3. **No aplastar la jerarquía de pestañas.** En destinos tipo Para informarse / Conoce más / Buscador / Sala de prensa: el H1 de cabecera, la miga y las pestañas **ya** orquestan el contenido. **Prohibido** un H1 único «todo el título + glosa + datos clave». Glosas y bajadas van **dentro de la pestaña activa**, no reescribiendo la cabecera del sitio. **Supersede** C-2026-11-04c §2 (H1 = término+glosa en el mismo título) y C-2026-11-04b §2 (retitular el hub «Para Informarse» como párrafo largo de cabecera).
+  4. **Componente de sitio = una solicitud, N URLs.** Header, footer, lupa «Buscar y tramitar», contraste, LINK EXTERNO, fecha «Actualizado» en pie: igual que avisos TIC. Un bloque **header** y uno **footer**; en Link de referencia listar las URLs de evidencia. `patron_sistema: true`. No repetir la misma fila en cada Word de URL.
+  5. **Presupuesto 15 h:** preferir hover / copy pegable / una línea en componente compartido. No pedir infografías, reescrituras de IA ni recuadros de datos clave que dupliquen lo que ya está en el destino (04a se mantiene).
+  6. **Tasas nacionales:** una fila con Título + Bajada (montos 1 UTM / 2 UTM + Diario Oficial); no mezclarla en el recuadro genérico de datos clave.
+  7. **Casos de agrupación** (`Solicitudes-pendientes-LC_FC_Rev.docx`) — no inventar copy:
+     - **Caso 1:** hovers de atajos de menú (lista de rótulos + glosas; URLs de evidencia).
+     - **Caso 2:** hero home — **no inventar** la frase; instrucción a Comunicaciones (qué/cómo/dónde/cuándo/para quién). Original **vacío**.
+     - **Caso 3:** `Título:` / `Desplegable:` / `Bajada:` / «Añadir un subtítulo descriptivo:». Amarillo Word **solo** en lo nuevo.
+     - **Caso 6:** ortografía de componente (p. ej. «Contraste de página») → header, una vez.
+     - **Caso 7:** formato+peso de descargables (footer y guías).
+     - **Caso 8:** las 2 noticias — **no reescribir el artículo**. Encargo a Comunicaciones: máx. 8 párrafos; negrita/cursiva/viñetas; alineado a la izquierda; no exigir subtítulos por párrafo.
+- **Ejemplo bueno (Caso 1):** Original = «Conoce más»; Propuesto = hover `title="Qué es la Propiedad Intelectual e Industrial"`; Observaciones = insertar ayuda al cursor en el ítem del menú (no cambiar el rótulo).
+- **Ejemplo malo:** Propuesto = cambiar el ítem del menú a «Qué es la PI»; o H1 «Propiedad Intelectual e Industrial: definición, plazos y tasas» fusionando pestañas.
+- **Aplica a:** sitioweb (lote proveedor). No contradice avisos C-2026-11-10a/b.
+- **estado:** vigente
+
+### C-2026-11-17b — Dos Word: proveedor (5 columnas) vs respaldo interno (hito/criterio)
+
+- **Origen:** el Word que Comunicaciones pasa al proveedor tiene **exactamente 5 columnas** y numeración global 1…N. El generador por URL (`generate-word-correcciones.ts`) es el **respaldo interno** (6 columnas + Checklist Hito X - Criterio Y).
+- **Regla — perfil `proveedor` (orden fijo, no añadir ni quitar columnas):**
+  1. **N° de solicitud** — 1…N global del lote; **no** reinicia por URL.
+  2. **Link de referencia** — una o varias URLs; header/footer = lista.
+  3. **Contenido original** — **solo** el literal a cambiar; **vacío** si se inserta algo nuevo (Caso 2, inserciones). No meter ubicación ni `LC-*`.
+  4. **Contenido a modificar/agregar** — **solo** el texto nuevo/actualizado; etiquetas `Título:` / `Desplegable:` / `Bajada:`; destacado **amarillo** en fragmentos nuevos.
+  5. **Observaciones** — insertar / actualizar / eliminar; ubicación humana; captura si hay. **Sin** hito, criterio, severidad ni `LC-*`.
+- **Regla — perfil `respaldo`:** mismas filas alineadas por N°; Observaciones **sí** llevan `Checklist Hito X - Criterio Y — severidad`. Columna Ubicación permitida.
+- **Consolidado de sitio:** tras los JSON 1:1 por URL (Prompt 5 Paso E), un pase agrupa `patron_sistema` / header / footer en filas únicas **antes** del Word proveedor. Una URL sigue = un JSON.
+- **Ejemplo bueno:** original vacío + propuesto «Añadir un subtítulo descriptivo: …» + Observaciones «Insertar bajo el H1 de la pestaña activa».
+- **Ejemplo malo:** Observaciones del Word proveedor con `LC-1.1.2-03` o «Hito 3 - Criterio 12»; sexta columna «Ubicación» en el archivo que se envía al proveedor.
+- **Aplica a:** generación Word del lote sitioweb. Avisos de sistemas siguen su plantilla propia.
+- **estado:** vigente
+
 ### C-2026-11-10b — «Criterio N» en entrega = numeración PTD (Hito → Tarea), no posición en el catálogo
 
 - **Origen:** auditoría `avisos-sistemas-tramites_2026-11-10`: los comentarios citaban «criterios 4 y 5» con la posición del catálogo `checklist-criteria-lc-ptd.json`, mientras el Word/PDF/Excel numera con `ptdHitoTareaPorCriterio` (p. ej. ortografía = Criterio 1, negritas = Criterio 39). El mismo número apuntaba a dos criterios distintos.
@@ -73,13 +112,14 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-11-04b — Datos clave incompletos: añadir dónde, para quién, cuándo y cuánto (`LC-1.1.2-03`)
 
+- **Complementada por C-2026-11-17a:** no retitular la cabecera del hub («Para Informarse») como párrafo largo; glosas y bajadas van en la pestaña activa del destino, no aplastando H1/miga/pestañas; tasas nacionales = fila propia (Título + Bajada), no el recuadro genérico; no pedir recuadros que dupliquen el destino (presupuesto 15 h).
 - **Origen:** Marcas «Para Informarse» (qué es / cómo registrar / tasas) y Portada / Sala de Prensa sin recuadro. Las tarjetas actuales cubren **qué** y **cómo**; faltan **dónde**, **quiénes**, **cuándo** y **cuánto** (p. ej. publicación en el Diario Oficial como pago aparte; 1 UTM / 2 UTM).
 - **Regla (complementa C-2026-08-25e y C-2026-08-21 tasas):**
   1. No basta reescribir el párrafo que ya existe. Si faltan dimensiones del criterio 12 → **inserción** (título que anticipe, frase bajo la tarjeta, o recuadro). Ausencia total de resumen → `severidad: alta`.
-  2. En hubs de trámite informativo (Marcas/Patentes), el título genérico «Para Informarse» no anticipa contenido: proponer p. ej. «Todo sobre las marcas: qué son, sus ventajas, cómo registrarlas y cuánto cuesta» (homólogo en Patentes).
-  3. Tasas: listar **todos** los pagos del ciclo (solicitud, publicación, concesión), no solo «inicio y final».
-  4. En listado de noticias: un recuadro breve bajo «Noticias» (qué se publica, para quién, cómo ver anteriores) **además** de la fecha de la página.
-  5. En Portada: además de atajos, un resumen de servicios (qué, cómo, dónde, cuándo, para quién).
+  2. En hubs de trámite informativo (Marcas/Patentes), **no** sustituir el rótulo de cabecera «Para Informarse» por un párrafo largo (C-2026-11-17a). Completar datos clave **dentro** de tarjetas/pestañas del destino, no reescribiendo la jerarquía del sitio.
+  3. Tasas: listar **todos** los pagos del ciclo (solicitud, publicación, concesión), no solo «inicio y final». Entrega: una fila Título + Bajada (1 UTM / 2 UTM + Diario Oficial), no mezclada en el recuadro genérico (C-2026-11-17a).
+  4. En listado de noticias: un recuadro breve bajo «Noticias» (qué se publica, para quién, cómo ver anteriores) **además** de la fecha de la página. No reescribir el artículo (Caso 8 / C-2026-11-17a).
+  5. En Portada: además de atajos, un resumen de servicios (qué, cómo, dónde, cuándo, para quién) **sin** inventar el copy del hero (Caso 2).
 - **Ejemplo malo:** cambiar solo la definición jurídica de «marca» y dejar tasas sin montos ni publicación.
 - **Ejemplo bueno:** tarjeta «Cómo registrar… y quiénes pueden»: tres etapas + personas naturales/jurídicas; «Pago de solicitud y registro»: 1 UTM / 2 UTM + Diario Oficial.
 - **Aplica a:** sitioweb informativas (hubs, portada, sala de prensa, destinos «para informarse»).
@@ -87,16 +127,17 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ### C-2026-11-04c — Conservar conceptos oficiales + glosa; no reescribir misión/visión/valores
 
+- **Complementada por C-2026-11-17a:** glosa en menú = hover (`title`), no renombrar el ítem; glosa en destino = **dentro de la pestaña activa**, no fusionada al H1 de cabecera. Objetivos estratégicos y resoluciones = mismo veto que misión/visión/valores.
 - **Origen:** revisión Portada / Marcas / Sala de Prensa. Equipo UX: Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT y homólogos **deben conservar el nombre**; la claridad va en explicación, no en sustituir el término. Misión, visión y valores institucionales **no se reescriben** (texto ligado a la ley).
 - **Regla:**
   1. **Menú / atajos** (ítems cortos): el rótulo oficial se mantiene. Añadir **texto de ayuda al pasar el cursor** (`title` / tooltip visible; no es `alt` de imagen). Ej.: «PCT: Tratado de Cooperación en materia de Patentes»; «Sistema de Madrid: registra tu marca en otros países»; «Sello de Origen: distingue productos típicos de una zona de Chile»; «Dominio público: buscador de patentes que ya se pueden usar libremente»; «Conecta: muestra tu innovación protegida a posibles interesados»; «Aprende: cursos y capacitaciones sobre propiedad industrial».
-  2. **H1 y título de bloque** de la página de destino: **mismo concepto + glosa en el mismo título** (ej. «Observancia: protege tu marca o patente»; «PCT: Tratado de Cooperación en materia de Patentes»). Luego el cuerpo responde qué / cómo / dónde / para quién (C-2026-11-04a/b).
-  3. **Observancia** en menú: preferir glosa en el mismo rótulo («Observancia: defiende tus derechos de propiedad industrial») o subtítulo visible; no reemplazar «Observancia» por una frase que borre el nombre.
-  4. **CTA genéricos** («Conoce más», «Acceder»): **sí** cambiar el rótulo para decir el destino (no basta hover). Ej. menú «Conoce más» → «Qué es la propiedad intelectual e industrial»; banner Observancia → «Conoce cómo protegerte de la piratería y la falsificación».
-  5. **Misión, visión, valores** y demás copy **legal/institucional fijado por ley:** no proponer reescritura por lenguaje plano. `cumple` (o no puntuar el bloque como defecto de jerga) y, si hace falta, una línea en `nota_final_tic`: el texto no se altera por mandato institucional. **Prohibido** `incumple` solo porque el estilo es formal.
+  2. **H1 de cabecera del destino:** conservar el H1 y las pestañas. La glosa va **dentro de la pestaña activa**, no concatenada al H1 (C-2026-11-17a supersede: prohibido H1 «término + glosa + datos clave»). El cuerpo sigue respondiendo qué / cómo / dónde / para quién (C-2026-11-04a/b).
+  3. **Observancia** en menú: conservar el nombre; glosa en `title` / tooltip. No reemplazar «Observancia» por una frase que borre el nombre. En **cuerpo/banner** (no header) Comunicaciones puede pactar un CTA corto descriptivo.
+  4. **CTA genéricos del menú header** («Conoce más»): **no** cambiar el rótulo (C-2026-11-17a supersede). Hover con la glosa. CTA de cuerpo/banner sí pueden decir el destino si Comunicaciones lo pactó (p. ej. banner Observancia).
+  5. **Misión, visión, valores, objetivos estratégicos** y demás copy **legal/institucional fijado por ley o resolución:** no proponer reescritura por lenguaje plano. `cumple` (o no puntuar el bloque como defecto de jerga) y, si hace falta, una línea en `nota_final_tic`: el texto no se altera por mandato institucional. **Prohibido** `incumple` solo porque el estilo es formal.
   6. Nombre de la institución en pie: no inventar una corrección de mayúsculas sobre «industrial» / «Industrial» distinta de lo que Equipo UX fije; si hay duda, no abrir un `incumple` de redacción sobre el nombre legal.
-- **Ejemplo malo:** menú «Observancia» → «Herramientas contra la piratería» (se pierde el concepto oficial).
-- **Ejemplo bueno:** menú conserva «Observancia» + glosa; H1 de destino con el mismo par término+explicación; cuerpo con datos clave.
+- **Ejemplo malo:** menú «Observancia» → «Herramientas contra la piratería»; o menú «Conoce más» → «Qué es la PI»; o H1 único que fusiona pestañas.
+- **Ejemplo bueno:** menú conserva «Conoce más» / «Observancia» + `title` con glosa; H1 de destino intacto; glosa en la pestaña activa.
 - **Aplica a:** todas las sitioweb (menú global = patrón de sitio).
 - **estado:** vigente
 
@@ -567,4 +608,4 @@ Persistencia inteligente: misma regla en Portada, Marcas, SIAC, etc., sin redesc
 
 ## Salida al leer este prompt
 
-Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-10b**); si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.
+Lista mental de reglas vigentes aplicadas a la URL en curso (hasta **C-2026-11-17b**); no contradecir C-2026-11-10a/b (avisos). Si surge un hallazgo nuevo en la sesión, proponer el bloque a añadir aquí antes del commit.

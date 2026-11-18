@@ -77,6 +77,7 @@ auditorias/htmls/**/*.gif
 auditorias/evidencias/**/*.png
 auditorias/evidencias/**/*.jpg
 !auditorias/evidencias/**/correcciones.docx
+!auditorias/evidencias/**/correcciones-proveedor.docx
 !auditorias/evidencias/**/.gitkeep
 
 # Configuración local de Claude Code Pro (personal por máquina; no versionar)

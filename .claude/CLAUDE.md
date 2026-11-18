@@ -247,17 +247,19 @@ Verificar siempre antes de dar por terminada la auditoría. En `sustituciones[]`
 | --- | --- | --- |
 | Mayúsculas en navbar | LC-1.2.4-05 | «En el menú lateral, los rótulos MI INAPI / TRAMITACIÓN / PAGOS / SERVICIOS están solo en mayúsculas. Cambiar a mayúscula inicial (ej. «Tramitación») para facilitar la lectura.» TI: suele venir del layout compartido. |
 | «Titulos» sin tilde; «Patentes PCT» | LC-1.1.5-01 / LC-1.1.3-05 | «En el menú de Patentes, corregir «Titulos» → «Títulos». Expandir PCT la primera vez o añadir ayuda/tooltip.» |
-| Botones `OK` / `Aceptar` / rótulos ambiguos | LC-5.2.4-01 (todas las URLs) | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. En sitioweb: «Más» / «Conoce más» / «Acceder» → rótulo que diga el destino. El botón «LINK EXTERNO» del panel de acceso (`a.btn.rojo`, `href="#"`) → **eliminar**, no relabelar (C-2026-11-04e). |
+| Botones `OK` / `Aceptar` / rótulos ambiguos | LC-5.2.4-01 (todas las URLs) | «En el cuadro de diálogo, el botón «OK» no dice qué se acepta. Cambiar a un texto claro, p. ej. «Aceptar selección» o «Confirmar y continuar».» TI: modal del layout compartido. En sitioweb: ítem de **menú header** («Conoce más») → **no** renombrar; hover/`title` (C-2026-11-17a). CTA de cuerpo/banner sí pueden decir el destino si Comunicaciones lo pactó. El botón «LINK EXTERNO» del panel de acceso (`a.btn.rojo`, `href="#"`) → **eliminar**, no relabelar (C-2026-11-04e). Header/footer = una solicitud, N URLs. |
 | PDF sin formato/peso/descripción | LC-1.2.4-07 / LC-1.2.4-08 | «Junto al enlace del documento, mostrar título + formato + peso + breve descripción (ej. «Guía de marcas (PDF, 245 KB) — …»).» |
 | Sin fecha de actualización | LC-1.1.4-01 | «Añadir una línea visible «Actualizado: DD de mes de AAAA» en el pie, junto a «©… Todos los derechos reservados.» El © solo no cuenta como fecha de contenido (C-2026-11-04d).» |
 | Título principal genérico o desalineado | LC-1.1.2-01 | «El título principal de la página debe describir el contenido específico. Evaluar solo ese título visible; no el de la pestaña del navegador.» |
-| PCT / Observancia / Madrid / Sello en menú | LC-1.1.3-05 / LC-1.1.3-03 | Conservar el nombre oficial. Añadir glosa al pasar el cursor en el menú y término+glosa en el H1 de destino. No reescribir misión/visión/valores (C-2026-11-04c). |
+| PCT / Observancia / Madrid / Sello en menú | LC-1.1.3-05 / LC-1.1.3-03 | Conservar el nombre oficial. Glosa al pasar el cursor en el menú; glosa del destino **dentro de la pestaña activa**, no fusionada al H1 (C-2026-11-17a). No reescribir misión/visión/valores/objetivos estratégicos (C-2026-11-04c). |
 | Hubs y páginas hermana | LC-1.1.2-03 y copy alineado | Abrir destino (Para informarse, Observancia, PCT). Misma definición/etapas/tasas en origen y destino; Texto de esta auditoría = solo esta URL (C-2026-11-04a). |
 | Miga «Home» / fechas de noticia | LC-1.1.5 / listados | «Home» → «Inicio». Fechas de tarjeta: «Martes 20 de octubre de 2026» (C-2026-11-04f). |
 | Plazos / confirmación / SIAC | LC-1.1.2-03/04 · LC-5.2.1-01 · LC-1.1.7-03 | Solo evidencia ops o literal; copy CMS (no consejos); SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; título en mayúsculas: fidelidad ≠ tipografía (C-2026-11-05a). |
 | Botón Clave Única | LC-1.1.5 / CTA | No proponer cambios de texto ni forma: lo define el Estado, no TI INAPI (C-2026-11-05b). |
 | Fecha «Actualizado» | LC-1.1.4-01 | Solo en el pie, junto a «©… INAPI. Todos los derechos reservados» (C-2026-11-05c). |
 | Mismo texto / nodo | Varios LC-* | Una solicitud Word con propuesta final completa; listar criterios; no encadenar borradores (C-2026-11-09a). Avisos: agrupar IDs si solo cambia fecha/hora; el propuesto conserva hechos (TGR, ClaveÚnica, Clave INAPI, MFA, Custodia, etc.) (C-2026-11-09b / C-2026-11-10a). |
+| Header / footer / lupa / contraste | Varios LC-* | Una fila, N URLs de evidencia; `patron_sistema`. Word proveedor 5 columnas sin hito/criterio (C-2026-11-17a/b). |
+| Hero home / 2 noticias | Comunicaciones | No inventar copy (Caso 2 / Caso 8). Encargo: qué/cómo/dónde/cuándo/para quién; noticias máx. 8 párrafos, sin reescribir el artículo. |
 | ¿Hay apoyos visuales para datos? | **LC-1.3.1-01** (solo esta pregunta) | Pregunta del instrumento: ¿se usan íconos, imágenes, gráficos o infografías para presentar datos? Si en pantalla hay banners, tarjetas con imagen, íconos de guía, gráficos → **`cumple`**. Si la página es solo texto corrido sin esos apoyos y los datos lo pedían → `incumple` («faltan imágenes/íconos/gráficos…»). **`no_aplica`** si no hay datos que requieran apoyo visual. **No** usar este id para texto alternativo (`alt`), nombres de enlace solo-ícono ni WCAG: eso es Usabilidad/accesibilidad (§23), opcional en `nota_final_tic` en lenguaje CMS, **sin** descontar el % LC. |
 
 ---
@@ -660,10 +662,10 @@ Trabajan sobre el borrador de 51 filas (+ `sustituciones[]`). Pueden correr en p
 
 | # | Responsabilidad |
 | --- | --- |
-| **1 — Campos de evidencia** | Completar y alinear texto en pantalla, corrección propuesta, ubicación, justificación |
-| **2 — Lenguaje ciudadano** | Reescribir sin jerga TI/desarrollo (skill `02`) |
+| **1 — Campos de evidencia** | Completar y alinear texto en pantalla, corrección propuesta, ubicación, justificación. Mapear a columnas proveedor: original solo literal (vacío si inserción); propuesto solo texto nuevo; ubicación **no** va en original/propuesto (C-2026-11-17b). |
+| **2 — Lenguaje ciudadano** | Reescribir sin jerga TI/desarrollo (skill `02`). No inventar hero ni reescribir noticias (Casos 2 y 8). |
 | **3 — Veracidad y realismo** | Preciso, claro, humano; sin inventar defectos (§20.6 / §22.9); aplica Prompt 6 |
-| **4 — Estructura Excel/tablas** | Filas ordenadas, jerarquía, casillas no vacías, coherencia con columnas UI/PDF/Excel (Prompt 3) |
+| **4 — Estructura Excel/tablas** | Filas ordenadas, jerarquía, casillas no vacías. Perfil proveedor = 5 columnas fijas; consolidar header/footer (C-2026-11-17b). |
 | **5 — Higiene y datos sensibles** | Condiciones de uso, privacidad/ARCO, contenidos sensibles, §18–§19 |
 
 ### Flujo completo (por URL)
@@ -997,7 +999,7 @@ Aplicar en `comentario`, `motivo`, `propuesto`, `ubicacion_pantalla` y campos de
 
 Añadir siempre al brief del grupo:
 
-> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22 completo, esp. §22.8–§22.11). Cada criterio responde la pregunta del instrumento con evidencia; `comentario` nunca vacío. `propuesto` = texto pegable o instrucción concreta (documentos: título+formato+peso+desc; fecha visible; siglas en menú con propuesta sutil). Realismo: no forzar datos clave (qué/cómo/dónde) en atajos de navegación ni correcciones sin necesidad real. Priorizar lenguaje CMS; la línea HTML es apoyo para TI.»
+> «Redacta `ubicacion_pantalla`, `propuesto`, `motivo` y `comentario` para un editor CMS (CLAUDE.md §22 completo, esp. §22.8–§22.11). Cada criterio responde la pregunta del instrumento con evidencia; `comentario` nunca vacío. `propuesto` = texto pegable o instrucción concreta (documentos: título+formato+peso+desc; fecha visible; siglas en menú = hover, no renombrar). Realismo: no forzar datos clave (qué/cómo/dónde) en atajos de navegación ni correcciones sin necesidad real. No fusionar H1+pestañas; no reescribir misión/visión/objetivos; no inventar hero ni noticias. Priorizar lenguaje CMS; la línea HTML es apoyo para TI.»
 
 ### 22.6 Consolidación (agente raíz)
 
@@ -1108,6 +1110,12 @@ Antes de `validate:claude-audits`, el agente raíz **rechaza y reescribe** si en
 34. Varias filas Word que reescriben el mismo literal con propuestas intermedias (C-2026-11-09a).
 35. Auditar o proponer cambios de nomenclatura HTML en avisos de sistemas (solo copy visible) (C-2026-11-09a).
 36. Un solo `propuesto` genérico para los 130 avisos, o borrar TGR / Clave INAPI / MFA / fechas de cada ID (C-2026-11-10a).
+37. Reescribir misión, visión, valores u objetivos estratégicos (C-2026-11-17a).
+38. Renombrar un ítem del menú de navegación global en vez de hover/`title` (C-2026-11-17a).
+39. Fusionar H1 de cabecera + pestañas + glosa en un solo título (C-2026-11-17a).
+40. Meter `LC-*`, hito o criterio en Observaciones del Word perfil proveedor (C-2026-11-17b).
+41. Rellenar Contenido original cuando no hay texto a cambiar (inserción / Caso 2) (C-2026-11-17b).
+42. Reescribir las dos noticias (Caso 8) o inventar el copy del hero (Caso 2) (C-2026-11-17a).
 
 ---
 

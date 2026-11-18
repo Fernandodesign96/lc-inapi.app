@@ -5,6 +5,8 @@
  * Uso:
  *   bun run generate:word-correcciones -- --audit-id tramites-inapi-cl_2026-08-27
  *   bun run generate:word-correcciones -- --audit-id … --copy-docs
+ *   bun run generate:word-correcciones -- --perfil proveedor --consolidado --audit-ids id1,id2
+ *   bun run generate:word-correcciones -- --perfil proveedor --fixture
  */
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, join, relative, resolve } from "node:path"
@@ -50,6 +52,16 @@ import {
   listCorreccionesEntrega,
   type CorreccionEntregaItem,
 } from "../lib/desglose-correcciones-datos-auditoria"
+import {
+  PROVEEDOR_HEADERS,
+  consolidarFilasSitio,
+  fixtureTresFilasProveedor,
+  linksReferencia,
+  propuestoHighlightSegments,
+  type FilaProveedor,
+  type FilaSitioEntrega,
+  type PerfilWordCorrecciones,
+} from "../lib/entrega-proveedor"
 import { ptdHitoTareaPorCriterio } from "../lib/ptd-hito-tarea-por-criterio"
 import {
   claudeAuditFileSchema,
@@ -99,21 +111,44 @@ const DOCS_COPY: Record<string, string> = {
     "docs/auditorias-tramites-url-10-y-11/Avisos-sistemas-correcciones.docx",
 }
 
-type Args = { auditId: string; copyDocs: boolean }
+type Args = {
+  auditId: string
+  auditIds: string[]
+  copyDocs: boolean
+  perfil: PerfilWordCorrecciones
+  consolidado: boolean
+  fixture: boolean
+}
 
 function parseArgs(argv: string[]): Args {
   const get = (flag: string): string | undefined => {
     const i = argv.indexOf(flag)
     return i >= 0 ? argv[i + 1] : undefined
   }
-  const auditId = get("--audit-id")
-  if (!auditId) {
+  const perfilRaw = get("--perfil") ?? "respaldo"
+  const perfil: PerfilWordCorrecciones =
+    perfilRaw === "proveedor" ? "proveedor" : "respaldo"
+  const idsCsv = get("--audit-ids")
+  const auditIds = idsCsv
+    ? idsCsv.split(",").map((s) => s.trim()).filter(Boolean)
+    : []
+  const auditId = get("--audit-id") ?? auditIds[0] ?? ""
+  const fixture = argv.includes("--fixture")
+  if (!auditId && !fixture) {
     console.error(
-      "Uso: bun run generate:word-correcciones -- --audit-id <id> [--copy-docs]",
+      "Uso: bun run generate:word-correcciones -- --audit-id <id> [--perfil proveedor|respaldo] [--consolidado] [--audit-ids id1,id2] [--fixture] [--copy-docs]",
     )
     process.exit(1)
   }
-  return { auditId, copyDocs: argv.includes("--copy-docs") }
+  if (auditId && !auditIds.includes(auditId)) auditIds.unshift(auditId)
+  return {
+    auditId,
+    auditIds: [...new Set(auditIds)],
+    copyDocs: argv.includes("--copy-docs"),
+    perfil,
+    consolidado: argv.includes("--consolidado"),
+    fixture,
+  }
 }
 
 function run(
@@ -197,6 +232,175 @@ function textCell(text: string, width: number): TableCell {
     verticalAlign: VerticalAlign.TOP,
     children: text.split("\n").map((line) => para(line)),
   })
+}
+
+function highlightPropuestoCell(
+  original: string,
+  propuesto: string,
+  width: number,
+): TableCell {
+  const segs = propuestoHighlightSegments(original, propuesto)
+  const paragraphs: Paragraph[] = []
+  let current: TextRun[] = []
+  const flush = () => {
+    paragraphs.push(
+      new Paragraph({
+        children: current.length > 0 ? current : [run(" ")],
+      }),
+    )
+    current = []
+  }
+  for (const seg of segs) {
+    const parts = seg.text.split("\n")
+    for (let i = 0; i < parts.length; i++) {
+      const piece = parts[i] ?? ""
+      if (piece.length > 0) {
+        current.push(
+          new TextRun({
+            text: piece,
+            font: FONT,
+            size: SIZE_BODY,
+            highlight: seg.yellow ? "yellow" : undefined,
+          }),
+        )
+      }
+      if (i < parts.length - 1) flush()
+    }
+  }
+  if (current.length > 0 || paragraphs.length === 0) flush()
+  return new TableCell({
+    width: { size: width, type: WidthType.DXA },
+    margins: {
+      top: CELL_PAD,
+      bottom: CELL_PAD,
+      left: CELL_PAD,
+      right: CELL_PAD,
+    },
+    borders: CELL_BORDERS,
+    verticalAlign: VerticalAlign.TOP,
+    children: paragraphs,
+  })
+}
+
+function loadAuditFile(auditId: string): ClaudeAuditFile {
+  const jsonPath = resolveClaudeAuditJsonPath(REPO_ROOT, auditId)
+  if (!jsonPath) {
+    console.error(`No se encontró JSON para ${auditId}`)
+    process.exit(1)
+  }
+  return claudeAuditFileSchema.parse(
+    JSON.parse(readFileSync(jsonPath, "utf8")),
+  )
+}
+
+function filasDesdeAuditoria(file: ClaudeAuditFile): FilaSitioEntrega[] {
+  const susts = file.sustituciones ?? []
+  const correcciones = listCorreccionesEntrega(file.criterios_evaluados, susts)
+  return correcciones.map((item) => ({
+    url: file.url,
+    original: item.sust.original,
+    propuesto: item.sust.propuesto,
+    ubicacion_pantalla: item.sust.ubicacion_pantalla,
+    patron_sistema: item.sust.patron_sistema,
+    criterio_id: item.sust.criterio_id,
+    linea: item.sust.linea,
+    motivo: item.sust.motivo,
+  }))
+}
+
+function documentFromChildren(children: FileChild[]): Document {
+  return new Document({
+    styles: {
+      default: {
+        document: {
+          run: { font: FONT, size: SIZE_BODY },
+        },
+      },
+    },
+    sections: [
+      {
+        properties: {
+          page: {
+            size: {
+              width: PAGE_W,
+              height: PAGE_H,
+              orientation: PageOrientation.LANDSCAPE,
+            },
+            margin: {
+              top: MARGIN,
+              bottom: MARGIN,
+              left: MARGIN,
+              right: MARGIN,
+            },
+          },
+        },
+        children,
+      },
+    ],
+  })
+}
+
+function buildProveedorWord(filas: FilaProveedor[], sitioLabel: string): Document {
+  const w0 = Math.round(CONTENT_W * 0.08)
+  const w1 = Math.round(CONTENT_W * 0.18)
+  const w2 = Math.round(CONTENT_W * 0.2)
+  const w3 = Math.round(CONTENT_W * 0.28)
+  const w = [w0, w1, w2, w3, CONTENT_W - (w0 + w1 + w2 + w3)] as const
+
+  const children: FileChild[] = [
+    new Paragraph({
+      heading: HeadingLevel.HEADING_1,
+      children: [
+        run("FORMULARIO DE REVISIÓN DE CONTENIDOS — PROVEEDOR", {
+          bold: true,
+          size: 28,
+        }),
+      ],
+    }),
+    new Paragraph({
+      children: [run("SITIO WEB DE INAPI 2026", { bold: true, size: 24 })],
+    }),
+    new Paragraph({ children: [] }),
+    new Paragraph({
+      children: [
+        run(
+          "Nombre del área: Departamento de Experiencia Usuaria y Ciencia de Datos",
+        ),
+      ],
+    }),
+    new Paragraph({
+      children: [run(sitioLabel)],
+    }),
+    new Paragraph({ children: [] }),
+  ]
+
+  const headerRow = new TableRow({
+    children: PROVEEDOR_HEADERS.map((h, i) => headerCell(h, w[i]!)),
+  })
+
+  const dataRows: TableRow[] = filas.map((f) => {
+    const originalFuente = f.original === "" ? "(no existe en pantalla)" : f.original
+    return new TableRow({
+      children: [
+        textCell(String(f.n), w[0]),
+        textCell(linksReferencia(f.urls), w[1]),
+        textCell(f.original, w[2]),
+        highlightPropuestoCell(originalFuente, f.propuesto, w[3]),
+        textCell(f.observaciones, w[4]),
+      ],
+    })
+  })
+
+  children.push(
+    new Table({
+      width: { size: CONTENT_W, type: WidthType.DXA },
+      columnWidths: [...w],
+      layout: TableLayoutType.FIXED,
+      alignment: AlignmentType.CENTER,
+      rows: [headerRow, ...dataRows],
+    }),
+  )
+  return documentFromChildren(children)
 }
 
 function headerCell(text: string, width: number): TableCell {
@@ -453,15 +657,31 @@ async function buildAvisosWordDoc(file: ClaudeAuditFile): Promise<Document> {
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2))
+
+  if (args.fixture) {
+    const filas = consolidarFilasSitio(fixtureTresFilasProveedor(), true)
+    const doc = buildProveedorWord(
+      filas,
+      "Fixture 3 filas (hover menú, inserción vacía, footer PDF)",
+    )
+    const outPath = evidenciasDocxPath(
+      REPO_ROOT,
+      "fixture-entrega-proveedor-3filas",
+      "correcciones-proveedor.docx",
+    )
+    mkdirSync(dirname(outPath), { recursive: true })
+    writeFileSync(outPath, await Packer.toBuffer(doc))
+    console.log(`Word fixture: ${relative(REPO_ROOT, outPath)}`)
+    if (!args.auditId) return
+  }
+
   const jsonPath = resolveClaudeAuditJsonPath(REPO_ROOT, args.auditId)
   if (!jsonPath) {
     console.error(`No se encontró JSON para ${args.auditId}`)
     process.exit(1)
   }
 
-  const file = claudeAuditFileSchema.parse(
-    JSON.parse(readFileSync(jsonPath, "utf8")),
-  )
+  const file = loadAuditFile(args.auditId)
   const susts = file.sustituciones ?? []
   if (susts.length === 0) {
     console.error("La auditoría no tiene sustituciones.")
@@ -494,6 +714,31 @@ async function main(): Promise<void> {
       copyFileSync(xlsxPath, xlsxDocs)
       console.log(`Copia TI Excel: ${relative(REPO_ROOT, xlsxDocs)}`)
     }
+    return
+  }
+
+  if (args.perfil === "proveedor") {
+    const ids = args.auditIds.length > 0 ? args.auditIds : [args.auditId]
+    const filasFuente: FilaSitioEntrega[] = []
+    for (const id of ids) {
+      filasFuente.push(...filasDesdeAuditoria(loadAuditFile(id)))
+    }
+    const filas = consolidarFilasSitio(filasFuente, args.consolidado)
+    const sitio =
+      ids.length > 1
+        ? `Lote ${ids.length} URLs (numeración 1…${filas.length})`
+        : `Sitio: ${file.url}`
+    const doc = buildProveedorWord(filas, sitio)
+    const outId =
+      ids.length > 1 ? "lote-sitioweb-proveedor" : args.auditId
+    const outPath = evidenciasDocxPath(
+      REPO_ROOT,
+      outId,
+      "correcciones-proveedor.docx",
+    )
+    mkdirSync(dirname(outPath), { recursive: true })
+    writeFileSync(outPath, await Packer.toBuffer(doc))
+    console.log(`Word proveedor: ${relative(REPO_ROOT, outPath)}`)
     return
   }
 

@@ -55,11 +55,11 @@ Calibraciones vigentes (Prompt 06): …
 Evalúa SOLO los criterios LC-* de este indicador listados en checklist-criteria-lc-ptd.json.
 Incluye variantes IESD si applicability lo pide.
 Usa el mapa D0: si una unidad candidata toca este indicador, no la ignores.
-Calibraciones C-2026-11-04: origen↔destino; datos clave incompletos = inserción; conceptos oficiales + glosa (no misión/visión); fecha en el pie; eliminar LINK EXTERNO a #; noticias persistentes.
+Calibraciones C-2026-11-04 + C-2026-11-17a: origen↔destino; datos clave = inserción en pestaña/tarjeta (no aplastar H1); conceptos oficiales + glosa hover (no renombrar menú; no misión/visión/objetivos estratégicos); fecha en el pie; eliminar LINK EXTERNO a #; noticias = encargo a Comunicaciones (no reescribir el artículo).
 Para cada uno: cumple | incumple | no_aplica con evidencia VISIBLE de Playwright (esta URL). Destino = contexto, no cita como Texto.
 Si incumple: severidad + borrador de sustitución (texto, ubicación humana, propuesta: glosa/inserción/replicar en destino según Prompt 06/07).
 No evalúes otros indicadores. No calcules el % global.
-Aplica Prompt 06 (hasta C-2026-11-10a). En avisos de sistemas: no borrar hechos operativos ni unificar 130 filas en un solo párrafo. Entrega filas listas para consolidar.
+Aplica Prompt 06 (hasta C-2026-11-17b). No contradecir C-2026-11-10a/b. En avisos de sistemas: no borrar hechos operativos ni unificar 130 filas en un solo párrafo. Entrega filas listas para consolidar. Header/footer = patron_sistema. Sub-subagentes 1, 2 y 4: mapear campos CMS a columnas proveedor (5 cols); prohibido meter ubicación en original/propuesto.
 ```
 
 ## Reconocer estados desde Playwright

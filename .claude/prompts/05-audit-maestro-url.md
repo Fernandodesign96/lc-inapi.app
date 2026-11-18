@@ -95,19 +95,20 @@ Fallar el gate §22.12 si aparece cualquiera de esto en texto/ubicación/propues
 10. **Citas negadas / meta (C-2026-08-25k):** no volcar a Texto comillas que la justificación niega («en construcción», «próximamente»…); no usar `(once párrafos…)` u otras meta-descripciones como Texto/original — citar literales reales.
 11. **Escaneo ≠ negritas (C-2026-08-25l):** criterio 38 = subtítulos/listas/recuadros/jerarquía; criterio 39 = negrita en párrafos distintos. No `agrupado_en` ni `criterios_relacionados` cruzados si el `propuesto` no es el mismo. Literales **solo** de esta URL (no alt invisible ni copy de otra URL).
 12. **No repetir entre criterios (C-2026-08-26a):** al avanzar al criterio N, releer hallazgos 1…N−1; propuesto/justificación **complementarios** o agrupación §20.3 solo si el propuesto es idéntico. Cada pregunta = foco propio (datos clave ≠ autonomía ≠ FAQ servicio ≠ escaneo).
-13. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c). CTA genérico («Conoce más», «Acceder») → cambiar el rótulo; «LINK EXTERNO» a `#` → **eliminar** (C-2026-11-04e).
+13. Criterio 42 (rótulos/CTA): evaluar siempre (C-2026-08-25c). CTA genérico del **menú header** («Conoce más») → **no** renombrar; hover/`title` (C-2026-11-17a). CTA de cuerpo/banner sí pueden acortar si Comunicaciones lo pactó. «LINK EXTERNO» a `#` → **eliminar** (C-2026-11-04e).
 14. Encabezado «Criterio N — Instrumento M» solo en título de fila, no en los 4 campos.
 15. Commits: CLAUDE.md §5.1 / C-2026-08-25i.
 16. **Origen ↔ destino (C-2026-11-04a):** en hubs, abrir las URLs de destino de tarjetas/atajos; alinear copy; no citar literales del destino como Texto de esta URL.
-17. **Datos clave incompletos (C-2026-11-04b):** si hay qué/cómo pero faltan dónde/quién/cuándo/cuánto → inserción, no solo reescritura.
-18. **Conceptos oficiales (C-2026-11-04c):** Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT = mismo nombre + glosa (hover en menú; término+glosa en H1). No reescribir misión/visión/valores. Fecha de página: línea «Actualizado:…» en el pie (C-2026-11-04d).
+17. **Datos clave incompletos (C-2026-11-04b / 17a):** si hay qué/cómo pero faltan dónde/quién/cuándo/cuánto → inserción **en la pestaña/tarjeta**, no reescritura de cabecera ni H1+pestañas fusionados. Tasas nacionales = fila Título + Bajada.
+18. **Conceptos oficiales (C-2026-11-04c / 17a):** Observancia, Sistema de Madrid, Sello de Origen, Dominio Público, PCT = mismo nombre + glosa (hover en menú; glosa **dentro** de la pestaña activa, no en el H1 de cabecera). No reescribir misión/visión/valores/**objetivos estratégicos**. Fecha de página: línea «Actualizado:…» en el pie (C-2026-11-04d).
 19. **Plazos/canales + copy CMS (C-2026-11-05a):** plazos/confirmaciones solo con evidencia ops o literal en pantalla (prohibido `[N]`); propuesto = texto pegable o instrucción con literales (prohibido «Hacer que…» sin copy); título en mayúsculas: fidelidad (criterio 10) ≠ tipografía (criterio 40). SIAC: correo automático + 4 días hábiles + disclaimer junto al formulario; modal con número generado.
 20. **ClaveÚnica Estado (C-2026-11-05b):** no proponer cambios de texto ni forma del botón/widget Clave Única (lo define el Estado, no TI INAPI).
 21. **Fecha solo en el pie (C-2026-11-05c):** «Actualizado:…» únicamente al lado de «©… INAPI. Todos los derechos reservados»; nunca bajo el H1 ni el encabezado del formulario.
 22. **Mismo texto → propuesta final (C-2026-11-09a):** mismo literal/nodo = una solicitud con el propuesto más completo; listar criterios; no encadenar borradores.  
-23. **Avisos sistemas (C-2026-11-09b / C-2026-11-10a):** leer las 130 filas; chunk por plantilla (solo día/hora); inventario de hechos (TGR, ClaveÚnica, Clave INAPI, MFA, Custodia, proveedor, Patentes/Marcas, etc.); 51 criterios por línea; IDs agrupados en catálogo; `propuesto` conserva fecha/hora y hechos de esa fila. HTML original + HTML propuesto + vista tipográfica.
+23. **Avisos sistemas (C-2026-11-09b / C-2026-11-10a):** leer las 130 filas; chunk por plantilla (solo día/hora); inventario de hechos (TGR, ClaveÚnica, Clave INAPI, MFA, Custodia, proveedor, Patentes/Marcas, etc.); 51 criterios por línea; IDs agrupados en catálogo; `propuesto` conserva fecha/hora y hechos de esa fila. HTML original + HTML propuesto + vista tipográfica. **No contradecir** 11-10 al aplicar 17a/b.
+24. **Entrega proveedor vs respaldo (C-2026-11-17a/b):** presupuesto 15 h; header/footer = una solicitud N URLs; hero y noticias Caso 2/8 = encargo a Comunicaciones (no inventar copy); Word proveedor = 5 columnas sin hito/criterio/`LC-*`.
 
-Leer Prompt 6 completo (hasta **C-2026-11-10a**) + skill 05 ANTES de puntuar.
+Leer Prompt 6 completo (hasta **C-2026-11-17b**) + skill 05 ANTES de puntuar.
 
 ### Paso A — Stack y captura (Prompt 1)
 
@@ -161,13 +162,13 @@ Orden fijo: Fiabilidad → Completitud → Lenguaje plano → Actualización →
 
 Con las 51 filas borrador, lanzar los **5 sub-subagentes** (§17.2) — pueden trabajar en paralelo sobre el mismo borrador:
 
-1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes; literales humanos (C-2026-08-25); sin `Tnnn`/mapa D0/Prompt en entrega.  
-2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`); propuestas sin meta entre paréntesis; no repetir el mismo `propuesto` en criterios secundarios.  
+1. **Campos de evidencia** — texto en pantalla, corrección, ubicación, justificación completos y coherentes; literales humanos (C-2026-08-25); sin `Tnnn`/mapa D0/Prompt en entrega. Mapear a columnas proveedor: original = solo literal (vacío si inserción); propuesto = solo texto nuevo (`Título:` / `Desplegable:` / `Bajada:`); ubicación **nunca** en original/propuesto (C-2026-11-17b).  
+2. **Lenguaje ciudadano** — reescribe sin jerga TI/desarrollo (skill `02`); propuestas sin meta entre paréntesis; no repetir el mismo `propuesto` en criterios secundarios. No inventar hero (Caso 2) ni reescribir noticias (Caso 8).  
 3. **Veracidad y realismo** — preciso, humano, sin inventar defectos (§20.6 / §22.9).  
-4. **Estructura Excel/tablas** — filas ordenadas, jerarquía clara, casillas no vacías, alineado a columnas de entrega (Prompt 3).  
+4. **Estructura Excel/tablas** — filas ordenadas, jerarquía clara, casillas no vacías, alineado a columnas de entrega (Prompt 3). Perfil proveedor = **exactamente 5 columnas** (sin Ubicación ni LC en Observaciones).  
 5. **Higiene y sensibles** — PI, ARCO, RUN/teléfonos, contenidos sensibles, §18–§19.
 
-El agente raíz consolida: 51 filas orden catálogo, cruces §20.3, `patron_sistema`, resumen, `nota_final_tic`.
+El agente raíz consolida: 51 filas orden catálogo, cruces §20.3, `patron_sistema`, resumen, `nota_final_tic`. **Pase de consolidación de sitio (C-2026-11-17a):** marcar header/footer/lupa/contraste/LINK EXTERNO/fecha de pie con `patron_sistema: true`. Una URL sigue = un JSON. El Word proveedor se arma **después** sobre todos los JSON del lote (`--perfil proveedor --consolidado`).
 
 ### Paso F — Validar, evidencias Word, cablear, commit (Prompt 3)
 
@@ -186,13 +187,16 @@ bun run capture:evidencias-visuales -- --audit-id {id}
 # bun run capture:evidencias-visuales -- --audit-id {id} --storage auditorias/.auth/tramites-session.json
 ```
 
-3. Generar el Word (tabla 6 cols + anexo de imágenes):
+3. Generar el Word (C-2026-11-17b):
 
 ```bash
-bun run generate:word-correcciones -- --audit-id {id}
+# Respaldo interno (6 cols + hito/criterio en Observaciones):
+bun run generate:word-correcciones -- --audit-id {id} --perfil respaldo
+# Proveedor (5 cols; tras el lote, consolidar header/footer):
+bun run generate:word-correcciones -- --perfil proveedor --consolidado --audit-ids {id1},{id2}
 ```
 
-Salida: `auditorias/evidencias/{id}/correcciones.docx`. La UI ofrece **Descargar Word correcciones** solo si ese archivo existe (no se genera en Vercel).
+Salida respaldo: `auditorias/evidencias/{id}/correcciones.docx`. Proveedor: `correcciones-proveedor.docx`. La UI ofrece **Descargar Word correcciones** solo si el respaldo existe (no se genera en Vercel).
 
 Cablear launch / muestra de evaluación institucional (`mei-meta-mei-urls.ts`).
 
