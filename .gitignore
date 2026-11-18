@@ -53,6 +53,9 @@ test-results/
 # PDF del UI Kit (referencia en Google Drive; no versionar)
 docs/uikit_gob/*.pdf
 
+# Cache de imágenes extraídas de Words fuente (regenerable)
+docs/words-solicitudes-correccion/_media/
+
 # RAG — base de datos vectorial generada al ingestar (no versionar)
 rag/chroma_db/
 

@@ -195,6 +195,34 @@ export function AuditarClaudePilotSection() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+
+        <div className="mt-6 rounded-md border border-border p-4">
+          <h3 className="text-sm font-semibold text-foreground">
+            Solicitudes de corrección — sitio informativo (9 URLs)
+          </h3>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Words consolidados tras la reunión con Comunicaciones: al proveedor
+            solo cambios de texto existente (y subtítulos de acrónimos/conceptos);
+            el resto (estructura, hover, contenido nuevo) queda para una etapa
+            futura.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button type="button" size="sm" asChild>
+              <a
+                href="/api/solicitudes-correcciones/proveedor/docx"
+                download
+              >
+                Descargar Word proveedor (texto)
+              </a>
+            </Button>
+            <Button type="button" size="sm" variant="secondary" asChild>
+              <a href="/api/solicitudes-correcciones/futuro/docx" download>
+                Descargar Word futuro (desarrollo)
+              </a>
+            </Button>
+          </div>
+        </div>
+
         {AVISOS_AUDIT ? (
           <div className="mt-6 rounded-md border border-border p-4">
             <h3 className="text-sm font-semibold text-foreground">

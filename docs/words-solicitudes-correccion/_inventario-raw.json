@@ -1,0 +1,2331 @@
+[
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 1 de 2)\nEn el pie de página (footer), corregir el nombre de la institución a «Instituto Nacional de Propiedad industrial» escribiendo «industrial» con minúscula.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-1-fd34666a-image10.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 2,
+    "numero_original": "1.5",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Martes 20 octubre de 2026\nMiércoles 14 octubre de 2026\nMartes 29 septiembre de 2026",
+    "propuesto": "Agregar la preposición «de» entre el número del día y el mes en las tres fechas:\nMartes 20 de octubre de 2026\nMiércoles 14 de octubre de 2026\nMartes 29 de septiembre de 2026",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 2 de 2)\nUbicación en pantalla: Portada › Novedades\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS).\nLa gramática de las fechas debe ser correcta. Las tres tarjetas de Novedades omiten la preposición «de» entre el día y el mes; al ser el mismo componente de fecha en las tres tarjetas, conviene corregirlo en el formato compartido para que la corrección se replique en toda noticia futura. Se detectan dos errores de gramática y puntuación distintos.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-2-f5ab9b73-image8.png",
+      "docs/words-solicitudes-correccion/_media/1-2-b84555da-image15.png",
+      "docs/words-solicitudes-correccion/_media/1-2-92b3e312-image2.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 3,
+    "numero_original": "2",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Observancia",
+    "propuesto": "Observancia: Protege tu marca o patente",
+    "observaciones": "Checklist Hito 2 - Criterio 6:Medianamente cumple.\nChecklist Hito 8 - Criterio 37:\nMedianamente cumple.\nAgregar subtítulo que explique qué es Observancia.\n«Observancia» es un término legal.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-3-c7315049-image14.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 4,
+    "numero_original": "3",
+    "link": "www.inapi.cl/protege-tu-idea/pirateria-y-falsificacion",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Observancia",
+    "propuesto": "Observancia: Protege tu marca o patente",
+    "observaciones": "Checklist Hito 2 - Criterio 6:Medianamente cumple.\nChecklist Hito 8 - Criterio 37:\nMedianamente cumple.\nAgregar subtítulo que explique qué es Observancia.\n«Observancia» es un término legal.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-4-4f66c82e-image4.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 5,
+    "numero_original": "4",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del acrónimo «PCT» en el menú de navegación, agregar una ayuda visible al pasar el cursor encima, que diga:\n“PCT: Tratado de Cooperación en materia de Patentes”",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones (corrección 1 de 2)\nAgregar una ayuda visible al pasar el cursor que despliegue la corrección sobre el atajo PCT en el menú de navegación (alt=”text”).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-5-9808df30-image23.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 6,
+    "numero_original": "5",
+    "link": "www.inapi.cl/pct",
+    "default_url": "https://www.inapi.cl/",
+    "original": "PCT",
+    "propuesto": "PCT: Tratado de Cooperación en materia de Patentes",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones.\nCambiar en el título “PCT”, y cambiar “PCT” en la Miga de pan.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-6-65e890c2-image20.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 7,
+    "numero_original": "6",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "según el ranking de la OMPI · la iniciativa de la OMPI e INAPI",
+    "propuesto": "En la primera aparición de «OMPI» en la portada, escribir el nombre completo seguido de la sigla entre paréntesis:\n«Organización Mundial de la Propiedad Intelectual (OMPI)».\nLas siguientes menciones en la misma página pueden usar solo la sigla.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones (corrección 2 de 2)\nPortada › Novedades › bajada de la 1.ª tarjeta (Índice Mundial de Innovación) y de la 2.ª tarjeta (Programa de Asistencia a Inventores, PAI)\nCada sigla debe definirse en su primera aparición. «OMPI» aparece dos veces en las bajadas de las noticias de portada sin explicarse, obligando a quien lee a adivinar su significado.",
+    "imagenes": []
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 8,
+    "numero_original": "7",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Debajo del título principal del banner del homepage, dejar información como el siguiente ejemplo de la imagen adjunta:",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple.\nLa portada debe tener tarjetas informativas además de los atajos que ya existen, destacando un resumen de datos clave (qué, cómo, dónde, cuándo y para quién) sobre los servicios de INAPI.",
+    "imagenes": []
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 10,
+    "numero_original": "8",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Tras cuatro años de implementación, la iniciativa de la OMPI e INAPI fortalece su gestión operativa mediante una nueva normativa de administración e inscripción, sumada al lanzamiento de su portal oficial.",
+    "propuesto": "Tras cuatro años de funcionamiento, el Programa de Asistencia a Inventores (PAI) de la OMPI e INAPI actualiza sus reglas de administración e inscripción. Además, estrena un nuevo portal oficial para las personas inventoras.",
+    "observaciones": "Checklist Hito 3 - Criterio 16 y criterio 24:\nCumple con observaciones.\nPortada › Novedades › 2.ª tarjeta (Programa de Asistencia a Inventores, PAI) › bajada.\nCriterios relacionados: criterio 24, criterio 16. Las oraciones deben ser simples y directas, evitando el exceso de palabras. El texto actual junta dos anuncios distintos (una nueva normativa y el lanzamiento de un portal) en una sola oración larga con un giro administrativo; la propuesta separa las dos ideas en oraciones cortas y con palabras más cercanas al habla cotidiana. La bajada de la noticia sobre el Programa de Asistencia a Inventores usa un giro más cercano al lenguaje administrativo que al lenguaje cotidiano: «fortalece su gestión operativa mediante una nueva normativa de administración e inscripción».",
+    "imagenes": []
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 11,
+    "numero_original": "11",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir un texto visible (al final del sitio, en el footer) al lado de “©2026 INAPI. Todos los derechos reservados.”, lo siguiente:\n«Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nLa página debe mostrar información vigente al año en curso mediante una fecha visible. La portada carece de esa fecha general; solo las noticias individuales la tienen y el aviso de derechos del pie no cumple esta función.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-11-b0ee7a16-image24.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "- BUSCADOR DE PATENTES\n- BUSCADOR DE MARCAS",
+    "propuesto": "- Buscador de patentes\n- Buscador de marcas",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 3).\nLos botones de enlace a los buscadores no deben escribirse en mayúsculas todas las letras.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-12-c24699dd-image1.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "- INFORMACIÓN TECNOLÓGICA DE PATENTES\n- PROGRAMA DE DESARROLLO PRODUCTIVO SOSTENIBLE",
+    "propuesto": "- Información tecnológica de patentes\n- Programa de desarrollo productivo sostenible",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 2 de 3).\nDentro del banner de ‘Plataforma de datos’ no deben escribirse en mayúsculas todas las letras de las palabras y frases.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-13-e60222fa-image7.png",
+      "docs/words-solicitudes-correccion/_media/1-13-da6e5b07-image6.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 3 de 3).\nEn la ventana emergente de búsqueda del sitio (ícono de lupa en la cabecera) › título y opciones: Hay mayúsculas sostenidas en el título (Buscar y tramitar) y las opciones de esta ventana emergente (Marcas / Patentes), este es un componente compartido de la cabecera; conviene corregirlo en su origen para que el cambio se replique en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-14-820c35e6-image26.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Acceder (Botón del banner en sección Plataforma de datos)",
+    "propuesto": "Cambiar Acceder por: “Consultar información tecnológica de patentes”",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 1 de 4).\nEn el Banner «Plataforma de Datos» › botón «Acceder», el botón solo dice «Acceder» sin indicar a qué se entra. Al repetirse el mismo texto en otro banner de la misma página, la persona no puede distinguir un destino del otro con solo leer el rótulo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-15-282a3a19-image3.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Acceder (Botón del banner en sección  Cuenta Pública 2026)",
+    "propuesto": "Cambiar “Acceder” por “Ver la Cuenta Pública 2026 “",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 4).\nIgual que en el banner de la Plataforma de Datos, el botón «Acceder» no indica su destino; con dos botones iguales en la misma portada, la persona no sabe cuál abre qué contenido.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-16-1d16d0a3-image22.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Conoce más (Botón del menú de navegación global)",
+    "propuesto": "¿Qué es la Propiedad Industrial?",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 3 de 4).\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué, debe indicar a qué página realmente va y no escribir algo genérico.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-17-55bd5ebc-image19.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 18,
+    "numero_original": "19",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "Conoce más (Botón del banner Observancia - conoce más)",
+    "propuesto": "Cambiar el enlace por un texto que diga a dónde lleva:\n«Conoce cómo protegerte de la piratería y la falsificación».",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 4 de 4).\nEl enlace de la sección «Observancia» usa el mismo texto genérico «Conoce más» que el del menú principal, pero lleva a un destino distinto (piratería y falsificación); sin un rótulo propio, la persona no puede anticipar a dónde va.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-18-162e7acd-image21.png"
+    ]
+  },
+  {
+    "source_id": "1",
+    "source_file": "1. Cambios de contenidos_web www.inapi.cl.docx",
+    "source_row": 19,
+    "numero_original": "20",
+    "link": "www.inapi.cl",
+    "default_url": "https://www.inapi.cl/",
+    "original": "- DESCARGAR GUÍA DE MARCAS\n- DESCARGAR GUÍA DE PATENTES",
+    "propuesto": "- Guía de marcas (PDF, 16,4 MB) — Guía práctica para solicitar el registro de una marca en Chile.\n- Guía de patentes (PDF, 12,5 MB) — Guía práctica para solicitar una patente en Chile",
+    "observaciones": "Checklist Hito 8 - Criterio 43 y Criterio 44:\nNo cumple (corrección 1 y 2).\nSección «Guías para usuarios» › enlaces «Descargar guía de marcas» y «Descargar guía de patentes»\nLos enlaces a documentos deben indicar título, formato y peso, y traer una breve descripción del contenido.\nNinguno de los dos enlaces muestra esta información, además no deben escribirse con mayúsculas todas las letras de las palabras.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/1-19-d26fc714-image9.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nCumple con observaciones (corrección 1 de 2).\nEn el pie de página (footer), corregir el nombre de la institución a «Instituto Nacional de Propiedad industrial» escribiendo «industrial» con minúscula.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-1-fd34666a-image1.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "- VENTAJAS DE REGISTRAR UNA MARCA\n- SOLICITUD NUEVA\n- RENOVACIÓN\n- ANOTACIÓN\n- TÍTULOS Y CERTIFICADOS",
+    "propuesto": "Colocar las primeras palabras solo con la primera letra en mayúscula:\n- Ventajas de registrar una marca\ny además añade debajo de las siguientes una frase breve que la explique:\nSolicitud nueva: registra una marca por primera vez\nRenovación: mantén vigente una marca ya registrada\nAnotación: registra un cambio en tu marca, como el titular o el domicilio\nTítulos y certificados: solicita el documento que acredita tu registro\nAgregar también un subtítulo breve debajo del título “Trámites”:\nRevisa el tipo de trámite que necesites conocer",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nCumple con observaciones (corrección 2 de 2).\nChecklist Hito 2 - Criterio 6:\nNo cumple (corrección 2 de 4).\nChecklist Hito 8 - Criterio 37:\nNo cumple (corrección 2 de 5)\nEn la sección “TRÁMITES”, el título ni los accesos llevan debajo subtítulos o frases que expliquen con lenguaje entendible la información a la que redirigen.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-2-a1077b0c-image2.png",
+      "docs/words-solicitudes-correccion/_media/2-2-43fc2f5b-image3.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "Una marca es todo signo susceptible de representación gráfica, capaz de distinguir en el mercado productos, servicios o establecimientos comerciales o industriales.",
+    "propuesto": "Propuesta:\nUna marca es el nombre, logo o diseño que identifica lo que vendes y te distingue de la competencia.",
+    "observaciones": "Checklist Hito 2 - Criterio 4:\nCumple con observaciones.\nChecklist Hito 3 - Criterio 16:\nMedianamente cumple.\nEn la sección “PARA INFORMARSE” el texto explicativo de la primera tarjeta “QUÉ ES UNA MARCA” contiene lenguaje técnico/jurídico que no es entendible por usuarios naturales sin conocimiento en propiedad industrial.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-3-8c0be522-image4.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "El procedimiento para registrar una marca comercial en Chile comprende básicamente tres etapas: ingreso y examen de forma de la solicitud, trámite de la publicación del extracto en el Diario Oficial y examen de fondo de la solicitud.",
+    "propuesto": "Propuesta:\nEl procedimiento para registrar una marca comercial en Chile tiene tres etapas:\n1. Ingreso y examen de forma: presentas tu solicitud e INAPI revisa que estén todos los datos y documentos requeridos.\n2. Publicación: Una vez aprobado el examen de forma, debes publicar tu solicitud en el Diario Oficial (el boletín oficial del Estado) para que otras personas puedan oponerse si consideran que la marca afecta sus derechos.\n3. Examen de fondo: INAPI revisa si tu marca cumple los requisitos legales para registrarse, por ejemplo, que no se parezca demasiado a una marca ya registrada o corresponda al nombre de un producto o servicios o describa directamente sus cualidades.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 1 de 4).\nChecklist Hito 3 - Criterio 24:\nMedianamente cumple.\nChecklist Hito 7 - Criterio 35:\nCumple con observaciones\nEn la tarjeta “CÓMO REGISTRAR UNA MARCA”, aparecen términos técnico-jurídicos “examen de forma, extracto, Diario Oficial, examen de fondo”, los cuales deben describirse con un lenguaje entendible. La propuesta define qué ocurre en cada etapa y qué hace la persona, y de paso acorta la oración y da formato de lista al mismo texto.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-4-a4c55d8b-image5.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 5,
+    "numero_original": "6",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "- Marca comercial\n- Marca colectiva\n- Marca de certificación\n- Frase de propaganda\nTipo de Marca\nTipo de Cobertura",
+    "propuesto": "Marcas:\nCategoría de la marca: Revisa si es para tu negocio, una asociación, un sello o certificación (por ejemplo, de calidad, origen, etc.) o un eslogan publicitario.\nTipo de marca: Revisa si tu marca es una palabra, un logo, ambos combinados u otro formato especial.\nTipo de cobertura: Revisa si vas a proteger productos, servicios o ambos.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 3 de 3).\nReemplazar los 4 atajos por Categoría de la marca.\nSe debe agregar un título que agrupe las categorías de marcas y luego, cada uno debe tener una descripción corta (qué es y para quién) en vez de solo el nombre del tipo. Varios conceptos técnico-jurídicos se usan como rótulo o dentro de una oración sin definirse ni reemplazarse por lenguaje claro.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-5-02bd0fdf-image6.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 6,
+    "numero_original": "8",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del acrónimo «PCT» en el menú de navegación, agregar una ayuda visible al pasar el cursor encima, que diga:\n“PCT: Tratado de Cooperación en materia de Patentes”, y que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones.\nAgregar una ayuda visible al pasar el cursor que despliegue la corrección sobre el atajo PCT en el menú de navegación (alt=”text”).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-6-9808df30-image7.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 7,
+    "numero_original": "9",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Agregar al título:\nTodo sobre las marcas: qué son, sus ventajas, cómo registrarlas y cuánto cuesta.\nActualizar los siguientes títulos y descripciones de los recuadros actuales:\n- Qué es una marca y cuándo solicitarla: Una marca es el nombre, logo o diseño que identifica lo que vendes y te distingue de la competencia. Un usuario puede realizar una solicitud de marca en cualquier momento, y es recomendable registrarla antes de su comercialización.\n- Cómo registrar una marca y quiénes pueden hacerlo: El procedimiento para registrar una marca comercial en Chile tiene tres etapas y pueden hacer la solicitud personas naturales o personas jurídicas, las etapas son:\n1. Ingreso y examen de forma\n2. Publicación en el Diario Oficial\n3. Examen de fondo\n- Pago de solicitud y registro: Los pagos de tasas se dividen en dos etapas: al inicio de la solicitud 1 UTM por cada clase solicitada, al final del trámite 2 UTM por cada clase concedida, y adicionalmente se debe pagar la publicación en el Diario Oficial.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple (corrección 1 de 2)\nFalta explicar brevemente dónde, cuándo y quiénes pueden realizar una solicitud de registro de marca, las tarjetas actuales sólo cubren parcialmente qué es y cómo se hace.\nFaltan dos datos clave: (1) no hay un recuadro que reúna en un solo lugar qué es, cómo se hace, dónde se hace y para quién sirve el registro de una marca;\n(2) la tarjeta “Tasas nacionales” solo dice que se paga “al inicio y al final”, sin aclarar si la publicación en el Diario Oficial (la segunda etapa descrita en “Cómo registrar una marca”) tiene un costo propio o distinto.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-7-cfef443c-image8.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 8,
+    "numero_original": "9.5",
+    "link": "https://www.inapi.cl/marcas/para-informarse?acordeon=1",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "Para informarse\n¿Qué es una marca?\n¿Cómo registrar una marca?\nTasas nacionales",
+    "propuesto": "Actualizar y añadir los elementos informativos anteriormente mencionados, en la página de origen de la información específica.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple (corrección 1.5 de 2)\nLos elementos textuales añadidos y corregidos de la página de marcas, deben aplicarse también a la página donde aparece toda la información específica, actualmente llamada “Marcas/Para informarse”.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-8-00d97a03-image9.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 9,
+    "numero_original": "10",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "TASAS NACIONALES\nLos pagos de tasas o derechos en el caso de marcas nuevas en Chile están divididos en dos etapas: al inicio de la presentación de la solicitud y al final de la tramitación.",
+    "propuesto": "Pago de solicitud y registro: Los pagos de tasas se dividen en dos etapas: al inicio de la solicitud 1 UTM por cada clase solicitada, al final del trámite 2 UTM por cada clase concedida, y adicionalmente se debe pagar la publicación en el Diario Oficial.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple (corrección 2 de 2)\nDentro de la sección «Para Informarse», en la tarjeta «Tasas nacionales», el texto actual no dice si la publicación en el Diario Oficial (la segunda etapa del procedimiento) implica un pago adicional.\nFaltan dos datos clave: (1) no hay un recuadro que reúna en un solo lugar qué es, cómo se hace, dónde se hace y para quién sirve el registro de una marca;\n(2) la tarjeta “Tasas nacionales” solo dice que se paga “al inicio y al final”, sin aclarar si la publicación en el Diario Oficial (la segunda etapa descrita en “Cómo registrar una marca”) tiene un costo propio o distinto.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-9-bd5d3fcf-image10.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 10,
+    "numero_original": "11",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista atenderá tu consulta.",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nCumple con observaciones.\nDentro de la ventana emergente «¿Quieres contactarnos?», corregir la voz pasiva de la frase.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-10-b6e8a3ee-image11.png",
+      "docs/words-solicitudes-correccion/_media/2-10-d8499766-image12.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 11,
+    "numero_original": "12",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nLa página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. No hay fecha de publicación ni de última actualización visible en esta página.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-11-b0ee7a16-image13.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "PARA INFORMARSE",
+    "propuesto": "Todo sobre las marcas: qué son, sus ventajas, cómo registrarlas y cuánto cuesta",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nNo cumple (corrección 3 de 5)\nEl título debe anticipar el contenido que sigue; «Para Informarse» es genérico y no dice qué se va a encontrar en las cuatro tarjetas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-12-0c74facc-image14.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "BUSCADORES",
+    "propuesto": "Herramientas de búsqueda de marcas",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nNo cumple (corrección 4 de 5)\nTítulo de una sola palabra que no dice qué se busca; se propone un título más específico.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-13-fcee091f-image15.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "MARCAS SEGÚN SU TIPO",
+    "propuesto": "Marcas según su tipo — Elige la categoría de marca que corresponde a tu producto, servicio o asociación",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nNo cumple (corrección 5 de 5)\nEl título del bloque es amplio y no explica el propósito de elegir entre los tipos; se propone un subtítulo breve que lo profundiza.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-14-984b0c20-image16.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 3)\nSe deben evitar frases escritas solo en mayúsculas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-15-29c96c4e-image17.png",
+      "docs/words-solicitudes-correccion/_media/2-15-820c35e6-image18.png"
+    ]
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 2 y 3 de 3)\nChecklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 2)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo:\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  },
+  {
+    "source_id": "2",
+    "source_file": "2. Cambios de contenidos_web www.inapi.cl marcas.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl/marcas",
+    "default_url": "https://www.inapi.cl/marcas",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el atajo del menú por uno que diga qué información entrega, por ejemplo «Qué es la PI»\nCuando se pase el mouse encima debe aparecer un recuadro (alt text) que diga “¿Qué es la Propiedad Industrial?”",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 1 de 2).\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/2-17-82a8496d-image19.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 1 de 4)\nPie de página › bloque «Dónde estamos».\nEl nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-1-fd34666a-image1.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "- QUÉ ES UNA PATENTE\n- VENTAJAS DE REGISTRAR UNA PATENTE\n- REQUISITOS PARA OBTENER UNA PATENTE\n- TASAS NACIONALES",
+    "propuesto": "- Qué es una patente\n- Ventajas de registrar una patente\n- Requisitos para obtener una patente\n- Tasas nacionales",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 2 de 4)\nSección «Para informarse», las 4 tarjetas.\nInconsistencia de mayúsculas dentro del grupo de tarjetas: se usan mayúsculas en cada palabra, solo debe llevar mayúscula la letra inicial.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-2-d6eb349b-image2.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Tramitación Patente",
+    "propuesto": "Tramitación de patente",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 3 de 4)\nSección «Trámites», tarjeta «Tramitación patente».\nEl título omite la preposición «de», lo que se lee como un error de redacción.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-3-c92d92a3-image3.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Según acuerdos internacionales, las patentes se pueden obtener sobre cualquier invención sea un proceso o un producto en todos los ámbitos de la tecnología (p.ej. mecánica, eléctrica, biotecnología, farmacia o química).",
+    "propuesto": "Según acuerdos internacionales, puedes patentar cualquier invención, ya sea un proceso o un producto, en cualquier área de la tecnología (por ejemplo, mecánica, eléctrica, biotecnología, farmacia o química).",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nMedianamente cumple (corrección 4 de 4)\nChecklist Hito 3 - Criterio 24:\nMedianamente cumple.\nSección «Para informarse», tarjeta «Ventajas de registrar una patente», La oración actual (aprox. 40 palabras) es larga y le falta la partícula «ya»; la propuesta la hace más directa, corrige la falta de «ya» y reemplaza la abreviatura «p.ej.» por «por ejemplo».",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-4-fb32d067-image4.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 5,
+    "numero_original": "5",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Existen tres criterios fundamentales de patentabilidad. Estos son que el invento cuente con el elemento de la novedad; el segundo criterio establece que exista un elemento inventivo, y el tercero dice que puede ser aplicado el invento industrialmente.",
+    "propuesto": "Para obtener una patente, tu invención debe cumplir tres requisitos:\nNovedad: que no exista antes en ningún lugar del mundo.\nNivel inventivo: que no sea obvia para una persona experta en la materia.\nAplicación industrial: que se pueda fabricar o usar en algún tipo de industria.\nJustificación: Los términos técnico-jurídicos (novedad, elemento inventivo, aplicación industrial) no bastan con reordenarse: deben describirse en lenguaje cotidiano. La propuesta define cada requisito y, de paso, corrige la voz pasiva y el orden invertido de la tercera cláusula, y da formato de lista a la enumeración.",
+    "observaciones": "Hito 2 - Criterio 4:\nCumple con observaciones.\nChecklist Hito 2 - Criterio 6:\nNo cumple (corrección 1 y 5 de 5)\nHito 3 - Criterio 17:\nCumple con observaciones (corrección 1 de 2).\nHito 3 - Criterio 18:\nCumple con observaciones.\nHito 7 - Criterio 35:\nMedianamente cumple (corrección 1 de 2)\nSección «Para informarse», tarjeta «Requisitos para obtener una patente».\nNo se aplicó ninguna herramienta de medición de legibilidad sobre este párrafo en esta sesión; sin esa medición documentada corresponde marcar el criterio como incumplido. Se deja la instrucción de qué reescribir y con qué herramienta comprobarlo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-5-d81fc3b5-image5.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 6,
+    "numero_original": "6",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Modelos de Utilidad (sin descripción)\nInvención",
+    "propuesto": "Modelos de utilidad: protegen mejoras funcionales a productos u objetos ya existentes\nInvención: protege creaciones técnicas nuevas dándote el derecho exclusivo para explotarlas comercialmente o impedir que otros las usen.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 2 de 5)\nSección «Tipos de patentes», tarjeta «Modelos de utilidad»\nCada tipo de patente debe tener una descripción corta (qué es, para qué sirve), no solo el nombre de la categoría.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-6-c5021d7e-image6.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 7,
+    "numero_original": "7",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Esquemas de Trazados o Topografías de Circuitos Integrados\nDiseños",
+    "propuesto": "Esquemas de trazado o topografías de circuitos integrados: protegen la forma en que están organizados los componentes dentro de un circuito o chip electrónico\nDiseños: Protege la forma 3D o el aspecto visual único de un producto que sirve de patrón para fabricar otras unidades.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 3 de 5)\nSección «Tipos de patentes», tarjeta «Esquemas de trazados o topografías de circuitos integrados».\nTérmino técnico-legal sin glosa; el ciudadano no puede inferir su significado desde la sola etiqueta.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-7-c5021d7e-image6.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 8,
+    "numero_original": "8",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Recursos para Usuarios",
+    "propuesto": "Recursos para usuarios: guía y manuales que puedes revisar antes y durante tu tramitación",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 4 de 5)\nSección «Trámites», tarjeta «Recursos para usuarios».\nEl título es ambiguo: no queda claro si «recursos» significa apelaciones legales o material de apoyo descargable. La propuesta aclara el sentido con un ejemplo; el equipo editorial debe confirmar el contenido real de la sección antes de publicar.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-8-57e89d44-image7.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 9,
+    "numero_original": "9",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nNo cumple (corrección 1 de 2)\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-9-9808df30-image8.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 10,
+    "numero_original": "10",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Guías PPH\nGuías Global PPH\nGuías PAPV",
+    "propuesto": "Guías del Patent Prosecution Highway (PPH)\nGuías Global PPH\nGuías del Procedimiento Acelerado de Patentes Verdes (PAPV)",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nNo cumple (corrección 2 de 2)\nSección de pestañas de guías descargables, encabezados de cada pestaña. «PPH» y «PAPV» nunca se expanden en la página, ni siquiera como único rótulo de las pestañas que la persona debe abrir para encontrar las guías.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-10-9358b3c9-image9.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 11,
+    "numero_original": "11",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "No hay texto que cumpla con este requisito\nActualizar los siguientes contenidos:\n- Qué es una patente\n- Requisitos para obtener una patente\n- Tasas nacionales",
+    "propuesto": "Añadir un Subtítulo:  Antes de hacer pública tu invención, descubre qué es una patente, quiénes pueden solicitarla y cómo hacerlo en línea.\nY debajo del subtítulo, donde aparecen las 4 tarjetas de Para Informarse:\n- Qué es una patente y cuándo solicitarla: Una patente es un derecho exclusivo concedido por el Estado para proteger una invención, impidiendo que terceros la utilicen o comercialicen sin autorización. Se debe solicitar antes de divulgar o comercializar la invención, para no perder el requisito fundamental de novedad, puedes solicitarla en tramites.inapi.cl\n- Cómo tramitar una patente y quiénes pueden hacerlo: El procedimiento para patentar en Chile está disponible para personas naturales o jurídicas (nacionales o extranjeras) y consta de cuatro etapas principales:\nIngreso y examen formal\nPublicación en el Diario Oficial\nExamen pericial de fondo\nResolución definitiva y concesión\nSe necesitan 3 requisitos: Novedad - Nivel Inventivo - Aplicación Industrial\n- Costos del trámite y aranceles: El proceso contempla pagos por etapas: el arancel inicial de presentación de la solicitud, el arancel del examen pericial (pago al perito asignado), la publicación en el Diario Oficial y, una vez concedida, el pago por la acreditación del título y los derechos de mantención por decenios.\n1. Presentación de la solicitud: 1 UTM al ingresar el trámite.\n2. Publicación: Pago directo al Diario Oficial según la extensión del extracto.\n3. Examen pericial: Pago del arancel del perito tras la publicación (en patentes de invención corresponde a 7,2 UTM para solicitudes de hasta 80 páginas).\n4. Concesión y primer decenio: Si es aprobada, se pagan 3 UTM por el registro y mantenimiento de los primeros 10 años (más 1 UTM por la acreditación del título).\n5. Segundo decenio: 4 UTM antes del vencimiento del año 10 para mantener la vigencia por los 10 años restantes.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple (corrección 1 de 2)\nChecklist Hito 3 - Criterio 12:\nNo cumple (corrección 2 de 2)\nSección «Para informarse», bajo el título principal «Patentes».\nFalta un resumen destacado que reúna qué, cómo, dónde, cuándo y para quién sirve la solicitud de una patente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-11-48efd709-image10.png",
+      "docs/words-solicitudes-correccion/_media/3-11-6570d724-image11.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista atenderá tu consulta.",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nCumple con observaciones (corrección 2 de 2)\nVentana emergente: «¿Quieres contactarnos?».\nPatrón de sitio. Voz pasiva en un componente compartido del sitio; el cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-12-b6e8a3ee-image12.png",
+      "docs/words-solicitudes-correccion/_media/3-12-d8499766-image13.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nLa página no muestra fecha de publicación ni de actualización; el aviso de derechos reservados del pie no cumple esta función. Al no existir ningún texto que cumpla el requisito, el criterio no cumple.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-13-b0ee7a16-image14.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "- Guías PPH EPO:. Guías INAPI - SIPO\n. Guías PPH INAPI - IMPI\n. Guías PPH INAPI - INDECOPI\n. Guías PPH INAPI - SIC\nEnlaces sin párrafos ni viñetas explicativas (mismo problema en las pestañas Guías Global PPH y Guías PAPV)",
+    "propuesto": "Presentar cada ítem (pestañas) y cada guía dentro de las pestañas con una breve descripción de cada una (Guías PPH, Guías Global PPH, Guías PAPV).\nPropuestas:\nGuía PPH EPO-INAPI (PDF, 84 KB) — Procedimiento acelerado de examen entre INAPI y la Oficina Europea de Patentes.\nGuía INAPI-SIPO (PDF, 151 KB) — Procedimiento acelerado con la oficina de China.\nGuía PPH INAPI-IMPI (PDF, 487 KB) — Procedimiento acelerado con la oficina de México.\nGuía PPH INAPI-INDECOPI (PDF, 562 KB) — Procedimiento acelerado con la oficina de Perú.\nGuía PPH INAPI-SIC (PDF, 438 KB) — Procedimiento acelerado con la oficina de Colombia.\nGuía Global PPH en español (PDF, 1,03 MB) — Guía general del programa en español.\nGuía Global PPH en inglés (PDF, 891 KB) — Guía general del programa en inglés.\nGuía PAPV (PDF, 165 KB) — Procedimiento acelerado para patentes relacionadas con tecnologías verdes.",
+    "observaciones": "Hito 7 - Criterio 35:\nMedianamente cumple (corrección 2 de 2)\nHito 8 - Criterio 43:\nNo cumple (corrección 1 de 2)\nHito 8 - Criterio 44:\nNo cumple (corrección 1 de 2)\nSección de pestañas de guías descargables, dentro de cada pestaña.\nLos ocho documentos de las tres pestañas se presentan como contenidos técnicos, sin explicación clara, lo que dificulta escanear el contenido y visualización de los documentos.\nTambién hay que colocar el formato y el peso del documento para cada guía.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-14-032cb9ab-image15.png",
+      "docs/words-solicitudes-correccion/_media/3-14-032cb9ab-image15.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Para Informarse",
+    "propuesto": "Todo sobre las patentes: qué son, sus ventajas, los requisitos y las tasas",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nNo cumple (corrección 1 de 2)\nEncabezado de la sección de tarjetas informativas.\nEl título debe anticipar el contenido que sigue; «Para informarse» es genérico y no dice qué se va a encontrar en las cuatro tarjetas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-15-2a94e1b9-image16.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Buscadores",
+    "propuesto": "Herramientas de búsqueda de patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nNo cumple (corrección 2 de 2)\nEncabezado de la sección de enlaces de búsqueda.\nTítulo de una sola palabra que no dice qué se busca; se propone un título más específico.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-16-37e58b75-image17.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nNo cumple (corrección 1 de 4)\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-17-29c96c4e-image18.png",
+      "docs/words-solicitudes-correccion/_media/3-17-820c35e6-image19.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 18,
+    "numero_original": "19",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nNo cumple (corrección 2 y 4 de 4)\nChecklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 1 y 3 de 3)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo.\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 19,
+    "numero_original": "20",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "- BUSCADORES\n. BUSCADOR EN BASE DE DATOS\n. NOTIFICACIONES DIARIAS\n- TIPOS DE PATENTES\n- TRÁMITES",
+    "propuesto": "- Buscadores\n. Buscador en base de datos\n. Notificaciones diarias\n- Tipos de patentes\n- Trámites",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nNo cumple (corrección 3 de 4)\nEncabezados de sección «Buscadores», «Tipos de patentes» y «Trámites»; enlaces «Buscador en base de datos» y «Notificaciones diarias».\nMayúscula sostenida en cinco encabezados y enlaces de la página, incluida una inconsistencia con «Otros buscadores», que usa mayúscula inicial dentro del mismo bloque.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-19-d8f7006f-image20.png"
+    ]
+  },
+  {
+    "source_id": "3",
+    "source_file": "3. Cambios de contenidos_web www.inapi.cl patentes.docx",
+    "source_row": 20,
+    "numero_original": "21",
+    "link": "www.inapi.cl/patentes",
+    "default_url": "https://www.inapi.cl/patentes",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el atajo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial»",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 3)\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/3-20-82a8496d-image21.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nNo cumple (corrección 1 de 2)\nPie de página › bloque «Dónde estamos». Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» debe llevar mayúscula al ser parte del nombre propio. Corregir en el origen replica el cambio en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-1-fd34666a-image13.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asume como atributos de excelencia en el desempeño.",
+    "propuesto": "Los(as) funcionarios(as) reconocen e impulsan la colaboración y el trabajo en equipo y los asumen como atributos de excelencia en el desempeño.",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nNo cumple (corrección 2 de 2)\nSección «Valores Institucionales», ítem «Trabajo en equipo»\nConcordancia sujeto plural / verbo singular; corrección de una sola palabra en contenido institucional oficial de alta visibilidad.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-2-91d405d9-image6.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 3,
+    "numero_original": "4",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "difundir el acervo tecnológico y la información de que dispone",
+    "propuesto": "difundir la información y el conocimiento técnico que administra",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nMedianamente cumple (corrección 1 de 2)\nPrimer párrafo del cuerpo, bajo el título.\n«Acervo tecnológico» es jerga institucional poco común para el ciudadano; se reemplaza por lenguaje corriente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-3-bd0f067a-image8.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 4,
+    "numero_original": "5",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Los(as) funcionarios(as) se benefician de medidas que favorecen un mejor balance de la vida laboral y familiar, que es propiciado institucionalmente mediante la gestión por objetivos, medición de productos y orientación hacia la calidad.",
+    "propuesto": "INAPI favorece el balance entre la vida laboral y familiar de sus funcionarios(as) con medidas concretas de gestión interna orientadas a la calidad.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nMedianamente cumple (corrección 2 de 2)\nHito 3 - Criterio 17:\nMedianamente cumple (corrección 1 de 3)\nSección «Valores Institucionales», ítem «Calidad de Vida».\nGestión por objetivos, medición de productos y orientación hacia la calidad» es jerga de gestión sin valor comunicativo para quien lee la página; se simplifica y de paso se corrige la voz pasiva («es propiciado»).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-4-5350fee2-image18.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 5,
+    "numero_original": "6",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones.\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-5-9808df30-image10.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 6,
+    "numero_original": "7",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "- Acerca de (título principal)\n- INAPI (subtítulo inmediato)\n- Indicadores (subtítulo inmediato)- Balances (subtítulo inmediato)- Todos los otros subtítulos",
+    "propuesto": "Título:\nAcerca de INAPI\nSubtítulos:\n- Indicadores\n- Balances\n- Compromisos de calidad\n- Trabaje con nosotros\n- INAPI socialmente responsable",
+    "observaciones": "Checklist Hito 3 - Criterio 10:\nMedianamente cumple.\nBanner principal › título principal «Acerca de» y subtítulo «INAPI».\nEl título principal, leído solo, no identifica el contenido de la página; se propone integrar el nombre de la institución directamente en el título principal. Evaluación sobre el título visible del banner, no sobre la pestaña del navegador. Lo mismo para las demás pestañas (Indicadores, Balances, etc), deben aparecer directamente en el título.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-6-8a56f5af-image2.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 7,
+    "numero_original": "8",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir un recuadro breve con datos clave:\nEspacio para conocer la labor de INAPI protegiendo marcas, patentes e inventos en el país. Aquí encuentras sus objetivos, su estructura interna y la información sobre sus autoridades. Además, puedes consultar qué tan bien cumple sus metas y cómo postular a sus trabajos.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple.\nCuerpo principal › bajo el título, antes de los párrafos institucionales.\nLa página describe a INAPI, pero no destaca en un solo lugar las respuestas a qué, cómo, dónde, cuándo y para quién. El criterio de datos clave aplica aquí; no debe marcarse como no aplicable solo porque la página no sea un trámite.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-7-6df6fcae-image7.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 8,
+    "numero_original": "9",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "INAPI es el organismo encargado de la administración y atención de los servicios de la propiedad industrial en Chile.",
+    "propuesto": "Añadir, antes o junto a la descripción institucional, una frase que responda una pregunta ciudadana:\n¿Qué hace INAPI por ti?\nProtege tus marcas, patentes y otras creaciones, y te entrega información técnica sobre propiedad industrial.",
+    "observaciones": "Checklist Hito 3 - Criterio 14:\nMedianamente cumple.\nCuerpo principal, antes o junto al primer párrafo.\nEl contenido se redacta desde la perspectiva institucional (qué es INAPI, su visión, misión y valores) y no como respuesta a preguntas concretas que se haría una persona usuaria (por ejemplo, «¿qué hace INAPI por mí?»).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-8-c815d4c6-image15.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 9,
+    "numero_original": "11",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Los productos y servicios ofertados por INAPI incorporan, en el diseño y la evaluación, la perspectiva de satisfacción de usuarios y se adoptan medidas necesarias para la mejora continua.",
+    "propuesto": "revisar misión, visión y valores",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nMedianamente cumple (corrección 2 de 3)\nSección «Valores Institucionales», ítem «Calidad de Servicio».\nVoz pasiva («se adoptan») dificulta identificar quién realiza la acción; se reescribe en voz activa.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-9-196910d7-image4.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 10,
+    "numero_original": "12",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista atenderá tu consulta.",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nMedianamente cumple (corrección 3 de 3)\nVentana emergente «¿Quieres contactarnos?».\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). Voz pasiva y futuro en un componente compartido del sitio; corregir en el origen replica el cambio en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-10-b6e8a3ee-image9.png",
+      "docs/words-solicitudes-correccion/_media/4-10-d8499766-image17.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 11,
+    "numero_original": "13",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile, generando sistemas eficientes para el uso y protección de los derechos de propiedad industrial, promoviendo la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.",
+    "propuesto": "INAPI contribuye a la estrategia de innovación impulsada por el Gobierno de Chile. Genera sistemas eficientes para usar y proteger los derechos de propiedad industrial, y promueve la innovación, el emprendimiento y la transferencia de conocimiento a la comunidad.",
+    "observaciones": "Hito 3 - Criterio 24:\nNo cumple (corrección 1 de 4)\nSegundo párrafo del cuerpo › texto «INAPI contribuye a la estrategia de innovación impulsada por el Gobier…».\nOración única de aproximadamente 48 palabras con tres gerundios encadenados; se divide en dos oraciones más cortas y directas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-11-c98b0382-image1.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 12,
+    "numero_original": "14",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "INAPI incorpora en todos sus procesos consideraciones de su impacto ambiental (consumo energético, reciclaje, medición de la huella de carbono), medidas de inclusión, y de pago oportuno a sus proveedores.",
+    "propuesto": "INAPI incorpora en sus procesos tres compromisos: cuidar el impacto ambiental (consumo energético, reciclaje, huella de carbono), promover la inclusión y pagar oportunamente a sus proveedores.",
+    "observaciones": "Hito 3 - Criterio 23:\nNo cumple.\nHito 3 - Criterio 24:\nNo cumple (corrección 4 de 4)\nSección «Valores Institucionales», ítem «Socialmente responsable».\nEl ítem agrupa tres ideas distintas en una sola oración; se reformula para dejar explícitos los tres compromisos.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-12-db4a9f85-image16.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 13,
+    "numero_original": "15",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nLa página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. Mismo vacío detectado en otras páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-13-b0ee7a16-image14.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 14,
+    "numero_original": "16",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Alineado Justificado",
+    "propuesto": "Alineado a la izquierda a todo el cuerpo de texto, según criterio 34: ¿El texto está alineado a la izquierda? — Instrumento 11: Legibilidad",
+    "observaciones": "Checklist Hito 7 - Criterio 34:\nMedianamente cumple.\nCuerpo principal: introducción, bloque «Visión», bloque «Misión» y sección «Valores Institucionales».\nEl texto Justificado sin control de guionado en la web genera espacios irregulares entre palabras, especialmente en las oraciones largas de Visión y Misión.",
+    "imagenes": []
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 15,
+    "numero_original": "17",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "INAPI será una institución referente a nivel mundial en el registro, gestión, promoción y calidad de la propiedad industrial, constituyéndola en un motor del emprendimiento e innovación con el fin de incrementar la productividad y diversificación de la economía del país.",
+    "propuesto": "Destacar en negrita los conceptos clave del párrafo de Visión: registro, gestión, promoción y calidad; emprendimiento e innovación.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 1 de 2)\nTodas las secciones presentan párrafos alineados justificados.\nAdemás, los bloques Visión y Misión no destacan ninguna palabra clave con negrita; al no haber resaltado en esos párrafos, el criterio no cumple para esos textos.\nEsta corrección se debe hacer luego de la corrección 67.",
+    "imagenes": []
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 16,
+    "numero_original": "18",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Consolidar el Sistema Nacional de Propiedad Industrial, mediante la protección de los derechos, la difusión del conocimiento y el fomento de una visión equilibrada e integral de la Propiedad Industrial, con el fin de contribuir al desarrollo económico y social de Chile.",
+    "propuesto": "Destacar en negrita los conceptos clave del párrafo de Misión: protección de los derechos; difusión del conocimiento.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 2 de 2)\nBloque «Misión».\nEl párrafo de Misión es una oración corrida sin ninguna palabra en negrita. Los bloques Visión y Misión no destacan ninguna palabra clave con negrita.\nEsta corrección se debe hacer luego de la corrección 74.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-16-8e5956d3-image3.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 17,
+    "numero_original": "19",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 3)\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-17-29c96c4e-image12.png",
+      "docs/words-solicitudes-correccion/_media/4-17-820c35e6-image11.png"
+    ]
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 18,
+    "numero_original": "20",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 2 y 3 de 3):\nHito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 2)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo:\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  },
+  {
+    "source_id": "4",
+    "source_file": "4. Cambios de contenidos_web INAPI web acercade.docx",
+    "source_row": 19,
+    "numero_original": "21",
+    "link": "www.inapi.cl/acerca-de/inapi",
+    "default_url": "https://www.inapi.cl/acerca-de/inapi",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el atajo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial»",
+    "observaciones": "Checklist Hito 8 - criterio 42:\nMedianamente cumple (corrección 1 de 2)\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/4-19-82a8496d-image5.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nCumple con observaciones\nPie de página › bloque «Dónde estamos». Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» debe llevar mayúscula al ser parte del nombre propio. Corregir en el origen replica el cambio en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-1-fd34666a-image7.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-2-9808df30-image10.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "Buscador",
+    "propuesto": "El título principal debe incluir el término buscado (escrito en la barra del buscador).\nPor ejemplo, si el usuario escribe noticias:\nResultados para \"noticias\".",
+    "observaciones": "Checklist Hito 3 - Criterio 10:\nMedianamente cumple.\nZona superior › título principal de la página de resultados.\nEl título principal debe representar de forma fiel el contenido que sigue. El título visible es siempre la misma palabra genérica «Buscador», sin relación con la búsqueda concreta que hizo la persona ni con cuántos resultados hay. Cualquier otra búsqueda mostraría exactamente el mismo título, sin relación con lo que sigue.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-3-5094b85e-image9.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir sobre la lista de resultados (como subtítulo) un mensaje visible, por ejemplo:\n5 resultados para \"noticias\"\nY mantener visible el campo de búsqueda visible (barra de búsqueda) con el término ya escrito, para que la persona pueda ver y modificar su búsqueda sin volver a abrir la ventana emergente de la cabecera.",
+    "observaciones": "Checklist Hito 3 - Criterio 12:\nNo cumple.\nZona superior › bajo el título principal, sobre la lista de resultados.\nFaltan dos datos clave habituales en una pantalla de resultados de búsqueda: un mensaje con la cantidad de resultados encontrados para el término buscado, y un campo de búsqueda visible en esta misma pantalla para ver o modificar el término ya buscado sin tener que abrir de nuevo la ventana emergente de la cabecera.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-4-3cc4a67b-image8.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 5,
+    "numero_original": "5",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista atenderá tu consulta.",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nCumple con observaciones.\nVentana emergente «¿Quieres contactarnos?».\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). Voz pasiva y futuro en un componente compartido del sitio; corregir en el origen replica el cambio en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-5-b6e8a3ee-image4.png",
+      "docs/words-solicitudes-correccion/_media/5-5-d8499766-image5.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 6,
+    "numero_original": "6",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nZona superior › bajo el título principal.\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). La página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. Mismo vacío detectado en otras páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-6-b0ee7a16-image1.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 7,
+    "numero_original": "7",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "INAPI - Instituto Nacional de Propiedad Industrial (enlaza a una dirección duplicada de la página de inicio “https://www.inapi.cl/home”)",
+    "propuesto": "Retirar “https://www.inapi.cl/home”, este resultado del índice de búsqueda del buscador, o hacer que apunte a la dirección oficial única de la página de inicio en vez de a una dirección duplicada, para que no aparezca como un resultado sin relación directa con el término buscado.",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nMedianamente cumple (corrección 1 de 2)\nCuerpo de la página › tercer resultado de la lista.\nEste resultado no aporta información útil para una búsqueda del término «noticias» y apunta a una dirección duplicada de la página de inicio; corregir en el indexador de búsqueda del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-7-c8f22ff3-image11.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 8,
+    "numero_original": "8",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 3)\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-8-29c96c4e-image3.png",
+      "docs/words-solicitudes-correccion/_media/5-8-820c35e6-image2.png"
+    ]
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 9,
+    "numero_original": "9",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 2 y 3 de 3)\nHito 8 Criterio 42:\nMedianamente cumple (corrección 2 de 2)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo:\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  },
+  {
+    "source_id": "5",
+    "source_file": "5. Cambios de contenidos_web INAPI buscador.docx",
+    "source_row": 10,
+    "numero_original": "10",
+    "link": "www.inapi.cl/buscador?indexCatalogue=inapi&searchQuery=noticias&wordsMode=0",
+    "default_url": "https://www.inapi.cl/buscador",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el atajo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial»",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 1 de 2)\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/5-10-82a8496d-image6.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nCumple con observaciones (corrección 1 de 2)\nPie de página › bloque «Dónde estamos». Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» debe llevar mayúscula al ser parte del nombre propio. Corregir en el origen replica el cambio en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-1-fd34666a-image2.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "- SOLICITUD NUEVA Y PAGO ELECTRÓNICO\n- REVISAR Y PAGAR SOLICITUDES GUARDADAS\n- PUBLICACIÓN EN EL DIARIO OFICIAL\n- PIZARRA DE PAGOS (PAGO, RENOVACIÓN Y ANOTACIÓN)\n- PRESENTACIÓN DE ESCRITOS",
+    "propuesto": "- Solicitud nueva y pago electrónico\n- Revisar y pagar solicitudes guardadas\n- Publicación en el Diario Oficial\n- Pizarra de pagos (pago, renovación y anotación)\n- Presentación de escritos",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nCumple con observaciones (corrección 2 de 2)\nCuerpo de la página › cinco tarjetas de acción.\nLos cinco rótulos de las tarjetas usan mayúscula en casi cada letra; deben usar mayúscula sólo al inicio de cada rótulo (salvo nombres propios como «Diario Oficial»).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-2-b82fc467-image10.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Publicación en el Diario Oficial",
+    "propuesto": "Publicación en el Diario Oficial — Paga aquí para la publicación de tu solicitud de marca.",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 1 de 3)\nCuerpo de la página › tercera tarjeta de acción.\nEl término no explica por qué la persona debe pagar esta publicación ni qué efecto tiene en su trámite; la propuesta define el propósito e informa que el destino es un sitio externo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-3-c7843dbe-image6.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Pizarra de Pagos (pago, renovación y anotación)",
+    "propuesto": "Pagar otros trámites de tu marca - Renovación o anotación",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 2 de 3)\nCuerpo de la página › cuarta tarjeta de acción.\n«Pizarra de Pagos» es una metáfora ambigua que no distingue este pago del de la tarjeta «Solicitud Nueva y Pago Electrónico»; la propuesta reemplaza la metáfora por una descripción directa.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-4-08e39c58-image11.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 5,
+    "numero_original": "5",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Presentación de Escritos",
+    "propuesto": "Presentación de Escritos - Documentos adicionales sobre tu trámite",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nNo cumple (corrección 3 de 3)\nCuerpo de la página › quinta tarjeta de acción.\n«Escritos» es jerga legal sin definir; la persona no sabe qué tipo de documento debe subir aquí ni cuándo corresponde usar esta opción.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-5-3ef2e0ab-image4.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 6,
+    "numero_original": "6",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones.\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-6-9808df30-image8.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 7,
+    "numero_original": "7",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Marcas — Trámites",
+    "propuesto": "Unificar un solo título para todas las pestañas, y el subtítulo tiene que ser el nombre de la pestaña, por ejemplo\nTítulo:\nTipos de trámites de marcas\nSubtítulo:\nSolicitud nueva",
+    "observaciones": "Checklist Hito 2 - criterio 10:\nMedianamente cumple.\nZona superior › título principal y subtítulo del banner.\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). El título principal visible es el banner compartido de toda la sección Marcas y no menciona el trámite específico; se propone incorporar el nombre del\ntrámite activo, ya visible en la ruta de navegación, directamente en el título principal.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-7-2226016e-image14.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 8,
+    "numero_original": "8",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir una sección con subtítulo breve antes después de las pestañas principales:\nTítulo:\nPresenta tu solicitud de registro de marca y paga en línea\nDescripción:\nEn esta sección de INAPI se reúnen los accesos directos y servicios digitales necesarios para tramitar el registro de una marca comercial en Chile, desde el ingreso inicial hasta el seguimiento legal del expediente:",
+    "observaciones": "Hito 2 - Criterio 12:\nNo cumple.\nHito 2 - Criterio 13:\nNo cumple\nEntre el submenú de pestañas y las cinco tarjetas de acción.\nNo hay ningún dato en pantalla que le permita a la persona saber qué necesita, cuánto cuesta o cuánto demora antes de hacer clic. Se pide al equipo editorial confirmar y completar cifras reales.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-8-46c5fcfa-image3.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 9,
+    "numero_original": "9",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista atenderá tu consulta.",
+    "observaciones": "Checklist Hito 3 - Criterio 17:\nCumple con observaciones.\nVentana emergente «¿Quieres contactarnos?».\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). Voz pasiva y futuro en un componente compartido del sitio; corregir en el origen replica el cambio en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-9-b6e8a3ee-image12.png",
+      "docs/words-solicitudes-correccion/_media/6-9-d8499766-image5.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 10,
+    "numero_original": "10",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible: «Actualizado: DD de mes de AAAA».",
+    "observaciones": "Checklist Hito 4 - Criterio 27:\nNo cumple.\nZona superior › bajo el título principal, antes de las tarjetas de acción.\nPatrón de sitio (corregir una vez en el layout o componente compartido del CMS). La página no muestra fecha de publicación ni de actualización; el aviso de copyright del pie no cumple esta función. Mismo vacío detectado en otras páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-10-b0ee7a16-image1.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 11,
+    "numero_original": "11",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Criterio 40:\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-11-29c96c4e-image7.png",
+      "docs/words-solicitudes-correccion/_media/6-11-820c35e6-image9.png"
+    ]
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 12,
+    "numero_original": "12",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.",
+    "observaciones": "Hito 8 - Criterio 40:\nMedianamente cumple (corrección 2 de 2)\nHito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 2)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo:\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  },
+  {
+    "source_id": "6",
+    "source_file": "6. Cambios de contenidos_web INAPI solicitud_nueva.docx",
+    "source_row": 13,
+    "numero_original": "13",
+    "link": "www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "default_url": "https://www.inapi.cl/marcas/tramites/solicitud-nueva",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el atajo del menú por uno que diga qué información entrega, por ejemplo «Qué es la propiedad industrial»",
+    "observaciones": "Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 2)\nHito 8 - Criterio 42:\nMedianamente cumple (corrección 1 de 2)\nEl enlace del menú principal solo dice «Conoce más» sin indicar de qué.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/6-13-82a8496d-image13.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "sobre PropiedadIndustrial",
+    "propuesto": "sobre Propiedad Industrial (PI)",
+    "observaciones": "Hito 1 — Criterio 1: Medianamente cumple (corrección 1 de 6)\nUbicación: Cuerpo › primera tarjeta › título enlazado «Academia INAPI abre postulaciones para su nuevo curso gratuito y asincrónico sobre PropiedadIndustrial»\nJustificación: Las palabras «propiedad» e «industrial» aparecen pegadas sin espacio. Se separan y se usa minúscula porque es un concepto común. Pasar el título por el corrector ortográfico del CMS o del navegador antes de publicar.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-1-462a626e-image24.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Martes 20 octubre de 2026\nMiércoles 14 octubre de 2026\nMartes 29 septiembre de 2026",
+    "propuesto": "Martes 20 de octubre de 2026\nMiércoles 14 de octubre de 2026\nMartes 29 de septiembre de 2026",
+    "observaciones": "Hito 1 — Criterio 1: Medianamente cumple (correcciones 2, 3 y 4 de 6)\nUbicación: Cuerpo › fecha gris bajo el título de las tres tarjetas de noticia\nJustificación: Las tres fechas omiten la preposición «de» entre el día y el mes, error gramatical que se repite en todo el listado. Si el formato se genera automáticamente, corregir la plantilla del CMS una sola vez para que el cambio se aplique a todas las fechas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-2-268d3e5b-image12.png",
+      "docs/words-solicitudes-correccion/_media/7-2-268d3e5b-image12.png",
+      "docs/words-solicitudes-correccion/_media/7-2-268d3e5b-image12.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Contraste de pagina",
+    "propuesto": "Contraste de página",
+    "observaciones": "Hito 1 — Criterio 1: Medianamente cumple (corrección 5 de 6)\nUbicación: Cabecera › ícono de contraste › texto que aparece al pasar el mouse sobre ese ícono\nJustificación: Patrón de sitio (corregir una vez en el componente compartido del CMS; el cambio se replica en todas las páginas). Falta la tilde en «página»: error de ortografía acentual en un texto visible de la cabecera.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-3-66b4dccf-image21.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Hito 1 — Criterio 1: Medianamente cumple (corrección 6 de 6)\nUbicación: Pie de página › bloque «Dónde estamos» › nombre de la institución\nJustificación: Patrón de sitio (corregir una vez en el componente compartido del CMS; el cambio se replica en todas las páginas). En el nombre oficial de una institución, las palabras significativas llevan mayúscula inicial; «industrial» quedó en minúscula, distinto de cómo se escribe en el logo de la cabecera.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-4-fd34666a-image32.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 5,
+    "numero_original": "5",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+    "propuesto": "El programa gratuito y en línea busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+    "observaciones": "Hito 1 — Criterio 2: Cumple con observaciones (corrección 1 de 1)\nUbicación: Cuerpo › primera tarjeta de noticia › texto bajo la fecha\nJustificación: La coma entre el sujeto «El programa gratuito y en línea» y su verbo «busca» no corresponde gramaticalmente y corta la frase. Basta quitarla; el resto del texto se trata en los criterios de lenguaje plano.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-5-cee5bff4-image22.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 6,
+    "numero_original": "6",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.",
+    "propuesto": "Reescribir el extracto en dos oraciones de no más de 20 palabras cada una, con palabras de uso diario, y pasarlo por la herramienta Legible hasta que al menos tres de cinco indicadores queden en dificultad Normal. Texto sugerido para pegar: «El estudio analiza cómo se usa hoy en Chile la propiedad industrial para conseguir financiamiento. Identifica qué facilita y qué frena ese uso, y propone mejoras.»",
+    "observaciones": "Hito 2 — Criterio 4: Medianamente cumple (corrección 1 de 2)\nHito 3 — Criterio 17: Cumple con observaciones (corrección 1 de 2)\nUbicación: Cuerpo › tarjeta 2 de noticia › texto bajo la fecha\nJustificación: La pregunta pide presente simple y voz activa. El texto usa un futuro con verbos en infinitivo encadenados y un sujeto vago, «La iniciativa», sin decir quién hace qué. En presente y con «El estudio» como sujeto se entiende de inmediato. Los títulos de las tres tarjetas están en presente y voz activa («abre», «inician», «mantiene»), pero hay dos excepciones menores: el texto de la tarjeta 2 usa futuro con sujeto vago y la ventana de contacto usa voz pasiva donde puede decirse quién actúa.\nUbicación: Cuerpo › tarjeta 2 de noticia › texto bajo la fecha\nJustificación: No se midió con Legible y el extracto es una sola oración de 32 palabras con ideas abstractas encadenadas, difícil para quien tiene menos dominio lector. Se propone una versión corta y una medición posterior con la herramienta. No hay medición con Legible en los textos de la página y los extractos de las tarjetas 2 y 3 son oraciones largas con ideas abstractas, de comprensión difícil para personas con menor dominio lector. Los títulos son más directos. Hay que reescribir los dos extractos y medirlos.\nHito 3 — Criterio 24: Cumple con observaciones (corrección 1 de 1)\nUbicación: Cuerpo › listado de noticias › tarjeta «INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial» › texto bajo la fecha\nJustificación: La pregunta pide oraciones simples y directas, sin palabras de más. Esta tiene 32 palabras y tres acciones encadenadas; recortando el relleno la deja directa. La reescritura completa en lenguaje cotidiano está en el criterio 4; aquí se pide la medida de longitud. El texto de la tarjeta «INAPI y OMPI inician primer estudio…» tiene 32 palabras en una sola oración, con tres verbos en lista y una frase final larga. Pide una oración más corta y directa.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-6-6811e557-image2.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 7,
+    "numero_original": "7",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+    "propuesto": "Separar las dos cifras en oraciones cortas y volver a medir con Legible hasta lograr al menos tres de cinco indicadores en dificultad Normal\nTexto propuesto:\n\"En el ranking general del Índice Mundial de Innovación (OMPI), Chile se ubica en el puesto 51. De forma parcial, el país mejoró al lugar 41 en inversión e infraestructura, pero retrocedió al puesto 70 en resultados concretos de innovación.\"",
+    "observaciones": "Hito 2 — Criterio 4: Medianamente cumple (corrección 2 de 2)\nHito 2 — Criterio 6: Medianamente cumple (corrección 2 de 10)\nHito 3 — Criterio 16: Medianamente cumple (corrección 2 de 2)\nUbicación: Cuerpo › tarjeta 3 de noticia › texto bajo la fecha\nJustificación: El extracto junta dos comparaciones numéricas y la fuente en una sola oración, y no hay medición de lectura fácil. Una oración por cifra facilita la comprensión; luego se debe medir con Legible. No hay medición con Legible en los textos de la página y los extractos de las tarjetas 2 y 3 son oraciones largas con ideas abstractas, de comprensión difícil para personas con menor dominio lector. Los títulos son más directos. Hay que reescribir los dos extractos y medirlos.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-7-fc341131-image5.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 8,
+    "numero_original": "8",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "INAPI y OMPI inician primer estudio en Chile sobre financiamiento respaldado en propiedad industrial",
+    "propuesto": "INAPI y la Organización Mundial de la Propiedad Intelectual (OMPI) inician el primer estudio en Chile sobre el uso de la propiedad industrial, como las marcas y las patentes, para conseguir financiamiento.",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 1 de 10)\nUbicación: Cuerpo › tarjeta 2 de noticia › título enlazado\nJustificación: El título usa «financiamiento respaldado en propiedad industrial», una expresión financiera y jurídica que no dice que se trata de usar marcas o patentes como respaldo para obtener créditos. Quien lee solo el título no la entiende. Hay términos técnicos o legales sin explicación en las noticias y en el menú lateral y el panel «Buscar y tramitar». Se proponen cambios o glosas breves, sin párrafos en el menú.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-8-4db72e00-image16.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 9,
+    "numero_original": "10",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Sistema de Madrid",
+    "propuesto": "Añadir texto de ayuda al pasar el mouse sobre el enlace:\nSistema de Madrid: registra tu marca en otros países\nEl rótulo puede quedar igual.",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 3 de 10)\nUbicación: Menú lateral › enlace «Sistema de Madrid»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre del sistema internacional no dice para qué sirve; es un término técnico sin glosa. En un menú basta una frase de ayuda, no un párrafo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-9-b2ca12be-image11.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 10,
+    "numero_original": "11",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Sello de Origen",
+    "propuesto": "Añadir texto de ayuda al pasar el mouse:\nSello de Origen: distingue productos típicos de una zona de Chile\nEl rótulo puede quedar igual.",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 4 de 10)\nUbicación: Menú lateral › enlace «Sello de Origen»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Sello de Origen» es un término técnico que no explica qué distingue ni a quién sirve. Una glosa breve en el menú lo resuelve. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-10-ac35f4ec-image9.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 11,
+    "numero_original": "12",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Observancia",
+    "propuesto": "Cambiar el rótulo por:\nObservancia: defiende tus derechos de propiedad industrial\nCon la glosa en el mismo rótulo.",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 5 de 10)\nUbicación: Menú lateral › enlace «Observancia»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Observancia» es un término legal que, como único rótulo, no dice qué hace la persona en esa sección. Quien solo lee el menú no lo entiende. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-11-be6c1b26-image10.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Dominio Público",
+    "propuesto": "Añadir texto de ayuda al pasar el mouse sobre el enlace:\nDominio público: buscador de patentes que ya se pueden usar libremente\nEl rótulo puede quedar igual.",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 6 de 10)\nUbicación: Menú lateral › enlace «Dominio Público» Puede visualizarse en el menú desplegable (hamburguesa) en dispositivos móviles.\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Dominio Público» es un concepto jurídico que el ciudadano común no asocia con inventos de uso libre; la página de destino es un buscador de patentes de dominio público. Una glosa breve evita la duda. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-12-defc4b62-image18.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Presentación de escritos",
+    "propuesto": "Cambiar el atajo por:\nPresentar documentos (escritos de marcas)",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 7 de 10)\nUbicación: Panel «Buscar y tramitar» › subtítulo «MARCAS» › enlace «Presentación de escritos»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Escrito» es un término procesal que no todas las personas conocen. El rótulo debe decir qué se hace: enviar documentos a una solicitud ya presentada. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-13-c7c38e64-image26.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Notificaciones diarias",
+    "propuesto": "Propuestas:\n1. Avisos diarios de solicitudes de marcas\n2. Revisar notificaciones de marcas\n3. Avisos y resoluciones diarias de marcas",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 8 de 10)\nUbicación: Panel «Buscar y tramitar» › subtítulo «MARCAS» › enlace «Notificaciones diarias»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Notificaciones diarias» es un término procesal que no dice qué avisos se publican ni a quién importan. El rótulo propuesto dice qué ve la persona. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-14-535e5053-image30.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Presentación de escritos",
+    "propuesto": "Cambiar el atajo por:Presentar documentos (escritos de patentes)",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 9 de 10)\nUbicación: Panel «Buscar y tramitar» › subtítulo «PATENTES» › enlace «Presentación de escritos»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Escrito» es un término procesal que no todas las personas conocen. El rótulo debe decir qué se hace: enviar documentos a una solicitud ya presentada. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-15-80a72045-image28.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Notificaciones diarias",
+    "propuesto": "Propuestas:\nPropuestas:\n1. Avisos diarios de solicitudes de patentes\n2. Revisar notificaciones de patentes\n3. Avisos y resoluciones diarias de patentes",
+    "observaciones": "Hito 2 — Criterio 6: Medianamente cumple (corrección 10 de 10)\nUbicación: Panel «Buscar y tramitar» › subtítulo «PATENTES» › enlace «Notificaciones diarias»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Notificaciones diarias» es un término procesal que no dice qué avisos se publican ni a quién importan. El rótulo propuesto dice qué ve la persona. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-16-a182307f-image19.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "gratuito y asincrónico",
+    "propuesto": "Cambiar «gratuito y asincrónico» por «gratuito y en línea».",
+    "observaciones": "Hito 2 — Criterio 7: Medianamente cumple (corrección 1 de 4)\nUbicación: Cuerpo › tarjeta 1 de noticia › título enlazado\nJustificación: «Asincrónico» es un término propio de la educación a distancia. Decir que el curso se hace en línea y a tu ritmo transmite lo mismo con palabras de uso diario. Las tres noticias contienen un término especializado o extranjero cada una: «asincrónico» en la tarjeta 1, «ecosistema nacional» en la tarjeta 2 y «ranking» en la tarjeta 3; además la ruta de navegación dice «Home». Como todo el contenido principal revisado tiene al menos un término así, no se alcanza el 50% de contenidos que los eviten.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-17-12c4bf87-image29.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 18,
+    "numero_original": "19",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "… el estado actual del ecosistema nacional",
+    "propuesto": "Propuesta:\n… el panorama general del mercado nacional de financiamiento respaldado en Propiedad Industrial.",
+    "observaciones": "Hito 2 — Criterio 7: Medianamente cumple (corrección 2 de 4)\nUbicación: Cuerpo › tarjeta 2 de noticia › texto bajo la fecha\nJustificación: «Ecosistema» es una metáfora abstracta que no dice qué actores o qué situación se estudiarán. Una expresión directa se entiende sin conocimientos previos. Las tres noticias contienen un término especializado o extranjero cada una: «asincrónico» en la tarjeta 1, «ecosistema nacional» en la tarjeta 2 y «ranking» en la tarjeta 3; además la ruta de navegación dice «Home». Como todo el contenido principal revisado tiene al menos un término así, no se alcanza el 50% de contenidos que los eviten.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-18-6d85c92e-image35.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 19,
+    "numero_original": "20",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "según el ranking de la OMPI",
+    "propuesto": "Propuesta:\nsegún el ranking de la Organización Mundial de Propiedad Intelectual (OMPI).",
+    "observaciones": "Hito 2 — Criterio 7: Medianamente cumple (corrección 3 de 4)\nUbicación: Cuerpo › tarjeta 3 de noticia › texto bajo la fecha\nJustificación: Agregar las palabras del acrónimo OMPI.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-19-02e86539-image23.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 20,
+    "numero_original": "21",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Home",
+    "propuesto": "Cambiar «Home» por «Inicio».",
+    "observaciones": "Hito 2 — Criterio 7: Medianamente cumple (corrección 4 de 4)\nUbicación: Zona superior de la sección › migas de pan › primer tramo «Home»\nJustificación: «Home» es un anglicismo en la ruta de navegación; «Inicio» es la palabra de uso común en español. Las tres noticias contienen un término especializado o extranjero cada una; además la ruta de navegación dice «Home». Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-20-cb9b2eeb-image14.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 21,
+    "numero_original": "22",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "OMPI",
+    "propuesto": "Definir la sigla en su primera aparición: «INAPI y la Organización Mundial de la Propiedad Intelectual (OMPI) inician el primer estudio…». El título completo se propone en el criterio 6.",
+    "observaciones": "Hito 2 — Criterio 8: Medianamente cumple (corrección 1 de 3)\nUbicación: Cuerpo › tarjeta 2 de noticia › título enlazado\nJustificación: La sigla OMPI aparece sin desarrollar en el título, que es lo primero que se lee. Debe definirse en su primera aparición. La sigla OMPI aparece sin desarrollar en el título de la tarjeta 2 y otra vez en el extracto de la tarjeta 3; en el menú lateral «PCT» tampoco se explica. La sigla INAPI sí está desarrollada en el pie de página.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-21-4ca920b0-image20.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 22,
+    "numero_original": "23",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "OMPI",
+    "propuesto": "Escribir la sigla con su desarrollo la primera vez que aparece en este extracto: «según la clasificación de la Organización Mundial de la Propiedad Intelectual (OMPI)». Cada tarjeta se lee por separado.",
+    "observaciones": "Hito 2 — Criterio 8: Medianamente cumple (corrección 2 de 3)\nUbicación: Cuerpo › tarjeta 3 de noticia › texto bajo la fecha\nJustificación: Esta tarjeta repite la sigla sin explicarla; quien lee solo esta noticia no sabe qué es la OMPI. La sigla OMPI aparece sin desarrollar en el título de la tarjeta 2 y otra vez en el extracto de la tarjeta 3; en el menú lateral «PCT» tampoco se explica. La sigla INAPI sí está desarrollada en el pie de página.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-22-beeaa8a2-image25.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 23,
+    "numero_original": "24",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "PCT",
+    "propuesto": "Añadir texto de ayuda al pasar el mouse: «PCT: Tratado de Cooperación en materia de Patentes, para pedir protección en varios países». Definir también la sigla al inicio de la página de destino.",
+    "observaciones": "Hito 2 — Criterio 8: Medianamente cumple (corrección 3 de 3)\nUbicación: Menú lateral › grupo Patentes › enlace «PCT»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «PCT» aparece como sigla suelta en el menú, sin desarrollar. Una ayuda breve evita convertir el ítem en un párrafo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-23-9808df30-image6.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 24,
+    "numero_original": "25",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir un recuadro breve bajo el subtítulo con los datos clave de la sección:\nAquí encuentras las noticias y novedades más recientes de INAPI sobre marcas, patentes, cursos y actividades.",
+    "observaciones": "Hito 3 — Criterio 12: No cumple (corrección 1 de 2)\nUbicación: Zona superior de la sección › bajo el subtítulo «Noticias», antes de las tarjetas\nJustificación: La pregunta pide datos clave a la vista. Hoy la persona llega directo a tres tarjetas sin saber qué se publica en esta sección ni cuándo se actualiza ni dónde hallar noticias anteriores. Un recuadro de tres líneas lo resuelve sin recargar la página. La pregunta pide que el texto destaque los datos clave (qué, cómo, dónde, cuándo y para quién) en un resumen o recuadro. En el listado no hay ningún texto introductorio ni recuadro que diga qué publica esta sección, con qué frecuencia se actualiza o cómo llegar a noticias anteriores.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-24-9b3a66fe-image8.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 25,
+    "numero_original": "26",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+    "propuesto": "Propuesta:\n\"Curso online y gratuito para emprendedores y público general interesados en proteger sus creaciones (marcas y patentes). Se realiza de forma asincrónica a tu propio ritmo entre el 2 de noviembre y el 30 de diciembre de 2026; postula en línea desde la sección «Aprende» de inapi.cl antes del inicio del curso.\"",
+    "observaciones": "Hito 3 — Criterio 12: No cumple (corrección 2 de 2)\nUbicación: Cuerpo › tarjeta 1 de noticia «Academia INAPI abre postulaciones…» › texto bajo la fecha\nJustificación: El título anuncia que se abren postulaciones, pero el extracto no dice para quién es el curso, cómo se postula ni hasta cuándo. Sin esos datos la persona no puede decidir ni actuar sin abrir la noticia completa. La pregunta pide que el texto destaque los datos clave (qué, cómo, dónde, cuándo y para quién) en un resumen o recuadro. La noticia sobre postulaciones al curso gratuito no dice para quién es, cómo postular ni hasta cuándo, que es justo lo que la persona necesita para actuar.\nHito 3 — Criterio 16: Medianamente cumple (corrección 1 de 2)\nUbicación: Cuerpo › tarjeta 1 de noticia › texto bajo la fecha\nJustificación: La pregunta pide conceptos claros y consistentes. El título anuncia un curso sobre propiedad industrial y el texto habla de «propiedad intelectual»; son conceptos distintos y la persona no sabe de cuál se trata. Debe elegirse un solo término y explicarlo en pocas palabras. Hay dos confusiones de concepto en las tarjetas, distintas de los términos ya tratados en otros criterios: en la tarjeta 1 el título habla de propiedad industrial y el texto bajo la fecha de propiedad intelectual, sin explicar si son lo mismo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-25-cee5bff4-image22.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 26,
+    "numero_original": "30",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Tu consulta será atendida por un especialista.",
+    "propuesto": "Un especialista responde tu consulta.",
+    "observaciones": "Hito 3 — Criterio 17: Cumple con observaciones (corrección 2 de 2)\nUbicación: Botón flotante «¿Quieres contactarnos?» › ventana emergente › línea bajo «inapi@inapi.cl»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). La frase en pasiva oculta quién actúa; en activa queda claro que un especialista responde. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. Los títulos de las tres tarjetas están en presente y voz activa («abre», «inician», «mantiene»), pero hay dos excepciones menores: el texto de la tarjeta 2 usa futuro con sujeto vago y la ventana de contacto usa voz pasiva donde puede decirse quién actúa.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-26-b6e8a3ee-image31.png",
+      "docs/words-solicitudes-correccion/_media/7-26-d8499766-image33.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 27,
+    "numero_original": "32",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "No hay texto que cumpla con este requisito",
+    "propuesto": "Añadir texto visible en una línea propia bajo el subtítulo «Noticias»: «Actualizado: DD de mes de AAAA», usando la fecha real de la última noticia publicada o de la última revisión del listado.",
+    "observaciones": "Hito 4 — Criterio 27: No cumple (corrección 1 de 1)\nUbicación: Zona inferior del Footer\nJustificación: La pregunta pide que la página muestre cuándo se publicó o actualizó. Las tarjetas tienen su propia fecha, pero el listado como página no dice cuándo se revisó. Una línea breve de fecha, separada del recuadro introductorio, lo resuelve. Las noticias sí están fechadas y el contenido está vigente: las tres tarjetas muestran fechas de septiembre y octubre de 2026. Lo que falta es la fecha de la propia página de listado: bajo el título principal y el subtítulo no hay ninguna línea que diga cuándo se publicó o se actualizó por última vez la sección.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-27-b0ee7a16-image7.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 28,
+    "numero_original": "33",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "El programa gratuito y en línea, busca acercar los conceptos fundamentales de la propiedad intelectual y destacar su rol estratégico en el emprendimiento y la innovación.",
+    "propuesto": "Marcar en negrita:\ncurso gratuito y en línea\nemprendimiento e innovación",
+    "observaciones": "Hito 8 — Criterio 39: No cumple (corrección 1 de 3)\nUbicación: Cuerpo › tarjeta 1 de noticia «Academia INAPI abre postulaciones…» › texto bajo la fecha\nJustificación: La pregunta pide destacar en negrita las palabras clave. El extracto es un bloque parejo y quien recorre la página no ve de un vistazo de qué se trata: es un curso gratuito. Poner en negrita esas frases permite entender la noticia en segundos. Ninguno de los tres extractos destaca palabras clave en negrita: son bloques de texto parejo, y quien solo recorre la página no encuentra de un vistazo el dato principal de cada noticia.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-28-cee5bff4-image22.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 29,
+    "numero_original": "34",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "La iniciativa permitirá conocer el estado actual del ecosistema nacional, identificar oportunidades y barreras, y generar recomendaciones para avanzar en el uso de la propiedad industrial como respaldo para acceder a financiamiento.",
+    "propuesto": "Marcar en negrita:\nestado actual\noportunidades y barreras\nrecomendaciones\npropiedad industrial como respaldo para acceder a financiamiento",
+    "observaciones": "Hito 8 — Criterio 39: No cumple (corrección 2 de 3)\nUbicación: Cuerpo › tarjeta 2 de noticia «INAPI y OMPI inician primer estudio…» › texto bajo la fecha\nJustificación: El extracto tiene tres objetivos encadenados sin ningún énfasis. Destacar en negrita lo que el estudio entregará ayuda a encontrar la idea principal sin leer la oración completa. Ninguno de los tres extractos destaca palabras clave en negrita: son bloques de texto parejo, y quien solo recorre la página no encuentra de un vistazo el dato principal de cada noticia.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-29-6811e557-image2.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 30,
+    "numero_original": "35",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "El país sube del lugar 43 al 41 en insumos de innovación, pero baja del 63 al 70 en resultados, según el ranking de la OMPI.",
+    "propuesto": "Marcar en negrita:\nsube del lugar 43 al 41\nbaja del 63 al 70",
+    "observaciones": "Hito 8 — Criterio 39: No cumple (corrección 3 de 3)\nUbicación: Cuerpo › tarjeta 3 de noticia «Chile mantiene el puesto 51…» › texto bajo la fecha\nJustificación: Las dos cifras son el dato central de la noticia y hoy no se distinguen del resto del texto. Con negrita en cada movimiento, quien escanea ve de inmediato qué mejoró y qué empeoró. Ninguno de los tres extractos destaca palabras clave en negrita: son bloques de texto parejo, y quien solo recorre la página no encuentra de un vistazo el dato principal de cada noticia.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-30-fc341131-image5.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 31,
+    "numero_original": "36",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "SALA DE PRENSA\nNOTICIAS\nHOME › SALA DE PRENSA ›\nNOTICIAS\nNOTICIAS | COLUMNAS\nVER TODAS LAS NOTICIAS",
+    "propuesto": "Mostrar los textos solo con mayúscula inicial:\n«Sala de Prensa»\n«Noticias»\n«Inicio › Sala de Prensa › Noticias»\n«Noticias»\n«Columnas» (pestañas)\n«Ver todas las noticias»(El cambio de «Home» a «Inicio» se trata en el criterio 7.)",
+    "observaciones": "Hito 8 — Criterio 40: Medianamente cumple (correcciones 1, 2, 3, 4 y 5 de 8)\nUbicación: Zona superior de la sección › título principal «Sala de Prensa» (C1), subtítulo «Noticias» (C2), migas de pan (C3), pestañas «Noticias» y «Columnas» (C4), botón naranjo «Ver todas las noticias» (C5)\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). La pregunta pide evitar textos completos en mayúsculas. Todos estos elementos se muestran con todas las letras en mayúscula, aunque están escritos con mayúscula inicial en el CMS. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. Las mayúsculas sostenidas se leen con más esfuerzo. Quedan fuera, por acuerdo, «ACCESOS» y «BUSCADOR» de la cabecera.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-31-ff0034c8-image1.png",
+      "docs/words-solicitudes-correccion/_media/7-31-5681cbb9-image27.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 32,
+    "numero_original": "37",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "BUSCAR Y TRAMITARMARCASPATENTES",
+    "propuesto": "Mostrar los textos con mayúscula inicial:\n«Buscar y tramitar»\n«Marcas»\n«Patentes»",
+    "observaciones": "Hito 8 — Criterio 40: Medianamente cumple (correcciones 6, 7 y 8 de 8)\nUbicación: Panel «Buscar y tramitar» › título del panel (C6), subtítulo del primer grupo «MARCAS» (C7), subtítulo del segundo grupo «PATENTES» (C8)\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El título y los subtítulos del panel se muestran todos en mayúsculas. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. Las mayúsculas sostenidas se leen con más esfuerzo. Quedan fuera, por acuerdo, «ACCESOS» y «BUSCADOR» de la cabecera.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-32-29c96c4e-image15.png",
+      "docs/words-solicitudes-correccion/_media/7-32-820c35e6-image34.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 33,
+    "numero_original": "38",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Conoce más",
+    "propuesto": "Cambiar el rótulo por «Qué es la propiedad intelectual e industrial», que es el título de la página a la que lleva.",
+    "observaciones": "Hito 8 — Criterio 42: Medianamente cumple (corrección 1 de 3)\nUbicación: Menú lateral › primer enlace «Conoce más»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). La pregunta pide rótulos que describan la acción o el destino. «Conoce más» no dice sobre qué, y la persona debe hacer clic para saberlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. En el menú lateral hay rótulos que no anticipan a dónde llevan: «Conoce más», «Conecta» y «Aprende». En cambio «Ver todas las noticias» y «Escuchar» sí dicen qué ocurre al hacer clic.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-33-82a8496d-image3.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 34,
+    "numero_original": "39",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Conecta",
+    "propuesto": "Colocar un recuadro con texto al pasar el mouse por encima del atajo Conecta:\n«Conecta: muestra tu innovación protegida a posibles interesados».",
+    "observaciones": "Hito 8 — Criterio 42: Medianamente cumple (corrección 2 de 3)\nUbicación: Menú principal› enlace «Conecta»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS).\n«Conecta» no indica con quién ni para qué. La página de destino es un espacio gratuito para dar a conocer innovaciones con derechos de propiedad industrial; el rótulo debe anticiparlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. En el menú lateral hay rótulos que no anticipan a dónde llevan: «Conoce más», «Conecta» y «Aprende».",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-34-15ba942a-image17.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 35,
+    "numero_original": "40",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Aprende",
+    "propuesto": "Colocar un recuadro con texto al pasar el mouse por encima del atajo Aprende:\n«Cursos y capacitaciones sobre propiedad industrial».",
+    "observaciones": "Hito 8 — Criterio 42: Medianamente cumple (corrección 3 de 3)\nUbicación: Menú lateral › enlace «Aprende»\nJustificación: Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). «Aprende» es una invitación general que no dice qué se aprende ni dónde. La página de destino ofrece cursos, talleres y capacitaciones de INAPI; el rótulo debe decirlo. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas. En el menú lateral hay rótulos que no anticipan a dónde llevan: «Conoce más», «Conecta» y «Aprende».",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-35-de3dcdde-image13.png"
+    ]
+  },
+  {
+    "source_id": "7",
+    "source_file": "7. Cambios de contenidos_web_INAPI_sala_de_prensa_completo.docx",
+    "source_row": 36,
+    "numero_original": "41",
+    "link": "www.inapi.cl/sala-de-prensa/noticias",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/noticias",
+    "original": "Política de privacidad",
+    "propuesto": "Colocar un recuadro con texto al pasar el mouse por encima del atajo Política de privacidad:\n«Política de privacidad (PDF 53,8 KB) — Cómo INAPI protege tus datos personales y cómo ejercer tus derechos». Pedir al CMS completar el peso real.",
+    "observaciones": "Hito 8 — Criterio 43: No cumple (corrección 4 de 4) / Criterio 44: No cumple (corrección 4 de 4)\nUbicación: Pie de página › grupo «Accesos» › enlace «Política de privacidad»\nJustificación (C43): Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). Al hacer clic se abre un documento PDF sin aviso previo, y el rótulo no dice formato, peso ni de qué trata. Patrón de sitio: corregir una vez en el componente compartido; el cambio se replica en todas las páginas.\nJustificación (C44): Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El enlace abre un PDF y el rótulo solo dice el nombre. Los cuatro documentos enlazados no traen una breve descripción visible de qué contienen. La descripción se agrega junto con el formato y el peso en las mismas correcciones del criterio 43.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/7-36-b085bc39-image4.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nNo cumple (corrección 2 de 2)\nPie de página › bloque «Dónde estamos». Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» debe llevar mayúscula al ser parte del nombre propio. Corregir en el origen replica el cambio en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-1-fd34666a-image1.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) realizó su Cuenta Pública Participativa 2026, instancia encabezada por el Director Nacional de INAPI, Esteban Figueroa Nagel, quien presentó los principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.",
+    "propuesto": "En la Cuenta Pública Participativa 2026, realizada el [fecha del evento] en la Casa Central de la Pontificia Universidad Católica de Valparaíso, el Instituto Nacional de Propiedad Industrial (INAPI) presentó sus principales avances institucionales alcanzados durante 2025 y los desafíos estratégicos proyectados para los próximos años.\nAgregar de forma explícita la fecha en que se realizó la ceremonia (por ejemplo, «El [día] de junio de 2026…»), no solo la fecha de publicación de la noticia que aparece junto al título.",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nNo cumple (corrección 1 de 2)\nHito 3 - Criterio 12:\nMedianamente cumple (corrección 1 de 2)\nCuerpo de la página › primer párrafo.\nEl párrafo comienza con minúscula y sin sujeto propio, lo que indica que falta la cláusula inicial de la oración. Se propone restituir esa cláusula para que la oración quede completa y gramaticalmente correcta.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-2-cdff993c-image3.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+    "propuesto": "…Asimismo, destacó la reducción histórica del rezago en juicios de oposición —los procesos donde un tercero puede objetar el registro de una marca o patente antes de que se conceda—, que pasó de un 56% a un 3%.",
+    "observaciones": "Hito 2 - Criterio 4:\nCumple con observaciones.\nHito 2- Criterio 6:\nMedianamente cumple (corrección 1 de 2)\nCuerpo de la página › cuarto párrafo.\n«Juicios de oposición» es un término legal que se usa sin explicación; se propone una glosa breve entre guiones que aclare de qué se trata sin alargar demasiado la oración.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-3-d31a7549-image10.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+    "propuesto": "…el impulso a mecanismos de financiamiento basados en activos intangibles —como una marca o una patente, que también tienen valor económico aunque no tengan forma física— y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+    "observaciones": "Hito 2 - Criterio 6:\nMedianamente cumple (corrección 2 de 2)\nCuerpo de la página › noveno párrafo.\n«Activos intangibles» es un término técnico-financiero que se usa sin explicación; se propone una glosa breve entre guiones que aclare el concepto para una persona sin formación económica o legal.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-4-d6fbc5e6-image11.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 5,
+    "numero_original": "6",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones (corrección 1 de 2)\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-5-9808df30-image12.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 6,
+    "numero_original": "7",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT hasta 2038…",
+    "propuesto": "Otro de los hitos abordados fue la renovación de INAPI como Autoridad Internacional de Búsqueda y Examen PCT (Tratado de Cooperación en materia de Patentes) hasta 2038…",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones (corrección 2 de 2)\nCuerpo de la página › quinto párrafo.\nLa sigla «PCT» se usa en el cuerpo del artículo sin definirse, a diferencia de «Patent Law Treaty (PLT)», que sí se expande en el mismo texto. Se propone agregar la definición entre paréntesis en esta primera aparición dentro del cuerpo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-6-bfac16c2-image2.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 7,
+    "numero_original": "8",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Detalle",
+    "propuesto": "Propuesta: dejar el título en el encabezado azul (Detalle noticia), y añadir como subtítulo:\nINAPI realizó su Cuenta Pública Participativa 2026 en Valparaíso y reforzó compromiso con la descentralización de la propiedad industrial\nY eliminar el título que sobraría debajo de la fecha.",
+    "observaciones": "Checklist Hito 3 - Criterio 10:\nMedianamente cumple\nZona superior de la noticia › encabezado de plantilla, antes del título del artículo.\nPatrón de sitio. El encabezado más visible («Detalle») no describe el contenido específico de esta noticia. Es un componente compartido de la plantilla de todas las noticias de detalle; corregir en el origen replica el cambio en todas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-7-e2b8f104-image6.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 8,
+    "numero_original": "9",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Los once párrafos totales de la noticia.",
+    "propuesto": "Reducir el cuerpo a un máximo de ocho párrafos, por ejemplo:\nFusionando los párrafos sobre PCT y descentralización en uno solo, o moviendo el detalle de la iniciativa INAPI+Cerca a un recuadro aparte.\nPara que el texto no parezca plano y demasiado extenso, se pueden utilizar pesos visuales (negritas y cursivas), punteos, entre otros elementos visuales.",
+    "observaciones": "Checklist Hito 3 - Criterio 20:\nMedianamente cumple.\nCuerpo de la página › los once párrafos entre la bajada y el enlace «Volver».\nEl cuerpo tiene once párrafos, tres más del máximo de ocho que exige el criterio para una sola página.",
+    "imagenes": []
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 9,
+    "numero_original": "10",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+    "propuesto": "Separar las ideas utilizando pesos visuales como negritas o en punteos para distinguir los distintos datos.",
+    "observaciones": "Checklist Hito 3 - Criterio 23:\nMedianamente cumple.\nCuerpo de la página › cuarto párrafo.\nEl párrafo concentra tres datos distintos (tiempo de tramitación de patentes, porcentaje de marcas resueltas, reducción del rezago en juicios de oposición) en una sola unidad de texto, en vez de explicar las ideas con punteos.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-9-d31a7549-image10.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 10,
+    "numero_original": "11",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Asimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos la modernización del sitio web institucional, la incorporación de herramientas de inteligencia artificial en procesos de examen, la implementación del Patent Law Treaty (PLT), el impulso a mecanismos de financiamiento basados en activos intangibles y el inicio de la elaboración de una Estrategia Nacional de Propiedad Industrial.",
+    "propuesto": "Colocar punteos de los siguientes textos:\nAsimismo, se abordaron los principales compromisos institucionales para 2026, entre ellos:\nModernización del sitio web institucional\nIncorporación de inteligencia artificial en procesos de examen\nImplementación del Patent Law Treaty (PLT)\nNuevos mecanismos de financiamiento con activos intangibles\nInicio de una Estrategia Nacional de Propiedad Industrial.",
+    "observaciones": "Checklist Hito 3 - Criterio 24:\nMedianamente cumple\nHito 7 - Criterio 35:\nCumple con observaciones.\nCuerpo de la página › noveno párrafo.\nEl párrafo es una sola oración de 58 palabras que enumera cinco compromisos institucionales distintos separados por comas, en vez de presentarlos como oraciones independientes o una lista.\nEsta corrección debe ir luego de la corrección 120.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-10-425c4fed-image5.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 11,
+    "numero_original": "12",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Alineación de texto: Justificado",
+    "propuesto": "Cambiar la alineación del bloque de texto del cuerpo de la noticia de Justificado a Alineado a la izquierda.",
+    "observaciones": "Checklist Hito 7 - Criterio 34:\nCumple con observaciones\nCuerpo de la página › bloque de texto del artículo.\nCambiar la alineación del bloque de texto del cuerpo de la noticia de Justificado a Alineado a la izquierda.",
+    "imagenes": []
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "Los 11 párrafos de textos actuales no poseen subtítulos explicativos que puedan jerarquizar la información.",
+    "propuesto": "Agregar subtítulos breves entre los bloques temáticos del artículo — Avances en eficiencia, Liderazgo internacional, Descentralización, Compromisos 2026 — y convertir la enumeración del noveno párrafo en una lista de punteos (bullet points).",
+    "observaciones": "Checklist Hito 8 - Criterio 38:\nMedianamente cumple.\nCuerpo de la página › los once párrafos entre la bajada y el enlace «Volver».\nEl cuerpo son once párrafos de texto corrido y justificado, sin subtítulos internos ni listas con viñetas que permitan escanear visualmente los distintos temas sin leer todo el texto seguido.",
+    "imagenes": []
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
+    "propuesto": "Destacar en negrita los conceptos clave del párrafo: autoridades regionales y nacionales; diálogo y transparencia.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 1 de 3)\nCuerpo de la página › segundo párrafo.\nEl párrafo no destaca en negrita ninguna palabra clave de su contenido. Ninguno de los once párrafos del cuerpo destaca en negrita las palabras clave de su contenido.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-13-d6d7eff7-image7.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "En ese contexto, relevó avances en eficiencia institucional, señalando que el tiempo promedio de tramitación de patentes alcanzó los 2,3 años durante 2025 y que el 97% de las solicitudes de marcas fueron resueltas en menos de siete meses. Asimismo, destacó la reducción histórica del rezago en juicios de oposición, que pasó de un 56% a un 3%.",
+    "propuesto": "Destacar en negrita las cifras clave del párrafo: 2,3 años; 97%; de un 56% a un 3%.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 2 de 3)\nCuerpo de la página › cuarto párrafo.\nEl párrafo no destaca en negrita ninguna de sus cifras clave (tiempo de tramitación de patentes, porcentaje de marcas resueltas, reducción del rezago en juicios de oposición). Ninguno de los once párrafos del cuerpo destaca en negrita las palabras clave de su contenido.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-14-d31a7549-image10.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "En este marco, el Director Nacional destacó los resultados de la iniciativa INAPI+Cerca, campaña piloto desarrollada en las regiones de Coquimbo, Maule y Los Lagos, que permitió conectar con públicos tradicionalmente alejados de estas materias, incluyendo comunidades rurales y personas mayores.",
+    "propuesto": "Destacar en negrita los datos clave del párrafo: INAPI+Cerca; Coquimbo, Maule y Los Lagos.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 3 de 3)\nCuerpo de la página › octavo párrafo.\nEl párrafo no destaca en negrita el nombre de la campaña ni las regiones donde se desarrolló, siendo estos los datos clave del párrafo. Ninguno de los once párrafos del cuerpo destaca en negrita las palabras clave de su contenido.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-15-8e4303a7-image4.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "La actividad reunió a autoridades regionales y nacionales, representantes del ecosistema de innovación, academia, emprendimiento y sector productivo, consolidándose como un espacio de diálogo y transparencia sobre el rol de la propiedad industrial en el desarrollo económico y tecnológico del país.",
+    "propuesto": "Reemplazar la frase de balance («consolidándose como un espacio de diálogo y transparencia») por un dato concreto sobre la actividad, por ejemplo la cantidad de personas asistentes o de instituciones representadas, si se dispone de esa cifra.",
+    "observaciones": "Checklist Hito 11 - Criterio 50:\nCumple con observaciones\nCuerpo de la página › segundo párrafo.\nEl párrafo describe la actividad con lenguaje de balance institucional sin una cifra que lo respalde, a diferencia de otros párrafos del cuerpo que sí privilegian datos concretos (2,3 años, 97%, de un 56% a un 3%, hasta 2038).",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-16-d6d7eff7-image7.png"
+    ]
+  },
+  {
+    "source_id": "8",
+    "source_file": "8. Cambios de contenidos_web www.inapi.cl cuenta publica participativa.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/inapi-realizo-su-cuenta-publica-participativa-2026-en-valparaiso-y-reforzo-compromiso-con-la-descentralizacion-de-la-propiedad-industrial",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple (corrección 1 de 3)\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/8-17-29c96c4e-image8.png",
+      "docs/words-solicitudes-correccion/_media/8-17-820c35e6-image9.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 1,
+    "numero_original": "1",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Instituto Nacional de Propiedad industrial (INAPI)",
+    "propuesto": "Instituto Nacional de Propiedad Industrial (INAPI)",
+    "observaciones": "Checklist Hito 1 - Criterio 1:\nNo cumple.\nPie de página › bloque «Dónde estamos». Patrón de sitio (corregir una vez en el layout o componente compartido del CMS). El nombre propio de la institución debe escribirse con mayúscula inicial en todas sus palabras principales; «industrial» debe llevar mayúscula al ser parte del nombre propio. Corregir en el origen replica el cambio en todas las páginas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-1-fd34666a-image3.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 2,
+    "numero_original": "2",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes.",
+    "propuesto": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando solicitudes de personas y empresas de Chile (residentes) y del extranjero (no residentes).",
+    "observaciones": "Checklist Hito 2 - Criterio 4:\nCumple con observaciones.\nHito 2 - Criterio 6:\nMedianamente cumple (corrección 1 de 2)\nCuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver».\nLos términos «residentes» y «no residentes» son tecnicismos de propiedad industrial que el público general puede no conocer; explicarlos en la misma oración elimina la necesidad de buscarlo.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-2-bf725d46-image11.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 3,
+    "numero_original": "3",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+    "propuesto": "…seguidos por biotecnología (15,76%) y otras tres categorías de clasificación técnica de patentes: productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%).",
+    "observaciones": "Checklist Hito 2 - Criterio 6:\nMedianamente cumple (corrección 2 de 2)\nCuerpo de la noticia › párrafo de áreas técnicas.\nLos nombres «productos orgánicos elementales», «química de materiales» e «ingeniería química» corresponden a categorías del sistema de clasificación técnica internacional (CIP) y no son de uso común; identificarlos como tales evita que el lector los interprete como descripciones genéricas.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-3-7a4c2e29-image6.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 4,
+    "numero_original": "4",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "PCT",
+    "propuesto": "En la primera aparición del ítem «PCT» en el menú, agregar una ayuda visible al pasar el cursor o tocar que diga «PCT: Tratado de Cooperación en materia de Patentes», o que la página de destino explique la sigla en su primer párrafo visible.",
+    "observaciones": "Checklist Hito 2 - Criterio 8:\nCumple con observaciones.\nMenú de navegación global (escritorio y móvil) › ítem «PCT», se repite en el menú global sin definición ni ayuda accesible con un clic. El cambio se replica en todas las páginas del sitio.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-4-9808df30-image1.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 5,
+    "numero_original": "6",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Detalle · Noticia",
+    "propuesto": "Sala de Prensa — Chile alcanza su mayor cifra de solicitudes de patentes nacionales",
+    "observaciones": "Checklist Hito 3 - Criterio 10:\nMedianamente cumple\nBanner superior de la noticia › título principal.\nEl título «Detalle · Noticia» no informa al usuario sobre el contenido de la página; reemplazarlo por un título descriptivo que incluya el tema de la noticia mejora la orientación y la navegación. Patrón de sitio: corrección en la plantilla compartida de noticias.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-5-d0144002-image8.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 6,
+    "numero_original": "7",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Nueve párrafos totales de la columna general de la noticia.",
+    "propuesto": "Reducir el cuerpo a un máximo de ocho párrafos, por ejemplo fusionando los dos párrafos sobre el liderazgo de La Serena en uno solo, o incorporando subtítulos intermedios que permitan acortar la extensión de cada bloque.",
+    "observaciones": "Checklist Hito 3 - Criterio 20:\nCumple con observaciones\nCuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver».\nEl cuerpo principal tiene nueve párrafos, uno por sobre el máximo de ocho párrafos por página establecido por el criterio.",
+    "imagenes": []
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 7,
+    "numero_original": "8",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Columna general de todos los párrafos de la noticia",
+    "propuesto": "Cambiar la alineación del cuerpo de la noticia a la izquierda en vez de Justificado a ambos márgenes.",
+    "observaciones": "Checklist Hito 7 - Criterio 34:\nMedianamente cumple.\nCuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver».\nEl Justificado actual fuerza espaciado irregular entre palabras y dificulta la lectura. Patrón de sitio: corrección en el componente de plantilla de noticias compartido con todas las noticias individuales del sitio.",
+    "imagenes": []
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 8,
+    "numero_original": "9",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+    "propuesto": "Presentar las cinco áreas técnicas y sus porcentajes con punteos (bullet points):\nProductos farmacéuticos (24,64%)\nBiotecnología (15,76%)\nProductos orgánicos elementales (12,57%)\nQuímica de materiales (8,57%)\nIngeniería química (8,19%)",
+    "observaciones": "Checklist Hito 7 - Criterio 35:\nCumple con observaciones.\nCuerpo de la noticia › párrafo de áreas técnicas.\nSon cinco datos numéricos discretos y comparables; una lista con punteos facilita compararlos frente al párrafo corrido actual.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-8-7a4c2e29-image6.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 9,
+    "numero_original": "10",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Una patente otorga a su titular el derecho exclusivo de explotar comercialmente una invención por hasta 20 años. Durante ese período, ningún tercero puede fabricar, vender ni importar el producto o proceso protegido sin autorización. Esa protección temporal es también la base de la transferencia tecnológica: permite que universidades, centros de investigación y empresas licencien sus desarrollos, los comercialicen o los usen como respaldo para atraer inversión.",
+    "propuesto": "Mover este párrafo explicativo sobre qué es una patente hacia el cierre de la noticia, o convertirlo en un recuadro aparte («¿Qué es una patente?»), para no interrumpir la secuencia de cifras y contexto histórico del hecho noticioso.",
+    "observaciones": "Checklist Hito 8 - Criterio 36:\nMedianamente cumple (corrección 1 de 2)\nCuerpo de la noticia › cuarto párrafo.\nLa pirámide invertida se rompe en dos puntos: el cuarto párrafo interrumpe el flujo de cifras y citas con una explicación genérica de qué es una patente, y el hallazgo de mayor valor explicativo (el alza del 101% en personas naturales) queda relegado al último párrafo en vez de estar cerca de la apertura.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-9-23af7ffa-image7.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 10,
+    "numero_original": "11",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "El perfil de los solicitantes también cambió. Las personas naturales —inventores individuales— registraron un alza del 101% respecto al mismo período del año anterior, y son quienes explican la mayor parte del crecimiento.",
+    "propuesto": "Adelantar este dato (alza del 101% en solicitudes de personas naturales, principal explicación del crecimiento) a los primeros párrafos, junto a las cifras de 296 solicitudes y el alza del 63%.",
+    "observaciones": "Checklist Hito 8 - Criterio 36:\nMedianamente cumple (corrección 2 de 2)\nCuerpo de la noticia › noveno párrafo.\nEs un hallazgo de primer orden que explica la causa del hecho noticioso principal y no debería quedar relegado al párrafo de cierre.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-10-f3a7a05c-image14.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 11,
+    "numero_original": "12",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+    "propuesto": "Insertar subtítulos internos antes de cada bloque temático: «Distribución geográfica» antes del párrafo sobre comunas, y «Distribución por área tecnológica» antes del párrafo sobre porcentajes por sector.",
+    "observaciones": "Checklist Hito 8 - Criterio 37:\nMedianamente cumple\nCuerpo de la noticia › sexto y octavo párrafo.\nEl cuerpo aborda al menos tres focos temáticos distintos sin ningún subtítulo que los segmente, dificultando el escaneo y la navegación del contenido. Todo el cuerpo son párrafos corridos bajo el mismo titular.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-11-8445bbf0-image4.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 12,
+    "numero_original": "13",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo período de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo período del primer semestre del año.",
+    "propuesto": "Agregar subtítulos breves entre los bloques temáticos\n«Cifras del semestre»\n«Distribución geográfica»\n«Áreas tecnológicas»\nY un recuadro o lista con viñetas al inicio con las cifras clave: 1.416 solicitudes totales, 296 de inventores chilenos, alza de 63%. Convertir el desglose de áreas técnicas en lista con viñetas.",
+    "observaciones": "Checklist Hito 8 - Criterio 38:\nMedianamente cumple\nCuerpo de la noticia › los nueve párrafos entre la bajada y el enlace «Volver».\nNo hay recursos de escaneo visual de jerarquía e información: faltan subtítulos, listas con viñetas y recuadros que organicen las cifras en nueve párrafos corridos; tampoco hay iconografía o jerarquía tipográfica de apartados que permita escanear los bloques temáticos sin leer todo el texto seguido.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-12-731e2074-image5.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 13,
+    "numero_original": "14",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo período de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo período del primer semestre del año.",
+    "propuesto": "Chile recibió 1.416 solicitudes de patentes de invención en el primer semestre de 2026, sumando residentes y no residentes. De ese total, 296 corresponden a inventores chilenos, una cifra histórica que supera el total en el mismo período de todos los años de la serie disponible. El registro más alto se había producido el 2025, con 181 solicitudes de residentes para el mismo período del primer semestre del año.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 1 de 3)\nCuerpo de la noticia › primer párrafo.\nNinguna cifra clave del primer párrafo está destacada con negrita; resaltar 1.416 y 296 facilita ubicar el dato noticioso principal al escanear el texto.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-13-731e2074-image5.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 14,
+    "numero_original": "15",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+    "propuesto": "Uno de los datos más llamativos del período es el geográfico. La Serena encabeza el ranking de comunas con mayor número de solicitudes, con 44 presentaciones, seguida por Santiago (39) y Las Condes (26). Es la primera vez que una ciudad fuera de la Región Metropolitana lidera este indicador. Concepción aparece cuarta con 18 solicitudes, y Antofagasta quinta con 16.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 2 de 3)\nCuerpo de la noticia › sexto párrafo.\nColocar los datos geográficos en negrita; son párrafos distintos al de las cifras totales del semestre. Ninguno de los párrafos del cuerpo usa negrita para destacar sus cifras clave.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-14-60538701-image9.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 15,
+    "numero_original": "16",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+    "propuesto": "La actividad inventiva nacional muestra una orientación clara hacia la salud y las ciencias aplicadas. Los productos farmacéuticos concentran el 24,64% de las solicitudes de residentes, seguidos por biotecnología (15,76%), productos orgánicos elementales (12,57%), química de materiales (8,57%) e ingeniería química (8,19%). En conjunto, estas áreas superan el 60% del total.",
+    "observaciones": "Checklist Hito 8 - Criterio 39:\nNo cumple (corrección 3 de 3)\nCuerpo de la noticia › octavo párrafo.\nLa cifra más alta del desglose por área tecnológica no está destacada con negrita en este párrafo. Ninguno de los párrafos del cuerpo usa negrita para destacar sus cifras clave.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-15-1811c136-image13.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 16,
+    "numero_original": "17",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "- BUSCAR Y TRAMITAR\n- MARCAS\n- PATENTES",
+    "propuesto": "- Buscar y tramitar\n- Marcas\n- Patentes",
+    "observaciones": "Checklist Hito 8 - Criterio 40:\nMedianamente cumple\nVentana emergente «Buscar y tramitar» (ícono de lupa en cabecera) › título y subtítulos.\nPatrón de sitio. Se deben evitar frases escritas solo en mayúsculas. El cambio se replica en todas las páginas que usan esta ventana emergente.",
+    "imagenes": [
+      "docs/words-solicitudes-correccion/_media/9-16-29c96c4e-image2.png",
+      "docs/words-solicitudes-correccion/_media/9-16-820c35e6-image10.png"
+    ]
+  },
+  {
+    "source_id": "9",
+    "source_file": "9. Cambios de contenidos_web www.inapi.cl cifra historica de patentes nacionales.docx",
+    "source_row": 17,
+    "numero_original": "18",
+    "link": "www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "default_url": "https://www.inapi.cl/sala-de-prensa/detalle-noticia/chile-alcanza-su-mayor-cifra-de-solicitudes-de-patentes-nacionales-en-mas-de-una-decada",
+    "original": "LINK EXTERNO",
+    "propuesto": "Eliminar botón sobrante del sitio.\nSi no aparece este botón invisible, simplemente pasar a la siguiente corrección.",
+    "observaciones": "Checklist Hito 8 - Criterio 42:\nMedianamente cumple (corrección 2 de 2)\nEl botón está escrito solo en mayúsculas, además es un componente compartido del panel de acceso y registro que no es visible en pantalla, pero se debe eliminar si el botón no redirige y no es finalmente interactivo.\n<a href=\"#\" class=\"btn rojo\">\nLINK EXTERNO\n<span class=\"fa-brands fa-share\" aria-hidden=\"true\"></span>\n</a>\nSu ubicación jerárquica exacta es:\nbody.cbp-spmenu-push > div.wrapper > header > div.container > div.box-login > div.contenido-login > a.btn.rojo\nEstá agrupado junto a los enlaces de \"Usuario Frecuente\" y \"Registro\" (Clave Única).",
+    "imagenes": []
+  }
+]
