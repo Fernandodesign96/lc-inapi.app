@@ -15,6 +15,8 @@
     "capture:tramites-html": "bun run src/scripts/capture-tramites-html.ts",
     "capture:evidencias-visuales": "bun run src/scripts/capture-evidencias-visuales.ts",
     "generate:word-correcciones": "bun run src/scripts/generate-word-correcciones.ts",
+    "extract:words-solicitudes": "python3 src/scripts/extract-words-solicitudes-inventario.py",
+    "build:words-proveedor-futuro": "bun run extract:words-solicitudes && bun run src/scripts/build-words-proveedor-futuro.ts",
     "build:avisos-sistemas-audit": "bun run src/scripts/build-avisos-sistemas-audit.ts",
     "worker:audit-jobs": "bun run src/scripts/audit-jobs-worker.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
