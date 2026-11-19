@@ -1,0 +1,88 @@
+{
+  "url": "https://sitio-de-ejemplo.cl",
+  "fecha": "2026-11-18",
+  "respuestas": {
+    "1.1.1": [
+      "Sí"
+    ],
+    "1.1.2": [
+      "Sí",
+      "Sí",
+      "Sí",
+      "No"
+    ],
+    "1.1.3": [
+      "No",
+      "Sí",
+      "No",
+      "Sí",
+      "Sí",
+      "Sí"
+    ],
+    "1.1.4": [
+      "No"
+    ],
+    "1.1.5": [
+      "Sí",
+      "Sí",
+      "Sí"
+    ],
+    "1.1.6": [
+      "Sí",
+      "Sí"
+    ],
+    "1.1.7": [
+      "Sí",
+      "Sí",
+      "Sí"
+    ],
+    "1.1.8": [
+      "No aplica",
+      "Sí",
+      "Sí"
+    ],
+    "1.2.1": [
+      "No",
+      "No",
+      "Sí",
+      "Sí",
+      "Sí"
+    ],
+    "1.2.2": [
+      "Sí",
+      "Sí",
+      "Sí",
+      "Sí",
+      "No"
+    ],
+    "1.2.3": [
+      "Sí",
+      "No",
+      "Sí"
+    ],
+    "1.2.4": [
+      "Sí",
+      "Sí",
+      "No",
+      "Sí",
+      "Sí",
+      "Sí",
+      "No",
+      "No"
+    ],
+    "1.3.1": [
+      "Sí"
+    ],
+    "1.3.2": [
+      "Sí",
+      "Sí"
+    ],
+    "1.3.3": [
+      "No"
+    ]
+  },
+  "comentarios": {
+    "1.1.3": "El contenido de trámites es de base legal y usa numerosos términos técnicos.",
+    "1.1.4": "Ninguna página muestra fecha de publicación o actualización."
+  }
+}

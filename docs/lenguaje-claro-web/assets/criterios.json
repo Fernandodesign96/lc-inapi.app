@@ -1,0 +1,459 @@
+[
+ {
+  "codigo": "1.1.1",
+  "nombre": "Fiabilidad",
+  "nivel": "imprescindible",
+  "definicion": "Entrega de información veraz, segura y rigurosa.",
+  "preguntas": [
+   {
+    "texto": "¿Es fácil reconocer la fuente o autoría de la información publicada?",
+    "ejemplo": "se identifica claramente el nombre de la institución que publica en el encabezado o pie de cada página, o la unidad interna o externa que entregó alguna información específica, con frases del tipo \"Departamento de Estudios\" como firma al final del texto o \"Fuente: Instituto Nacional de Estadísticas (INE)\".",
+    "notas": [
+     "Cómo evaluar: revisa encabezado, pie de página y el final de textos con datos o cifras de la página. Sí si la institución es identificable y los datos citan su fuente."
+    ],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.2",
+  "nombre": "Completitud",
+  "nivel": "imprescindible",
+  "definicion": "Entrega de información con la cobertura y datos necesarios para divulgar un tema con exhaustividad.",
+  "preguntas": [
+   {
+    "texto": "¿Los contenidos representan de manera fiel lo enunciado en su título?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se cumple con la recomendación de no incluir páginas sin contenido, contenido incompleto o \"En construcción\"?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: en la página evaluada, busca secciones vacías, \"próximamente\", \"en construcción\" o contenido visiblemente incompleto (no se siguen los enlaces)."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿El texto destaca los datos clave de la información?",
+    "ejemplo": "se presenta un resumen con las respuestas a las preguntas qué, cómo, dónde, cuándo y para quién o existe un recuadro con fechas importantes.",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "En el caso de textos referidos a trámites, ¿se brinda información suficiente para que las personas usuarias puedan realizarlos autónomamente?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran textos referidos a trámites.",
+     "Cómo evaluar: ¿se indica requisitos, documentos, plazos, costo, dónde y cómo hacerlo, canal en línea o presencial?"
+    ],
+    "noAplica": true
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.3",
+  "nombre": "Lenguaje plano",
+  "nivel": "imprescindible",
+  "definicion": "Estilo de redacción simple y centrado en las personas usuarias, alejado de jergas legales y tecnicismos.",
+  "preguntas": [
+   {
+    "texto": "¿El lenguaje utilizado está orientado a que una persona pueda entender el contenido, aun aquellas con mayor dificultad de comprensión lectora?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: frases cortas, vocabulario cotidiano, un tema por párrafo, explicaciones paso a paso. Si el texto de la página requiere conocimientos técnicos o legales para entenderse, es \"No\"."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿El tono y voz son amables, respetuosos y cercanos con las personas usuarias?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿La redacción prescinde de la jerga técnica o legal?",
+    "ejemplo": "se evitan conceptos legales, administrativos o informáticos que tengan un equivalente más fácil de entender (\"resolución\" en vez de \"acto administrativo\" o \"memoria temporal\" en vez de \"caché\") o se evitan referencias, números de leyes y normativas sin una clara identificación del tema (\"Ley de acoso laboral\" en vez de \"Ley 21643\").",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se evitan abreviaturas, extranjerismos, eufemismos, modismos o términos muy especializados o rebuscados en al menos un 50% de los contenidos revisados?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se define cada sigla y acrónimo y se emplean solo si es necesario?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran siglas o acrónimos."
+    ],
+    "noAplica": true
+   },
+   {
+    "texto": "¿Los contenidos están escritos en tono positivo indicando que se puede hacer y evitando enfocar los mensajes desde el \"no se puede\"?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.4",
+  "nombre": "Actualización",
+  "nivel": "imprescindible",
+  "definicion": "Renovación permanente de los contenidos, con el objeto de garantizar la entrega de información eficaz y oportuna a la ciudadanía.",
+  "preguntas": [
+   {
+    "texto": "¿Los contenidos están actualizados y muestran información vigente al año en curso?",
+    "ejemplo": "se indica expresamente su fecha de publicación o última fecha de actualización.",
+    "notas": [
+     "Cómo evaluar: busca fechas de publicación o actualización, noticias recientes, plazos o convocatorias vencidas, años desactualizados (compara con el año en curso real). Sin fechas visibles ni señales de vigencia, es \"No\"."
+    ],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.5",
+  "nombre": "Redacción y ortografía",
+  "nivel": "imprescindible",
+  "definicion": "Correcta escritura de los textos publicados.",
+  "preguntas": [
+   {
+    "texto": "¿Son correctas la ortografía (literal, acentual y puntual) y la gramática en los contenidos?",
+    "ejemplo": "",
+    "notas": [
+     "Regla de la pauta: revisar el texto visible de la página; si hay más de un error, entonces no cumple este criterio.",
+     "Cita los errores encontrados como evidencia."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Los signos de puntuación empleados facilitan la lectura del documento?",
+    "ejemplo": "se privilegia el uso de puntos seguidos, frente a las frases intercaladas entre comas.",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Las frases se relacionan entre sí por medio de conectores?",
+    "ejemplo": "\"A su vez,\", \"Por otra parte,\", \"Sin embargo,\" o \"De igual modo,\".",
+    "notas": [],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.6",
+  "nombre": "Propiedad intelectual",
+  "nivel": "imprescindible",
+  "definicion": "Posesión de los derechos de uso de contenidos publicados en un sitio web.",
+  "preguntas": [
+   {
+    "texto": "¿El sitio cuenta con información de permisos de uso de sus contenidos en algún lugar del sitio?",
+    "ejemplo": "se señala en las condiciones de uso que ningún contenido se puede utilizar sin autorización (copyright o todos los derechos de autor reservados) o se indica un modelo de licencias flexibles, como Creative Commons, que autorizan la reutilización bajo ciertas condiciones.",
+    "notas": [
+     "Cómo evaluar: busca en la página, sobre todo en el pie, un aviso de derechos (©, \"todos los derechos reservados\", Creative Commons) o un enlace visible a \"Condiciones de uso\" o \"Aviso legal\". El enlace basta; no se abre."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se evita la redifusión de material protegido por derechos de autor sin autorización?",
+    "ejemplo": "para comprobar este factor se puede descargar una imagen del sitio que no consigne sus créditos y subirla al buscador de imágenes de Google, para ver si aparece en otros sitios.",
+    "notas": [
+     "Cómo evaluar: ¿las imágenes, videos y textos de terceros tienen crédito o fuente? Si no puedes concluir, marca \"No verificable\"."
+    ],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.7",
+  "nombre": "Privacidad y datos personales",
+  "nivel": "imprescindible",
+  "definicion": "Protección de los datos e información personal de las personas usuarias de un sitio web.",
+  "preguntas": [
+   {
+    "texto": "Si se mencionan listados de personas, ¿se evita la publicación de sus RUN en el sitio web?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran listados de personas."
+    ],
+    "noAplica": true
+   },
+   {
+    "texto": "¿El sitio protege la privacidad al no publicar direcciones ni teléfonos particulares?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Existe información sobre cómo las personas usuarias pueden ejercer los derechos sobre acceso, rectificación, cancelación o eliminación, oposición (ARCO) y bloqueo de datos personales, incluidos en la Ley sobre Protección de la Vida Privada?",
+    "ejemplo": "se menciona el procedimiento en la Política de Privacidad o se enlaza el formulario de solicitud en la sección de Transparencia.",
+    "notas": [
+     "Cómo evaluar: busca en la página texto sobre derechos ARCO o un enlace visible a la política de privacidad (p. ej. en el pie). El enlace basta; no se abre, y se informa que su contenido no fue verificado."
+    ],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.1.8",
+  "nombre": "Contenidos sensibles",
+  "nivel": "imprescindible",
+  "definicion": "Respeto de la intimidad de las personas usuarias a partir de la no publicación de información que pueda menoscabar su honra y perjudicar su imagen personal en Internet.",
+  "preguntas": [
+   {
+    "texto": "Si el sitio publica información sobre menores de edad, ¿se protege la identidad de los mismos en textos y fotografías?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentra información sobre menores de edad."
+    ],
+    "noAplica": true
+   },
+   {
+    "texto": "¿El contenido es apto para ser leído por menores de edad?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿El sitio evita exhibir material que pueda afectar la susceptibilidad de las personas o las menoscabe?",
+    "ejemplo": "características físicas o morales de las personas o hechos o circunstancias de su vida privada o intimidad, tales como los hábitos personales, el origen racial, las ideologías y opiniones políticas, las creencias o convicciones religiosas, los estados de salud físicos o psíquicos y la vida sexual (como lo señala la Ley 19628 sobre Protección de la Vida Privada).",
+    "notas": [],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.2.1",
+  "nombre": "Claridad",
+  "nivel": "esperable",
+  "definicion": "Redacción orientada hacia una facilidad de comprensión de los contenidos.",
+  "preguntas": [
+   {
+    "texto": "¿Los contenidos están estructurados como respuestas a las preguntas frecuentes que podrían hacerse las personas usuarias?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Las palabras, frases y conceptos utilizados tienen un lenguaje claro para las personas usuarias?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Predomina el tiempo presente simple y la voz activa de los verbos?",
+    "ejemplo": "\"Este documento acredita cómo obtener el beneficio\".",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Las oraciones están ordenadas según la forma sujeto-verbo-predicado?",
+    "ejemplo": "\"Las y los interesados deben dirigirse a la oficina comunal\" (correcto); \"A la oficina comunal deben dirigirse las y los interesados\" (incorrecto).",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "Cuando se listan requisitos en contenidos referidos a servicios a la ciudadanía, ¿se usa modo infinitivo? (Modo que engloba las formas no personales del verbo, puede terminar en -ar, -er o -ir.)",
+    "ejemplo": "\"Ser mayor de 18 años\", \"Enviar su solicitud a través de correo electrónico\".",
+    "notas": [
+     "Permite \"No aplica\" solo si no se listan requisitos referidos a servicios a la ciudadanía."
+    ],
+    "noAplica": true
+   }
+  ]
+ },
+ {
+  "codigo": "1.2.2",
+  "nombre": "Concisión",
+  "nivel": "esperable",
+  "definicion": "Capacidad de los sitios de presentar sus contenidos de manera breve.",
+  "preguntas": [
+   {
+    "texto": "¿Los textos son breves y utilizan frases cortas en su redacción?",
+    "ejemplo": "al menos 2 párrafos y como máximo 8 por página.",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "Al revisar el sitio web en versión de escritorio, ¿los párrafos son cortos, con menos de 8 líneas?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: sin ver la página renderizada, estima por largo: un párrafo de más de ~700 caracteres probablemente supera las 8 líneas en escritorio. Indica que es una estimación."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se explica una idea por párrafo?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Las oraciones son simples y directas, evitando el exceso de palabras?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "Si existe un texto extenso (de cuatro o más párrafos), ¿hay un resumen al inicio?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran textos de cuatro o más párrafos."
+    ],
+    "noAplica": true
+   }
+  ]
+ },
+ {
+  "codigo": "1.2.3",
+  "nombre": "Legibilidad",
+  "nivel": "esperable",
+  "definicion": "Facilidad de lectura de los contenidos publicados.",
+  "preguntas": [
+   {
+    "texto": "¿Hay espacio entre los párrafos?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿El texto está alineado a la izquierda?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: la alineación es una propiedad visual (CSS) que la lectura de texto no muestra. Si no puedes comprobarla, marca \"No verificable\"."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se utilizan listas numeradas, viñetas o tablas para presentar la información más ordenada?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.2.4",
+  "nombre": "Escritura para la web",
+  "nivel": "esperable",
+  "definicion": "Adaptación de la redacción optimizada para su lectoría en una interfaz digital.",
+  "preguntas": [
+   {
+    "texto": "¿Los contenidos del sitio aplican el modelo de \"pirámide invertida\" que los estructura desde lo más a lo menos importante?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Las páginas están bien organizadas, con títulos claros y subtítulos que facilitan la lectura y la búsqueda de información?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Es fácil escanear visualmente los contenidos?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: títulos, subtítulos, listas, párrafos cortos y destacados que permitan recorrer la página sin leerla completa."
+    ],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se utilizan negritas para destacar palabras claves de cada párrafo?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se evitan las frases escritas únicamente en mayúsculas?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿Se vinculan contenidos del mismo sitio a través de enlaces relacionados?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "Cuando se enlazan documentos, ¿se especifican el título, formato y peso?",
+    "ejemplo": "\"Informe sobre ciberseguridad en Chile 2024 (pdf, 345 KB)\".",
+    "notas": [
+     "Selecciona \"Sí\" solo si se cumplen los tres elementos (título, formato y peso) en todos los documentos enlazados de la página.",
+     "Permite \"No aplica\" únicamente si no hay documentos enlazados en la página."
+    ],
+    "noAplica": true
+   },
+   {
+    "texto": "¿Se entrega una breve descripción de los documentos enlazados para mejorar su capacidad de búsqueda, usabilidad y accesibilidad?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran documentos."
+    ],
+    "noAplica": true
+   }
+  ]
+ },
+ {
+  "codigo": "1.3.1",
+  "nombre": "Visualización de la información",
+  "nivel": "deseable",
+  "definicion": "Uso de elementos visuales para presentar información o datos.",
+  "preguntas": [
+   {
+    "texto": "¿Se utilizan apoyos visuales como íconos, imágenes, gráficos o infografías para presentar datos?",
+    "ejemplo": "",
+    "notas": [
+     "Permite \"No aplica\" solo si el sitio web no presenta datos que requieran apoyos visuales.",
+     "Cómo evaluar: busca en la página imágenes, íconos, gráficos o infografías que acompañen datos o información. Una imagen meramente decorativa no cuenta como apoyo para presentar datos."
+    ],
+    "noAplica": true
+   }
+  ]
+ },
+ {
+  "codigo": "1.3.2",
+  "nombre": "Objetividad",
+  "nivel": "deseable",
+  "definicion": "Imparcialidad y neutralidad de la información publicada.",
+  "preguntas": [
+   {
+    "texto": "¿Los contenidos tienen información objetiva y presentan una redacción neutra, sin reflejar la opinión de quién los escribió?",
+    "ejemplo": "",
+    "notas": [],
+    "noAplica": false
+   },
+   {
+    "texto": "¿En al menos un 80% de los contenidos se privilegia exponer datos y hechos por sobre el uso de adjetivos calificativos?",
+    "ejemplo": "",
+    "notas": [
+     "Cómo evaluar: revisa los textos de la página. Cuenta aproximadamente cuántos exponen datos y hechos frente a cuántos usan adjetivos de valoración (\"extraordinario\", \"innovador\", \"excelente\"). Cita ejemplos."
+    ],
+    "noAplica": false
+   }
+  ]
+ },
+ {
+  "codigo": "1.3.3",
+  "nombre": "Archivo",
+  "nivel": "deseable",
+  "definicion": "Conservación del contenido histórico del sitio web cuando se realice un reemplazo del mismo.",
+  "preguntas": [
+   {
+    "texto": "Si el sitio presenta versiones anteriores de contenidos, ¿están rotuladas claramente como contenidos o documentos de archivo no vigentes?",
+    "ejemplo": "títulos del tipo \"Requisitos de postulación 2015\", donde se señala claramente el año al que se refiere la información.",
+    "notas": [
+     "Permite \"No aplica\" solo si no se encuentran versiones anteriores de contenidos.",
+     "Cómo evaluar: en la página, busca contenidos de años anteriores, secciones de \"archivo\" o \"histórico\". Si hay y llevan año o rótulo de no vigente, es Sí; si hay y no están rotulados, es No; si no hay ninguno visible en la página, es No aplica."
+    ],
+    "noAplica": true
+   }
+  ]
+ }
+]

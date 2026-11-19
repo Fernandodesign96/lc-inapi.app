@@ -1,0 +1,262 @@
+{
+  "paginas": [
+    {
+      "nombre": "Portada",
+      "url": "https://www.inapi.cl",
+      "fecha": "2026-11-19",
+      "capturas": true,
+      "respuestas": {
+        "1.1.1": [
+          "Sí"
+        ],
+        "1.1.2": [
+          "Sí",
+          "Sí",
+          "No",
+          "No aplica"
+        ],
+        "1.1.3": [
+          "No",
+          "Sí",
+          "No",
+          "Sí",
+          "No",
+          "Sí"
+        ],
+        "1.1.4": [
+          "Sí"
+        ],
+        "1.1.5": [
+          "No",
+          "Sí",
+          "No verificable"
+        ],
+        "1.1.6": [
+          "Sí",
+          "No verificable"
+        ],
+        "1.1.7": [
+          "No aplica",
+          "Sí",
+          "Sí"
+        ],
+        "1.1.8": [
+          "No aplica",
+          "Sí",
+          "Sí"
+        ],
+        "1.2.1": [
+          "No",
+          "No",
+          "Sí",
+          "Sí",
+          "No aplica"
+        ],
+        "1.2.2": [
+          "Sí",
+          "Sí",
+          "Sí",
+          "No",
+          "No aplica"
+        ],
+        "1.2.3": [
+          "Sí",
+          "Sí",
+          "Sí"
+        ],
+        "1.2.4": [
+          "Sí",
+          "Sí",
+          "Sí",
+          "No",
+          "No",
+          "Sí",
+          "No",
+          "No"
+        ],
+        "1.3.1": [
+          "Sí"
+        ],
+        "1.3.2": [
+          "Sí",
+          "Sí"
+        ],
+        "1.3.3": [
+          "Sí"
+        ]
+      },
+      "comentarios": {
+        "1.1.2": "Las secciones desde 'Plataforma de Datos' son banners sin texto: no explican qué es cada programa, para quién es ni cuándo (Programa de Asistencia a Inventores, Cuenta Pública 2026, Plataforma). Las noticias sí traen fecha y resumen. La pregunta 4 es No aplica porque la portada solo enlaza a trámites.",
+        "1.1.3": "Términos como 'activos intangibles', 'firmas intensivas en conocimiento', 'Observancia' y 'Presentación de escritos'. Siglas PCT y SII sin definir y extranjerismo 'Lobby'.",
+        "1.1.5": "Coma entre sujeto y verbo ('El programa gratuito y en línea, busca...'); fechas sin 'de' ('miércoles 28 octubre de 2026') y con el día en mayúscula; 'industrial' en minúscula en el pie; mayúsculas innecesarias ('Atajos del Teclado', 'Mapa del Sitio').",
+        "1.1.6": "Pie con 'Todos los derechos reservados' y enlace a 'Uso de los Contenidos de este Sitio' (no abierto).",
+        "1.1.7": "Pie con enlace a 'Política de privacidad' (no abierto). Solo muestra RUT, dirección y teléfono institucionales.",
+        "1.2.1": "Los contenidos no están organizados como preguntas y respuestas (solo hay un enlace a 'Preguntas frecuentes'). Verbos en presente y voz activa. No hay listas de requisitos en la portada.",
+        "1.2.2": "Textos breves y de un solo párrafo, pero las frases de las noticias tienen entre 25 y 35 palabras, con mucha información en una sola oración. Pregunta 1 es un criterio dudoso: se respondió Sí por el ejemplo de la pauta (2 a 8 párrafos por página).",
+        "1.2.3": "Los textos corridos (resúmenes de noticias y pie de página) están alineados a la izquierda, según las capturas. Solo los títulos y el bloque de Observancia van centrados.",
+        "1.2.4": "Los resúmenes de noticias no tienen negritas. Hay frases completas en mayúsculas (título principal, 'LAS HERRAMIENTAS DE PROTECCIÓN DE LA PROPIEDAD INTELECTUAL EN CHILE', 'INFORMACIÓN TECNOLÓGICA DE PATENTES'). Las guías y los documentos de Observancia no indican formato ni peso ni traen descripción.",
+        "1.3.1": "La portada no presenta cifras ni gráficos. El Sí se apoya en íconos (lupa, redes sociales, chat), fotografías en las noticias y portadas de las guías. Oportunidad: el enlace 'Estadísticas' podría mostrar 2 o 3 cifras clave en una infografía.",
+        "1.3.2": "Las noticias informan quién, qué y cuándo, sin opiniones. Hay adjetivos valorativos leves ('fundamentales', 'estratégico'), pero predominan los hechos.",
+        "1.3.3": "El pie incluye el enlace 'Gobierno Transparente Histórico', rotulado como contenido anterior. No se abrió el enlace."
+      },
+      "cambios": [
+        {
+          "indicador": "1.1.5",
+          "ubicacion": "Novedades, fecha de cada noticia",
+          "problema": "«Miércoles 28 octubre de 2026»: falta «de» y el día va con mayúscula.",
+          "cambio": "Escribir «miércoles 28 de octubre de 2026» en las 3 noticias y en la plantilla.",
+          "verificar": "Las 3 fechas siguen ese formato."
+        },
+        {
+          "indicador": "1.1.3",
+          "ubicacion": "Menú, Novedades y Observancia",
+          "problema": "Siglas y términos sin explicar: «PCT», «SII», «activos intangibles», «Observancia», «Lobby».",
+          "cambio": "Explicar en la primera mención, por ejemplo «PCT: Tratado de Cooperación en materia de Patentes».",
+          "verificar": "Ninguna sigla ni término técnico queda sin explicación."
+        },
+        {
+          "indicador": "1.2.4",
+          "ubicacion": "Título principal, menú y botones",
+          "problema": "Frases completas en mayúsculas.",
+          "cambio": "Escribirlas con mayúscula solo inicial.",
+          "verificar": "Ninguna frase se ve completa en mayúsculas, salvo siglas."
+        },
+        {
+          "indicador": "1.3.1",
+          "ubicacion": "Enlace «Estadísticas»",
+          "problema": "No muestra ningún dato.",
+          "cambio": "Mostrar 2 o 3 cifras clave en un gráfico o infografía.",
+          "verificar": "La portada muestra un gráfico con cifras y su fecha."
+        },
+        {
+          "indicador": "fuera_de_pauta",
+          "ubicacion": "Guías para usuarios",
+          "problema": "Los botones están en orden inverso al de las portadas de las guías.",
+          "cambio": "Poner los botones en el mismo orden que las portadas.",
+          "verificar": "Ambos órdenes coinciden."
+        }
+      ],
+      "limitaciones": [
+        "No se abrieron los enlaces del pie (política de privacidad y uso de contenidos)."
+      ]
+    },
+    {
+      "nombre": "Marcas",
+      "url": "https://www.inapi.cl/marcas",
+      "fecha": "2026-11-19",
+      "capturas": false,
+      "respuestas": {
+        "1.1.1": [
+          "Sí"
+        ],
+        "1.1.2": [
+          "Sí",
+          "Sí",
+          "Sí",
+          "No"
+        ],
+        "1.1.3": [
+          "No",
+          "Sí",
+          "No",
+          "Sí",
+          "No",
+          "Sí"
+        ],
+        "1.1.4": [
+          "No"
+        ],
+        "1.1.5": [
+          "No",
+          "Sí",
+          "No verificable"
+        ],
+        "1.1.6": [
+          "Sí",
+          "No verificable"
+        ],
+        "1.1.7": [
+          "No aplica",
+          "Sí",
+          "Sí"
+        ],
+        "1.1.8": [
+          "No aplica",
+          "Sí",
+          "Sí"
+        ],
+        "1.2.1": [
+          "Sí",
+          "No",
+          "Sí",
+          "Sí",
+          "No aplica"
+        ],
+        "1.2.2": [
+          "Sí",
+          "Sí",
+          "Sí",
+          "No",
+          "No aplica"
+        ],
+        "1.2.3": [
+          "Sí",
+          "No verificable",
+          "Sí"
+        ],
+        "1.2.4": [
+          "Sí",
+          "Sí",
+          "Sí",
+          "No",
+          "No",
+          "Sí",
+          "No",
+          "No"
+        ],
+        "1.3.1": [
+          "No aplica"
+        ],
+        "1.3.2": [
+          "Sí",
+          "Sí"
+        ],
+        "1.3.3": [
+          "Sí"
+        ]
+      },
+      "comentarios": {
+        "1.1.2": "Las tarjetas resumen cada tema, pero no entregan los datos para hacer el trámite (pasos, plazos y montos). El resumen de 'Ventajas de registrar una marca' habla de cómo eligen los consumidores y no de las ventajas para quien registra.",
+        "1.1.3": "Términos técnicos: 'signo susceptible de representación gráfica', 'examen de forma', 'examen de fondo', 'extracto en el Diario Oficial'. Sigla PCT del menú sin definir.",
+        "1.1.4": "La página no muestra fecha de publicación ni de actualización. Solo hay señales generales en el pie (©2026).",
+        "1.1.5": "Coma entre sujeto y verbo en 'Ventajas de registrar una marca'; mayúsculas innecesarias ('Para Informarse', 'Notificaciones Diarias', 'Otros Buscadores', 'Mapa del Sitio'); 'industrial' en minúscula en el pie. Conectores no evaluables: cada tarjeta es una sola oración.",
+        "1.1.6": "Pie con 'Todos los derechos reservados' y enlace a 'Uso de los Contenidos de este Sitio' (no abierto).",
+        "1.1.7": "Pie con enlace a 'Política de privacidad' (no abierto). Solo muestra datos institucionales.",
+        "1.2.1": "Los títulos responden a preguntas frecuentes ('Qué es una marca', 'Cómo registrar una marca'). El lenguaje sigue siendo técnico. No hay listas de requisitos.",
+        "1.2.2": "Textos breves, pero con oraciones largas y cargadas de datos ('Tasas nacionales', 'Cómo registrar una marca').",
+        "1.2.3": "La alineación del texto no se pudo comprobar sin captura.",
+        "1.2.4": "Sin negritas en las tarjetas. Menú del encabezado en mayúsculas (visto en la captura de la portada). Los documentos del carrusel del pie no muestran formato, peso ni descripción.",
+        "1.3.1": "La página no presenta cifras ni datos que requieran apoyo visual.",
+        "1.3.2": "Definiciones neutrales, sin opiniones.",
+        "1.3.3": "El pie incluye 'Gobierno Transparente Histórico', rotulado como contenido anterior (enlace no abierto)."
+      },
+      "cambios": [
+        {
+          "indicador": "1.1.4",
+          "ubicacion": "Bajo el título de la página",
+          "problema": "La página no muestra fecha de publicación ni de actualización.",
+          "cambio": "Mostrar «Última actualización: [fecha]» con día, mes y año.",
+          "verificar": "La página muestra su fecha de actualización, con el año en curso."
+        },
+        {
+          "indicador": "1.1.5",
+          "ubicacion": "Tarjeta «Ventajas de registrar una marca»",
+          "problema": "Coma entre sujeto y verbo: «Los consumidores al momento de adquirir un producto o servicio, eligen...».",
+          "cambio": "Escribir «Los consumidores, al momento de adquirir un producto o servicio, eligen...».",
+          "verificar": "Sin errores de puntuación en la tarjeta."
+        }
+      ],
+      "limitaciones": []
+    }
+  ]
+}
