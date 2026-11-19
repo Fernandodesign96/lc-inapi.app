@@ -1,0 +1,16 @@
+{
+  "capturas": [
+    {
+      "archivo": "/mnt/user-data/uploads/captura_1.png",
+      "salida": "/mnt/user-data/outputs/mejoras_1.png",
+      "marcas": [
+        {"n": 1, "nivel": "imprescindible", "cajas": [[498, 88, 628, 110]],
+         "texto": "«industrial» en minúscula (1.1.5). El nombre oficial va con mayúscula."},
+        {"n": 2, "nivel": "esperable", "cajas": [[1434, 70, 1692, 240]],
+         "texto": "Enlaces del pie en mayúscula inicial en cada palabra (1.2.4)."},
+        {"n": 3, "nivel": "deseable", "cajas": [[40, 20, 300, 80]], "ancla": "tr",
+         "texto": "Cumple (1.3.1): el logo ayuda a reconocer la institución."}
+      ]
+    }
+  ]
+}
